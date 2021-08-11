@@ -1,0 +1,889 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/01arquitecturas.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+    
+    
+      
+        <title>1.- Arquitecturas Web - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arquitecturas-web" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.- Arquitecturas Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1.- Arquitecturas Web
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01arquitecturas.html" class="md-nav__link md-nav__link--active">
+        1.- Arquitecturas Web
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cliente-servidor" class="md-nav__link">
+    Cliente / Servidor
+  </a>
+  
+    <nav class="md-nav" aria-label="Cliente / Servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagina-web-dinamica" class="md-nav__link">
+    Página web dinámica
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-3-capas" class="md-nav__link">
+    Arquitectura de 3 capas
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura de 3 capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier" class="md-nav__link">
+    Tier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvc" class="md-nav__link">
+    MVC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    Decisiones de diseño
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    Herramientas
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servidor-web" class="md-nav__link">
+    Servidor Web
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servidor-de-aplicaciones" class="md-nav__link">
+    Servidor de Aplicaciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-en-el-servidor" class="md-nav__link">
+    Lenguajes en el servidor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puesta-en-marcha" class="md-nav__link">
+    Puesta en marcha
+  </a>
+  
+    <nav class="md-nav" aria-label="Puesta en marcha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xampp" class="md-nav__link">
+    XAMPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entorno-de-desarrollo" class="md-nav__link">
+    Entorno de desarrollo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hola-mundo" class="md-nav__link">
+    Hola Mundo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05accesoDatos.html" class="md-nav__link">
+        5.- Acceso a Datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06frameworks.html" class="md-nav__link">
+        6.- Frameworks PHP - Laravel
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cliente-servidor" class="md-nav__link">
+    Cliente / Servidor
+  </a>
+  
+    <nav class="md-nav" aria-label="Cliente / Servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagina-web-dinamica" class="md-nav__link">
+    Página web dinámica
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-3-capas" class="md-nav__link">
+    Arquitectura de 3 capas
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura de 3 capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier" class="md-nav__link">
+    Tier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mvc" class="md-nav__link">
+    MVC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decisiones-de-diseno" class="md-nav__link">
+    Decisiones de diseño
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    Herramientas
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servidor-web" class="md-nav__link">
+    Servidor Web
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servidor-de-aplicaciones" class="md-nav__link">
+    Servidor de Aplicaciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lenguajes-en-el-servidor" class="md-nav__link">
+    Lenguajes en el servidor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puesta-en-marcha" class="md-nav__link">
+    Puesta en marcha
+  </a>
+  
+    <nav class="md-nav" aria-label="Puesta en marcha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xampp" class="md-nav__link">
+    XAMPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entorno-de-desarrollo" class="md-nav__link">
+    Entorno de desarrollo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hola-mundo" class="md-nav__link">
+    Hola Mundo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="arquitecturas-web">Arquitecturas Web<a class="headerlink" href="#arquitecturas-web" title="Permanent link">&para;</a></h1>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 4 sesiones</p>
+<p>Resultado de aprendizaje:</p>
+<ol>
+<li>Selecciona las arquitecturas y tecnologías de programación Web en entorno servidor, analizando sus capacidades y características propias.</li>
+</ol>
+<p>Criterios de evaluación:</p>
+<ol>
+<li>Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.</li>
+<li>Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.</li>
+<li>Se han identificado los mecanismos de ejecución de código en los servidores Web.</li>
+<li>Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.</li>
+<li>Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.</li>
+<li>Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.</li>
+<li>Se han reconocido y evaluado las herramientas de programación en entorno servidor.</li>
+</ol>
+</details>
+<p>Las arquitecturas web definen la forma en que las páginas de un sitio web están estructuradas y enlazadas entre sí.</p>
+<h2 id="cliente-servidor">Cliente / Servidor<a class="headerlink" href="#cliente-servidor" title="Permanent link">&para;</a></h2>
+<p><img alt="Arquitectura Cliente Servidor" src="imagenes/01/clienteservidor.png" /></p>
+<p>N Clientes ←→ 1 Servidor / N servidores</p>
+<p>Cliente hace la petición (<em>request</em>) y el servidor responde (<em>response</em>).</p>
+<h3 id="pagina-web-dinamica">Página web dinámica<a class="headerlink" href="#pagina-web-dinamica" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Front-end</em> → Cliente / Navegador<ul>
+<li>HTML + CSS + JS</li>
+</ul>
+</li>
+<li><em>Back-end</em> → Servidor Web + BBDD<ul>
+<li>El HTML se genera tras la ejecución de código en el servidor</li>
+<li><code>.php</code>, <code>.jsp</code>, <code>.asp</code>, <code>.cgi</code></li>
+</ul>
+</li>
+<li><em>Full-stack</em> → <em>front-end</em> + <em>back-end</em></li>
+</ul>
+<p><img alt="Página web dinámica" src="imagenes/01/paginadinamica.png" /></p>
+<p>Las páginas web dinámicas utilizan recursos del servidor (base de datos, servicios web externos, etc...)</p>
+<h2 id="arquitectura-de-3-capas">Arquitectura de 3 capas<a class="headerlink" href="#arquitectura-de-3-capas" title="Permanent link">&para;</a></h2>
+<p>Hay que distinguir entre capas <strong>físicas</strong> (<em>tier</em>) y capas <strong>lógicas</strong> (<em>layer</em>).</p>
+<h3 id="tier">Tier<a class="headerlink" href="#tier" title="Permanent link">&para;</a></h3>
+<p>Ejemplo de arquitectura en tres capas físicas (<em>3 tier</em>):</p>
+<ul>
+<li>Servidor Web</li>
+<li>Servidor de Aplicaciones</li>
+<li>Servidor de base de datos</li>
+</ul>
+<p><img alt="Arquitectura de tres capas físicas" src="imagenes/01/tier3.png" /></p>
+<p>No confundir las capas con la cantidad de servidores. Actualmente se trabaja con arquitecturas con múltiples servidores en una misma capa física mediante un cluster, para ofrecer tolerancia a errores y escalabilidad horizontal.</p>
+<h3 id="layer">Layer<a class="headerlink" href="#layer" title="Permanent link">&para;</a></h3>
+<p><img align="right" alt="Arquitectura de tres capas físicas" src="imagenes/01/layer3.png" /></p>
+<p>En cambio, las capas lógicas (<em>layers</em>) organizan el código respecto a su funcionalidad:</p>
+<ul>
+<li>Presentación</li>
+<li>Negocio / Aplicación / Proceso</li>
+<li>Datos / Persistencia</li>
+</ul>
+<p>Como se observa, cada una de las capas se puede implementar con diferentes lenguajes de programación y/o herramientas.</p>
+<p><img alt="Arquitectura de tres capas físicas en tres lógicas" src="imagenes/01/tierlayer.png" /></p>
+<h2 id="mvc">MVC<a class="headerlink" href="#mvc" title="Permanent link">&para;</a></h2>
+<p>Model-View-Controller / Modelo-Vista-Controlador</p>
+<p><img alt="MVC" src="imagenes/01/mvc.png" /></p>
+<h2 id="decisiones-de-diseno">Decisiones de diseño<a class="headerlink" href="#decisiones-de-diseno" title="Permanent link">&para;</a></h2>
+<ul>
+<li>¿Qué tamaño tiene el proyecto?</li>
+<li>¿Qué lenguajes de programación conozco? ¿Vale la pena el esfuerzo de aprender uno nuevo?</li>
+<li>¿Voy a usar herramientas de código abierto o herramientas propietarias? ¿Cuál es el coste de utilizar soluciones comerciales?</li>
+<li>¿Voy a programar la aplicación yo solo o formaré parte de un grupo de programadores?</li>
+<li>¿Cuento con algún servidor web o gestor de base de datos disponible o puedo decidir libremente utilizar el que crea necesario?</li>
+<li>¿Qué tipo de licencia voy a aplicar a la aplicación que desarrolle?</li>
+</ul>
+<h2 id="herramientas">Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h2>
+<h3 id="servidor-web">Servidor Web<a class="headerlink" href="#servidor-web" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Software que recibe peticiones HTTP</li>
+<li>Devuelve el recurso solicitado<ul>
+<li>HTML</li>
+<li>JSON</li>
+</ul>
+</li>
+<li>Apache: <a href="https://httpd.apache.org/">https://httpd.apache.org/</a><ul>
+<li>Software libre y multiplataforma</li>
+<li>Modular → PHP, Python, Perl</li>
+</ul>
+</li>
+</ul>
+<h3 id="servidor-de-aplicaciones">Servidor de Aplicaciones<a class="headerlink" href="#servidor-de-aplicaciones" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Software que ofrece servicios adicionales a los de un servidor web:<ul>
+<li>Clustering</li>
+<li>Balanceo de carga</li>
+<li>Tolerancia a fallos</li>
+</ul>
+</li>
+<li>Tomcat: <a href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><ul>
+<li>Software libre y multiplataforma</li>
+<li>Contenedor Web Java: Servlets, JSP</li>
+</ul>
+</li>
+</ul>
+<h3 id="lenguajes-en-el-servidor">Lenguajes en el servidor<a class="headerlink" href="#lenguajes-en-el-servidor" title="Permanent link">&para;</a></h3>
+<p>Las aplicaciones que generan las páginas web se programan en:</p>
+<ul>
+<li>PHP</li>
+<li>JavaEE: Servlets / JSP</li>
+<li>Python</li>
+<li>ASP.NET → Visual Basic .NET / C#</li>
+<li>Ruby</li>
+<li>...</li>
+</ul>
+<h4 id="javaee">JavaEE<a class="headerlink" href="#javaee" title="Permanent link">&para;</a></h4>
+<p><img alt="JavaEE" src="imagenes/01/javaee.png" /></p>
+<h4 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Lenguaje de propósito general diseñado para el desarrollo de páginas web dinámicas</li>
+<li>Código embebido en el HTML</li>
+<li>Instrucciones entre etiquetas <code>&lt;?php</code> y <code>?&gt;</code></li>
+<li>Multitud de librerías y frameworks:<ul>
+<li>Symfony, Laravel, Codeigniter, Zend</li>
+</ul>
+</li>
+</ul>
+<p>https://www.php.net/manual/es/index.php</p>
+<p><img alt="PHP" src="imagenes/01/php.jpg" /></p>
+<h2 id="puesta-en-marcha">Puesta en marcha<a class="headerlink" href="#puesta-en-marcha" title="Permanent link">&para;</a></h2>
+<h3 id="xampp">XAMPP<a class="headerlink" href="#xampp" title="Permanent link">&para;</a></h3>
+<p>Apache + MySQL + PHP + Perl</p>
+<p>Descargar
+Añadir permisos de ejecución
+Instalar como root
+http://localhost</p>
+<p>Los archivos se colocan dentro de ....htdocs</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">sudo /opt/lampp/manager-linux-x64.run</span>
+</code></pre></div>
+<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p>Docker (<a href="https://www.docker.com">https://www.docker.com</a>) es un gestor de contenedores, considerando un contenedor como un método de virtualización del sistema operativo.</p>
+<p>El uso de contenedores requiere menos recursos que una máquina virtual, así pues, su lanzamiento y detención son más rápidos que las máquinas virtuales.</p>
+<p>Así pues, <em>Docker</em> permite crear, probar e implementar aplicaciones rápidamente, a partir de una serie de plantillas que se conocen como imágenes de <em>Docker</em>.</p>
+<p>Para ello es necesario tener instalado <em>Docker Desktop</em> (<a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a>) en nuestros entornos de desarrollo. En los ordenadores de clase ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente <em>WSL 2</em>, el cual es un subsistema de <em>Linux</em> dentro de <em>Windows</em>.</p>
+<h3 id="entorno-de-desarrollo">Entorno de desarrollo<a class="headerlink" href="#entorno-de-desarrollo" title="Permanent link">&para;</a></h3>
+<p>En este curso vamos a emplear VSCode..</p>
+<p>Alternativas:</p>
+<ul>
+<li>Eclipse</li>
+<li>PhpStorm</li>
+</ul>
+<h3 id="hola-mundo">Hola Mundo<a class="headerlink" href="#hola-mundo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="x">&lt;html lang=&quot;es&quot;&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">&lt;head&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    &lt;title&gt;Hola Mundo&lt;/title&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">&lt;/head&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">&lt;body&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    </span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">echo</span> <span class="s2">&quot;Hola Mundo&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">&lt;/body&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Curso de introducción a Docker, por <em>Sergi García Barea</em> : <a href="https://sergarb1.github.io/CursoIntroduccionADocker/">https://sergarb1.github.io/CursoIntroduccionADocker/</a></li>
+</ul>
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<ol start="101">
+<li>Busca en internet cuales son los tres frameworks PHP más utilizados, y indica:<ul>
+<li>Nombre y URL</li>
+<li>Año de creación</li>
+<li>Última versión</li>
+</ul>
+</li>
+<li>Busca tres ofertas de trabajo de <em>desarrollo de software</em> en Infojobs en la provincia de Alicante que citen PHP:<ul>
+<li>Empresa + puesto + frameworks PHP + requísitos + sueldo + enlace a la oferta.</li>
+</ul>
+</li>
+<li>Una vez arrancado el servicio PHP, crea el archivo <code>info.php</code> y añade el siguiente fragmento de código:
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+    Anota los valores de:<ul>
+<li>Versión de PHP</li>
+<li>Loaded Configuration File</li>
+<li><code>memory_limit</code></li>
+<li><code>DOCUMENT_ROOT</code></li>
+</ul>
+</li>
+<li>Repite el ejercicio anterior utilizando Docker, y comprueba de nuevo los valores. ¿Coinciden? ¿Por qué?</li>
+<li>Abre el archivo <code>php.ini</code> e indica para qué sirven las siguientes propiedades y qué valores tienen:<ul>
+<li><code>file_uploads</code></li>
+<li><code>max_execution_time</code></li>
+<li><code>short_open_tag</code></li>
+</ul>
+</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Inicio" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Inicio
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="05accesoDatos.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 5.- Acceso a Datos" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              5.- Acceso a Datos
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Aitor Medrano
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,49 @@
+site_name: Desarrollo Web en Entorno Servidor
+site_url: https://aitor-medrano.github.io/dwes2122
+use_directory_urls: false
+
+nav:
+  - "Inicio": "index.md"
+  - "1.- Arquitecturas Web": "01arquitecturas.md"
+  - "5.- Acceso a Datos": "05accesoDatos.md"
+  - "6.- Frameworks PHP - Laravel": "06frameworks.md"
+
+theme:
+  language: es
+  name: "material"
+  palette:
+    primary: light blue
+    accent: "Teal"
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: "imagenes/logofp.png"
+  features:
+    - header.autohide
+
+extra:
+  search:
+    language: "es"
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/aitormedrano
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.superfences
+  - footnotes
+  - meta
+  - sane_lists
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+copyright: Copyright &copy; 2021 Aitor Medrano
