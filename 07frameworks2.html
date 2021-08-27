@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/07rest.html">
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/07frameworks2.html">
       
-      <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
-        <title>Servicios REST - Desarrollo Web en Entorno Servidor</title>
+        <title>Uso avanzado de Frameworks - Desarrollo Web en Entorno Servidor</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#servicios-rest" class="md-skip">
+        <a href="#uso-avanzado-de-frameworks" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Servicios REST
+              Uso avanzado de Frameworks
             
           </span>
         </div>
@@ -113,14 +113,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -205,23 +209,8 @@
   
   
     <li class="md-nav__item">
-      <a href="05accesoDatos.html" class="md-nav__link">
-        5.- Acceso a Datos
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="06frameworks.html" class="md-nav__link">
-        6.- Frameworks PHP - Laravel
+      <a href="02php.html" class="md-nav__link">
+        2.- El lenguaje PHP
       </a>
     </li>
   
@@ -253,22 +242,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#produccion-y-consumo" class="md-nav__link">
-    Producción y consumo
+  <a href="#plantillas-con-blade" class="md-nav__link">
+    Plantillas con Blade
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ajax-con-json" class="md-nav__link">
-    AJAX con JSON
+  <a href="#integracion-de-css-y-js" class="md-nav__link">
+    Integración de CSS y JS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaccion-con-vuejs" class="md-nav__link">
-    Interacción con Vue.js
+  <a href="#autenticacion-y-autorizacion" class="md-nav__link">
+    Autenticación y autorización
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticación y autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-breeze" class="md-nav__link">
+    Laravel Breeze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i18n" class="md-nav__link">
+    i18n
   </a>
   
 </li>
@@ -286,17 +302,56 @@
               
                 
                 
-                <h1 id="servicios-rest">Servicios REST<a class="headerlink" href="#servicios-rest" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Duración estimada: 32 sesiones</p>
-</blockquote>
-<h2 id="produccion-y-consumo">Producción y consumo<a class="headerlink" href="#produccion-y-consumo" title="Permanent link">&para;</a></h2>
-<h2 id="ajax-con-json">AJAX con JSON<a class="headerlink" href="#ajax-con-json" title="Permanent link">&para;</a></h2>
-<h2 id="interaccion-con-vuejs">Interacción con Vue.js<a class="headerlink" href="#interaccion-con-vuejs" title="Permanent link">&para;</a></h2>
-<p><a href="https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)">https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)</a>
-<a href="https://github.com/jmnavarro/http-api-design">https://github.com/jmnavarro/http-api-design</a>
-<a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api</a>
-<a href="https://leanpub.com/build-apis-you-wont-hate">https://leanpub.com/build-apis-you-wont-hate</a></p>
+                <h1 id="uso-avanzado-de-frameworks">Uso avanzado de Frameworks<a class="headerlink" href="#uso-avanzado-de-frameworks" title="Permanent link">&para;</a></h1>
+<h2 id="plantillas-con-blade">Plantillas con Blade<a class="headerlink" href="#plantillas-con-blade" title="Permanent link">&para;</a></h2>
+<h2 id="integracion-de-css-y-js">Integración de CSS y JS<a class="headerlink" href="#integracion-de-css-y-js" title="Permanent link">&para;</a></h2>
+<h2 id="autenticacion-y-autorizacion">Autenticación y autorización<a class="headerlink" href="#autenticacion-y-autorizacion" title="Permanent link">&para;</a></h2>
+<p>https://igomis.github.io/apunts/docs/4.8.Laravel.html</p>
+<div class="admonition tip proyecto">
+<p class="admonition-title">Tip</p>
+<ol>
+<li>Pregunta</li>
+<li>Respuesta</li>
+<li>Relacion P-R</li>
+<li>Autenticación</li>
+<li>Relacion con usuario en modelo</li>
+<li>Relacionar con migraciones</li>
+<li>Relacionar en vistas</li>
+<li>Proteger edit, update por Auth:id</li>
+<li>página profile ... listado de preguntas y respuestas del usuario</li>
+</ol>
+<p>Utilizar la fución diffForHumas para ellapsed time</p>
+</div>
+<p>Antes se hacía así....</p>
+<p>Run scaffolding</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:auth</span>
+</code></pre></div>
+<p>Crea el <code>HomeController</code>, que utiliza el middleware <code>auth</code>.</p>
+<h3 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h3>
+<p>Componente que se situa entre el enrutador y el controlador.</p>
+<p>Explicar</p>
+<p>Ejecutar las migraciones</p>
+<p>Explorar los ficheros generados</p>
+<p>Auth:routes() ???</p>
+<h2 id="laravel-breeze">Laravel Breeze<a class="headerlink" href="#laravel-breeze" title="Permanent link">&para;</a></h2>
+<p>Laravel Breeze es un <em>starter kit</em> que se compone de un conjunto de rutas, controladores y vistas necesarias para regitrar y autenticar usuarios en cualquier aplicación.</p>
+<p>Las vistas están creadas con Laravel y los estilos con Tailwind CSS.</p>
+<p>Primero hemos de añadir la dependencia mediante Composer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer require laravel/breeze --dev</span>
+</code></pre></div>
+<p>Tras ello, ejecutaremos el comando <code>breeze:install</code> para generar todo el contenido necesario (rutas, vistas, controladores, recursos, ...), compilaremos todos los <em>assets</em> CSS y generaremos las migraciones:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan breeze:install</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="go">npm install</span>
+<span class="linenos" data-linenos="4 "></span><span class="go">npm run dev</span>
+<span class="linenos" data-linenos="5 "></span><span class="go">php artisan migrate</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Mailtrap</p>
+<p>Para poder probar el envío de correo
+mailtrap.io, servidor de correo para pruebas para equipos de desarrollo (realmente no está envíando los correos)</p>
+</div>
+<h2 id="i18n">i18n<a class="headerlink" href="#i18n" title="Permanent link">&para;</a></h2>
                 
               
               
@@ -349,10 +404,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>

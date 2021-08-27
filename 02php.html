@@ -1,0 +1,837 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/02php.html">
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>2.- El lenguaje PHP - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-lenguaje-php" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.- El lenguaje PHP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        1.- Arquitecturas Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          2.- El lenguaje PHP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02php.html" class="md-nav__link md-nav__link--active">
+        2.- El lenguaje PHP
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generando-contenido" class="md-nav__link">
+    Generando contenido
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comentarios" class="md-nav__link">
+    Comentarios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errores" class="md-nav__link">
+    Errores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constantes" class="md-nav__link">
+    Constantes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arimeticos" class="md-nav__link">
+    Ariméticos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion" class="md-nav__link">
+    Comparación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logicos" class="md-nav__link">
+    Lógicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignacion" class="md-nav__link">
+    Asignación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precedencia-de-operadores" class="md-nav__link">
+    Precedencia de operadores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajando-con-formularios" class="md-nav__link">
+    Trabajando con formularios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condiciones" class="md-nav__link">
+    Condiciones
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles" class="md-nav__link">
+    Bucles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generando-contenido" class="md-nav__link">
+    Generando contenido
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comentarios" class="md-nav__link">
+    Comentarios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errores" class="md-nav__link">
+    Errores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constantes" class="md-nav__link">
+    Constantes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arimeticos" class="md-nav__link">
+    Ariméticos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion" class="md-nav__link">
+    Comparación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logicos" class="md-nav__link">
+    Lógicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignacion" class="md-nav__link">
+    Asignación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precedencia-de-operadores" class="md-nav__link">
+    Precedencia de operadores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajando-con-formularios" class="md-nav__link">
+    Trabajando con formularios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condiciones" class="md-nav__link">
+    Condiciones
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles" class="md-nav__link">
+    Bucles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 32 sesiones</p>
+<hr />
+<p>Resultado de aprendizaje:</p>
+<ol start="2">
+<li>Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.</li>
+</ol>
+<p>Criterios de evaluación:</p>
+<ol>
+<li>Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.</li>
+<li>Se han identificado las principales tecnologías asociadas.</li>
+<li>Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.</li>
+<li>Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.</li>
+<li>Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.</li>
+<li>Se han utilizado directivas para modificar el comportamiento predeterminado.</li>
+<li>Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.</li>
+<li>Se han identificado los ámbitos de utilización de las variables.</li>
+</ol>
+<hr />
+<p>Resultado de aprendizaje:</p>
+<ol start="3">
+<li>Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.</li>
+</ol>
+<p>Criterios de evaluación:</p>
+<ol>
+<li>Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.</li>
+<li>Se han utilizado bucles y se ha verificado su funcionamiento.</li>
+<li>Se han utilizado “arrays” para almacenar y recuperar conjuntos de datos.</li>
+<li>Se han creado y utilizado funciones.</li>
+<li>Se han utilizado formularios web para interactuar con el usuario del navegador Web.</li>
+<li>Se han empleado métodos para recuperar la información introducida en el formulario.</li>
+<li>Se han añadido comentarios al código.</li>
+</ol>
+</details>
+<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
+<p><img _="&amp;" align="right" alt="PHP" src="imagenes/02/phplogo.png" width="300" /></p>
+<ul>
+<li>Acrónimo de <em>Personal Home Page</em></li>
+<li>Lenguaje de propósito general, aunque su fuerte es el desarollo web.</li>
+<li>Sintaxis similar a C / Java</li>
+<li>El código se ejecuta en el servidor (en Apache mediante mod_php)</li>
+<li>El cliente recibe el resultado generado tras interpretar el código en el servidor.</li>
+<li>Última versión: 7.4 (Nov 2019), la 7.0 en Diciembre 2015</li>
+<li>2x más rápido que PHP5</li>
+</ul>
+<p>Los bloques de código se escriben entre <strong><code>&lt;?php</code></strong> y <strong><code>?&gt;</code></strong>, mientras que las sentencias se separan mediante <strong><code>;</code></strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>PHP fácil<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c">&lt;!-- Muestra una frase con HTML --&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    Hola mundo<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c">&lt;!-- Muestra una frase con PHP --&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;Es muy fácil programar en PHP.&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="generando-contenido">Generando contenido<a class="headerlink" href="#generando-contenido" title="Permanent link">&para;</a></h3>
+<p>Tenemos tres posibilidad a la hora de generar contenido en nuestros documentos PHP:</p>
+<ul>
+<li><strong><code>echo</code></strong><code>expresión;</code></li>
+<li><strong><code>print</code></strong><code>(expresión);</code></li>
+<li><strong><code>&lt;?=</code></strong><code>expresión ?&gt;</code></li>
+</ul>
+<p>Las que vamos a utilizar son <code>echo</code> cuando lo hagamos dentro de un bloque de instrucciones y <code>&lt;?=</code> cuando sólo vayamos a mostrar el valor de una variable dentro de un fragmento HTML.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Echo y print<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;Este texto se mostrará en la página web.&quot;</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="s2">&quot;Este texto se mostrará en la página web.&quot;</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Este texto se mostrará en la página web.&quot;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="comentarios">Comentarios<a class="headerlink" href="#comentarios" title="Permanent link">&para;</a></h3>
+<p>Podemos utilizar comentarios de una línea o de bloque:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Este es un comentario de una sola línea</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="cm">/*</span>
+<span class="linenos" data-linenos="4 "></span><span class="cm">        Este es</span>
+<span class="linenos" data-linenos="5 "></span><span class="cm">        un comentario</span>
+<span class="linenos" data-linenos="6 "></span><span class="cm">        que ocupa</span>
+<span class="linenos" data-linenos="7 "></span><span class="cm">        varias líneas</span>
+<span class="linenos" data-linenos="8 "></span><span class="cm">    */</span>     
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
+</code></pre></div>
+<h3 id="errores">Errores<a class="headerlink" href="#errores" title="Permanent link">&para;</a></h3>
+<p>Si hay un error de ejecución, se produce un <em>Fatal Error</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">Fatal error: Uncaught Error: Call to undefined function plint() in C:\xampp\htdocs\202echo.php:11</span>
+<span class="linenos" data-linenos="2 "></span><span class="go"> Stack trace:</span>
+<span class="linenos" data-linenos="3 "></span><span class="gp"> #</span><span class="m">0</span> <span class="o">{</span>main<span class="o">}</span>
+<span class="linenos" data-linenos="4 "></span><span class="go">    thrown in C:\xampp\htdocs\202echo.php on line 11</span>
+</code></pre></div>
+<p>Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de <code>try</code> / <code>catch</code>.</p>
+<h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Comienzan por <code>$</code>, por ejemplo <code>$nombre</code>.</li>
+<li>Empiezan por letras o guion bajo <code>_</code>.</li>
+<li>Son <em>case sensitive</em>: <code>$var != $VaR</code></li>
+<li>Conveniente inicializarlas, sino dan error.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$nombre = &quot;Aitor&quot;;</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">$nombreCompleto = &quot;Aitor Medrano&quot;;</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">$numero = 123;</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">$pi = 3.14;</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">$suerte = true;</span>
+<span class="linenos" data-linenos="6 "></span><span class="x">$sinValor;</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="x">echo $sinValor;</span>
+</code></pre></div>
+<h3 id="constantes">Constantes<a class="headerlink" href="#constantes" title="Permanent link">&para;</a></h3>
+<h2 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h2>
+<h3 id="arimeticos">Ariméticos<a class="headerlink" href="#arimeticos" title="Permanent link">&para;</a></h3>
+<h3 id="comparacion">Comparación<a class="headerlink" href="#comparacion" title="Permanent link">&para;</a></h3>
+<h3 id="logicos">Lógicos<a class="headerlink" href="#logicos" title="Permanent link">&para;</a></h3>
+<h3 id="asignacion">Asignación<a class="headerlink" href="#asignacion" title="Permanent link">&para;</a></h3>
+<h3 id="precedencia-de-operadores">Precedencia de operadores<a class="headerlink" href="#precedencia-de-operadores" title="Permanent link">&para;</a></h3>
+<h2 id="trabajando-con-formularios">Trabajando con formularios<a class="headerlink" href="#trabajando-con-formularios" title="Permanent link">&para;</a></h2>
+<h2 id="condiciones">Condiciones<a class="headerlink" href="#condiciones" title="Permanent link">&para;</a></h2>
+<h2 id="bucles">Bucles<a class="headerlink" href="#bucles" title="Permanent link">&para;</a></h2>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.jesusamieiro.com/wp-content/uploads/2020/10/20201024-hacktoberday-PHP-en-2020.pdf">PHP en 2020</a>, por Jesús Amieiro</li>
+</ul>
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<ol start="200">
+<li>Visualiza el vídeo de Jesús Amieiro sobre <a href="https://www.youtube.com/watch?v=o3IwAqslGUM&amp;t=12724s">PHP en 2020</a> a partir del minuto 3:32 (son 40 minutos aproximadamente).</li>
+<li><code>201tresfrases.php</code>: Muestra 3 frases, cada una en un párrafo utilizando las tres posibilidades que existen de mostrar contenido.
+Tras ello, introduce dos comentarios, uno de bloque y otro de una línea.</li>
+<li><code>202calculos.php</code>: Escribe un programa que utilice las variables <code>$x</code> y <code>$y</code>. Asígnales los valores <code>166</code> y <code>999</code> respectivamente.
+  A continuación, muestra por pantalla el valor de cada variable, la suma, la resta, la división y la multiplicación.
+<img align="right" alt="203" src="imagenes/02/02p203.png" /></li>
+<li><code>203datosPersonales.php</code>: Escribe un programa que almacene en variables tu nombre, primer apellido, segundo apellido, email, año de nacimiento y teléfono. Luego muéstralos por pantalla dentro de una tabla.</li>
+<li>
+<p><code>204datosPersonales.html</code> y <code>204datosPersonales.php</code>: Es el mismo ejercicio que el anterior, pero separando la lógica. En el primer archivo crearemos el formulario para introducir los datos, y luego recogemos los datos y generamos la tabla en el segundo archivo.</p>
+</li>
+<li>
+<p><code>205madlib.php</code>: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:</p>
+<ul>
+<li>Entrada: perro / caminar / azul / rápidamente</li>
+<li>
+<p>Salida: ¿ Te gusta caminar con tu perro azul rápidamente ?</p>
+</li>
+<li>
+<p><code>205madlib2.php</code> Crea un madlib más extenso, leyendo más datos de entrada.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>206anyos.php</code>: Tras leer la edad de una persona, mostrar la edad que tendrá dentro de 10 años y hace 10 años.
+Además, muestra qué año será en cada uno de los casos.
+Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 65 años.</p>
+<p>Tip: <code>$anyoActual = date("Y");</code></p>
+</li>
+<li>
+<p><code>207dinero.php</code>: A partir de una cantidad de dinero, mostrar su descomposición en billetes  (500, 200, 100, 50, 20, 10, 5) y monedas (2, 1), para que el número de elementos sea mínimo.
+No se utilizar ninguna instrucción condicional.
+Por ejemplo, al introducir <code>139</code> debé mostrar:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>1 billete de 100
+<span class="linenos" data-linenos="2 "></span>1 billete de 20
+<span class="linenos" data-linenos="3 "></span>1 billete de 10
+<span class="linenos" data-linenos="4 "></span>1 billete de 5
+<span class="linenos" data-linenos="5 "></span>2 monedas de 2
+</code></pre></div>
+<ol start="208">
+<li>
+<p><code>208mayor3.php</code>: Sin hacer uso de condiciones compuestas, muestra el mayor de tres números (<code>a</code>, <code>b</code> y <code>c</code>).</p>
+<p><code>208mayor3c.php</code>: Utiliza condiciones compuestas.</p>
+</li>
+<li>
+<p><code>209posnegcero.php</code>: A partir de un <code>numero</code>, muestra por pantalla si el número es <code>positivo</code>, <code>negativo</code> o <code>cero</code>.</p>
+</li>
+<li>
+<p><code>210nombreEdad.php</code>: A partir de una <code>edad</code> muestra por pantalla:</p>
+</li>
+</ol>
+<ul>
+<li><code>bebé</code> si tiene menos de 3 años</li>
+<li><code>niño</code> si tiene entre 3 y 12 años</li>
+<li><code>adolescente</code> entre 13 y 17 años</li>
+<li><code>adulto</code> entre 18 y 66</li>
+<li><code>jubilado</code> a partir de 67</li>
+</ul>
+<ol start="211">
+<li>
+<p><code>211reloj.php</code>: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de <code>hora</code>, <code>minuto</code> y <code>segundo</code> muestre la hora dentro de un segundo. Tras las <code>23:59:59</code> serán las <code>0:0:0</code>. </p>
+</li>
+<li>
+<p><code>212calendario.php</code>: Escribe un programa similar a un calendario de manera que a partir de <code>dia</code>, <code>mes</code> y <code>anyo</code> muestre la fecha dentro de un día. Debes tener en cuenta que no todos los meses tienen 30 días. En este caso, no vamos a tener en cuenta los años bisiestos.</p>
+</li>
+</ol>
+<p><img align="right" alt="213" src="imagenes/02/02p213.png" /></p>
+<ol start="213">
+<li><code>214ecuacion2g.php</code>: Crea un programa que resuelva una ecuación de 2º grado del tipo <code>ax² + bx + c = 0</code>.
+Ten en cuenta que puede tener 2, 1 o no tener solución.</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="01arquitecturas.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 1.- Arquitecturas Web" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              1.- Arquitecturas Web
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Aitor Medrano
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>
