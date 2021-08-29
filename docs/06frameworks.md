@@ -1,6 +1,6 @@
 # Frameworks PHP. Laravel
 
-> Duración estimada: 32 sesiones
+> Duración estimada: 40 sesiones
 
 ## Frameworks
 
@@ -158,7 +158,19 @@ Y si nos conectamos a la base de datos, veremos que realmente ha creado dos tabl
 
 ## Rutas
 
+https://laravel.com/docs/master/routing
+
 ## Vistas
+
+https://laravel.com/docs/master/views
+
+## Controladores
+
+https://laravel.com/docs/master/controllers
+
+### Validaciones
+
+https://laravel.com/docs/master/validation
 
 ## Integración con Eloquent
 
@@ -183,13 +195,12 @@ Métodos create, show....
 
 Formulario de create Pregunta
 
-Formulario de save Pregunta
+Formulario de store Pregunta
+1 Validar
+2 Guardar en BD
+3 Redirect a vista/controller
 
-## Autenticación y autorización
-
-Curso O'Reilly
-
-## i18n
+TODO: Revisar las validaciones de los controladores ... creo que el lugar correcto es aquí al recoger datos
 
 ## Referencias
 

@@ -9,19 +9,21 @@
       
       
       
-      <link rel="icon" href="/dwes2122/imagenes/favicon.png">
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/08rest.html">
+      
+      <link rel="icon" href="imagenes/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
-        <title>Desarrollo Web en Entorno Servidor</title>
+        <title>Servicios REST - Desarrollo Web en Entorno Servidor</title>
       
     
     
-      <link rel="stylesheet" href="/dwes2122/assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="/dwes2122/assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -57,12 +59,17 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="teal">
   
     
-    <script>function __prefix(e){return new URL("/dwes2122/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#servicios-rest" class="md-skip">
+          Saltar a contenido
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -71,9 +78,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="/dwes2122/index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
-  <img src="/dwes2122/imagenes/logofp.png" alt="logo">
+  <img src="imagenes/logofp.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -89,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Servicios REST
             
           </span>
         </div>
@@ -154,9 +161,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/dwes2122/index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
-  <img src="/dwes2122/imagenes/logofp.png" alt="logo">
+  <img src="imagenes/logofp.png" alt="logo">
 
     </a>
     Desarrollo Web en Entorno Servidor
@@ -172,7 +179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/dwes2122/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Inicio
       </a>
     </li>
@@ -187,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/dwes2122/01arquitecturas.html" class="md-nav__link">
+      <a href="01arquitecturas.html" class="md-nav__link">
         1.- Arquitecturas Web
       </a>
     </li>
@@ -202,7 +209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/dwes2122/02php.html" class="md-nav__link">
+      <a href="02php.html" class="md-nav__link">
         2.- El lenguaje PHP
       </a>
     </li>
@@ -216,11 +223,74 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#produccion-y-consumo" class="md-nav__link">
+    Producción y consumo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajax-con-json" class="md-nav__link">
+    AJAX con JSON
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaccion-con-vuejs" class="md-nav__link">
+    Interacción con Vue.js
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                
+                <h1 id="servicios-rest">Servicios REST<a class="headerlink" href="#servicios-rest" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Duración estimada: 32 sesiones</p>
+</blockquote>
+<h2 id="produccion-y-consumo">Producción y consumo<a class="headerlink" href="#produccion-y-consumo" title="Permanent link">&para;</a></h2>
+<h2 id="ajax-con-json">AJAX con JSON<a class="headerlink" href="#ajax-con-json" title="Permanent link">&para;</a></h2>
+<h2 id="interaccion-con-vuejs">Interacción con Vue.js<a class="headerlink" href="#interaccion-con-vuejs" title="Permanent link">&para;</a></h2>
+<p><a href="https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)">https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)</a>
+<a href="https://github.com/jmnavarro/http-api-design">https://github.com/jmnavarro/http-api-design</a>
+<a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api</a>
+<a href="https://leanpub.com/build-apis-you-wont-hate">https://leanpub.com/build-apis-you-wont-hate</a></p>
+                
+              
+              
+                
+
 
               
             </article>
@@ -268,10 +338,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/dwes2122/", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "/dwes2122/assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="/dwes2122/assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>

@@ -23,41 +23,49 @@ La duración del módulo es de 160 horas lectivas, a razón de **8 horas semana
 8. Genera páginas Web dinámicas analizando y utilizando tecnologías del servidor Web que añadan código al lenguaje de marcas.
 9. Desarrolla aplicaciones Web híbridas seleccionando y utilizando librerías de código y repositorios heterogéneos de información.
 
-## Unidades didácticas
+## Unidades didácticas. Temporalización.
 
 A continuación se muestran las unidades didácticas y una estimación temporal de cada una de ellas.
-La primera evaluación contendría las unidades comprendidas entre la 1 y la mitad de la unida 5. Así pues, desde la segunda mitad de la unidad 5 a la unidad 7 se verían en la segunda evaluación.
+La primera evaluación contendría las unidades comprendidas entre la 1 y 4. Así pues, desde la unidad 5 a la unidad 8 se verían en la segunda evaluación.
+
+Primera evaluación:
 
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
-    * Cliente/Servidor
-    * MVC
-2. El lenguaje PHP (32h)
-    * Condiciones y bucles
-    * Arrays
-    * Clases y objetos
+    * Cliente/Servidor.
+    * MVC.
+2. [El lenguaje PHP](02php.md) (32h)
+    * Condiciones y bucles.
+    * Arrays.
+    * Clases y objetos.
 3. Programación Web (12h)
-    * Formularios
-    * Cookies y sesión
+    * Formularios.
+    * Cookies y sesión.
 4. Herramientas Web (20h)
-    * Composer
-    * Uso de logs con Monolog
-    * Webscrapping
-    * Pruebas con PhpUnit
-    * Documentacion con phpDocumentor
-5. Acceso a datos (26h)
-    * SQL
-    * PDO
+    * *Composer*.
+    * Uso de logs con *Monolog*.
+    * Webscrapping.
+    * Pruebas con *PhpUnit*.
+    * Documentacion con *phpDocumentor*.
+
+Segunda evaluación:
+
+5. Acceso a datos (28h)
+    * *SQL*
+    * *PDO*
     * Ficheros CSV y PDF.
-    * ORM con Eloquent
-6. Frameworks PHP. Laravel (40h)
-    * Rutas
-    * Vistas
-    * Migraciones e integración con Eloquent.
-    * i18n
-7. Servicios REST (24h)
-    * Producción y consumo
-    * AJAX con JSON
-    * Interacción con Vue.js
+    * *ORM* con *Eloquent*.
+6. Frameworks PHP. Laravel básico (24h)
+    * Rutas.
+    * Vistas.
+    * Migraciones e integración con *Eloquent*.
+7. Uso avanzado de Frameworks (24h)
+    * Plantillas con *Blade*.
+    * Autenticación y autorización.
+    * *i18n*.
+8. Servicios REST (16h)
+    * Producción y consumo.
+    * *AJAX* con *JSON*.
+    * Interacción con *Vue.js*.
 
 ## Instrumentos de calificación
 

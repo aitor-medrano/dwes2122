@@ -5,11 +5,13 @@ use_directory_urls: false
 nav:
   - "Inicio": "index.md"
   - "1.- Arquitecturas Web": "01arquitecturas.md"
-  - "5.- Acceso a Datos": "05accesoDatos.md"
-  - "6.- Frameworks PHP - Laravel": "06frameworks.md"
+  - "2.- El lenguaje PHP": "02php.md"
+#  - "5.- Acceso a Datos": "05accesoDatos.md"
+#  - "6.- Frameworks PHP - Laravel": "06frameworks.md"
 
 theme:
   language: es
+  favicon: imagenes/favicon.png
   name: "material"
   palette:
     primary: light blue
