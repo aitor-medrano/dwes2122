@@ -363,6 +363,26 @@
     Arrays
   </a>
   
+    <nav class="md-nav" aria-label="Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays-asociativos" class="md-nav__link">
+    Arrays asociativos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays-bidimensionales" class="md-nav__link">
+    Arrays bidimensionales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -561,6 +581,26 @@
     Arrays
   </a>
   
+    <nav class="md-nav" aria-label="Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays-asociativos" class="md-nav__link">
+    Arrays asociativos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays-bidimensionales" class="md-nav__link">
+    Arrays bidimensionales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -618,7 +658,7 @@
                 
                 
                 <h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 32 sesiones</p>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 16 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="2">
@@ -815,7 +855,7 @@
 </tr>
 </tbody>
 </table>
-<p>En el caso de cadenas, si queremos concatenarlas, se utiliza el operador <code>.</code>:</p>
+<p>En el caso de <strong>cadenas</strong>, si queremos concatenarlas, se utiliza el operador <code>.</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$y</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
@@ -825,6 +865,18 @@
 <span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de &quot;</span><span class="o">.</span><span class="nv">$x</span><span class="o">.</span><span class="s2">&quot; y &quot;</span><span class="o">.</span><span class="nv">$y</span><span class="o">.</span><span class="s2">&quot; es &quot;</span><span class="o">.</span><span class="nv">$z</span><span class="o">.</span><span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+<p>Realmente, en vez de concatenar cadenas con variables, podemos imprimirlas directamente ya que se expanden automáticamente:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de </span><span class="si">$x</span><span class="s2"> y </span><span class="si">$y</span><span class="s2"> es </span><span class="si">$z</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div></p>
+<p>En ocasiones, necesitamos rodear el nombre de la variable entre llaves para poder unir más texto al resultado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s2">&quot;rojo&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="s2">&quot;El plural de </span><span class="si">$color</span><span class="s2"> el </span><span class="si">${</span><span class="nv">color</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Más adelante estudiaremos algunas funciones para el tratamiento de cadenas.</p>
 <h3 id="comparacion">Comparación<a class="headerlink" href="#comparacion" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1142,6 +1194,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+<p>Más adelante estudiaremos el bucle <code>foreach</code> para recorrer arrays.</p>
 <p>PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucción <code>break</code>.
 A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Personalmente, no me gusta su uso. Prefiero el uso de variables <em>flag</em> para controlar la salida de los bucles. Por ejemplo:</p>
@@ -1156,9 +1209,80 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <h2 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h2>
+<p>Para almacenar datos compuestos, podemos utilizar tanto arrays sencillos como arrays asociativos (similares a un mapa). En realidad todos los arrays son mapas ordenados compuestos de pares clave-valor.</p>
+<div class="admonition caution">
+<p class="admonition-title">Cuidado con mezclar tipos</p>
+<p>Como el tipado es dinámico, nuestros arrays pueden contenedor datos de diferentes tipos. No se recomienda mezclar los tipos.</p>
+</div>
+<p>Al igual que en Java, se definen mediante corchetes, son <em>0-index</em>, y se puede asignar un valor a un posición determinada:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$frutas </span><span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span> <span class="s2">&quot;pera&quot;</span><span class="p">,</span> <span class="s2">&quot;manzana&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$frutas2 </span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span> <span class="s2">&quot;pera&quot;</span><span class="p">,</span> <span class="s2">&quot;manzana&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$frutas3 </span><span class="o">=</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$frutas3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;naranja&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$frutas3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;pera&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$frutas3</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;manzana&quot;</span><span class="p">;</span> <span class="c1">// lo añade al final</span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Podemos obtener el tamaño del array mediante la función <code>count(array)</code>. Para recorrer el array haremos uso de un bucle <code>for</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$tam </span><span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$frutas</span><span class="p">);</span> <span class="c1">// tamaño del array</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nb">count</span><span class="p">(</span><span class="nv">$frutas</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">&quot;Elemento </span><span class="si">$i</span><span class="s2">: </span><span class="si">$frutas[$i]</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Otra forma de recorrer los arrays, incluso más elegante, es hacer uso de <code>foreach</code>. Su sintaxis es <code>foreach (array as elemento)</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Mediante foreach no necesitamos saber el tamaño del array</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$frutas as $fruta</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$fruta </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h3 id="arrays-asociativos">Arrays asociativos<a class="headerlink" href="#arrays-asociativos" title="Permanent link">&para;</a></h3>
+<p>Cada elemento es un par clave-valor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$capitales </span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Italia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Roma&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="s2">&quot;Francia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="s2">&quot;Portugal&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lisboa&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$capitalFrancia </span><span class="o">=</span> <span class="nv">$capitales</span><span class="p">[</span><span class="s2">&quot;Francia&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">echo</span> <span class="s2">&quot;La capital de Francia es </span><span class="si">$capitalFrancia </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="s2">&quot;La capital de Francia es </span><span class="si">{</span><span class="nv">$capitales</span><span class="p">[</span><span class="s2">&quot;Francia&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$capitales as $pais </span><span class="o">=&gt;</span> <span class="nv">$ciudad</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$pais</span><span class="s2">:</span><span class="si">$ciudad </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h3 id="arrays-bidimensionales">Arrays bidimensionales<a class="headerlink" href="#arrays-bidimensionales" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">const</span> <span class="no">ALTO </span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">const</span> <span class="no">ANCHO </span><span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$sopa_letras </span><span class="o">=</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i </span><span class="o">&lt;</span> <span class="nx">ALTO</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">for</span> <span class="p">(</span><span class="nv">$j </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j </span><span class="o">&lt;</span> <span class="nx">ANCHO</span><span class="p">;</span> <span class="nv">$j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$sopa_letras</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">90</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>SOPA DE LETRAS<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">font</span> <span class="na">face</span><span class="o">=</span><span class="s">&quot;Courier New&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">for</span> <span class="p">(</span><span class="nv">$i </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i </span><span class="o">&lt;</span> <span class="nx">ALTO</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">for</span> <span class="p">(</span><span class="nv">$j </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$j </span><span class="o">&lt;</span> <span class="nx">ANCHO</span><span class="p">;</span> <span class="nv">$j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="k">echo</span> <span class="nv">$sopa_letras</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$j</span><span class="p">];</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">}</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</code></pre></div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.jesusamieiro.com/wp-content/uploads/2020/10/20201024-hacktoberday-PHP-en-2020.pdf">PHP en 2020</a>, por Jesús Amieiro</li>
+<li><a href="https://www.mclibre.org/consultar/php/">Apuntes de PHP</a> de Bartolomé Sintes, profesor del IES Abastos de Valencia</li>
 </ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <h3 id="php_1">PHP<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h3>
