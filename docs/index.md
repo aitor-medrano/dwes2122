@@ -26,21 +26,24 @@ La duración del módulo es de 160 horas lectivas, a razón de **8 horas semana
 ## Unidades didácticas. Temporalización.
 
 A continuación se muestran las unidades didácticas y una estimación temporal de cada una de ellas.
-La primera evaluación contendría las unidades comprendidas entre la 1 y 4. Así pues, desde la unidad 5 a la unidad 8 se verían en la segunda evaluación.
+La primera evaluación contendría las unidades comprendidas entre la 1 y 5. Así pues, desde la unidad 6 a la unidad 9 se verían en la segunda evaluación.
 
 Primera evaluación:
 
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
     * Cliente/Servidor.
     * MVC.
-2. [El lenguaje PHP](02php.md) (32h)
+2. [El lenguaje PHP](02php.md) (16h)
     * Condiciones y bucles.
     * Arrays.
-    * Clases y objetos.
-3. Programación Web (12h)
+3. Orientación a objetos con PHP (16h)
+    * Clases y objetos
+    * Namespaces
+    * Excepciones
+4. Programación Web (12h)
     * Formularios.
     * Cookies y sesión.
-4. Herramientas Web (20h)
+5. Herramientas Web (20h)
     * *Composer*.
     * Uso de logs con *Monolog*.
     * Webscrapping.
@@ -49,20 +52,20 @@ Primera evaluación:
 
 Segunda evaluación:
 
-5. Acceso a datos (28h)
+6. Acceso a datos (28h)
     * *SQL*
     * *PDO*
     * Ficheros CSV y PDF.
     * *ORM* con *Eloquent*.
-6. Frameworks PHP. Laravel básico (24h)
+7. Frameworks PHP. Laravel básico (24h)
     * Rutas.
     * Vistas.
     * Migraciones e integración con *Eloquent*.
-7. Uso avanzado de Frameworks (24h)
+8. Uso avanzado de Frameworks (24h)
     * Plantillas con *Blade*.
     * Autenticación y autorización.
     * *i18n*.
-8. Servicios REST (16h)
+9. Servicios REST (16h)
     * Producción y consumo.
     * *AJAX* con *JSON*.
     * Interacción con *Vue.js*.
