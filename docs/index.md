@@ -2,7 +2,7 @@
 
 Aquí puedes encontrar los apuntes del módulo de *Desarrollo web en entorno servidor*, que se imparte en el segundo curso del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web.
 
-La duración del módulo es de 160 horas lectivas, a razón de **8 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso.
+La duración del módulo es de 160 horas lectivas, a razón de **8 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso. Se ha [planificado](planning.md) basándose en 4 sesiones de 2 horas lectivas por semana.
 
 ## ¿Qué voy a aprender?
 
@@ -23,34 +23,38 @@ La duración del módulo es de 160 horas lectivas, a razón de **8 horas semana
 8. Genera páginas Web dinámicas analizando y utilizando tecnologías del servidor Web que añadan código al lenguaje de marcas.
 9. Desarrolla aplicaciones Web híbridas seleccionando y utilizando librerías de código y repositorios heterogéneos de información.
 
-## Unidades didácticas. Temporalización.
+## Unidades didácticas / Temporalización
 
 A continuación se muestran las unidades didácticas y una estimación temporal de cada una de ellas.
-La primera evaluación contendría las unidades comprendidas entre la 1 y 5. Así pues, desde la unidad 6 a la unidad 9 se verían en la segunda evaluación.
+La primera evaluación contendría las unidades comprendidas entre la 1 y 5, y parte de la unidades 6. Así pues, desde la mitad de la  unidad 6 a la unidad 9 se verán en la segunda evaluación.
 
-Primera evaluación:
+### Primera evaluación
+
+Duración estimada: 68 sesiones
 
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
     * Cliente/Servidor.
     * MVC.
-2. [El lenguaje PHP](02php.md) (16h)
+2. [El lenguaje PHP](02php.md) (20h)
     * Condiciones y bucles.
     * Arrays.
-3. Orientación a objetos con PHP (16h)
+3. Orientación a objetos con PHP (20h)
     * Clases y objetos
     * Namespaces
     * Excepciones
-4. Programación Web (12h)
+4. Programación Web (8h)
     * Formularios.
     * Cookies y sesión.
-5. Herramientas Web (20h)
+5. Herramientas Web (16h)
     * *Composer*.
     * Uso de logs con *Monolog*.
     * Webscrapping.
     * Pruebas con *PhpUnit*.
-    * Documentacion con *phpDocumentor*.
+    * Documentación con *phpDocumentor*.
 
-Segunda evaluación:
+### Segunda evaluación
+
+Duración estimada: 92 sesiones
 
 6. Acceso a datos (28h)
     * *SQL*
@@ -75,13 +79,13 @@ Segunda evaluación:
 La nota de cada evaluación se calcula mediante:
 
 * 30% Trabajo en Clase / Actividades
-    * Se evalúan todas las actividades realizadas en clase y en casa.
-    * Las actividades se evalúan mediante tareas de Aules con calificaciones comprendidas entre 0 y 3 puntos:
-        * 0: No entregada
-        * 1: Entregada pero solución errónea o incompleta
-        * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
-        * 3: Entregada y solución correcta.
+  * Se evalúan todas las actividades realizadas en clase y en casa.
+  * Las actividades se evalúan mediante tareas de Aules con calificaciones comprendidas entre 0 y 3 puntos:
+    * 0: No entregada
+    * 1: Entregada pero solución errónea o incompleta
+    * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
+    * 3: Entregada y solución correcta.
 * 70% Actividad de evaluación
-    * Una o dos pruebas por evaluación.
+  * Una o dos pruebas por evaluación.
 
 La nota final se calcula mediante la media de cada una de las evaluaciones.

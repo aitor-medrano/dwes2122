@@ -29,6 +29,11 @@ extra:
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/aitormedrano
+    - icon: fontawesome/solid/envelope-square
+      link: mailto:<a.medrano@edu.gva.es>
+  analytics:
+    provider: google
+    property: G-X6D0LR7TC8
 
 plugins:
   - search
@@ -36,6 +41,9 @@ plugins:
 markdown_extensions:
   - attr_list
   - admonition
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
   - pymdownx.details
   - pymdownx.highlight:
       linenums: true
@@ -48,4 +56,4 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
 
-copyright: Copyright &copy; 2021 Aitor Medrano
+copyright: 2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
