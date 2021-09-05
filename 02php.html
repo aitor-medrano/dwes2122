@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/02php.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -124,14 +124,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -956,7 +960,7 @@
 <li>El cliente recibe el resultado generado tras interpretar el código en el servidor.</li>
 <li>El código se almacena en archivo con extensión <code>.php</code>.</li>
 </ul>
-<p>La última versión es la 8.0 (Nov 2020), la 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.</p>
+<p>La última versión es la 8.0, de Noviembre de 2020. La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.</p>
 <p>Su documentación es extensa y está traducida: <a href="https://www.php.net/manual/es/">https://www.php.net/manual/es/</a>.</p>
 <h3 id="codigo-embebido">Código embebido<a class="headerlink" href="#codigo-embebido" title="Permanent link">&para;</a></h3>
 <p>Los bloques de código se escriben entre <strong><code>&lt;?php</code></strong> y <strong><code>?&gt;</code></strong>, mientras que las sentencias se separan mediante <strong><code>;</code></strong>.</p>
@@ -975,7 +979,7 @@
 <span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="generando-contenido">Generando contenido<a class="headerlink" href="#generando-contenido" title="Permanent link">&para;</a></h3>
-<p>Tenemos tres posibilidad a la hora de generar contenido en nuestros documentos PHP:</p>
+<p>Tenemos tres posibilidades a la hora de generar contenido en nuestros documentos PHP:</p>
 <ul>
 <li><strong><code>echo</code></strong><code>expresión;</code></li>
 <li><strong><code>print</code></strong><code>(expresión);</code></li>
@@ -1452,6 +1456,8 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <p>Más adelante estudiaremos el bucle <code>foreach</code> para recorrer arrays.</p>
 <p>PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucción <code>break</code>.
 A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
+<div class="admonition danger">
+<p class="admonition-title">Si puedes, evita <code>break</code> y <code>continue</code></p>
 <p>Personalmente, no me gusta su uso. Prefiero el uso de variables <em>flag</em> para controlar la salida de los bucles. Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$salir</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
@@ -1463,6 +1469,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+</div>
 <h2 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h2>
 <p>Para almacenar datos compuestos, podemos utilizar tanto arrays sencillos como arrays asociativos (similares a un mapa). En realidad todos los arrays son mapas ordenados compuestos de pares clave-valor.</p>
 <div class="admonition caution">
@@ -1892,11 +1899,176 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 </code></pre></div>
 <p>Tenéis muchos más ejemplos en <a href="https://www.w3schools.com/php/func_string_printf.asp">https://www.w3schools.com/php/func_string_printf.asp</a></p>
 <h4 id="operaciones-basicas">Operaciones básicas<a class="headerlink" href="#operaciones-basicas" title="Permanent link">&para;</a></h4>
-<h4 id="trabajando-con-caracteres">Trabajando con caracteres<a class="headerlink" href="#trabajando-con-caracteres" title="Permanent link">&para;</a></h4>
-<h4 id="comparando-cadenas">Comparando cadenas<a class="headerlink" href="#comparando-cadenas" title="Permanent link">&para;</a></h4>
-<h4 id="rompiendos-cadenas">Rompiendos cadenas<a class="headerlink" href="#rompiendos-cadenas" title="Permanent link">&para;</a></h4>
-<h4 id="subcadenas">Subcadenas<a class="headerlink" href="#subcadenas" title="Permanent link">&para;</a></h4>
-<h4 id="tipos-de-cadenas">Tipos de cadenas<a class="headerlink" href="#tipos-de-cadenas" title="Permanent link">&para;</a></h4>
+<p>Todas las funciones se pueden consultar en <a href="https://www.php.net/manual/es/ref.strings.php">https://www.php.net/manual/es/ref.strings.php</a></p>
+<p>Las más importantes son:</p>
+<ul>
+<li><code>strlen</code>: obtiene la longitud de una cadena y devuelve un número entero</li>
+<li><code>substr</code>: devuelve una subcadena de la cadena original</li>
+<li><code>str_replace</code>: reemplaza caracteres en una cadena</li>
+<li><code>strtolower</code> y <code>strtoupper</code>: Transforman una cadena de caracteres en la misma cadena en minúsculas o mayúsculas respectivamente.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$cadena </span><span class="o">=</span> <span class="s2">&quot;El caballero oscuro&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$tam </span><span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">echo</span> <span class="s2">&quot;La longitud de &#39;</span><span class="si">$cadena</span><span class="s2">&#39; es: </span><span class="si">$tam </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$oscuro </span><span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">,</span> <span class="mi">13</span><span class="p">);</span> <span class="c1">// desde 13 al final</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$caba </span><span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// desde 3, 4 letras</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$katman </span><span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="nv">$cadena</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$oscuro $caba ahora es $katman</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="s2">&quot;Grande &quot;</span><span class="o">.</span><span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si queremos trabajar con caracteres ASCII de forma individual, son útiles las funciones:</p>
+<ul>
+<li><code>chr</code>: obtiene el carácter a partir de un ASCII</li>
+<li><code>ord</code>: obtiene el ASCII de un carácter</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">function</span> <span class="nf">despues</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$letra</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$asciiLetra</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="nv">$letra</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="nv">$asciiLetra</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">despues</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si queremos limpiar cadenas, tenemos las funciones:</p>
+<ul>
+<li><code>trim</code>: elimina los espacios al principio y al final</li>
+<li><code>ltrim</code> / <code>rtrim</code> o <code>chop</code>: Elimina los espacios iniciales / finales de una cadena.</li>
+<li><code>str_pad</code>: rellena la cadenas hasta una longitud especificada y con el carácter o caracteres especificados.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$cadena</span> <span class="o">=</span> <span class="s2">&quot; Programando en PHP &quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$limpia</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">);</span> <span class="c1">// &quot;Programando en PHP&quot;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$sucia</span> <span class="o">=</span> <span class="nb">str_pad</span><span class="p">(</span><span class="nv">$limpia</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span> <span class="c1">// &quot;Programando en PHP.....&quot;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h4 id="comparando-y-buscando">Comparando y buscando<a class="headerlink" href="#comparando-y-buscando" title="Permanent link">&para;</a></h4>
+<p>La comparación de cadenas puede ser con conversión de tipos mediante <code>==</code> o estricta con <code>===</code>.
+También funcionan los operadores <code>&lt;</code> y <code>&gt;</code> si ambas son cadenas.
+Al comparar cadenas con valores numericos podemos utilizar:</p>
+<ul>
+<li><code>strcmp</code>: 0 iguales, &lt;0 si <code>a&lt;b</code> o &gt;0 si <code>a&gt;b</code></li>
+<li><code>strcasecmp</code>: las pasa a minúsculas y compara</li>
+<li><code>strncmp</code> / <code>strncasecmp</code>: compara los N primeros caracteres</li>
+<li><code>strnatcmp</code>: comparaciones naturales</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$frase1</span> <span class="o">=</span> <span class="s2">&quot;Alfa&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$frase2</span> <span class="o">=</span> <span class="s2">&quot;Alfa&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$frase3</span> <span class="o">=</span> <span class="s2">&quot;Beta&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$frase4</span> <span class="o">=</span> <span class="s2">&quot;Alfa5&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$frase5</span> <span class="o">=</span> <span class="s2">&quot;Alfa10&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nv">$frase1</span> <span class="o">==</span> <span class="nv">$frase2</span> <span class="p">);</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nv">$frase1</span> <span class="o">===</span> <span class="nv">$frase2</span> <span class="p">);</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strcmp</span><span class="p">(</span><span class="nv">$frase1</span><span class="p">,</span> <span class="nv">$frase2</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// 0</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strncmp</span><span class="p">(</span><span class="nv">$frase1</span><span class="p">,</span> <span class="nv">$frase5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// 0</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nv">$frase2</span> <span class="o">&lt;</span> <span class="nv">$frase3</span> <span class="p">);</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strcmp</span><span class="p">(</span><span class="nv">$frase2</span><span class="p">,</span> <span class="nv">$frase3</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// -1</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nv">$frase4</span> <span class="o">&lt;</span> <span class="nv">$frase5</span> <span class="p">);</span> <span class="c1">// false</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strcmp</span><span class="p">(</span><span class="nv">$frase4</span><span class="p">,</span> <span class="nv">$frase5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// 4 → f4 &gt; f5</span>
+<span class="linenos" data-linenos="16 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strnatcmp</span><span class="p">(</span><span class="nv">$frase4</span><span class="p">,</span> <span class="nv">$frase5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// -1 → f4 &lt; f5</span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si lo que queremos es buscar dentro de una cadena, tenemos:</p>
+<ul>
+<li><code>strpos</code> / <code>strrpos</code>: busca en una cadena y devuelve la posición de la primera/última ocurrencia.</li>
+<li><code>strstr</code> / <code>strchr (alias)</code>: busca una cadena y devuelve la subcadena a partir de donde la ha encontrado</li>
+<li><code>stristr</code>: ignora las mayúsculas</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$frase</span> <span class="o">=</span> <span class="s2">&quot;Quien busca encuentra, eso dicen, a veces&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$pos1</span> <span class="o">=</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// encuentra la primera coma</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$pos2</span> <span class="o">=</span> <span class="nb">strrpos</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// encuentra la última coma</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$trasComa</span> <span class="o">=</span> <span class="nb">strstr</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// &quot;, eso dicen, a veces&quot;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si queremos averiguar que contiene las cadenas, tenemos un conojunto de funciones de comprobaciones de tipo, se conocen como las funciones <em>ctype</em> que devuelven un booleano:</p>
+<ul>
+<li><code>ctype_alpha</code> → letras</li>
+<li><code>ctype_alnum</code> → alfanuméricos</li>
+<li><code>ctype_digit</code> → dígitos</li>
+<li><code>ctype_punct</code> → caracteres de puntuación, sin espacios</li>
+<li><code>ctype_space</code> → son espacios, tabulador, salto de línea</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$prueba1</span> <span class="o">=</span> <span class="s2">&quot;hola&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$prueba2</span> <span class="o">=</span> <span class="s2">&quot;hola33&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$prueba3</span> <span class="o">=</span> <span class="s2">&quot;33&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$prueba4</span> <span class="o">=</span> <span class="s2">&quot;,.()[]&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$prueba5</span> <span class="o">=</span> <span class="s2">&quot; ,.()[]&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="nb">ctype_alpha</span><span class="p">(</span><span class="nv">$prueba1</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nb">ctype_alnum</span><span class="p">(</span><span class="nv">$prueba2</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nb">ctype_digit</span><span class="p">(</span><span class="nv">$prueba3</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nb">ctype_punct</span><span class="p">(</span><span class="nv">$prueba4</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="12 "></span><span class="k">echo</span> <span class="nb">ctype_space</span><span class="p">(</span><span class="nv">$prueba5</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// false</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="nb">ctype_space</span><span class="p">(</span><span class="nv">$prueba5</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
+<span class="linenos" data-linenos="14 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h4 id="trabajando-con-subcadenas">Trabajando con subcadenas<a class="headerlink" href="#trabajando-con-subcadenas" title="Permanent link">&para;</a></h4>
+<p>Si queremos romper las cadenas en trozos, tenemos:</p>
+<ul>
+<li><code>explode</code>: convierte en array la cadena mediante un separador.</li>
+<li><code>implode</code> / <code>join</code>: pasa un array a cadena con un separador</li>
+<li><code>str_split</code> / <code>chunk_split</code>: pasa una cadena a una array/cadena cada X caracteres</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$frase</span> <span class="o">=</span> <span class="s2">&quot;Quien busca encuentra, eso dicen, a veces&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$partes</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="nv">$frase</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$ciudades</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Elche&quot;</span><span class="p">,</span> <span class="s2">&quot;Aspe&quot;</span><span class="p">,</span> <span class="s2">&quot;Alicante&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$cadenaCiudades</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="nv">$ciudades</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$partes3cadena</span> <span class="o">=</span> <span class="nb">chunk_split</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// Qui </span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// en </span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">// bus </span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// ca </span>
+<span class="linenos" data-linenos="13 "></span><span class="c1">// ...</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$partes3array</span> <span class="o">=</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">// [&quot;Qui&quot;, &quot;en &quot;, &quot;bus&quot;, &quot;ca &quot;, &quot;enc&quot;, …] </span>
+<span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si queremos trabajar con tokens:</p>
+<ul>
+<li><code>strtok(cadena, separador)</code></li>
+<li>y dentro del bucle: <code>strtok(separador)</code></li>
+</ul>
+<p>Finalmente, para separarla en base al formato:</p>
+<ul>
+<li><code>sscanf</code>: al revés que <code>sprintf</code>, crea un array a partir de la cadena y el patrón.</li>
+</ul>
+<p>Finalmente, otras operaciones que podemos realizar para trabajar con subcadenas son:</p>
+<ul>
+<li><code>substr_count</code>: número de veces que aparece la subcadena dentro de la cadena</li>
+<li><code>substr_replace</code>: reemplaza parte de la cadena a partir de su posición, y opcionalmente, longitud</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$batman</span> <span class="o">=</span> <span class="s2">&quot;Bruce Wayne es Batman&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$empresa</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// Wayne</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$bes</span> <span class="o">=</span> <span class="nb">substr_count</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1">// Bruce Wayne es camarero</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$camarero1</span> <span class="o">=</span> <span class="nb">substr_replace</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;camarero&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$camarero2</span> <span class="o">=</span> <span class="nb">substr_replace</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;camarero&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">);</span> <span class="c1">// quita 6 desde el final</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">// Bruno es Batman</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$bruno</span> <span class="o">=</span> <span class="nb">substr_replace</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>También disponemos de una serie de funciones que facilitan las codificaciones desde y hacia HTML:</p>
+<ul>
+<li><code>htmlentities</code>: convierte a entidades HTML, por ejemplo, <code>á</code> por <code>&amp;aacute;</code>,  <code>ñ</code> por <code>&amp;ntilde;</code>, <code>&lt;</code> por <code>&amp;lt;</code>, etc..</li>
+<li><code>htmlspecialchars</code>: idem pero solo con los caracteres especiales (<code>&amp;</code>, <code>"</code>, <code>'</code>, <code>&lt;</code>, <code>&gt;</code>, ...)</li>
+<li><code>striptags</code>: elimina etiquetas HTML.</li>
+<li><code>nl2br</code>: cambia saltos de línea por <code>&lt;br /&gt;</code>.</li>
+<li><code>rawurlencode</code> / <code>rawurldecode</code>: codifica/decodifica una URL (espacios, ...).</li>
+</ul>
+<p>Estas funciones las utilizaremos en la unidad 4.- Programación Web.</p>
 <h3 id="matematicas">Matemáticas<a class="headerlink" href="#matematicas" title="Permanent link">&para;</a></h3>
 <p>Disponemos tanto de constantes como funciones ya definidas para trabajar con operaciones matemáticas: <a href="https://www.php.net/manual/es/ref.math.php">https://www.php.net/manual/es/ref.math.php</a></p>
 <ul>
@@ -2356,10 +2528,10 @@ Además de la propiafunción, el ejercicio debe contener código para poder prob
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>
