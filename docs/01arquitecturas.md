@@ -128,7 +128,7 @@ Software que recibe peticiones HTTP (GET, POST, DELETE, ...). Devuelve el recurs
 El producto más implantando es Apache Web Server (<https://httpd.apache.org/>), creado en 1995.
 
 * Software libre y multiplataforma
-* Sistem de módulos dinámicos → PHP, Python, Perl
+* Sistema de módulos dinámicos → PHP, Python, Perl
 * Utiliza el archivo `.htaccess` para su configuración
 
 En la actualidad, *Apache* está perdiendo mercado respecto a Nginx (<https://www.nginx.com>). Se trata de un producto más moderno (2004) y que en determinados escenarios tiene mejor rendimiento que Apache.
@@ -285,7 +285,7 @@ Otra forma más sencilla para lanzar de nuevo los contenedores y gestionarlos un
 </figure>
 
 !!! tip "Docker stack"
-    Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto Devilbox (<http://devilbox.org>) como Laradock (<https://laradock.io>)
+    Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto *Devilbox* (<http://devilbox.org>) como *Laradock* (<https://laradock.io>)
 
 ### Entorno de desarrollo
 

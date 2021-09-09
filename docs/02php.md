@@ -48,7 +48,7 @@
 * El cliente recibe el resultado generado tras interpretar el código en el servidor.
 * El código se almacena en archivo con extensión `.php`.
 
-La última versión es la 8.0 (Nov 2020), la 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.
+La última versión es la 8.0, de Noviembre de 2020. La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.
 
 Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>.
 
@@ -74,7 +74,7 @@ Hola mundo<br>
 
 ### Generando contenido
 
-Tenemos tres posibilidad a la hora de generar contenido en nuestros documentos PHP:
+Tenemos tres posibilidades a la hora de generar contenido en nuestros documentos PHP:
 
 * **`echo`**`expresión;`
 * **`print`**`(expresión);`
@@ -463,19 +463,20 @@ Más adelante estudiaremos el bucle `foreach` para recorrer arrays.
 PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucción `break`.
 A su vez, `continue` permite saltar a la siguiente iteración.
 
-Personalmente, no me gusta su uso. Prefiero el uso de variables *flag* para controlar la salida de los bucles. Por ejemplo:
+!!! danger "Si puedes, evita `break` y `continue`"
+    Personalmente, no me gusta su uso. Prefiero el uso de variables *flag* para controlar la salida de los bucles. Por ejemplo:
 
-``` php
-<?php
-$salir = false;
-for ($i = 1; $i <= 10 && !$salir; $i++) {
-  if ($i === 5) {
-    echo "Salgo cuando i=5";
-    $salir = true;
-  }
-}
-?>
-```
+    ``` php
+    <?php
+    $salir = false;
+    for ($i = 1; $i <= 10 && !$salir; $i++) {
+      if ($i === 5) {
+        echo "Salgo cuando i=5";
+        $salir = true;
+      }
+    }
+    ?>
+    ```
 
 ## Arrays
 
@@ -996,15 +997,195 @@ Tenéis muchos más ejemplos en <https://www.w3schools.com/php/func_string_print
 
 #### Operaciones básicas
 
-#### Trabajando con caracteres
+Todas las funciones se pueden consultar en <https://www.php.net/manual/es/ref.strings.php>
 
-#### Comparando cadenas
+Las más importantes son:
 
-#### Rompiendos cadenas
+* `strlen`: obtiene la longitud de una cadena y devuelve un número entero
+* `substr`: devuelve una subcadena de la cadena original
+* `str_replace`: reemplaza caracteres en una cadena
+* `strtolower` y `strtoupper`: Transforman una cadena de caracteres en la misma cadena en minúsculas o mayúsculas respectivamente.
 
-#### Subcadenas
+``` php
+<?php
+$cadena = "El caballero oscuro";
+$tam = strlen($cadena);
+echo "La longitud de '$cadena' es: $tam <br />";
 
-#### Tipos de cadenas
+$oscuro = substr($cadena, 13); // desde 13 al final
+$caba = substr($cadena, 3, 4); // desde 3, 4 letras
+$katman = str_replace("c", "k", $cadena);
+echo "$oscuro $caba ahora es $katman";
+
+echo "Grande ".strtoupper($cadena);
+?>
+```
+
+Si queremos trabajar con caracteres ASCII de forma individual, son útiles las funciones:
+
+* `chr`: obtiene el carácter a partir de un ASCII
+* `ord`: obtiene el ASCII de un carácter
+
+``` php
+<?php
+function despues(string $letra): string {
+	$asciiLetra = ord($letra);
+	return chr($asciiLetra + 1);
+}
+
+echo despues("B");
+?>
+```
+
+Si queremos limpiar cadenas, tenemos las funciones:
+
+* `trim`: elimina los espacios al principio y al final
+* `ltrim` / `rtrim` o `chop`: Elimina los espacios iniciales / finales de una cadena.
+* `str_pad`: rellena la cadenas hasta una longitud especificada y con el carácter o caracteres especificados.
+
+``` php
+<?php
+$cadena = " Programando en PHP ";
+$limpia = trim($cadena); // "Programando en PHP"
+
+$sucia = str_pad($limpia, 23, "."); // "Programando en PHP....."
+?>
+```
+
+#### Comparando y buscando
+
+La comparación de cadenas puede ser con conversión de tipos mediante `==` o estricta con `===`.
+También funcionan los operadores `<` y `>` si ambas son cadenas.
+Al comparar cadenas con valores numericos podemos utilizar:
+
+* `strcmp`: 0 iguales, <0 si `a<b` o >0 si `a>b`
+* `strcasecmp`: las pasa a minúsculas y compara
+* `strncmp` / `strncasecmp`: compara los N primeros caracteres
+* `strnatcmp`: comparaciones naturales
+
+``` php
+<?php
+$frase1 = "Alfa";
+$frase2 = "Alfa";
+$frase3 = "Beta";
+$frase4 = "Alfa5";
+$frase5 = "Alfa10";
+
+var_dump( $frase1 == $frase2 ); // true
+var_dump( $frase1 === $frase2 ); // true
+var_dump( strcmp($frase1, $frase2) ); // 0
+var_dump( strncmp($frase1, $frase5, 3) ); // 0
+var_dump( $frase2 < $frase3 ); // true
+var_dump( strcmp($frase2, $frase3) ); // -1
+var_dump( $frase4 < $frase5 ); // false
+var_dump( strcmp($frase4, $frase5) ); // 4 → f4 > f5
+var_dump( strnatcmp($frase4, $frase5) ); // -1 → f4 < f5
+?>
+```
+
+Si lo que queremos es buscar dentro de una cadena, tenemos:
+
+* `strpos` / `strrpos`: busca en una cadena y devuelve la posición de la primera/última ocurrencia.
+* `strstr` / `strchr (alias)`: busca una cadena y devuelve la subcadena a partir de donde la ha encontrado
+* `stristr`: ignora las mayúsculas
+
+``` php
+<?php
+$frase = "Quien busca encuentra, eso dicen, a veces";
+$pos1 = strpos($frase, ","); // encuentra la primera coma
+$pos2 = strrpos($frase, ","); // encuentra la última coma
+$trasComa = strstr($frase, ","); // ", eso dicen, a veces"
+?>
+```
+
+Si queremos averiguar que contiene las cadenas, tenemos un conojunto de funciones de comprobaciones de tipo, se conocen como las funciones *ctype* que devuelven un booleano:
+
+* `ctype_alpha` → letras
+* `ctype_alnum` → alfanuméricos
+* `ctype_digit` → dígitos
+* `ctype_punct` → caracteres de puntuación, sin espacios
+* `ctype_space` → son espacios, tabulador, salto de línea
+
+``` php
+<?php
+$prueba1 = "hola";
+$prueba2 = "hola33";
+$prueba3 = "33";
+$prueba4 = ",.()[]";
+$prueba5 = " ,.()[]";
+
+echo ctype_alpha($prueba1)."<br>"; // true
+echo ctype_alnum($prueba2)."<br>"; // true
+echo ctype_digit($prueba3)."<br>"; // true
+echo ctype_punct($prueba4)."<br>"; // true
+echo ctype_space($prueba5)."<br>"; // false
+echo ctype_space($prueba5[0])."<br>"; // true
+?>
+```
+
+#### Trabajando con subcadenas
+
+Si queremos romper las cadenas en trozos, tenemos:
+
+* `explode`: convierte en array la cadena mediante un separador.
+* `implode` / `join`: pasa un array a cadena con un separador
+* `str_split` / `chunk_split`: pasa una cadena a una array/cadena cada X caracteres
+
+``` php
+<?php
+$frase = "Quien busca encuentra, eso dicen, a veces";
+$partes = explode(",", $frase);
+
+$ciudades = ["Elche", "Aspe", "Alicante"];
+$cadenaCiudades = implode(">", $ciudades);
+
+$partes3cadena = chunk_split($frase, 3);
+// Qui 
+// en 
+// bus 
+// ca 
+// ...
+$partes3array = str_split($frase, 3);
+// ["Qui", "en ", "bus", "ca ", "enc", …] 
+?>
+```
+
+Si queremos trabajar con tokens:
+
+* `strtok(cadena, separador)`
+* y dentro del bucle: `strtok(separador)`
+
+Finalmente, para separarla en base al formato:
+
+* `sscanf`: al revés que `sprintf`, crea un array a partir de la cadena y el patrón.
+
+Finalmente, otras operaciones que podemos realizar para trabajar con subcadenas son:
+
+* `substr_count`: número de veces que aparece la subcadena dentro de la cadena
+* `substr_replace`: reemplaza parte de la cadena a partir de su posición, y opcionalmente, longitud
+
+``` php
+<?php
+$batman = "Bruce Wayne es Batman";
+$empresa = substr($batman, 6, 5); // Wayne
+$bes = substr_count($batman, "B"); // 2
+// Bruce Wayne es camarero
+$camarero1 = substr_replace($batman, "camarero", 15);
+$camarero2 = substr_replace($batman, "camarero", -6); // quita 6 desde el final
+// Bruno es Batman
+$bruno = substr_replace($batman, "Bruno", 0, 11);
+?>
+```
+
+También disponemos de una serie de funciones que facilitan las codificaciones desde y hacia HTML:
+
+* `htmlentities`: convierte a entidades HTML, por ejemplo, `á` por `&aacute;`,  `ñ` por `&ntilde;`, `<` por `&lt;`, etc..
+* `htmlspecialchars`: idem pero solo con los caracteres especiales (`&`, `"`, `'`, `<`, `>`, ...)
+* `striptags`: elimina etiquetas HTML.
+* `nl2br`: cambia saltos de línea por `<br />`.
+* `rawurlencode` / `rawurldecode`: codifica/decodifica una URL (espacios, ...).
+
+Estas funciones las utilizaremos en la unidad 4.- Programación Web.
 
 ### Matemáticas
 

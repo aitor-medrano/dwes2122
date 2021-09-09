@@ -35,10 +35,10 @@ Duración estimada: 68 sesiones
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
     * Cliente/Servidor.
     * MVC.
-2. [El lenguaje PHP](02php.md) (20h)
+2. [El lenguaje PHP](02php.md) (22h)
     * Condiciones y bucles.
     * Arrays.
-3. Orientación a objetos con PHP (20h)
+3. Orientación a objetos con PHP (18h)
     * Clases y objetos
     * Namespaces
     * Excepciones
