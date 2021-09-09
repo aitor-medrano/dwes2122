@@ -12,18 +12,18 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
     
     
       
-        <title>PHP Orientado a Objetos - Desarrollo Web en Entorno Servidor</title>
+        <title>3.- PHP Orientado a Objetos - Desarrollo Web en Entorno Servidor</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PHP Orientado a Objetos
+              3.- PHP Orientado a Objetos
             
           </span>
         </div>
@@ -124,18 +124,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-        </button>
-      </nav>
-      
+      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -158,6 +154,65 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="index.html" class="md-tabs__link">
+      Inicio
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="01arquitecturas.html" class="md-tabs__link">
+      1.- Arquitecturas Web
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="02php.html" class="md-tabs__link">
+      2.- El lenguaje PHP
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="03phpoo.html" class="md-tabs__link md-tabs__link--active">
+      3.- PHP Orientado a Objetos
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -169,8 +224,12 @@
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -227,18 +286,33 @@
   
 
     
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3.- PHP Orientado a Objetos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="03phpoo.html" class="md-nav__link md-nav__link--active">
+        3.- PHP Orientado a Objetos
+      </a>
+      
+        
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
@@ -253,8 +327,97 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#orientacion-a-objetos" class="md-nav__link">
-    Orientación a objetos
+  <a href="#clases-y-objetos" class="md-nav__link">
+    Clases y Objetos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulacion" class="md-nav__link">
+    Encapsulación
+  </a>
+  
+    <nav class="md-nav" aria-label="Encapsulación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recibiendo-y-enviando-objetos" class="md-nav__link">
+    Recibiendo y enviando objetos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" class="md-nav__link">
+    Constructor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-estaticas" class="md-nav__link">
+    Clases estáticas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funciones-predefinidas" class="md-nav__link">
+    Funciones predefinidas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herencia" class="md-nav__link">
+    Herencia
+  </a>
+  
+    <nav class="md-nav" aria-label="Herencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sobreescribir-metodos" class="md-nav__link">
+    Sobreescribir métodos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructor-en-hijos" class="md-nav__link">
+    Constructor en hijos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-abstractas" class="md-nav__link">
+    Clases abstractas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clases-finales" class="md-nav__link">
+    Clases finales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
   </a>
   
 </li>
@@ -271,14 +434,42 @@
     Actividades
   </a>
   
+    <nav class="md-nav" aria-label="Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetos" class="md-nav__link">
+    Objetos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-videoclub" class="md-nav__link">
+    Proyecto Videoclub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
                   </div>
                 </div>
               </div>
+            
             
           
           <div class="md-content" data-md-component="content">
@@ -301,27 +492,10 @@
 <li>Se han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación Web. </li>
 <li>Se han escrito aplicaciones Web con mantenimiento de estado y separación de la lógica de negocio. </li>
 <li>Se han aplicado los principios de la programación orientada a objetos. </li>
-<li>
-<p>Se ha probado y documentado el código.</p>
-</li>
-<li>
-<p>Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.</p>
-</li>
+<li>Se ha probado y documentado el código.</li>
 </ol>
-<p>Criterios de evaluación:</p>
-<ol>
-<li>Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.</li>
-<li>Se han identificado las principales tecnologías asociadas.</li>
-<li>Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.</li>
-<li>Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.</li>
-<li>Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.</li>
-<li>Se han utilizado directivas para modificar el comportamiento predeterminado.</li>
-<li>Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.</li>
-<li>Se han identificado los ámbitos de utilización de las variables.</li>
-</ol>
-<hr />
 </details>
-<h2 id="orientacion-a-objetos">Orientación a objetos<a class="headerlink" href="#orientacion-a-objetos" title="Permanent link">&para;</a></h2>
+<h2 id="clases-y-objetos">Clases y Objetos<a class="headerlink" href="#clases-y-objetos" title="Permanent link">&para;</a></h2>
 <p>PHP sigue un paradigma de programación orientada a objetos (POO) basada en clases.</p>
 <p>Un clase es un plantilla que define las propiedades y métodos para poder crear objetos. De este manera, un objeto es una instancia de una clase.</p>
 <p>Tanto las propiedades como los métodos se definen con una visibilidad (quien puede acceder)</p>
@@ -330,28 +504,353 @@
 <li>Protegido - <code>protected</code>: Sólo puede acceder la propia clase o sus descendientes</li>
 <li>Público - <code>public</code>: Puede acceder cualquier otra clase</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">class NombreClase {</span>
-<span class="linenos" data-linenos="2 "></span><span class="x">   // propiedades</span>
-<span class="linenos" data-linenos="3 "></span><span class="x">   // y métodos</span>
-<span class="linenos" data-linenos="4 "></span><span class="x">}</span>
-<span class="linenos" data-linenos="5 "></span>
-<span class="linenos" data-linenos="6 "></span><span class="x">$ob = new NombreClase();</span>
+<p>Para declarar una clase, se utiliza la palabra clave <code>class</code> seguido del nombre de la clase. Para instanciar un objeto a partir de la clase, se utiliza <code>new</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">NombreClase</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// propiedades</span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">// y métodos</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$ob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NombreClase</span><span class="p">();</span>
 </code></pre></div>
 <div class="admonition important">
-<p class="admonition-title">Empiezan por mayúsculas</p>
-<p>Todas las clases empiezan por letra mayúscula.</p>
+<p class="admonition-title">Clases con mayúscula</p>
 </div>
-<p>En UML, la clases se representan mediante un cuadrado, separando el nombre, de las propiedades y los métodos: 
-<img alt="UML" src="imagenes/03/uml.png" /></p>
+<p>Todas las clases empiezan por letra mayúscula.</p>
+<p>Cuando un proyecto crece, es normal modelar las clases mediante UML (¿recordáis <em>Entornos de Desarrollo</em>?). La clases se representan mediante un cuadrado, separando el nombre, de las propiedades y los métodos:</p>
+<p><img alt="UML" src="imagenes/03/uml.png" width="500" /></p>
+<p>Una vez que hemos creado un objeto, se utiliza el operador <code>-&gt;</code> para acceder a una propiedad o un método:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$objeto-&gt;propiedad;</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">$objeto-&gt;método(parámetros);</span>
+</code></pre></div>
+<p>Si desde dentro de la clase, queremos acceder a una propiedad o método de la misma clase, utilizaremos la referencia <code>$this</code>;</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$this-&gt;propiedad;</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">$this-&gt;método(parámetros);  </span>
+</code></pre></div>
+<p>Así pues, como ejemplo, codificaríamos una persona en el fichero <code>Persona.php</code> como:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setNombre</span><span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="o">=</span><span class="nv">$nom</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">imprimir</span><span class="p">(){</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="s1">&#39;&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$bruno </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">();</span> <span class="c1">// creamos un objeto</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Bruno Díaz&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">imprimir</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="encapsulacion">Encapsulación<a class="headerlink" href="#encapsulacion" title="Permanent link">&para;</a></h2>
+<p>Las propiedades se definen privadas o protegidas (si queremos que las clases heredadas puedan acceder).</p>
+<p>Para cada propiedad, se añaden métodos públicos (<em>getter/setter</em>):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">public setPropiedad($param)</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">public getPropiedad()</span>
+</code></pre></div>
+<p>Las constantes se definen públicas para que sean accesibles por todos los recursos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MayorMenor </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$mayor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nv">$menor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMayor</span><span class="p">(</span><span class="nx">int </span><span class="nv">$may</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mayor </span><span class="o">=</span> <span class="nv">$may</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMenor</span><span class="p">(</span><span class="nx">int </span><span class="nv">$men</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">menor </span><span class="o">=</span> <span class="nv">$men</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMayor</span><span class="p">()</span> <span class="o">:</span> <span class="nx">int </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mayor</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMenor</span><span class="p">()</span> <span class="o">:</span> <span class="nx">int </span><span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">menor</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="recibiendo-y-enviando-objetos">Recibiendo y enviando objetos<a class="headerlink" href="#recibiendo-y-enviando-objetos" title="Permanent link">&para;</a></h3>
+<p>Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone <code>?</code> delante del nombre de la clase.</p>
+<div class="admonition important">
+<p class="admonition-title">Objetos por referencia</p>
+</div>
+<p>Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="hll"><span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">maymen</span><span class="p">(</span><span class="k">array</span> <span class="nv">$numeros</span><span class="p">)</span> <span class="o">:</span> <span class="o">?</span><span class="nx">MayorMenor </span><span class="p">{</span>
+</span><span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$a </span><span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nv">$numeros</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$b </span><span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nv">$numeros</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$result </span><span class="o">=</span> <span class="k">new</span> <span class="nx">MayorMenor</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">setMayor</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$result</span><span class="o">-&gt;</span><span class="na">setMenor</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$resultado </span><span class="o">=</span>  <span class="nx">maymen</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">388</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">22</span><span class="p">]);</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Mayor: &quot;</span><span class="o">.</span><span class="nv">$resultado</span><span class="o">-&gt;</span><span class="na">getMayor</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Menor: &quot;</span><span class="o">.</span><span class="nv">$resultado</span><span class="o">-&gt;</span><span class="na">getMenor</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p>El constructor de los objetos se define mediante el método mágico <code>__construct</code>.
+Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="hll"><span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="linenos" data-linenos=" 6 "></span>      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="o">=</span><span class="nv">$nom</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">imprimir</span><span class="p">(){</span>
+<span class="linenos" data-linenos="10 "></span>      <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>      <span class="k">echo</span> <span class="s1">&#39;&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$bruno </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">(</span><span class="s2">&quot;Bruno Díaz&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">imprimir</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="clases-estaticas">Clases estáticas<a class="headerlink" href="#clases-estaticas" title="Permanent link">&para;</a></h2>
+<p>Son aquellas que tienes propiedades y/o métodos estáticos (también se conocen como <em>de clase</em>).
+Se declaran con <code>static</code> y se referencian con <code>::</code>. Si desde un método estático queremos acceder a una propiedad estática de la misma clase, se utiliza la referencia <code>self</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.23</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numProductos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">nuevoProducto</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProductos</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">nuevoProducto</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$impuesto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">IVA</span><span class="p">;</span>
+</code></pre></div>
+<p>También podemos tener clases normales que tengan alguna propiedad estática:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">const</span> <span class="no">IVA </span><span class="o">=</span> <span class="mf">0.23</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$numProductos </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">private</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string </span><span class="nv">$cod</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nx">self</span><span class="o">::</span><span class="nv">$numProductos</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo </span><span class="o">=</span> <span class="nv">$cod</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="s2">&quot;El producto &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">.</span><span class="s2">&quot; es el número &quot;</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="nv">$numProductos</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$prod1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;PS5&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$prod2 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;XBOX Series X&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$prod3 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;Nintendo Switch&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span><span class="k">echo</span> <span class="nv">$prod3</span><span class="o">-&gt;</span><span class="na">mostrarResumen</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="funciones-predefinidas">Funciones predefinidas<a class="headerlink" href="#funciones-predefinidas" title="Permanent link">&para;</a></h2>
+<p>Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que conviene conocer:</p>
+<ul>
+<li><code>instanceof</code>: permite comprobar si un objeto es de una determinada clase</li>
+<li><code>get_class</code>: devuelve el nombre de la clase</li>
+<li><code>get_declared_class</code>: devuelve un array con los nombres de las clases definidas</li>
+<li><code>class_alias</code>: crea un alias</li>
+<li><code>class_exists</code> / <code>method_exists</code> / <code>property_exists</code>: <code>true</code> si la clase / método / propiedad está definida</li>
+<li><code>get_class_methods</code> / <code>get_class_vars</code> / <code>get_object_vars</code>: Devuelve un array con los nombres de los métodos / propiedades de una clase / propiedades de un objeto que son accesibles desde dónde se hace la llamada.</li>
+</ul>
+<p>Un ejemplo de estas funciones puede ser el siguiente:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$p </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;PS5&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$p instanceof Producto</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es un producto&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;La clase es &quot;</span><span class="o">.</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$p</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nb">class_alias</span><span class="p">(</span><span class="s2">&quot;Producto&quot;</span><span class="p">,</span> <span class="s2">&quot;Articulo&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$c </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Articulo</span><span class="p">(</span><span class="s2">&quot;Nintendo Switch&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">echo</span> <span class="s2">&quot;Un articulo es un &quot;</span><span class="o">.</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$c</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nb">print_r</span><span class="p">(</span><span class="nb">get_class_methods</span><span class="p">(</span><span class="s2">&quot;Producto&quot;</span><span class="p">));</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nb">print_r</span><span class="p">(</span><span class="nb">get_class_vars</span><span class="p">(</span><span class="s2">&quot;Producto&quot;</span><span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nb">print_r</span><span class="p">(</span><span class="nb">get_object_vars</span><span class="p">(</span><span class="nv">$p</span><span class="p">));</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$p</span><span class="p">,</span> <span class="s2">&quot;mostrarResumen&quot;</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">mostrarResumen</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition caution">
+<p class="admonition-title">Clonado</p>
+<p>Al asignar dos objetos no se copian, se crea una nueva referencia. Si queremos una copia, hay que clonarlo mediante el método <code>clone(object) : object</code></p>
+<p>Si queremos modificar el clonado por defecto, hay que definir el método mágico <code>__clone()</code> que se llamará después de copiar todas las propiedades.</p>
+<p>Más información en <a href="https://www.php.net/manual/es/language.oop5.cloning.php">https://www.php.net/manual/es/language.oop5.cloning.php</a></p>
+</div>
+<h2 id="herencia">Herencia<a class="headerlink" href="#herencia" title="Permanent link">&para;</a></h2>
+<p>PHP soporta herencia simple, de manera que una clase solo puede heredar de otra, no de dos clases a la vez. Si queremos que la clase A hereda de la clase B haremos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>class A extends B
+</code></pre></div>
+<p>El hijo hereda los atributos y métodos públicos y protegidos.</p>
+<p>Por ejemplo, tenemos una clase Producto y una Tv que hereda de Producto:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nv">$nombreCorto</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="nv">$PVP</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Prod:&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Podemos utilizar las siguientes funciones para averiguar si hay relación entre dos clases:</p>
+<ul>
+<li><code>get_parent_class(object): string</code></li>
+<li><code>is_subclass_of(object, string): bool</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tv</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$t</span><span class="o">-&gt;</span><span class="na">codigo</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="nx">instanceof</span> <span class="nx">Producto</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="nv">$t</span><span class="o">-&gt;</span><span class="na">muestra</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$padre</span> <span class="o">=</span> <span class="nb">get_parent_class</span><span class="p">(</span><span class="nv">$t</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;La clase padre es: &quot;</span> <span class="o">.</span> <span class="nv">$padre</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$objetoPadre</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$padre</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nv">$objetoPadre</span><span class="o">-&gt;</span><span class="na">mostrarResumen</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">is_subclass_of</span><span class="p">(</span><span class="nv">$t</span><span class="p">,</span> <span class="s1">&#39;Producto&#39;</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Soy un hijo de Producto&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="sobreescribir-metodos">Sobreescribir métodos<a class="headerlink" href="#sobreescribir-metodos" title="Permanent link">&para;</a></h3>
+<p>Podemos crear métodos en los hijos con el mismo nombre que el padre, cambiando su comportamiento.
+Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>   <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>   <span class="k">public</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>      <span class="k">parent</span><span class="o">::</span><span class="na">muestra</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;TV &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>   <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="constructor-en-hijos">Constructor en hijos<a class="headerlink" href="#constructor-en-hijos" title="Permanent link">&para;</a></h3>
+<p>En los hijos no se crea ningún constructor de manera automática. Por lo que si no lo hay, se invoca automáticamente al del padre. En cambio, si lo definimos en el hijo, hemos de invocar al del padre de manera explícita.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string </span><span class="nv">$codigo</span><span class="p">,</span> <span class="nx">int </span><span class="nv">$pulgadas</span><span class="p">,</span> <span class="nx">string </span><span class="nv">$tecnologia</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$codigo</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas </span><span class="o">=</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia </span><span class="o">=</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="clases-abstractas">Clases abstractas<a class="headerlink" href="#clases-abstractas" title="Permanent link">&para;</a></h2>
+<p>Obliga a heredar de una clase, ya que no se permite su instanciación. Se define mediante <code>abstract class NombreClase {</code>.<br />
+Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o métodos abstractos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Clase abstracta</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCodigo</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">// Método abstracto</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Cuando una clase hereda de una clase abstracta, obligatoriamente debe implementar los métodos marcados como abstractos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//obligado a implementarlo</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Código &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getCodigo</span><span class="p">()</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;TV &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tv</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="nv">$t</span><span class="o">-&gt;</span><span class="na">getCodigo</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="clases-finales">Clases finales<a class="headerlink" href="#clases-finales" title="Permanent link">&para;</a></h2>
+<p>Son clases opuestas a abstractas, ya que evita que se pueda heredar una clase o método para sobreescribirlo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCodigo</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">final</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">return</span> <span class="s2">&quot;Producto &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="k">final</span> <span class="k">class</span> <span class="nc">Microondas extends Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">private</span> <span class="nv">$potencia</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPotencia</span><span class="p">()</span> <span class="o">:</span> <span class="nx">int </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">potencia</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
+<p>Permite definir un contrato con las firmas de los métodos a cumplir. Así pues, sólo contiene declaraciones de funciones y todas deben ser públicas.</p>
+<p>Se declaran con <code>interface</code> y luego las clases que cumplan el contrato lo realizan mediante <code>implements</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">interface</span> <span class="nx">Nombreable</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// declaración de funciones</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">class</span> <span class="nc">NombreClase</span> <span class="k">implements</span> <span class="nx">NombreInterfaz</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// código de la clase</span>
+</code></pre></div>
+<p>Permite herencia de interfaces. Una clase puede implementar varios interfaces</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">interface</span> <span class="nx">Mostrable </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">interface</span> <span class="nx">MostrableTodo extends Mostrable </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarTodo</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">interface</span> <span class="nx">Facturable </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">generarFactura</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="k">class</span> <span class="nc">Producto implements MostrableTodo</span><span class="p">,</span> <span class="nx">Facturable </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">// Implementaciones de los métodos</span>
+<span class="linenos" data-linenos="16 "></span>    
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+</code></pre></div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.php.net/manual/es/index.php">Manual de PHP</a></li>
 </ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="300">
-<li>Investiga</li>
+<li>Investiga la diferencia entre un paradigma orientado a objetos basado en clases (<em>PHP</em>) respecto a uno basado en prototipos (<em>JavaScript</em>).</li>
+</ol>
+<h3 id="objetos">Objetos<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h3>
+<ol start="301">
 <li><code>301Empleado.php</code>: Crea una clase <code>Empleado</code> con su nombre, apellidos y sueldo.
-Encapsula las propiedades mediante getters/setters y añade métodos para:<ul>
+Encapsula las propiedades mediante <em>getters/setters</em> y añade métodos para:<ul>
 <li>Obtener su nombre completo -&gt; <code>getNombreCompleto(): string</code></li>
 <li>Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) -&gt; <code>debePagarImpuestos(): bool</code></li>
 </ul>
@@ -365,18 +864,479 @@ Añade los siguientes métodos:<ul>
 </ul>
 </li>
 <li><code>303EmpleadoConstructor.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Elimina los setters de <code>nombre</code> y <code>apellidos</code>, de manera que dichos datos se asignan mediante el constructor.
+Elimina los <em>setters</em> de <code>nombre</code> y <code>apellidos</code>, de manera que dichos datos se asignan mediante el constructor.
 Si el constructor recibe un tercer parámetro, será el sueldo del Empleado. Si no, se le asignará 1000€ como sueldo inicial.</li>
 <li><code>304EmpleadoConstante.php</code>: Copia la clase del ejercicio anterior y modifícala.
 Añade una constante <code>SUELDO_TOPE</code> con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.</li>
 <li><code>305EmpleadoSueldo.php</code>: Copia la clase del ejercicio anterior y modifícala.
 Cambia la constante por una variable estática <code>sueldoTope</code>, de manera que mediante <em>getter/setter</em> puedas modificar su valor.</li>
-<li><code>306EmpleadoStatic.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada:<ul>
+<li>
+<p><code>306EmpleadoStatic.php</code>: Copia la clase del ejercicio anterior y modifícala.
+Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada:</p>
+<ul>
 <li><code>public static function toHtml(Empleado $emp): string</code></li>
 </ul>
+<p><figure style="float: right;">
+<img src="imagenes/03/03p307.png">
+<figcaption>Ejercicio 307</figcaption>
+</figure></p>
 </li>
-<li></li>
+<li>
+<p><code>307Persona.php</code>: Copia la clase del ejercicio anterior en <code>307Empleado.php</code> y modifícala.<br />
+Crea una clase <code>Persona</code> que sea padre de <code>Empleado</code>, de manera que <code>Persona</code> contenga el nombre y los apellidos, y en <code>Empleado</code> quede el salario y los teléfonos.</p>
+</li>
+<li><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
+Crea en <code>Persona</code> el método estático <code>toHtml(Persona $p)</code>.<br />
+Modifica en <code>Empleado</code> el mismo método <code>toHtml()</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.</li>
+<li>
+<p><code>309PersonaE.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
+Añade en <code>Persona</code> un atributo <code>edad</code><br />
+A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años.<br />
+Modifica todo el código necesario para mostrar y/o editar la edad cuando sea necesario.</p>
+</li>
+<li>
+<p><code>310PersonaS.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
+Añade nuevos métodos que hagan una representación de todas las propiedades de las clases <code>Persona</code> y <code>Empleado</code>, de forma similar a los realizados en HTML, pero sin que sean estáticos, de  manera que obtenga los datos mediante <code>$this</code>.</p>
+<ul>
+<li><code>function public __toString(): string</code></li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title"><em>Magic methods</em></p>
+</div>
+<p>El método <code>__toString()</code> es un método mágico que se invoca automáticamente cuando queremos obtener la representación en cadena de un objeto.</p>
+<ol start="311">
+<li>
+<p><code>311PersonaA.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
+Transforma <code>Persona</code> a una clase abstracta donde su método <code>toHtml()</code> tenga que ser redefinido en todos sus hijos.</p>
+</li>
+<li>
+<p><code>312Trabajador.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
+<ul>
+<li>Cambia la estructura de clases conforme al gráfico respetando todos los métodos que ya están hechos.</li>
+<li><code>Trabajador</code> es una clase abstracta que ahora almacena los <code>telefonos</code> y donde <code>calcularSueldo</code> es un método abstracto.</li>
+<li>El sueldo de un <code>Empleado</code> se calcula a partir de las horas trabajadas y lo que cobra por hora.</li>
+<li>Para los <code>Gerente</code>s, su sueldo se incrementa porcentualmente en base a su edad: <code>salario + salario*edad/100</code></li>
+</ul>
+<p><figure>
+<img src="imagenes/03/03p312.png">
+<figcaption>Ejercicio 312</figcaption>
+</figure></p>
+</li>
+<li>
+<p><code>313Empresa.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
+<ul>
+<li>Crea una clase <code>Empresa</code> que además del nombre y la dirección, contenga una propiedad con un array de <code>Trabajador</code>es, ya sean <code>Empleado</code>s o <code>Gerente</code>s. </li>
+<li>Añade <em>getters/setters</em> para el nombre y dirección.</li>
+<li>Añade métodos para añadir y listar los trabajadores.<ul>
+<li><code>public function anyadirTrabajador(Trabajador $t)</code></li>
+<li><code>public function listarTrabajadoresHtml() : string</code></li>
+</ul>
+</li>
+<li>Añade un método para obtener el coste total en nóminas.<ul>
+<li><code>public function getCosteNominas(): float</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>314EmpresaI.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
+<ul>
+<li>Crea un interfaz JSerializable, de manera que ofrezca los métodos:<ul>
+<li><code>toJSON(): string</code> -&gt; utiliza la función <code>json_encode(mixed)</code></li>
+<li><code>toSerialize(): string</code> -&gt; utiliza la función <code>serialize(mixed)</code></li>
+</ul>
+</li>
+<li>Modifica todas las clases que no son abstractas para que implementen el interfaz creado.</li>
+</ul>
+</li>
+</ol>
+<h3 id="proyecto-videoclub">Proyecto Videoclub<a class="headerlink" href="#proyecto-videoclub" title="Permanent link">&para;</a></h3>
+<p>En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub, el cual vamos a realizar mediante un desarrollo incremental.</p>
+<div class="admonition warning">
+<p class="admonition-title">Proyecto no real</p>
+<p>El siguiente proyecto está pensado desde un punto de vista formativo. Algunas de las decisiones que se toman no se deben usar (como hacer <code>echo</code> dentro de las clases) o probar el código comparando el resultado en el navegador.</p>
+</div>
+<p>Cada clase debe ir en un archivo php separado. Para facilitar su implementación, se muestra la estructura UML del modelo y un fragmento de código para probar las clases:</p>
+<figure style="float: right;">
+    <img src="imagenes/03/03p320.png" width="150">
+    <figcaption>Creamos el Soporte</figcaption>
+</figure>
+
+<ol start="320">
+<li>
+<p>Crea una clase para almacenar soportes (<code>Soporte.php</code>). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):</p>
+<ul>
+<li>Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos <em>setters</em>.</li>
+<li>Definir una constante IVA = 1.16</li>
+<li>Crear un archivo (<code>inicio.php</code>) para usar las clases y copia el siguiente fragmento:</li>
+</ul>
+</li>
+</ol>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Soporte.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$soporte1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Soporte</span><span class="p">(</span><span class="s2">&quot;Tenet&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;strong&gt;&quot;</span> <span class="o">.</span> <span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">titulo </span><span class="o">.</span> <span class="s2">&quot;&lt;/strong&gt;&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio: &quot;</span> <span class="o">.</span> <span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">getPrecio</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio IVA incluido: &quot;</span> <span class="o">.</span> <span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">getPrecioConIVA</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+<strong>Tenet</strong>
+Precio: 3 euros
+Precio IVA incluido: 3.48 euros
+<em>Tenet</em>
+3 (IVA no incluido)
+</pre></p>
+</div>
+</div>
+<figure style="float: right;">
+    <img src="imagenes/03/03p321.png" width="150">
+    <figcaption>Añadimos Cinta de Video</figcaption>
+</figure>
+
+<ol start="321">
+<li>
+<p>Crea la clase <code>CintaVideo</code> la cual hereda de <code>Soporte</code>. Añade el atributo <code>duracion</code> y sobreescribe tanto el contructor como el método <code>muestraResumen</code> (desde <code>CintaVideo</code> deberás llamar al método <code>muestraResumen</code> del padre).</p>
+<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+</li>
+</ol>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$miCinta </span><span class="o">=</span> <span class="k">new</span> <span class="nx">CintaVideo</span><span class="p">(</span><span class="s2">&quot;Los cazafantasmas&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">107</span><span class="p">);</span> 
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;strong&gt;&quot;</span> <span class="o">.</span> <span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">titulo </span><span class="o">.</span> <span class="s2">&quot;&lt;/strong&gt;&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio: &quot;</span> <span class="o">.</span> <span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">getPrecio</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio IVA incluido: &quot;</span> <span class="o">.</span> <span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">getPrecioConIva</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+<strong>Los cazafantasmas</strong>
+Precio: 3.5 euros
+Precio IVA incluido: 4.06 euros
+Película en VHS:
+<em>Los cazafantasmas</em>
+3.5 (IVA no incluido)
+Duración: 107 minutos
+</pre></p>
+</div>
+</div>
+<figure style="float: right;">
+    <img src="imagenes/03/03p322.png" width="250">
+    <figcaption>Añadimos Dvd</figcaption>
+</figure>
+
+<ol start="322">
+<li>
+<p>Crea la clase <code>Dvd</code> la cual hereda de <code>Soporte</code>. Añade los atributos <code>idiomas</code> y <code>formatoPantalla</code>. A continuación sobreescribe tanto el contructor como el método <code>muestraResumen</code>.</p>
+<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+</li>
+</ol>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$miDvd </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Dvd</span><span class="p">(</span><span class="s2">&quot;Origen&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;es,en,fr&quot;</span><span class="p">,</span> <span class="s2">&quot;16:9&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;strong&gt;&quot;</span> <span class="o">.</span> <span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">titulo </span><span class="o">.</span> <span class="s2">&quot;&lt;/strong&gt;&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio: &quot;</span> <span class="o">.</span> <span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">getPrecio</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio IVA incluido: &quot;</span> <span class="o">.</span> <span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">getPrecioConIva</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+<strong>Origen</strong>
+Precio: 15 euros
+Precio IVA incluido: 17.4 euros
+Película en DVD:
+<em>Origen</em>
+15 € (IVA no incluido)
+Idiomas:es,en,fr
+Formato Pantalla:16:9
+</pre></p>
+</div>
+</div>
+<figure style="float: right;">
+    <img src="imagenes/03/03p323.png" width="350">
+    <figcaption>Añadimos Juego</figcaption>
+</figure>
+
+<ol start="323">
+<li>
+<p>Crea la clase <code>Juego</code> la cual hereda de <code>Soporte</code>. Añade los atributos <code>consola</code>, <code>minNumJugadores</code> y <code>maxNumJugadores</code>. A continuación añade el método <code>muestraJugadoresPosibles</code>, el cual debe mostrar <em>Para un jugador</em>, <em>Para X jugadores</em> o <em>De X a Y jugadores</em> dependiendo de los valores de las atributos creados. Finalmente, sobreescribe tanto el contructor como el método <code>muestraResumen</code>.</p>
+<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+</li>
+</ol>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$miJuego</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Juego</span><span class="p">(</span><span class="s2">&quot;The Last of Us Part II&quot;</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">49.99</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> 
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;strong&gt;&quot;</span> <span class="o">.</span> <span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">titulo</span> <span class="o">.</span> <span class="s2">&quot;&lt;/strong&gt;&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio: &quot;</span> <span class="o">.</span> <span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">getPrecio</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span> 
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Precio IVA incluido: &quot;</span> <span class="o">.</span> <span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">getPrecioConIva</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&quot; euros&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+<strong>The Last of Us Part II</strong>
+Precio: 49.99 euros
+Precio IVA incluido: 57.9884 euros
+Juego para: PS4
+<em>The Last of Us Part II</em>
+49.99 € (IVA no incluido)
+Para un jugador
+</pre></p>
+</div>
+</div>
+<p>Llegados a este punto, nuestro modelo es similar al siguiente diagrama:</p>
+<figure>
+    <img src="imagenes/03/03videoclub1.png" width="600">
+    <figcaption>Modelo inicial de Videoclub</figcaption>
+</figure>
+
+<figure style="float: right;">
+    <img src="imagenes/03/03p324.png" width="275">
+    <figcaption>Añadimos Cliente</figcaption>
+</figure>
+
+<ol start="324">
+<li>
+<p>Crear la clase <code>Cliente</code>. El constructor recibirá el <code>nombre</code>, <code>numero</code> y <code>maxAlquilerConcurrente</code>, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade <em>getter/setter</em> únicamente a <code>numero</code>. Finalmente, añade el método <code>muestraResumen</code> que muestre el nombre y la cantidad de alquileres.</p>
+</li>
+<li>
+<p>Dentro de <code>Cliente</code>, añade las siguiente operaciones:</p>
+<ul>
+<li><code>tieneAlquilado(Soporte $s): bool</code> -&gt; Recorre el array de soportes y comprueba si está el soporte</li>
+<li><code>alquilar(Soporte $s): bool</code> --&gt; Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.</li>
+</ul>
+</li>
+<li>
+<p>Seguimos con <code>Cliente</code> para añadir las operaciones:</p>
+<ul>
+<li><code>devolver(int $numSoporte): bool</code> -&gt; Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido</li>
+<li><code>listarAlquileres(): void</code> -&gt; Informa de cuantos alquileres tiene el cliente y los muestra</li>
+</ul>
+</li>
+</ol>
+<p>Crea el archivo <code>inicio2.php</code> con el siguiente código fuente para probar la clase:</p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">include_once</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">include_once</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">include_once</span> <span class="s2">&quot;Cliente.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">//instanciamos un par de objetos cliente</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$cliente1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cliente</span><span class="p">(</span><span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$cliente2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cliente</span><span class="p">(</span><span class="s2">&quot;Clark Kent&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">//mostramos el número de cada cliente creado </span>
+<span class="linenos" data-linenos="12 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;El identificador del cliente 1 es: &quot;</span> <span class="o">.</span> <span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">getNumero</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;El identificador del cliente 2 es: &quot;</span> <span class="o">.</span> <span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">getNumero</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">//instancio algunos soportes </span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$soporte1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CintaVideo</span><span class="p">(</span><span class="s2">&quot;Los cazafantasmas&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">107</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$soporte2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Juego</span><span class="p">(</span><span class="s2">&quot;The Last of Us Part II&quot;</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mf">49.99</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>  
+<span class="linenos" data-linenos="18 "></span><span class="nv">$soporte3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dvd</span><span class="p">(</span><span class="s2">&quot;Origen&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;es,en,fr&quot;</span><span class="p">,</span> <span class="s2">&quot;16:9&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$soporte4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dvd</span><span class="p">(</span><span class="s2">&quot;El Imperio Contraataca&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;es,en&quot;</span><span class="p">,</span><span class="s2">&quot;16:9&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="c1">//alquilo algunos soportes</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte1</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte2</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte3</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="c1">//voy a intentar alquilar de nuevo un soporte que ya tiene alquilado</span>
+<span class="linenos" data-linenos="27 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte1</span><span class="p">);</span>
+<span class="linenos" data-linenos="28 "></span><span class="c1">//el cliente tiene 3 soportes en alquiler como máximo</span>
+<span class="linenos" data-linenos="29 "></span><span class="c1">//este soporte no lo va a poder alquilar</span>
+<span class="linenos" data-linenos="30 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte4</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span><span class="c1">//este soporte no lo tiene alquilado</span>
+<span class="linenos" data-linenos="32 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span><span class="c1">//devuelvo un soporte que sí que tiene alquilado</span>
+<span class="linenos" data-linenos="34 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="linenos" data-linenos="35 "></span><span class="c1">//alquilo otro soporte</span>
+<span class="linenos" data-linenos="36 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte4</span><span class="p">);</span>
+<span class="linenos" data-linenos="37 "></span><span class="c1">//listo los elementos alquilados</span>
+<span class="linenos" data-linenos="38 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">listaAlquileres</span><span class="p">();</span>
+<span class="linenos" data-linenos="39 "></span><span class="c1">//este cliente no tiene alquileres</span>
+<span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+El identificador del cliente 1 es: 23
+El identificador del cliente 2 es: 33
+<strong>Alquilado soporte a</strong>: Bruce Wayne</p>
+<p>Película en VHS:
+<em>Los cazafantasmas</em>
+3.5 € (IVA no incluido)
+Duración: 107 minutos</p>
+<p><strong>Alquilado soporte a</strong>: Bruce Wayne</p>
+<p>Juego para: PS4
+<em>The Last of Us Part II</em>
+49.99 € (IVA no incluido)
+Para un jugador</p>
+<p><strong>Alquilado soporte a</strong>: Bruce Wayne</p>
+<p>Película en DVD:
+<em>Origen</em>
+15 € (IVA no incluido)
+Idiomas:es,en,fr
+Formato Pantalla:16:9</p>
+<p>El cliente ya tiene alquilado el soporte <strong>Los cazafantasmas</strong></p>
+<p>Este cliente tiene 3 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo</p>
+<p>No se ha podido encontrar el soporte en los alquileres de este cliente</p>
+<p>No se ha podido encontrar el soporte en los alquileres de este cliente</p>
+<p>Este cliente tiene 3 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo</p>
+<p><strong>El cliente tiene 3 soportes alquilados</strong></p>
+<p>Película en VHS:
+<em>Los cazafantasmas</em>
+3.5 € (IVA no incluido)
+Duración: 107 minutos</p>
+<p>Juego para: PS4
+<em>The Last of Us Part II</em>
+49.99 € (IVA no incluido)
+Para un jugador</p>
+<p>Película en DVD:
+<em>Origen</em>
+15 € (IVA no incluido)
+Idiomas:es,en,fr
+Formato Pantalla:16:9</p>
+<p>Este cliente no tiene alquilado ningún elemento
+</pre></p>
+</div>
+</div>
+<ol start="327">
+<li>Llegado a este punto, vamos a relacionar los clientes y los soportes mediante la clase <code>Videoclub</code>. Así pues crea la clase que representa el gráfico, teniendo en cuenta que:<ul>
+<li><code>productos</code> es un array de <code>Soporte</code></li>
+<li><code>socios</code> es una array de <code>Cliente</code></li>
+<li>Los métodos públicos de incluir algún soporte, crearán la clase y llamarán al método privado de <code>incluirProducto</code>, el cual es el encargado de introducirlo dentro del array.</li>
+</ul>
+</li>
+</ol>
+<p>El modelo completo quedará de la siguiente manera:</p>
+<figure>
+    <img src="imagenes/03/03videoclub2.png" width="800">
+    <figcaption>Modelo completo de Videoclub</figcaption>
+</figure>
+
+<p>Y para probar el proyecto, dentro <code>inicio3.php</code> colocaremos:</p>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;Videoclub.php&quot;</span><span class="p">;</span> <span class="c1">// No incluimos nada más</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$vc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">videoclub</span><span class="p">(</span><span class="s2">&quot;La Eliana Video&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">//voy a incluir unos cuantos soportes de prueba </span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirJuego</span><span class="p">(</span><span class="s2">&quot;God of War&quot;</span><span class="p">,</span> <span class="mf">19.99</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> 
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirJuego</span><span class="p">(</span><span class="s2">&quot;The Last of Us Part II&quot;</span><span class="p">,</span> <span class="mf">49.99</span><span class="p">,</span> <span class="s2">&quot;PS4&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirDvd</span><span class="p">(</span><span class="s2">&quot;Torrente&quot;</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span><span class="s2">&quot;16:9&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="10 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirDvd</span><span class="p">(</span><span class="s2">&quot;Origen&quot;</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;es,en,fr&quot;</span><span class="p">,</span> <span class="s2">&quot;16:9&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="11 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirDvd</span><span class="p">(</span><span class="s2">&quot;El Imperio Contraataca&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;es,en&quot;</span><span class="p">,</span><span class="s2">&quot;16:9&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="12 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirCintaVideo</span><span class="p">(</span><span class="s2">&quot;Los cazafantasmas&quot;</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">107</span><span class="p">);</span> 
+<span class="linenos" data-linenos="13 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirCintaVideo</span><span class="p">(</span><span class="s2">&quot;El nombre de la Rosa&quot;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">140</span><span class="p">);</span> 
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">//listo los productos </span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarProductos</span><span class="p">();</span> 
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="c1">//voy a crear algunos socios </span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirSocio</span><span class="p">(</span><span class="s2">&quot;Amancio Ortega&quot;</span><span class="p">);</span> 
+<span class="linenos" data-linenos="20 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">incluirSocio</span><span class="p">(</span><span class="s2">&quot;Pablo Picasso&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> 
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">alquilaSocioProducto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> 
+<span class="linenos" data-linenos="23 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">alquilaSocioProducto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> 
+<span class="linenos" data-linenos="24 "></span><span class="c1">//alquilo otra vez el soporte 2 al socio 1. </span>
+<span class="linenos" data-linenos="25 "></span><span class="c1">// no debe dejarme porque ya lo tiene alquilado </span>
+<span class="linenos" data-linenos="26 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">alquilaSocioProducto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> 
+<span class="linenos" data-linenos="27 "></span><span class="c1">//alquilo el soporte 6 al socio 1. </span>
+<span class="linenos" data-linenos="28 "></span><span class="c1">//no se puede porque el socio 1 tiene 2 alquileres como máximo </span>
+<span class="linenos" data-linenos="29 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">alquilaSocioProducto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span> 
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="c1">//listo los socios </span>
+<span class="linenos" data-linenos="32 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarSocios</span><span class="p">();</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
+<p><pre>
+Incluido soporte 0
+Incluido soporte 1
+Incluido soporte 2
+Incluido soporte 3
+Incluido soporte 4
+Incluido soporte 5
+Incluido soporte 6</p>
+<p>Listado de los 7 productos disponibles:
+1.- Juego para: PS4
+<em>God of War</em>
+19.99 € (IVA no incluido)
+Para un jugador
+2.- Juego para: PS4
+<em>The Last of Us Part II</em>
+49.99 € (IVA no incluido)
+Para un jugador
+3.- Película en DVD:
+<em>Torrente</em>
+4.5 € (IVA no incluido)
+Idiomas:es
+Formato Pantalla:16:9
+4.- Película en DVD:
+<em>Origen</em>
+4.5 € (IVA no incluido)
+Idiomas:es,en,fr
+Formato Pantalla:16:9
+5.- Película en DVD:
+<em>El Imperio Contraataca</em>
+3 € (IVA no incluido)
+Idiomas:es,en
+Formato Pantalla:16:9
+6.- Película en VHS:
+<em>Los cazafantasmas</em>
+3.5 € (IVA no incluido)
+Duración: 107 minutos
+7.- Película en VHS:
+<em>El nombre de la Rosa</em>
+1.5 € (IVA no incluido)
+Duración: 140 minutos</p>
+<p>Incluido socio 0
+Incluido socio 1</p>
+<p><strong>Alquilado soporte a</strong>: Pablo Picasso</p>
+<p>Película en DVD:
+<em>Torrente</em>
+4.5 € (IVA no incluido)
+Idiomas:es
+Formato Pantalla:16:9</p>
+<p><strong> Alquilado soporte a</strong>: Pablo Picasso</p>
+<p>Película en DVD:
+<em>Origen</em>
+4.5 € (IVA no incluido)
+Idiomas:es,en,fr
+Formato Pantalla:16:9</p>
+<p>El cliente ya tiene alquilado el soporte Torrente</p>
+<p>Este cliente tiene 2 elementos alquilados. No puede alquilar más en este videoclub hasta que no devuelva algo</p>
+<p>Listado de 2 socios del videoclub:
+1.- <strong>Cliente 0</strong>: Amancio Ortega
+Alquileres actuales: 0
+2.- <strong>Cliente 1</strong>: Pablo Picasso
+Alquileres actuales: 2
+</pre></p>
+</div>
+</div>
+<ol start="428">
+<li>
+<p>Transforma <code>Soporte</code> a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?</p>
+</li>
+<li>
+<p>Crea un interfaz <code>Resumible</code>, de manera que las clases que lo implementen deben ofrecer el método <code>muestraResumen()</code>. Modifica la clase <code>Soporte</code> y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?</p>
+</li>
 </ol>
                 
               
@@ -389,10 +1349,35 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
           </div>
         </div>
         
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Volver al principio
+          </a>
+        
       </main>
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="02php.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.- El lenguaje PHP" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              2.- El lenguaje PHP
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -417,13 +1402,13 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
         
       
       <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
       </a>
     
       
       
       <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM178.117 262.104C87.429 196.287 88.353 196.121 64 177.167V152c0-13.255 10.745-24 24-24h272c13.255 0 24 10.745 24 24v25.167c-24.371 18.969-23.434 19.124-114.117 84.938-10.5 7.655-31.392 26.12-45.883 25.894-14.503.218-35.367-18.227-45.883-25.895zM384 217.775V360c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V217.775c13.958 10.794 33.329 25.236 95.303 70.214 14.162 10.341 37.975 32.145 64.694 32.01 26.887.134 51.037-22.041 64.72-32.025 61.958-44.965 81.325-59.406 95.283-70.199z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
       </a>
     
   </div>
@@ -436,10 +1421,10 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
       
     
   </body>

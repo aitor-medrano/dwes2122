@@ -6,6 +6,7 @@ nav:
   - "Inicio": "index.md"
   - "1.- Arquitecturas Web": "01arquitecturas.md"
   - "2.- El lenguaje PHP": "02php.md"
+  - "3.- PHP Orientado a Objetos": "03phpoo.md"
 #  - "5.- Acceso a Datos": "05accesoDatos.md"
 #  - "6.- Frameworks PHP - Laravel": "06frameworks.md"
 
@@ -22,14 +23,17 @@ theme:
   logo: "imagenes/logofp.png"
   features:
     - header.autohide
+    - toc.integrate
+    - navigation.tabs
+    - navigation.top
 
 extra:
   search:
     language: "es"
   social:
-    - icon: fontawesome/brands/twitter
+    - icon: material/twitter
       link: https://twitter.com/aitormedrano
-    - icon: fontawesome/solid/envelope-square
+    - icon: material/email-edit
       link: mailto:<a.medrano@edu.gva.es>
   analytics:
     provider: google
