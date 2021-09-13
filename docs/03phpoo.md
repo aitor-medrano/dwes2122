@@ -2,7 +2,7 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-    Duración estimada: 20 sesiones
+    Duración estimada: 16 sesiones
 
     <hr />
 
@@ -218,9 +218,9 @@ $prod3 = new Producto("Nintendo Switch");
 echo $prod3->mostrarResumen();
 ```
 
-## Funciones predefinidas
+## Introspección
 
-Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que conviene conocer:
+Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que permiten obtener información sobre los objetos:
 
 * `instanceof`: permite comprobar si un objeto es de una determinada clase
 * `get_class`: devuelve el nombre de la clase
@@ -427,20 +427,368 @@ Permite herencia de interfaces. Una clase puede implementar varios interfaces
 ``` php
 <?php
 interface Mostrable {
-    public function mostrarResumen() : string;
+    public function mostrarResumen() : string;
 }
 
 interface MostrableTodo extends Mostrable {
-    public function mostrarTodo() : string;
+    public function mostrarTodo() : string;
 }
 
 interface Facturable {
-    public function generarFactura() : string;
+    public function generarFactura() : string;
 }
 
 class Producto implements MostrableTodo, Facturable {
-    // Implementaciones de los métodos
-    
+    // Implementaciones de los métodos
+}
+```
+
+## Métodos encadenados
+
+Sigue el planteamiento de programación funcional, y también se conoce como *method chaining*. Plantea que sobre un objeto se realizan varias llamadas.
+
+``` php
+<?php
+$p1 = new Libro();
+$p1->setNombre("Harry Potter");
+$p1->setAutor("JK Rowling");
+echo $p1;
+
+// Method chaining
+$p2 = new Libro();
+$p2->setNombre("Patria")->setAutor("Aramburu");
+echo $p2;
+```
+
+Para facilitarlo, vamos a modificar todos mutadores (que modifican datos, *setters*, ...) para que devuelvan una referencia a `$this`:
+
+``` php
+<?php
+class Libro {
+    private string $nombre;
+    private string $autor;
+
+    public function getNombre() : string {
+        return $this->nombre;
+    }
+    public function setNombre(string $nombre) : Libro { 
+        $this->nombre = $nombre;
+        return $this;
+    }
+
+    public function getAutor() : string {
+        return $this->autor;
+    }
+    public function setAutor(string $autor) : Libro {
+        $this->autor = $autor;
+        return $this;
+    }
+
+    public function __toString() : string {
+        return $this->nombre." de ".$this->autor;
+    }
+}
+```
+
+## Métodos mágicos
+
+Todas las clases PHP ofrecen un conjunto de métodos, también conocidos como *magic methods* que se pueden sobreescribir para sustituir su comportamiento. Algunos de ellos ya los hemos utilizado.
+
+Ante cualquier duda, es conveniente consultar la [documentación oficial](https://www.php.net/manual/es/language.oop5.magic.php).
+
+Los más destacables son:
+
+* `__construct()`
+* `__destruct()` → se invoca al perder la referencia. Se utiliza para cerrar una conexión a la BD, cerrar un fichero, ...
+* `__toString()` → representación del objeto como cadena
+* `__get(propiedad)`, `__set(propiedad, valor)` → Permitiría acceder a las propiedad privadas, aunque siempre es más legible/mantenible codificar los *getter/setter*.
+* `__isset(propiedad)`, `__unset(propiedad)` → Permite averiguar o quitar el valor a una propiedad.
+* `__sleep()`, `__wakeup()` → Se ejecutan al recuperar (*unserialize^*) o almacenar un objeto que se serializa (*serialize*), y se utilizan para permite definir qué propiedades se serializan.
+* `__call()`, `__callStatic()` → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.
+
+FIXME: Falta ejemplo
+
+## Espacio de nombres
+
+Desde PHP 5.3 y también conocidos como *Namespaces*, permiten organizar las clases/interfaces, funciones y/o constantes, de forma similar a los paquetes en *Java*.
+
+!!! tip "Recomendación"
+    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*)
+
+Se declaran en la primera línea mediante la palabra clave `namespace` seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida `\`):
+
+Por ejemplo, para colocar la clase `Producto` dentro del *namespace* `Dwes\Ejemplos` lo haríamos así:
+
+``` php
+<?php
+namespace Dwes\Ejemplos;
+
+const IVA = 0.21;
+
+class Producto {
+    public $nombre;
+      
+    public function muestra() : void {
+        echo"<p>Prod:" . $this->nombre . "</p>";
+    }
+}
+```
+
+### Acceso
+
+Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de `include` o `require`. Si el recurso está en el mismo *namespace*, se realiza un acceso directo (se conoce como acceso sin cualificar).
+
+Realmente hay tres tipos de acceso:
+
+* sin cualificar: `recurso`
+* cualificado: `rutaRelativa\recurso` → no hace falta poner el *namespace* completo
+* totalmente cualificado: `\rutaAbsoluta\recurso`
+
+``` php
+<?php
+namespace Dwes\Ejemplos;
+
+include_once("Producto.php");
+
+echo IVA; // sin cualificar
+echo Utilidades\IVA; // acceso cualificado. Daría error, no existe \Dwes\Ejemplos\Utilidades\IVA
+echo \Dwes\Ejemplos\IVA; // totalmente cualificado
+
+$p1 = new Producto(); // lo busca en el mismo namespace y encuentra \Dwes\Ejemplos\Producto
+$p2 = new Model\Producto(); // daría error, no existe el namespace Model. Está buscando \Dwes\Ejemplos\Model\Producto
+$p3 = new \Dwes\Ejemplos\Producto(); // \Dwes\Ejemplos\Producto
+```
+
+Para evitar la referencia cualificada podemos declarar el uso mediante `use` (similar a hacer `import` en *Java*). Se hace en la cabecera, tras el `namespace`:
+
+Los tipos posibles son:
+
+* `use const nombreCualificadoConstante`
+* `use function nombreCualificadoFuncion`
+* `use nombreCualificadoClase`
+* `use nombreCualificadoClase as NuevoNombre` // para renombrar elementos
+
+Por ejemplo, si queremos utilizar la clase `\Dwes\Ejemplos\Producto` desde un recursos que se encuentre en la raíz, por ejemplo en `inicio.php`, haríamos:
+
+``` php
+<?php
+include_once("Dwes\Ejemplo\Producto.php");
+
+use const Dwes\Ejemplos\IVA;
+use \Dwes\Ejemplos\Producto;
+
+echo IVA;
+$p1 = new Producto();
+```
+
+!!! tip "To `use` or not to `use`"
+    En resumen, `use` permite acceder sin cualificar a recursos que están en otro *namespace*. Si estamos en el mismo espacio de nombre, no necesitamos `use`.
+
+### Organización
+
+Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización con los archivos interactuan con el navegador se colocan en el raiz, y las clases que definamos van dentro de un namespace.
+
+<figure>
+<img src="imagenes/03/03organizacion.png">
+<figcaption>Organización del código fuente</figcaption>
+</figure>
+
+!!! tip "Organización, includes y usos"
+    * Colocaremos cada recurso en un fichero aparte.
+    * En la primera línea indicaremos su *namespace* (si no está en el raíz).
+    * Si utilizamos otros recursos, haremos un `include_once` de esos recursos (clases, interfaces, etc...).
+        * Cada recurso debe incluir todos los otros recursos que referencie: la clase de la que hereda, interfaces que implementa, clases utilizadas/recibidas como parámetros, etc...
+    * Si los recursos están en un espacio de nombres diferente al que estamos, emplearemos `use` con la ruta completa para luego utilizar referencias sin cualificar.
+
+### Autoload
+
+¿No es tedioso tener que hacer el include de las clases? El *autoload* viene al rescate.
+
+Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el `include_once` de cada una de ellas. Para ello, se utiliza la función `spl_autoload_register`
+
+``` php
+<?php
+spl_autoload_register( function( $nombreClase ) {
+    include_once $nombreClase.'.php';
+} );
+?>
+```
+
+!!! question "¿Por qué se llaman autoload?"
+    Porque antes se realizaba mediante el método mágico `__autoload()`, el cual está *deprecated* desde PHP 7.2
+
+Y ¿cómo organizamos ahora nuestro código aprovechando el autoload?
+
+<figure style="float: right;">
+    <img src="imagenes/03/03autoload.png" width="600">
+    <figcaption>Organización con autoload</figcaption>
+</figure>
+
+Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
+
+Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raiz) sólo va a buscar dentro de esa carpeta:
+
+``` php
+<?php
+spl_autoload_register( function( $nombreClase ) {
+    include_once "app/".$nombreClase.'.php';
+} );
+?>
+```
+
+## Gestión de Errores
+
+PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:
+
+* `E_ERROR`: errores fatales, no recuperables. Se interrumpe el script.
+* `E_WARNING`: advertencias en tiempo de ejecución. El script no se interrumpe.
+* `E_NOTICE`: avisos en tiempo de ejecución.  
+
+Podéis comprobar el listado completo de constantes de <https://www.php.net/manual/es/errorfunc.constants.php>
+
+Para la configuración de los errores podemos hacerlo de dos formas:
+
+* A nivel de `php.ini`:
+    * `error_reporting`: indica los niveles de errores a notificar
+        * `error_reporting = E_ALL & ~E_NOTICE` -> Todos los errores menos los avisos en tiempo de ejecución.
+    * `display_errors`: indica si mostrar o no los errores por pantalla. En entornos de producción es común ponerlo a `off`
+* mediante código con las siguientes funciones:
+    * `error_reporting(codigo)` -> Controla qué errores notificar
+    * `set_error_handler(nombreManejador)` -> Indica que función se invocará cada vez que se encuentre un error. El manejador recibe como parámetros el nivel del error y el mensaje
+
+A continuación tenemos un ejemplo mediante código:
+
+=== "Funciones para la gestión de errores"
+
+    ``` php
+    <?php
+    error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+    $resultado = $dividendo / $divisor;
+
+    error_reporting(E_ALL & ~E_NOTICE);
+    set_error_handler("miManejadorErrores");
+    $resultado = $dividendo / $divisor;
+    restore_error_handler(); // vuelve al anterior
+
+    function miManejadorErrores($nivel, $mensaje) {
+        switch($nivel) {
+            case E_WARNING:
+                echo "<strong>Warning</strong>: $mensaje.<br/>";
+                break;
+            default:
+                echo "Error de tipo no especificado: $mensaje.<br/>";
+        }
+    }
+    ```
+
+=== "Consola"
+
+    ```
+    Error de tipo no especificado: Undefined variable: dividendo.
+    Error de tipo no especificado: Undefined variable: divisor.
+    Error de tipo Warning: Division by zero.
+    ```
+
+## Excepciones
+
+La gestión de excepciones forma parte desde PHP 5. Su funcionamiento es similar a *Java*, haciendo uso de un bloque `try / catch / finally`.
+Si detectamos una situación anómala y queremos lanzar una excepción, deberemos realizar `throw new Exception` (adjuntando el mensaje que lo ha provocado).
+
+``` php
+<?php
+try {
+    if ($divisor == 0) {
+        throw new Exception("División por cero.");
+    }
+    $resultado = $dividendo / $divisor;
+} catch (Exception $e) {
+    echo "Se ha producido el siguiente error: ".$e->getMessage();
+}
+```
+
+La clase `Exception` es la clase padre de todas las excepciones. Su constructor recibe `mensaje[,codigoError][,excepcionPrevia]`.
+
+A partir de un objeto `Exception`, podemos acceder a los métodos `getMessage()`y `getCode()` para obtener información de la excepción capturada.
+
+### Creando excepciones
+
+Para crear una excepción, la forma más corta es crear una clase que únicamente herede de `Exception`.
+
+``` php
+<?php
+class HolaExcepcion extends Exception {}
+```
+
+Si queremos, y es recomendable dependiendo de los requisitos, podemos sobrecargar los métodos mágicos, por ejemplo, sobrecargando el constructor y llamando al constructor del padre, o rescribir el método `__toString` para cambiar su mensaje:
+
+``` php
+<?php
+class MiExcepcion extends Exception {
+    public function __construct($msj, $codigo = 0, Exception $previa = null) {
+        // código propio
+        parent::__construct($msj, $codigo, $previa);
+    }
+    public function __toString() {
+        return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
+    }
+    public function miFuncion() {
+        echo "Una función personalizada para este tipo de excepción\n";
+    }
+}
+```
+
+### Excepciones múltiples
+
+Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.
+
+``` php
+<?php
+$email = "ejemplo@ejemplo.com";
+try {
+    // Comprueba si el email es válido
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE) {
+        throw new MiExcepcion($email);
+    }
+    // Comprueba la palabra ejemplo en la dirección email
+    if(strpos($email, "ejemplo") !== FALSE) {
+        throw new Exception("$email es un email de ejemplo");
+    }
+} catch (MiExcepcion $e) {
+    echo $e->miFuncion();
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+!!! question "Autoevaluación"
+    ¿Qué pasaría al ejectuar el siguiente código?
+    ``` php
+    <?php
+    class MainException extends Exception {}
+    class SubException extends MainException {}
+
+    try {
+        throw new SubException("Lanzada SubException");
+    } catch (MainException $e) {
+        echo "Capturada MainException " . $e->getMessage();
+    } catch (SubException $e) {
+        echo "Capturada SubException " . $e->getMessage();
+    } catch (Exception $e) {
+        echo "Capturada Exception " . $e->getMessage();
+    }
+    ```
+
+Si en el mismo `catch` queremos capturar varias excepciones, hemos de utilizar el operador `|`:
+
+``` php
+<?php
+class MainException extends Exception {}
+class SubException extends MainException {}
+
+try {
+    throw new SubException("Lanzada SubException");
+} catch (MainException | SubException $e ) {
+    echo "Capturada Exception " . $e->getMessage();
 }
 ```
 
@@ -456,14 +804,14 @@ class Producto implements MostrableTodo, Facturable {
 
 301. `301Empleado.php`: Crea una clase `Empleado` con su nombre, apellidos y sueldo.
 Encapsula las propiedades mediante *getters/setters* y añade métodos para:
-    * Obtener su nombre completo -> `getNombreCompleto(): string`
-    * Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) -> `debePagarImpuestos(): bool`
+    * Obtener su nombre completo → `getNombreCompleto(): string`
+    * Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → `debePagarImpuestos(): bool`
 302. `302EmpleadoTelefonos.php`: Copia la clase del ejercicio anterior y modifícala.
 Añade una propiedad privada que almacene un array de números de telefonos.
 Añade los siguientes métodos:
-    * `public function anyadirTelefono(int $telefono) : void` -> Añade un teléfono al array
-    * `public function listarTelefonos(): string` -> Muestra los teléfonos separados por comas
-    * `public function vaciarTelefonos(): void` -> Elimina todos los teléfonos
+    * `public function anyadirTelefono(int $telefono) : void` → Añade un teléfono al array
+    * `public function listarTelefonos(): string` → Muestra los teléfonos separados por comas
+    * `public function vaciarTelefonos(): void` → Elimina todos los teléfonos
 303. `303EmpleadoConstructor.php`: Copia la clase del ejercicio anterior y modifícala.
 Elimina los *setters* de `nombre` y `apellidos`, de manera que dichos datos se asignan mediante el constructor.
 Si el constructor recibe un tercer parámetro, será el sueldo del Empleado. Si no, se le asignará 1000€ como sueldo inicial.
@@ -522,8 +870,8 @@ Transforma `Persona` a una clase abstracta donde su método `toHtml()` tenga que
 
 314. `314EmpresaI.php`: Copia las clases del ejercicio anterior y modifícalas.
     * Crea un interfaz JSerializable, de manera que ofrezca los métodos:
-        * `toJSON(): string` -> utiliza la función `json_encode(mixed)`
-        * `toSerialize(): string` -> utiliza la función `serialize(mixed)`
+        * `toJSON(): string` → utiliza la función `json_encode(mixed)`
+        * `toSerialize(): string` → utiliza la función `serialize(mixed)`
     * Modifica todas las clases que no son abstractas para que implementen el interfaz creado.
 
 ### Proyecto Videoclub
@@ -687,12 +1035,12 @@ Llegados a este punto, nuestro modelo es similar al siguiente diagrama:
 324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres.
 
 325. Dentro de `Cliente`, añade las siguiente operaciones:
-    * `tieneAlquilado(Soporte $s): bool` -> Recorre el array de soportes y comprueba si está el soporte
-    * `alquilar(Soporte $s): bool` --> Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.
+    * `tieneAlquilado(Soporte $s): bool` → Recorre el array de soportes y comprueba si está el soporte
+    * `alquilar(Soporte $s): bool` -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.
 
 326. Seguimos con `Cliente` para añadir las operaciones:
-    * `devolver(int $numSoporte): bool` -> Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido
-    * `listarAlquileres(): void` -> Informa de cuantos alquileres tiene el cliente y los muestra
+    * `devolver(int $numSoporte): bool` → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido
+    * `listarAlquileres(): void` → Informa de cuantos alquileres tiene el cliente y los muestra
 
 Crea el archivo `inicio2.php` con el siguiente código fuente para probar la clase:
 
@@ -924,6 +1272,38 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
     Alquileres actuales: 2
     </pre>
 
-428. Transforma `Soporte` a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?
+328. Transforma `Soporte` a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?
 
-429. Crea un interfaz `Resumible`, de manera que las clases que lo implementen deben ofrecer el método `muestraResumen()`. Modifica la clase `Soporte` y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?
+329. Crea un interfaz `Resumible`, de manera que las clases que lo implementen deben ofrecer el método `muestraResumen()`. Modifica la clase `Soporte` y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?
+
+### Proyecto Videoclub 2.0
+
+330. Modifica las operaciones de alquilar, tanto en `Cliente` como en `Videoclub`, para dar soporte al encadenamiento de métodos.
+Posteriormente, modifica el código de prueba para utilizar esta técnica.
+331. Haciendo uso de *namespaces*:
+    * Coloca todas las clases/interfaces en `Dwes\ProyectoVideoclub`
+    * Cada clase debe hacer `include_once` de los recursos que emplea
+    * Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)
+    * Desde el archivo de pruebas, utiliza `use` para poder realizar accesos sin cualificar
+332. Reorganiza las carpeta tal como hemos visto en los apuntes: `app`, `test` y `vendor`.
+    * Crea un fichero `autoload.php` para registrar la ruta donde encontrar las clases
+    * Modifica todo el código necesario, incluyendo `autoload.php` donde sea necesario y borrando los *includes* previos.
+333. Crea la excepción de aplicación `VideoclubException` en el namespace `Dwes\ProyectoVideoclub\Util`.
+Posteriormente crea los siguientes hijos, cada uno en su propio archivo:
+    * `SoporteYaAlquiladoException`
+    * `CupoSuperadoException`
+    * `SoporteNoEncontradoException`
+334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados.  
+En `Videoclub`, modifica `alquilarSocioPelicula` para capturar todas las excepciones que ahora lanza `Cliente` e informar al usuario en consecuencia.
+435. Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:
+    * En `Soporte`, crea una propiedad `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
+    * En `Videoclub`, crea dos nuevas propiedades y sus getters:
+        * `numProductosAlquilados`
+        * `numTotalAlquileres`
+436. Crea un nuevo método en `Videoclub` llamado `alquilarSocioProductos(int numSocio, array numerosProducto)`, el cual debe recibir un array con los productos a alquilar.  
+Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.
+437. Crea dos nuevos métodos en `Videoclub`, y mediante la definición, deduce qué deben realizar:
+    * `devolverSocioProducto(int numSocio, int numerosProducto)`
+    * `devolverSocioProductos(int numSocio, array numerosProducto)`
+Deben soportar el encadenamiento de métodos.
+Recuerda actualizar las propiedades `alquilado`, `numProductosAlquilados` y `numTotalAlquileres`.
