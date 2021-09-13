@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -503,8 +503,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#relanzar-excepciones" class="md-nav__link">
+    Relanzar excepciones
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spl" class="md-nav__link">
+    SPL
+  </a>
   
 </li>
       
@@ -984,9 +998,8 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <li><code>__sleep()</code>, <code>__wakeup()</code> → Se ejecutan al recuperar (<em>unserialize^</em>) o almacenar un objeto que se serializa (<em>serialize</em>), y se utilizan para permite definir qué propiedades se serializan.</li>
 <li><code>__call()</code>, <code>__callStatic()</code> → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.</li>
 </ul>
-<p>FIXME: Falta ejemplo</p>
 <h2 id="espacio-de-nombres">Espacio de nombres<a class="headerlink" href="#espacio-de-nombres" title="Permanent link">&para;</a></h2>
-<p>Desde PHP 5.3 y también conocidos como <em>Namespaces</em>, permiten organizar las clases/interfaces, funciones y/o constantes, de forma similar a los paquetes en <em>Java</em>.</p>
+<p>Desde PHP 5.3 y también conocidos como <em>Namespaces</em>, permiten organizar las clases/interfaces, funciones y/o constantes de forma similar a los paquetes en <em>Java</em>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Recomendación</p>
 <p>Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en <em>Java</em>)</p>
@@ -1231,6 +1244,71 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada Exception &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
+<p>Desde PHP 7, existe el tipo <code>Throwable</code>, el cual es un interfaz que implementan tanto los errores como las excepciones, y nos permite capturar los dos tipos a la vez:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="c1">// tu codigo</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Throwable </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s1">&#39;Forma de capturar errores y excepciones a la vez&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si sólo queremos capturar los errores fatales, podemos hacer uso de la clase <code>Error</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="c1">// Genera una notificación que no se captura</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="nv">$variableNoAsignada</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="c1">// Error fatal que se captura</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nx">funcionQueNoExiste</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Error </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Error capturado: &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="relanzar-excepciones">Relanzar excepciones<a class="headerlink" href="#relanzar-excepciones" title="Permanent link">&para;</a></h3>
+<p>En las aplicaciones reales, es muy común capturar una excepción de sistema y lanzar una de aplicación que hemos definido nostros.
+También podemos lanzar las excepciones sin necesidad de estar dentro de un <code>try/catch</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">AppException extends Exception </span><span class="p">{}</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="c1">// Código de negocio que falla</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">throw</span> <span class="k">new</span> <span class="nx">AppException</span><span class="p">(</span><span class="s2">&quot;AppException: &quot;</span><span class="o">.</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">(),</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getCode</span><span class="p">(),</span> <span class="nv">$e</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="spl">SPL<a class="headerlink" href="#spl" title="Permanent link">&para;</a></h2>
+<p><em>Standard PHP Library</em> es el conjunto de funciones y utilidades que ofrece PHP, como:</p>
+<ul>
+<li>Estructuras de datos<ul>
+<li>Pila, cola, cola de prioridad, lista doblemente enlazada, etc... </li>
+</ul>
+</li>
+<li>Conjunto de iteradores diseñados para recorrer estructuras agregadas<ul>
+<li>arrays, resultados de bases de datos, árboles XML, listados de directorios, etc.</li>
+</ul>
+</li>
+</ul>
+<p>Podéis consultar la documentación en <a href="https://www.php.net/manual/es/book.spl.php">https://www.php.net/manual/es/book.spl.php</a> o ver algunos ejemplos en <a href="https://diego.com.es/tutorial-de-la-libreria-spl-de-php">https://diego.com.es/tutorial-de-la-libreria-spl-de-php</a></p>
+<p>También define un conjunto de excepciones que podemos utilizar para que las lancen nuestras aplicaciones:</p>
+<ul>
+<li><code>LogicException</code> (<code>extends Exception</code>)<ul>
+<li><code>BadFunctionCallException</code></li>
+<li><code>BadMethodCallException</code></li>
+<li><code>DomainException</code></li>
+<li><code>InvalidArgumentException</code></li>
+<li><code>LengthException</code></li>
+<li><code>OutOfRangeException</code></li>
+</ul>
+</li>
+<li><code>RuntimeException</code> (<code>extends Exception</code>)<ul>
+<li><code>OutOfBoundsException</code></li>
+<li><code>OverflowException</code></li>
+<li><code>RangeException</code></li>
+<li><code>UnderflowException</code></li>
+<li><code>UnexpectedValueException</code></li>
+</ul>
+</li>
+</ul>
+<p>También podéis consultar la documentación de estas excepciones en <a href="https://www.php.net/manual/es/spl.exceptions.php">https://www.php.net/manual/es/spl.exceptions.php</a>.</p>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.php.net/manual/es/index.php">Manual de PHP</a></li>
@@ -1857,10 +1935,10 @@ Recuerda actualizar las propiedades <code>alquilado</code>, <code>numProductosAl
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>
