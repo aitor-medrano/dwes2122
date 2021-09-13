@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/02php.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -124,14 +124,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -657,7 +661,7 @@
                 
                 
                 <h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 20 sesiones</p>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 24 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="2">
@@ -696,11 +700,11 @@
 <li>Acrónimo de <em>Personal Home Page</em></li>
 <li>Lenguaje de propósito general, aunque su fuerte es el desarollo web.</li>
 <li>Sintaxis similar a C / Java</li>
-<li>El código se ejecuta en el servidor (en <em>Apache</em> mediante mod_php)</li>
+<li>El código se ejecuta en el servidor (en <em>Apache</em> mediante <em>mod_php</em>)</li>
 <li>El cliente recibe el resultado generado tras interpretar el código en el servidor.</li>
 <li>El código se almacena en archivo con extensión <code>.php</code>.</li>
 </ul>
-<p>La última versión es la 8.0, de Noviembre de 2020. La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.</p>
+<p>La última versión es la 8.0, de Noviembre de 2020 (y en menos de un par de meses tendremos la versión 8.1). La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.</p>
 <p>Su documentación es extensa y está traducida: <a href="https://www.php.net/manual/es/">https://www.php.net/manual/es/</a>.</p>
 <h3 id="codigo-embebido">Código embebido<a class="headerlink" href="#codigo-embebido" title="Permanent link">&para;</a></h3>
 <p>Los bloques de código se escriben entre <strong><code>&lt;?php</code></strong> y <strong><code>?&gt;</code></strong>, mientras que las sentencias se separan mediante <strong><code>;</code></strong>.</p>
@@ -718,6 +722,10 @@
 <span class="linenos" data-linenos="12 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Sólo etiquetas de apertura</p>
+</div>
+<p>Si nuestro código sólo va a contener código PHP y nada de html, como por ejemplo, cuando codifiquemos clases o interfaces, sólo pondremos la etiqueta de apertura, para así indicar que es una archivo de php puro.</p>
 <h3 id="generando-contenido">Generando contenido<a class="headerlink" href="#generando-contenido" title="Permanent link">&para;</a></h3>
 <p>Tenemos tres posibilidades a la hora de generar contenido en nuestros documentos PHP:</p>
 <ul>
@@ -1882,7 +1890,12 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <h3 id="php_1">PHP<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h3>
 <ol start="200">
-<li>Visualiza el vídeo de Jesús Amieiro sobre <a href="https://www.youtube.com/watch?v=o3IwAqslGUM&amp;t=12724s">PHP en 2020</a> a partir del minuto 3:32 (son 40 minutos aproximadamente).</li>
+<li>Visualiza el vídeo de Jesús Amieiro sobre <a href="https://www.youtube.com/watch?v=o3IwAqslGUM&amp;t=12724s">PHP en 2020</a> a partir del minuto 3:32 (son 40 minutos aproximadamente).<ul>
+<li>¿Qué relación existe entre PHP y Facebook?</li>
+<li>Respecto al rendimiento, ¿qué versión mínima deberíamos utilizar?</li>
+<li>¿Por qué PHP tiene mala fama? </li>
+</ul>
+</li>
 <li><code>201tresfrases.php</code>: Muestra 3 frases, cada una en un párrafo utilizando las tres posibilidades que existen de mostrar contenido.
 Tras ello, introduce dos comentarios, uno de bloque y otro de una línea.</li>
 <li><code>202calculos.php</code>: Escribe un programa que utilice las variables <code>$x</code> y <code>$y</code>. Asígnales los valores <code>166</code> y <code>999</code> respectivamente.
@@ -2288,10 +2301,10 @@ Además de la propiafunción, el ejercicio debe contener código para poder prob
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>

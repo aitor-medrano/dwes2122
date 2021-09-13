@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/01arquitecturas.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -124,14 +124,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -307,6 +311,13 @@
           <li class="md-nav__item">
   <a href="#pagina-web-dinamica" class="md-nav__link">
     Página web dinámica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-page-application" class="md-nav__link">
+    Single Page Application
   </a>
   
 </li>
@@ -562,6 +573,13 @@
 <p class="admonition-title">Perfil <em>Full-stack</em></p>
 <p>En las ofertas de trabajo cuando hacen referencia a un <em>Full-stack developer</em>, están buscando un perfil que domina tanto el <em>front-end</em> como el <em>back-end</em>.</p>
 </div>
+<h3 id="single-page-application"><em>Single Page Application</em><a class="headerlink" href="#single-page-application" title="Permanent link">&para;</a></h3>
+<p>A día de hoy, gran parte del desarrollo web está transicionando de una arquitectura web cliente-servidor clásica donde el cliente realiza una llamada al backend, por una arquitectura SPA donde el cliente gana mucho mayor peso y sigue una programación reactiva que accede a servicios remotos REST que realizan las operaciones (comunicandose mediante JSON).</p>
+<figure>
+  <img src="imagenes/01/01spa.png" />
+  <figcaption>Arquitectura tradicional vs SPA</figcaption>
+</figure>
+
 <h2 id="arquitectura-de-3-capas">Arquitectura de 3 capas<a class="headerlink" href="#arquitectura-de-3-capas" title="Permanent link">&para;</a></h2>
 <p>Hay que distinguir entre capas <strong>físicas</strong> (<em>tier</em>) y capas <strong>lógicas</strong> (<em>layer</em>).</p>
 <h3 id="tier">Tier<a class="headerlink" href="#tier" title="Permanent link">&para;</a></h3>
@@ -751,6 +769,10 @@
 <p class="admonition-title">Docker stack</p>
 <p>Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto <em>Devilbox</em> (<a href="http://devilbox.org">http://devilbox.org</a>) como <em>Laradock</em> (<a href="https://laradock.io">https://laradock.io</a>)</p>
 </div>
+<div class="admonition question">
+<p class="admonition-title">Pero quiero saber cómo funciona...</p>
+<p>En el módulo de <em>Despliegue de aplicaciones</em> estudiaréis en profundidad, además de Docker, Apache y otros servicios que nos servirán de ayuda para el desarrollo en entorno servidor.</p>
+</div>
 <h3 id="entorno-de-desarrollo">Entorno de desarrollo<a class="headerlink" href="#entorno-de-desarrollo" title="Permanent link">&para;</a></h3>
 <p>En este curso vamos a emplear <em>Visual Studio Code</em> (<a href="https://code.visualstudio.com">https://code.visualstudio.com</a>) como entorno de desarrollo (IDE). Existen otras alternativas, siendo <a href="https://www.jetbrains.com/es-es/phpstorm/">PhpStorm</a> la más conocida pero siendo de pago. Otra posibilidad es utilizar <a href="https://www.eclipse.org/pdt/">Eclipse</a>, aunque es un entorno bastante pesado.</p>
 <p><em>VSCode</em> es un editor de código fuente que se complementa mediante extensiones. Para facilitar el trabajo a lo largo del curso vamos a utilizar las siguientes extensiones:</p>
@@ -759,7 +781,7 @@
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></li>
 </ul>
 <p>En la siguiente sesión comenzaremos a utilizar <em>Intelephense</em> pero en esta sesión nos vamos a centrar en <em>Docker</em> (más adelante instalaremos nuevas extensiones).</p>
-<p>Por ejemplo, si abrís la extensión de <em>Docker</em>, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.</p>
+<p>Por ejemplo, si abrimos la extensión de <em>Docker</em>, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.</p>
 <figure>
   <img src="imagenes/01/vscodedocker.png" width="300"/>
   <figcaption>Opciones mediante extensión Docker en VSCode</figcaption>
@@ -767,7 +789,7 @@
 
 <h3 id="hola-mundo">Hola Mundo<a class="headerlink" href="#hola-mundo" title="Permanent link">&para;</a></h3>
 <p>Y como no, nuestro primer ejemplo será un <em>Hola Mundo</em> en PHP.</p>
-<p>Si nombramos el archivo como <code>index.jsp</code>, al acceder a <code>http://localhost</code> automáticamente cargará el resultado:</p>
+<p>Si nombramos el archivo como <code>index.php</code>, al acceder a <code>http://localhost</code> automáticamente cargará el resultado:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -921,10 +943,10 @@ Anota los valores de:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>

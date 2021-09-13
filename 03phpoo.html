@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.2.2">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -124,14 +124,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -368,8 +372,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funciones-predefinidas" class="md-nav__link">
-    Funciones predefinidas
+  <a href="#introspeccion" class="md-nav__link">
+    Introspección
   </a>
   
 </li>
@@ -423,6 +427,88 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#metodos-encadenados" class="md-nav__link">
+    Métodos encadenados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-magicos" class="md-nav__link">
+    Métodos mágicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#espacio-de-nombres" class="md-nav__link">
+    Espacio de nombres
+  </a>
+  
+    <nav class="md-nav" aria-label="Espacio de nombres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceso" class="md-nav__link">
+    Acceso
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacion" class="md-nav__link">
+    Organización
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoload" class="md-nav__link">
+    Autoload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-errores" class="md-nav__link">
+    Gestión de Errores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excepciones" class="md-nav__link">
+    Excepciones
+  </a>
+  
+    <nav class="md-nav" aria-label="Excepciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creando-excepciones" class="md-nav__link">
+    Creando excepciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excepciones-multiples" class="md-nav__link">
+    Excepciones múltiples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#referencias" class="md-nav__link">
     Referencias
   </a>
@@ -447,6 +533,13 @@
           <li class="md-nav__item">
   <a href="#proyecto-videoclub" class="md-nav__link">
     Proyecto Videoclub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-videoclub-20" class="md-nav__link">
+    Proyecto Videoclub 2.0
   </a>
   
 </li>
@@ -478,7 +571,7 @@
                 
                 
                 <h1 id="php-orientado-a-objetos">PHP Orientado a Objetos<a class="headerlink" href="#php-orientado-a-objetos" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 20 sesiones</p>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 16 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="5">
@@ -655,8 +748,8 @@ Se declaran con <code>static</code> y se referencian con <code>::</code>. Si des
 <span class="linenos" data-linenos="19 "></span><span class="nv">$prod3 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;Nintendo Switch&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="20 "></span><span class="k">echo</span> <span class="nv">$prod3</span><span class="o">-&gt;</span><span class="na">mostrarResumen</span><span class="p">();</span>
 </code></pre></div>
-<h2 id="funciones-predefinidas">Funciones predefinidas<a class="headerlink" href="#funciones-predefinidas" title="Permanent link">&para;</a></h2>
-<p>Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que conviene conocer:</p>
+<h2 id="introspeccion">Introspección<a class="headerlink" href="#introspeccion" title="Permanent link">&para;</a></h2>
+<p>Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que permiten obtener información sobre los objetos:</p>
 <ul>
 <li><code>instanceof</code>: permite comprobar si un objeto es de una determinada clase</li>
 <li><code>get_class</code>: devuelve el nombre de la clase</li>
@@ -823,21 +916,320 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <p>Permite herencia de interfaces. Una clase puede implementar varios interfaces</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">interface</span> <span class="nx">Mostrable </span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 5 "></span>
 <span class="linenos" data-linenos=" 6 "></span><span class="k">interface</span> <span class="nx">MostrableTodo extends Mostrable </span><span class="p">{</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarTodo</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarTodo</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span><span class="k">interface</span> <span class="nx">Facturable </span><span class="p">{</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">generarFactura</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">generarFactura</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span>
 <span class="linenos" data-linenos="14 "></span><span class="k">class</span> <span class="nc">Producto implements MostrableTodo</span><span class="p">,</span> <span class="nx">Facturable </span><span class="p">{</span>
-<span class="linenos" data-linenos="15 "></span>    <span class="c1">// Implementaciones de los métodos</span>
-<span class="linenos" data-linenos="16 "></span>    
-<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">// Implementaciones de los métodos</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="metodos-encadenados">Métodos encadenados<a class="headerlink" href="#metodos-encadenados" title="Permanent link">&para;</a></h2>
+<p>Sigue el planteamiento de programación funcional, y también se conoce como <em>method chaining</em>. Plantea que sobre un objeto se realizan varias llamadas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Libro</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Harry Potter&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">setAutor</span><span class="p">(</span><span class="s2">&quot;JK Rowling&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">echo</span> <span class="nv">$p1</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Method chaining</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$p2 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Libro</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Patria&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setAutor</span><span class="p">(</span><span class="s2">&quot;Aramburu&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$p2</span><span class="p">;</span>
+</code></pre></div>
+<p>Para facilitarlo, vamos a modificar todos mutadores (que modifican datos, <em>setters</em>, ...) para que devuelvan una referencia a <code>$this</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Libro </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string </span><span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nx">string </span><span class="nv">$autor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getNombre</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setNombre</span><span class="p">(</span><span class="nx">string </span><span class="nv">$nombre</span><span class="p">)</span> <span class="o">:</span> <span class="nx">Libro </span><span class="p">{</span> 
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre </span><span class="o">=</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAutor</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">autor</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setAutor</span><span class="p">(</span><span class="nx">string </span><span class="nv">$autor</span><span class="p">)</span> <span class="o">:</span> <span class="nx">Libro </span><span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">autor </span><span class="o">=</span> <span class="nv">$autor</span><span class="p">;</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string </span><span class="p">{</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">autor</span><span class="p">;</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<h2 id="metodos-magicos">Métodos mágicos<a class="headerlink" href="#metodos-magicos" title="Permanent link">&para;</a></h2>
+<p>Todas las clases PHP ofrecen un conjunto de métodos, también conocidos como <em>magic methods</em> que se pueden sobreescribir para sustituir su comportamiento. Algunos de ellos ya los hemos utilizado.</p>
+<p>Ante cualquier duda, es conveniente consultar la <a href="https://www.php.net/manual/es/language.oop5.magic.php">documentación oficial</a>.</p>
+<p>Los más destacables son:</p>
+<ul>
+<li><code>__construct()</code></li>
+<li><code>__destruct()</code> → se invoca al perder la referencia. Se utiliza para cerrar una conexión a la BD, cerrar un fichero, ...</li>
+<li><code>__toString()</code> → representación del objeto como cadena</li>
+<li><code>__get(propiedad)</code>, <code>__set(propiedad, valor)</code> → Permitiría acceder a las propiedad privadas, aunque siempre es más legible/mantenible codificar los <em>getter/setter</em>.</li>
+<li><code>__isset(propiedad)</code>, <code>__unset(propiedad)</code> → Permite averiguar o quitar el valor a una propiedad.</li>
+<li><code>__sleep()</code>, <code>__wakeup()</code> → Se ejecutan al recuperar (<em>unserialize^</em>) o almacenar un objeto que se serializa (<em>serialize</em>), y se utilizan para permite definir qué propiedades se serializan.</li>
+<li><code>__call()</code>, <code>__callStatic()</code> → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.</li>
+</ul>
+<p>FIXME: Falta ejemplo</p>
+<h2 id="espacio-de-nombres">Espacio de nombres<a class="headerlink" href="#espacio-de-nombres" title="Permanent link">&para;</a></h2>
+<p>Desde PHP 5.3 y también conocidos como <em>Namespaces</em>, permiten organizar las clases/interfaces, funciones y/o constantes, de forma similar a los paquetes en <em>Java</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Recomendación</p>
+<p>Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en <em>Java</em>)</p>
+</div>
+<p>Se declaran en la primera línea mediante la palabra clave <code>namespace</code> seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida <code>\</code>):</p>
+<p>Por ejemplo, para colocar la clase <code>Producto</code> dentro del <em>namespace</em> <code>Dwes\Ejemplos</code> lo haríamos así:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">const</span> <span class="no">IVA </span><span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>      
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">muestra</span><span class="p">()</span> <span class="o">:</span> <span class="nx">void </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">echo</span><span class="s2">&quot;&lt;p&gt;Prod:&quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre </span><span class="o">.</span> <span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="acceso">Acceso<a class="headerlink" href="#acceso" title="Permanent link">&para;</a></h3>
+<p>Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de <code>include</code> o <code>require</code>. Si el recurso está en el mismo <em>namespace</em>, se realiza un acceso directo (se conoce como acceso sin cualificar).</p>
+<p>Realmente hay tres tipos de acceso:</p>
+<ul>
+<li>sin cualificar: <code>recurso</code></li>
+<li>cualificado: <code>rutaRelativa\recurso</code> → no hace falta poner el <em>namespace</em> completo</li>
+<li>totalmente cualificado: <code>\rutaAbsoluta\recurso</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">&quot;Producto.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">echo</span> <span class="nx">IVA</span><span class="p">;</span> <span class="c1">// sin cualificar</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">echo</span> <span class="nx">Utilidades\IVA</span><span class="p">;</span> <span class="c1">// acceso cualificado. Daría error, no existe \Dwes\Ejemplos\Utilidades\IVA</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="nx">\Dwes\Ejemplos\IVA</span><span class="p">;</span> <span class="c1">// totalmente cualificado</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">();</span> <span class="c1">// lo busca en el mismo namespace y encuentra \Dwes\Ejemplos\Producto</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$p2 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Model\Producto</span><span class="p">();</span> <span class="c1">// daría error, no existe el namespace Model. Está buscando \Dwes\Ejemplos\Model\Producto</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$p3 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">\Dwes\Ejemplos\Producto</span><span class="p">();</span> <span class="c1">// \Dwes\Ejemplos\Producto</span>
+</code></pre></div>
+<p>Para evitar la referencia cualificada podemos declarar el uso mediante <code>use</code> (similar a hacer <code>import</code> en <em>Java</em>). Se hace en la cabecera, tras el <code>namespace</code>:</p>
+<p>Los tipos posibles son:</p>
+<ul>
+<li><code>use const nombreCualificadoConstante</code></li>
+<li><code>use function nombreCualificadoFuncion</code></li>
+<li><code>use nombreCualificadoClase</code></li>
+<li><code>use nombreCualificadoClase as NuevoNombre</code> // para renombrar elementos</li>
+</ul>
+<p>Por ejemplo, si queremos utilizar la clase <code>\Dwes\Ejemplos\Producto</code> desde un recursos que se encuentre en la raíz, por ejemplo en <code>inicio.php</code>, haríamos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">&quot;Dwes\Ejemplo\Producto.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="k">const</span> <span class="no">Dwes\Ejemplos\IVA</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">\Dwes\Ejemplos\Producto</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">IVA</span><span class="p">;</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">();</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">To <code>use</code> or not to <code>use</code></p>
+<p>En resumen, <code>use</code> permite acceder sin cualificar a recursos que están en otro <em>namespace</em>. Si estamos en el mismo espacio de nombre, no necesitamos <code>use</code>.</p>
+</div>
+<h3 id="organizacion">Organización<a class="headerlink" href="#organizacion" title="Permanent link">&para;</a></h3>
+<p>Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización con los archivos interactuan con el navegador se colocan en el raiz, y las clases que definamos van dentro de un namespace.</p>
+<figure>
+<img src="imagenes/03/03organizacion.png">
+<figcaption>Organización del código fuente</figcaption>
+</figure>
+
+<div class="admonition tip">
+<p class="admonition-title">Organización, includes y usos</p>
+<ul>
+<li>Colocaremos cada recurso en un fichero aparte.</li>
+<li>En la primera línea indicaremos su <em>namespace</em> (si no está en el raíz).</li>
+<li>Si utilizamos otros recursos, haremos un <code>include_once</code> de esos recursos (clases, interfaces, etc...).<ul>
+<li>Cada recurso debe incluir todos los otros recursos que referencie: la clase de la que hereda, interfaces que implementa, clases utilizadas/recibidas como parámetros, etc...</li>
+</ul>
+</li>
+<li>Si los recursos están en un espacio de nombres diferente al que estamos, emplearemos <code>use</code> con la ruta completa para luego utilizar referencias sin cualificar.</li>
+</ul>
+</div>
+<h3 id="autoload">Autoload<a class="headerlink" href="#autoload" title="Permanent link">&para;</a></h3>
+<p>¿No es tedioso tener que hacer el include de las clases? El <em>autoload</em> viene al rescate.</p>
+<p>Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el <code>include_once</code> de cada una de ellas. Para ello, se utiliza la función <code>spl_autoload_register</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">¿Por qué se llaman autoload?</p>
+<p>Porque antes se realizaba mediante el método mágico <code>__autoload()</code>, el cual está <em>deprecated</em> desde PHP 7.2</p>
+</div>
+<p>Y ¿cómo organizamos ahora nuestro código aprovechando el autoload?</p>
+<figure style="float: right;">
+    <img src="imagenes/03/03autoload.png" width="600">
+    <figcaption>Organización con autoload</figcaption>
+</figure>
+
+<p>Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de <code>app</code> (más adelante, cuando estudiemos <em>Laravel</em> veremos el motivo de esta decisión). Otras carpetas que podemos crear son <code>test</code> para colocar las pruebas <em>PhpUnit</em> que luego realizaremos, o la carpeta <code>vendor</code> donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que <em>Composer</em> la crea automáticamente).</p>
+<p>Como hemos colocado todos nuestros recursos dentro de <code>app</code>, ahora nuestro <code>autoload.php</code> (el cual colocamos en la carpeta raiz) sólo va a buscar dentro de esa carpeta:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="s2">&quot;app/&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h2 id="gestion-de-errores">Gestión de Errores<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h2>
+<p>PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:</p>
+<ul>
+<li><code>E_ERROR</code>: errores fatales, no recuperables. Se interrumpe el script.</li>
+<li><code>E_WARNING</code>: advertencias en tiempo de ejecución. El script no se interrumpe.</li>
+<li><code>E_NOTICE</code>: avisos en tiempo de ejecución.  </li>
+</ul>
+<p>Podéis comprobar el listado completo de constantes de <a href="https://www.php.net/manual/es/errorfunc.constants.php">https://www.php.net/manual/es/errorfunc.constants.php</a></p>
+<p>Para la configuración de los errores podemos hacerlo de dos formas:</p>
+<ul>
+<li>A nivel de <code>php.ini</code>:<ul>
+<li><code>error_reporting</code>: indica los niveles de errores a notificar<ul>
+<li><code>error_reporting = E_ALL &amp; ~E_NOTICE</code> -&gt; Todos los errores menos los avisos en tiempo de ejecución.</li>
+</ul>
+</li>
+<li><code>display_errors</code>: indica si mostrar o no los errores por pantalla. En entornos de producción es común ponerlo a <code>off</code></li>
+</ul>
+</li>
+<li>mediante código con las siguientes funciones:<ul>
+<li><code>error_reporting(codigo)</code> -&gt; Controla qué errores notificar</li>
+<li><code>set_error_handler(nombreManejador)</code> -&gt; Indica que función se invocará cada vez que se encuentre un error. El manejador recibe como parámetros el nivel del error y el mensaje</li>
+</ul>
+</li>
+</ul>
+<p>A continuación tenemos un ejemplo mediante código:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Funciones para la gestión de errores</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nx">E_NOTICE </span><span class="o">&amp;</span> <span class="o">~</span><span class="k">E_WARNING</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$resultado </span><span class="o">=</span> <span class="nv">$dividendo </span><span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nx">E_NOTICE</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">set_error_handler</span><span class="p">(</span><span class="s2">&quot;miManejadorErrores&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$resultado </span><span class="o">=</span> <span class="nv">$dividendo </span><span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nb">restore_error_handler</span><span class="p">();</span> <span class="c1">// vuelve al anterior</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">function</span> <span class="nf">miManejadorErrores</span><span class="p">(</span><span class="nv">$nivel</span><span class="p">,</span> <span class="nv">$mensaje</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">switch</span><span class="p">(</span><span class="nv">$nivel</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">case</span> <span class="k">E_WARNING</span><span class="o">:</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="k">echo</span> <span class="s2">&quot;&lt;strong&gt;Warning&lt;/strong&gt;: </span><span class="si">$mensaje</span><span class="s2">.&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">default</span><span class="o">:</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="k">echo</span> <span class="s2">&quot;Error de tipo no especificado: </span><span class="si">$mensaje</span><span class="s2">.&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Consola</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Error de tipo no especificado: Undefined variable: dividendo.
+<span class="linenos" data-linenos="2 "></span>Error de tipo no especificado: Undefined variable: divisor.
+<span class="linenos" data-linenos="3 "></span>Error de tipo Warning: Division by zero.
+</code></pre></div>
+</div>
+</div>
+<h2 id="excepciones">Excepciones<a class="headerlink" href="#excepciones" title="Permanent link">&para;</a></h2>
+<p>La gestión de excepciones forma parte desde PHP 5. Su funcionamiento es similar a <em>Java</em>, haciendo uso de un bloque <code>try / catch / finally</code>.
+Si detectamos una situación anómala y queremos lanzar una excepción, deberemos realizar <code>throw new Exception</code> (adjuntando el mensaje que lo ha provocado).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$divisor </span><span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&quot;División por cero.&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$resultado </span><span class="o">=</span> <span class="nv">$dividendo </span><span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Se ha producido el siguiente error: &quot;</span><span class="o">.</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>La clase <code>Exception</code> es la clase padre de todas las excepciones. Su constructor recibe <code>mensaje[,codigoError][,excepcionPrevia]</code>.</p>
+<p>A partir de un objeto <code>Exception</code>, podemos acceder a los métodos <code>getMessage()</code>y <code>getCode()</code> para obtener información de la excepción capturada.</p>
+<h3 id="creando-excepciones">Creando excepciones<a class="headerlink" href="#creando-excepciones" title="Permanent link">&para;</a></h3>
+<p>Para crear una excepción, la forma más corta es crear una clase que únicamente herede de <code>Exception</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">HolaExcepcion extends Exception </span><span class="p">{}</span>
+</code></pre></div>
+<p>Si queremos, y es recomendable dependiendo de los requisitos, podemos sobrecargar los métodos mágicos, por ejemplo, sobrecargando el constructor y llamando al constructor del padre, o rescribir el método <code>__toString</code> para cambiar su mensaje:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MiExcepcion extends Exception </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$msj</span><span class="p">,</span> <span class="nv">$codigo </span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Exception </span><span class="nv">$previa </span><span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="c1">// código propio</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$msj</span><span class="p">,</span> <span class="nv">$codigo</span><span class="p">,</span> <span class="nv">$previa</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="no">__CLASS__</span> <span class="o">.</span> <span class="s2">&quot;: [</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span><span class="si">}</span><span class="s2">]: </span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">miFuncion</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="s2">&quot;Una función personalizada para este tipo de excepción</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="excepciones-multiples">Excepciones múltiples<a class="headerlink" href="#excepciones-multiples" title="Permanent link">&para;</a></h3>
+<p>Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$email </span><span class="o">=</span> <span class="s2">&quot;ejemplo@ejemplo.com&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">// Comprueba si el email es válido</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)</span> <span class="o">===</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">throw</span> <span class="k">new</span> <span class="nx">MiExcepcion</span><span class="p">(</span><span class="nv">$email</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="c1">// Comprueba la palabra ejemplo en la dirección email</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$email</span><span class="p">,</span> <span class="s2">&quot;ejemplo&quot;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$email es un email de ejemplo</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">MiExcepcion </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">miFuncion</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">Exception </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Autoevaluación</p>
+<p>¿Qué pasaría al ejectuar el siguiente código?
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MainException extends Exception </span><span class="p">{}</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">SubException extends MainException </span><span class="p">{}</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">throw</span> <span class="k">new</span> <span class="nx">SubException</span><span class="p">(</span><span class="s2">&quot;Lanzada SubException&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">MainException </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada MainException &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">SubException </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada SubException &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception </span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada Exception &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div></p>
+</div>
+<p>Si en el mismo <code>catch</code> queremos capturar varias excepciones, hemos de utilizar el operador <code>|</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">MainException extends Exception </span><span class="p">{}</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">class</span> <span class="nc">SubException extends MainException </span><span class="p">{}</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">throw</span> <span class="k">new</span> <span class="nx">SubException</span><span class="p">(</span><span class="s2">&quot;Lanzada SubException&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">MainException </span><span class="o">|</span> <span class="nx">SubException </span><span class="nv">$e </span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada Exception &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
@@ -851,16 +1243,16 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <ol start="301">
 <li><code>301Empleado.php</code>: Crea una clase <code>Empleado</code> con su nombre, apellidos y sueldo.
 Encapsula las propiedades mediante <em>getters/setters</em> y añade métodos para:<ul>
-<li>Obtener su nombre completo -&gt; <code>getNombreCompleto(): string</code></li>
-<li>Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) -&gt; <code>debePagarImpuestos(): bool</code></li>
+<li>Obtener su nombre completo → <code>getNombreCompleto(): string</code></li>
+<li>Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → <code>debePagarImpuestos(): bool</code></li>
 </ul>
 </li>
 <li><code>302EmpleadoTelefonos.php</code>: Copia la clase del ejercicio anterior y modifícala.
 Añade una propiedad privada que almacene un array de números de telefonos.
 Añade los siguientes métodos:<ul>
-<li><code>public function anyadirTelefono(int $telefono) : void</code> -&gt; Añade un teléfono al array</li>
-<li><code>public function listarTelefonos(): string</code> -&gt; Muestra los teléfonos separados por comas</li>
-<li><code>public function vaciarTelefonos(): void</code> -&gt; Elimina todos los teléfonos</li>
+<li><code>public function anyadirTelefono(int $telefono) : void</code> → Añade un teléfono al array</li>
+<li><code>public function listarTelefonos(): string</code> → Muestra los teléfonos separados por comas</li>
+<li><code>public function vaciarTelefonos(): void</code> → Elimina todos los teléfonos</li>
 </ul>
 </li>
 <li><code>303EmpleadoConstructor.php</code>: Copia la clase del ejercicio anterior y modifícala.
@@ -944,8 +1336,8 @@ Transforma <code>Persona</code> a una clase abstracta donde su método <code>toH
 <p><code>314EmpresaI.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
 <ul>
 <li>Crea un interfaz JSerializable, de manera que ofrezca los métodos:<ul>
-<li><code>toJSON(): string</code> -&gt; utiliza la función <code>json_encode(mixed)</code></li>
-<li><code>toSerialize(): string</code> -&gt; utiliza la función <code>serialize(mixed)</code></li>
+<li><code>toJSON(): string</code> → utiliza la función <code>json_encode(mixed)</code></li>
+<li><code>toSerialize(): string</code> → utiliza la función <code>serialize(mixed)</code></li>
 </ul>
 </li>
 <li>Modifica todas las clases que no son abstractas para que implementen el interfaz creado.</li>
@@ -974,7 +1366,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método <code>toH
 </ul>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Soporte.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -985,7 +1377,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método <code>toH
 <span class="linenos" data-linenos="8 "></span><span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Tenet</strong>
 Precio: 3 euros
@@ -1006,7 +1398,7 @@ Precio IVA incluido: 3.48 euros
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1017,7 +1409,7 @@ Precio IVA incluido: 3.48 euros
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Los cazafantasmas</strong>
 Precio: 3.5 euros
@@ -1040,7 +1432,7 @@ Duración: 107 minutos
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1051,7 +1443,7 @@ Duración: 107 minutos
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Origen</strong>
 Precio: 15 euros
@@ -1075,7 +1467,7 @@ Formato Pantalla:16:9
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1086,7 +1478,7 @@ Formato Pantalla:16:9
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>The Last of Us Part II</strong>
 Precio: 49.99 euros
@@ -1116,20 +1508,20 @@ Para un jugador
 <li>
 <p>Dentro de <code>Cliente</code>, añade las siguiente operaciones:</p>
 <ul>
-<li><code>tieneAlquilado(Soporte $s): bool</code> -&gt; Recorre el array de soportes y comprueba si está el soporte</li>
-<li><code>alquilar(Soporte $s): bool</code> --&gt; Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.</li>
+<li><code>tieneAlquilado(Soporte $s): bool</code> → Recorre el array de soportes y comprueba si está el soporte</li>
+<li><code>alquilar(Soporte $s): bool</code> -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.</li>
 </ul>
 </li>
 <li>
 <p>Seguimos con <code>Cliente</code> para añadir las operaciones:</p>
 <ul>
-<li><code>devolver(int $numSoporte): bool</code> -&gt; Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido</li>
-<li><code>listarAlquileres(): void</code> -&gt; Informa de cuantos alquileres tiene el cliente y los muestra</li>
+<li><code>devolver(int $numSoporte): bool</code> → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido</li>
+<li><code>listarAlquileres(): void</code> → Informa de cuantos alquileres tiene el cliente y los muestra</li>
 </ul>
 </li>
 </ol>
 <p>Crea el archivo <code>inicio2.php</code> con el siguiente código fuente para probar la clase:</p>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">include_once</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
@@ -1172,7 +1564,7 @@ Para un jugador
 <span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 El identificador del cliente 1 es: 23
 El identificador del cliente 2 es: 33
@@ -1230,7 +1622,7 @@ Formato Pantalla:16:9</p>
 </figure>
 
 <p>Y para probar el proyecto, dentro <code>inicio3.php</code> colocaremos:</p>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;Videoclub.php&quot;</span><span class="p">;</span> <span class="c1">// No incluimos nada más</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1265,7 +1657,7 @@ Formato Pantalla:16:9</p>
 <span class="linenos" data-linenos="32 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarSocios</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 Incluido soporte 0
 Incluido soporte 1
@@ -1330,12 +1722,56 @@ Alquileres actuales: 2
 </pre></p>
 </div>
 </div>
-<ol start="428">
+<ol start="328">
 <li>
 <p>Transforma <code>Soporte</code> a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?</p>
 </li>
 <li>
 <p>Crea un interfaz <code>Resumible</code>, de manera que las clases que lo implementen deben ofrecer el método <code>muestraResumen()</code>. Modifica la clase <code>Soporte</code> y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?</p>
+</li>
+</ol>
+<h3 id="proyecto-videoclub-20">Proyecto Videoclub 2.0<a class="headerlink" href="#proyecto-videoclub-20" title="Permanent link">&para;</a></h3>
+<ol start="330">
+<li>Modifica las operaciones de alquilar, tanto en <code>Cliente</code> como en <code>Videoclub</code>, para dar soporte al encadenamiento de métodos.
+Posteriormente, modifica el código de prueba para utilizar esta técnica.</li>
+<li>Haciendo uso de <em>namespaces</em>:<ul>
+<li>Coloca todas las clases/interfaces en <code>Dwes\ProyectoVideoclub</code></li>
+<li>Cada clase debe hacer <code>include_once</code> de los recursos que emplea</li>
+<li>Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)</li>
+<li>Desde el archivo de pruebas, utiliza <code>use</code> para poder realizar accesos sin cualificar</li>
+</ul>
+</li>
+<li>Reorganiza las carpeta tal como hemos visto en los apuntes: <code>app</code>, <code>test</code> y <code>vendor</code>.<ul>
+<li>Crea un fichero <code>autoload.php</code> para registrar la ruta donde encontrar las clases</li>
+<li>Modifica todo el código necesario, incluyendo <code>autoload.php</code> donde sea necesario y borrando los <em>includes</em> previos.</li>
+</ul>
+</li>
+<li>Crea la excepción de aplicación <code>VideoclubException</code> en el namespace <code>Dwes\ProyectoVideoclub\Util</code>.
+Posteriormente crea los siguientes hijos, cada uno en su propio archivo:<ul>
+<li><code>SoporteYaAlquiladoException</code></li>
+<li><code>CupoSuperadoException</code></li>
+<li><code>SoporteNoEncontradoException</code></li>
+</ul>
+</li>
+<li>En <code>Cliente</code>, modifica los métodos <code>alquilar</code> y <code>devolver</code>, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados.<br />
+En <code>Videoclub</code>, modifica <code>alquilarSocioPelicula</code> para capturar todas las excepciones que ahora lanza <code>Cliente</code> e informar al usuario en consecuencia.</li>
+<li>Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:<ul>
+<li>En <code>Soporte</code>, crea una propiedad <code>alquilado</code> que inicialmente estará a <code>false</code>. Cuando se alquile, se pondrá a <code>true</code>. Al devolver, la volveremos a poner a <code>false</code>.</li>
+<li>En <code>Videoclub</code>, crea dos nuevas propiedades y sus getters:<ul>
+<li><code>numProductosAlquilados</code></li>
+<li><code>numTotalAlquileres</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Crea un nuevo método en <code>Videoclub</code> llamado <code>alquilarSocioProductos(int numSocio, array numerosProducto)</code>, el cual debe recibir un array con los productos a alquilar.<br />
+Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.</li>
+<li>Crea dos nuevos métodos en <code>Videoclub</code>, y mediante la definición, deduce qué deben realizar:<ul>
+<li><code>devolverSocioProducto(int numSocio, int numerosProducto)</code></li>
+<li><code>devolverSocioProductos(int numSocio, array numerosProducto)</code>
+Deben soportar el encadenamiento de métodos.
+Recuerda actualizar las propiedades <code>alquilado</code>, <code>numProductosAlquilados</code> y <code>numTotalAlquileres</code>.</li>
+</ul>
 </li>
 </ol>
                 
@@ -1421,10 +1857,10 @@ Alquileres actuales: 2
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>
