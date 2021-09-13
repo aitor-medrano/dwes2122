@@ -2,7 +2,7 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-    Duración estimada: 20 sesiones
+    Duración estimada: 24 sesiones
 
     <hr />
 
@@ -71,6 +71,9 @@ Hola mundo<br>
 </body>
 </html>
 ```
+
+!!! tip "Sólo etiquetas de apertura"
+  Si nuestro código sólo va a contener código PHP y nada de html, como por ejemplo, cuando codifiquemos clases o interfaces, sólo pondremos la etiqueta de apertura, para así indicar que es una archivo de php puro.
 
 ### Generando contenido
 
