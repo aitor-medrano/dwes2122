@@ -57,6 +57,15 @@ Las tecnologías empleadadas (y los perfiles de desarrollo asociados) para la ge
 !!! tip "Perfil *Full-stack*"
     En las ofertas de trabajo cuando hacen referencia a un *Full-stack developer*, están buscando un perfil que domina tanto el *front-end* como el *back-end*.
 
+### *Single Page Application*
+
+A día de hoy, gran parte del desarrollo web está transicionando de una arquitectura web cliente-servidor clásica donde el cliente realiza una llamada al backend, por una arquitectura SPA donde el cliente gana mucho mayor peso y sigue una programación reactiva que accede a servicios remotos REST que realizan las operaciones (comunicandose mediante JSON).
+
+<figure>
+  <img src="imagenes/01/01spa.png" />
+  <figcaption>Arquitectura tradicional vs SPA</figcaption>
+</figure>
+
 ## Arquitectura de 3 capas
 
 Hay que distinguir entre capas **físicas** (*tier*) y capas **lógicas** (*layer*).
@@ -287,6 +296,9 @@ Otra forma más sencilla para lanzar de nuevo los contenedores y gestionarlos un
 !!! tip "Docker stack"
     Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto *Devilbox* (<http://devilbox.org>) como *Laradock* (<https://laradock.io>)
 
+!!! question "Pero quiero saber cómo funciona..."
+    En el módulo de *Despliegue de aplicaciones* estudiaréis en profundidad, además de Docker, Apache y otros servicios que nos servirán de ayuda para el desarrollo en entorno servidor.
+
 ### Entorno de desarrollo
 
 En este curso vamos a emplear *Visual Studio Code* (<https://code.visualstudio.com>) como entorno de desarrollo (IDE). Existen otras alternativas, siendo [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/) la más conocida pero siendo de pago. Otra posibilidad es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado.
@@ -298,7 +310,7 @@ En este curso vamos a emplear *Visual Studio Code* (<https://code.visualstudio.c
 
 En la siguiente sesión comenzaremos a utilizar *Intelephense* pero en esta sesión nos vamos a centrar en *Docker* (más adelante instalaremos nuevas extensiones).
 
-Por ejemplo, si abrís la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
+Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
 
 <figure>
   <img src="imagenes/01/vscodedocker.png" width="300"/>
@@ -309,7 +321,7 @@ Por ejemplo, si abrís la extensión de *Docker*, podréis visualizar tanto los 
 
 Y como no, nuestro primer ejemplo será un *Hola Mundo* en PHP.
 
-Si nombramos el archivo como `index.jsp`, al acceder a `http://localhost` automáticamente cargará el resultado:
+Si nombramos el archivo como `index.php`, al acceder a `http://localhost` automáticamente cargará el resultado:
 
 ``` html+php hl_lines="9-11"
 <!DOCTYPE html>
