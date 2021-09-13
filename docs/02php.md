@@ -44,11 +44,11 @@
 * Acrónimo de *Personal Home Page*
 * Lenguaje de propósito general, aunque su fuerte es el desarollo web.
 * Sintaxis similar a C / Java
-* El código se ejecuta en el servidor (en *Apache* mediante mod_php)
+* El código se ejecuta en el servidor (en *Apache* mediante *mod_php*)
 * El cliente recibe el resultado generado tras interpretar el código en el servidor.
 * El código se almacena en archivo con extensión `.php`.
 
-La última versión es la 8.0, de Noviembre de 2020. La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.
+La última versión es la 8.0, de Noviembre de 2020 (y en menos de un par de meses tendremos la versión 8.1). La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.
 
 Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>.
 
@@ -1268,6 +1268,9 @@ var_dump(is_int(intval($uno))); // true
 ### PHP
 
 200. Visualiza el vídeo de Jesús Amieiro sobre [PHP en 2020](https://www.youtube.com/watch?v=o3IwAqslGUM&t=12724s) a partir del minuto 3:32 (son 40 minutos aproximadamente).
+    * ¿Qué relación existe entre PHP y Facebook?
+    * Respecto al rendimiento, ¿qué versión mínima deberíamos utilizar?
+    * ¿Por qué PHP tiene mala fama? 
 201. `201tresfrases.php`: Muestra 3 frases, cada una en un párrafo utilizando las tres posibilidades que existen de mostrar contenido.
 Tras ello, introduce dos comentarios, uno de bloque y otro de una línea.
 202. `202calculos.php`: Escribe un programa que utilice las variables `$x` y `$y`. Asígnales los valores `166` y `999` respectivamente.
