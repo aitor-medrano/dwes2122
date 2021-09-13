@@ -506,11 +506,9 @@ Los más destacables son:
 * `__sleep()`, `__wakeup()` → Se ejecutan al recuperar (*unserialize^*) o almacenar un objeto que se serializa (*serialize*), y se utilizan para permite definir qué propiedades se serializan.
 * `__call()`, `__callStatic()` → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.
 
-FIXME: Falta ejemplo
-
 ## Espacio de nombres
 
-Desde PHP 5.3 y también conocidos como *Namespaces*, permiten organizar las clases/interfaces, funciones y/o constantes, de forma similar a los paquetes en *Java*.
+Desde PHP 5.3 y también conocidos como *Namespaces*, permiten organizar las clases/interfaces, funciones y/o constantes de forma similar a los paquetes en *Java*.
 
 !!! tip "Recomendación"
     Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*)
@@ -792,12 +790,35 @@ try {
 }
 ```
 
-Desde PHP 7, existe el tipo `Throwable`
+Desde PHP 7, existe el tipo `Throwable`, el cual es un interfaz que implementan tanto los errores como las excepciones, y nos permite capturar los dos tipos a la vez:
+
+``` php
+<?php
+try {
+    // tu codigo
+} catch (Throwable $e) {
+    echo 'Forma de capturar errores y excepciones a la vez';
+}
+```
+
+Si sólo queremos capturar los errores fatales, podemos hacer uso de la clase `Error`:
+
+``` php
+<?php
+try {
+    // Genera una notificación que no se captura
+    echo $variableNoAsignada;
+    // Error fatal que se captura
+    funcionQueNoExiste();
+} catch (Error $e) {
+    echo "Error capturado: " . $e->getMessage();
+}
+```
 
 ### Relanzar excepciones
 
-Capturar una excepción de sistema y lanzar una de aplicación.
-También podemos lanzar las excepciones sin necesidad de estar dentro de un try/catch
+En las aplicaciones reales, es muy común capturar una excepción de sistema y lanzar una de aplicación que hemos definido nostros.
+También podemos lanzar las excepciones sin necesidad de estar dentro de un `try/catch`.
 
 ``` php
 <?php
@@ -806,11 +827,38 @@ class AppException extends Exception {}
 try {
     // Código de negocio que falla
 } catch (Exception $e) {
-    throw new AppException("AppException: ".$e->getMessage(),
-	$e->getCode(), $e);
+    throw new AppException("AppException: ".$e->getMessage(), $e->getCode(), $e);
 }
 ```
 
+## SPL
+
+*Standard PHP Library* es el conjunto de funciones y utilidades que ofrece PHP, como:
+
+* Estructuras de datos
+    * Pila, cola, cola de prioridad, lista doblemente enlazada, etc... 
+* Conjunto de iteradores diseñados para recorrer estructuras agregadas
+    * arrays, resultados de bases de datos, árboles XML, listados de directorios, etc.
+
+Podéis consultar la documentación en <https://www.php.net/manual/es/book.spl.php> o ver algunos ejemplos en <https://diego.com.es/tutorial-de-la-libreria-spl-de-php>
+
+También define un conjunto de excepciones que podemos utilizar para que las lancen nuestras aplicaciones:
+
+* `LogicException` (`extends Exception`)
+    * `BadFunctionCallException`
+    * `BadMethodCallException`
+    * `DomainException`
+    * `InvalidArgumentException`
+    * `LengthException`
+    * `OutOfRangeException`
+* `RuntimeException` (`extends Exception`)
+    * `OutOfBoundsException`
+    * `OverflowException`
+    * `RangeException`
+    * `UnderflowException`
+    * `UnexpectedValueException`
+
+También podéis consultar la documentación de estas excepciones en <https://www.php.net/manual/es/spl.exceptions.php>.
 
 ## Referencias
 
