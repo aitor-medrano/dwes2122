@@ -35,10 +35,10 @@ Duración estimada: 68 sesiones
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
     * Cliente/Servidor.
     * MVC.
-2. [El lenguaje PHP](02php.md) (22h)
+2. [El lenguaje PHP](02php.md) (24h)
     * Condiciones y bucles.
     * Arrays.
-3. [Orientación a objetos con PHP](03phpoo.md) (18h)
+3. [Orientación a objetos con PHP](03phpoo.md) (16h)
     * Clases y objetos
     * Namespaces
     * Excepciones
@@ -79,13 +79,13 @@ Duración estimada: 92 sesiones
 La nota de cada evaluación se calcula mediante:
 
 * 30% Trabajo en Clase / Actividades
-  * Se evalúan todas las actividades realizadas en clase y en casa.
-  * Las actividades se evalúan mediante tareas de Aules con calificaciones comprendidas entre 0 y 3 puntos:
-    * 0: No entregada
-    * 1: Entregada pero solución errónea o incompleta
-    * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
-    * 3: Entregada y solución correcta.
+    * Se evalúan todas las actividades realizadas en clase y en casa.
+    * Las actividades se evalúan mediante tareas de Aules con calificaciones comprendidas entre 0 y 3 puntos:
+        * 0: No entregada
+        * 1: Entregada pero solución errónea o incompleta
+        * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
+        * 3: Entregada y solución correcta.
 * 70% Actividad de evaluación
-  * Una o dos pruebas por evaluación.
+    * Una o dos pruebas por evaluación.
 
 La nota final se calcula mediante la media de cada una de las evaluaciones.
