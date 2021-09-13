@@ -792,6 +792,26 @@ try {
 }
 ```
 
+Desde PHP 7, existe el tipo `Throwable`
+
+### Relanzar excepciones
+
+Capturar una excepción de sistema y lanzar una de aplicación.
+También podemos lanzar las excepciones sin necesidad de estar dentro de un try/catch
+
+``` php
+<?php
+class AppException extends Exception {}
+
+try {
+    // Código de negocio que falla
+} catch (Exception $e) {
+    throw new AppException("AppException: ".$e->getMessage(),
+	$e->getCode(), $e);
+}
+```
+
+
 ## Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
