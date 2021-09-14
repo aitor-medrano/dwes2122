@@ -222,34 +222,62 @@ El uso de contenedores requiere menos recursos que una máquina virtual, por lo 
 
 Así pues, *Docker* permite crear, probar e implementar aplicaciones rápidamente, a partir de una serie de plantillas que se conocen como imágenes de *Docker*.
 
-Para ello es necesario tener instalado *Docker Desktop* (<https://www.docker.com/products/docker-desktop>) en nuestros entornos de desarrollo. En los ordenadores del aula ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente *WSL 2*, el cual es un subsistema de *Linux* dentro de *Windows*.
+Para ello es necesario tener instalado *Docker Desktop* (<https://www.docker.com/products/docker-desktop>) en nuestros entornos de desarrollo (el cual ya incluye en nucleo de *Docker* y la herramienta *docker compose*). En los ordenadores del aula ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente *WSL 2*, el cual es un subsistema de *Linux* dentro de *Windows*.
 
 A lo largo del curso iremos creando diferentes contenedores con los servicios necesarios, de manera que cada vez sólo trabajemos con el software mínimo.
 
-#### Plantilla Apache + PHP
+!!! caution "Versiones"
+    A lo largo del curso vamos a usar PHP `8.0`. Respecto a *Docker*, para escribir los apuntes hemos utilizado la version `20.10` y la version `2.19` de *docker compose*. Finalmente, la versión de *Docker Desktop* que hemos utilizado es la `4.0`.
 
-*Docker* se basa en el uso de imágenes para crear contenedores. *Docker Compose* simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en *Docker Compose* utilizando una plantilla que únicamente va a contener como servicios Apache y PHP.
+#### Plantilla Servidor Web + PHP
+
+*Docker* se basa en el uso de imágenes para crear contenedores. *Docker Compose* simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en *Docker Compose* utilizando una plantilla que únicamente va a contener como servicios Apache/Nginx y PHP.
 
 Para ello, vamos a rellenar el archivo `docker-compose.yaml` con:
 
-``` yaml
-# Services
-services:
-  # Apache + PHP
-  apache_php:
-    image: php:8-apache
-    # Preparamos un volumen para almacenar nuestro código
-    volumes:
-      - ./src/:/var/www/html
-    expose:
-      - 80
-    ports:
-      - 80:80
-```
+=== "Apache y PHP"
 
-Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta `src` donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla disponible para su [descarga](recursos/plantilla-AP.zip).
+    ``` yaml
+    # Services
+    services:
+      # Apache + PHP
+      apache_php:
+        image: php:8-apache
+        # Preparamos un volumen para almacenar nuestro código
+        volumes:
+          - ./src/:/var/www/html
+        expose:
+          - 80
+        ports:
+          - 80:80
+    ```
 
-Cuando estemos listo, lanzaremos el servicio mediante:
+=== "Nginx y PHP"
+
+    ``` yaml
+    # Services
+    services:
+
+      nginx:
+        image: nginx:1.19
+        ports:
+          - 80:80
+        volumes:
+          - ./src:/var/www/php
+          - ./.docker/nginx/conf.d:/etc/nginx/conf.d # cargamos la configuración de un fichero externo
+        depends_on:
+          - php   # enlazamos nginx con php
+
+      php:
+        image: php:8.0-fpm
+        working_dir: /var/www/php
+        volumes:
+          - ./src:/var/www/php
+    ```
+
+Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta `src` donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla de [Apache/PHP](recursos/plantilla-AP.zip) ([versión 2](recursos/plantilla-AP2.zip) con `a2enmod rewrite`) o [Nginx/PHP](recursos/plantilla-NP.zip) disponible para su descarga.
+
+Cuando estemos listos, lanzaremos el servicio mediante:
 
 ``` console
 docker-compose up -d
@@ -342,6 +370,7 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
 ## Referencias
 
 * Curso de introducción a Docker, por *Sergi García Barea* : <https://sergarb1.github.io/CursoIntroduccionADocker/>
+* Artículo [Arquitecturas Web y su evolución](https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/)
 
 ## Actividades
 
@@ -367,8 +396,11 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
     * `memory_limit`
     * `DOCUMENT_ROOT`
 
-104. Abre el archivo `php.ini` e indica para qué sirven las siguientes propiedades y qué valores tienen:
+104. Abre el archivo `php.ini-production` que está dentro del contenedor () e indica para qué sirven las siguientes propiedades y qué valores tienen:
 
     * `file_uploads`
     * `max_execution_time`
     * `short_open_tag`
+
+    !!! note "php.ini"
+        Es el archivo de configuración de PHP, y en toda instalación vienen dos plantillas (`php.ini-development` y `php.ini-production`) para que elijamos los valores más acordes a nuestro proyecto y creemos nuestro archivo propio de `php.ini`.
