@@ -73,7 +73,7 @@ Hola mundo<br>
 ```
 
 !!! tip "Sólo etiquetas de apertura"
-  Si nuestro código sólo va a contener código PHP y nada de html, como por ejemplo, cuando codifiquemos clases o interfaces, sólo pondremos la etiqueta de apertura, para así indicar que es una archivo de php puro.
+    Si nuestro código sólo va a contener código PHP y nada de html, como por ejemplo, cuando codifiquemos clases o interfaces, sólo pondremos la etiqueta de apertura, para así indicar que es una archivo de php puro.
 
 ### Generando contenido
 
@@ -252,11 +252,11 @@ Más adelante estudiaremos algunas funciones para el tratamiento de cadenas.
 | `$a += $b` | Asignación de la suma | Le suma a `$a` el valor de `$b`. Equivalente a `$a = $a + $b`
 | `$a -= $b` | Asignación de la resta | Le resta a `$a` el valor de `$b`. Equivalente a `$a = $a - $b`
 | `$a *= $b` | Asignación del producto | Asigna a `$a` el producto de `$a` por `$b`. Equivalente a `$a = $a * $b`
-| `$a *= $b` | Asignación de la división | Asigna a `$a` el conciente de `$a` entre `$b`. Equivalente a `$a = $a / $b`
+| `$a /= $b` | Asignación de la división | Asigna a `$a` el conciente de `$a` entre `$b`. Equivalente a `$a = $a / $b`
 | `$a %= $b` | Asignación del resto | Asigna a `$a` el resto de dividir `$a` entre `$b`. Equivalente a `$a = $a % $b`
 | `$a .= $b` | Concatenación | Concatena a `$a` la cadena `$b`. Equivalente a `$a = $a . $b`
 | `$a++` | Incremento | Incrementa `$a` en una unidad. Equivalente a `$a = $a + 1`
-| `$a++` | Decremento | Decrementa `$a` en una unidad. Equivalente a `$a = $a - 1`
+| `$a--` | Decremento | Decrementa `$a` en una unidad. Equivalente a `$a = $a - 1`
 
 !!! Tip "Prioridad de los operadores"
     Recuerda la prioridad. Primero los paréntesis, luego la negación (`!`), productos/divisiones, sumas/restas, comparaciones, lógicos y por último se realiza la asignación.
@@ -794,12 +794,12 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
 === "Alcance local"
 
     ``` php
-
     <?php
     function miCiudad() {
       $ciudad = "Elche";
       echo "Dentro de la función: $ciudad.<br>";
     }
+
     $ciudad = "Alicante";
     echo "Antes de la función: $ciudad.<br>";
     miCiudad();
@@ -816,6 +816,7 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
       $ciudad = "Elche";
       echo "Dentro de la función: $ciudad.<br>";
     }
+    
     $ciudad = "Alicante";
     echo "Antes de llamar: $ciudad.<br>";
     miCiudad();
