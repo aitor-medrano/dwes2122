@@ -396,7 +396,7 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
     * `memory_limit`
     * `DOCUMENT_ROOT`
 
-104. Abre el archivo `php.ini-production` que está dentro del contenedor () e indica para qué sirven las siguientes propiedades y qué valores tienen:
+104. Abre el archivo `php.ini-production` que está dentro del contenedor (puedes averiguar la ruta a partir de la propiedad *Configuration File (php.ini) Path*) e indica para qué sirven las siguientes propiedades y qué valores contienen:
 
     * `file_uploads`
     * `max_execution_time`
