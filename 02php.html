@@ -1876,7 +1876,7 @@ A continuación, muestra por pantalla el valor de cada variable, la suma, la res
 <li>
 <p><code>206anyos.php</code>: Tras leer la edad de una persona, mostrar la edad que tendrá dentro de 10 años y hace 10 años.
 Además, muestra qué año será en cada uno de los casos.
-Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 65 años.
+Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 67 años.
 En este caso, no hace falta que previamente crees un formulario, puedes probar el ejercicio via URL: <code>206anyos.php?edad=33</code>.</p>
 <p>Tip: <code>$anyoActual = date("Y");</code></p>
 </li>
@@ -1884,8 +1884,6 @@ En este caso, no hace falta que previamente crees un formulario, puedes probar e
 <p><code>207dinero.php</code>: A partir de una cantidad de dinero, mostrar su descomposición en billetes  (500, 200, 100, 50, 20, 10, 5) y monedas (2, 1), para que el número de elementos sea mínimo.
 No se utilizar ninguna instrucción condicional.
 Por ejemplo, al introducir <code>139</code> debe mostrar:</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>1 billete de 100
 <span class="linenos" data-linenos="2 "></span>0 billete de 50
 <span class="linenos" data-linenos="3 "></span>1 billete de 20
@@ -1893,7 +1891,8 @@ Por ejemplo, al introducir <code>139</code> debe mostrar:</p>
 <span class="linenos" data-linenos="5 "></span>1 billete de 5
 <span class="linenos" data-linenos="6 "></span>2 moneda de 2
 </code></pre></div>
-<ol start="208">
+<p>Tip: Puedes forzar a realizar la división entera mediante la función <code>intdiv($dividendo, $divisor)</code> o pasar un número flotante a entero puedes usar la función <code>intval()</code></p>
+</li>
 <li>
 <p><code>208posnegcero.php</code>: A partir de un <code>numero</code>, muestra por pantalla si el número es <code>positivo</code>, <code>negativo</code> o <code>cero</code>.</p>
 </li>
