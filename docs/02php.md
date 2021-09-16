@@ -298,7 +298,7 @@ echo "Hola $nombre $apellido1";
 ?>
 ```
 
-Si lo quisiéramos realizar todo en un único archivo (lo cual no es recomendable), podemos hacerlo así:
+Si lo quisiéramos realizar todo en un único archivo (*lo cual no es recomendable*), podemos hacerlo así:
 
 ``` html+php
 <form action="" method="get">
