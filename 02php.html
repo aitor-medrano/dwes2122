@@ -158,65 +158,6 @@
       
       
         
-          
-<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="index.html" class="md-tabs__link">
-      Inicio
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="01arquitecturas.html" class="md-tabs__link">
-      1.- Arquitecturas Web
-    </a>
-  </li>
-
-      
-        
-  
-  
-    
-  
-
-
-  <li class="md-tabs__item">
-    <a href="02php.html" class="md-tabs__link md-tabs__link--active">
-      2.- El lenguaje PHP
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="03phpoo.html" class="md-tabs__link">
-      3.- PHP Orientado a Objetos
-    </a>
-  </li>
-
-      
-    </ul>
-  </div>
-</nav>
-        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -228,12 +169,10 @@
                   <div class="md-sidebar__inner">
                     
 
-  
-
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -642,6 +581,96 @@
     <li class="md-nav__item">
       <a href="03phpoo.html" class="md-nav__link">
         3.- PHP Orientado a Objetos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        4.- Programación Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        5.- Herramientas Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        6.- Acceso a Datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        7.- Frameworks PHP - Laravel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08frameworks2.html" class="md-nav__link">
+        8.- Uso avanzado de Frameworks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09rest.html" class="md-nav__link">
+        9.- Servicios REST
       </a>
     </li>
   
@@ -1069,7 +1098,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">$nombre $apellido1</span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
-<p>Si lo quisiéramos realizar todo en un único archivo (lo cual no es recomendable), podemos hacerlo así:</p>
+<p>Si lo quisiéramos realizar todo en un único archivo (<em>lo cual no es recomendable</em>), podemos hacerlo así:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -1908,21 +1937,22 @@ A continuación, muestra por pantalla el valor de cada variable, la suma, la res
 <p><code>204datosPersonales.html</code> y <code>204datosPersonales.php</code>: Es el mismo ejercicio que el anterior, pero separando la lógica. En el primer archivo crearemos el formulario para introducir los datos, y luego recogemos los datos y generamos la tabla en el segundo archivo.</p>
 </li>
 <li>
-<p><code>205madlib.php</code>: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:</p>
+<p><code>205madlib.html</code>y <code>205madlib.php</code>: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:</p>
 <ul>
 <li>Entrada: perro / caminar / azul / rápidamente</li>
 <li>
 <p>Salida: ¿ Te gusta caminar con tu perro azul rápidamente ?</p>
 </li>
 <li>
-<p><code>205madlib2.php</code> Crea un madlib más extenso, leyendo más datos de entrada.</p>
+<p><code>205madlib2.html</code> y <code>205madlib2.php</code> Crea un madlib más extenso, leyendo más datos de entrada.</p>
 </li>
 </ul>
 </li>
 <li>
 <p><code>206anyos.php</code>: Tras leer la edad de una persona, mostrar la edad que tendrá dentro de 10 años y hace 10 años.
 Además, muestra qué año será en cada uno de los casos.
-Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 65 años.</p>
+Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 65 años.
+En este caso, no hace falta que previamente crees un formulario, puedes probar el ejercicio via URL: <code>206anyos.php?edad=33</code>.</p>
 <p>Tip: <code>$anyoActual = date("Y");</code></p>
 </li>
 <li>
@@ -2216,11 +2246,6 @@ Además de la propiafunción, el ejercicio debe contener código para poder prob
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Volver al principio
-          </a>
-        
       </main>
       
         
@@ -2303,7 +2328,7 @@ Además de la propiafunción, el ejercicio debe contener código para poder prob
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.756773cc.min.js"></script>

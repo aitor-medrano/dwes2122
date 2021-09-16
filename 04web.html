@@ -1,0 +1,826 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/04web.html">
+      
+      <link rel="icon" href="imagenes/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>4.- Programación Web - Desarrollo Web en Entorno Servidor</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+  
+
+
+  
+
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="teal">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programacion-web" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo Web en Entorno Servidor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.- Programación Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+      
+  <img src="imagenes/logofp.png" alt="logo">
+
+    </a>
+    Desarrollo Web en Entorno Servidor
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01arquitecturas.html" class="md-nav__link">
+        1.- Arquitecturas Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02php.html" class="md-nav__link">
+        2.- El lenguaje PHP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03phpoo.html" class="md-nav__link">
+        3.- PHP Orientado a Objetos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4.- Programación Web
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04web.html" class="md-nav__link md-nav__link--active">
+        4.- Programación Web
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-servidor" class="md-nav__link">
+    Variables de servidor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formularios" class="md-nav__link">
+    Formularios
+  </a>
+  
+    <nav class="md-nav" aria-label="Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacion" class="md-nav__link">
+    Validación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametro-multivalor" class="md-nav__link">
+    Parámetro multivalor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#volviendo-a-rellenar-un-formulario" class="md-nav__link">
+    Volviendo a rellenar un formulario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subiendo-archivos" class="md-nav__link">
+    Subiendo archivos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cabeceras-de-respuesta" class="md-nav__link">
+    Cabeceras de respuesta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-del-estado" class="md-nav__link">
+    Gestión del estado
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión del estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sesion" class="md-nav__link">
+    Sesión
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autentificacion-de-usuarios" class="md-nav__link">
+    Autentificación de usuarios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        5.- Herramientas Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        6.- Acceso a Datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        7.- Frameworks PHP - Laravel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08frameworks2.html" class="md-nav__link">
+        8.- Uso avanzado de Frameworks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09rest.html" class="md-nav__link">
+        9.- Servicios REST
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="programacion-web">Programación Web<a class="headerlink" href="#programacion-web" title="Permanent link">&para;</a></h1>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 8 sesiones</p>
+<hr />
+<p>Resultado de aprendizaje:</p>
+<ol start="4">
+<li>Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones. </li>
+</ol>
+<p>Criterios de evaluación:</p>
+<p>a) Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.
+b) Se han utilizado sesiones para mantener el estado de las aplicaciones Web.
+c) Se han utilizado <em>cookies</em> para almacenar información en el cliente Web y para recuperar su contenido.
+d) Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios.
+e) Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios.
+f) Se han realizado adaptaciones a aplicaciones Web existentes como gestores de contenidos u otras.
+g) Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</p>
+</details>
+<h2 id="variables-de-servidor">Variables de servidor<a class="headerlink" href="#variables-de-servidor" title="Permanent link">&para;</a></h2>
+<p>PHP almacena la información del servidor y de las peticiones HTTP en seis arrays globales:</p>
+<ul>
+<li><code>$_ENV</code>: información sobre las variables de entorno</li>
+<li><code>$_GET</code>: parámetros enviados en la petición GET</li>
+<li><code>$_POST</code>: parámetros enviados en el envio POST</li>
+<li><code>$_COOKIE</code>: contiene las cookies de la petición, las claves del array son los nombres de las <em>cookies</em></li>
+<li><code>$_SERVER</code>: información sobre el servidor</li>
+<li><code>$_FILES</code>: información sobre los ficheros cargados via upload</li>
+</ul>
+<p>https://www.php.net/manual/es/reserved.variables.server.php</p>
+<ul>
+<li><code>PHP_SELF</code>: nombre del script ejecutado, relativo al document root (p.ej: <code>/tienda/carrito.php</code>)</li>
+<li><code>SERVER_SOFTWARE</code>: (p.ej: Apache)</li>
+<li><code>SERVER_NAME</code>: dominio, alias DNS (p.ej: <code>www.elche.es</code>)</li>
+<li><code>REQUEST_METHOD</code>: GET</li>
+<li><code>REQUEST_URI</code>: URI, sin el dominio</li>
+<li><code>QUERY_STRING</code>: todo lo que va después de <code>?</code> en la URL (p.ej: <code>heroe=Batman&amp;nombre=Bruce</code>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;PHP_SELF&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u6/601server.php</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_SOFTWARE&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Apache/2.4.46 (Win64) OpenSSL/1.1.1g PHP/7.4.9</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_NAME&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// localhost</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_METHOD&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// GET</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_URI&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u6/601server.php?heroe=Batman</span>
+<span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;QUERY_STRING&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// heroe=Batman</span>
+</code></pre></div>
+<p>PATH_INFO: ruta extra tras la petición. Si la URL es http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar, entonces $_SERVER['PATH_INFO'] será /algo/cosa.
+REMOTE_HOST: hostname que hizo la petición
+REMOTE_ADDR: IP del cliente
+AUTH_TYPE: tipo de autenticación (p.ej: Basic)
+REMOTE_USER: nombre del usuario autenticado
+Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:
+HTTP_USER_AGENT: agente (navegador)
+HTTP_REFERER: página desde la que se hizo la petición</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_USER_AGENT&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36</span>
+</code></pre></div>
+<h2 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h2>
+<p>A la hora de enviar un formulario, debemos tener claro cuando usar GET o POST</p>
+<ul>
+<li>
+<p>GET: los parámetros se pasan en la URL</p>
+<ul>
+<li>&lt;2048 caracteres, sólo ASCII</li>
+<li>Permite almacenar la dirección completa (marcador  / historial)</li>
+<li>Idempotente: dos llamadas con los mismos datos siempre debe dar el mismo resultado</li>
+<li>El navegador puede cachear las llamadas</li>
+</ul>
+</li>
+<li>
+<p>POST: parámetros ocultos (no encriptados)</p>
+<ul>
+<li>Sin límite de datos, permite datos binarios.</li>
+<li>No se pueden cachear</li>
+<li>No idempotente → actualizar la BBDD</li>
+</ul>
+</li>
+</ul>
+<p>Así pues, para recoger los datos accederemos al array dependiendo del método del formulario que nos ha invocado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$par</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$par</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;formulario.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;GET&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Nombre del alumno:
+<span class="linenos" data-linenos=" 3 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWES&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        Desarrollo web en entorno servidor<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;modulos[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;DWEC&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>        Desarrollo web en entorno cliente<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Enviar&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">/&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="validacion">Validación<a class="headerlink" href="#validacion" title="Permanent link">&para;</a></h3>
+<p>Respecto a la validación, es conveniente siempre hacer <strong>validación doble</strong>:</p>
+<ul>
+<li>En el cliente mediante JS</li>
+<li>En servidor, antes de llamar a negocio, es conveniente volver a validar los datos.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$par </span><span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;parametro&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">// comprobar si $par tiene el formato adecuado, su valor, etc...</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Librerías de validación</p>
+<p>Existen diversas librerías que facilitan la validación de los formularios, como son <a href="https://respect-validation.readthedocs.io/en/latest/">respect/validation</a> o <a href="http://validator.particle-php.com/en/latest/">particle/validator</a>.
+Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa.</p>
+</div>
+<h3 id="parametro-multivalor">Parámetro multivalor<a class="headerlink" href="#parametro-multivalor" title="Permanent link">&para;</a></h3>
+<p>Existen elementos HTML que envían varios valores:</p>
+<ul>
+<li><code>select multiple</code></li>
+<li><code>checkbox</code></li>
+</ul>
+<p>Para recoger los datos, el nombre del elemento debe ser un array.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">multiple</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;c&quot;</span><span class="p">&gt;</span>C<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;java&quot;</span><span class="p">&gt;</span>Java<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;php&quot;</span><span class="p">&gt;</span>PHP<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">option</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;python&quot;</span><span class="p">&gt;</span>Python<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;c&quot;</span> <span class="p">/&gt;</span> C<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;java&quot;</span> <span class="p">/&gt;</span> Java<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;php&quot;</span> <span class="p">/&gt;</span> Php<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;python&quot;</span> <span class="p">/&gt;</span> Python<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<p>De manera que luego al recoger los datos:</p>
+<p>FIXME: completar ejemplo</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$lenguajes = $_GET[&quot;lenguajes&quot;];</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">XXXXXXXX recorrer y mostrar valores</span>
+</code></pre></div>
+<h3 id="volviendo-a-rellenar-un-formulario">Volviendo a rellenar un formulario<a class="headerlink" href="#volviendo-a-rellenar-un-formulario" title="Permanent link">&para;</a></h3>
+<p>Ejemplo mediante sticky forms:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;modulos&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="c1">// Aquí se incluye el código a ejecutar cuando los datos son correctos</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="c1">// Generamos el formulario</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$modulos</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;modulos&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">  &lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">];</span><span class="cp">?&gt;</span><span class="x">&quot; method=&quot;POST&quot;&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">   &lt;p&gt;Nombre del alumno:</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">   &lt;input type=&quot;text&quot; name=&quot;nombre&quot; value=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt; </span>
+<span class="linenos" data-linenos="12 "></span><span class="x">   &lt;/p&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">   &lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;modulos[]&quot; value=&quot;DWES&quot; </span>
+<span class="linenos" data-linenos="14 "></span><span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWES&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">   Desarrollo web en entorno servidor&lt;br /&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="x">   &lt;/p&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="x">   &lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;modulos[]&quot; value=&quot;DWEC&quot;</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWEC&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">   Desarrollo web en entorno cliente&lt;br /&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">   &lt;/p&gt;</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">   &lt;input type=&quot;submit&quot; value=&quot;Enviar&quot; name=&quot;enviar&quot;/&gt;</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">  &lt;/form&gt;</span>
+<span class="linenos" data-linenos="23 "></span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h3 id="subiendo-archivos">Subiendo archivos<a class="headerlink" href="#subiendo-archivos" title="Permanent link">&para;</a></h3>
+<p>Se almacenan en el servidor en el array <code>$_FILES</code> con el nombre del campo del tipo <code>file</code> del formulario.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&lt;?php echo $_SERVER[&#39;PHP_SELF&#39;]; ?&gt;&quot;</span>  <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    Archivo: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;archivoEnviado&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;btnSubir&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Subir&quot;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Configuración en <code>php.ini</code></p>
+<ul>
+<li><code>file_uploads</code>: on / off</li>
+<li><code>upload_max_filesize</code>: 2M</li>
+<li><code>upload_tmp_dir</code>: directorio temporal. No es necesario configurarlo, cogerá el predeterminado del sistema</li>
+<li><code>post_max_size</code>: tamaño máximo de los datos POST. Debe ser mayor a upload_max_filesize.</li>
+<li><code>max_file_uploads</code>: número máximo de archivos que se pueden cargar a la vez.</li>
+<li><code>max_input_time</code>: tiempo máximo empleado en la carga (GET/POST y upload → normalmente se configura en 60)</li>
+<li><code>memory_limit</code>: 128M</li>
+<li><code>max_execution_time</code>: tiempo de ejecución de un script (no tiene en cuenta el upload)</li>
+</ul>
+<p>Para cargar los archivos, accedemos al array <code>$_FILES</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;btnSubir&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;btnSubir&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subir&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">is_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="c1">// subido con éxito</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;archivoEnviado&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="s2">&quot;./uploads/</span><span class="si">{</span><span class="nv">$nombre</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Archivo </span><span class="si">$nombre</span><span class="s2"> subido con éxito&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Cada archivo cargado en <code>$_FILES</code> tiene:</p>
+<ul>
+<li><code>name</code>: nombre</li>
+<li><code>tmp_name</code>: ruta temporal</li>
+<li><code>size</code>: tamaño en bytes</li>
+<li><code>type</code>: tipo MIME</li>
+<li><code>error</code>: si hay error, contiene un mensaje. Si ok → 0.</li>
+</ul>
+<h2 id="cabeceras-de-respuesta">Cabeceras de respuesta<a class="headerlink" href="#cabeceras-de-respuesta" title="Permanent link">&para;</a></h2>
+<p>Debe ser lo primero a devolver.
+header(cadena)
+permite configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Type: text/plain&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="2 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: http://www.ejemplo.com/inicio.html&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">exit</span><span class="p">();</span> 
+</code></pre></div>
+<p>Se puede comprobar en las herramientas del desarrollador de los navegadores web mediante <em>Developer Tools → Network → Headers</em>.</p>
+<p>Es muy común configurar las cabeceras para evitar consultas a la caché o provocar su renovación:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: Sun, 31 Jan 2021 23:59:59 GMT&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// tres horas</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$now</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$horas3</span> <span class="o">=</span> <span class="nb">gmstrftime</span><span class="p">(</span><span class="s2">&quot;%a, %d %b %Y %H:%M:%S GMT&quot;</span><span class="p">,</span> <span class="nv">$now</span> <span class="o">+</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: </span><span class="si">{</span><span class="nv">$horas3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// un año</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$now</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$anyo1</span> <span class="o">=</span> <span class="nb">gmstrftime</span><span class="p">(</span><span class="s2">&quot;%a, %d %b %Y %H:%M:%S GMT&quot;</span><span class="p">,</span> <span class="nv">$now</span> <span class="o">+</span> <span class="mi">365</span> <span class="o">*</span> <span class="mi">86440</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: </span><span class="si">{</span><span class="nv">$anyo1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="c1">// se marca como expirado (fecha en el pasado)</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$pasado</span> <span class="o">=</span> <span class="nb">gmstrftime</span><span class="p">(</span><span class="s2">&quot;%a, %d %b %Y %H:%M:%S GMT&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: </span><span class="si">{</span><span class="nv">$pasado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">// evitamos cache de navegador y/o proxy</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: Mon, 26 Jul 1997 05:00:00 GMT&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="16 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Last-Modified: &quot;</span> <span class="o">.</span> <span class="nb">gmdate</span><span class="p">(</span><span class="s2">&quot;D, d M Y H:i:s&quot;</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; GMT&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Cache-Control: no-store, no-cache, must-revalidate&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Cache-Control: post-check=0, pre-check=0&quot;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Pragma: no-cache&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="gestion-del-estado">Gestión del estado<a class="headerlink" href="#gestion-del-estado" title="Permanent link">&para;</a></h2>
+<h3 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h3>
+<h3 id="sesion">Sesión<a class="headerlink" href="#sesion" title="Permanent link">&para;</a></h3>
+<h2 id="autentificacion-de-usuarios">Autentificación de usuarios<a class="headerlink" href="#autentificacion-de-usuarios" title="Permanent link">&para;</a></h2>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<ol start="400">
+<li></li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="03phpoo.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 3.- PHP Orientado a Objetos" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              3.- PHP Orientado a Objetos
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="05herramientas.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 5.- Herramientas Web" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              5.- Herramientas Web
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

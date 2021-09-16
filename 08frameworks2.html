@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/05accesoDatos.html">
+        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/08frameworks2.html">
       
       <link rel="icon" href="imagenes/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Acceso a datos (26h) - Desarrollo Web en Entorno Servidor</title>
+        <title>8.- Uso avanzado de Frameworks - Desarrollo Web en Entorno Servidor</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#acceso-a-datos-26h" class="md-skip">
+        <a href="#uso-avanzado-de-frameworks" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Acceso a datos (26h)
+              8.- Uso avanzado de Frameworks
             
           </span>
         </div>
@@ -158,63 +158,6 @@
       
       
         
-          
-<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="index.html" class="md-tabs__link">
-      Inicio
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="01arquitecturas.html" class="md-tabs__link">
-      1.- Arquitecturas Web
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="02php.html" class="md-tabs__link">
-      2.- El lenguaje PHP
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="03phpoo.html" class="md-tabs__link">
-      3.- PHP Orientado a Objetos
-    </a>
-  </li>
-
-      
-    </ul>
-  </div>
-</nav>
-        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -226,12 +169,10 @@
                   <div class="md-sidebar__inner">
                     
 
-  
-
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -303,6 +244,177 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        4.- Programación Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        5.- Herramientas Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        6.- Acceso a Datos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        7.- Frameworks PHP - Laravel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          8.- Uso avanzado de Frameworks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="08frameworks2.html" class="md-nav__link md-nav__link--active">
+        8.- Uso avanzado de Frameworks
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plantillas-con-blade" class="md-nav__link">
+    Plantillas con Blade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integracion-de-css-y-js" class="md-nav__link">
+    Integración de CSS y JS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion-y-autorizacion" class="md-nav__link">
+    Autenticación y autorización
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticación y autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laravel-breeze" class="md-nav__link">
+    Laravel Breeze
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i18n" class="md-nav__link">
+    i18n
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09rest.html" class="md-nav__link">
+        9.- Servicios REST
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -316,33 +428,56 @@
               
                 
                 
-                <h1 id="acceso-a-datos-26h">Acceso a datos (26h)<a class="headerlink" href="#acceso-a-datos-26h" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Duración estimada: 26 sesiones</p>
-</blockquote>
-<p>Esta unidad trabaja el acceso a los datos desde PHP.</p>
-<h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
-<p>Partir de un par de ejemplos ... la Tienda puede ser uno
-Otro un Yahoo Respuestas (https://github.com/PacktPublishing/Laravel-Foundations-Basics-to-Every-App) ...
-    Tabla pregunta: con id, titulo, descripcion, created_at, updated_at</p>
-<h3 id="la-severo-tienda">La Severo Tienda<a class="headerlink" href="#la-severo-tienda" title="Permanent link">&para;</a></h3>
-<p>A lo largo de esta unidad vamos a trabajar con una base de datos existente, que almacena la información de un tienda:</p>
-<p>Vamos a ver como crear la base de datos dependiendo de nuestra instalación,</p>
-<h4 id="xamp">XAMP<a class="headerlink" href="#xamp" title="Permanent link">&para;</a></h4>
-<p>Si estamos utilizando XAMP, ya viene instalado tanto con MariaDB como sistema gestor de base de datos, como PhpMyAdmin como herramienta web para facilitar su gestión.</p>
-<p>Así pues, si entraís a ...... podréis ver el inicio</p>
-<h4 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
-<p>En cambio, si trabajamos con Docker, tendremos que modificar nuestra plantilla, para configurar un nuevo contenedor que contenga la base de datos.</p>
-<h3 id="mysqli">mysqli<a class="headerlink" href="#mysqli" title="Permanent link">&para;</a></h3>
-<h3 id="pdo">PDO<a class="headerlink" href="#pdo" title="Permanent link">&para;</a></h3>
-<h2 id="acceso-a-ficheros">Acceso a ficheros<a class="headerlink" href="#acceso-a-ficheros" title="Permanent link">&para;</a></h2>
-<h3 id="archivos-csv">Archivos CSV<a class="headerlink" href="#archivos-csv" title="Permanent link">&para;</a></h3>
-<h3 id="archivos-pdf">Archivos PDF<a class="headerlink" href="#archivos-pdf" title="Permanent link">&para;</a></h3>
-<h2 id="eloquent">Eloquent<a class="headerlink" href="#eloquent" title="Permanent link">&para;</a></h2>
-<h3 id="mapeo-orm">Mapeo ORM<a class="headerlink" href="#mapeo-orm" title="Permanent link">&para;</a></h3>
-<h4 id="modelo">Modelo<a class="headerlink" href="#modelo" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Pregunta</span>
+                <h1 id="uso-avanzado-de-frameworks">Uso avanzado de Frameworks<a class="headerlink" href="#uso-avanzado-de-frameworks" title="Permanent link">&para;</a></h1>
+<h2 id="plantillas-con-blade">Plantillas con Blade<a class="headerlink" href="#plantillas-con-blade" title="Permanent link">&para;</a></h2>
+<h2 id="integracion-de-css-y-js">Integración de CSS y JS<a class="headerlink" href="#integracion-de-css-y-js" title="Permanent link">&para;</a></h2>
+<h2 id="autenticacion-y-autorizacion">Autenticación y autorización<a class="headerlink" href="#autenticacion-y-autorizacion" title="Permanent link">&para;</a></h2>
+<p>https://igomis.github.io/apunts/docs/4.8.Laravel.html</p>
+<div class="admonition tip proyecto">
+<p class="admonition-title">Tip</p>
+<ol>
+<li>Pregunta</li>
+<li>Respuesta</li>
+<li>Relacion P-R</li>
+<li>Autenticación</li>
+<li>Relacion con usuario en modelo</li>
+<li>Relacionar con migraciones</li>
+<li>Relacionar en vistas</li>
+<li>Proteger edit, update por Auth:id</li>
+<li>página profile ... listado de preguntas y respuestas del usuario</li>
+</ol>
+<p>Utilizar la fución diffForHumas para ellapsed time</p>
+</div>
+<p>Antes se hacía así....</p>
+<p>Run scaffolding</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:auth</span>
 </code></pre></div>
+<p>Crea el <code>HomeController</code>, que utiliza el middleware <code>auth</code>.</p>
+<h3 id="middleware">Middleware<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h3>
+<p>Componente que se situa entre el enrutador y el controlador.</p>
+<p>Explicar</p>
+<p>Ejecutar las migraciones</p>
+<p>Explorar los ficheros generados</p>
+<p>Auth:routes() ???</p>
+<h2 id="laravel-breeze">Laravel Breeze<a class="headerlink" href="#laravel-breeze" title="Permanent link">&para;</a></h2>
+<p>Laravel Breeze es un <em>starter kit</em> que se compone de un conjunto de rutas, controladores y vistas necesarias para regitrar y autenticar usuarios en cualquier aplicación.</p>
+<p>Las vistas están creadas con Laravel y los estilos con Tailwind CSS.</p>
+<p>Primero hemos de añadir la dependencia mediante Composer:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer require laravel/breeze --dev</span>
+</code></pre></div>
+<p>Tras ello, ejecutaremos el comando <code>breeze:install</code> para generar todo el contenido necesario (rutas, vistas, controladores, recursos, ...), compilaremos todos los <em>assets</em> CSS y generaremos las migraciones:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan breeze:install</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="go">npm install</span>
+<span class="linenos" data-linenos="4 "></span><span class="go">npm run dev</span>
+<span class="linenos" data-linenos="5 "></span><span class="go">php artisan migrate</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Mailtrap</p>
+<p>Para poder probar el envío de correo
+mailtrap.io, servidor de correo para pruebas para equipos de desarrollo (realmente no está envíando los correos)</p>
+</div>
+<h2 id="i18n">i18n<a class="headerlink" href="#i18n" title="Permanent link">&para;</a></h2>
                 
               
               
@@ -354,15 +489,45 @@ Otro un Yahoo Respuestas (https://github.com/PacktPublishing/Laravel-Foundations
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Volver al principio
-          </a>
-        
       </main>
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="07frameworks.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 7.- Frameworks PHP - Laravel" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              7.- Frameworks PHP - Laravel
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="09rest.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 9.- Servicios REST" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              9.- Servicios REST
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -406,7 +571,7 @@ Otro un Yahoo Respuestas (https://github.com/PacktPublishing/Laravel-Foundations
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.756773cc.min.js"></script>
