@@ -725,8 +725,8 @@
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
 <ul>
 <li>No es necesario declararlas previamente.</li>
-<li>Comienzan por <code>$</code>, por ejemplo <code>$nombre</code>. Tras el <code>$</code>, el siguiente caracter debe ser una letra o guión bajo <code>_</code>. Luego ya se pueden poner números.</li>
-<li>Son <em>case sensitive</em>: <code>$var != $VaR</code></li>
+<li>Comienzan por <code>$</code>, por ejemplo <code>$nombre</code>. Tras el <code>$</code>, el siguiente caracter debe ser una letra en minúscula (recomendación) o guión bajo <code>_</code>. Luego ya se pueden poner números.</li>
+<li>Son <em>case sensitive</em>: <code>$var != $vAR</code></li>
 <li>No se declara su tipo, el tipado es dinámico. Se asigna en tiempo de ejecución dependiendo del valor asignado.</li>
 <li>Conveniente inicializarlas, sino dan error.</li>
 </ul>
@@ -740,7 +740,7 @@
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$sinValor</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$sinValor</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Tipos</p>
@@ -774,11 +774,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code>+$a</code></td>
-<td>Identidad</td>
-<td>Conversión de <code>$a</code> a <code>int</code> o <code>float</code> según el caso.</td>
-</tr>
 <tr>
 <td><code>-$a</code></td>
 <td>Negación</td>
@@ -1051,11 +1046,11 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$hora </span><span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="c1">// La hora en formato de 24 horas</span>
-<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Suena el despertador.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="7 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">==</span> <span class="mi">8</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">8</span><span class="p">)</span>
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Suena el despertador.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1072,11 +1067,11 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <p>Las condiciones anidadas mediante <code>if-else if-else</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$hora </span><span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// La hora en formato de 24 horas</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de desayunar.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">==</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 6 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de la comida.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">==</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 8 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de la cena.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 <span class="linenos" data-linenos="10 "></span>  <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer.&quot;</span><span class="p">;</span>
@@ -1409,9 +1404,9 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <h3 id="parametros-variables">Parámetros variables<a class="headerlink" href="#parametros-variables" title="Permanent link">&para;</a></h3>
 <p>Podemos tener funciones donde en la declaración no indiquemos la cantidad de datos de entrada.</p>
 <ul>
-<li><code>$arrayArgs = func_get_args();</code> -&gt; Obtiene un array con los parámetros</li>
-<li><code>$cantidad = func_num_args();</code> -&gt; Obtiene la cantidad de parámetros recibidos</li>
-<li><code>$valor = func_get_arg(numArgumento);</code> -&gt; Obtiene el parámetro que ocupa la posición <code>numArgumento</code>.</li>
+<li><code>$arrayArgs = func_get_args();</code> &rarr; Obtiene un array con los parámetros</li>
+<li><code>$cantidad = func_num_args();</code> &rarr; Obtiene la cantidad de parámetros recibidos</li>
+<li><code>$valor = func_get_arg(numArgumento);</code> &rarr; Obtiene el parámetro que ocupa la posición <code>numArgumento</code>.</li>
 </ul>
 <p>Estas funciones no se pueden pasar como parámetro a otra función (como funciones variable, que veremos más adelante). Para ello, debemos guardar previamente la función en una variable.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1897,13 +1892,11 @@ Por ejemplo, al introducir <code>139</code> debe mostrar:</p>
 <p><code>208posnegcero.php</code>: A partir de un <code>numero</code>, muestra por pantalla si el número es <code>positivo</code>, <code>negativo</code> o <code>cero</code>.</p>
 </li>
 <li>
-<p><code>209mayor3.php</code>: Sin hacer uso de condiciones compuestas, muestra el mayor de tres números (<code>a</code>, <code>b</code> y <code>c</code>).</p>
-<p><code>209mayor3c.php</code>: Utiliza condiciones compuestas.</p>
+<p><code>209mayor3.php</code>: Sin hacer uso de condiciones que utilicen dentro la condición los operadores lógicos, muestra el mayor de tres números (<code>a</code>, <code>b</code> y <code>c</code>).</p>
+<p><code>209mayor3c.php</code>: Utiliza en las condiciones los operadores lógicos.</p>
 </li>
 <li>
 <p><code>210nombreEdad.php</code>: A partir de una <code>edad</code> muestra por pantalla:</p>
-</li>
-</ol>
 <ul>
 <li><code>bebé</code> si tiene menos de 3 años</li>
 <li><code>niño</code> si tiene entre 3 y 12 años</li>
@@ -1911,9 +1904,9 @@ Por ejemplo, al introducir <code>139</code> debe mostrar:</p>
 <li><code>adulto</code> entre 18 y 66</li>
 <li><code>jubilado</code> a partir de 67</li>
 </ul>
-<ol start="211">
+</li>
 <li>
-<p><code>211reloj.php</code>: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de <code>hora</code>, <code>minuto</code> y <code>segundo</code> muestre la hora dentro de un segundo. Tras las <code>23:59:59</code> serán las <code>0:0:0</code>. </p>
+<p><code>211reloj.php</code>: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de <code>hora</code>, <code>minuto</code> y <code>segundo</code> muestre la hora dentro de un segundo. Tras las <code>23:59:59</code> serán las <code>0:0:0</code>.</p>
 </li>
 <li>
 <p><code>212calendario.php</code>: Escribe un programa similar a un calendario de manera que a partir de <code>dia</code>, <code>mes</code> y <code>anyo</code> muestre la fecha dentro de un día. Debes tener en cuenta que no todos los meses tienen 30 días. En este caso, no vamos a tener en cuenta los años bisiestos.</p>
@@ -1921,13 +1914,16 @@ Por ejemplo, al introducir <code>139</code> debe mostrar:</p>
 </ol>
 <p><img _="&amp;" align="right" alt="213" src="imagenes/02/02p213.png" width="150" /></p>
 <ol start="213">
-<li><code>213ecuacion2g.php</code>: Crea un programa que resuelva una ecuación de 2º grado del tipo <code>ax² + bx + c = 0</code>.
-Ten en cuenta que puede tener 2, 1 o no tener solución.</li>
+<li>
+<p><code>213ecuacion2g.php</code>: Crea un programa que resuelva una ecuación de 2º grado del tipo <code>ax² + bx + c = 0</code>.
+Ten en cuenta que puede tener 2, 1 o no tener solución dependiendo del valor del discriminante <code>b²-4ac</code>.</p>
+<p>Tip: Para calcular la raíz cuadrada deberás utilizar la función <code>sqrt()</code></p>
+</li>
 </ol>
 <p>Ejercicios de investigación:</p>
 <ol start="214">
-<li>Investiga para que sirve el operador nave espacial, disponible desde PHP7 (<a href="https://www.php.net/manual/es/migration70.new-features.php">https://www.php.net/manual/es/migration70.new-features.php</a>). Explica mediante un par de líneas su propósito, y mediante código demuestra su uso.</li>
-<li>Investiga para qué sirve la instrucción <code>match()</code>, disponible desde PHP8 (<a href="https://www.php.net/manual/es/control-structures.match.php">https://www.php.net/manual/es/control-structures.match.php</a>). Explica mediante un par de líneas su propósito, y mediante código demuestra su uso.</li>
+<li>Investiga para que sirve el operador nave espacial, disponible desde PHP7 (<a href="https://www.php.net/manual/es/migration70.new-features.php">https://www.php.net/manual/es/migration70.new-features.php</a>). Explica con un par de líneas su propósito y mediante código demuestra su uso.</li>
+<li>Investiga para qué sirve la instrucción <code>match()</code>, disponible desde PHP8 (<a href="https://www.php.net/manual/es/control-structures.match.php">https://www.php.net/manual/es/control-structures.match.php</a>). Explica con un par de líneas su propósito y mediante código demuestra su uso.</li>
 </ol>
 <h3 id="bucles_1">Bucles<a class="headerlink" href="#bucles_1" title="Permanent link">&para;</a></h3>
 <ol start="220">
@@ -1941,7 +1937,7 @@ Ten en cuenta que puede tener 2, 1 o no tener solución.</li>
 </li>
 <li>
 <p><code>222potencia.php</code>: A partir de una base y exponente, mediante la acumulación de productos, calcula la potencia utilizando la instrucción <code>for</code>.</p>
-<p><code>222potenciaWhile.php</code>: Reescribe el ejercicio anterior haciendo uso sólo de <code>while</code>.
+<p><code>222potenciaWhile.php</code>: Reescribe el ejercicio anterior haciendo uso sólo de <code>while</code>.<br />
 <code>222potenciaDoWhile.php</code>: Reescribe el ejercicio anterior haciendo uso sólo de <code>do-while</code>.</p>
 </li>
 <li>
