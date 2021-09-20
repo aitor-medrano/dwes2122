@@ -133,12 +133,12 @@ Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de `try`
 ### Variables
 
 * No es necesario declararlas previamente.
-* Comienzan por `$`, por ejemplo `$nombre`. Tras el `$`, el siguiente caracter debe ser una letra o guión bajo `_`. Luego ya se pueden poner números.
-* Son *case sensitive*: `$var != $VaR`
+* Comienzan por `$`, por ejemplo `$nombre`. Tras el `$`, el siguiente caracter debe ser una letra en minúscula (recomendación) o guión bajo `_`. Luego ya se pueden poner números.
+* Son *case sensitive*: `$var != $vAR`
 * No se declara su tipo, el tipado es dinámico. Se asigna en tiempo de ejecución dependiendo del valor asignado.
 * Conveniente inicializarlas, sino dan error.
 
-``` html+php
+``` php
 <?php
 $nombre = "Aitor";
 $nombreCompleto = "Aitor Medrano";
@@ -180,7 +180,6 @@ echo PI, " ", IVA; // No se pone el símbolo dolar
 
 | Ejemplo | Nombre | Resultado
 | ---   | ---   | ---
-| `+$a` | Identidad | Conversión de `$a` a `int` o `float` según el caso.
 | `-$a` | Negación | Opuesto de `$a`.
 | `$a + $b` | Suma | Suma de `$a` y `$b`.
 | `$a - $b` | Resta | Diferencia de `$a` y `$b`.
@@ -332,11 +331,11 @@ La condición simple se realiza mediante la instrucción `if`. Entre paréntesis
 ``` php
 <?php
 $hora = 8; // La hora en formato de 24 horas
-if ($hora == 8) {
+if ($hora === 8) {
     echo "Suena el despertador.";
 }
 echo "<br>";
-if ($hora == 8)
+if ($hora === 8)
     echo "Suena el despertador.";
 ?>
 ```
@@ -359,11 +358,11 @@ Las condiciones anidadas mediante `if-else if-else`:
 ``` php
 <?php
 $hora = 14; // La hora en formato de 24 horas
-if ($hora == 8) {
+if ($hora === 8) {
   echo "Es la hora de desayunar.";
-} else if ($hora == 14) {
+} else if ($hora === 14) {
   echo "Es la hora de la comida.";
-} else if ($hora == 21) {
+} else if ($hora === 21) {
   echo "Es la hora de la cena.";
 } else {
   echo "Ahora no toca comer.";
@@ -758,9 +757,9 @@ echo obtenerCapital("Francia");
 
 Podemos tener funciones donde en la declaración no indiquemos la cantidad de datos de entrada.
 
-* `$arrayArgs = func_get_args();` -> Obtiene un array con los parámetros
-* `$cantidad = func_num_args();` -> Obtiene la cantidad de parámetros recibidos
-* `$valor = func_get_arg(numArgumento);` -> Obtiene el parámetro que ocupa la posición `numArgumento`.
+* `$arrayArgs = func_get_args();` --> Obtiene un array con los parámetros
+* `$cantidad = func_num_args();` --> Obtiene la cantidad de parámetros recibidos
+* `$valor = func_get_arg(numArgumento);` --> Obtiene el parámetro que ocupa la posición `numArgumento`.
 
 Estas funciones no se pueden pasar como parámetro a otra función (como funciones variable, que veremos más adelante). Para ello, debemos guardar previamente la función en una variable.
 
@@ -1280,58 +1279,64 @@ A continuación, muestra por pantalla el valor de cada variable, la suma, la res
 203. `203datosPersonales.php`: Escribe un programa que almacene en variables tu nombre, primer apellido, segundo apellido, email, año de nacimiento y teléfono. Luego muéstralos por pantalla dentro de una tabla.
 204. `204datosPersonales.html` y `204datosPersonales.php`: Es el mismo ejercicio que el anterior, pero separando la lógica. En el primer archivo crearemos el formulario para introducir los datos, y luego recogemos los datos y generamos la tabla en el segundo archivo.
 
-205. `205madlib.php`: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:
+205. `205madlib.html`y `205madlib.php`: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:
 
     * Entrada: perro / caminar / azul / rápidamente
     * Salida: ¿ Te gusta caminar con tu perro azul rápidamente ?
 
-    * `205madlib2.php` Crea un madlib más extenso, leyendo más datos de entrada.
+    * `205madlib2.html` y `205madlib2.php` Crea un madlib más extenso, leyendo más datos de entrada.
 
 206. `206anyos.php`: Tras leer la edad de una persona, mostrar la edad que tendrá dentro de 10 años y hace 10 años.
 Además, muestra qué año será en cada uno de los casos.
-Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 65 años.
+Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 67 años.
+En este caso, no hace falta que previamente crees un formulario, puedes probar el ejercicio via URL: `206anyos.php?edad=33`.
 
     Tip: `$anyoActual = date("Y");`
 
 207. `207dinero.php`: A partir de una cantidad de dinero, mostrar su descomposición en billetes  (500, 200, 100, 50, 20, 10, 5) y monedas (2, 1), para que el número de elementos sea mínimo.
 No se utilizar ninguna instrucción condicional.
-Por ejemplo, al introducir `139` debé mostrar:
+Por ejemplo, al introducir `139` debe mostrar:
 
-``` out
-1 billete de 100
-1 billete de 20
-1 billete de 10
-1 billete de 5
-2 monedas de 2
-```
+    ``` out
+    1 billete de 100
+    0 billete de 50
+    1 billete de 20
+    1 billete de 10
+    1 billete de 5
+    2 moneda de 2
+    ```
 
-208. `208mayor3.php`: Sin hacer uso de condiciones compuestas, muestra el mayor de tres números (`a`, `b` y `c`).
+    Tip: Puedes forzar a realizar la división entera mediante la función `intdiv($dividendo, $divisor)` o pasar un número flotante a entero puedes usar la función `intval()`
+
+208. `208posnegcero.php`: A partir de un `numero`, muestra por pantalla si el número es `positivo`, `negativo` o `cero`.
+
+209. `209mayor3.php`: Sin hacer uso de condiciones que utilicen dentro la condición los operadores lógicos, muestra el mayor de tres números (`a`, `b` y `c`).
     
-    `208mayor3c.php`: Utiliza condiciones compuestas.
-
-209. `209posnegcero.php`: A partir de un `numero`, muestra por pantalla si el número es `positivo`, `negativo` o `cero`.
+    `209mayor3c.php`: Utiliza en las condiciones los operadores lógicos.
 
 210. `210nombreEdad.php`: A partir de una `edad` muestra por pantalla:
 
-* `bebé` si tiene menos de 3 años
-* `niño` si tiene entre 3 y 12 años
-* `adolescente` entre 13 y 17 años
-* `adulto` entre 18 y 66
-* `jubilado` a partir de 67
+    * `bebé` si tiene menos de 3 años
+    * `niño` si tiene entre 3 y 12 años
+    * `adolescente` entre 13 y 17 años
+    * `adulto` entre 18 y 66
+    * `jubilado` a partir de 67
 
-211. `211reloj.php`: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de `hora`, `minuto` y `segundo` muestre la hora dentro de un segundo. Tras las `23:59:59` serán las `0:0:0`. 
+211. `211reloj.php`: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de `hora`, `minuto` y `segundo` muestre la hora dentro de un segundo. Tras las `23:59:59` serán las `0:0:0`.
 
 212. `212calendario.php`: Escribe un programa similar a un calendario de manera que a partir de `dia`, `mes` y `anyo` muestre la fecha dentro de un día. Debes tener en cuenta que no todos los meses tienen 30 días. En este caso, no vamos a tener en cuenta los años bisiestos.
 
 ![213](imagenes/02/02p213.png){align=right & width=150}
 
 213. `213ecuacion2g.php`: Crea un programa que resuelva una ecuación de 2º grado del tipo `ax² + bx + c = 0`.
-Ten en cuenta que puede tener 2, 1 o no tener solución.
+Ten en cuenta que puede tener 2, 1 o no tener solución dependiendo del valor del discriminante `b²-4ac`.
+
+    Tip: Para calcular la raíz cuadrada deberás utilizar la función `sqrt()`
 
 Ejercicios de investigación:
 
-214. Investiga para que sirve el operador nave espacial, disponible desde PHP7 (<https://www.php.net/manual/es/migration70.new-features.php>). Explica mediante un par de líneas su propósito, y mediante código demuestra su uso.
-215. Investiga para qué sirve la instrucción `match()`, disponible desde PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica mediante un par de líneas su propósito, y mediante código demuestra su uso.
+214. Investiga para que sirve el operador nave espacial, disponible desde PHP7 (<https://www.php.net/manual/es/migration70.new-features.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
+215. Investiga para qué sirve la instrucción `match()`, disponible desde PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
 
 ### Bucles
 
@@ -1345,7 +1350,7 @@ Ejercicios de investigación:
 
 222. `222potencia.php`: A partir de una base y exponente, mediante la acumulación de productos, calcula la potencia utilizando la instrucción `for`.
 
-    `222potenciaWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `while`.
+    `222potenciaWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `while`.  
     `222potenciaDoWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `do-while`.
 
 223. `223tablaMultiplicar.php`: Muestra dentro de una tabla HTML la tabla de multiplicar de un número. Utiliza `<thead>` con sus respectivos `<th>` y `<tbody`> para dibujar la tabla. Por ejemplo:
@@ -1357,8 +1362,9 @@ Ejercicios de investigación:
     ...
     7  | * | 10 | = | 70
 
-224. `224formulario.html`: Crea un formulario que permite leer una `cantidad`.
-`224leerDatos.php`: a partir de `cantidad`, prepara un formulario con tantas cajas de datos como su valor. Finalmente, en `224sumarDatos.php`: a partir de los datos de todas las cajas de la página anterior, sumalos y muestra el total.
+224. `224formulario.html`: Crea un formulario que permite leer una `cantidad`.  
+`224leerDatos.php`: a partir de `cantidad`, prepara un formulario con tantas cajas de datos como su valor.  
+Finalmente, en `224sumarDatos.php`: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.
 225. `225formulario.html` y `225tabla.php`: A partir de un número de `filas` y `columnas`, crear una tabla con ese tamaño.
 Las celdas deben estar rellenadas con los valores de las coordenadas de cada celda.
 226. `226formulario.html` y `226cuadrado.php`: Basándote en el ejercicio anterior, rellena la tabla de manera que solo los bordes tengan contenido, quedándose el resto de celdas en blanco.
@@ -1492,6 +1498,6 @@ Los siguientes ejercicios se basan en la generación de números aleatorios.
 260. `260generador.php`: Crea una función que permite generar una letra aleatoria, mayúscula o minúscula.
 261. `261generaContrasenya.php`: Crea una función que a partir de un tamaño, genere una contraseña aleatoria compuesta de letras y dígitos de manera aleatoria.
 263. `262quinielas.php`: Crea las siguientes funciones:
-    * `quinigol() : array` -> Genera un array multidimensional con 6 resultados aleatorios con combinaciones `[012M, 012M]`
-    * `quiniela() : array` -> Genera un array con una combinación de quiniela generada de manera aleatoria: 14 resultados con `1X2` y el pleno al quince con `[012M, 012M]`
-    * `tabla(array $quiniela) : string` -> transforma un array de una quniela en una tabla HTML
+    * `quinigol() : array` --> Genera un array multidimensional con 6 resultados aleatorios con combinaciones `[012M, 012M]`
+    * `quiniela() : array` --> Genera un array con una combinación de quiniela generada de manera aleatoria: 14 resultados con `1X2` y el pleno al quince con `[012M, 012M]`
+    * `tabla(array $quiniela) : string` --> transforma un array de una quniela en una tabla HTML
