@@ -9,7 +9,6 @@ La duración del módulo es de 160 horas lectivas, a razón de **8 horas semanal
 * A desarrollar aplicaciones web dinámicas, que obtienen la información a partir de una base de datos.
 * Analizar la estructura de una aplicación cliente/servidor, separando el código de presentación de la lógica de negocio
 * Obtener información a partir de los datos almacenados, así como modificarlos.
-* Modificar los datos almacenados.
 
 ## Resultados de aprendizaje
 
@@ -42,7 +41,7 @@ Duración estimada: 68 sesiones
     * Clases y objetos
     * Namespaces
     * Excepciones
-4. Programación Web (8h)
+4. [Programación Web](04web.md) (10h)
     * Formularios.
     * Cookies y sesión.
 5. Herramientas Web (16h)
@@ -69,7 +68,7 @@ Duración estimada: 92 sesiones
     * Plantillas con *Blade*.
     * Autenticación y autorización.
     * *i18n*.
-9. Servicios REST (16h)
+9. Servicios REST (12h)
     * Producción y consumo.
     * *AJAX* con *JSON*.
     * Interacción con *Vue.js*.
@@ -80,7 +79,7 @@ La nota de cada evaluación se calcula mediante:
 
 * 30% Trabajo en Clase / Actividades
     * Se evalúan todas las actividades realizadas en clase y en casa.
-    * Las actividades se evalúan mediante tareas de Aules con calificaciones comprendidas entre 0 y 3 puntos:
+    * Las actividades se evalúan mediante tareas de *Aules* con calificaciones comprendidas entre 0 y 3 puntos:
         * 0: No entregada
         * 1: Entregada pero solución errónea o incompleta
         * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
