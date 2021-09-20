@@ -385,6 +385,40 @@
     Actividades
   </a>
   
+    <nav class="md-nav" aria-label="Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formularios_1" class="md-nav__link">
+    Formularios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookies-y-sesion" class="md-nav__link">
+    Cookies y Sesión
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    Autenticación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-videoclub-30" class="md-nav__link">
+    Proyecto Videoclub 3.0
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -409,7 +443,7 @@
                 
                 
                 <h1 id="programacion-web">Programación Web<a class="headerlink" href="#programacion-web" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 8 sesiones</p>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 12 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="4">
@@ -444,22 +478,23 @@ g) Se han utilizado herramientas y entornos para facilitar la programación, pru
 <li><code>QUERY_STRING</code>: todo lo que va después de <code>?</code> en la URL (p.ej: <code>heroe=Batman&amp;nombre=Bruce</code>)</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;PHP_SELF&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u6/601server.php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;PHP_SELF&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_SOFTWARE&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Apache/2.4.46 (Win64) OpenSSL/1.1.1g PHP/7.4.9</span>
 <span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_NAME&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// localhost</span>
 <span class="linenos" data-linenos="5 "></span>
 <span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_METHOD&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// GET</span>
-<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_URI&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u6/601server.php?heroe=Batman</span>
+<span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_URI&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php?heroe=Batman</span>
 <span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;QUERY_STRING&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// heroe=Batman</span>
 </code></pre></div>
-<p>PATH_INFO: ruta extra tras la petición. Si la URL es http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar, entonces $_SERVER['PATH_INFO'] será /algo/cosa.
-REMOTE_HOST: hostname que hizo la petición
-REMOTE_ADDR: IP del cliente
-AUTH_TYPE: tipo de autenticación (p.ej: Basic)
-REMOTE_USER: nombre del usuario autenticado
-Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:
-HTTP_USER_AGENT: agente (navegador)
-HTTP_REFERER: página desde la que se hizo la petición</p>
+<p>Otras propiedades relacionadas:
+* <code>PATH_INFO</code>: ruta extra tras la petición. Si la URL es <code>http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar</code>, entonces <code>$_SERVER['PATH_INFO']</code> será <code>/algo/cosa</code>.
+* <code>REMOTE_HOST</code>: hostname que hizo la petición
+* <code>REMOTE_ADDR</code>: IP del cliente
+* <code>AUTH_TYPE</code>: tipo de autenticación (p.ej: Basic)
+* <code>REMOTE_USER</code>: nombre del usuario autenticado</p>
+<p>Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:
+* <code>HTTP_USER_AGENT</code>: agente (navegador)
+* <code>HTTP_REFERER</code>: página desde la que se hizo la petición</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_USER_AGENT&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36</span>
 </code></pre></div>
@@ -540,12 +575,14 @@ Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa
 <span class="linenos" data-linenos="11 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lenguajes[]&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;python&quot;</span> <span class="p">/&gt;</span> Python<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <p>De manera que luego al recoger los datos:</p>
-<p>FIXME: completar ejemplo</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$lenguajes = $_GET[&quot;lenguajes&quot;];</span>
-<span class="linenos" data-linenos="2 "></span><span class="x">XXXXXXXX recorrer y mostrar valores</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">foreach ($lenguajes as $lenguaje) {</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">    echo &quot;$lenguaje &lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">}</span>
 </code></pre></div>
 <h3 id="volviendo-a-rellenar-un-formulario">Volviendo a rellenar un formulario<a class="headerlink" href="#volviendo-a-rellenar-un-formulario" title="Permanent link">&para;</a></h3>
-<p>Ejemplo mediante sticky forms:</p>
+<p>Un <em>sticky form</em> es un formulario que recuerda sus valores. Para ello, hemos de rellenar los atributos <code>value</code> de los elementos HTML con la información que contenían:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;modulos&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]))</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="c1">// Aquí se incluye el código a ejecutar cuando los datos son correctos</span>
@@ -556,15 +593,15 @@ Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa
 <span class="linenos" data-linenos=" 8 "></span>  <span class="cp">?&gt;</span><span class="x"></span>
 <span class="linenos" data-linenos=" 9 "></span><span class="x">  &lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;PHP_SELF&#39;</span><span class="p">];</span><span class="cp">?&gt;</span><span class="x">&quot; method=&quot;POST&quot;&gt;</span>
 <span class="linenos" data-linenos="10 "></span><span class="x">   &lt;p&gt;Nombre del alumno:</span>
-<span class="linenos" data-linenos="11 "></span><span class="x">   &lt;input type=&quot;text&quot; name=&quot;nombre&quot; value=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt; </span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    &lt;input type=&quot;text&quot; name=&quot;nombre&quot; value=&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$nombre</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt; </span>
 <span class="linenos" data-linenos="12 "></span><span class="x">   &lt;/p&gt;</span>
 <span class="linenos" data-linenos="13 "></span><span class="x">   &lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;modulos[]&quot; value=&quot;DWES&quot; </span>
-<span class="linenos" data-linenos="14 "></span><span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWES&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
-<span class="linenos" data-linenos="15 "></span><span class="x">   Desarrollo web en entorno servidor&lt;br /&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWES&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"> /&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">    Desarrollo web en entorno servidor&lt;br /&gt;</span>
 <span class="linenos" data-linenos="16 "></span><span class="x">   &lt;/p&gt;</span>
 <span class="linenos" data-linenos="17 "></span><span class="x">   &lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;modulos[]&quot; value=&quot;DWEC&quot;</span>
-<span class="linenos" data-linenos="18 "></span><span class="x">   </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWEC&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
-<span class="linenos" data-linenos="19 "></span><span class="x">   Desarrollo web en entorno cliente&lt;br /&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s2">&quot;DWEC&quot;</span><span class="p">,</span><span class="nv">$modulos</span><span class="p">))</span> <span class="k">echo</span> <span class="s1">&#39;checked=&quot;checked&quot;&#39;</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"> /&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">    Desarrollo web en entorno cliente&lt;br /&gt;</span>
 <span class="linenos" data-linenos="20 "></span><span class="x">   &lt;/p&gt;</span>
 <span class="linenos" data-linenos="21 "></span><span class="x">   &lt;input type=&quot;submit&quot; value=&quot;Enviar&quot; name=&quot;enviar&quot;/&gt;</span>
 <span class="linenos" data-linenos="22 "></span><span class="x">  &lt;/form&gt;</span>
@@ -610,14 +647,12 @@ Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa
 <li><code>error</code>: si hay error, contiene un mensaje. Si ok → 0.</li>
 </ul>
 <h2 id="cabeceras-de-respuesta">Cabeceras de respuesta<a class="headerlink" href="#cabeceras-de-respuesta" title="Permanent link">&para;</a></h2>
-<p>Debe ser lo primero a devolver.
-header(cadena)
-permite configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.</p>
+<p>Debe ser lo primero a devolver. Se devuelven mediante la función <code>header(cadena)</code>. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Type: text/plain&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 <span class="linenos" data-linenos="2 "></span><span class="cp">&lt;?php</span> <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: http://www.ejemplo.com/inicio.html&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">exit</span><span class="p">();</span> 
 </code></pre></div>
-<p>Se puede comprobar en las herramientas del desarrollador de los navegadores web mediante <em>Developer Tools → Network → Headers</em>.</p>
+<p>Se puede comprobar en las herramientas del desarrollador de los navegadores web mediante <em>Developer Tools &rarr; Network &rarr; Headers</em>.</p>
 <p>Es muy común configurar las cabeceras para evitar consultas a la caché o provocar su renovación:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Expires: Sun, 31 Jan 2021 23:59:59 GMT&quot;</span><span class="p">);</span>
@@ -640,14 +675,340 @@ permite configurar el tipo de contenido, tiempo de expiración, redireccionar el
 <span class="linenos" data-linenos="19 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Pragma: no-cache&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="gestion-del-estado">Gestión del estado<a class="headerlink" href="#gestion-del-estado" title="Permanent link">&para;</a></h2>
+<p>HTTP es un protocolo <em>stateless</em>, sin estado. Por ello, se simula el estado mediante el uso de cookies, tokens o la sesión. El estado es necesario para procesos tales como el carrito de la compra, operaciones asociadas a un usuario, etc...
+El mecanismo de PHP para gestionar la sesión emplea cookies de forma interna.
+Las cookies se almacenan en el navegador, y la sesión en el servidor web.</p>
 <h3 id="cookies">Cookies<a class="headerlink" href="#cookies" title="Permanent link">&para;</a></h3>
+<p>Las cookies se almacenan en el array global <code>$_COOKIE</code>. Lo que coloquemos dentro del array, se guardará en el cliente. Hay que tener presente que el cliente puede no querer almacenarlas. </p>
+<p>Existe una limitació de 20 cookies por dominio y 300 en total en el navegador.</p>
+<p>En PHP, para crear una cookie se utiliza la función <code>setcookie</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span> <span class="p">[,</span> <span class="nx">valor</span> <span class="p">[,</span> <span class="nx">expira</span> <span class="p">[,</span> <span class="nx">ruta</span> <span class="p">[,</span> <span class="nx">dominio</span> <span class="p">[,</span> <span class="nx">seguro</span> <span class="p">[,</span> <span class="nx">httponly</span> <span class="p">]]]]]]);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span> <span class="p">[,</span> <span class="nx">valor</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="p">[,</span> <span class="nx">opciones</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">]]</span> <span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Destacar que el nombre no puede contener espacios ni el caracter <code>;</code>. Respecto al contenido de la cookie, no puede superar los 4 KB.</p>
+<p>Por ejemplo, mediante <em>cookies</em> podemos comprobar la cantidad de visitas diferentes que realiza un usuario:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$accesosPagina </span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;accesos&#39;</span><span class="p">]))</span> <span class="p">{</span> 
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$accesosPagina </span><span class="o">=</span> <span class="nv">$_COOKIE</span><span class="p">[</span><span class="s1">&#39;accesos&#39;</span><span class="p">];</span> <span class="c1">// recuperamos una cookie</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nb">setcookie</span><span class="p">(</span><span class="s1">&#39;accesos&#39;</span><span class="p">,</span> <span class="o">++</span><span class="nv">$accesosPagina</span><span class="p">);</span> <span class="c1">// le asignamos un valor</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Inspeccionando las cookies</p>
+<p>Si queremos ver que contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en <em>Dev Tools &rarr; Application &rarr; Storage</em></p>
+</div>
+<p>El tiempo de vida de las cookies puede ser tan largo como el sitio web en el que residen. Ellas seguirán ahí, incluso si el navegador está cerrado o abierto.</p>
+<p>Para borrar una cookie se puede poner que expiren en el pasado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// pasado</span>
+</code></pre></div>
+<p>O que caduquen dentro de un periodo de tiempo deteminado:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">setcookie</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">valor</span><span class="p">,</span> <span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span><span class="p">)</span> <span class="c1">// Caducan dentro de una hora</span>
+</code></pre></div>
+<figure style="align: center;">
+    <img src="imagenes/04/04cookies.png" width="700">
+    <figcaption>Comunicación con cookies</figcaption>
+</figure>
+
+<p>Se utilizan para:</p>
+<ul>
+<li>Recordar los inicios de sesión</li>
+<li>Almacenar valores temporales de usuario</li>
+<li>Si un usuario está navegando por una lista paginada de artículos, ordenados de cierta manera, podemos almacenar el ajuste de la clasificación.</li>
+</ul>
+<p>La alternativa en el cliente para almacenar información en el navegador es el objeto <a href="https://developer.mozilla.org/es/docs/Web/API/Window/localStorage">LocalStorage</a>.</p>
 <h3 id="sesion">Sesión<a class="headerlink" href="#sesion" title="Permanent link">&para;</a></h3>
+<p>La sesión añade la gestión del estado a HTTP, almacenando en este caso la información en el servidor.
+Cada visitante tiene un ID de sesión único, el cual por defecto se almacena en una cookie denominada <code>PHPSESSID</code>.
+Si el cliente no tiene las cookies activas, el ID se propaga en cada URL dentro del mismo dominio.
+Cada sesión tiene asociado un almacén de datos mediante el array global <code>$_SESSION</code>, en el cual podemos almacenar y recuperar información.</p>
+<p>La sesión comienza al ejecutar un script PHP. Se genera un nuevo ID y se cargan los datos del almacén:</p>
+<figure style="align: center;">
+    <img src="imagenes/04/04sesion.png" width="700">
+    <figcaption>Comunicación con sesión</figcaption>
+</figure>
+
+<p>Las operaciones que podemos realizar con la sesión son:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span> <span class="c1">// carga la sesión</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">session_id</span><span class="p">()</span> <span class="c1">// devuelve el id</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">]</span> <span class="o">=</span> <span class="nx">valor</span><span class="p">;</span> <span class="c1">// inserción</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">session_destroy</span><span class="p">();</span> <span class="c1">// destruye la sesión</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">session_unset</span><span class="p">();</span> <span class="c1">// vacía la sesión</span>
+<span class="linenos" data-linenos="7 "></span><span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">];</span> <span class="c1">// borrado</span>
+</code></pre></div>
+<p>Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. Por ejemplo, en <code>sesion1.php</code> tendríamos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span> <span class="c1">// inicializamos</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IES Severo Ochoa&quot;</span><span class="p">;</span> <span class="c1">// asignación</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$intituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Estamos en el </span><span class="si">$intituto</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="7 "></span><span class="x">&lt;br /&gt;</span>
+<span class="linenos" data-linenos="8 "></span><span class="x">&lt;a href=&quot;sesion2.php&quot;&gt;Y luego&lt;/a&gt;</span>
+</code></pre></div>
+<p>Y posteriormente podemos acceder a la sesión en <code>sesion2.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$intituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">&quot;Otra vez, en el </span><span class="si">$intituto</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Configurando la sesión en <code>php.ini</code></p>
+<p>Las siguiente propiedades de <code>php.ini</code> permiten configurar algunos aspectos de la sesión:</p>
+<ul>
+<li><code>session.save_handler</code>: controlador que gestiona cómo se almacena (<code>files</code>)</li>
+<li><code>session.save_path</code>: ruta donde se almacenan los archivos con los datos (si tenemos un cluster, podríamos usar <code>/mnt/sessions</code> en todos los servidor de manera que apuntan a una carpeta compartida)</li>
+<li><code>session.name</code>: nombre de la sesión (<code>PHSESSID</code>)</li>
+<li><code>session.auto_start</code>: Se puede hacer que se autocargue con cada script. Por defecto está deshabilitado</li>
+<li><code>session.cookie_lifetime</code>: tiempo de vida por defecto</li>
+</ul>
+<p>Más información en la <a href="https://www.php.net/manual/es/session.configuration.php">documentación oficial</a>.</p>
+</div>
 <h2 id="autentificacion-de-usuarios">Autentificación de usuarios<a class="headerlink" href="#autentificacion-de-usuarios" title="Permanent link">&para;</a></h2>
+<p>Una sesión establece una relación anónima con un usuario particular, de manera que podemos saber si es el mismo usuario entre dos peticiones distintas. Si preparamos un sistema de login, podremos saber quien utiliza nuestra aplicación.</p>
+<p>Para ello, preparemos un sencillo sistema de autenticación:</p>
+<ul>
+<li>Mostrar el formulario login/password</li>
+<li>Comprobar los datos enviados</li>
+<li>Añadir el login a la sesión</li>
+<li>Comprobar el login en la sesión para realizar tareas específicas del usuario</li>
+<li>Eliminar el login de la sesión cuando el usuario la cierra.</li>
+</ul>
+<p>Vamos a ver en código cada paso del proceso. Comenzamos con el archivo <code>index.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#39;login.php&#39;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#39;post&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;error&#39;</span><span class="p">&gt;</span><span class="cp">&lt;?php echo $error; ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span><span class="p">&gt;</span>Usuario:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputUsuario&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">&gt;</span>Contraseña:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputPassword&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="12 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;submit&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;enviar&#39;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#39;Enviar&#39;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>  <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Al hacer <em>submit</em> nos lleva a <code>login.php</code>, el cual hace de controlador:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// Comprobamos si ya se ha enviado el formulario</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;enviar&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$usuario</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;inputUsuario&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;inputPassword&#39;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// validamos que recibimos ambos parámetros</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$usuario</span><span class="p">)</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$password</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;Debes introducir un usuario y contraseña&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">include</span> <span class="s2">&quot;index.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$usuario</span> <span class="o">==</span> <span class="s2">&quot;admin&quot;</span> <span class="o">&amp;&amp;</span> <span class="nv">$password</span> <span class="o">==</span> <span class="s2">&quot;admin&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="c1">// almacenamos el usuario en la sesión</span>
+<span class="linenos" data-linenos="14 "></span>            <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>            <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$usuario</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="c1">// cargamos la página principal</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="k">include</span> <span class="s2">&quot;main.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="c1">// Si las credenciales no son válidas, se vuelven a pedir</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="nv">$error</span> <span class="o">=</span> <span class="s2">&quot;Usuario o contraseña no válidos!&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="k">include</span> <span class="s2">&quot;index.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. Por ejemplo, en <code>main.php</code> tendríamos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Y comprobamos que el usuario se haya autentificado</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>       <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Error - debe &lt;a href=&#39;index.php&#39;&gt;identificarse&lt;/a&gt;.&lt;br /&gt;&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">&lt;html lang=&quot;es&quot;&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">&lt;head&gt;</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="x">    &lt;title&gt;Listado de productos&lt;/title&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">&lt;/head&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">&lt;body&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">    &lt;h1&gt;Bienvenido </span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">    &lt;p&gt;Pulse &lt;a href=&quot;salir.php&quot;&gt;aquí&lt;/a&gt; para salir&lt;/p&gt;</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">    &lt;p&gt;Volver al &lt;a href=&quot;main.php&quot;&gt;inicio&lt;/a&gt;&lt;/p&gt;</span>
+<span class="linenos" data-linenos="23 "></span><span class="x">    &lt;h2&gt;Listado de productos&lt;/h2&gt;</span>
+<span class="linenos" data-linenos="24 "></span><span class="x">    &lt;ul&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="x">        &lt;li&gt;Producto 1&lt;/li&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="x">        &lt;li&gt;Producto 2&lt;/li&gt;</span>
+<span class="linenos" data-linenos="27 "></span><span class="x">        &lt;li&gt;Producto 3&lt;/li&gt;</span>
+<span class="linenos" data-linenos="28 "></span><span class="x">    &lt;/ul&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="x">&lt;/body&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="x">&lt;/html&gt;</span>
+</code></pre></div>
+<p>Finalmente, necesitamos la opción de cerrar la sesión que colocamos en <code>logout.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span>    <span class="c1">// Y la vaciamos</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: index.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Autenticación en producción</p>
+<p>En la actualidad la autenticación de usuario no se realiza gestionando la sesión direcamente, sino que se realiza mediante algún framekwork que abstrae todo el proceso o la integración de mecanismos de autenticación tipo <em>OAuth</em>, como  estudiaremos en la última unidad mediante <em>Laravel</em>.</p>
+</div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.php.net/manual/es/features.cookies.php">Cookies en PHP</a></li>
+<li><a href="https://www.php.net/manual/es/book.session.php">Manejo de sesiones en PHP</a></li>
+</ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
-<ol start="400">
-<li></li>
+<ol start="401">
+<li><code>401server.php</code>: igual que el ejemplo visto en los apuntes, muestra los valores de <code>$_SERVER</code> al ejecutar un script en tu ordenador.<br />
+Prueba a pasarle parámetros por GET (y a no pasarle ninguno).<br />
+Prepara un formulario (<code>401post.html</code>) que haga un envío por POST y compruébalo de nuevo.<br />
+Crea una página (<code>401enlace.html</code>) que tenga un enlace a <code>401server.php</code> y comprueba el valor de <code>HTTP_REFERER</code>.</li>
 </ol>
+<h3 id="formularios_1">Formularios<a class="headerlink" href="#formularios_1" title="Permanent link">&para;</a></h3>
+<ol start="402">
+<li>
+<p><code>402formulario.html</code> y <code>402formulario.php</code>: Crea un formulario que solicite:</p>
+<ul>
+<li>Nombre y apellidos.</li>
+<li>Email.</li>
+<li>URL página personal.</li>
+<li>Sexo (radio).</li>
+<li>Número de convivientes en el domicilio.</li>
+<li>Aficiones (checkboxes) – poner mínimo 4 valores.</li>
+<li>Menú favorito (lista selección múltiple) – poner mínimo 4 valores.</li>
+</ul>
+<p>Muestra los valores cargados en una tabla-resumen.</p>
+</li>
+<li>
+<p><code>403validacion.php</code>: A partir del formulario anterior, introduce validaciones en HTML mediante el atributo <code>required</code> de los campos (uso los tipos adecuados para cada campo), y en comprueba los tipos de los datos y que cumplen los valores esperados (por ejemplo, en los checkboxes que los valores recogidos forman parte de todos los posibles). Puedes probar a pasarle datos erroneos via URL y comprobar su comportamiento.<br />
+Tip: Investiga el uso de la función <code>filter_var</code>.</p>
+</li>
+<li>
+<p><code>404subida.html</code> y <code>404subida.php</code>: Crea un formulario que permita subir un archivo al servidor.
+Además del fichero, debe pedir en el mismo formulario dos campos numéricos que soliciten la anchura y la altura. Comprueba que tanto el fichero como los datos llegan correctamente.</p>
+</li>
+<li>
+<p><code>405subidaImagen.php</code>: Modifica el ejercicio anterior para que únicamente permita subir imágenes (comprueba la propiedad <code>type</code> del archivo subido). Si el usuario selecciona otro tipo de archivos, se le debe informar del error y permitir que suba un nuevo archivo.<br />
+En el caso de subir el tipo correcto, visualizar la imagen con el tamaño de anchura y altura recibido como parámetro.</p>
+</li>
+</ol>
+<h3 id="cookies-y-sesion">Cookies y Sesión<a class="headerlink" href="#cookies-y-sesion" title="Permanent link">&para;</a></h3>
+<ol start="406">
+<li>
+<p><code>406contadorVisitas.php</code>: Mediante el uso de cookies, informa al usuario de si es su primera visita, o si no lo es, muestre su valor (valor de un contador).
+Además, debes permitir que el usuario reinicialice su contador de visitas.</p>
+</li>
+<li>
+<p><code>407fondo.php</code>: Mediante el uso de cookies, crea una página con un desplegable con varios colores, de manera que el usuario pueda cambiar el color de fondo de la página (atributo <code>bgcolor</code>).
+Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegido y la próxima vez que se cargue la pagina, lo haga con el último color seleccionado.</p>
+</li>
+<li>
+<p><code>408fondoSesion1.php</code>: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
+    <code>408fondoSesion2.php</code>: Debe mostrar el color y dar la posibilidad de volver a la página anterior mediante un enlace, y de vaciar la sesión y volver a la página anterior.</p>
+</li>
+<li>
+<p><code>409formulariosN.html</code>: Haciendo uso de la la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
+<ul>
+<li><code>409formulario1.php</code> envía los datos (nombre y apellidos, email, url y sexo) a <code>409formulario2.php</code>.</li>
+<li><code>409formulario2.php</code> lee los datos, los mete en la sesión, y luego muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía los datos a <code>409formulario3.php</code>.</li>
+<li><code>409formulario3.php</code>se muestran todos los datos recuperados que están almacenados en la sesión.</li>
+</ul>
+</li>
+</ol>
+<h3 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h3>
+<p>En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.</p>
+<ol start="410">
+<li><code>410index.html</code>: formulario de inicio de sesión</li>
+<li><code>411login.php</code>: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de <code>usuario/usuario</code> y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.</li>
+<li><code>412peliculas.php</code>: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.</li>
+<li><code>413logout.php</code>: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML</li>
+<li><code>414series.php</code>: Añade un nueva vista similar a <code>412peliculas.php</code> que muestra un "Listado de Series" con una lista desordenada con tres series. Tanto <code>412pelicuas.php</code> como la vista recien creadas, deben tener un pequeño menú (sencillo, mediante enlaces) que permita pasar de un listado a otro.
+Comprueba que si se accede directamente a cualquiera de las vistas sin tener un usuario <em>logueado</em> via URL del navegador, no se muestra el listado.</li>
+<li>Modifica tanto el controlador como las vistas para que:<ul>
+<li>los datos los obtenga el controlador (almacena en la sesión un array de películas y otro de series)</li>
+<li>coloque los datos en la sesión</li>
+<li>En las vistas, los datos se recuperan de la sesión y se <em>pintan</em> en la lista desordenada recorriendo el array correspondiente.</li>
+</ul>
+</li>
+</ol>
+<h3 id="proyecto-videoclub-30">Proyecto Videoclub 3.0<a class="headerlink" href="#proyecto-videoclub-30" title="Permanent link">&para;</a></h3>
+<ol start="420">
+<li>
+<p>Para el Videoclub, vamos a crear una página <code>index.php</code> con un formulario que contenga un formulario de login/password.
+Se comprobarán los datos en <code>login.php</code>. Los posibles usuarios son admin/admin o usuario/usuario</p>
+<ul>
+<li>Si el usuario es correcto, en <code>main.php</code> mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.</li>
+<li>Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.</li>
+</ul>
+</li>
+<li>
+<p>Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas.
+En la siguiente unidad los obtendremos de la base de datos.
+En <code>mainAdmin.php</code>, además de la bienvenida, debe mostrar:</p>
+<ul>
+<li>Listado de clientes</li>
+<li>Listado de soportes</li>
+</ul>
+</li>
+</ol>
+<figure style="float: right;">
+    <img src="imagenes/04/04p423.png" width="400">
+    <figcaption>Esquema navegación ejercicio 423</figcaption>
+</figure>
+
+<ol start="422">
+<li>
+<p>Vamos a modificar la clase <code>Cliente</code> para almacenar el <code>user</code> y la <code>password</code> de cada cliente.
+Tras codificar los cambios, modificar el listado de clientes de <code>mainAdmin.php</code> para añadir al listado el usuario.</p>
+</li>
+<li>
+<p>Si el usuario que accede no es administrador y coincide con alguno de los clientes que tenemos cargados tras el login, debe cargar <code>mainCliente.php</code> donde se mostrará un listado de los alquileres del cliente.</p>
+</li>
+</ol>
+<p>Ahora volvemos a la parte de administración</p>
+<ol start="424">
+<li>
+<p>Además de mostrar el listado de clientes, vamos a ofrecer la opción de dar de alta a un nuevo cliente en <code>formCreateCliente.php</code>.
+Los datos se enviarán mediante POST a <code>createCliente.php</code> que los introducirá en la sesión.
+Una vez creado el cliente, debe volver a cargar <code>mainAdmin.php</code> donde se podrá ver el cliente insertado.
+Si hay algún dato incorrecto, debe volver a cargar el formulario de alta.</p>
+</li>
+<li>
+<p>Crea en <code>formUpdateCliente.php</code> un formulario que permita editar los datos de un cliente.
+Debes recoger los datos en <code>updateCliente.php</code>
+Los datos de cliente se deben poder modificar desde la propia página de un cliente, así como desde el listado del administrador.</p>
+</li>
+<li>
+<p>Desde el listado de clientes del administrador debes ofrecer la posibilidad de borrar un cliente.
+En el navegador, antes de redirigir al servidor, el usuario debe confirmar mediante JS que realmente desea eliminar al cliente.
+Finalmente, en <code>removeCliente.php</code> elimina al cliente de la sesión.
+Una vez eliminado, debe volver al listado de clientes.</p>
+</li>
+</ol>
+<figure style="align: center;">
+    <img src="imagenes/04/04p426.png" width="600">
+    <figcaption>Esquema navegación Videoclub 3.0</figcaption>
+</figure>
                 
               
               
