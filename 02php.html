@@ -1003,11 +1003,11 @@ Más información en <a href="https://www.php.net/manual/es/language.operators.p
 <p>Vamos a separar siempre que podamos el código HTML del de PHP.
 Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;saluda.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="3 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> 
-<span class="linenos" data-linenos="5 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="6 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> 
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Y recogemos los datos en <code>saluda.php</code>:</p>
@@ -1020,21 +1020,21 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 </code></pre></div>
 <p>Si lo quisiéramos realizar todo en un único archivo (<em>lo cual no es recomendable</em>), podemos hacerlo así:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;apellido1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;enviar&quot;</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 9 "></span>  <span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]))</span> <span class="p">{</span>
-<span class="linenos" data-linenos="11 "></span>      <span class="nv">$nombre </span><span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">];</span>
-<span class="linenos" data-linenos="12 "></span>      <span class="nv">$apellido1 </span><span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;apellido1&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$nombre </span><span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$apellido1 </span><span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;apellido1&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos="13 "></span>
-<span class="linenos" data-linenos="14 "></span>      <span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">$nombre $apellido1</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span>  <span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span>  <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">$nombre $apellido1</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="cp">?&gt;</span>
 <span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>El trabajo con formularios lo estudiaremos en profundidad en la unidad 4, y veremos que además de <code>GET</code>, podemos enviar los datos con <code>POST</code>.</p>
@@ -1058,9 +1058,9 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$hora </span><span class="o">=</span> <span class="mi">17</span><span class="p">;</span> <span class="c1">// La hora en formato de 24 horas</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">&lt;=</span> <span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Son las &quot;</span> <span class="o">.</span> <span class="nv">$hora </span><span class="o">.</span> <span class="s2">&quot; de la mañana&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Son las &quot;</span> <span class="o">.</span> <span class="nv">$hora </span><span class="o">.</span> <span class="s2">&quot; de la mañana&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="linenos" data-linenos="6 "></span>  <span class="k">echo</span> <span class="s2">&quot;Son las &quot;</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; de la tarde&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">echo</span> <span class="s2">&quot;Son las &quot;</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; de la tarde&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1068,13 +1068,13 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$hora </span><span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// La hora en formato de 24 horas</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de desayunar.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de desayunar.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de la comida.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de la comida.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$hora </span><span class="o">===</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 8 "></span>  <span class="k">echo</span> <span class="s2">&quot;Es la hora de la cena.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de la cena.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="11 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1082,17 +1082,17 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$hora </span><span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// La hora en formato de 24 horas</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">switch</span> <span class="p">(</span><span class="nv">$hora</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de desayunar.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="k">break</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="k">case</span> <span class="mi">14</span><span class="o">:</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de la comida.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="k">break</span><span class="p">;</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="k">case</span> <span class="mi">21</span><span class="o">:</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="s2">&quot;Es la hora de la cena.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="12 "></span>    <span class="k">break</span><span class="p">;</span>
-<span class="linenos" data-linenos="13 "></span>  <span class="k">default</span><span class="o">:</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="k">echo</span> <span class="s2">&quot;Es la hora de desayunar.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">case</span> <span class="mi">14</span><span class="o">:</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">&quot;Es la hora de la comida.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">case</span> <span class="mi">21</span><span class="o">:</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">echo</span> <span class="s2">&quot;Es la hora de la cena.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">break</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">default</span><span class="o">:</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1117,20 +1117,20 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$i </span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">while</span> <span class="p">(</span><span class="nv">$i </span><span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span>  <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="6 "></span>  <span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Mediante la instrucción <code>do-while</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">do</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$dado </span><span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="c1">// rand() devuelve un valor aleatorio </span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="k">echo</span> <span class="s2">&quot;Tirando el dado... &quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="k">echo</span> <span class="s2">&quot;ha salido un &quot;</span> <span class="o">.</span> <span class="nv">$dado </span><span class="o">.</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$dado </span><span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">// rand() devuelve un valor aleatorio </span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;Tirando el dado... &quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">echo</span> <span class="s2">&quot;ha salido un &quot;</span> <span class="o">.</span> <span class="nv">$dado </span><span class="o">.</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$dado </span><span class="o">!=</span> <span class="mi">5</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;¡Bien! Saco una ficha de casa.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
@@ -1139,14 +1139,14 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="c1">// Bucle ascendente</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i </span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$i </span><span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 7 "></span>
 <span class="linenos" data-linenos=" 8 "></span><span class="c1">// Bucle descendente</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i </span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$i </span><span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1173,7 +1173,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p class="admonition-title">Cuidado con mezclar tipos</p>
 <p>Como el tipado es dinámico, nuestros arrays pueden contenedor datos de diferentes tipos. No se recomienda mezclar los tipos.</p>
 </div>
-<p>Al igual que en Java, se definen mediante corchetes, son <em>0-index</em>, y se puede asignar un valor a un posición determinada:</p>
+<p>Del mismo modo que Java, se definen mediante corchetes, son <em>0-index</em>, y se puede asignar un valor a un posición determinada:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$frutas </span><span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span> <span class="s2">&quot;pera&quot;</span><span class="p">,</span> <span class="s2">&quot;manzana&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1190,14 +1190,14 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$tam </span><span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$frutas</span><span class="p">);</span> <span class="c1">// tamaño del array</span>
 <span class="linenos" data-linenos="3 "></span>
 <span class="linenos" data-linenos="4 "></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nb">count</span><span class="p">(</span><span class="nv">$frutas</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Elemento </span><span class="si">$i</span><span class="s2">: </span><span class="si">$frutas[$i]</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">&quot;Elemento </span><span class="si">$i</span><span class="s2">: </span><span class="si">$frutas[$i]</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Otra forma de recorrer los arrays, incluso más elegante, es hacer uso de <code>foreach</code>. Su sintaxis es <code>foreach (array as elemento)</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="c1">// Mediante foreach no necesitamos saber el tamaño del array</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$frutas as $fruta</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$fruta </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$fruta </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1206,15 +1206,15 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>A la hora de recorrer este tipo de arrays, mediante <code>foreach</code> separamos cada elemento en una pareja <code>clave =&gt; valor</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$capitales </span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Italia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Roma&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="s2">&quot;Francia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="s2">&quot;Portugal&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lisboa&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="s2">&quot;Francia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="s2">&quot;Portugal&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lisboa&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="nv">$capitalFrancia </span><span class="o">=</span> <span class="nv">$capitales</span><span class="p">[</span><span class="s2">&quot;Francia&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos=" 6 "></span>
 <span class="linenos" data-linenos=" 7 "></span><span class="k">echo</span> <span class="s2">&quot;La capital de Francia es </span><span class="si">$capitalFrancia </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="s2">&quot;La capital de Francia es </span><span class="si">{</span><span class="nv">$capitales</span><span class="p">[</span><span class="s2">&quot;Francia&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$capitales as $pais </span><span class="o">=&gt;</span> <span class="nv">$ciudad</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$pais</span><span class="s2"> : </span><span class="si">$ciudad </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$pais</span><span class="s2"> : </span><span class="si">$ciudad </span><span class="s2">&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -1985,12 +1985,18 @@ Ten en cuenta que puede tener 2, 1 o no tener solución dependiendo del valor de
 </table>
 </li>
 <li>
-<p><code>224formulario.html</code>: Crea un formulario que permita leer una <code>cantidad</code>.<br />
-<code>224leerDatos.php</code>: a partir de <code>cantidad</code>, prepara un formulario con tantas cajas de datos como su valor.<br />
+<p><code>224formulario.html</code>: Crea un formulario que permita leer una <code>cantidad</code>.  </p>
+<div class="admonition tip inline end">
+<p class="admonition-title">Tip</p>
+<p>Para guardar un dato oculto puedes utilizar un campo de formulario de tipo oculto: <code>&lt;input type="hidden" name="cantidad" value="33" /&gt;</code></p>
+</div>
+<p><code>224leerDatos.php</code>: a partir de <code>cantidad</code>, prepara un formulario con tantas cajas de datos como su valor.<br />
 Finalmente, en <code>224sumarDatos.php</code>: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.</p>
 </li>
-<li><code>225formulario.html</code> y <code>225tabla.php</code>: A partir de un número de <code>filas</code> y <code>columnas</code>, crear una tabla con ese tamaño.
-Las celdas deben estar rellenadas con los valores de las coordenadas de cada celda.</li>
+<li>
+<p><code>225formulario.html</code> y <code>225tabla.php</code>: A partir de un número de <code>filas</code> y <code>columnas</code>, crear una tabla con ese tamaño.
+Las celdas deben estar rellenadas con los valores de las coordenadas de cada celda.</p>
+</li>
 <li><code>226formulario.html</code> y <code>226cuadrado.php</code>: Basándote en el ejercicio anterior, rellena la tabla de manera que solo los bordes tengan contenido, quedándose el resto de celdas en blanco.
 <img _="&amp;" align="right" alt="228" src="imagenes/02/02p228.png" width="200" /></li>
 <li><code>227formulario.html</code> y <code>227equis.php</code>: Basándote en el ejercicio anterior, ahora sólo debe aparecer el contenido de los dos diagonales.</li>
