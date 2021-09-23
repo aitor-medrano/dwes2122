@@ -524,8 +524,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#php_1" class="md-nav__link">
-    PHP
+  <a href="#php-basico" class="md-nav__link">
+    PHP básico
   </a>
   
 </li>
@@ -1305,11 +1305,39 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 </code></pre></div>
 </div>
 </div>
+<p>Al asignar un array a otro se realiza una copia. Cuidado con esta operación que puede consumir muchos recursos.</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedro&quot;</span><span class="p">,</span> <span class="s2">&quot;Laura&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$copia</span> <span class="o">=</span> <span class="nv">$nombres</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nb">sort</span><span class="p">(</span><span class="nv">$nombres</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$nombres</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$copia</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Consola</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="go">    [0] =&gt; Ana</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="go">    [1] =&gt; Juan</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="go">    [2] =&gt; Laura</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="go">    [3] =&gt; Pedro</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="go">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="go">Array</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="go">(</span>
+<span class="linenos" data-linenos="10 "></span><span class="go">    [0] =&gt; Juan</span>
+<span class="linenos" data-linenos="11 "></span><span class="go">    [1] =&gt; Ana</span>
+<span class="linenos" data-linenos="12 "></span><span class="go">    [2] =&gt; Pedro</span>
+<span class="linenos" data-linenos="13 "></span><span class="go">    [3] =&gt; Laura</span>
+<span class="linenos" data-linenos="14 "></span><span class="go">)</span>
+</code></pre></div>
+</div>
+</div>
 <p>Existen muchísimas más funciones para trabajar con arrays. Toda la información en el <a href="https://www.php.net/manual/es/ref.array.php">documentación oficial</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Artículos para profundizar en las operaciones con arrays</p>
 <ul>
-<li>Un artículo muy completo (en inglés) de <a href="&lt;https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606">Cómo trabajar con arrays en PHP de la manera correcta</a>.  </li>
+<li>Un artículo muy completo (en inglés) de <a href="https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606">Cómo trabajar con arrays en PHP de la manera correcta</a>.  </li>
 <li>Otro artículo recomendable (en inglés) es <a href="https://code.tutsplus.com/tutorials/how-to-sort-arrays-in-php--cms-32313">Cómo ordenar arrays en PHP</a>.</li>
 </ul>
 </div>
@@ -1431,7 +1459,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Las variables definidas fuera de las funciones tienen alcance <strong>global</strong>: accesibles desde cualquier función.
 Los parámetros de una función y las variables declaradas dentro de una función (se conocen como variables locales) sólo son accesibles desde dentro de la misma función → alcance de <strong>función</strong>.</p>
 <p>En caso de conflicto, tienen prioridad las variables locales. Para evitar el conflicto, dentro de la función, podemos declarar la variable como <code>global</code>.</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Alcance local</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Alcance local</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$ciudad </span><span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
@@ -1445,7 +1473,7 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Alcance global</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Alcance global</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="k">global</span> <span class="nv">$ciudad</span><span class="p">;</span>
@@ -1839,7 +1867,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <li><a href="http://phpdevenezuela.github.io/php-the-right-way/">PHP - La manera correcta</a></li>
 </ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
-<h3 id="php_1">PHP<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h3>
+<h3 id="php-basico">PHP básico<a class="headerlink" href="#php-basico" title="Permanent link">&para;</a></h3>
 <ol start="200">
 <li>Visualiza el vídeo de Jesús Amieiro sobre <a href="https://www.youtube.com/watch?v=o3IwAqslGUM&amp;t=12724s">PHP en 2020</a> a partir del minuto 3:32 (son 40 minutos aproximadamente).<ul>
 <li>¿Qué relación existe entre PHP y Facebook?</li>
@@ -2024,8 +2052,7 @@ Este ejercicio se basa en el juego de la <a href="https://es.wikipedia.org/wiki/
 </ul>
 </li>
 <li>
-<p><code>233sexos.php</code>: Rellena un array de 100 elementos de manera aleatoria con valores <code>M</code> o <code>F</code>.
-Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los valores. Para ello, almacena el resultado en un array asociativo <code>['M' =&gt; 44, 'F' =&gt;66]</code>.<br />
+<p><code>233sexos.php</code>: Rellena un array de 100 elementos de manera aleatoria con valores <code>M</code> o <code>F</code> (por ejemplo <code>["M", "M", "F", "M", ...]</code>). Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los valores almacenando el resultado en un array asociativo <code>['M' =&gt; 44, 'F' =&gt; 66]</code> (<em>no utilices variables para contar las <code>M</code> o las <code>F</code></em>).
 Finalmente, muestra el resultado por pantalla</p>
 </li>
 <li>

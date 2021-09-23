@@ -273,11 +273,77 @@
                 
                 
                 <h1 id="herramientas">Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h1>
+<p>En esta unidad vamos a estudiar algunas de las herramientas más utilizadas en PHP.</p>
 <h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
+<p>Herramienta por excelencia en PHP para la gestión de librerías y dependencias, de manera que instala y las actualiza asegurando que todo el equipo de desarrollo tiene el mismo entorno y versiones.</p>
+<p>Está escrito en PHP, y podeís consultar toda su documentación en <a href="https://getcomposer.org/">https://getcomposer.org/</a>.</p>
+<p>Utiliza <a href="https://packagist.org/"><em>Packagist</em></a> como repositorio de librerías.</p>
+<p>Funcionalmente, es similar a Maven (Java) / npm (JS).</p>
+<h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
 <p>Para instalar Composer, necesitamos modificar nuestra instalación.</p>
 <p>Si estamos usando XAMPP, hemos de instalar Composer en el propio sistema operativo</p>
 <p>TODO: COMPLETAR</p>
 <p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. </p>
+<p>Es importante comprobaremos que tenemos la v2:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
+</code></pre></div>
+<h3 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h3>
+<p>Crear un respositorio</p>
+<blockquote>
+<p>composer init
+Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...
+Definimos las dependencias del proyecto (require) y las de desarrollo (require-dev) de manera interactiva.
+En las de desarrollo se indica aquellas que no se instalarán en el entorno de producción, por ejemplo, las librerías de pruebas.
+Tras su configuración, se crea el archivo composer.json y descarga las librerías en la carpeta vendor.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="err">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;dwes/log&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="err">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;Pruebas con Monolog&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="err">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="err">    </span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="err">        </span><span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;^2.1&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="err">    </span><span class="p">},</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="err">    </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="err">    </span><span class="nt">&quot;authors&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">[</span>
+<span class="linenos" data-linenos="10 "></span><span class="err">        </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="err">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;Aitor Medrano&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span><span class="err">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;a.medrano@edu.gva.es&quot;</span>
+<span class="linenos" data-linenos="13 "></span><span class="err">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="err">    </span><span class="p">]</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<p>A la hora de indicar la versión de cada librería, tenemos diversas opciones:</p>
+<ul>
+<li>Directamente: 1.4.2</li>
+<li>Con comodines: 1.*</li>
+<li>A partir de: &gt;=2.0.3</li>
+<li>Sin rotura de cambios: ^1.3.2 // &gt;=1.3.2 &lt;2.0.0</li>
+</ul>
+<h2 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h2>
+<p>Podemos definir las dependencias via el archivo composer.json o mediante  comandos</p>
+<blockquote>
+<p>composer require vendor/package:version
+Ejemplo:
+composer require phpunit/phpunit –dev
+Tras añadirlas, hemos de actualizar nuestro proyecto
+composer update</p>
+</blockquote>
+<p>Si creamos el archivo composer.json nostros directamente, hemos de instalar las dependencias</p>
+<blockquote>
+<p>composer install</p>
+</blockquote>
+<h2 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h2>
+<p>Composer crea en vendor/autoload.php un archivo que hemos de incluir en todos nuestros archivos
+En nuestro caso, solo en los archivos donde probamos las clases</p>
+<p>Si queremos que composer también se encargue de cargar nuestras clases, hemos de definirlo así:</p>
+<p>"autoload": {
+        "psr-4": {"Dwes\": "app/Dwes"}
+    },</p>
+<p>Posteriormente, hemos de volver a generar el autoload de Composer:</p>
+<blockquote>
+<p>composer dump-autoload
+o &gt; composer du </p>
+</blockquote>
 <h2 id="pruebas-con-phpunit">Pruebas con PhpUnit<a class="headerlink" href="#pruebas-con-phpunit" title="Permanent link">&para;</a></h2>
 <h2 id="documentacion-con-phpdocumentor">Documentación con phpDocumentor<a class="headerlink" href="#documentacion-con-phpdocumentor" title="Permanent link">&para;</a></h2>
                 
