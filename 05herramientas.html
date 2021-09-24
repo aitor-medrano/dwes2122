@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/05herramientas.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -124,18 +124,14 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-        </button>
-      </nav>
-      
+      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -280,22 +276,23 @@
 <p>Utiliza <a href="https://packagist.org/"><em>Packagist</em></a> como repositorio de librerías.</p>
 <p>Funcionalmente, es similar a Maven (Java) / npm (JS).</p>
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
-<p>Para instalar Composer, necesitamos modificar nuestra instalación.</p>
-<p>Si estamos usando XAMPP, hemos de instalar Composer en el propio sistema operativo</p>
+<p>Para instalar Composer, necesitamos modificar nuestra plantilla de Docker.</p>
+<p>Si estamos usando XAMPP, hemos de instalar Composer en el propio sistema operativo.</p>
 <p>TODO: COMPLETAR</p>
-<p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. </p>
-<p>Es importante comprobaremos que tenemos la v2:</p>
+<p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. Para ello, hemos preparado la siguiente plantilla.</p>
+<p>Es importante que comprobemos que tenemos la v2:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
 </code></pre></div>
 <h3 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h3>
-<p>Crear un respositorio</p>
-<blockquote>
-<p>composer init
-Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...
-Definimos las dependencias del proyecto (require) y las de desarrollo (require-dev) de manera interactiva.
-En las de desarrollo se indica aquellas que no se instalarán en el entorno de producción, por ejemplo, las librerías de pruebas.
-Tras su configuración, se crea el archivo composer.json y descarga las librerías en la carpeta vendor.</p>
-</blockquote>
+<p>Cuando creemos un proyecto por primera vez, hemos de crear un repositorio. Para ello, ejecutaremos el comando <code>composer init</code> y a continuación:</p>
+<ul>
+<li>Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...</li>
+<li>Definimos las dependencias del proyecto (<code>require</code>) y las de desarrollo (<code>require-dev</code>) de manera interactiva.<ul>
+<li>En las de desarrollo se indica aquellas que no se instalarán en el entorno de producción, por ejemplo, las librerías de pruebas.</li>
+</ul>
+</li>
+</ul>
+<p>Tras su configuración, se creará automáticamente el archivo <code>composer.json</code> con los datos introducidos y descarga las librerías en la carpeta <code>vendor</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="err">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;dwes/log&quot;</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="err">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;Pruebas con Monolog&quot;</span><span class="p">,</span>
@@ -320,20 +317,24 @@ Tras su configuración, se crea el archivo composer.json y descarga las librerí
 <li>Sin rotura de cambios: ^1.3.2 // &gt;=1.3.2 &lt;2.0.0</li>
 </ul>
 <h2 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h2>
-<p>Podemos definir las dependencias via el archivo composer.json o mediante  comandos</p>
+<p>Podemos definir las dependencias via el archivo composer.json o mediante comandos</p>
 <blockquote>
-<p>composer require vendor/package:version
-Ejemplo:
-composer require phpunit/phpunit –dev
-Tras añadirlas, hemos de actualizar nuestro proyecto
-composer update</p>
+<p>composer require vendor/package:version</p>
 </blockquote>
-<p>Si creamos el archivo composer.json nostros directamente, hemos de instalar las dependencias</p>
+<p>Ejemplo:</p>
+<blockquote>
+<p>composer require phpunit/phpunit –dev</p>
+</blockquote>
+<p>Tras añadirlas, hemos de actualizar nuestro proyecto</p>
+<blockquote>
+<p>composer update</p>
+</blockquote>
+<p>Si creamos el archivo composer.json nosotros directamente, hemos de instalar las dependencias</p>
 <blockquote>
 <p>composer install</p>
 </blockquote>
 <h2 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h2>
-<p>Composer crea en vendor/autoload.php un archivo que hemos de incluir en todos nuestros archivos
+<p><em>Composer</em> crea en <code>vendor/autoload.php</code> un archivo que hemos de incluir en todos nuestros archivos
 En nuestro caso, solo en los archivos donde probamos las clases</p>
 <p>Si queremos que composer también se encargue de cargar nuestras clases, hemos de definirlo así:</p>
 <p>"autoload": {
@@ -404,10 +405,10 @@ o &gt; composer du </p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
       
     
   </body>
