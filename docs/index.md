@@ -29,12 +29,12 @@ La primera evaluación contendría las unidades comprendidas entre la 1 y 5, y p
 
 ### Primera evaluación
 
-Duración estimada: 68 sesiones
+Duración estimada: 72 sesiones
 
 1. [Arquitecturas Web](01arquitecturas.md) (4h)
     * Cliente/Servidor.
     * MVC.
-2. [El lenguaje PHP](02php.md) (24h)
+2. [El lenguaje PHP](02php.md) (26h)
     * Condiciones y bucles.
     * Arrays.
 3. [Orientación a objetos con PHP](03phpoo.md) (16h)
@@ -47,13 +47,13 @@ Duración estimada: 68 sesiones
 5. Herramientas Web (16h)
     * *Composer*.
     * Uso de logs con *Monolog*.
-    * Webscrapping.
-    * Pruebas con *PhpUnit*.
+    * *Webscraping*.
     * Documentación con *phpDocumentor*.
+    * Pruebas con *PhpUnit*.
 
 ### Segunda evaluación
 
-Duración estimada: 92 sesiones
+Duración estimada: 88 sesiones
 
 6. Acceso a datos (28h)
     * *SQL*
@@ -64,7 +64,7 @@ Duración estimada: 92 sesiones
     * Rutas.
     * Vistas.
     * Migraciones e integración con *Eloquent*.
-8. Uso avanzado de Frameworks (24h)
+8. Uso avanzado de Frameworks (22h)
     * Plantillas con *Blade*.
     * Autenticación y autorización.
     * *i18n*.
