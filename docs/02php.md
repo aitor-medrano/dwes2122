@@ -2,7 +2,7 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-    Duración estimada: 24 sesiones
+    Duración estimada: 26 sesiones
 
     <hr />
 
@@ -57,17 +57,17 @@ Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>
 Los bloques de código se escriben entre **`<?php`** y **`?>`**, mientras que las sentencias se separan mediante **`;`**.
 
 ``` html+php
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>PHP fácil</title>
+<meta charset="UTF-8">
+<title>PHP fácil</title>
 </head>
 <body>
-<!-- Muestra una frase con HTML -->
-Hola mundo<br>
-<!-- Muestra una frase con PHP -->
-<?php echo "Es muy fácil programar en PHP."; ?>
+<!-- Muestra una frase con HTML -->
+Hola mundo<br>
+<!-- Muestra una frase con PHP -->
+<?php echo "Es muy fácil programar en PHP."; ?>
 </body>
 </html>
 ```
@@ -86,17 +86,17 @@ Tenemos tres posibilidades a la hora de generar contenido en nuestros documentos
 Las que vamos a utilizar son `echo` cuando lo hagamos dentro de un bloque de instrucciones y `<?=` cuando sólo vayamos a mostrar el valor de una variable dentro de un fragmento HTML.
 
 ``` html+php
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Echo y print</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echo y print</title>
 </head>
 <body>
-<p><?php echo "Este texto se mostrará en la página web." ?></p>
-<p><?= "Este texto se mostrará en la página web." ?></p>
-<p><?php print("Este texto se mostrará en la página web.") ?></p>
+<p><?php echo "Este texto se mostrará en la página web." ?></p>
+<p><?= "Este texto se mostrará en la página web." ?></p>
+<p><?php print("Este texto se mostrará en la página web.") ?></p>
 </body>
 </html>
 ```
@@ -107,13 +107,13 @@ Podemos utilizar comentarios de una línea o de bloque:
 
 ``` html+php
 <?php
-// Este es un comentario de una sola línea
+// Este es un comentario de una sola línea
 /*
-  Este es
-  un comentario
-  que ocupa
-  varias líneas
-*/ 
+  Este es
+  un comentario
+  que ocupa
+  varias líneas
+*/ 
 ?>
 ```
 
@@ -140,15 +140,15 @@ Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de `try`
 
 ``` php
 <?php
-$nombre = "Aitor";
-$nombreCompleto = "Aitor Medrano";
-$numero = 123;
-$numero2 = 456;
-$pi = 3.14;
-$suerte = true;
+$nombre = "Aitor";
+$nombreCompleto = "Aitor Medrano";
+$numero = 123;
+$numero2 = 456;
+$pi = 3.14;
+$suerte = true;
 $sinValor;
 
-echo $sinValor;
+echo $sinValor;
 ?>
 ```
 
@@ -164,10 +164,10 @@ Son variables cuyo valor no varían. Existen dos posibilidades:
 
 ``` php
 <?php
-define("PI", 3.1416);
-const IVA = 0.21;
+define("PI", 3.1416);
+const IVA = 0.21;
 
-echo PI, " ", IVA; // No se pone el símbolo dolar
+echo PI, " ", IVA; // No se pone el símbolo dolar
 ?>
 ```
 
@@ -277,12 +277,12 @@ Vamos a separar siempre que podamos el código HTML del de PHP.
 Por ejemplo, el formulario lo colocamos en `saluda.html`:
 
 ``` html
-<form action="saluda.php" method="get">
-  <p><label for="nombre">Nombre: </label>
-  <input type="text" name="nombre" id="nombre"></p>
-  <p><label for="apellido1">Primer apellido:</label> 
-  <input type="text" name="apellido1" id="apellido1"></p>
-  <p><input type="submit" value="enviar"></p>
+<form action="saluda.php" method="get">
+    <p><label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" id="nombre"></p>
+    <p><label for="apellido1">Primer apellido:</label> 
+    <input type="text" name="apellido1" id="apellido1"></p>
+    <p><input type="submit" value="enviar"></p>
 </form>
 ```
 
@@ -290,32 +290,32 @@ Y recogemos los datos en `saluda.php`:
 
 ``` php
 <?php
-$nombre = $_GET["nombre"];
-$apellido1 = $_GET["apellido1"];
+$nombre = $_GET["nombre"];
+$apellido1 = $_GET["apellido1"];
 
-echo "Hola $nombre $apellido1";
+echo "Hola $nombre $apellido1";
 ?>
 ```
 
 Si lo quisiéramos realizar todo en un único archivo (*lo cual no es recomendable*), podemos hacerlo así:
 
 ``` html+php
-<form action="" method="get">
-  <p><label for="nombre">Nombre: </label>
-  <input type="text" name="nombre" id="nombre"></p>
-  <p><label for="apellido1">Primer apellido:</label>
-  <input type="text" name="apellido1" id="apellido1"></p>
-  <input type="submit" value="enviar">
+<form action="" method="get">
+    <p><label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" id="nombre"></p>
+    <p><label for="apellido1">Primer apellido:</label>
+    <input type="text" name="apellido1" id="apellido1"></p>
+    <input type="submit" value="enviar">
 </form>
 <p>
-  <?php
-  if(isset($_GET['nombre'])) {
-      $nombre = $_GET["nombre"];
-      $apellido1 = $_GET["apellido1"];
-      
-      echo "Hola $nombre $apellido1";
-  }
-  ?>
+    <?php
+    if(isset($_GET['nombre'])) {
+        $nombre = $_GET["nombre"];
+        $apellido1 = $_GET["apellido1"];
+
+        echo "Hola $nombre $apellido1";
+    }
+    ?>
 </p>
 ```
 
@@ -330,13 +330,13 @@ La condición simple se realiza mediante la instrucción `if`. Entre paréntesis
 
 ``` php
 <?php
-$hora = 8; // La hora en formato de 24 horas
-if ($hora === 8) {
-    echo "Suena el despertador.";
+$hora = 8; // La hora en formato de 24 horas
+if ($hora === 8) {
+    echo "Suena el despertador.";
 }
-echo "<br>";
-if ($hora === 8)
-    echo "Suena el despertador.";
+echo "<br>";
+if ($hora === 8)
+    echo "Suena el despertador.";
 ?>
 ```
 
@@ -344,11 +344,11 @@ Las condiciones compuesta mediante `if-else`:
 
 ``` php
 <?php
-$hora = 17; // La hora en formato de 24 horas
-if ($hora <= 12) {
-  echo "Son las " . $hora . " de la mañana";
-} else {
-  echo "Son las " . ($hora - 12) . " de la tarde";
+$hora = 17; // La hora en formato de 24 horas
+if ($hora <= 12) {
+    echo "Son las " . $hora . " de la mañana";
+} else {
+    echo "Son las " . ($hora - 12) . " de la tarde";
 }
 ?>
 ```
@@ -357,15 +357,15 @@ Las condiciones anidadas mediante `if-else if-else`:
 
 ``` php
 <?php
-$hora = 14; // La hora en formato de 24 horas
-if ($hora === 8) {
-  echo "Es la hora de desayunar.";
-} else if ($hora === 14) {
-  echo "Es la hora de la comida.";
-} else if ($hora === 21) {
-  echo "Es la hora de la cena.";
-} else {
-  echo "Ahora no toca comer.";
+$hora = 14; // La hora en formato de 24 horas
+if ($hora === 8) {
+    echo "Es la hora de desayunar.";
+} else if ($hora === 14) {
+    echo "Es la hora de la comida.";
+} else if ($hora === 21) {
+    echo "Es la hora de la cena.";
+} else {
+    echo "Ahora no toca comer.";
 }
 ?>
 ```
@@ -374,19 +374,19 @@ La sentencia `switch` también permite trabajar con condiciones múltiples:
 
 ``` php
 <?php
-$hora = 14; // La hora en formato de 24 horas
-switch ($hora) {
-  case 9:
-    echo "Es la hora de desayunar.";
-    break;
-  case 14:
-    echo "Es la hora de la comida.";
-    break;
-  case 21:
-    echo "Es la hora de la cena.";
-    break;
-  default:
-    echo "Ahora no toca comer";
+$hora = 14; // La hora en formato de 24 horas
+switch ($hora) {
+    case 9:
+        echo "Es la hora de desayunar.";
+        break;
+    case 14:
+        echo "Es la hora de la comida.";
+        break;
+    case 21:
+        echo "Es la hora de la cena.";
+        break;
+    default:
+        echo "Ahora no toca comer";
 }
 ?>
 ```
@@ -398,9 +398,9 @@ Finalmente, también tenemos el operador ternario `condición ? valorTrue : valo
 
 ``` php
 <?php
-$hora = 14;
-$formato = ($hora > 12) ? 24 : 12;
-echo "El formato es de $formato horas"
+$hora = 14;
+$formato = ($hora > 12) ? 24 : 12;
+echo "El formato es de $formato horas"
 ?>
 ```
 
@@ -408,7 +408,7 @@ Si queremos comprobar si una variable tiene valor y si no darle un valor determi
 
 ``` php
 <?php
-$nombre = $_GET['nombre'] ?: "desconocido"
+$nombre = $_GET['nombre'] ?: "desconocido"
 ?>
 ```
 
@@ -418,11 +418,11 @@ Mediante la instrucción `while`:
 
 ``` php
 <?php
-$i = 1;
-while ($i <= 10) {
-  echo "Línea " . $i;
-  echo "<br>";
-  $i++;
+$i = 1;
+while ($i <= 10) {
+    echo "Línea " . $i;
+    echo "<br>";
+    $i++;
 }
 ?>
 ```
@@ -431,14 +431,14 @@ Mediante la instrucción `do-while`:
 
 ``` php
 <?php
-do {
-  $dado = rand(1, 6);
-  // rand() devuelve un valor aleatorio 
-  echo "Tirando el dado... ";
-  echo "ha salido un " . $dado . ".";
-  echo "<br>";
-} while ($dado != 5);
-echo "¡Bien! Saco una ficha de casa.";
+do {
+    $dado = rand(1, 6);
+    // rand() devuelve un valor aleatorio 
+    echo "Tirando el dado... ";
+    echo "ha salido un " . $dado . ".";
+    echo "<br>";
+} while ($dado != 5);
+echo "¡Bien! Saco una ficha de casa.";
 ?>
 ```
 
@@ -447,15 +447,15 @@ Mediante la instrucción `for`:
 ``` php
 <?php
 // Bucle ascendente
-for ($i = 1; $i <= 10; $i++) {
-  echo "Línea " . $i;
-  echo "<br>";
+for ($i = 1; $i <= 10; $i++) {
+    echo "Línea " . $i;
+    echo "<br>";
 }
 
 // Bucle descendente
-for ($i = 10; $i >= 0; $i--) {
-  echo "Línea " . $i;
-  echo "<br>";
+for ($i = 10; $i >= 0; $i--) {
+    echo "Línea " . $i;
+    echo "<br>";
 }
 ?>
 ```
@@ -471,7 +471,7 @@ A su vez, `continue` permite saltar a la siguiente iteración.
     ``` php
     <?php
     $salir = false;
-    for ($i = 1; $i <= 10 && !$salir; $i++) {
+    for ($i = 1; $i <= 10 && !$salir; $i++) {
       if ($i === 5) {
         echo "Salgo cuando i=5";
         $salir = true;
@@ -487,29 +487,28 @@ Para almacenar datos compuestos, podemos utilizar tanto arrays sencillos como ar
 !!! caution "Cuidado con mezclar tipos"
     Como el tipado es dinámico, nuestros arrays pueden contenedor datos de diferentes tipos. No se recomienda mezclar los tipos.
 
-Al igual que en Java, se definen mediante corchetes, son *0-index*, y se puede asignar un valor a un posición determinada:
+Del mismo modo que Java, se definen mediante corchetes, son *0-index*, y se puede asignar un valor a un posición determinada:
 
 ``` php
 <?php
-$frutas = array("naranja", "pera", "manzana");
+$frutas = array("naranja", "pera", "manzana");
 
-$frutas2 = ["naranja", "pera", "manzana"];
+$frutas2 = ["naranja", "pera", "manzana"];
 
-$frutas3 = [];
-$frutas3[0] = "naranja";
-$frutas3[1] = "pera";
-$frutas3[] = "manzana"; // lo añade al final
-?>
+$frutas3 = [];
+$frutas3[0] = "naranja";
+$frutas3[1] = "pera";
+$frutas3[] = "manzana"; // lo añade al final
 ```
 
 Podemos obtener el tamaño del array mediante la función `count(array)`. Para recorrer el array haremos uso de un bucle `for`:
 
 ``` php
 <?php
-$tam = count($frutas); // tamaño del array
+$tam = count($frutas); // tamaño del array
 
-for ($i=0; $i<count($frutas); $i++) {
-echo "Elemento $i: $frutas[$i] <br />";
+for ($i=0; $i<count($frutas); $i++) {
+    echo "Elemento $i: $frutas[$i] <br />";
 }
 ```
 
@@ -518,10 +517,9 @@ Otra forma de recorrer los arrays, incluso más elegante, es hacer uso de `forea
 ``` php
 <?php
 // Mediante foreach no necesitamos saber el tamaño del array
-foreach ($frutas as $fruta) {
-echo "$fruta <br />";
+foreach ($frutas as $fruta) {
+    echo "$fruta <br />";
 }
-?>
 ```
 
 ### Arrays asociativos
@@ -532,25 +530,33 @@ A la hora de recorrer este tipo de arrays, mediante `foreach` separamos cada ele
 
 ``` php
 <?php
-$capitales = ["Italia" => "Roma",
-"Francia" => "Paris",
-"Portugal" => "Lisboa"];
-$capitalFrancia = $capitales["Francia"];
+$capitales = ["Italia" => "Roma",
+    "Francia" => "Paris",
+    "Portugal" => "Lisboa"];
+$capitalFrancia = $capitales["Francia"]; // se accede al elemento por la clave, no la posición
 
-echo "La capital de Francia es $capitalFrancia <br />";
-echo "La capital de Francia es {$capitales["Francia"]} <br />";
+$capitales["Alemania"] = "Berlín"; // añadimos un elemento
 
-foreach ($capitales as $pais => $ciudad) {
-echo "$pais : $ciudad <br />";
+echo "La capital de Francia es $capitalFrancia <br />";
+echo "La capital de Francia es {$capitales["Francia"]} <br />";
+
+$capitales[] = "Madrid"; // se añade con la clave 0 !!! ¡¡¡No asignar valores sin clave!!!
+
+foreach ($capitales as $valor) { // si recorremos un array asociativo, mostraremos los valores
+    echo "$valor <br />";
 }
-?>
+
+foreach ($capitales as $pais => $ciudad) { // separamos cada elemento en clave => valor
+    echo "$pais : $ciudad <br />";
+}
 ```
 
 ### Operaciones
 
 Las operaciones más importantes que podemos realizar con arrays son:
 
-* `print_r($array)`: muestra el contenido de todo el `$array`
+* `print_r($array)`: muestra el contenido de todo el `$array`. Si queremos mostrar el contenido con un formato determinado, hemos de recorrer el array con `foreach`.
+* `var_dump($mixed)`: muestra el contenido del elemento recibido. Muestra más información que `print_r`.
 * `$elem = array_pop($array)`: elimina el último `$elemento`
 * `array_push($array, $elem)`: añade un `$elemento` al final
 * `$booleano = in_array($elem, $array)`: averigua si `$elem` está en el `$array`
@@ -559,19 +565,18 @@ Las operaciones más importantes que podemos realizar con arrays son:
 
     ``` php
     <?php
-    $frutas = ["naranja", "pera", "manzana"];
+    $frutas = ["naranja", "pera", "manzana"];
 
-    array_push($frutas, "piña");
+    array_push($frutas, "piña");
     print_r($frutas);
 
-    $ultFruta = array_pop($frutas);
-    if (in_array("piña", $frutas)) {
-        echo "<p>Queda piña</p>";
-    } else {
-        echo "<p>No queda piña</p>";
+    $ultFruta = array_pop($frutas);
+    if (in_array("piña", $frutas)) {
+        echo "<p>Queda piña</p>";
+    } else {
+        echo "<p>No queda piña</p>";
     }
     print_r($frutas);
-    ?>
     ```
 
 === "Consola"
@@ -603,18 +608,17 @@ Las operaciones más importantes que podemos realizar con arrays son:
 
     ``` php
     <?php
-    $capitales = array("Italia" => "Roma",
-    "Francia" => "Paris",
-    "Portugal" => "Lisboa");
+    $capitales = array("Italia" => "Roma",
+    "Francia" => "Paris",
+    "Portugal" => "Lisboa");
 
-    $paises = array_keys($capitales);
+    $paises = array_keys($capitales);
     print_r($paises);
     sort($paises);
     print_r($paises);
 
     unset($capitales["Francia"]);
     print_r($capitales);
-    ?>
     ```
 
 === "Consola"
@@ -639,23 +643,64 @@ Las operaciones más importantes que podemos realizar con arrays son:
     )
     ```
 
-Existen muchísimas más funciones para trabajar con arrays. Toda la información en el [documentación oficial](https://www.php.net/manual/es/ref.array.php).
+Al asignar un array a otro se realiza una copia. Cuidado con esta operación que puede consumir muchos recursos.
+
+=== "PHP"
+
+    ``` php
+    <?php
+    $nombres = ["Juan", "Ana", "Pedro", "Laura"];
+    $copia = $nombres;
+    sort($nombres);
+    print_r($nombres);
+    print_r($copia);
+    ```
+
+=== "Consola"
+
+    ``` console
+    Array
+    (
+        [0] => Ana
+        [1] => Juan
+        [2] => Laura
+        [3] => Pedro
+    )
+    Array
+    (
+        [0] => Juan
+        [1] => Ana
+        [2] => Pedro
+        [3] => Laura
+    )
+    ```
+
+Existen muchísimas más funciones para trabajar con arrays. Puedes consultar roda la información en la [documentación oficial](https://www.php.net/manual/es/ref.array.php).
 
 !!! tip "Artículos para profundizar en las operaciones con arrays"
-    * Un artículo muy completo (en inglés) de [Cómo trabajar con arrays en PHP de la manera correcta](<https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606).  
+    * Un artículo muy completo (en inglés) de [Cómo trabajar con arrays en PHP de la manera correcta](https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606).  
     * Otro artículo recomendable (en inglés) es [Cómo ordenar arrays en PHP](https://code.tutsplus.com/tutorials/how-to-sort-arrays-in-php--cms-32313).
 
 ### Arrays bidimensionales
 
-Consiste en un array de arrays, ya sean arrays secuencialess como asociativos. Puede haber N dimensiones.
+Consiste en un array de arrays, ya sean arrays secuenciales o asociativos. Puede haber N dimensiones.
 
-Aunque pueda parecer una buena idea crear este tipo de estructuras, es mejor utilizar objetos conjuntamente con arrays (posiblemente arrays de otros objetos) para crear estructuras complejas que permitan modelar mejor los problemas.
+``` php
+<?php
+$persona["nombre"] = "Bruce Wayne";
+$persona["telefonos"] = ["966 123 456", "636 636 636"]; // array de arrays ordinarios
+$persona["profesion"] = ["dia" => "filántropo", "noche" => "caballero oscuro"]; // array de arrays asociativos
+
+echo $persona['nombre']." por la noche trabaja de ".$persona['profesion']['noche'];
+```
+
+Combinando los arrays asociativos en varias dimensiones podemos almacenar la información como si fuera una tabla:
 
 ``` php
 <?php
 $menu1 = ["Plato1" => "Macarrones con queso", "Plato2" => "Pescado asado", "Bebida" => "Coca-Cola", "Postre" => "Helado de vainilla"];
 $menu2 = ["Plato1" => "Sopa", "Plato2" => "Lomo con patatas", "Bebida" => "Agua", "Postre" => "Arroz con leche"];
-$menus = [$menu1, $menu2];
+$menus = [$menu1, $menu2]; // creamos un array a partir de arrays asociativos
 
 foreach ($menus as $menudeldia) {
   echo "Menú del día<br/>";
@@ -667,8 +712,9 @@ foreach ($menus as $menudeldia) {
 
 // Para acceder a un elemento concreto se anidan los corchetes
 $postre0 = $menus[0]["Postre"];
-?>
 ```
+
+Aunque pueda parecer una buena idea crear este tipo de estructuras, es mejor utilizar objetos conjuntamente con arrays (posiblemente arrays de otros objetos) para crear estructuras complejas que permitan modelar mejor los problemas.
 
 ## Funciones
 
@@ -689,15 +735,15 @@ Por ejemplo:
 
 ``` php
 <?php
-function diaSemana() {
-  $semana = [ "lunes", "martes", "miércoles",
-    "jueves", "viernes", "sábado", "domingo" ];
-  $dia = $semana[rand(0, 6)];
-  return $dia;
+function diaSemana() {
+    $semana = [ "lunes", "martes", "miércoles",
+        "jueves", "viernes", "sábado", "domingo" ];
+    $dia = $semana[rand(0, 6)];
+    return $dia;
 }
 
-$diaCine = diaSemana();
-echo "El próximo $diaCine voy al cine.";
+$diaCine = diaSemana();
+echo "El próximo $diaCine voy al cine.";
 ?>
 ```
 
@@ -707,50 +753,62 @@ Si queremos pasar un parámetro por referencia, en la declaración de la funció
 
 ``` php
 <?php
-function duplicarPorValor($argumento) {
-  $argumento = $argumento * 2;
-  echo "Dentro de la función: $argumento.<br>";
+function duplicarPorValor($argumento) {
+    $argumento = $argumento * 2;
+    echo "Dentro de la función: $argumento.<br>";
 }
-function duplicarPorReferencia(&$argumento) {
-  $argumento = $argumento * 2;
-  echo "Dentro de la función: $argumento.<br>";
+function duplicarPorReferencia(&$argumento) {
+    $argumento = $argumento * 2;
+    echo "Dentro de la función: $argumento.<br>";
 }
 
-$numero1 = 5;
-echo "Antes de llamar: $numero1.<br>";
+$numero1 = 5;
+echo "Antes de llamar: $numero1.<br>";
 duplicarPorValor($numero1);
-echo "Después de llamar: $numero1.<br>";
-echo "<br>";
+echo "Después de llamar: $numero1.<br>";
+echo "<br>";
 
-$numero2 = 7;
-echo "Antes de llamar: $numero2.<br>";
+$numero2 = 7;
+echo "Antes de llamar: $numero2.<br>";
 duplicarPorReferencia($numero2);
-echo "Después de llamar: $numero2.<br>";
+echo "Después de llamar: $numero2.<br>";
 ?>
 ```
 
-### Parámetros por defecto
+### Parámetros por defecto / opcionales
 
-Nos permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.
+Permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.
 
 ``` php
 <?php
-function obtenerCapital($pais = "todos") {
-  $capitales = array("Italia" => "Roma",
-    "Francia" => "Paris",
-    "Portugal" => "Lisboa");
+function obtenerCapital($pais = "todos") {
+    $capitales = array("Italia" => "Roma",
+    "Francia" => "Paris",
+    "Portugal" => "Lisboa");
 
-  if ($pais == "todos") {
-    return array_values($capitales);
-  } else {
-    return $capitales[$pais];
-  }
+    if ($pais == "todos") {
+        return array_values($capitales);
+    } else {
+        return $capitales[$pais];
+    }
 }
 
 print_r(obtenerCapital());
-echo "<br/>";
-echo obtenerCapital("Francia");
-?>
+echo "<br/>";
+echo obtenerCapital("Francia");
+```
+
+En el caso de convivir con otro tipo de parámetros, los parámetros que tienen el valor asignado por defecto siempre se colocan al final.
+
+``` php
+<?php
+function saluda($nombre, $prefijo = "Sr") {
+    echo "Hola ".$prefijo." ".$nombre;
+}
+
+saluda("Aitor", "Mr");
+saluda("Aitor");
+saluda("Marina", "Srta");
 ```
 
 ### Parámetros variables
@@ -765,21 +823,107 @@ Estas funciones no se pueden pasar como parámetro a otra función (como funcion
 
 ``` php
 <?php
-function sumaParametros() {
-  if (func_num_args() == 0) {
-    return false;
-  } else {
-    $suma = 0;
+function sumaParametros() {
+    if (func_num_args() == 0) {
+        return false;
+    } else {
+        $suma = 0;
 
-    for ($i = 0; $i < func_num_args(); $i++) {
-      $suma += func_get_arg($i);
+        for ($i = 0; $i < func_num_args(); $i++) {
+            $suma += func_get_arg($i);
+        }
+
+        return $suma;
     }
-
-    return $suma;
-  }
 }
 
-echo sumaParametros(1, 5, 9); // 15
+echo sumaParametros(1, 5, 9); // 15
+?>
+```
+
+Desde PHP 5.6, se puede utilizar el operador `...` (*variadics*) el cual "disfraza" los parámetros como un array:
+
+``` php
+<?php
+function sumaParametrosMejor(...$numeros) {
+    if (count($numeros) == 0) {
+        return false;
+    } else {
+        $suma = 0;
+
+        foreach ($numeros as $num) {
+            $suma += $num;
+        }
+
+        return $suma;
+    }
+}
+
+echo sumaParametrosMejor(1, 5, 9); // 15
+?>
+```
+
+!!! tip "Más usos de `...`"
+    También se puede utilizar para dividir un array en variables separadas para proporcionar argumentos
+
+    ``` php
+    <?php
+    function suma($a, $b) {
+        return $a + $b;
+    }
+
+    echo suma(...[1, 5])."<br />";
+
+    $a = [1, 5];
+    echo suma(...$a);
+    ?>
+    ```
+
+### Argumentos con nombre
+
+Desde PHP 8.0 podemos pasar los argumentos con el nombre (además de por posición, como hemos hecho hasta ahora). Los argumentos con nombre se pasan poniendo el nombre como prefijo del parámetros separado por dos puntos: `$resultado = funcion( arg1 : valor1, arg2 : valor2);`
+
+Esta característica complementa los parametros opcionales permitiendonos saltar su valor:
+
+``` php
+<?php
+function funcionArgumentosNombre($a, $b = 2, $c = 4) {
+  echo "$a $b $c";
+}
+funcionArgumentosNombre(c: 3, a: 1); // "1 2 3"
+```
+
+Tanto los parámetros opcionales como los obligatorios pueden tener nombre, pero lo argumentos con nombre se tienen que poner después de los que no lo tienen.
+
+``` php
+<?php
+funcionArgumentosNombre(1, c: 3); // "1 2 3"
+```
+
+### Funciones tipadas
+
+Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como *strict_types* (tipificación estricta) y hay que definirlo en la primera línea de cada archivo `.php` para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos, mediante la sentencia
+
+``` php
+<?php
+declare(strict_types=1);
+```
+
+Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
+`int`, `float`, `string`, `bool`, `object` y `array`.
+
+``` php
+<?php
+declare(strict_types=1);
+
+function suma(int $a, int $b) : int {
+    return $a + $b;
+}
+
+$num = 33;
+echo suma(10, 30);
+echo suma(10, $num);
+echo suma("10", 30);
 ?>
 ```
 
@@ -794,15 +938,15 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
 
     ``` php
     <?php
-    function miCiudad() {
-      $ciudad = "Elche";
-      echo "Dentro de la función: $ciudad.<br>";
+    function miCiudad() {
+        $ciudad = "Elche";
+        echo "Dentro de la función: $ciudad.<br>";
     }
 
-    $ciudad = "Alicante";
-    echo "Antes de la función: $ciudad.<br>";
+    $ciudad = "Alicante";
+    echo "Antes de la función: $ciudad.<br>";
     miCiudad();
-    echo "Después de la función: $ciudad.<br>"
+    echo "Después de la función: $ciudad.<br>"
     ?>
     ```
 
@@ -810,43 +954,22 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
 
     ``` php
     <?php
-    function miCiudad() {
-      global $ciudad;
-      $ciudad = "Elche";
-      echo "Dentro de la función: $ciudad.<br>";
+    function miCiudad() {
+        global $ciudad;
+        $ciudad = "Elche";
+        echo "Dentro de la función: $ciudad.<br>";
     }
     
-    $ciudad = "Alicante";
-    echo "Antes de llamar: $ciudad.<br>";
+    $ciudad = "Alicante";
+    echo "Antes de llamar: $ciudad.<br>";
     miCiudad();
-    echo "Después de llamar: $ciudad.<br>"
+    echo "Después de llamar: $ciudad.<br>"
     ?>
     ```
 
 !!! important "No globales"
     Por favor, hay que evitar el uso de variables globales dentro de las funciones.
     En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.
-
-### Funciones tipadas
-
-Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como *strict_types* y hay que definirlo en la primera línea de cada archivo `.php` para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos.
-
-Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
-`int`, `float`, `string`, `bool`, `object` y `array`.
-
-``` php
-<?php
-declare(strict_types=1);
-
-function suma(int $a, int $b) : int {
-  return $a + $b;
-}
-
-$num = 33;
-echo suma(10, 30);
-echo suma(10, $num);
-?>
-```
 
 ### Funciones variable
 
@@ -856,8 +979,8 @@ echo suma(10, $num);
 
 ``` php
 <?php
-$miFuncionSuma = "suma";
-echo $miFuncionSuma(3,4); // invoca a la función suma
+$miFuncionSuma = "suma";
+echo $miFuncionSuma(3,4); // invoca a la función suma
 ?>
 ```
 
@@ -866,21 +989,26 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
 
     ``` php
     <?php
-    $anonima = function() {
-    echo "Hola";
+    $anonima = function() {
+        echo "Hola";
     };
     $anonima();
 
-    // Uso de variables externas a la función anónima
-    $mensaje = "Hola";
-    $miClosure = function() use ($mensaje) {
-    echo $mensaje;
+    $anonimaConParametro = function($nombre) {
+        echo "Hola ".$nombre;
+    };
+    $anonimaConParametro("Aitor");
+
+    // Uso de variables externas a la función anónima --> `use`
+    $mensaje = "Hola";
+    $miClosure = function() use ($mensaje) {
+        echo $mensaje;
     };
     $miClosure();
 
-    // Uso de parámetros
-    $holaPHP = function ($arg) use ($mensaje) {
-    echo $mensaje." ".$arg;
+    // Uso de parámetros
+    $holaPHP = function($arg) use ($mensaje) {
+        echo $mensaje." ".$arg;
     };
     $holaPHP("PHP");
     ?>
@@ -905,12 +1033,12 @@ Por ejemplo, colocamos las funciones en el archivo `biblioteca.php`:
 
 ``` php
 <?php
-function suma(int $a, int $b) : int {
-return $a + $b;
+function suma(int $a, int $b) : int {
+    return $a + $b;
 }
 
-function resta(int $a, int $b) : int {
-return $a - $b;
+function resta(int $a, int $b) : int {
+    return $a - $b;
 }
 ?>
 ```
@@ -918,10 +1046,10 @@ return $a - $b;
 Y posteriormente en otro archivo:
 
 ``` php
-<?php 
+<?php 
 include_once("biblioteca.php");
-echo suma(10,20);
-echo resta(40,20);
+echo suma(10,20);
+echo resta(40,20);
 ?>
 ```
 
@@ -930,12 +1058,12 @@ echo resta(40,20);
 Mediante el uso de la instrucción `include` también podemos separar fragmentos de código PHP/HTML que queramos reutilizar en nuestros sitios web y crear un sistema muy sencillo de plantillas. Por ejemplo, vamos a separar una página en tres partes, primero la parte superior en `encabezado.php`:
 
 ``` html+php
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= $titulo ?></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= $titulo ?></title>
 </head>
 <body>
 ```
@@ -951,10 +1079,10 @@ Y luego nos centramos únicamente en el contenido que cambia en `pagina.php`:
 
 ``` html+php
 <?php
-$titulo = "Página con includes";
+$titulo = "Página con includes";
 include("encabezado.php");
 ?>
-<h1><?= $titulo ?></h1>
+<h1><?= $titulo ?></h1>
 <?php
 include("pie.html");
 ?>
@@ -1011,16 +1139,16 @@ Las más importantes son:
 
 ``` php
 <?php
-$cadena = "El caballero oscuro";
-$tam = strlen($cadena);
-echo "La longitud de '$cadena' es: $tam <br />";
+$cadena = "El caballero oscuro";
+$tam = strlen($cadena);
+echo "La longitud de '$cadena' es: $tam <br />";
 
-$oscuro = substr($cadena, 13); // desde 13 al final
-$caba = substr($cadena, 3, 4); // desde 3, 4 letras
-$katman = str_replace("c", "k", $cadena);
-echo "$oscuro $caba ahora es $katman";
+$oscuro = substr($cadena, 13); // desde 13 al final
+$caba = substr($cadena, 3, 4); // desde 3, 4 letras
+$katman = str_replace("c", "k", $cadena);
+echo "$oscuro $caba ahora es $katman";
 
-echo "Grande ".strtoupper($cadena);
+echo "Grande ".strtoupper($cadena);
 ?>
 ```
 
@@ -1242,16 +1370,16 @@ Finalmente, para realizar conversiones de datos o si queremos trabajar con tipos
 
 ``` php
 <?php
-$uno = 1;
-var_dump(is_int($uno)); // true
+$uno = 1;
+var_dump(is_int($uno)); // true
 $unofloat = floatval($uno);
-settype($uno, "string");
-var_dump(is_int($uno)); // false
-var_dump(is_string($uno)); // true
-settype($uno, "float");
-var_dump(is_int($uno)); // false
-var_dump(is_float($uno)); // true
-var_dump(is_int(intval($uno))); // true
+settype($uno, "string");
+var_dump(is_int($uno)); // false
+var_dump(is_string($uno)); // true
+settype($uno, "float");
+var_dump(is_int($uno)); // false
+var_dump(is_float($uno)); // true
+var_dump(is_int(intval($uno))); // true
 ?>
 ```
 
@@ -1265,7 +1393,7 @@ var_dump(is_int(intval($uno))); // true
 
 ## Actividades
 
-### PHP
+### PHP básico
 
 200. Visualiza el vídeo de Jesús Amieiro sobre [PHP en 2020](https://www.youtube.com/watch?v=o3IwAqslGUM&t=12724s) a partir del minuto 3:32 (son 40 minutos aproximadamente).
     * ¿Qué relación existe entre PHP y Facebook?
@@ -1344,16 +1472,16 @@ Ejercicios de investigación:
 
     `220paresAB.php`: A partir del anterior, refactorizar para que funcione con `inicio` y `fin`.
 
-221. `221suma110.php`: Escribe un programa que sume los números 1 al 10.
+221. `221suma110.php`: Escribe un programa que sume los números del 1 al 10.
 
     `221sumaAB.php`: A partir del anterior, refactorizar para que funcione con `inicio` y `fin`.
 
-222. `222potencia.php`: A partir de una base y exponente, mediante la acumulación de productos, calcula la potencia utilizando la instrucción `for`.
+222. `222potencia.php`: A partir de una `base` y `exponente`, mediante la acumulación de productos, calcula la potencia utilizando la instrucción `for`.
 
     `222potenciaWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `while`.  
     `222potenciaDoWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `do-while`.
 
-223. `223tablaMultiplicar.php`: Muestra dentro de una tabla HTML la tabla de multiplicar de un número. Utiliza `<thead>` con sus respectivos `<th>` y `<tbody`> para dibujar la tabla. Por ejemplo:
+223. `223tablaMultiplicar.php`: Muestra dentro de una tabla HTML la tabla de multiplicar del `numero` que reciba como parámetro. Utiliza `<thead>` con sus respectivos `<th>` y `<tbody`> para dibujar la tabla. Por ejemplo:
 
     a | * | b | = | a*b
     -- | -- | -- | -- | --
@@ -1362,9 +1490,15 @@ Ejercicios de investigación:
     ...
     7  | * | 10 | = | 70
 
-224. `224formulario.html`: Crea un formulario que permite leer una `cantidad`.  
-`224leerDatos.php`: a partir de `cantidad`, prepara un formulario con tantas cajas de datos como su valor.  
-Finalmente, en `224sumarDatos.php`: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.
+
+224. `224formulario.html`: Crea un formulario que permita leer una `cantidad`.  
+
+    !!! tip inline end
+        Para guardar un dato oculto puedes utilizar un campo de formulario de tipo oculto: `<input type="hidden" name="cantidad" value="33" />`
+
+    `224leerDatos.php`: a partir de `cantidad`, prepara un formulario con tantas cajas de datos como su valor.  
+    Finalmente, en `224sumarDatos.php`: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.
+
 225. `225formulario.html` y `225tabla.php`: A partir de un número de `filas` y `columnas`, crear una tabla con ese tamaño.
 Las celdas deben estar rellenadas con los valores de las coordenadas de cada celda.
 226. `226formulario.html` y `226cuadrado.php`: Basándote en el ejercicio anterior, rellena la tabla de manera que solo los bordes tengan contenido, quedándose el resto de celdas en blanco.
@@ -1391,8 +1525,7 @@ Este ejercicio se basa en el juego de la [Bola 8 mágica](https://es.wikipedia.o
     * El menor
     * La media
 
-233. `233sexos.php`: Rellena un array de 100 elementos de manera aleatoria con valores `M` o `F`.
-Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los valores. Para ello, almacena el resultado en un array asociativo `['M' => 44, 'F' =>66]`.  
+233. `233sexos.php`: Rellena un array de 100 elementos de manera aleatoria con valores `M` o `F` (por ejemplo `["M", "M", "F", "M", ...]`). Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los valores almacenando el resultado en un array asociativo `['M' => 44, 'F' => 66]` (*no utilices variables para contar las `M` o las `F`*).
 Finalmente, muestra el resultado por pantalla
 
 234. `234monedas.php`: Vuelve a realizar el ejercicio 207, el de las monedas (500, 200, 100, 50, 20, 10, 5, 2, 1), pero haciendo uso de arrays y un bucle.
@@ -1436,7 +1569,12 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:
     * `quitaPorDetras(int $num, int $cant): int` → le quita por detrás (derecha) `$cant` dígitos
     * `quitaPorDelante(int $num, int $cant): int` → le quita por delante (izquierda) `$cant` dígitos.
 
-243. `243euros.php`: Crea una biblioteca con dos funciones:
+    Para probar las funciones, haz uso tanto de paso de argumentos posiciones como argumentos con nombre.
+
+243. `243biblioteca.php`: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.  
+`243arrayFunciones.php`: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.
+
+244. `244euros.php`: Crea una biblioteca con dos funciones:
 
     * peseta2euros: pasa de pesetas a euros
     * euros2pesetas: pasa de euros a pesetas 
@@ -1446,23 +1584,20 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:
     * La cantidad a transformar
     * La cotización, con un parámetro por defecto con el factor de transformación.
     
-    `243calculadoraEuros.php`: utiliza `243euros.php` y prueba las funciones pasando tanto cantidades con la cotización por defecto, como con nuevas cotizaciones. Recuerda que 1 euro son/eran 166.36 pesetas.
+    `244calculadoraEuros.php`: utiliza `243euros.php` y prueba las funciones pasando tanto cantidades con la cotización por defecto, como con nuevas cotizaciones. Recuerda que 1 euro son/eran 166.36 pesetas.
 
-244. `244preparaTiquetCompra.php`: A partir de una cantidad de productos, leer el nombre y coste de la cantidad de productos indicados (similar al ejercicio 237, pero esta vez no hace falta crear el formulario con la cantidad, se recibe mediante un parámetro GET via URL).  
-`244imprimeTiquetCompra.php`: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
+245. `245preparaTiquetCompra.php`: A partir de una cantidad de productos, leer el nombre y coste de la cantidad de productos indicados (similar al ejercicio 237, pero esta vez no hace falta crear el formulario con la cantidad, se recibe mediante un parámetro GET via URL).  
+`245imprimeTiquetCompra.php`: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
 ![245](imagenes/02/02p245.png){align=right & width=200}
-245. A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
-`245preparaCompra.php`: similar a `244preparaTiquetCompra.php`, pero separa el encabezado (*Supermercado Severo* en `h1`) y el pie (*Tu supermercado de confianza*) en ficheros externos.  
-`245listaCompra.php`: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.
-246. Vamos a simular un formulario de acceso mediante el uso de `include`:
+246. A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
+`246preparaCompra.php`: similar a `245preparaTiquetCompra.php`, pero separa el encabezado (*Supermercado Severo* en `h1`) y el pie (*Tu supermercado de confianza*) en ficheros externos.  
+`246listaCompra.php`: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.
+247. Vamos a simular un formulario de acceso mediante el uso de `include`:
 
-    * `246login.php`: el formulario de entrada
-    * `246compruebaLogin.php`: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:
-        * `246ok.php`: El usuario introducido es correcto
-        * `246ko.php`: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.
-
-247. `247biblioteca.php`: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.  
-`247arrayFunciones.php`: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.
+    * `247login.php`: el formulario de entrada
+    * `247compruebaLogin.php`: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:
+        * `247ok.php`: El usuario introducido es correcto
+        * `247ko.php`: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.
 
 ### Funciones predefinidas
 
