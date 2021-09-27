@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/05herramientas.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -124,14 +124,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -280,20 +284,26 @@
 </details>
 <p>En esta unidad vamos a estudiar algunas de las herramientas más utilizadas en PHP.</p>
 <h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
-<p>Herramienta por excelencia en PHP para la gestión de librerías y dependencias, de manera que instala y las actualiza asegurando que todo el equipo de desarrollo tiene el mismo entorno y versiones.</p>
+<figure style="float: right;">
+    <img src="imagenes/05/logo-composer.png" width="200">
+    <figcaption>Logo Composer</figcaption>
+</figure>
+
+<p>Herramienta por excelencia en PHP para la gestión de librerías y dependencias, de manera que instala y las actualiza asegurando que todo el equipo de desarrollo tiene el mismo entorno y versiones. Además, ofrece <em>autoloading</em> de nuestro código, de manera que no tengamos que hacerlo nosotros "a mano".</p>
 <p>Está escrito en PHP, y podeís consultar toda su documentación en <a href="https://getcomposer.org/">https://getcomposer.org/</a>.</p>
 <p>Utiliza <a href="https://packagist.org/"><em>Packagist</em></a> como repositorio de librerías.</p>
 <p>Funcionalmente, es similar a Maven (Java) / npm (JS).</p>
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
-<p>Para instalar <em>Composer</em>, necesitamos modificar nuestra plantilla de <em>Docker</em>.</p>
-<p>Si estamos usando XAMPP, hemos de instalar <em>Composer</em> en el propio sistema operativo.</p>
-<p>TODO: COMPLETAR</p>
-<p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. Para ello, hemos preparado la siguiente plantilla.</p>
-<p>Es importante que comprobemos que tenemos la v2:</p>
+<p>Si estamos usando XAMPP, hemos de instalar <em>Composer</em> en el propio sistema operativo. Se recomienda seguir las <a href="https://getcomposer.org/doc/00-intro.md">instrucciones oficiales</a> según el sistema operativo a emplear.</p>
+<p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo <code>Dockerfile</code> y añadir el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">COPY</span> --from<span class="o">=</span>composer:2.0 /usr/bin/composer /usr/local/bin/composer
+</code></pre></div>
+<p>Para facilitar el trabajo, hemos creado una <a href="">plantilla ya preparada</a>.</p>
+<p>Es importante que dentro del contenedor comprobemos que tenemos la v2:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
 </code></pre></div>
 <h3 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h3>
-<p>Cuando creemos un proyecto por primera vez, hemos de crear un repositorio. Para ello, ejecutaremos el comando <code>composer init</code> y a continuación:</p>
+<p>Cuando creemos un proyecto por primera vez, hemos de inicilizar el repositorio. Para ello, ejecutaremos el comando <code>composer init</code> donde:</p>
 <ul>
 <li>Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...</li>
 <li>Definimos las dependencias del proyecto (<code>require</code>) y las de desarrollo (<code>require-dev</code>) de manera interactiva.<ul>
@@ -301,7 +311,7 @@
 </ul>
 </li>
 </ul>
-<p>Tras su configuración, se creará automáticamente el archivo <code>composer.json</code> con los datos introducidos y descarga las librerías en la carpeta <code>vendor</code>.</p>
+<p>Tras su configuración, se creará automáticamente el archivo <code>composer.json</code> con los datos introducidos y descarga las librerías en la carpeta <code>vendor</code>. La instalación de las librerías siempre se realiza de manera local para cada proyecto.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="err">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;dwes/log&quot;</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="err">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;Pruebas con Monolog&quot;</span><span class="p">,</span>
@@ -318,15 +328,21 @@
 <span class="linenos" data-linenos="14 "></span><span class="err">    </span><span class="p">]</span>
 <span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 </code></pre></div>
-<p>A la hora de indicar la versión de cada librería, tenemos diversas opciones:</p>
+<p>A la hora de indicar cada librería introduciremos:</p>
+<ul>
+<li>el nombre de la librería, compuesta tanto por el creador o "vendor", como por el nombre del proyecto. Ejemplos: <code>monolog/monolog</code> o <code>laravel/installer</code>.</li>
+<li>
+<p>la versión de cada librería. Tenemos diversas opciones para indicarla:</p>
 <ul>
 <li>Directamente: 1.4.2</li>
 <li>Con comodines: 1.*</li>
-<li>A partir de: &gt;=2.0.3</li>
+<li>A partir de: &gt;= 2.0.3</li>
 <li>Sin rotura de cambios: ^1.3.2 // &gt;=1.3.2 &lt;2.0.0</li>
 </ul>
+</li>
+</ul>
 <h2 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h2>
-<p>Podemos definir las dependencias via el archivo <code>composer.json</code> o mediante comandos con el formato <code>composer require vendor/package:version</code>. Por ejemplo:</p>
+<p>Podemos definir las dependencias via el archivo <code>composer.json</code> o mediante comandos con el formato <code>composer require vendor/package:version</code>. Por ejemplo, si queremos añadir phpUnit como librería de desarrollo, haremos:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require phpunit/phpunit –dev
 </code></pre></div>
 <p>Tras añadir nuevas librerías, hemos de actualizar nuestro proyecto:</p>
@@ -335,13 +351,19 @@
 <p>Si creamos el archivo <code>composer.json</code> nosotros directamente sin inicializar el repositorio, hemos de instalar las dependencias:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
 </code></pre></div>
+<p>Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías en dentro de la carpeta <code>vendor</code>. Es muy importante añadir esta carpeta al archivo <code>.gitignore</code> para no subirlas a GitHub.</p>
+<p>Además se crea el archivo <code>composer.lock</code>, que almacena la versión exacta que se ha instalado de cada librería (este archivo no se toca).</p>
 <h2 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h2>
-<p><em>Composer</em> crea en <code>vendor/autoload.php</code> un archivo que hemos de incluir en todos nuestros archivos
-En nuestro caso, solo en los archivos donde probamos las clases</p>
-<p>Si queremos que composer también se encargue de cargar nuestras clases, hemos de definirlo así:</p>
+<p><em>Composer</em> crea de forma automática en <code>vendor/autoload.php</code> el código para incluir de forma automática todas las librerias que tengamos configuradas en <code>composer.json</code>.</p>
+<p>Para utilizarlo, en la cabecera de nuestro archivos pondremos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>En nuestro caso, de momento sólo lo podremos en los archivos donde probamos las clases</p>
+<p>Si queremos que Composer también se encargue de cargar de forma automática nuestras clases de dominio, dentro del archivo <code>composer.json</code>, definiremos la propiedad <code>autoload</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span><span class="err">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="nt">&quot;Dwes\\&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;app/Dwes&quot;</span><span class="p">}</span>
-<span class="linenos" data-linenos="3 "></span><span class="err">    </span><span class="p">},</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="nt">&quot;Dwes\\&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;app/Dwes&quot;</span><span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">},</span>
 </code></pre></div>
 <p>Posteriormente, hemos de volver a generar el <em>autoload</em> de <em>Composer</em> mediante la opción <code>dump-autoload</code> (o <code>du</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer dump-autoload
@@ -363,9 +385,77 @@ En nuestro caso, solo en los archivos donde probamos las clases</p>
 </ul>
 </div>
 <h3 id="niveles">Niveles<a class="headerlink" href="#niveles" title="Permanent link">&para;</a></h3>
+<p>debug -100: Información detallada con propósitos de debug. No usar en entornos de producción.
+info - 200: Eventos interesantes como el inicio de sesión de usuarios.
+notice - 250: Eventos normales pero significativos.
+warning - 300: Ocurrencias excepcionales que no llegan a ser error.
+error - 400: Errores de ejecución que permiten continuar con la ejecución de la aplicación pero que deben ser monitorizados.
+critical - 500: Situaciones importantes donde se generan excepciones no esperadas o no hay disponible un componente.
+alert - 550: Se deben tomar medidas inmediatamente.
+Caída completa de la web, base de datos no disponible, etc... Además, se suelen enviar mensajes por email.
+emergency - 600: Es el error más grave e indica que todo el sistema está inutilizable.</p>
 <h3 id="hola-monolog">Hola Monolog<a class="headerlink" href="#hola-monolog" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">include</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s2">&quot;/vendor/autoload.php&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Monolog\Logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Monolog\Handler\StreamHandler</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">debug</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de DEBUG&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de INFO&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de WARNING&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de ERROR&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">critical</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de CRITICAL&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de ALERT&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>En todos los métodos de registro de mensajes, además del propio mensaje, le podemos pasar información como el contenido de alguna variable, usuario de la aplicación, etc..
+Adjuntar los datos dentro de un array → array de contexto
+Si queremos lo podemos hacer asociativo para facilitar la lectura del log</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$producto</span><span class="p">]);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;datos&quot;</span> <span class="o">=&gt;</span> <span class="nv">$producto</span><span class="p">]);</span>
+</code></pre></div>
 <h3 id="funcionamiento">Funcionamiento<a class="headerlink" href="#funcionamiento" title="Permanent link">&para;</a></h3>
+<p>Cada instancia Logger tiene un nombre de canal y una pila de manejadores (handler).
+Cada mensaje que mandamos al log atraviesa la pila de manejadores, y cada uno decide si debe registrar la información, y si se da el caso, finalizar la propagación.
+Por ejemplo, un StreamHandler en el fondo de la pila que lo escriba todo en disco, y en el tope añade un MailHandler que envíe un mail sólo cuando haya un error.
+Cada manejador tambien tiene un formateador (Formatter)
+Si no se indica ninguno, se le asigna uno por defecto.</p>
 <h3 id="manejadores">Manejadores<a class="headerlink" href="#manejadores" title="Permanent link">&para;</a></h3>
+<p>Cada instancia de Logger tendrá una pila de manejadores
+El último insertado será el primero en ejecutarse.
+Luego se “van ejecutando” conforme a la pila.
+https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md
+StreamHandler(ruta, nivel)
+RotatingFileHandler(ruta, maxFiles, nivel)
+NativeMailerHandler(para, asunto, desde, nivel)
+FirePHPHandler(nivel)</p>
+<p>Si queremos que los mensajes de la aplicación salgan por el log del servidor
+en nuestro caso el archivo error.log de Apache:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// error.log</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;php://stderr&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+</code></pre></div>
+<p>Por ejemplo, mediante FirePHPHandler, podemos utilizar FirePHP → Herramienta para hacer debug en la consola de Firefox
+Tras instalar la extensión en Firefox, habilitar las opciones y configurar el Handler, podemos ver los mensajes coloreados con sus datos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiFirePHPLogger&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">FirePHPHandler</span><span class="p">(</span><span class="nx">Logger</span><span class="o">::</span><span class="na">INFO</span><span class="p">));</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$datos </span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;real&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;personaje&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Batman&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos="6 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">debug</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de DEBUG&quot;</span><span class="p">,</span> <span class="nv">$datos</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de INFO&quot;</span><span class="p">,</span> <span class="nv">$datos</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de WARNING&quot;</span><span class="p">,</span> <span class="nv">$datos</span><span class="p">);</span>
+<span class="linenos" data-linenos="9 "></span><span class="c1">// ...</span>
+</code></pre></div>
+<figure style="align: center;">
+    <img src="imagenes/05/FirePhp.png">
+    <figcaption>Ejemplo de uso de FirePHP</figcaption>
+</figure>
+
 <h3 id="canales">Canales<a class="headerlink" href="#canales" title="Permanent link">&para;</a></h3>
 <h3 id="formateadores">Formateadores<a class="headerlink" href="#formateadores" title="Permanent link">&para;</a></h3>
 <h2 id="web-scraping"><em>Web Scraping</em><a class="headerlink" href="#web-scraping" title="Permanent link">&para;</a></h2>
@@ -488,10 +578,10 @@ Se basa en el uso de anotaciones sobre los docblocks.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
       
     
   </body>
