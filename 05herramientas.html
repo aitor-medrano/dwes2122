@@ -269,6 +269,15 @@
                 
                 
                 <h1 id="herramientas">Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h1>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 16 sesiones</p>
+<hr />
+<p>Resultado de aprendizaje:</p>
+<ol start="4">
+<li>Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones. </li>
+</ol>
+<p>Criterios de evaluación:</p>
+<p>g) Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.</p>
+</details>
 <p>En esta unidad vamos a estudiar algunas de las herramientas más utilizadas en PHP.</p>
 <h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
 <p>Herramienta por excelencia en PHP para la gestión de librerías y dependencias, de manera que instala y las actualiza asegurando que todo el equipo de desarrollo tiene el mismo entorno y versiones.</p>
@@ -276,8 +285,8 @@
 <p>Utiliza <a href="https://packagist.org/"><em>Packagist</em></a> como repositorio de librerías.</p>
 <p>Funcionalmente, es similar a Maven (Java) / npm (JS).</p>
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
-<p>Para instalar Composer, necesitamos modificar nuestra plantilla de Docker.</p>
-<p>Si estamos usando XAMPP, hemos de instalar Composer en el propio sistema operativo.</p>
+<p>Para instalar <em>Composer</em>, necesitamos modificar nuestra plantilla de <em>Docker</em>.</p>
+<p>Si estamos usando XAMPP, hemos de instalar <em>Composer</em> en el propio sistema operativo.</p>
 <p>TODO: COMPLETAR</p>
 <p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. Para ello, hemos preparado la siguiente plantilla.</p>
 <p>Es importante que comprobemos que tenemos la v2:</p>
@@ -317,36 +326,110 @@
 <li>Sin rotura de cambios: ^1.3.2 // &gt;=1.3.2 &lt;2.0.0</li>
 </ul>
 <h2 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h2>
-<p>Podemos definir las dependencias via el archivo composer.json o mediante comandos</p>
-<blockquote>
-<p>composer require vendor/package:version</p>
-</blockquote>
-<p>Ejemplo:</p>
-<blockquote>
-<p>composer require phpunit/phpunit –dev</p>
-</blockquote>
-<p>Tras añadirlas, hemos de actualizar nuestro proyecto</p>
-<blockquote>
-<p>composer update</p>
-</blockquote>
-<p>Si creamos el archivo composer.json nosotros directamente, hemos de instalar las dependencias</p>
-<blockquote>
-<p>composer install</p>
-</blockquote>
+<p>Podemos definir las dependencias via el archivo <code>composer.json</code> o mediante comandos con el formato <code>composer require vendor/package:version</code>. Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require phpunit/phpunit –dev
+</code></pre></div>
+<p>Tras añadir nuevas librerías, hemos de actualizar nuestro proyecto:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update
+</code></pre></div>
+<p>Si creamos el archivo <code>composer.json</code> nosotros directamente sin inicializar el repositorio, hemos de instalar las dependencias:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
+</code></pre></div>
 <h2 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h2>
 <p><em>Composer</em> crea en <code>vendor/autoload.php</code> un archivo que hemos de incluir en todos nuestros archivos
 En nuestro caso, solo en los archivos donde probamos las clases</p>
 <p>Si queremos que composer también se encargue de cargar nuestras clases, hemos de definirlo así:</p>
-<p>"autoload": {
-        "psr-4": {"Dwes\": "app/Dwes"}
-    },</p>
-<p>Posteriormente, hemos de volver a generar el autoload de Composer:</p>
-<blockquote>
-<p>composer dump-autoload
-o &gt; composer du </p>
-</blockquote>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="err">        </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="err"> </span><span class="p">{</span><span class="nt">&quot;Dwes\\&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;app/Dwes&quot;</span><span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="err">    </span><span class="p">},</span>
+</code></pre></div>
+<p>Posteriormente, hemos de volver a generar el <em>autoload</em> de <em>Composer</em> mediante la opción <code>dump-autoload</code> (o <code>du</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer dump-autoload
+</code></pre></div>
+<h2 id="monolog">Monolog<a class="headerlink" href="#monolog" title="Permanent link">&para;</a></h2>
+<p>Vamos a probar <em>Composer</em> añadiendo la libreria de <a href="https://github.com/Seldaek/monolog"><em>Monolog</em></a> a nuestro proyecto. Se trata de un librería para la gestión de logs de nuestras aplicaciones, soportando diferentes niveles (info, warning, etc...), salidas (ficheros, sockets, BBDD, Web Services, email, etc) y formatos (texto plano, HTML, JSON, etc...).</p>
+<p>Para ello, incluiremos la librería en nuestro proyecto con:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
+</code></pre></div>
+<p>Monolog 2 requiere al menos PHP 7.2, cumple con el estandar de logging PSR-3, y es la librería empleada por <em>Laravel</em> y <em>Symfony</em> para la gestión de logs.</p>
+<div class="admonition info">
+<p class="admonition-title">Cuando usar un log</p>
+<ul>
+<li>Seguir las acciones/movimientos de los usuarios</li>
+<li>Registrar las transacciones</li>
+<li>Rastrear los errores de usuario</li>
+<li>Fallos/avisos a nivel de sistema</li>
+<li>Interpretar y coleccionar datos para posterior investigación de patrones</li>
+</ul>
+</div>
+<h3 id="niveles">Niveles<a class="headerlink" href="#niveles" title="Permanent link">&para;</a></h3>
+<h3 id="hola-monolog">Hola Monolog<a class="headerlink" href="#hola-monolog" title="Permanent link">&para;</a></h3>
+<h3 id="funcionamiento">Funcionamiento<a class="headerlink" href="#funcionamiento" title="Permanent link">&para;</a></h3>
+<h3 id="manejadores">Manejadores<a class="headerlink" href="#manejadores" title="Permanent link">&para;</a></h3>
+<h3 id="canales">Canales<a class="headerlink" href="#canales" title="Permanent link">&para;</a></h3>
+<h3 id="formateadores">Formateadores<a class="headerlink" href="#formateadores" title="Permanent link">&para;</a></h3>
+<h2 id="web-scraping"><em>Web Scraping</em><a class="headerlink" href="#web-scraping" title="Permanent link">&para;</a></h2>
+<p>Goutte is another excellent HTTP client for PHP that's specifically made for web scraping. It was developed by the creator of the Symfony Framework and provides a nice API to scrape data from the HTML/XML responses of websites.</p>
+<p>Below are some of the components it includes to make web crawling straightforward:</p>
+<p>BrowserKit Component to simulate the behavior of a web browser.
+CssSelector component for translating CSS queries into XPath queries.
+DomCrawler component brings the power of DOMDocument and XPath.
+Symfony HTTP Client is a fairly new component from the Symfony team.
+Install Goutte via composer by executing the following command on your terminal:</p>
+<p>composer require fabpot/goutte</p>
+<p>Once you have installed the Goutte package, create a new PHP file for our code – let’s call it goutte_requests.php.</p>
+<p>In this section we'll discuss what we did with the Guzzle library in the first section.</p>
+<p>We will scrape book titles from the Books to Scrape website using Goutte. Then we'll see how you can add the prices into an array variable and use the variable within the code.</p>
+<p>Add the following code inside the goutte_requests.php file:</p>
+<p>&lt;?php</p>
+<h1 id="scraping-books-to-scrape-httpsbookstoscrapecom">scraping books to scrape: https://books.toscrape.com/<a class="headerlink" href="#scraping-books-to-scrape-httpsbookstoscrapecom" title="Permanent link">&para;</a></h1>
+<p>require 'vendor/autoload.php';
+$httpClient = new \Goutte\Client();
+$response = $httpClient-&gt;request('GET', 'https://books.toscrape.com/');
+$titles = $response-&gt;evaluate('//ol[@class="row"]//li//article//h3/a');
+$prices = $response-&gt;evaluate('//ol[@class="row"]//li//article//div[@class="product_price"]//p[@class="price_color"]');
+// we can store the prices into an array
+$priceArray = [];
+foreach ($prices as $key =&gt; $price) {
+$priceArray[] = $price-&gt;textContent;
+}
+// we extract the titles and display to the terminal together with the prices
+foreach ($titles as $key =&gt; $title) {
+echo $title-&gt;textContent . ' @ '. $priceArray[$key] . PHP_EOL;
+}</p>
+<p>Let’s discuss another method using the CSS Selector component that comes with Goutte. The CSS selector is more straightforward than using XPath shown in the previous methods.</p>
+<p>Create another PHP file, let’s call it goutte_css_requests.php. Add the following code to the file:</p>
+<p>&lt;?php</p>
+<h1 id="scraping-books-to-scrape-httpsbookstoscrapecom_1">scraping books to scrape: https://books.toscrape.com/<a class="headerlink" href="#scraping-books-to-scrape-httpsbookstoscrapecom_1" title="Permanent link">&para;</a></h1>
+<p>require 'vendor/autoload.php';
+$httpClient = new \Goutte\Client();
+$response = $httpClient-&gt;request('GET', 'https://books.toscrape.com/');
+// get prices into an array
+$prices = [];
+$response-&gt;filter('.row li article div.product_price p.price_color')-&gt;each(function ($node) use (&amp;$prices) {
+$prices[] = $node-&gt;text();
+});
+// echo titles and prices
+$priceIndex = 0;
+$response-&gt;filter('.row li article h3 a')-&gt;each(function ($node) use ($prices, &amp;$priceIndex) {
+echo $node-&gt;text() . ' @ ' . $prices[$priceIndex] .PHP_EOL;
+$priceIndex++;
+});</p>
+<p>As you can see, using the CSS Selector component results in cleaner and more readable code.</p>
+<p>You may have noticed that we used the &amp; operator. This ensures that we take the reference of the variable into the “each” loop, and not just the value of the variable. If the &amp;$prices are modified within the loop, the actual value outside the loop is also modified.</p>
+<h2 id="documentacion-con-phpdocumentor">Documentación con <em>phpDocumentor</em><a class="headerlink" href="#documentacion-con-phpdocumentor" title="Permanent link">&para;</a></h2>
+<p>https://www.phpdoc.org/
+Herramienta que facilita la documentación del código PHP
+Crea un sitio web con el API de la aplicación.
+Se basa en el uso de anotaciones sobre los docblocks.</p>
+<h3 id="docblock">DocBlock<a class="headerlink" href="#docblock" title="Permanent link">&para;</a></h3>
+<h3 id="documentando-el-codigo">Documentando el código<a class="headerlink" href="#documentando-el-codigo" title="Permanent link">&para;</a></h3>
 <h2 id="pruebas-con-phpunit">Pruebas con PhpUnit<a class="headerlink" href="#pruebas-con-phpunit" title="Permanent link">&para;</a></h2>
-<h2 id="documentacion-con-phpdocumentor">Documentación con phpDocumentor<a class="headerlink" href="#documentacion-con-phpdocumentor" title="Permanent link">&para;</a></h2>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.freecodecamp.org/news/web-scraping-with-php-crawl-web-pages/">Web Scraping with PHP – How to Crawl Web Pages Using Open Source Tools</a></li>
+</ul>
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
                 
               
               

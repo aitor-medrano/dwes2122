@@ -417,8 +417,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parametros-por-defecto" class="md-nav__link">
-    Parámetros por defecto
+  <a href="#parametros-por-defecto-opcionales" class="md-nav__link">
+    Parámetros por defecto / opcionales
   </a>
   
 </li>
@@ -431,8 +431,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alcance" class="md-nav__link">
-    Alcance
+  <a href="#argumentos-con-nombre" class="md-nav__link">
+    Argumentos con nombre
   </a>
   
 </li>
@@ -440,6 +440,13 @@
           <li class="md-nav__item">
   <a href="#funciones-tipadas" class="md-nav__link">
     Funciones tipadas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alcance" class="md-nav__link">
+    Alcance
   </a>
   
 </li>
@@ -611,7 +618,7 @@
                 
                 
                 <h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 24 sesiones</p>
+<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 26 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="2">
@@ -1382,10 +1389,10 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">diaSemana</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$semana</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;lunes&quot;</span><span class="p">,</span> <span class="s2">&quot;martes&quot;</span><span class="p">,</span> <span class="s2">&quot;miércoles&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="s2">&quot;jueves&quot;</span><span class="p">,</span> <span class="s2">&quot;viernes&quot;</span><span class="p">,</span> <span class="s2">&quot;sábado&quot;</span><span class="p">,</span> <span class="s2">&quot;domingo&quot;</span> <span class="p">];</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="nv">$dia</span> <span class="o">=</span> <span class="nv">$semana</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)];</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="k">return</span> <span class="nv">$dia</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$semana</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;lunes&quot;</span><span class="p">,</span> <span class="s2">&quot;martes&quot;</span><span class="p">,</span> <span class="s2">&quot;miércoles&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="s2">&quot;jueves&quot;</span><span class="p">,</span> <span class="s2">&quot;viernes&quot;</span><span class="p">,</span> <span class="s2">&quot;sábado&quot;</span><span class="p">,</span> <span class="s2">&quot;domingo&quot;</span> <span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$dia</span> <span class="o">=</span> <span class="nv">$semana</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)];</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="nv">$dia</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$diaCine</span> <span class="o">=</span> <span class="nx">diaSemana</span><span class="p">();</span>
@@ -1396,12 +1403,12 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Si queremos pasar un parámetro por referencia, en la declaración de la función, indicaremos los parámetros mediante el operador <strong><code>&amp;</code></strong> para indicar la dirección de memoria de la variable.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">duplicarPorValor</span><span class="p">(</span><span class="nv">$argumento</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$argumento</span> <span class="o">=</span> <span class="nv">$argumento</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$argumento</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$argumento</span> <span class="o">=</span> <span class="nv">$argumento</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$argumento</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="k">function</span> <span class="nf">duplicarPorReferencia</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$argumento</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$argumento</span> <span class="o">=</span> <span class="nv">$argumento</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 8 "></span>  <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$argumento</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$argumento</span> <span class="o">=</span> <span class="nv">$argumento</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$argumento</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span><span class="nv">$numero1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
@@ -1416,25 +1423,34 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="20 "></span><span class="k">echo</span> <span class="s2">&quot;Después de llamar: </span><span class="si">$numero2</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="21 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
-<h3 id="parametros-por-defecto">Parámetros por defecto<a class="headerlink" href="#parametros-por-defecto" title="Permanent link">&para;</a></h3>
-<p>Nos permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.</p>
+<h3 id="parametros-por-defecto-opcionales">Parámetros por defecto / opcionales<a class="headerlink" href="#parametros-por-defecto-opcionales" title="Permanent link">&para;</a></h3>
+<p>Permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">obtenerCapital</span><span class="p">(</span><span class="nv">$pais</span> <span class="o">=</span> <span class="s2">&quot;todos&quot;</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$capitales</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Italia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Roma&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$capitales</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Italia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Roma&quot;</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="s2">&quot;Francia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="s2">&quot;Portugal&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Lisboa&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="k">if</span> <span class="p">(</span><span class="nv">$pais</span> <span class="o">==</span> <span class="s2">&quot;todos&quot;</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="nb">array_values</span><span class="p">(</span><span class="nv">$capitales</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 9 "></span>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="nv">$capitales</span><span class="p">[</span><span class="nv">$pais</span><span class="p">];</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$pais</span> <span class="o">==</span> <span class="s2">&quot;todos&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="nb">array_values</span><span class="p">(</span><span class="nv">$capitales</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">return</span> <span class="nv">$capitales</span><span class="p">[</span><span class="nv">$pais</span><span class="p">];</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span>
 <span class="linenos" data-linenos="14 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nx">obtenerCapital</span><span class="p">());</span>
 <span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nx">obtenerCapital</span><span class="p">(</span><span class="s2">&quot;Francia&quot;</span><span class="p">);</span>
-<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>En el caso de convivir con otro tipo de parámetros, los parámetros que tienen el valor asignado por defecto siempre se colocan al final.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">function</span> <span class="nf">saluda</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$prefijo</span> <span class="o">=</span> <span class="s2">&quot;Sr&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">echo</span> <span class="s2">&quot;Hola &quot;</span><span class="o">.</span><span class="nv">$prefijo</span><span class="o">.</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="nx">saluda</span><span class="p">(</span><span class="s2">&quot;Aitor&quot;</span><span class="p">,</span> <span class="s2">&quot;Mr&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="nx">saluda</span><span class="p">(</span><span class="s2">&quot;Aitor&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="8 "></span><span class="nx">saluda</span><span class="p">(</span><span class="s2">&quot;Marina&quot;</span><span class="p">,</span> <span class="s2">&quot;Srta&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="parametros-variables">Parámetros variables<a class="headerlink" href="#parametros-variables" title="Permanent link">&para;</a></h3>
 <p>Podemos tener funciones donde en la declaración no indiquemos la cantidad de datos de entrada.</p>
@@ -1446,21 +1462,88 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Estas funciones no se pueden pasar como parámetro a otra función (como funciones variable, que veremos más adelante). Para ello, debemos guardar previamente la función en una variable.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">sumaParametros</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="k">if</span> <span class="p">(</span><span class="nb">func_num_args</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$suma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">func_num_args</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$suma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">func_num_args</span><span class="p">();</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>      <span class="nv">$suma</span> <span class="o">+=</span> <span class="nb">func_get_arg</span><span class="p">(</span><span class="nv">$i</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nb">func_num_args</span><span class="p">();</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="nv">$suma</span> <span class="o">+=</span> <span class="nb">func_get_arg</span><span class="p">(</span><span class="nv">$i</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">}</span>
 <span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span>    <span class="k">return</span> <span class="nv">$suma</span><span class="p">;</span>
-<span class="linenos" data-linenos="13 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="nv">$suma</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="14 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="15 "></span>
 <span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nx">sumaParametros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span> <span class="c1">// 15</span>
 <span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Desde PHP 5.6, se puede utilizar el operador <code>...</code> (<em>variadics</em>) el cual "disfraza" los parámetros como un array:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">sumaParametrosMejor</span><span class="p">(</span><span class="o">...</span><span class="nv">$numeros</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$numeros</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$suma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$numeros</span> <span class="k">as</span> <span class="nv">$num</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>            <span class="nv">$suma</span> <span class="o">+=</span> <span class="nv">$num</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="nv">$suma</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nx">sumaParametrosMejor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span> <span class="c1">// 15</span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Más usos de <code>...</code></p>
+<p>También se puede utilizar para dividir un array en variables separadas para proporcionar argumentos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="o">...</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="o">...</span><span class="nv">$a</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+</div>
+<h3 id="argumentos-con-nombre">Argumentos con nombre<a class="headerlink" href="#argumentos-con-nombre" title="Permanent link">&para;</a></h3>
+<p>Desde PHP 8.0 podemos pasar los argumentos con el nombre (además de por posición, como hemos hecho hasta ahora). Los argumentos con nombre se pasan poniendo el nombre como prefijo del parámetros separado por dos puntos: <code>$resultado = funcion( arg1 : valor1, arg2 : valor2);</code></p>
+<p>Esta característica complementa los parametros opcionales permitiendonos saltar su valor:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">function</span> <span class="nf">funcionArgumentosNombre</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">$c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>  <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$a</span><span class="s2"> </span><span class="si">$b</span><span class="s2"> </span><span class="si">$c</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="nx">funcionArgumentosNombre</span><span class="p">(</span><span class="nx">c</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// &quot;1 2 3&quot;</span>
+</code></pre></div>
+<p>Tanto los parámetros opcionales como los obligatorios pueden tener nombre, pero lo argumentos con nombre se tienen que poner después de los que no lo tienen.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">funcionArgumentosNombre</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// &quot;1 2 3&quot;</span>
+</code></pre></div>
+<h3 id="funciones-tipadas">Funciones tipadas<a class="headerlink" href="#funciones-tipadas" title="Permanent link">&para;</a></h3>
+<p>Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como <em>strict_types</em> (tipificación estricta) y hay que definirlo en la primera línea de cada archivo <code>.php</code> para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos, mediante la sentencia</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
+<code>int</code>, <code>float</code>, <code>string</code>, <code>bool</code>, <code>object</code> y <code>array</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">:</span> <span class="nx">int</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$num</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <h3 id="alcance">Alcance<a class="headerlink" href="#alcance" title="Permanent link">&para;</a></h3>
 <p>Las variables definidas fuera de las funciones tienen alcance <strong>global</strong>: accesibles desde cualquier función.
@@ -1469,8 +1552,8 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Alcance local</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 6 "></span>
 <span class="linenos" data-linenos=" 7 "></span><span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Alicante&quot;</span><span class="p">;</span>
@@ -1483,9 +1566,9 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Alcance global</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="k">global</span> <span class="nv">$ciudad</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">global</span> <span class="nv">$ciudad</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">echo</span> <span class="s2">&quot;Dentro de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
 <span class="linenos" data-linenos=" 7 "></span>
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Alicante&quot;</span><span class="p">;</span>
@@ -1501,22 +1584,6 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <p>Por favor, hay que evitar el uso de variables globales dentro de las funciones.
 En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.</p>
 </div>
-<h3 id="funciones-tipadas">Funciones tipadas<a class="headerlink" href="#funciones-tipadas" title="Permanent link">&para;</a></h3>
-<p>Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como <em>strict_types</em> y hay que definirlo en la primera línea de cada archivo <code>.php</code> para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos.</p>
-<p>Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
-<code>int</code>, <code>float</code>, <code>string</code>, <code>bool</code>, <code>object</code> y <code>array</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">:</span> <span class="nx">int</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="p">}</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span><span class="nv">$num</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
 <h3 id="funciones-variable">Funciones variable<a class="headerlink" href="#funciones-variable" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Permite asignar una función a una variable.</li>
@@ -1533,23 +1600,28 @@ En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.</
 <p>PHP permite la definición y uso de funciones anónimas, es decir, funciones que no tienen nombre, y se utilizan principalmente para gestionar los <em>callbacks</em>. Este tipo de funciones se utiliza mucho en <strong>Javascript</strong> para gestionar los eventos y promesas.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$anonima</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="k">echo</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">echo</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="p">};</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="nv">$anonima</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span><span class="c1">// Uso de variables externas a la función anónima</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="nv">$miClosure</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$mensaje</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$mensaje</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span><span class="p">};</span>
-<span class="linenos" data-linenos="12 "></span><span class="nv">$miClosure</span><span class="p">();</span>
-<span class="linenos" data-linenos="13 "></span>
-<span class="linenos" data-linenos="14 "></span><span class="c1">// Uso de parámetros</span>
-<span class="linenos" data-linenos="15 "></span><span class="nv">$holaPHP</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$mensaje</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nv">$mensaje</span><span class="o">.</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="nv">$arg</span><span class="p">;</span>
-<span class="linenos" data-linenos="17 "></span><span class="p">};</span>
-<span class="linenos" data-linenos="18 "></span><span class="nv">$holaPHP</span><span class="p">(</span><span class="s2">&quot;PHP&quot;</span><span class="p">);</span>
-<span class="linenos" data-linenos="19 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$anonimaConParametro</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="nv">$nombre</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Hola &quot;</span><span class="o">.</span><span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">};</span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$anonimaConParametro</span><span class="p">(</span><span class="s2">&quot;Aitor&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="c1">// Uso de variables externas a la función anónima --&gt; `use`</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$mensaje</span> <span class="o">=</span> <span class="s2">&quot;Hola&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$miClosure</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$mensaje</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">echo</span> <span class="nv">$mensaje</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">};</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$miClosure</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="c1">// Uso de parámetros</span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$holaPHP</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$mensaje</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="k">echo</span> <span class="nv">$mensaje</span><span class="o">.</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="nv">$arg</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span><span class="p">};</span>
+<span class="linenos" data-linenos="23 "></span><span class="nv">$holaPHP</span><span class="p">(</span><span class="s2">&quot;PHP&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Desde PHP 7.4 se han introducido las funciones flecha (<em>arrow functions</em>) para simplificar su definición y uso.</p>
 <p>Tenéis más información sobre funciones anónimas y flecha en el siguiente artículo (en inglés): <a href="https://code.tutsplus.com/tutorials/anonymous-and-arrow-functions-in-php--cms-36725">Funciones anónimas y flecha en PHP</a></p>
@@ -1566,11 +1638,11 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <p>Por ejemplo, colocamos las funciones en el archivo <code>biblioteca.php</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">function</span> <span class="nf">suma</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">:</span> <span class="nx">int</span> <span class="p">{</span>
-<span class="linenos" data-linenos="3 "></span><span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="5 "></span>
 <span class="linenos" data-linenos="6 "></span><span class="k">function</span> <span class="nf">resta</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">:</span> <span class="nx">int</span> <span class="p">{</span>
-<span class="linenos" data-linenos="7 "></span><span class="k">return</span> <span class="nv">$a</span> <span class="o">-</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">-</span> <span class="nv">$b</span><span class="p">;</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
@@ -2115,9 +2187,14 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:</p
 <li><code>quitaPorDetras(int $num, int $cant): int</code> → le quita por detrás (derecha) <code>$cant</code> dígitos</li>
 <li><code>quitaPorDelante(int $num, int $cant): int</code> → le quita por delante (izquierda) <code>$cant</code> dígitos.</li>
 </ul>
+<p>Para probar las funciones, haz uso tanto de paso de argumentos posiciones como argumentos con nombre.</p>
 </li>
 <li>
-<p><code>243euros.php</code>: Crea una biblioteca con dos funciones:</p>
+<p><code>243biblioteca.php</code>: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.<br />
+<code>243arrayFunciones.php</code>: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.</p>
+</li>
+<li>
+<p><code>244euros.php</code>: Crea una biblioteca con dos funciones:</p>
 <ul>
 <li>peseta2euros: pasa de pesetas a euros</li>
 <li>euros2pesetas: pasa de euros a pesetas </li>
@@ -2127,30 +2204,26 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:</p
 <li>La cantidad a transformar</li>
 <li>La cotización, con un parámetro por defecto con el factor de transformación.</li>
 </ul>
-<p><code>243calculadoraEuros.php</code>: utiliza <code>243euros.php</code> y prueba las funciones pasando tanto cantidades con la cotización por defecto, como con nuevas cotizaciones. Recuerda que 1 euro son/eran 166.36 pesetas.</p>
+<p><code>244calculadoraEuros.php</code>: utiliza <code>243euros.php</code> y prueba las funciones pasando tanto cantidades con la cotización por defecto, como con nuevas cotizaciones. Recuerda que 1 euro son/eran 166.36 pesetas.</p>
 </li>
 <li>
-<p><code>244preparaTiquetCompra.php</code>: A partir de una cantidad de productos, leer el nombre y coste de la cantidad de productos indicados (similar al ejercicio 237, pero esta vez no hace falta crear el formulario con la cantidad, se recibe mediante un parámetro GET via URL).<br />
-<code>244imprimeTiquetCompra.php</code>: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
+<p><code>245preparaTiquetCompra.php</code>: A partir de una cantidad de productos, leer el nombre y coste de la cantidad de productos indicados (similar al ejercicio 237, pero esta vez no hace falta crear el formulario con la cantidad, se recibe mediante un parámetro GET via URL).<br />
+<code>245imprimeTiquetCompra.php</code>: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
 <img _="&amp;" align="right" alt="245" src="imagenes/02/02p245.png" width="200" /></p>
 </li>
 <li>A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
-<code>245preparaCompra.php</code>: similar a <code>244preparaTiquetCompra.php</code>, pero separa el encabezado (<em>Supermercado Severo</em> en <code>h1</code>) y el pie (<em>Tu supermercado de confianza</em>) en ficheros externos.<br />
-<code>245listaCompra.php</code>: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.</li>
+<code>246preparaCompra.php</code>: similar a <code>245preparaTiquetCompra.php</code>, pero separa el encabezado (<em>Supermercado Severo</em> en <code>h1</code>) y el pie (<em>Tu supermercado de confianza</em>) en ficheros externos.<br />
+<code>246listaCompra.php</code>: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.</li>
 <li>
 <p>Vamos a simular un formulario de acceso mediante el uso de <code>include</code>:</p>
 <ul>
-<li><code>246login.php</code>: el formulario de entrada</li>
-<li><code>246compruebaLogin.php</code>: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:<ul>
-<li><code>246ok.php</code>: El usuario introducido es correcto</li>
-<li><code>246ko.php</code>: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.</li>
+<li><code>247login.php</code>: el formulario de entrada</li>
+<li><code>247compruebaLogin.php</code>: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:<ul>
+<li><code>247ok.php</code>: El usuario introducido es correcto</li>
+<li><code>247ko.php</code>: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>
-<p><code>247biblioteca.php</code>: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.<br />
-<code>247arrayFunciones.php</code>: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.</p>
 </li>
 </ol>
 <h3 id="funciones-predefinidas_1">Funciones predefinidas<a class="headerlink" href="#funciones-predefinidas_1" title="Permanent link">&para;</a></h3>
