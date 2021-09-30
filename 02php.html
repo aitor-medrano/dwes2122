@@ -2180,19 +2180,19 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:</p
 <li>
 <p><code>241parametrosVariables.php</code>: Crea las siguientes funciones:</p>
 <ul>
-<li>Una función que devuelva el mayor de todos los números recibidos como parámetros: <code>function mayor(...$numeros): int</code>. No puedes usar la función <code>max()</code>.</li>
-<li>Una función que concatene todos los parámetros recibidos separándolos con un espacio: <code>function concatenar(...$palabras) : string</code></li>
+<li>Una función que devuelva el mayor de todos los números recibidos como parámetros: <code>function mayor(): int</code>. Utiliza las funciones <code>func_get_args()</code>, etc... No puedes usar la función <code>max()</code>.</li>
+<li>Una función que concatene todos los parámetros recibidos separándolos con un espacio: <code>function concatenar(...$palabras) : string</code>. Utiliza el operador <code>...</code>.</li>
 </ul>
 </li>
 <li>
 <p><code>242matematicas.php</code>: Añade las siguientes funciones:</p>
 <ul>
-<li><code>digitos(int $num): int</code> → devuelve la cantidad de dígitos de un número</li>
-<li><code>digitoN(int $num, int $pos): int</code> → devuelve el dígito que ocupa, empezando por la izquierda, la posición <code>$pos</code></li>
-<li><code>quitaPorDetras(int $num, int $cant): int</code> → le quita por detrás (derecha) <code>$cant</code> dígitos</li>
+<li><code>digitos(int $num): int</code> → devuelve la cantidad de dígitos de un número.</li>
+<li><code>digitoN(int $num, int $pos): int</code> → devuelve el dígito que ocupa, empezando por la izquierda, la posición <code>$pos</code>.</li>
+<li><code>quitaPorDetras(int $num, int $cant): int</code> → le quita por detrás (derecha) <code>$cant</code> dígitos.</li>
 <li><code>quitaPorDelante(int $num, int $cant): int</code> → le quita por delante (izquierda) <code>$cant</code> dígitos.</li>
 </ul>
-<p>Para probar las funciones, haz uso tanto de paso de argumentos posiciones como argumentos con nombre.</p>
+<p>Para probar las funciones, haz uso tanto de paso de argumentos posicionales como argumentos con nombre.</p>
 </li>
 <li>
 <p><code>243biblioteca.php</code>: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.<br />
@@ -2217,13 +2217,13 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:</p
 <img _="&amp;" align="right" alt="245" src="imagenes/02/02p245.png" width="200" /></p>
 </li>
 <li>A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
-<code>246preparaCompra.php</code>: similar a <code>245preparaTiquetCompra.php</code>, pero separa el encabezado (<em>Supermercado Severo</em> en <code>h1</code>) y el pie (<em>Tu supermercado de confianza</em>) en ficheros externos.<br />
-<code>246listaCompra.php</code>: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.</li>
+<code>246preparaCompra.php</code>: similar a <code>245preparaTiquetCompra.php</code>, pero separando el encabezado (<em>Supermercado Severo</em> en <code>h1</code>) y el pie (<em>Tu supermercado de confianza</em>) en ficheros externos y referenciando a ellos mediante <code>include</code>.<br />
+<code>246listaCompra.php</code>: recibe los datos del anterior, y reutiliza parte de <code>245imprimeTiquetCompra.php</code> cambiando la tabla por una lista desordenada de los productos junto a su precio.</li>
 <li>
-<p>Vamos a simular un formulario de acceso mediante el uso de <code>include</code>:</p>
+<p>Vamos a simular un formulario de acceso:</p>
 <ul>
-<li><code>247login.php</code>: el formulario de entrada</li>
-<li><code>247compruebaLogin.php</code>: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:<ul>
+<li><code>247login.php</code>: el formulario de entrada, que solicita el usuario y contraseña.</li>
+<li><code>247compruebaLogin.php</code>: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control mediante el uso de <code>include</code> a:<ul>
 <li><code>247ok.php</code>: El usuario introducido es correcto</li>
 <li><code>247ko.php</code>: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.</li>
 </ul>
