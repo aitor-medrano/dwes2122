@@ -306,6 +306,19 @@
     Constructor
   </a>
   
+    <nav class="md-nav" aria-label="Constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructores-en-php-8" class="md-nav__link">
+    Constructores en PHP 8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -683,6 +696,37 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="14 "></span>
 <span class="linenos" data-linenos="15 "></span><span class="nv">$bruno </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">(</span><span class="s2">&quot;Bruno Díaz&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="16 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">imprimir</span><span class="p">();</span>
+</code></pre></div>
+<h3 id="constructores-en-php-8">Constructores en PHP 8<a class="headerlink" href="#constructores-en-php-8" title="Permanent link">&para;</a></h3>
+<p>Una de las grandes novedades que ofrece PHP 8 es la simplificación de los constructores con parámetros, lo que se conoce como <em>promoción de las propiedades del constructor</em>.</p>
+<p>Para ello, en vez de tener que declarar las propiedades como privadas o protegidas, y luego dentro del constructor tener que asignar los parámetros a estás propiedades, el propio constructor promociona las propiedades.</p>
+<p>Veámoslo mejor con un ejemplo. Imaginemos una clase <code>Punto</code> donde queramos almacenar sus coordenadas:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Punto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$x</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$y</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$z</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nx">float</span> <span class="nv">$x</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nx">float</span> <span class="nv">$y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nx">float</span> <span class="nv">$z</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">x</span> <span class="o">=</span> <span class="nv">$x</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">y</span> <span class="o">=</span> <span class="nv">$y</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">z</span> <span class="o">=</span> <span class="nv">$z</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<p>En PHP 8, quedaría del siguiente modo (mucho más corto, lo que facilita su legibilidad):</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">Punto</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$x</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$z</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="p">)</span> <span class="p">{}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="clases-estaticas">Clases estáticas<a class="headerlink" href="#clases-estaticas" title="Permanent link">&para;</a></h2>
 <p>Son aquellas que tienen propiedades y/o métodos estáticos (también se conocen como <em>de clase</em>, por que su valor se comparte entre todas las instancias de la misma clase).</p>
@@ -1314,11 +1358,16 @@ Añade los siguientes métodos:<ul>
 <li><code>public function vaciarTelefonos(): void</code> → Elimina todos los teléfonos</li>
 </ul>
 </li>
-<li><code>303EmpleadoConstructor.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Elimina los <em>setters</em> de <code>nombre</code> y <code>apellidos</code>, de manera que dichos datos se asignan mediante el constructor.
-Si el constructor recibe un tercer parámetro, será el sueldo del Empleado. Si no, se le asignará 1000€ como sueldo inicial.</li>
-<li><code>304EmpleadoConstante.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Añade una constante <code>SUELDO_TOPE</code> con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.</li>
+<li>
+<p><code>303EmpleadoConstructor.php</code>: Copia la clase del ejercicio anterior y modifícala.
+Elimina los <em>setters</em> de <code>nombre</code> y <code>apellidos</code>, de manera que dichos datos se asignan mediante el constructor (utiliza la sintaxis de PHP7).
+Si el constructor recibe un tercer parámetro, será el sueldo del <code>Empleado</code>. Si no, se le asignará 1000€ como sueldo inicial.</p>
+<p><code>303EmpleadoConstructor8.php</code>: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del constructor.</p>
+</li>
+<li>
+<p><code>304EmpleadoConstante.php</code>: Copia la clase del ejercicio anterior y modifícala.
+Añade una constante <code>SUELDO_TOPE</code> con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.</p>
+</li>
 <li><code>305EmpleadoSueldo.php</code>: Copia la clase del ejercicio anterior y modifícala.
 Cambia la constante por una variable estática <code>sueldoTope</code>, de manera que mediante <em>getter/setter</em> puedas modificar su valor.</li>
 <li>
