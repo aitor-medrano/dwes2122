@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/05herramientas.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.5143246d.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
@@ -87,7 +87,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -152,11 +154,14 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -303,7 +308,7 @@
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
 </code></pre></div>
 <h3 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h3>
-<p>Cuando creemos un proyecto por primera vez, hemos de inicilizar el repositorio. Para ello, ejecutaremos el comando <code>composer init</code> donde:</p>
+<p>Cuando creemos un proyecto por primera vez, hemos de inicializar el repositorio. Para ello, ejecutaremos el comando <code>composer init</code> donde:</p>
 <ul>
 <li>Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...</li>
 <li>Definimos las dependencias del proyecto (<code>require</code>) y las de desarrollo (<code>require-dev</code>) de manera interactiva.<ul>
@@ -341,7 +346,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h2>
+<h3 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h3>
 <p>Podemos definir las dependencias via el archivo <code>composer.json</code> o mediante comandos con el formato <code>composer require vendor/package:version</code>. Por ejemplo, si queremos añadir phpUnit como librería de desarrollo, haremos:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require phpunit/phpunit –dev
 </code></pre></div>
@@ -353,7 +358,7 @@
 </code></pre></div>
 <p>Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías en dentro de la carpeta <code>vendor</code>. Es muy importante añadir esta carpeta al archivo <code>.gitignore</code> para no subirlas a GitHub.</p>
 <p>Además se crea el archivo <code>composer.lock</code>, que almacena la versión exacta que se ha instalado de cada librería (este archivo no se toca).</p>
-<h2 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h2>
+<h3 id="autoloadphp"><code>autoload.php</code><a class="headerlink" href="#autoloadphp" title="Permanent link">&para;</a></h3>
 <p><em>Composer</em> crea de forma automática en <code>vendor/autoload.php</code> el código para incluir de forma automática todas las librerias que tengamos configuradas en <code>composer.json</code>.</p>
 <p>Para utilizarlo, en la cabecera de nuestro archivos pondremos:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
@@ -385,16 +390,20 @@
 </ul>
 </div>
 <h3 id="niveles">Niveles<a class="headerlink" href="#niveles" title="Permanent link">&para;</a></h3>
-<p>debug -100: Información detallada con propósitos de debug. No usar en entornos de producción.
-info - 200: Eventos interesantes como el inicio de sesión de usuarios.
-notice - 250: Eventos normales pero significativos.
-warning - 300: Ocurrencias excepcionales que no llegan a ser error.
-error - 400: Errores de ejecución que permiten continuar con la ejecución de la aplicación pero que deben ser monitorizados.
-critical - 500: Situaciones importantes donde se generan excepciones no esperadas o no hay disponible un componente.
-alert - 550: Se deben tomar medidas inmediatamente.
-Caída completa de la web, base de datos no disponible, etc... Además, se suelen enviar mensajes por email.
-emergency - 600: Es el error más grave e indica que todo el sistema está inutilizable.</p>
+<p>A continuación mostramos los diferentes niveles de menos a más restrictivo:</p>
+<ul>
+<li><em>debug -100</em>: Información detallada con propósitos de debug. No usar en entornos de producción.</li>
+<li><em>info - 200</em>: Eventos interesantes como el inicio de sesión de usuarios.</li>
+<li><em>notice - 250</em>: Eventos normales pero significativos.</li>
+<li><em>warning - 300</em>: Ocurrencias excepcionales que no llegan a ser error.</li>
+<li><em>error - 400</em>: Errores de ejecución que permiten continuar con la ejecución de la aplicación pero que deben ser monitorizados.</li>
+<li><em>critical - 500</em>: Situaciones importantes donde se generan excepciones no esperadas o no hay disponible un componente.</li>
+<li><em>alert - 550</em>: Se deben tomar medidas inmediatamente.
+Caída completa de la web, base de datos no disponible, etc... Además, se suelen enviar mensajes por email.</li>
+<li><em>emergency - 600</em>: Es el error más grave e indica que todo el sistema está inutilizable.</li>
+</ul>
 <h3 id="hola-monolog">Hola Monolog<a class="headerlink" href="#hola-monolog" title="Permanent link">&para;</a></h3>
+<p>Por ejemplo, en el archivo <code>pruebaLog.php</code> que colocaríamos en el raíz, primero incluimos el <em>autoload</em>, importamos las clases a utilizar para finalmente usar los métodos de <em>Monolog</em>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include</span> <span class="no">__DIR__</span> <span class="o">.</span><span class="s2">&quot;/vendor/autoload.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -411,36 +420,35 @@ emergency - 600: Es el error más grave e indica que todo el sistema está inuti
 <span class="linenos" data-linenos="14 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">critical</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de CRITICAL&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="15 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de ALERT&quot;</span><span class="p">);</span>
 </code></pre></div>
-<p>En todos los métodos de registro de mensajes, además del propio mensaje, le podemos pasar información como el contenido de alguna variable, usuario de la aplicación, etc..
-Adjuntar los datos dentro de un array → array de contexto
-Si queremos lo podemos hacer asociativo para facilitar la lectura del log</p>
+<p>En todos los métodos de registro de mensajes (<code>debug</code>, <code>info</code>, ...), además del propio mensaje, le podemos pasar información como el contenido de alguna variable, usuario de la aplicación, etc.. como segundo parámetro dentro de un array, el cual se conoce como <strong>array de contexto</strong>. Es conveniente hacerlo mediante un array asociativo para facilitar la lectura del log.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$producto</span><span class="p">]);</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;datos&quot;</span> <span class="o">=&gt;</span> <span class="nv">$producto</span><span class="p">]);</span>
 </code></pre></div>
 <h3 id="funcionamiento">Funcionamiento<a class="headerlink" href="#funcionamiento" title="Permanent link">&para;</a></h3>
-<p>Cada instancia Logger tiene un nombre de canal y una pila de manejadores (handler).
+<p>Cada instancia <code>Logger</code> tiene un nombre de canal y una pila de manejadores (<em>handler</em>).
 Cada mensaje que mandamos al log atraviesa la pila de manejadores, y cada uno decide si debe registrar la información, y si se da el caso, finalizar la propagación.
-Por ejemplo, un StreamHandler en el fondo de la pila que lo escriba todo en disco, y en el tope añade un MailHandler que envíe un mail sólo cuando haya un error.
-Cada manejador tambien tiene un formateador (Formatter)
-Si no se indica ninguno, se le asigna uno por defecto.</p>
+Por ejemplo, un <code>StreamHandler</code> en el fondo de la pila que lo escriba todo en disco, y en el tope añade un <code>MailHandler</code> que envíe un mail sólo cuando haya un error.</p>
 <h3 id="manejadores">Manejadores<a class="headerlink" href="#manejadores" title="Permanent link">&para;</a></h3>
-<p>Cada instancia de Logger tendrá una pila de manejadores
-El último insertado será el primero en ejecutarse.
-Luego se “van ejecutando” conforme a la pila.
-https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md
-StreamHandler(ruta, nivel)
-RotatingFileHandler(ruta, maxFiles, nivel)
-NativeMailerHandler(para, asunto, desde, nivel)
-FirePHPHandler(nivel)</p>
-<p>Si queremos que los mensajes de la aplicación salgan por el log del servidor
-en nuestro caso el archivo error.log de Apache:</p>
+<p>Cada manejador tambien tiene un formateador (<code>Formatter</code>). Si no se indica ninguno, se le asigna uno por defecto. El último manejador insertado será el primero en ejecutarse.
+Luego se <em>van ejecutando</em> conforme a la pila.</p>
+<p>Los manejadores más utilizados son:</p>
+<ul>
+<li><code>StreamHandler(ruta, nivel)</code></li>
+<li><code>RotatingFileHandler(ruta, maxFiles, nivel)</code></li>
+<li><code>NativeMailerHandler(para, asunto, desde, nivel)</code></li>
+<li><code>FirePHPHandler(nivel)</code></li>
+</ul>
+<p>Si queremos que los mensajes de la aplicación salgan por el log del servidor, 
+en nuestro caso el archivo <code>error.log</code> de <em>Apache</em> utilizaremos como ruta la salida de error:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="c1">// error.log</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;php://stderr&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
 </code></pre></div>
-<p>Por ejemplo, mediante FirePHPHandler, podemos utilizar FirePHP → Herramienta para hacer debug en la consola de Firefox
-Tras instalar la extensión en Firefox, habilitar las opciones y configurar el Handler, podemos ver los mensajes coloreados con sus datos</p>
+<div class="admonition tip">
+<p class="admonition-title">FirePHP</p>
+<p>Por ejemplo, mediante <code>FirePHPHandler</code>, podemos utilizar <code>FirePHP</code>, la cual es una herramienta para hacer debug en la consola de <em>Firefox</em>.
+Tras instalar la extensión en Firefox, habilitar las opciones y configurar el <em>Handler</em>, podemos ver los mensajes coloreados con sus datos:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiFirePHPLogger&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">FirePHPHandler</span><span class="p">(</span><span class="nx">Logger</span><span class="o">::</span><span class="na">INFO</span><span class="p">));</span>
@@ -451,75 +459,388 @@ Tras instalar la extensión en Firefox, habilitar las opciones y configurar el H
 <span class="linenos" data-linenos="8 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Esto es un mensaje de WARNING&quot;</span><span class="p">,</span> <span class="nv">$datos</span><span class="p">);</span>
 <span class="linenos" data-linenos="9 "></span><span class="c1">// ...</span>
 </code></pre></div>
-<figure style="align: center;">
-    <img src="imagenes/05/FirePhp.png">
+<p><figure style="align: center;">
+    <img src="imagenes/05/firePhp.png">
     <figcaption>Ejemplo de uso de FirePHP</figcaption>
-</figure>
-
+</figure></p>
+</div>
 <h3 id="canales">Canales<a class="headerlink" href="#canales" title="Permanent link">&para;</a></h3>
+<p>Se les asigna al crear el <code>Logger</code>. En grandes aplicaciones, se crea un canal por cada subsistema: ventas, contabilidad, almacén.
+No es una buena práctica usar el nombre de la clase como canal, esto se hace con un <em>procesador</em>.</p>
+<p>Para su uso, es recomiendo asignar el log a una propiedad privada a Logger, y posteriormente, en el constructor de la clase, asignar el canal, manejadores y formato.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiApp&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">FirePHPHandler</span><span class="p">(</span><span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+</code></pre></div>
+<p>Y dentro de los métodos para escribir en el log:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span><span class="o">-&gt;</span><span class="na">warning</span><span class="p">(</span><span class="s2">&quot;Producto no encontrado&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$producto</span><span class="p">]);</span>
+</code></pre></div>
+<h3 id="procesadores">Procesadores<a class="headerlink" href="#procesadores" title="Permanent link">&para;</a></h3>
+<p>Los procesadores permiten añadir información a los mensajes. Para ello, se apilan después de cada manejador mediante el método <code>pushProcessor($procesador)</code>.</p>
+<p>Algunos procesadores conocidos son <code>IntrospectionProcessor</code> (muestran la linea, fichero, clase y metodo desde el que se invoca el log), <code>WebProcessor</code> (añade la URI, método e IP) o <code>GitProcessor</code> (añade la rama y el commit).</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">RotatingFileHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushProcessor</span><span class="p">(</span><span class="k">new</span> <span class="nx">IntrospectionProcessor</span><span class="p">());</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;php://stderr&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">WARNING</span><span class="p">));</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">// no usa Introspection pq lo hemos apilado después, le asigno otro</span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushProcessor</span><span class="p">(</span><span class="k">new</span> <span class="nx">WebProcessor</span><span class="p">());</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Consola en formato texto</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>[2020-11-26T13:35:31.076138+01:00] MiLogger.DEBUG: Esto es un mensaje de DEBUG [] {&quot;file&quot;:&quot;C:\\xampp\\htdocs\\log\\procesador.php&quot;,&quot;line&quot;:12,&quot;class&quot;:null,&quot;function&quot;:null}
+<span class="linenos" data-linenos="2 "></span>[2020-11-26T13:35:31.078344+01:00] MiLogger.INFO: Esto es un mensaje de INFO [] {&quot;file&quot;:&quot;C:\\xampp\\htdocs\\log\\procesador.php&quot;,&quot;line&quot;:13,&quot;class&quot;:null,&quot;function&quot;:null}
+</code></pre></div>
+</div>
+</div>
 <h3 id="formateadores">Formateadores<a class="headerlink" href="#formateadores" title="Permanent link">&para;</a></h3>
+<p>Se asocian a los manejadores con <code>setFormatter</code>. Los formateadores más utilizados son <code>LineFormatter</code>, <code>HtmlFormatter</code> o <code>JsonFormatter</code>.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$rfh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RotatingFileHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">);</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$rfh</span><span class="o">-&gt;</span><span class="na">setFormatter</span><span class="p">(</span><span class="k">new</span> <span class="nx">JsonFormatter</span><span class="p">());</span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="nv">$rfh</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Consola en JSON</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Esto es un mensaje de DEBUG&quot;</span><span class="p">,</span><span class="nt">&quot;context&quot;</span><span class="p">:{},</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;level_name&quot;</span><span class="p">:</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">,</span><span class="nt">&quot;datetime&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-27T15:36:52.747211+01:00&quot;</span><span class="p">,</span><span class="nt">&quot;extra&quot;</span><span class="p">:{}}</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Esto es un mensaje de INFO&quot;</span><span class="p">,</span><span class="nt">&quot;context&quot;</span><span class="p">:{},</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;level_name&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">,</span><span class="nt">&quot;datetime&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-27T15:36:52.747538+01:00&quot;</span><span class="p">,</span><span class="nt">&quot;extra&quot;</span><span class="p">:{}}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Más información</p>
+<p>Más información sobre manejadores, formateadores y procesadores en <a href="https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md">https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md</a></p>
+</div>
+<h3 id="uso-de-factorias">Uso de Factorías<a class="headerlink" href="#uso-de-factorias" title="Permanent link">&para;</a></h3>
+<p>En vez de instanciar un log en cada clase, es conveniente crear una factoría (por ejemplo, siguiendo la idea del patrón de diseño <a href="https://refactoring.guru/es/design-patterns/factory-method"><em>Factory Method</em></a>).</p>
+<p>Para el siguiente ejemplo, vamos a suponer que creamos la factoria en el <em>namespace</em> <code>Dwes\Ejemplos\Util</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos\Util</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Monolog\Logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Monolog\Handler\StreamHandler</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">LogFactory  </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getLogger</span><span class="p">(</span><span class="nx">string </span><span class="nv">$canal </span><span class="o">=</span> <span class="s2">&quot;miApp&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="nx">Logger </span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="nv">$canal</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;logs/miApp.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>        <span class="k">return</span> <span class="nv">$log</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si en vez de devolver un <code>Monolog\Logger</code> utilizamos el interfaz de PSR, si en el futuro cambiamos la implementación del log, no tendremos que modificar nuestro codigo. Así pues, la factoría ahora devolverá <code>Psr\Log\LoggerInterface</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos\Util</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Monolog\Handler\StreamHandler</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Monolog\Logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">LogFactory  </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getLogger</span><span class="p">(</span><span class="nx">string </span><span class="nv">$canal </span><span class="o">=</span> <span class="s2">&quot;miApp&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="nx">LoggerInterface </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$log </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="nv">$canal</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamHandler</span><span class="p">(</span><span class="s2">&quot;log/miApp.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">return</span> <span class="nv">$log</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Finalmente, para utilizar la factoría, sólo cambiamos el código que teníamos en el constructor de las clases que usan el log, quedando algo asi:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Dwes\Ejemplos\Util\LogFactory</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Monolog\Logger</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">Cliente</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">private</span> <span class="nv">$codigo</span><span class="p">;</span> 
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">private</span> <span class="nx">Logger</span> <span class="nv">$log</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$codigo</span><span class="p">){</span> 
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">=</span><span class="nv">$codigo</span><span class="p">;</span> 
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span> <span class="o">=</span> <span class="nx">LogFactory</span><span class="o">::</span><span class="na">getLogger</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="c1">/// ... resto del código</span>
+<span class="linenos" data-linenos="21 "></span><span class="p">}</span>
+</code></pre></div>
 <h2 id="web-scraping"><em>Web Scraping</em><a class="headerlink" href="#web-scraping" title="Permanent link">&para;</a></h2>
-<p>Goutte is another excellent HTTP client for PHP that's specifically made for web scraping. It was developed by the creator of the Symfony Framework and provides a nice API to scrape data from the HTML/XML responses of websites.</p>
-<p>Below are some of the components it includes to make web crawling straightforward:</p>
-<p>BrowserKit Component to simulate the behavior of a web browser.
-CssSelector component for translating CSS queries into XPath queries.
-DomCrawler component brings the power of DOMDocument and XPath.
-Symfony HTTP Client is a fairly new component from the Symfony team.
-Install Goutte via composer by executing the following command on your terminal:</p>
-<p>composer require fabpot/goutte</p>
-<p>Once you have installed the Goutte package, create a new PHP file for our code – let’s call it goutte_requests.php.</p>
-<p>In this section we'll discuss what we did with the Guzzle library in the first section.</p>
-<p>We will scrape book titles from the Books to Scrape website using Goutte. Then we'll see how you can add the prices into an array variable and use the variable within the code.</p>
-<p>Add the following code inside the goutte_requests.php file:</p>
-<p>&lt;?php</p>
-<h1 id="scraping-books-to-scrape-httpsbookstoscrapecom">scraping books to scrape: https://books.toscrape.com/<a class="headerlink" href="#scraping-books-to-scrape-httpsbookstoscrapecom" title="Permanent link">&para;</a></h1>
-<p>require 'vendor/autoload.php';
-$httpClient = new \Goutte\Client();
-$response = $httpClient-&gt;request('GET', 'https://books.toscrape.com/');
-$titles = $response-&gt;evaluate('//ol[@class="row"]//li//article//h3/a');
-$prices = $response-&gt;evaluate('//ol[@class="row"]//li//article//div[@class="product_price"]//p[@class="price_color"]');
-// we can store the prices into an array
-$priceArray = [];
-foreach ($prices as $key =&gt; $price) {
-$priceArray[] = $price-&gt;textContent;
-}
-// we extract the titles and display to the terminal together with the prices
-foreach ($titles as $key =&gt; $title) {
-echo $title-&gt;textContent . ' @ '. $priceArray[$key] . PHP_EOL;
-}</p>
-<p>Let’s discuss another method using the CSS Selector component that comes with Goutte. The CSS selector is more straightforward than using XPath shown in the previous methods.</p>
-<p>Create another PHP file, let’s call it goutte_css_requests.php. Add the following code to the file:</p>
-<p>&lt;?php</p>
-<h1 id="scraping-books-to-scrape-httpsbookstoscrapecom_1">scraping books to scrape: https://books.toscrape.com/<a class="headerlink" href="#scraping-books-to-scrape-httpsbookstoscrapecom_1" title="Permanent link">&para;</a></h1>
-<p>require 'vendor/autoload.php';
-$httpClient = new \Goutte\Client();
-$response = $httpClient-&gt;request('GET', 'https://books.toscrape.com/');
-// get prices into an array
-$prices = [];
-$response-&gt;filter('.row li article div.product_price p.price_color')-&gt;each(function ($node) use (&amp;$prices) {
-$prices[] = $node-&gt;text();
-});
-// echo titles and prices
-$priceIndex = 0;
-$response-&gt;filter('.row li article h3 a')-&gt;each(function ($node) use ($prices, &amp;$priceIndex) {
-echo $node-&gt;text() . ' @ ' . $prices[$priceIndex] .PHP_EOL;
-$priceIndex++;
-});</p>
-<p>As you can see, using the CSS Selector component results in cleaner and more readable code.</p>
-<p>You may have noticed that we used the &amp; operator. This ensures that we take the reference of the variable into the “each” loop, and not just the value of the variable. If the &amp;$prices are modified within the loop, the actual value outside the loop is also modified.</p>
+<p>Consiste en navegar a una página web y extraer información automáticamente, a partir del código HTML generado, y organizar la información pública disponible en Internet.</p>
+<p>Esta práctica requiere el uso de una librería que facilite la descarga de la información deseada imitando la interacción de un navegador web. Este "robot" puede acceder a varias páginas simultáneamente.</p>
+<div class="admonition question">
+<p class="admonition-title">¿Es legal?</p>
+<p>Si el sitio web indica que tiene el contenido protegido por derechos de autor o en las normas de acceso via usuario/contraseña nos avisa de su prohibición, estaríamos incurriendo en un delito.
+Es recomendable estudiar el archivo robots.txt que se encuentra en el raíz de cada sitio web.
+Más información en el artículo <a href="https://ichi.pro/es/el-manual-completo-para-el-web-scraping-legal-y-etico-en-2021-69178542830388">El manual completo para el web scraping legal y ético en 2021</a></p>
+</div>
+<h3 id="goutte">Goutte<a class="headerlink" href="#goutte" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/FriendsOfPHP/Goutte">Goutte</a> es un sencillo cliente HTTP para PHP creado específicamente para hacer web scraping. Lo desarrolló el mismo autor del framework <em>Symfony</em> y ofrece un API sencilla para extraer datos de las respuestas HTML/XML de los sitios web.</p>
+<p>FIXME: Revisar https://godofredo.ninja/web-scraping-con-php-utilizando-goutte/</p>
+<p>Los componentes principales que abstrae <em>Goutte</em> sobre <em>Symfony</em> son:</p>
+<ul>
+<li><code>BrowserKit</code>: simula el comportamiento de un navegador web.</li>
+<li><code>CssSelector</code>: traduce consultas CSS en consultas XPath.</li>
+<li><code>DomCrawler</code>: facilita el uso del DOM y XPath.</li>
+</ul>
+<p>Para poder utilizar <em>Goutte</em> en nuestro proyecto, ejecutaremos el siguiente comando en el terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require fabpot/goutte
+</code></pre></div>
+<h3 id="goutte-con-selectores-css">Goutte con selectores CSS<a class="headerlink" href="#goutte-con-selectores-css" title="Permanent link">&para;</a></h3>
+<p>A continuación vamos a hacer un ejemplo muy sencillo utilizando los selectores CSS, extrayendo información de la web <code>https://books.toscrape.com/</code>, la cual es una página para pruebas que no rechazará nuestras peticiones.</p>
+<p>Tras crear un cliente con <em>Goutte</em>, hemos de realizar un petición a una URL. Con la respuesta obtenida, podemos utilizar el método <code>filter</code> para indicarle la ruta CSS que queremos recorrer e iterar sobre los resultados mediante una función anónima. Una vez estamos dentro de un determinado nodo, el método <code>text()</code> nos devolverá el contenido del propio nodo.</p>
+<p>En concreto, vamos a meter en un array asociativo el título y el precio de todos los libros de la categoría <em>Classics</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">require</span> <span class="s1">&#39;../vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nv">$httpClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Goutte\Client</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="nv">$httpClient</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://books.toscrape.com/catalogue/category/books/classics_6/index.html&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// colocamos los precios en un array</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$precios</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;.row li article div.product_price p.price_color&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">each</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="c1">// le pasamos $precios por referencia para poder editarla dentro del closure</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">function</span> <span class="p">(</span><span class="nv">$node</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="o">&amp;</span><span class="nv">$precios</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$precios</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">// colocamos el nombre y el precio en un array asociativo</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$contadorPrecios</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$libros</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;.row li article h3 a&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">each</span><span class="p">(</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="k">function</span> <span class="p">(</span><span class="nv">$node</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$precios</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$contadorPrecios</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$libros</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$libros</span><span class="p">[</span><span class="nv">$node</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">()]</span> <span class="o">=</span> <span class="nv">$precios</span><span class="p">[</span><span class="nv">$contadorPrecios</span><span class="p">];</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="nv">$contadorPrecios</span><span class="o">++</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span><span class="p">);</span>
+</code></pre></div>
+<h3 id="crawler">Crawler<a class="headerlink" href="#crawler" title="Permanent link">&para;</a></h3>
+<p>Un caso muy común es obtener la información de una página que tiene los resultados paginados, de manera que vayamos recorriendo los enlaces y accediendo a cada uno de los resultados.</p>
+<p>En este caso vamos a coger todos los precios de los libros de fantasía, y vamos a sumarlos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">require</span> <span class="s1">&#39;../vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">Goutte\Client</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Symfony\Component\HttpClient\HttpClient</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nx">HttpClient</span><span class="o">::</span><span class="na">create</span><span class="p">([</span><span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">60</span><span class="p">]));</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nv">$salir</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$precios</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nv">$salir</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="s1">&#39;.row li article div.product_price p.price_color&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">each</span><span class="p">(</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">function</span> <span class="p">(</span><span class="nv">$node</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="o">&amp;</span><span class="nv">$precios</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="nv">$texto</span> <span class="o">=</span> <span class="nv">$node</span><span class="o">-&gt;</span><span class="na">text</span><span class="p">();</span>
+<span class="linenos" data-linenos="17 "></span>            <span class="nv">$cantidad</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$texto</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Le quitamos las libras ¿2 posiciones?</span>
+<span class="linenos" data-linenos="18 "></span>            <span class="nv">$precios</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">floatval</span><span class="p">(</span><span class="nv">$cantidad</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    <span class="nv">$enlace</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectLink</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$enlace</span><span class="o">-&gt;</span><span class="na">count</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="c1">// el enlace next existe</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="nv">$sigPag</span> <span class="o">=</span> <span class="nv">$crawler</span><span class="o">-&gt;</span><span class="na">selectLink</span><span class="p">(</span><span class="s1">&#39;next&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">();</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="nv">$crawler</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">click</span><span class="p">(</span><span class="nv">$sigPag</span><span class="p">);</span> <span class="c1">// hacemos click</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span>        <span class="c1">// ya no hay enlace next</span>
+<span class="linenos" data-linenos="29 "></span>        <span class="nv">$salir</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="31 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="32 "></span>
+<span class="linenos" data-linenos="33 "></span><span class="nv">$precioTotal</span> <span class="o">=</span> <span class="nb">array_sum</span><span class="p">(</span><span class="nv">$precios</span><span class="p">);</span>
+<span class="linenos" data-linenos="34 "></span><span class="k">echo</span> <span class="nv">$precioTotal</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="documentacion-con-phpdocumentor">Documentación con <em>phpDocumentor</em><a class="headerlink" href="#documentacion-con-phpdocumentor" title="Permanent link">&para;</a></h2>
-<p>https://www.phpdoc.org/
-Herramienta que facilita la documentación del código PHP
-Crea un sitio web con el API de la aplicación.
-Se basa en el uso de anotaciones sobre los docblocks.</p>
+<p><a href="https://www.phpdoc.org/">phpDocumentos</a> es la herramienta <em>de facto</em> para documentar el código PHP. Es similar en propósito y funcionamiento a <em>Javadoc</em>.</p>
+<p>Así pues, es un herramienta que facilita la documentación del código PHP, creando un sitio web con el API de la aplicación.</p>
+<p>Se basa en el uso de anotaciones sobre los docblocks.</p>
 <h3 id="docblock">DocBlock<a class="headerlink" href="#docblock" title="Permanent link">&para;</a></h3>
+<p>Un <em>docblock</em> es el bloque de código que se coloca encima de un recurso. Su formato es:</p>
 <h3 id="documentando-el-codigo">Documentando el código<a class="headerlink" href="#documentando-el-codigo" title="Permanent link">&para;</a></h3>
 <h2 id="pruebas-con-phpunit">Pruebas con PhpUnit<a class="headerlink" href="#pruebas-con-phpunit" title="Permanent link">&para;</a></h2>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.freecodecamp.org/news/web-scraping-with-php-crawl-web-pages/">Web Scraping with PHP – How to Crawl Web Pages Using Open Source Tools</a></li>
+<li><a href="https://zetcode.com/php/monolog/">PHP Monolog</a></li>
 </ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<h3 id="monolog_1">Monolog<a class="headerlink" href="#monolog_1" title="Permanent link">&para;</a></h3>
+<ol start="501">
+<li>
+<p>Crea un nuevo proyecto con <em>Composer</em> llamado <code>Monologos</code>:</p>
+<ul>
+<li>Incluye como librería la ultima versión de Monolog.</li>
+<li>Crea la clase <code>Dwes\Monologos\HolaMonolog</code>.</li>
+<li>Define una propiedad privada nombrada <code>miLog</code> para guardar el log.</li>
+<li>Define en el constructor un <code>RotatingFileHandler</code> que escriba en la carpeta <code>logs</code> del proyecto, y que almacene los mensajes a partir de <em>debug</em>.</li>
+<li>Crea los métodos <code>saludar</code> y <code>despedir</code> que hagan un log de tipo <em>info</em> con la acción correspondiente.</li>
+</ul>
+</li>
+<li>
+<p>Siguiendo con el proyecto <code>Monologos</code>:</p>
+<ul>
+<li>Crea un archivo llamado <code>inicio.php</code> que permita probar <code>HolaMonolog</code>.</li>
+<li>Comprueba que los mensajes aparecen en el <em>log</em>.</li>
+<li>Cambia el nivel para que el manejador solo muestre los mensajes a partir de <em>warning</em>.</li>
+<li>Vuelve a ejectuar <code>inicio.php</code> y comprueba el archivo de log.</li>
+</ul>
+</li>
+<li>Modifica la clase <code>HolaMonolog</code>:<ul>
+<li>En el constructor, añade a la pila un manejador que escriba a la salida de error conjunto al procesador de introspección, mostrando mensajes desde el nivel <em>debug</em>.</li>
+<li>Añade una propiedad denominada <code>hora</code>, la cual se inicializa únicamente como parámetro del constructor. Si la <code>hora</code> es inferior a 0 o mayor de 24, debe escribir un log de <em>warning</em> con un mensaje apropiado.</li>
+<li>Modifica los métodos <code>saludar</code> y <code>despedir</code> para hacerlo acorde a la propiedad <code>hora</code> (buenos días, buenas tardes, hasta mañana, etc...)</li>
+</ul>
+</li>
+</ol>
+<h3 id="proyecto-videoclub-iv">Proyecto Videoclub IV<a class="headerlink" href="#proyecto-videoclub-iv" title="Permanent link">&para;</a></h3>
+<p>FIXME: revisar</p>
+<ol start="510">
+<li>
+<p>Como ya tenemos <em>Composer</em> instalado:</p>
+<ul>
+<li>inicialízalo dentro de tu proyecto <em>Videoclub</em>, y haz los cambios necesarios para utilizar el <em>autoload</em> de <em>Composer</em>.</li>
+<li>Incluye <em>Monolog</em> y <em>PhpUnit</em>, cada una en su lugar adecuado.</li>
+<li>Añade el autoload al <code>composer.json</code></li>
+<li>Sube los cambios a <em>GitHub</em> y crea la etiqueta <code>v0.510</code>.</li>
+</ul>
+</li>
+<li>
+<p>Modifica la clase <code>Cliente</code> para introducir un <code>Logger</code> de <em>Monolog</em>.</p>
+<ul>
+<li>Añade el log como una propiedad de la clase e inicializalo en el constructor, con el nombre del canal <code>VideoclubLogger</code>.</li>
+<li>Se debe almacenar en <code>logs/videoclub.log</code> mostrando todos los mensajes desde <em>debug</em>.</li>
+<li>Antes de lanzar cualquier excepción, debe escribir un log de tipo <em>warning</em>.</li>
+<li>Sustituir los <code>echo</code> que haya en el código, que ahora pasarán por el log con el nivel info, a excepción del método <code>muestraResumen</code> que seguirá haciendo <code>echo</code>.</li>
+</ul>
+</li>
+<li>
+<p>Vuelve a hacer lo mismo que en el ejercicio anterior, pero ahora con la clase <code>Videoclub</code>. Además:</p>
+<ul>
+<li>Siempre que se llame a un método del log, se le pasará como segundo parámetro la información que dispongamos.</li>
+<li>Ejecuta el archivo de prueba y comprueba que el log se rellena correctamente.</li>
+</ul>
+</li>
+<li>
+<p>Vamos a refactorizar el código común de inicialización de <em>Monolog</em> que tenemos repetidos en los constructores a una factoría de <em>Monolog</em>, la cual colocaremos en <code>\Dwes\Videoclub\Util\LogFactory</code>. Comprueba que sigue funcionando correctamente.</p>
+</li>
+<li>
+<p>Modifica la factoría para que devuelva <code>LogInterface</code> y comprueba que sigue funcionando. Sube los cambios a GitHub y crea la etiqueta <code>v0.514</code>.</p>
+</li>
+</ol>
+<h3 id="phpdocumentor">phpDocumentor<a class="headerlink" href="#phpdocumentor" title="Permanent link">&para;</a></h3>
+<ol start="520">
+<li>Comprueba que en el contenedor de Docker funciona <em>phpDocumentor</em>.
+Ejecuta phpdoc sobre tu proyecto <em>Monolog</em> y comprueba el api que se crea.
+Comenta tanto la clase como los métodos.
+Vuelve a ejecutar phpdoc</li>
+<li>Documenta el proyecto <em>Videoclub</em>, y genera la documentación. Empieza por las clases de <code>Soporte</code> y sus hijos. Comprueba el resultado. Luego sigue con <code>Cliente</code> y finalmente <code>Videoclub</code>.</li>
+</ol>
+<h3 id="web-scraping_1">Web Scraping<a class="headerlink" href="#web-scraping_1" title="Permanent link">&para;</a></h3>
+<ol start="530">
+<li>
+<p>A partir de los datos de <a href="http://www.seleccionbaloncesto.es">http://www.seleccionbaloncesto.es</a>, calcula la altura y edad media del equipo de baloncesto masculino. Observa que tienes los datos dentro de una tabla debajo de las noticias.</p>
+</li>
+<li>
+<p>Volviendo al Videoclub, en <code>Soporte</code> añade una propiedad llamada <code>metacritic</code> para almacenar la URL de cada soporte. A continuación, modifica los métodos <code>incluirXXX</code> de <code>Videoclub</code> para que admitan como primer parámetro dicha URL. Tras ello, modifica el fichero <code>inicio3.php</code> para pasarle la URL  de cada soporte (para ello deberás consultarlos en Metacritic haciendo búsquedas manuales). Por ejemplo, en el caso de la película Cazafantasmas, su URL es <a href="https://www.metacritic.com/movie/ghostbusters">https://www.metacritic.com/movie/ghostbusters</a>.</p>
+</li>
+<li>
+<p>Finalmente, añade un método abstracto en <code>Soporte</code> llamado <code>getPuntuacion</code>, que haciendo uso de <em>Web Scraping</em> se conecte a <em>Metacritic</em> y obtenga su puntuación. Modifica <code>inicio3.php</code> para obtener todos los alquileres de un cliente mediante <code>getAlquileres() : array</code>, y para cada uno de ellos, además del título, muestra su puntuación.</p>
+</li>
+</ol>
+<h3 id="phpunit">phpUnit<a class="headerlink" href="#phpunit" title="Permanent link">&para;</a></h3>
+<ol start="530">
+<li>
+<p>A partir de la clase <code>HolaMonolog</code>, modifica los métodos para que además de escribir en en log, devuelvan el saludo como una cadena.<br />
+Crea la clase <code>HolaMonologTest</code> y añade diferentes casos de prueba para comprobar que los saludos y despedidas son acordes a la hora con la que se crea la clase.</p>
+</li>
+<li>
+<p>Vamos a simular <em>Test Driven Development</em>. Queremos que nuestra aplicación almacene los últimos tres saludos que ha realizado. Para ello:</p>
+<ul>
+<li>Crea las prueba necesarias (invoca al método saludar/despedir varias veces y llama al método que te devuelva los saludos almacenados)</li>
+<li>Implementa el código para pasar las pruebas</li>
+<li>Refactoriza el código</li>
+</ul>
+</li>
+<li>
+<p>Crea una nueva prueba que utilice proveedores de datos para comprobar esta última funcionalidad, pasándole:
+Un saludo / despedida.
+Tres saludos / despedidas.
+Cuatro saludos / despedidas.
+Combinaciones de saludos / despedidas.</p>
+</li>
+<li>
+<p>¿Recuerdas que si la hora es negativa o superior a 24 escribíamos en el log un warning?
+Ahora debe lanzar una InvalidArgumentException
+Como la excepción forma para de PHP, hay que poner su FQN → \InvalidArgumentException
+Vuelve a aplicar TDD y completa tus casos de prueba.</p>
+</li>
+<li>
+<p>Comenta la última prueba realizada (la comprobación de las excepciones) y realiza un informe de cobertura de pruebas.
+Analiza los resultados obtenidos.
+Elimina los últimos comentarios sobre la última prueba y vuelve a generar y analizar el informe de cobertura.</p>
+</li>
+</ol>
+<h3 id="proyecto-videoclub-v">Proyecto Videoclub V<a class="headerlink" href="#proyecto-videoclub-v" title="Permanent link">&para;</a></h3>
+<ol start="540">
+<li>
+<p>El objetivo de los siguientes ejercicios es conseguir de manera incremental una cobertura de pruebas superior al 95%.
+Crea pruebas dentro de la carpeta tests para las clases Soporte, CintaVideo, Dvd y Juego.
+Recuerda respetar el espacio de nombres.
+Los métodos muestraResumen, tras hacer echo de los mensajes, deben devolver una cadena con el propio mensaje.</p>
+</li>
+<li>
+<p>Crea pruebas para la clase Cliente
+Aprovecha todo el código que teníamos para comprobar la funcionalidad.
+Utiliza proveedores de datos para añadir conjuntos de datos mayores que los empleados
+Comprueba que funciona con diferentes cupos, que al intentar alquilar un soporte marcado como ya alquilado debe lanzar una excepción, que no coincidan los ids de los soportes, etc...</p>
+</li>
+<li>
+<p>Crea las pruebas para la clase Videoclub</p>
+</li>
+</ol>
+<p>Ten en cuenta los últimos métodos añadidos que permitían alquilar y devolver soportes, tanto de manera individual como mediante un array.</p>
+<ol start="543">
+<li>Crea el informe de cobertura.
+Analiza los datos de cobertura (&gt;= 90%) y comprueba el valor de CRAP, de manera que siempre sea &lt;= 5.
+En caso de no cumplirse, crea nuevos casos de prueba y/o refactoriza el código de tu aplicación.</li>
+</ol>
+<p>Sube los cambios a GitHub y crea la etiqueta v0.553</p>
+<h3 id="ampliacion">Ampliación<a class="headerlink" href="#ampliacion" title="Permanent link">&para;</a></h3>
+<ol start="560">
+<li>
+<p>Queremos que en Videoclub, cuando un cliente no existe (tanto al alquilar como al devolver) se lance una nueva excepción: ClienteNoExisteException.
+Además, dado el número creciente de excepciones, queremos mover las excepciones al namespace Dwes\Videoclub\Exception
+Siguiendo TDD, primero crea las pruebas, y luego modifica el código de aplicación.
+Vuelve a generar el informe de cobertura y comprueba la calidad de nuestras pruebas.
+Sube los cambios a GitHub y crea la etiqueta v0.554</p>
+</li>
+<li>
+<p>¿Nadie se ha dado cuenta que en los Dvd no estamos almacenando su duración?
+Haz todos los cambios necesarios, primero en las pruebas y luego en el código.</p>
+</li>
+</ol>
+<p>Sube los cambios a GitHub y crea la etiqueta v0.555</p>
+<ol start="546">
+<li>Tras años luchando contra la tecnología, decidimos introducir los Blu-ray en nuestra empresa.
+Hemos decido que Bluray herede de Soporte.
+Además del título y la duración, nos interesa almacenar si es 4k.
+Haz todos los cambios necesarios, primero en las pruebas y luego en el código.</li>
+</ol>
+<p>Sube los cambios a GitHub y crea la etiqueta v0.556</p>
+<p>Más ejemplos en https://github.com/pedelriomarron/curso-web-scraping-python</p>
                 
               
               
@@ -544,10 +865,12 @@ Se basa en el uso de anotaciones sobre los docblocks.</p>
             2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -578,10 +901,10 @@ Se basa en el uso de anotaciones sobre los docblocks.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      <script src="assets/javascripts/bundle.f89c2efe.min.js"></script>
       
     
   </body>
