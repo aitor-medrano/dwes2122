@@ -609,9 +609,9 @@
 <p>Así pues, como ejemplo, codificaríamos una persona en el fichero <code>Persona.php</code> como:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$nombre</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setNombre</span><span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setNombre</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="o">=</span><span class="nv">$nom</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>
@@ -629,14 +629,14 @@
 <h2 id="encapsulacion">Encapsulación<a class="headerlink" href="#encapsulacion" title="Permanent link">&para;</a></h2>
 <p>Las propiedades se definen privadas o protegidas (si queremos que las clases heredadas puedan acceder).</p>
 <p>Para cada propiedad, se añaden métodos públicos (<em>getter/setter</em>):</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">public setPropiedad($param)</span>
-<span class="linenos" data-linenos="2 "></span><span class="x">public getPropiedad()</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">public setPropiedad(tipo $param)</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">public getPropiedad() : tipo</span>
 </code></pre></div>
 <p>Las constantes se definen públicas para que sean accesibles por todos los recursos.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MayorMenor </span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$mayor</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nv">$menor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">int</span> <span class="nv">$mayor</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">private</span> <span class="nx">int</span> <span class="nv">$menor</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMayor</span><span class="p">(</span><span class="nx">int </span><span class="nv">$may</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mayor </span><span class="o">=</span> <span class="nv">$may</span><span class="p">;</span>
@@ -682,10 +682,10 @@
 Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$nombre</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="hll"><span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="linenos" data-linenos=" 6 "></span>      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span><span class="o">=</span><span class="nv">$nom</span><span class="p">;</span>
+<span class="hll"><span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$nom</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">nombre</span> <span class="o">=</span> <span class="nv">$nom</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 8 "></span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">imprimir</span><span class="p">(){</span>
@@ -1351,7 +1351,7 @@ Encapsula las propiedades mediante <em>getters/setters</em> y añade métodos pa
 </ul>
 </li>
 <li><code>302EmpleadoTelefonos.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Añade una propiedad privada que almacene un array de números de telefonos.
+Añade una propiedad privada que almacene un array de números de teléfonos.
 Añade los siguientes métodos:<ul>
 <li><code>public function anyadirTelefono(int $telefono) : void</code> → Añade un teléfono al array</li>
 <li><code>public function listarTelefonos(): string</code> → Muestra los teléfonos separados por comas</li>
