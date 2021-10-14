@@ -659,8 +659,8 @@
 <p>Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone <code>?</code> delante del nombre de la clase.</p>
 <div class="admonition important">
 <p class="admonition-title">Objetos por referencia</p>
-</div>
 <p>Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="hll"><span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">maymen</span><span class="p">(</span><span class="k">array</span> <span class="nv">$numeros</span><span class="p">)</span> <span class="o">:</span> <span class="o">?</span><span class="nx">MayorMenor </span><span class="p">{</span>
 </span><span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$a </span><span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nv">$numeros</span><span class="p">);</span>
@@ -728,6 +728,24 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="7 "></span>    <span class="p">)</span> <span class="p">{}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">El orden importa</p>
+<p>A la hora de codificar el orden de lo elemento debe ser:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">class</span> <span class="nc">NombreClase</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="c1">// propiedades</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// constructor</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="c1">// getters - setters</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">// resto de métodos</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+</div>
 <h2 id="clases-estaticas">Clases estáticas<a class="headerlink" href="#clases-estaticas" title="Permanent link">&para;</a></h2>
 <p>Son aquellas que tienen propiedades y/o métodos estáticos (también se conocen como <em>de clase</em>, por que su valor se comparte entre todas las instancias de la misma clase).</p>
 <p>Se declaran con <code>static</code> y se referencian con <code>::</code>.</p>
