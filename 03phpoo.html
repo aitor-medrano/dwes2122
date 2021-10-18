@@ -1448,9 +1448,20 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
 Crea una clase <code>Persona</code> que sea padre de <code>Empleado</code>, de manera que <code>Persona</code> contenga el nombre y los apellidos, y en <code>Empleado</code> quede el salario y los teléfonos.</p>
 </li>
 <li>
-<p><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
-Crea en <code>Persona</code> el método estático <code>toHtml(Persona $p)</code>.<br />
-Modifica en <code>Empleado</code> el mismo método <code>toHtml(Persona $p)</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.</p>
+<p><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas. Crea en <code>Persona</code> el método estático <code>toHtml(Persona $p)</code>, y modifica en <code>Empleado</code> el mismo método <code>toHtml(Persona $p)</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.<br />
+    Para acceder a las propiedades del empleado con la persona que recibimos como parámetro, comprobaremos su tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Empleado</span> <span class="k">extends</span> <span class="nx">Persona</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1">/// resto del código</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">toHtml</span><span class="p">(</span><span class="nx">Persona</span> <span class="nv">$p</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">if</span> <span class="p">(</span><span class="nv">$p</span> <span class="nx">instanceof</span> <span class="nx">Empleado</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>            <span class="c1">// Aqui ya podemos acceder a las propiedades y métodos de Empleado</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
 </li>
 <li>
 <p><code>309PersonaE.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
