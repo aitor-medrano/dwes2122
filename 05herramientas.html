@@ -830,18 +830,24 @@ Es muy importante que el nombre sea muy claro (camelCase)
 Debemos preparar varias aserciones para toda la casuística: rangos de valores, tipos de datos, excepciones, etc...</p>
 <h3 id="aserciones">Aserciones<a class="headerlink" href="#aserciones" title="Permanent link">&para;</a></h3>
 <p>El predicado siempre es verdadero en ese lugar.</p>
-<p>assertTrue / assertFalse : Comprueba que la condición dada sea evaluada como true / false
-assertEquals / assertSame: Comprueba que dos variables sean iguales
-assertNotEquals / assertNotSame: Comprueba que dos variables NO sean iguales
-Same → comprueba los tipos. Si no coinciden los tipos y los valores, la aserción fallará
-Equals → sin comprobación estricta
-assertArrayHasKey / assertArrayNotHasKey: Comprueba que un array posea un key determinado / o NO lo posea
-assertArraySubset: Comprueba que un array posea otro array como subset del mismo
-assertAttributeContains / assertAttributeNotContains : Comprueba que un atributo de una clase contenga una variable determinada / o NO contenga una variable determinada
-assertAttributeEquals: Comprueba que un atributo de una clase sea igual a una variable determinada.</p>
+<ul>
+<li>assertTrue / assertFalse : Comprueba que la condición dada sea evaluada como true / false</li>
+<li>assertEquals / assertSame: Comprueba que dos variables sean iguales</li>
+<li>assertNotEquals / assertNotSame: Comprueba que dos variables NO sean iguales<ul>
+<li>Same → comprueba los tipos. Si no coinciden los tipos y los valores, la aserción fallará</li>
+<li>Equals → sin comprobación estricta</li>
+</ul>
+</li>
+<li>assertArrayHasKey / assertArrayNotHasKey: Comprueba que un array posea un key determinado / o NO lo posea</li>
+<li>assertArraySubset: Comprueba que un array posea otro array como subset del mismo</li>
+<li>assertAttributeContains / assertAttributeNotContains : Comprueba que un atributo de una clase contenga una variable determinada / o NO contenga una variable determinada</li>
+<li>assertAttributeEquals: Comprueba que un atributo de una clase sea igual a una variable determinada.</li>
+</ul>
 <h3 id="comparando-la-salida">Comparando la salida<a class="headerlink" href="#comparando-la-salida" title="Permanent link">&para;</a></h3>
-<p>expectOutputString(salidaEsperada)
-expectOutputRegex(expresionRegularEsperada)</p>
+<ul>
+<li>expectOutputString(salidaEsperada)</li>
+<li>expectOutputRegex(expresionRegularEsperada)</li>
+</ul>
 <p>Primero se informa del resultado a esperar.
 Después se invoca al método que realiza el echo/print</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -892,11 +898,13 @@ En su docblock indica el nombre del dataProvider</p>
 </code></pre></div>
 <h3 id="probando-excepciones">Probando excepciones<a class="headerlink" href="#probando-excepciones" title="Permanent link">&para;</a></h3>
 <p>Las pruebas han de cubrir todos los casos posibles.
-Poder hacer pruebas que esperen que se lance una excepción (y que el mensaje contenga cierta información).
-expectException(Excepcion::class)
-expectExceptionCode(codigoExcepcion)
-expectExceptionMessage(mensaje)
-Primero se pone la expectativa, y luego se provoca que se lance la excepción</p>
+Poder hacer pruebas que esperen que se lance una excepción (y que el mensaje contenga cierta información):</p>
+<ul>
+<li>expectException(Excepcion::class)</li>
+<li>expectExceptionCode(codigoExcepcion)</li>
+<li>expectExceptionMessage(mensaje)</li>
+</ul>
+<p>Primero se pone la expectativa, y luego se provoca que se lance la excepción</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">testAlquilarCupoLleno</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$soporte1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">CintaVideo</span><span class="p">(</span><span class="s2">&quot;Los cazafantasmas&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">107</span><span class="p">);</span> 
@@ -919,19 +927,20 @@ Recomendado entre el 95 y el 100%.
 CRAP: Análisis y Predicciones sobre el Riesgo en Cambios
 cantidad de esfuerzo, dolor y tiempo requerido para mantener una porción de código
 Debe mantenerse &lt;= 5</p>
-<p>Añadimos en Composer un nuevo script:</p>
-<p>"coverage": "phpunit --coverage-html coverage --coverage-filter app tests"</p>
+<p>Añadimos en <code>composer.json</code> un nuevo <em>script</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;coverage&quot;</span><span class="p">:</span><span class="err"> </span><span class="s2">&quot;phpunit --coverage-html coverage --coverage-filter app tests&quot;</span>
+</code></pre></div>
 <p>Y posteriormente ejecutamos</p>
-<blockquote>
-<p>composer coverage</p>
-</blockquote>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer coverage
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Temas pendientes</p>
-<p>Dependencia entre casos de prueba con el atributo @depends
-Completamente configurable mediante el archivo phpxml.xml:
-https://phpunit.readthedocs.io/es/latest/configuration.html
-Preparando las pruebas con setUpBeforeClass() y tearDownAfterClass()
-Objetos y pruebas Mock (dobles) con createMock()</p>
+<ul>
+<li>Dependencia entre casos de prueba con el atributo <code>@depends</code></li>
+<li>Completamente configurable mediante el archivo <code>phpxml.xml</code>: <a href="https://phpunit.readthedocs.io/es/latest/configuration.html">https://phpunit.readthedocs.io/es/latest/configuration.html</a></li>
+<li>Preparando las pruebas con <code>setUpBeforeClass()</code> y <code>tearDownAfterClass()</code></li>
+<li>Objetos y pruebas <em>Mock</em> (dobles) con <code>createMock()</code></li>
+</ul>
 </div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
