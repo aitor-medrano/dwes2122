@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.1c75ef36.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.5143246d.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
@@ -888,23 +888,65 @@ Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code><
 </code></pre></div>
 <h3 id="constructor-en-hijos">Constructor en hijos<a class="headerlink" href="#constructor-en-hijos" title="Permanent link">&para;</a></h3>
 <p>En los hijos no se crea ningún constructor de manera automática. Por lo que si no lo hay, se invoca automáticamente al del padre. En cambio, si lo definimos en el hijo, hemos de invocar al del padre de manera explícita.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">PHP7</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$tecnologia</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string </span><span class="nv">$codigo</span><span class="p">,</span> <span class="nx">int </span><span class="nv">$pulgadas</span><span class="p">,</span> <span class="nx">string </span><span class="nv">$tecnologia</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$codigo</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas </span><span class="o">=</span> <span class="nv">$pulgadas</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia </span><span class="o">=</span> <span class="nv">$tecnologia</span><span class="p">;</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="13 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">mostrarResumen</span><span class="p">();</span>
-<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;TV &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$codigo</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span> <span class="o">=</span> <span class="nv">$codigo</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Prod:&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">public</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string </span><span class="nv">$codigo</span><span class="p">,</span> <span class="nx">int </span><span class="nv">$pulgadas</span><span class="p">,</span> <span class="nx">string </span><span class="nv">$tecnologia</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$codigo</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas </span><span class="o">=</span> <span class="nv">$pulgadas</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia </span><span class="o">=</span> <span class="nv">$tecnologia</span><span class="p">;</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">mostrarResumen</span><span class="p">();</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;TV &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span><span class="p">}</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">PHP8</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$codigo</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Prod:&quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>        
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nx">string </span><span class="nv">$codigo</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">private</span> <span class="nx">int </span><span class="nv">$pulgadas</span><span class="p">,</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">private</span> <span class="nx">string </span><span class="nv">$tecnologia</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$codigo</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="k">parent</span><span class="o">::</span><span class="na">mostrarResumen</span><span class="p">();</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;TV &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">tecnologia</span><span class="o">.</span><span class="s2">&quot; de &quot;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pulgadas</span><span class="o">.</span><span class="s2">&quot;&lt;/p&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
 <h2 id="clases-abstractas">Clases abstractas<a class="headerlink" href="#clases-abstractas" title="Permanent link">&para;</a></h2>
 <p>Las clases abstractas obligan a heredar de una clase, ya que no se permite su instanciación. Se define mediante <code>abstract class NombreClase {</code>.<br />
 Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o métodos abstractos.</p>
@@ -1177,7 +1219,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 </li>
 </ul>
 <p>A continuación tenemos un ejemplo mediante código:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Funciones para la gestión de errores</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Funciones para la gestión de errores</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nx">E_NOTICE </span><span class="o">&amp;</span> <span class="o">~</span><span class="k">E_WARNING</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nv">$resultado </span><span class="o">=</span> <span class="nv">$dividendo </span><span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
@@ -1198,7 +1240,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="18 "></span><span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Consola</label><div class="tabbed-content">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Consola</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Error de tipo no especificado: Undefined variable: dividendo.
 <span class="linenos" data-linenos="2 "></span>Error de tipo no especificado: Undefined variable: divisor.
 <span class="linenos" data-linenos="3 "></span>Error de tipo Warning: Division by zero.
@@ -1392,7 +1434,7 @@ Añade una constante <code>SUELDO_TOPE</code> con el valor del sueldo que debe p
 Cambia la constante por una variable estática <code>sueldoTope</code>, de manera que mediante <em>getter/setter</em> puedas modificar su valor.</li>
 <li>
 <p><code>306EmpleadoStatic.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada:</p>
+Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada (para ello, deberás crear un <em>getter</em> para los teléfonos):</p>
 <ul>
 <li><code>public static function toHtml(Empleado $emp): string</code></li>
 </ul>
@@ -1405,13 +1447,15 @@ Completa el siguiente método con una cadena HTML que muestre los datos de un em
 <p><code>307Persona.php</code>: Copia la clase del ejercicio anterior en <code>307Empleado.php</code> y modifícala.<br />
 Crea una clase <code>Persona</code> que sea padre de <code>Empleado</code>, de manera que <code>Persona</code> contenga el nombre y los apellidos, y en <code>Empleado</code> quede el salario y los teléfonos.</p>
 </li>
-<li><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
+<li>
+<p><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
 Crea en <code>Persona</code> el método estático <code>toHtml(Persona $p)</code>.<br />
-Modifica en <code>Empleado</code> el mismo método <code>toHtml()</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.</li>
+Modifica en <code>Empleado</code> el mismo método <code>toHtml(Persona $p)</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.</p>
+</li>
 <li>
 <p><code>309PersonaE.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
 Añade en <code>Persona</code> un atributo <code>edad</code><br />
-A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años.<br />
+A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años y dependa del valor de su sueldo.
 Modifica todo el código necesario para mostrar y/o editar la edad cuando sea necesario.</p>
 </li>
 <li>
@@ -1429,7 +1473,7 @@ Añade nuevos métodos que hagan una representación de todas las propiedades de
 <ol start="311">
 <li>
 <p><code>311PersonaA.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
-Transforma <code>Persona</code> a una clase abstracta donde su método <code>toHtml()</code> tenga que ser redefinido en todos sus hijos.</p>
+Transforma <code>Persona</code> a una clase abstracta donde su método estático <code>toHtml(Persona $p)</code> tenga que ser redefinido en todos sus hijos.</p>
 </li>
 <li>
 <p><code>312Trabajador.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
@@ -1501,7 +1545,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método <code>toH
 </ul>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Soporte.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1512,7 +1556,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método <code>toH
 <span class="linenos" data-linenos="8 "></span><span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Tenet</strong>
 Precio: 3 euros
@@ -1533,7 +1577,7 @@ Precio IVA incluido: 3.48 euros
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1544,7 +1588,7 @@ Precio IVA incluido: 3.48 euros
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Los cazafantasmas</strong>
 Precio: 3.5 euros
@@ -1567,7 +1611,7 @@ Duración: 107 minutos
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1578,7 +1622,7 @@ Duración: 107 minutos
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Origen</strong>
 Precio: 15 euros
@@ -1602,7 +1646,7 @@ Formato Pantalla:16:9
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1613,7 +1657,7 @@ Formato Pantalla:16:9
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>The Last of Us Part II</strong>
 Precio: 49.99 euros
@@ -1656,7 +1700,7 @@ Para un jugador
 </li>
 </ol>
 <p>Crea el archivo <code>inicio2.php</code> con el siguiente código fuente para probar la clase:</p>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">include_once</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
@@ -1699,7 +1743,7 @@ Para un jugador
 <span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 El identificador del cliente 1 es: 23
 El identificador del cliente 2 es: 33
@@ -1757,7 +1801,7 @@ Formato Pantalla:16:9</p>
 </figure>
 
 <p>Y para probar el proyecto, dentro <code>inicio3.php</code> colocaremos:</p>
-<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;Videoclub.php&quot;</span><span class="p">;</span> <span class="c1">// No incluimos nada más</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1792,7 +1836,7 @@ Formato Pantalla:16:9</p>
 <span class="linenos" data-linenos="32 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarSocios</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 Incluido soporte 0
 Incluido soporte 1
@@ -2004,10 +2048,10 @@ Recuerda actualizar las propiedades <code>alquilado</code>, <code>numProductosAl
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.c7d1b464.min.js"></script>
+      <script src="assets/javascripts/bundle.f89c2efe.min.js"></script>
       
     
   </body>
