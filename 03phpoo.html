@@ -1490,9 +1490,11 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <p><code>312Trabajador.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
 <ul>
 <li>Cambia la estructura de clases conforme al gráfico respetando todos los métodos que ya están hechos.</li>
-<li><code>Trabajador</code> es una clase abstracta que ahora almacena los <code>telefonos</code> y donde <code>calcularSueldo</code> es un método abstracto.</li>
+<li><code>Trabajador</code> es una clase abstracta que ahora almacena los <code>telefonos</code> y donde <code>calcularSueldo</code> es un método abstracto de manera que:<ul>
 <li>El sueldo de un <code>Empleado</code> se calcula a partir de las horas trabajadas y lo que cobra por hora.</li>
 <li>Para los <code>Gerente</code>s, su sueldo se incrementa porcentualmente en base a su edad: <code>salario + salario*edad/100</code></li>
+</ul>
+</li>
 </ul>
 <p><figure>
     <img src="imagenes/03/03p312.png">
@@ -1500,17 +1502,17 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 </figure></p>
 </li>
 <li>
-<p><code>313Empresa.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
+<p><code>313Empresa.php</code>: Utilizando las clases de los ejercicios anteriores:</p>
 <ul>
 <li>Crea una clase <code>Empresa</code> que además del nombre y la dirección, contenga una propiedad con un array de <code>Trabajador</code>es, ya sean <code>Empleado</code>s o <code>Gerente</code>s. </li>
 <li>Añade <em>getters/setters</em> para el nombre y dirección.</li>
 <li>Añade métodos para añadir y listar los trabajadores.<ul>
 <li><code>public function anyadirTrabajador(Trabajador $t)</code></li>
-<li><code>public function listarTrabajadoresHtml() : string</code></li>
+<li><code>public function listarTrabajadoresHtml() : string</code> -&gt; utiliza <code>Trabajador::toHtml(Persona $p)</code></li>
 </ul>
 </li>
 <li>Añade un método para obtener el coste total en nóminas.<ul>
-<li><code>public function getCosteNominas(): float</code></li>
+<li><code>public function getCosteNominas(): float</code> -&gt; recorre los trabajadores e invoca al método <code>calcularSueldo()</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1519,7 +1521,16 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <p><code>314EmpresaI.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
 <ul>
 <li>Crea un interfaz JSerializable, de manera que ofrezca los métodos:<ul>
-<li><code>toJSON(): string</code> → utiliza la función <code>json_encode(mixed)</code></li>
+<li><code>toJSON(): string</code> → utiliza la función <code>json_encode(mixed)</code>. Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
+``` php
+&lt;?php
+public function toJSON(): string {
+    foreach ($this as $clave =&gt; $valor) {
+        $mapa-&gt;$clave = $valor;
+    }
+    return json_encode($mapa);
+}
+?&gt;</li>
 <li><code>toSerialize(): string</code> → utiliza la función <code>serialize(mixed)</code></li>
 </ul>
 </li>
