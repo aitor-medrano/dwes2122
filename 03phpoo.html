@@ -1521,17 +1521,17 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <p><code>314EmpresaI.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
 <ul>
 <li>Crea un interfaz JSerializable, de manera que ofrezca los métodos:<ul>
-<li><code>toJSON(): string</code> → utiliza la función <code>json_encode(mixed)</code>. Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
-``` php
-&lt;?php
-public function toJSON(): string {
-    foreach ($this as $clave =&gt; $valor) {
-        $mapa-&gt;$clave = $valor;
-    }
-    return json_encode($mapa);
-}
-?&gt;</li>
-<li><code>toSerialize(): string</code> → utiliza la función <code>serialize(mixed)</code></li>
+<li><code>toJSON(): string</code> → utiliza la función <a href="https://www.php.net/manual/es/function.json-encode.php"><code>json_encode(mixed)</code></a>. Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">toJSON</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span> <span class="k">as</span> <span class="nv">$clave</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$mapa</span><span class="o">-&gt;</span><span class="nv">$clave</span> <span class="o">=</span> <span class="nv">$valor</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$mapa</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div></li>
+<li><code>toSerialize(): string</code> → utiliza la función <a href="https://www.php.net/manual/es/function.serialize.php"><code>serialize(mixed)</code></a></li>
 </ul>
 </li>
 <li>Modifica todas las clases que no son abstractas para que implementen el interfaz creado.</li>
