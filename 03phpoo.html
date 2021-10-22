@@ -1054,7 +1054,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="metodos-encadenados">Métodos encadenados<a class="headerlink" href="#metodos-encadenados" title="Permanent link">&para;</a></h2>
-<p>Sigue el planteamiento de programación funcional, y también se conoce como <em>method chaining</em>. Plantea que sobre un objeto se realizan varias llamadas.</p>
+<p>Sigue el planteamiento de la programación funcional, y también se conoce como <em>method chaining</em>. Plantea que sobre un objeto se realizan varias llamadas.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Libro</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Harry Potter&quot;</span><span class="p">);</span>
@@ -1066,7 +1066,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Patria&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setAutor</span><span class="p">(</span><span class="s2">&quot;Aramburu&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$p2</span><span class="p">;</span>
 </code></pre></div>
-<p>Para facilitarlo, vamos a modificar todos mutadores (que modifican datos, <em>setters</em>, ...) para que devuelvan una referencia a <code>$this</code>:</p>
+<p>Para facilitarlo, vamos a modificar todos sus métodos mutadores (que modifican datos, <em>setters</em>, ...) para que devuelvan una referencia a <code>$this</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Libro </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string </span><span class="nv">$nombre</span><span class="p">;</span>
@@ -1726,19 +1726,19 @@ Para un jugador
 
 <ol start="324">
 <li>
-<p>Crear la clase <code>Cliente</code>. El constructor recibirá el <code>nombre</code>, <code>numero</code> y <code>maxAlquilerConcurrente</code>, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade <em>getter/setter</em> únicamente a <code>numero</code>. Finalmente, añade el método <code>muestraResumen</code> que muestre el nombre y la cantidad de alquileres.</p>
+<p>Crear la clase <code>Cliente</code>. El constructor recibirá el <code>nombre</code>, <code>numero</code> y <code>maxAlquilerConcurrente</code>, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade <em>getter/setter</em> únicamente a <code>numero</code>, y un <em>getter</em> a <code>numSoportesAlquilados</code> (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de soportes alquilados contedrá clases que hereden de <code>Soporte</code>. Finalmente, añade el método <code>muestraResumen</code> que muestre el nombre y la cantidad de alquileres (tamaño del array <code>soportesAlquilados</code>).</p>
 </li>
 <li>
 <p>Dentro de <code>Cliente</code>, añade las siguiente operaciones:</p>
 <ul>
 <li><code>tieneAlquilado(Soporte $s): bool</code> → Recorre el array de soportes y comprueba si está el soporte</li>
-<li><code>alquilar(Soporte $s): bool</code> -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.</li>
+<li><code>alquilar(Soporte $s): bool</code> -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el <code>numSoportesAlquilados</code> y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.</li>
 </ul>
 </li>
 <li>
 <p>Seguimos con <code>Cliente</code> para añadir las operaciones:</p>
 <ul>
-<li><code>devolver(int $numSoporte): bool</code> → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido</li>
+<li><code>devolver(int $numSoporte): bool</code> → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido</li>
 <li><code>listarAlquileres(): void</code> → Informa de cuantos alquileres tiene el cliente y los muestra.</li>
 </ul>
 </li>
