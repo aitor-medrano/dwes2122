@@ -2,7 +2,7 @@
 
 ??? abstract "Duración y criterios de evaluación"
 
-    Duración estimada: 16 sesiones
+    Duración estimada: 18 sesiones
 
     <hr />
 
@@ -28,9 +28,9 @@ Un clase es un plantilla que define las propiedades y métodos para poder crear 
 
 Tanto las propiedades como los métodos se definen con una visibilidad (quien puede acceder)
 
-* Privado - `private`:  Sólo puede acceder la propia clase
-* Protegido - `protected`: Sólo puede acceder la propia clase o sus descendientes
-* Público - `public`: Puede acceder cualquier otra clase
+* Privado - `private`:  Sólo puede acceder la propia clase.
+* Protegido - `protected`: Sólo puede acceder la propia clase o sus descendientes.
+* Público - `public`: Puede acceder cualquier otra clase.
 
 Para declarar una clase, se utiliza la palabra clave `class` seguido del nombre de la clase. Para instanciar un objeto a partir de la clase, se utiliza `new`:
 
@@ -45,7 +45,7 @@ $ob = new NombreClase();
 ```
 
 !!! important "Clases con mayúscula"
- Todas las clases empiezan por letra mayúscula.
+    Todas las clases empiezan por letra mayúscula.
 
 Cuando un proyecto crece, es normal modelar las clases mediante UML (¿recordáis *Entornos de Desarrollo*?). La clases se representan mediante un cuadrado, separando el nombre, de las propiedades y los métodos:
 
@@ -70,9 +70,9 @@ Así pues, como ejemplo, codificaríamos una persona en el fichero `Persona.php`
 ``` php
 <?php
 class Persona {
-    private $nombre;
+    private string $nombre;
 
-    public function setNombre($nom) {
+    public function setNombre(string $nom) {
         $this->nombre=$nom;
     }
 
@@ -87,6 +87,8 @@ $bruno->setNombre("Bruno Díaz");
 $bruno->imprimir();
 ```
 
+Aunque se pueden declarar varias clases en el mismo archivo, es una mala práctica. Así pues, cada fichero contedrá una sola clase, y se nombrará con el nombre de la clase.
+
 ## Encapsulación
 
 Las propiedades se definen privadas o protegidas (si queremos que las clases heredadas puedan acceder).
@@ -94,8 +96,8 @@ Las propiedades se definen privadas o protegidas (si queremos que las clases her
 Para cada propiedad, se añaden métodos públicos (*getter/setter*):
 
 ``` php
-public setPropiedad($param)
-public getPropiedad()
+public setPropiedad(tipo $param)
+public getPropiedad() : tipo
 ```
 
 Las constantes se definen públicas para que sean accesibles por todos los recursos.
@@ -103,8 +105,8 @@ Las constantes se definen públicas para que sean accesibles por todos los recur
 ``` php
 <?php
 class MayorMenor {
-    private $mayor;
-    private $menor;
+    private int $mayor;
+    private int $menor;
 
     public function setMayor(int $may) {
         $this->mayor = $may;
@@ -129,7 +131,7 @@ class MayorMenor {
 Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone `?` delante del nombre de la clase.
 
 !!! important "Objetos por referencia"
- Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.
+    Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.
 
 ``` php hl_lines="2"
 <?php
@@ -157,10 +159,10 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.
 ``` php hl_lines="5"
 <?php
 class Persona {
-    private $nombre;
+    private string $nombre;
 
-    public function __construct($nom) {
-      $this->nombre=$nom;
+    public function __construct(string $nom) {
+        $this->nombre = $nom;
     }
 
     public function imprimir(){
@@ -173,10 +175,73 @@ $bruno = new Persona("Bruno Díaz");
 $bruno->imprimir();
 ```
 
+### Constructores en PHP 8
+
+Una de las grandes novedades que ofrece PHP 8 es la simplificación de los constructores con parámetros, lo que se conoce como *promoción de las propiedades del constructor*.
+
+Para ello, en vez de tener que declarar las propiedades como privadas o protegidas, y luego dentro del constructor tener que asignar los parámetros a estás propiedades, el propio constructor promociona las propiedades.
+
+Veámoslo mejor con un ejemplo. Imaginemos una clase `Punto` donde queramos almacenar sus coordenadas:
+
+``` php
+<?php
+class Punto {
+    protected float $x;
+    protected float $y;
+    protected float $z;
+
+    public function __construct(
+        float $x = 0.0,
+        float $y = 0.0,
+        float $z = 0.0
+    ) {
+        $this->x = $x;
+        $this->y = $y;
+        $this->z = $z;
+    }
+}
+```
+
+En PHP 8, quedaría del siguiente modo (mucho más corto, lo que facilita su legibilidad):
+
+``` php
+<?php
+class Punto {
+    public function __construct(
+        protected float $x = 0.0,
+        protected float $y = 0.0,
+        protected float $z = 0.0,
+    ) {}
+}
+```
+
+!!! info "El orden importa"
+    A la hora de codificar el orden de los elementos debe ser:
+
+    ``` php
+    <?php
+    declare(strict_types=1);
+
+    class NombreClase {
+        // propiedades
+
+        // constructor
+
+        // getters - setters
+
+        // resto de métodos
+    }
+    ?>
+    ```
+
 ## Clases estáticas
 
-Son aquellas que tienes propiedades y/o métodos estáticos (también se conocen como *de clase*).
-Se declaran con `static` y se referencian con `::`. Si desde un método estático queremos acceder a una propiedad estática de la misma clase, se utiliza la referencia `self`.
+Son aquellas que tienen propiedades y/o métodos estáticos (también se conocen como *de clase*, por que su valor se comparte entre todas las instancias de la misma clase).
+
+Se declaran con `static` y se referencian con `::`.
+
+* Si queremos acceder a un método estático, se antepone el nombre de la clase: `Producto::nuevoProducto()`.
+* Si desde un método queremos acceder a una propiedad estática de la misma clase, se utiliza la referencia `self`: `self::$numProductos`
 
 ``` php
 <?php
@@ -261,15 +326,18 @@ if ($p instanceof Producto) {
 
 ## Herencia
 
-PHP soporta herencia simple, de manera que una clase solo puede heredar de otra, no de dos clases a la vez. Si queremos que la clase A hereda de la clase B haremos:
+PHP soporta herencia simple, de manera que una clase solo puede heredar de otra, no de dos clases a la vez. Para ello se utiliza la palabra clave `extends`. Si queremos que la clase A hereda de la clase B haremos:
 
-```
+``` php
 class A extends B
 ```
 
 El hijo hereda los atributos y métodos públicos y protegidos.
 
-Por ejemplo, tenemos una clase Producto y una Tv que hereda de Producto:
+!!! warning "Cada clase en un archivo"
+    Como ya hemos comentado, deberíamos colocar cada clase en un archivo diferente para posteriormente utilizarlo mediante `include`. En los siguiente ejemplo los hemos colocado junto para facilitar su legibilidad.
+
+Por ejemplo, tenemos una clase `Producto` y una `Tv` que hereda de `Producto`:
 
 ``` php
 <?php
@@ -300,7 +368,7 @@ Podemos utilizar las siguientes funciones para averiguar si hay relación entre 
 $t = new Tv();
 $t->codigo = 33;
 if ($t instanceof Producto) {
-    echo $t->muestra();
+    echo $t->mostrarResumen();
 }
 
 $padre = get_parent_class($t);
@@ -325,7 +393,7 @@ class Tv extends Producto {
    public $tecnologia;
 
    public function mostrarResumen() {
-      parent::muestra();
+      parent::mostrarResumen();
       echo "<p>TV ".$this->tecnologia." de ".$this->pulgadas."</p>";
    }
 }
@@ -335,18 +403,71 @@ class Tv extends Producto {
 
 En los hijos no se crea ningún constructor de manera automática. Por lo que si no lo hay, se invoca automáticamente al del padre. En cambio, si lo definimos en el hijo, hemos de invocar al del padre de manera explícita.
 
-``` php
-<?php
-public function __construct(string $codigo, int $pulgadas, string $tecnologia) {
-    parent::__construct($codigo);
-    $this->pulgadas = $pulgadas;
-    $this->tecnologia = $tecnologia;
-}
-```
+=== "PHP7"
+
+    ``` php
+    <?php
+    class Producto {
+        public string $codigo;
+
+        public function __construct(string $codigo) {
+            $this->codigo = $codigo;
+        }
+
+        public function mostrarResumen() {
+            echo "<p>Prod:".$this->codigo."</p>";
+        }
+    }
+    
+    class Tv extends Producto {
+        public $pulgadas;
+        public $tecnologia;
+
+        public function __construct(string $codigo, int $pulgadas, string $tecnologia) {
+            parent::__construct($codigo);
+            $this->pulgadas = $pulgadas;
+            $this->tecnologia = $tecnologia;
+        }
+
+        public function mostrarResumen() {
+            parent::mostrarResumen();
+            echo "<p>TV ".$this->tecnologia." de ".$this->pulgadas."</p>";
+        }
+    }
+    ```
+
+=== "PHP8"
+
+    ``` php
+    <?php
+    class Producto {
+        public function __construct(private string $codigo) { }
+
+        public function mostrarResumen() {
+            echo "<p>Prod:".$this->codigo."</p>";
+        }        
+    }
+    
+    class Tv extends Producto {
+
+        public function __construct(
+            string $codigo,
+            private int $pulgadas,
+            private string $tecnologia)
+        {
+            parent::__construct($codigo);
+        }
+
+        public function mostrarResumen() {
+            parent::mostrarResumen();
+            echo "<p>TV ".$this->tecnologia." de ".$this->pulgadas."</p>";
+        }
+    }
+    ```
 
 ## Clases abstractas
 
-Obliga a heredar de una clase, ya que no se permite su instanciación. Se define mediante `abstract class NombreClase {`.  
+Las clases abstractas obligan a heredar de una clase, ya que no se permite su instanciación. Se define mediante `abstract class NombreClase {`.  
 Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o métodos abstractos.
 
 ``` php
@@ -362,7 +483,7 @@ abstract class Producto {
 }
 ```
 
-Cuando una clase hereda de una clase abstracta, obligatoriamente debe implementar los métodos marcados como abstractos.
+Cuando una clase hereda de una clase abstracta, obligatoriamente debe implementar los métodos que tiene el padre marcados como abstractos.
 
 ``` php
 <?php
@@ -382,7 +503,7 @@ echo $t->getCodigo();
 
 ## Clases finales
 
-Son clases opuestas a abstractas, ya que evita que se pueda heredar una clase o método para sobreescribirlo.
+Son clases opuestas a abstractas, ya que evitan que se pueda heredar una clase o método para sobreescribirlo.
 
 ``` php
 <?php
@@ -398,12 +519,15 @@ class Producto {
     }
 }
 
+// No podremos heredar de Microondas
 final class Microondas extends Producto {
     private $potencia;
 
     public function getPotencia() : int {
         return $this->potencia;
     }
+
+    // No podemos implementar mostrarResumen()
 }
 ```
 
@@ -411,7 +535,7 @@ final class Microondas extends Producto {
 
 Permite definir un contrato con las firmas de los métodos a cumplir. Así pues, sólo contiene declaraciones de funciones y todas deben ser públicas.
 
-Se declaran con `interface` y luego las clases que cumplan el contrato lo realizan mediante `implements`.
+Se declaran con la palabra clave `interface` y luego las clases que cumplan el contrato lo realizan mediante la palabra clave `implements`.
 
 ``` php
 <?php
@@ -422,7 +546,7 @@ class NombreClase implements NombreInterfaz {
 // código de la clase
 ```
 
-Permite herencia de interfaces. Una clase puede implementar varios interfaces
+Se permite la herencia de interfaces. Además, una clase puede implementar varios interfaces (en este caso, sí soporta la herecia múltiple, pero sólo de interfaces).
 
 ``` php
 <?php
@@ -440,12 +564,13 @@ interface Facturable {
 
 class Producto implements MostrableTodo, Facturable {
     // Implementaciones de los métodos
+    // Obligatoriamente deberá implementar public function mostrarResumen, mostrarTodo y generarFactura
 }
 ```
 
 ## Métodos encadenados
 
-Sigue el planteamiento de programación funcional, y también se conoce como *method chaining*. Plantea que sobre un objeto se realizan varias llamadas.
+Sigue el planteamiento de la programación funcional, y también se conoce como *method chaining*. Plantea que sobre un objeto se realizan varias llamadas.
 
 ``` php
 <?php
@@ -460,7 +585,7 @@ $p2->setNombre("Patria")->setAutor("Aramburu");
 echo $p2;
 ```
 
-Para facilitarlo, vamos a modificar todos mutadores (que modifican datos, *setters*, ...) para que devuelvan una referencia a `$this`:
+Para facilitarlo, vamos a modificar todos sus métodos mutadores (que modifican datos, *setters*, ...) para que devuelvan una referencia a `$this`:
 
 ``` php
 <?php
@@ -500,7 +625,7 @@ Los más destacables son:
 
 * `__construct()`
 * `__destruct()` → se invoca al perder la referencia. Se utiliza para cerrar una conexión a la BD, cerrar un fichero, ...
-* `__toString()` → representación del objeto como cadena
+* `__toString()` → representación del objeto como cadena. Es decir, cuando hacemos `echo $objeto` se ejecuta automáticamente este método.
 * `__get(propiedad)`, `__set(propiedad, valor)` → Permitiría acceder a las propiedad privadas, aunque siempre es más legible/mantenible codificar los *getter/setter*.
 * `__isset(propiedad)`, `__unset(propiedad)` → Permite averiguar o quitar el valor a una propiedad.
 * `__sleep()`, `__wakeup()` → Se ejecutan al recuperar (*unserialize^*) o almacenar un objeto que se serializa (*serialize*), y se utilizan para permite definir qué propiedades se serializan.
@@ -566,7 +691,7 @@ Los tipos posibles son:
 * `use nombreCualificadoClase`
 * `use nombreCualificadoClase as NuevoNombre` // para renombrar elementos
 
-Por ejemplo, si queremos utilizar la clase `\Dwes\Ejemplos\Producto` desde un recursos que se encuentre en la raíz, por ejemplo en `inicio.php`, haríamos:
+Por ejemplo, si queremos utilizar la clase `\Dwes\Ejemplos\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `inicio.php`, haríamos:
 
 ``` php
 <?php
@@ -584,7 +709,7 @@ $p1 = new Producto();
 
 ### Organización
 
-Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización con los archivos interactuan con el navegador se colocan en el raiz, y las clases que definamos van dentro de un namespace.
+Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización en la que los archivos que interactuan con el navegador se colocan en el raíz, y las clases que definamos van dentro de un namespace (y dentro de su propia carpeta `src` o `app`).
 
 <figure>
 <img src="imagenes/03/03organizacion.png">
@@ -600,7 +725,7 @@ Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea 
 
 ### Autoload
 
-¿No es tedioso tener que hacer el include de las clases? El *autoload* viene al rescate.
+¿No es tedioso tener que hacer el `include` de las clases? El *autoload* viene al rescate.
 
 Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el `include_once` de cada una de ellas. Para ello, se utiliza la función `spl_autoload_register`
 
@@ -612,10 +737,10 @@ spl_autoload_register( function( $nombreClase ) {
 ?>
 ```
 
-!!! question "¿Por qué se llaman autoload?"
+!!! question "¿Por qué se llaman *autoload*?"
     Porque antes se realizaba mediante el método mágico `__autoload()`, el cual está *deprecated* desde PHP 7.2
 
-Y ¿cómo organizamos ahora nuestro código aprovechando el autoload?
+Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
 
 <figure style="float: right;">
     <img src="imagenes/03/03autoload.png" width="600">
@@ -624,7 +749,7 @@ Y ¿cómo organizamos ahora nuestro código aprovechando el autoload?
 
 Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
 
-Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raiz) sólo va a buscar dentro de esa carpeta:
+Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:
 
 ``` php
 <?php
@@ -633,6 +758,19 @@ spl_autoload_register( function( $nombreClase ) {
 } );
 ?>
 ```
+
+!!! tip "Autoload y rutas erróneas"
+    En *Ubuntu* al hacer el *include* de la clase que recibe como parámetro, las barras de los namespace (`\`) son diferentes a las de las rutas (`/`). Por ello, es mejor que utilicemos el fichero autoload:
+
+    ``` php
+    <?php
+    spl_autoload_register( function( $nombreClase ) {
+        $ruta = "app\\".$nombreClase.'.php';
+        $ruta = str_replace("\\", "/", $ruta); // Sustituimos las barras
+        include_once $ruta';
+    } );
+    ?>
+    ```
 
 ## Gestión de Errores
 
@@ -706,7 +844,9 @@ try {
 
 La clase `Exception` es la clase padre de todas las excepciones. Su constructor recibe `mensaje[,codigoError][,excepcionPrevia]`.
 
-A partir de un objeto `Exception`, podemos acceder a los métodos `getMessage()`y `getCode()` para obtener información de la excepción capturada.
+A partir de un objeto `Exception`, podemos acceder a los métodos `getMessage()`y `getCode()` para obtener el mensaje y el código de error de la excepción capturada.
+
+El propio lenguaje ofrece un conjunto de excepciones ya definidas, las cuales podemos capturar (y lanzar desde PHP 7). Se recomienda su consulta en la [documentación oficial](https://www.php.net/manual/es/class.exception.php).
 
 ### Creando excepciones
 
@@ -735,6 +875,25 @@ class MiExcepcion extends Exception {
 }
 ```
 
+Si definimos una excepción de aplicación dentro de un *namespace*, cuando referenciemos a `Exception`, deberemos referenciarla mediante su nombre totalmente cualificado (`\Exception`), o utilizando `use`:
+
+=== "Mediante nombre totalmente cualificado"
+    ``` php
+    <?php
+    namespace \Dwes\Ejemplos;
+
+    class AppExcepcion extends \Exception {}
+    ```
+=== "Mediante `use`"
+    ``` php
+    <?php
+    namespace \Dwes\Ejemplos;
+
+    use Exception;
+
+    class AppExcepcion extends Exception {}
+    ```
+
 ### Excepciones múltiples
 
 Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.
@@ -749,7 +908,7 @@ try {
     }
     // Comprueba la palabra ejemplo en la dirección email
     if(strpos($email, "ejemplo") !== FALSE) {
-        throw new Exception("$email es un email de ejemplo");
+        throw new Exception("$email es un email de ejemplo no válido");
     }
 } catch (MiExcepcion $e) {
     echo $e->miFuncion();
@@ -863,7 +1022,7 @@ También podéis consultar la documentación de estas excepciones en <https://ww
 ## Referencias
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
-
+* [Manual de OO en PHP - www.desarrolloweb.com](https://desarrolloweb.com/manuales/manual-php.html#manual68)
 ## Actividades
 
 300. Investiga la diferencia entre un paradigma orientado a objetos basado en clases (*PHP*) respecto a uno basado en prototipos (*JavaScript*).
@@ -875,35 +1034,53 @@ Encapsula las propiedades mediante *getters/setters* y añade métodos para:
     * Obtener su nombre completo → `getNombreCompleto(): string`
     * Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → `debePagarImpuestos(): bool`
 302. `302EmpleadoTelefonos.php`: Copia la clase del ejercicio anterior y modifícala.
-Añade una propiedad privada que almacene un array de números de telefonos.
+Añade una propiedad privada que almacene un array de números de teléfonos.
 Añade los siguientes métodos:
     * `public function anyadirTelefono(int $telefono) : void` → Añade un teléfono al array
     * `public function listarTelefonos(): string` → Muestra los teléfonos separados por comas
     * `public function vaciarTelefonos(): void` → Elimina todos los teléfonos
 303. `303EmpleadoConstructor.php`: Copia la clase del ejercicio anterior y modifícala.
-Elimina los *setters* de `nombre` y `apellidos`, de manera que dichos datos se asignan mediante el constructor.
-Si el constructor recibe un tercer parámetro, será el sueldo del Empleado. Si no, se le asignará 1000€ como sueldo inicial.
+Elimina los *setters* de `nombre` y `apellidos`, de manera que dichos datos se asignan mediante el constructor (utiliza la sintaxis de PHP7).
+Si el constructor recibe un tercer parámetro, será el sueldo del `Empleado`. Si no, se le asignará 1000€ como sueldo inicial.
+
+    `303EmpleadoConstructor8.php`: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del constructor.
+
 304. `304EmpleadoConstante.php`: Copia la clase del ejercicio anterior y modifícala.
 Añade una constante `SUELDO_TOPE` con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.
 305. `305EmpleadoSueldo.php`: Copia la clase del ejercicio anterior y modifícala.
 Cambia la constante por una variable estática `sueldoTope`, de manera que mediante *getter/setter* puedas modificar su valor.
 306. `306EmpleadoStatic.php`: Copia la clase del ejercicio anterior y modifícala.
-Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada:
+Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada (para ello, deberás crear un *getter* para los teléfonos):
     * `public static function toHtml(Empleado $emp): string`
 
     <figure style="float: right;">
-    <img src="imagenes/03/03p307.png">
-    <figcaption>Ejercicio 307</figcaption>
+        <img src="imagenes/03/03p307.png">
+        <figcaption>Ejercicio 307</figcaption>
     </figure>
 
 307. `307Persona.php`: Copia la clase del ejercicio anterior en `307Empleado.php` y modifícala.  
 Crea una clase `Persona` que sea padre de `Empleado`, de manera que `Persona` contenga el nombre y los apellidos, y en `Empleado` quede el salario y los teléfonos.
-308. `308PersonaH.php`: Copia las clases del ejercicio anterior y modifícalas.  
-Crea en `Persona` el método estático `toHtml(Persona $p)`.  
-Modifica en `Empleado` el mismo método `toHtml()`, pero cambia la firma para que reciba una `Persona` como parámetro.
+
+308. `308PersonaH.php`: Copia las clases del ejercicio anterior y modifícalas. Crea en `Persona` el método estático `toHtml(Persona $p)`, y modifica en `Empleado` el mismo método `toHtml(Persona $p)`, pero cambia la firma para que reciba una `Persona` como parámetro.  
+    Para acceder a las propiedades del empleado con la persona que recibimos como parámetro, comprobaremos su tipo:
+
+    ``` php
+    <?php
+    class Empleado extends Persona {
+        /// resto del código
+
+
+        public static function toHtml(Persona $p): string {
+            if ($p instanceof Empleado) {
+                // Aqui ya podemos acceder a las propiedades y métodos de Empleado
+            }
+        }
+    }
+    ```
+
 309. `309PersonaE.php`: Copia las clases del ejercicio anterior y modifícalas.  
 Añade en `Persona` un atributo `edad`  
-A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años.  
+A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años y dependa del valor de su sueldo.
 Modifica todo el código necesario para mostrar y/o editar la edad cuando sea necesario.
 
 310. `310PersonaS.php`: Copia las clases del ejercicio anterior y modifícalas.  
@@ -911,40 +1088,58 @@ Añade nuevos métodos que hagan una representación de todas las propiedades de
     * `function public __toString(): string`
 
 !!! tip "*Magic methods*"
- El método `__toString()` es un método mágico que se invoca automáticamente cuando queremos obtener la representación en cadena de un objeto.
+    El método `__toString()` es un método mágico que se invoca automáticamente cuando queremos obtener la representación en cadena de un objeto.
 
 311. `311PersonaA.php`: Copia las clases del ejercicio anterior y modifícalas.  
-Transforma `Persona` a una clase abstracta donde su método `toHtml()` tenga que ser redefinido en todos sus hijos.
+Transforma `Persona` a una clase abstracta donde su método estático `toHtml(Persona $p)` tenga que ser redefinido en todos sus hijos.
 
 312. `312Trabajador.php`: Copia las clases del ejercicio anterior y modifícalas.
     * Cambia la estructura de clases conforme al gráfico respetando todos los métodos que ya están hechos.
-    * `Trabajador` es una clase abstracta que ahora almacena los `telefonos` y donde `calcularSueldo` es un método abstracto.
-    * El sueldo de un `Empleado` se calcula a partir de las horas trabajadas y lo que cobra por hora.
-    * Para los `Gerente`s, su sueldo se incrementa porcentualmente en base a su edad: `salario + salario*edad/100`
+    * `Trabajador` es una clase abstracta que ahora almacena los `telefonos` y donde `calcularSueldo` es un método abstracto de manera que:
+        * El sueldo de un `Empleado` se calcula a partir de las horas trabajadas y lo que cobra por hora.
+        * Para los `Gerente`s, su sueldo se incrementa porcentualmente en base a su edad: `salario + salario*edad/100`
 
     <figure>
-    <img src="imagenes/03/03p312.png">
-    <figcaption>Ejercicio 312</figcaption>
+        <img src="imagenes/03/03p312.png">
+        <figcaption>Ejercicio 312</figcaption>
     </figure>
 
-313. `313Empresa.php`: Copia las clases del ejercicio anterior y modifícalas.
+313. `313Empresa.php`: Utilizando las clases de los ejercicios anteriores:
     * Crea una clase `Empresa` que además del nombre y la dirección, contenga una propiedad con un array de `Trabajador`es, ya sean `Empleado`s o `Gerente`s. 
     * Añade *getters/setters* para el nombre y dirección.
     * Añade métodos para añadir y listar los trabajadores.
         * `public function anyadirTrabajador(Trabajador $t)`
-        * `public function listarTrabajadoresHtml() : string`
+        * `public function listarTrabajadoresHtml() : string` -> utiliza `Trabajador::toHtml(Persona $p)`
     * Añade un método para obtener el coste total en nóminas.
-        * `public function getCosteNominas(): float`
+        * `public function getCosteNominas(): float` -> recorre los trabajadores e invoca al método `calcularSueldo()`.
 
 314. `314EmpresaI.php`: Copia las clases del ejercicio anterior y modifícalas.
     * Crea un interfaz JSerializable, de manera que ofrezca los métodos:
-        * `toJSON(): string` → utiliza la función `json_encode(mixed)`
-        * `toSerialize(): string` → utiliza la función `serialize(mixed)`
+        * `toJSON(): string` → utiliza la función [`json_encode(mixed)`](https://www.php.net/manual/es/function.json-encode.php). Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
+        ``` php
+        <?php
+        public function toJSON(): string {
+            foreach ($this as $clave => $valor) {
+                $mapa->$clave = $valor;
+            }
+            return json_encode($mapa);
+        }
+        ?>
+        ```
+        * `toSerialize(): string` → utiliza la función [`serialize(mixed)`](https://www.php.net/manual/es/function.serialize.php)
     * Modifica todas las clases que no son abstractas para que implementen el interfaz creado.
+
 
 ### Proyecto Videoclub
 
-En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub, el cual vamos a realizar mediante un desarrollo incremental.
+En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub (basado en la propuesta que hace el tutorial de desarrolloweb.com), el cual vamos a realizar mediante un desarrollo incremental y siguiendo la práctica de programación en parejas (*pair programming*).
+
+Antes de nada, crea un repositorio privado en GitHub y sube el proyecto actual de *Videoclub*. Una vez creado, invita a tu compañero al repositorio como colaborador.
+
+* Inicializa en local tu repostorio de git, mediante `git init`
+* Añade y sube los cambios a tu repositorio, mediante `git add .` y luego `git commit -m 'Inicializando proyecto'.`
+* Conecta tu repositorio con GitHub y sube los cambios (mira la instrucciones de GitHub: comandos `git remote` y `git push`).
+* Tu compañero deberá descargar el proyecto con sus credenciales.
 
 !!! warning "Proyecto no real"
     El siguiente proyecto está pensado desde un punto de vista formativo. Algunas de las decisiones que se toman no se deben usar (como hacer `echo` dentro de las clases) o probar el código comparando el resultado en el navegador.
@@ -959,7 +1154,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 320. Crea una clase para almacenar soportes (`Soporte.php`). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):
 
     * Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos *setters*.
-    * Definir una constante IVA = 1.16
+    * Definir una constante mediante un propiedad privada y estática denominada `IVA con un valor del 21%
     * Crear un archivo (`inicio.php`) para usar las clases y copia el siguiente fragmento:
 
 === "Código de prueba"
@@ -982,7 +1177,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     Precio: 3 euros
     Precio IVA incluido: 3.48 euros
     *Tenet*
-    3 (IVA no incluido)
+    3 € (IVA no incluido)
     </pre>
 
 <figure style="float: right;">
@@ -1015,7 +1210,7 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     Precio IVA incluido: 4.06 euros
     Película en VHS:
     *Los cazafantasmas*
-    3.5 (IVA no incluido)
+    3.5 € (IVA no incluido)
     Duración: 107 minutos
     </pre>
 
@@ -1100,15 +1295,15 @@ Llegados a este punto, nuestro modelo es similar al siguiente diagrama:
     <figcaption>Añadimos Cliente</figcaption>
 </figure>
 
-324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres.
+324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`, y un *getter* a `numSoportesAlquilados` (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de soportes alquilados contedrá clases que hereden de `Soporte`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres (tamaño del array `soportesAlquilados`).
 
 325. Dentro de `Cliente`, añade las siguiente operaciones:
     * `tieneAlquilado(Soporte $s): bool` → Recorre el array de soportes y comprueba si está el soporte
-    * `alquilar(Soporte $s): bool` -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el numSoportesAlquilados y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informado de lo ocurrido.
+    * `alquilar(Soporte $s): bool` -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el `numSoportesAlquilados` y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.
 
 326. Seguimos con `Cliente` para añadir las operaciones:
-    * `devolver(int $numSoporte): bool` → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informado de lo ocurrido
-    * `listarAlquileres(): void` → Informa de cuantos alquileres tiene el cliente y los muestra
+    * `devolver(int $numSoporte): bool` → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido
+    * `listarAlquileres(): void` → Informa de cuantos alquileres tiene el cliente y los muestra.
 
 Crea el archivo `inicio2.php` con el siguiente código fuente para probar la clase:
 
@@ -1235,7 +1430,7 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
     <?php
     include_once "Videoclub.php"; // No incluimos nada más
 
-    $vc = new videoclub("La Eliana Video"); 
+    $vc = new Videoclub("Severo 8A"); 
 
     //voy a incluir unos cuantos soportes de prueba 
     $vc->incluirJuego("God of War", 19.99, "PS4", 1, 1); 
@@ -1346,6 +1541,8 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
 
 ### Proyecto Videoclub 2.0
 
+Antes de comenzar con la segunda parte del videoclub, crea una etiqueta mediante `git tag` con el nombre `v0.329` y sube los cambios a GitHub.
+
 330. Modifica las operaciones de alquilar, tanto en `Cliente` como en `Videoclub`, para dar soporte al encadenamiento de métodos.
 Posteriormente, modifica el código de prueba para utilizar esta técnica.
 331. Haciendo uso de *namespaces*:
@@ -1353,25 +1550,29 @@ Posteriormente, modifica el código de prueba para utilizar esta técnica.
     * Cada clase debe hacer `include_once` de los recursos que emplea
     * Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)
     * Desde el archivo de pruebas, utiliza `use` para poder realizar accesos sin cualificar
+    * Etiqueta los cambios como `v0.331`.
 332. Reorganiza las carpeta tal como hemos visto en los apuntes: `app`, `test` y `vendor`.
     * Crea un fichero `autoload.php` para registrar la ruta donde encontrar las clases
     * Modifica todo el código necesario, incluyendo `autoload.php` donde sea necesario y borrando los *includes* previos.
-333. Crea la excepción de aplicación `VideoclubException` en el namespace `Dwes\ProyectoVideoclub\Util`.
-Posteriormente crea los siguientes hijos, cada uno en su propio archivo:
+333. A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación `VideoclubException` en el *namespace* `Dwes\ProyectoVideoclub\Util`.
+Posteriormente crea los siguientes hijos (deben heredar de `VideoclubException`), cada uno en su propio archivo:
     * `SoporteYaAlquiladoException`
     * `CupoSuperadoException`
     * `SoporteNoEncontradoException`
-334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados.  
+    * `ClienteNoEncontradoException`
+334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
 En `Videoclub`, modifica `alquilarSocioPelicula` para capturar todas las excepciones que ahora lanza `Cliente` e informar al usuario en consecuencia.
-435. Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:
-    * En `Soporte`, crea una propiedad `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
+335. Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:
+    * En `Soporte`, crea una propiedad pública cuyo nombre sea `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
     * En `Videoclub`, crea dos nuevas propiedades y sus getters:
         * `numProductosAlquilados`
         * `numTotalAlquileres`
-436. Crea un nuevo método en `Videoclub` llamado `alquilarSocioProductos(int numSocio, array numerosProducto)`, el cual debe recibir un array con los productos a alquilar.  
+336. Crea un nuevo método en `Videoclub` llamado `alquilarSocioProductos(int numSocio, array numerosProducto)`, el cual debe recibir un array con los productos a alquilar.  
 Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.
-437. Crea dos nuevos métodos en `Videoclub`, y mediante la definición, deduce qué deben realizar:
+337. Crea dos nuevos métodos en `Videoclub`, y mediante la definición, deduce qué deben realizar:
     * `devolverSocioProducto(int numSocio, int numerosProducto)`
     * `devolverSocioProductos(int numSocio, array numerosProducto)`
 Deben soportar el encadenamiento de métodos.
 Recuerda actualizar las propiedades `alquilado`, `numProductosAlquilados` y `numTotalAlquileres`.
+
+Cuando hayas realizado todos los ejercicios, crea una etiqueta mediante `git tag` con el nombre `v0.337` y sube los cambios a GitHub.
