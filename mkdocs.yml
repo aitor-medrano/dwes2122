@@ -8,7 +8,7 @@ nav:
   - "2.- El lenguaje PHP": "02php.md"
   - "3.- PHP Orientado a Objetos": "03phpoo.md"
   - "4.- Programación Web": "04web.md"
-  # - "5.- Herramientas Web": "05herramientas.md"
+  - "5.- Herramientas Web": "05herramientas.md"
   # - "6.- Acceso a Datos": "06accesoDatos.md"
   # - "7.- Frameworks PHP - Laravel": "07frameworks.md"
   # - "8.- Uso avanzado de Frameworks": "08frameworks2.md"
@@ -19,8 +19,18 @@ theme:
   favicon: imagenes/favicon.png
   name: "material"
   palette:
-    primary: light blue
-    accent: "Teal"
+    - scheme: default
+      primary: light blue
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Cambiar a modo noche
+    - scheme: slate 
+      primary: light blue
+      accent: "Teal"
+      toggle:
+        icon: material/toggle-switch
+        name: Cambiar a modo día
   font:
     text: Roboto
     code: Roboto Mono
