@@ -1224,13 +1224,25 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 </figure>
 
 <p>Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de <code>app</code> (más adelante, cuando estudiemos <em>Laravel</em> veremos el motivo de esta decisión). Otras carpetas que podemos crear son <code>test</code> para colocar las pruebas <em>PhpUnit</em> que luego realizaremos, o la carpeta <code>vendor</code> donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que <em>Composer</em> la crea automáticamente).</p>
-<p>Como hemos colocado todos nuestros recursos dentro de <code>app</code>, ahora nuestro <code>autoload.php</code> (el cual colocamos en la carpeta raiz) sólo va a buscar dentro de esa carpeta:</p>
+<p>Como hemos colocado todos nuestros recursos dentro de <code>app</code>, ahora nuestro <code>autoload.php</code> (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="s2">&quot;app/&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
 <span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Autoload y rutas erróneas</p>
+<p>En <em>Ubuntu</em> al hacer el <em>include</em> de la clase que recibe como parámetro, las barras de los namespace (<code>\</code>) son diferentes a las de las rutas (<code>/</code>). Por ello, es mejor que utilicemos el fichero autoload:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="s2">&quot;app</span><span class="se">\\</span><span class="s2">&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituimos las barras</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span> <span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+</div>
 <h2 id="gestion-de-errores">Gestión de Errores<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h2>
 <p>PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:</p>
 <ul>
@@ -1320,6 +1332,24 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div>
+<p>Si definimos una excepción de aplicación dentro de un <em>namespace</em>, cuando referenciemos a <code>Exception</code>, deberemos referenciarla mediante su nombre totalmente cualificado (<code>\Exception</code>), o utilizando <code>use</code>:</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Mediante nombre totalmente cualificado</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">namespace</span> <span class="nx">\Dwes\Ejemplos</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">class</span> <span class="nc">AppExcepcion extends \Exception </span><span class="p">{}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Mediante <code>use</code></label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">namespace</span> <span class="nx">\Dwes\Ejemplos</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Exception</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">class</span> <span class="nc">AppExcepcion extends Exception </span><span class="p">{}</span>
+</code></pre></div>
+</div>
+</div>
 <h3 id="excepciones-multiples">Excepciones múltiples<a class="headerlink" href="#excepciones-multiples" title="Permanent link">&para;</a></h3>
 <p>Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1605,7 +1635,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 </ul>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Soporte.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1616,7 +1646,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <span class="linenos" data-linenos="8 "></span><span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Tenet</strong>
 Precio: 3 euros
@@ -1637,7 +1667,7 @@ Precio IVA incluido: 3.48 euros
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1648,7 +1678,7 @@ Precio IVA incluido: 3.48 euros
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Los cazafantasmas</strong>
 Precio: 3.5 euros
@@ -1671,7 +1701,7 @@ Duración: 107 minutos
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1682,7 +1712,7 @@ Duración: 107 minutos
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>Origen</strong>
 Precio: 15 euros
@@ -1706,7 +1736,7 @@ Formato Pantalla:16:9
 <p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1717,7 +1747,7 @@ Formato Pantalla:16:9
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 <strong>The Last of Us Part II</strong>
 Precio: 49.99 euros
@@ -1760,7 +1790,7 @@ Para un jugador
 </li>
 </ol>
 <p>Crea el archivo <code>inicio2.php</code> con el siguiente código fuente para probar la clase:</p>
-<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">include_once</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
@@ -1803,7 +1833,7 @@ Para un jugador
 <span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 El identificador del cliente 1 es: 23
 El identificador del cliente 2 es: 33
@@ -1861,7 +1891,7 @@ Formato Pantalla:16:9</p>
 </figure>
 
 <p>Y para probar el proyecto, dentro <code>inicio3.php</code> colocaremos:</p>
-<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Código de prueba</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;Videoclub.php&quot;</span><span class="p">;</span> <span class="c1">// No incluimos nada más</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1896,7 +1926,7 @@ Formato Pantalla:16:9</p>
 <span class="linenos" data-linenos="32 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarSocios</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Navegador</label><div class="tabbed-content">
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">Navegador</label><div class="tabbed-content">
 <p><pre>
 Incluido soporte 0
 Incluido soporte 1
@@ -1987,14 +2017,14 @@ Posteriormente, modifica el código de prueba para utilizar esta técnica.</li>
 <li>Modifica todo el código necesario, incluyendo <code>autoload.php</code> donde sea necesario y borrando los <em>includes</em> previos.</li>
 </ul>
 </li>
-<li>Crea la excepción de aplicación <code>VideoclubException</code> en el <em>namespace</em> <code>Dwes\ProyectoVideoclub\Util</code>.
-Posteriormente crea los siguientes hijos, cada uno en su propio archivo:<ul>
+<li>A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación <code>VideoclubException</code> en el <em>namespace</em> <code>Dwes\ProyectoVideoclub\Util</code>.
+Posteriormente crea los siguientes hijos (deben heredar de <code>VideoclubException</code>), cada uno en su propio archivo:<ul>
 <li><code>SoporteYaAlquiladoException</code></li>
 <li><code>CupoSuperadoException</code></li>
 <li><code>SoporteNoEncontradoException</code></li>
 </ul>
 </li>
-<li>En <code>Cliente</code>, modifica los métodos <code>alquilar</code> y <code>devolver</code>, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados.<br />
+<li>En <code>Cliente</code>, modifica los métodos <code>alquilar</code> y <code>devolver</code>, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
 En <code>Videoclub</code>, modifica <code>alquilarSocioPelicula</code> para capturar todas las excepciones que ahora lanza <code>Cliente</code> e informar al usuario en consecuencia.</li>
 <li>Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:<ul>
 <li>En <code>Soporte</code>, crea una propiedad <code>alquilado</code> que inicialmente estará a <code>false</code>. Cuando se alquile, se pondrá a <code>true</code>. Al devolver, la volveremos a poner a <code>false</code>.</li>
