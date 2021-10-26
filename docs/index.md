@@ -37,14 +37,14 @@ Duración estimada: 72 sesiones
 2. [El lenguaje PHP](02php.md) (26h)
     * Condiciones y bucles.
     * Arrays.
-3. [Orientación a objetos con PHP](03phpoo.md) (16h)
+3. [Orientación a objetos con PHP](03phpoo.md) (18h)
     * Clases y objetos
     * Namespaces
     * Excepciones
-4. [Programación Web](04web.md) (10h)
+4. [Programación Web](04web.md) (12h)
     * Formularios.
     * Cookies y sesión.
-5. Herramientas Web (16h)
+5. [Herramientas Web](05herramientas.md) (16h)
     * *Composer*.
     * Uso de logs con *Monolog*.
     * *Webscraping*.
