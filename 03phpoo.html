@@ -2022,12 +2022,13 @@ Posteriormente crea los siguientes hijos (deben heredar de <code>VideoclubExcept
 <li><code>SoporteYaAlquiladoException</code></li>
 <li><code>CupoSuperadoException</code></li>
 <li><code>SoporteNoEncontradoException</code></li>
+<li><code>ClienteNoEncontradoException</code></li>
 </ul>
 </li>
 <li>En <code>Cliente</code>, modifica los métodos <code>alquilar</code> y <code>devolver</code>, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
 En <code>Videoclub</code>, modifica <code>alquilarSocioPelicula</code> para capturar todas las excepciones que ahora lanza <code>Cliente</code> e informar al usuario en consecuencia.</li>
 <li>Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:<ul>
-<li>En <code>Soporte</code>, crea una propiedad <code>alquilado</code> que inicialmente estará a <code>false</code>. Cuando se alquile, se pondrá a <code>true</code>. Al devolver, la volveremos a poner a <code>false</code>.</li>
+<li>En <code>Soporte</code>, crea una propiedad pública cuyo nombre sea <code>alquilado</code> que inicialmente estará a <code>false</code>. Cuando se alquile, se pondrá a <code>true</code>. Al devolver, la volveremos a poner a <code>false</code>.</li>
 <li>En <code>Videoclub</code>, crea dos nuevas propiedades y sus getters:<ul>
 <li><code>numProductosAlquilados</code></li>
 <li><code>numTotalAlquileres</code></li>
