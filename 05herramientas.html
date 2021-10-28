@@ -694,10 +694,10 @@
 <p>Funcionalmente, es similar a Maven (Java) / npm (JS).</p>
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
 <p>Si estamos usando XAMPP, hemos de instalar <em>Composer</em> en el propio sistema operativo. Se recomienda seguir las <a href="https://getcomposer.org/doc/00-intro.md">instrucciones oficiales</a> según el sistema operativo a emplear.</p>
-<p>En cambio, si usamos Docker, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo <code>Dockerfile</code> y añadir el siguiente comando:</p>
+<p>En cambio, si usamos <em>Docker</em>, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo <code>Dockerfile</code> y añadir el siguiente comando:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">COPY</span> --from<span class="o">=</span>composer:2.0 /usr/bin/composer /usr/local/bin/composer
 </code></pre></div>
-<p>Para facilitar el trabajo, hemos creado una <a href="">plantilla ya preparada</a>.</p>
+<p>Para facilitar el trabajo, hemos creado una <a href="./recursos/plantillaAPC.zip">plantilla ya preparada</a>.</p>
 <p>Es importante que dentro del contenedor comprobemos que tenemos la v2:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
 </code></pre></div>
