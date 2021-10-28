@@ -512,7 +512,7 @@
 <li><code>$_SERVER</code>: información sobre el servidor</li>
 <li><code>$_FILES</code>: información sobre los ficheros cargados via upload</li>
 </ul>
-<p>https://www.php.net/manual/es/reserved.variables.server.php</p>
+<p>Si nos centramos en el array <code>$_SERVER</code> podemos consultar las siguientes propiedades:</p>
 <ul>
 <li><code>PHP_SELF</code>: nombre del script ejecutado, relativo al document root (p.ej: <code>/tienda/carrito.php</code>)</li>
 <li><code>SERVER_SOFTWARE</code>: (p.ej: Apache)</li>
@@ -521,6 +521,7 @@
 <li><code>REQUEST_URI</code>: URI, sin el dominio</li>
 <li><code>QUERY_STRING</code>: todo lo que va después de <code>?</code> en la URL (p.ej: <code>heroe=Batman&amp;nombre=Bruce</code>)</li>
 </ul>
+<p>Más información en <a href="https://www.php.net/manual/es/reserved.variables.server.php">https://www.php.net/manual/es/reserved.variables.server.php</a></p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;PHP_SELF&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;SERVER_SOFTWARE&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Apache/2.4.46 (Win64) OpenSSL/1.1.1g PHP/7.4.9</span>
@@ -530,15 +531,19 @@
 <span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;REQUEST_URI&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// /u4/401server.php?heroe=Batman</span>
 <span class="linenos" data-linenos="8 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;QUERY_STRING&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// heroe=Batman</span>
 </code></pre></div>
-<p>Otras propiedades relacionadas:
-* <code>PATH_INFO</code>: ruta extra tras la petición. Si la URL es <code>http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar</code>, entonces <code>$_SERVER['PATH_INFO']</code> será <code>/algo/cosa</code>.
-* <code>REMOTE_HOST</code>: hostname que hizo la petición
-* <code>REMOTE_ADDR</code>: IP del cliente
-* <code>AUTH_TYPE</code>: tipo de autenticación (p.ej: Basic)
-* <code>REMOTE_USER</code>: nombre del usuario autenticado</p>
-<p>Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:
-* <code>HTTP_USER_AGENT</code>: agente (navegador)
-* <code>HTTP_REFERER</code>: página desde la que se hizo la petición</p>
+<p>Otras propiedades relacionadas:</p>
+<ul>
+<li><code>PATH_INFO</code>: ruta extra tras la petición. Si la URL es <code>http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar</code>, entonces <code>$_SERVER['PATH_INFO']</code> será <code>/algo/cosa</code>.</li>
+<li><code>REMOTE_HOST</code>: hostname que hizo la petición</li>
+<li><code>REMOTE_ADDR</code>: IP del cliente</li>
+<li><code>AUTH_TYPE</code>: tipo de autenticación (p.ej: Basic)</li>
+<li><code>REMOTE_USER</code>: nombre del usuario autenticado</li>
+</ul>
+<p>Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:</p>
+<ul>
+<li><code>HTTP_USER_AGENT</code>: agente (navegador)</li>
+<li><code>HTTP_REFERER</code>: página desde la que se hizo la petición</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_USER_AGENT&quot;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36</span>
 </code></pre></div>
