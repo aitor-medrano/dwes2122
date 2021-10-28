@@ -697,7 +697,7 @@
 <p>En cambio, si usamos <em>Docker</em>, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo <code>Dockerfile</code> y añadir el siguiente comando:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">COPY</span> --from<span class="o">=</span>composer:2.0 /usr/bin/composer /usr/local/bin/composer
 </code></pre></div>
-<p>Para facilitar el trabajo, hemos creado una <a href="./recursos/plantillaAPC.zip">plantilla ya preparada</a>.</p>
+<p>Para facilitar el trabajo, hemos creado una <a href="recursos/plantilla-APC.zip">plantilla ya preparada</a>.</p>
 <p>Es importante que dentro del contenedor comprobemos que tenemos la v2:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
 </code></pre></div>
