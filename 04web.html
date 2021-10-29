@@ -838,18 +838,18 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#39;login.php&#39;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#39;post&#39;</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 4 "></span>     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;error&#39;</span><span class="p">&gt;</span><span class="cp">&lt;?php echo $error; ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 5 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span><span class="p">&gt;</span>Usuario:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputUsuario&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 9 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">&gt;</span>Contraseña:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputPassword&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
-<span class="linenos" data-linenos="12 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="13 "></span>     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;submit&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;enviar&#39;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#39;Enviar&#39;</span> <span class="p">/&gt;</span>
-<span class="linenos" data-linenos="15 "></span>     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;error&#39;</span><span class="p">&gt;</span><span class="cp">&lt;?php echo $error; ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span><span class="p">&gt;</span>Usuario:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputUsuario&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;usuario&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#39;password&#39;</span><span class="p">&gt;</span>Contraseña:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;inputPassword&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;password&#39;</span> <span class="na">maxlength</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;fila&#39;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;submit&#39;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;enviar&#39;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#39;Enviar&#39;</span> <span class="p">/&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="16 "></span>  <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="17 "></span>  <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -890,35 +890,35 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]))</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 9 "></span>       <span class="k">die</span><span class="p">(</span><span class="s2">&quot;Error - debe &lt;a href=&#39;index.php&#39;&gt;identificarse&lt;/a&gt;.&lt;br /&gt;&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
-<span class="linenos" data-linenos="12 "></span><span class="x">&lt;!DOCTYPE html&gt;</span>
-<span class="linenos" data-linenos="13 "></span><span class="x">&lt;html lang=&quot;es&quot;&gt;</span>
-<span class="linenos" data-linenos="14 "></span><span class="x">&lt;head&gt;</span>
-<span class="linenos" data-linenos="15 "></span><span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
-<span class="linenos" data-linenos="16 "></span><span class="x">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
-<span class="linenos" data-linenos="17 "></span><span class="x">    &lt;title&gt;Listado de productos&lt;/title&gt;</span>
-<span class="linenos" data-linenos="18 "></span><span class="x">&lt;/head&gt;</span>
-<span class="linenos" data-linenos="19 "></span><span class="x">&lt;body&gt;</span>
-<span class="linenos" data-linenos="20 "></span><span class="x">    &lt;h1&gt;Bienvenido </span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/h1&gt;</span>
-<span class="linenos" data-linenos="21 "></span><span class="x">    &lt;p&gt;Pulse &lt;a href=&quot;salir.php&quot;&gt;aquí&lt;/a&gt; para salir&lt;/p&gt;</span>
-<span class="linenos" data-linenos="22 "></span><span class="x">    &lt;p&gt;Volver al &lt;a href=&quot;main.php&quot;&gt;inicio&lt;/a&gt;&lt;/p&gt;</span>
-<span class="linenos" data-linenos="23 "></span><span class="x">    &lt;h2&gt;Listado de productos&lt;/h2&gt;</span>
-<span class="linenos" data-linenos="24 "></span><span class="x">    &lt;ul&gt;</span>
-<span class="linenos" data-linenos="25 "></span><span class="x">        &lt;li&gt;Producto 1&lt;/li&gt;</span>
-<span class="linenos" data-linenos="26 "></span><span class="x">        &lt;li&gt;Producto 2&lt;/li&gt;</span>
-<span class="linenos" data-linenos="27 "></span><span class="x">        &lt;li&gt;Producto 3&lt;/li&gt;</span>
-<span class="linenos" data-linenos="28 "></span><span class="x">    &lt;/ul&gt;</span>
-<span class="linenos" data-linenos="29 "></span><span class="x">&lt;/body&gt;</span>
-<span class="linenos" data-linenos="30 "></span><span class="x">&lt;/html&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Pulse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;salir.php&quot;</span><span class="p">&gt;</span>aquí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> para salir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Volver al <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;main.php&quot;</span><span class="p">&gt;</span>inicio<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="29 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="30 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Finalmente, necesitamos la opción de cerrar la sesión que colocamos en <code>logout.php</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Recuperamos la información de la sesión</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="nb">session_start</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">session_start</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span>
-<span class="linenos" data-linenos="5 "></span>    <span class="c1">// Y la vaciamos</span>
-<span class="linenos" data-linenos="6 "></span>    <span class="nb">session_unset</span><span class="p">();</span>
-<span class="linenos" data-linenos="7 "></span>    <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: index.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// Y la vaciamos</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: index.php&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <div class="admonition warning">
