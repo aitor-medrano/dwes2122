@@ -6,20 +6,18 @@
 
     <hr />
 
-    Resultado de aprendizaje:
+    Resultado de aprendizaje y criterios de evaluación:
 
     2. Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.
 
-    Criterios de evaluación:
-
-    1. Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.
-    2. Se han identificado las principales tecnologías asociadas.
-    3. Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.
-    4. Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.
-    5. Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.
-    6. Se han utilizado directivas para modificar el comportamiento predeterminado.
-    7. Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.
-    8. Se han identificado los ámbitos de utilización de las variables.
+        1. Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.
+        2. Se han identificado las principales tecnologías asociadas.
+        3. Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.
+        4. Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.
+        5. Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.
+        6. Se han utilizado directivas para modificar el comportamiento predeterminado.
+        7. Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.
+        8. Se han identificado los ámbitos de utilización de las variables.
 
     <hr />
 
@@ -912,6 +910,8 @@ declare(strict_types=1);
 Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
 `int`, `float`, `string`, `bool`, `object` y `array`.
 
+Si una función no devuelve nada se indica mediante el tipo `void`.
+
 ``` php
 <?php
 declare(strict_types=1);
@@ -923,7 +923,7 @@ function suma(int $a, int $b) : int {
 $num = 33;
 echo suma(10, 30);
 echo suma(10, $num);
-echo suma("10", 30);
+echo suma("10", 30); // error por tipificación estricta, sino daría 40
 ?>
 ```
 
@@ -1553,23 +1553,23 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:
 
 240. `240arrayPar.php`: Crea las siguientes funciones:
 
-    * Una función que averigüe si un número es par: `esPar($num): bool`
-    * Una función que devuelva un array de tamaño `$tam` con números aleatorios comprendido entre `$min` y `$max` : `arrayAleatorio($tam, $min, $max)`
-    * Una función que reciba un `$array` por referencia y devuelva la cantidad de números pares que hay almacenados: `arrayPares(&$array): int`
+    * Una función que averigüe si un número es par: `esPar(int $num): bool`
+    * Una función que devuelva un array de tamaño `$tam` con números aleatorios comprendido entre `$min` y `$max` : `arrayAleatorio(int $tam, int $min, int $max) : array`
+    * Una función que reciba un `$array` por referencia y devuelva la cantidad de números pares que hay almacenados: `arrayPares(array &$array): int`
 
 241. `241parametrosVariables.php`: Crea las siguientes funciones:
 
-    * Una función que devuelva el mayor de todos los números recibidos como parámetros: `function mayor(): int`. No puedes usar la función `max()`.
-    * Una función que concatene todos los parámetros recibidos: `function concatenar() : string`
+    * Una función que devuelva el mayor de todos los números recibidos como parámetros: `function mayor(): int`. Utiliza las funciones `func_get_args()`, etc... No puedes usar la función `max()`.
+    * Una función que concatene todos los parámetros recibidos separándolos con un espacio: `function concatenar(...$palabras) : string`. Utiliza el operador `...`.
 
 242. `242matematicas.php`: Añade las siguientes funciones:
 
-    * `digitos(int $num): int` → devuelve la cantidad de dígitos de un número
-    * `digitoN(int $num, int $pos): int` → devuelve el dígito que ocupa, empezando por la izquierda, la posición `$pos`
-    * `quitaPorDetras(int $num, int $cant): int` → le quita por detrás (derecha) `$cant` dígitos
+    * `digitos(int $num): int` → devuelve la cantidad de dígitos de un número.
+    * `digitoN(int $num, int $pos): int` → devuelve el dígito que ocupa, empezando por la izquierda, la posición `$pos`.
+    * `quitaPorDetras(int $num, int $cant): int` → le quita por detrás (derecha) `$cant` dígitos.
     * `quitaPorDelante(int $num, int $cant): int` → le quita por delante (izquierda) `$cant` dígitos.
 
-    Para probar las funciones, haz uso tanto de paso de argumentos posiciones como argumentos con nombre.
+    Para probar las funciones, haz uso tanto de paso de argumentos posicionales como argumentos con nombre.
 
 243. `243biblioteca.php`: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.  
 `243arrayFunciones.php`: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.
@@ -1590,19 +1590,19 @@ Muestra a continuación por pantalla el contenido del array de tal forma que:
 `245imprimeTiquetCompra.php`: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
 ![245](imagenes/02/02p245.png){align=right & width=200}
 246. A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
-`246preparaCompra.php`: similar a `245preparaTiquetCompra.php`, pero separa el encabezado (*Supermercado Severo* en `h1`) y el pie (*Tu supermercado de confianza*) en ficheros externos.  
-`246listaCompra.php`: recibe los datos del anterior, y reutiliza parte de la plantilla cambiando la tabla por una lista desordenada de los productos junto a su precio.
-247. Vamos a simular un formulario de acceso mediante el uso de `include`:
+`246preparaCompra.php`: similar a `245preparaTiquetCompra.php`, pero separando el encabezado (*Supermercado Severo* en `h1`) y el pie (*Tu supermercado de confianza*) en ficheros externos y referenciando a ellos mediante `include`.  
+`246listaCompra.php`: recibe los datos del anterior, y reutiliza parte de `245imprimeTiquetCompra.php` cambiando la tabla por una lista desordenada de los productos junto a su precio.
+247. Vamos a simular un formulario de acceso:
 
-    * `247login.php`: el formulario de entrada
-    * `247compruebaLogin.php`: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control a:
+    * `247login.php`: el formulario de entrada, que solicita el usuario y contraseña.
+    * `247compruebaLogin.php`: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control mediante el uso de `include` a:
         * `247ok.php`: El usuario introducido es correcto
         * `247ko.php`: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.
 
 ### Funciones predefinidas
 
 Todos los ejercicios se deben realizar creando nuevas funciones para encapsular el código.
-Además de la propiafunción, el ejercicio debe contener código para poder probarlo.
+Además de la propia función, el ejercicio debe contener código para poder probarlo.
 
 250. `250fraseImpares.php`: Lee una frase y devuelve una nueva con solo los caracteres de las posiciones impares.
 251. `251vocales.php`: A partir de una frase, devuelve la cantidad de cada una de las vocales, y el total de ellas.

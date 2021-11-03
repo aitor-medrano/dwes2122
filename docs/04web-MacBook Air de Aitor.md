@@ -88,19 +88,16 @@ Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:
 
 ``` html
 <form action="formulario.php" method="GET">
-    <p><label for="nombre">Nombre del alumno:</label>
-        <input type="text" name="nombre" id="nombre" value="" />
-    </p>
+    <p>Nombre del alumno:
+        <input type="text" name="nombre" value="" /></p>
 
-    <p><input type="checkbox" name="modulos[]" id="modulosDWES" value="DWES" />
-        <label for="modulosDWES">Desarrollo web en entorno servidor</label>
-    </p>
+    <p><input type="checkbox" name="modulos[]" value="DWES" />
+        Desarrollo web en entorno servidor<br /></p>
 
-    <p><input type="checkbox" name="modulos[]" id="modulosDWEC" value="DWEC" />
-        <label for="modulosDWEC">Desarrollo web en entorno cliente</label>
-    </p>
-
-    <input type="submit" value="Enviar" name="enviar" />
+    <p><input type="checkbox" name="modulos[]" value="DWEC" />
+        Desarrollo web en entorno cliente<br /></p>
+    
+    <input type="submit" value="Enviar" name="enviar"/>
 </form>
 ```
 
@@ -161,7 +158,7 @@ foreach ($lenguajes as $lenguaje) {
 
 Un *sticky form* es un formulario que recuerda sus valores. Para ello, hemos de rellenar los atributos `value` de los elementos HTML con la información que contenían:
 
-``` html+php
+``` php
 <?php
 if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
   // Aquí se incluye el código a ejecutar cuando los datos son correctos
@@ -171,16 +168,16 @@ if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
   $modulos = $_POST['modulos'] ?? [];
   ?>
   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-   <p><label for="nombre">Nombre del alumno:</label>
-    <input type="text" name="nombre" id="nombre" value="<?= $nombre ?>" /> 
+   <p>Nombre del alumno:
+    <input type="text" name="nombre" value="<?= $nombre ?>" /> 
    </p>
-   <p><input type="checkbox" name="modulos[]" id="modulosDWES" value="DWES"
+   <p><input type="checkbox" name="modulos[]" value="DWES" 
     <?php if(in_array("DWES",$modulos)) echo 'checked="checked"'; ?> />
-    <label for="modulosDWES">Desarrollo web en entorno servidor</label>
+    Desarrollo web en entorno servidor<br />
    </p>
-   <p><input type="checkbox" name="modulos[]" id="modulosDWEC" value="DWEC"
+   <p><input type="checkbox" name="modulos[]" value="DWEC"
     <?php if(in_array("DWEC",$modulos)) echo 'checked="checked"'; ?> />
-    <label for="modulosDWEC">Desarrollo web en entorno cliente</label>
+    Desarrollo web en entorno cliente<br />
    </p>
    <input type="submit" value="Enviar" name="enviar"/>
   </form>
@@ -415,18 +412,18 @@ Vamos a ver en código cada paso del proceso. Comenzamos con el archivo `index.p
 <form action='login.php' method='post'>
   <fieldset>
     <legend>Login</legend>
-    <div><span class='error'><?php echo $error; ?></span></div>
-    <div class='fila'>
-        <label for='usuario'>Usuario:</label><br />
-        <input type='text' name='inputUsuario' id='usuario' maxlength="50" /><br />
-    </div>
-    <div class='fila'>
-        <label for='password'>Contraseña:</label><br />
-        <input type='password' name='inputPassword' id='password' maxlength="50" /><br />
-    </div>
-    <div class='fila'>
-        <input type='submit' name='enviar' value='Enviar' />
-    </div>
+     <div><span class='error'><?php echo $error; ?></span></div>
+     <div class='fila'>
+	<label for='usuario'>Usuario:</label><br />
+ 	<input type='text' name='inputUsuario' id='usuario' maxlength="50" /><br />
+     </div>
+     <div class='fila'>
+	<label for='password'>Contraseña:</label><br />
+	<input type='password' name='inputPassword' id='password' maxlength="50" /><br />
+     </div>
+     <div class='fila'>
+	<input type='submit' name='enviar' value='Enviar' />
+     </div>
   </fieldset>
   </form>
 ```
@@ -462,7 +459,7 @@ if (isset($_POST['enviar'])) {
 
 Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. Por ejemplo, en `main.php` tendríamos:
 
-``` html+php
+``` php
 <?php
     // Recuperamos la información de la sesión
     if(!isset($_SESSION)) {
@@ -499,12 +496,12 @@ Finalmente, necesitamos la opción de cerrar la sesión que colocamos en `logout
 
 ``` php
 <?php
-// Recuperamos la información de la sesión
-session_start();
-
-// Y la vaciamos
-session_unset();
-header("Location: index.php");
+    // Recuperamos la información de la sesión
+    session_start();
+    
+    // Y la vaciamos
+    session_unset();
+    header("Location: index.php");
 ?>
 ```
 

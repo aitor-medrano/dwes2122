@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/01arquitecturas.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.11">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
     
     
       
@@ -20,14 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3754935a.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.5143246d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#02a6f2">
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -64,13 +60,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="teal">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
   
     
     <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,7 +87,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -114,6 +116,28 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -124,14 +148,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -148,6 +176,7 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
@@ -155,63 +184,6 @@
       
         
           
-<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="index.html" class="md-tabs__link">
-      Inicio
-    </a>
-  </li>
-
-      
-        
-  
-  
-    
-  
-
-
-  <li class="md-tabs__item">
-    <a href="01arquitecturas.html" class="md-tabs__link md-tabs__link--active">
-      1.- Arquitecturas Web
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="02php.html" class="md-tabs__link">
-      2.- El lenguaje PHP
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="03phpoo.html" class="md-tabs__link">
-      3.- PHP Orientado a Objetos
-    </a>
-  </li>
-
-      
-    </ul>
-  </div>
-</nav>
         
       
       <main class="md-main" data-md-component="main">
@@ -224,12 +196,10 @@
                   <div class="md-sidebar__inner">
                     
 
-  
-
 
   
 
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -307,6 +277,13 @@
           <li class="md-nav__item">
   <a href="#pagina-web-dinamica" class="md-nav__link">
     Página web dinámica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-page-application" class="md-nav__link">
+    Single Page Application
   </a>
   
 </li>
@@ -484,6 +461,36 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04web.html" class="md-nav__link">
+        4.- Programación Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05herramientas.html" class="md-nav__link">
+        5.- Herramientas Web
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -562,6 +569,13 @@
 <p class="admonition-title">Perfil <em>Full-stack</em></p>
 <p>En las ofertas de trabajo cuando hacen referencia a un <em>Full-stack developer</em>, están buscando un perfil que domina tanto el <em>front-end</em> como el <em>back-end</em>.</p>
 </div>
+<h3 id="single-page-application"><em>Single Page Application</em><a class="headerlink" href="#single-page-application" title="Permanent link">&para;</a></h3>
+<p>A día de hoy, gran parte del desarrollo web está transicionando de una arquitectura web cliente-servidor clásica donde el cliente realiza una llamada al backend, por una arquitectura SPA donde el cliente gana mucho mayor peso y sigue una programación reactiva que accede a servicios remotos REST que realizan las operaciones (comunicandose mediante JSON).</p>
+<figure>
+  <img src="imagenes/01/01spa.png" />
+  <figcaption>Arquitectura tradicional vs SPA</figcaption>
+</figure>
+
 <h2 id="arquitectura-de-3-capas">Arquitectura de 3 capas<a class="headerlink" href="#arquitectura-de-3-capas" title="Permanent link">&para;</a></h2>
 <p>Hay que distinguir entre capas <strong>físicas</strong> (<em>tier</em>) y capas <strong>lógicas</strong> (<em>layer</em>).</p>
 <h3 id="tier">Tier<a class="headerlink" href="#tier" title="Permanent link">&para;</a></h3>
@@ -700,11 +714,16 @@
 <p>Docker (<a href="https://www.docker.com">https://www.docker.com</a>) es un gestor de contenedores, considerando un contenedor como un método de virtualización del sistema operativo.</p>
 <p>El uso de contenedores requiere menos recursos que una máquina virtual, por lo tanto, su lanzamiento y detención son más rápidos que las máquinas virtuales.</p>
 <p>Así pues, <em>Docker</em> permite crear, probar e implementar aplicaciones rápidamente, a partir de una serie de plantillas que se conocen como imágenes de <em>Docker</em>.</p>
-<p>Para ello es necesario tener instalado <em>Docker Desktop</em> (<a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a>) en nuestros entornos de desarrollo. En los ordenadores del aula ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente <em>WSL 2</em>, el cual es un subsistema de <em>Linux</em> dentro de <em>Windows</em>.</p>
+<p>Para ello es necesario tener instalado <em>Docker Desktop</em> (<a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a>) en nuestros entornos de desarrollo (el cual ya incluye en nucleo de <em>Docker</em> y la herramienta <em>docker compose</em>). En los ordenadores del aula ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente <em>WSL 2</em>, el cual es un subsistema de <em>Linux</em> dentro de <em>Windows</em>.</p>
 <p>A lo largo del curso iremos creando diferentes contenedores con los servicios necesarios, de manera que cada vez sólo trabajemos con el software mínimo.</p>
-<h4 id="plantilla-apache-php">Plantilla Apache + PHP<a class="headerlink" href="#plantilla-apache-php" title="Permanent link">&para;</a></h4>
-<p><em>Docker</em> se basa en el uso de imágenes para crear contenedores. <em>Docker Compose</em> simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en <em>Docker Compose</em> utilizando una plantilla que únicamente va a contener como servicios Apache y PHP.</p>
+<div class="admonition caution">
+<p class="admonition-title">Versiones</p>
+<p>A lo largo del curso vamos a usar PHP <code>8.0</code>. Respecto a <em>Docker</em>, para escribir los apuntes hemos utilizado la version <code>20.10</code> y la version <code>2.19</code> de <em>docker compose</em>. Finalmente, la versión de <em>Docker Desktop</em> que hemos utilizado es la <code>4.0</code>.</p>
+</div>
+<h4 id="plantilla-servidor-web-php">Plantilla Servidor Web + PHP<a class="headerlink" href="#plantilla-servidor-web-php" title="Permanent link">&para;</a></h4>
+<p><em>Docker</em> se basa en el uso de imágenes para crear contenedores. <em>Docker Compose</em> simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en <em>Docker Compose</em> utilizando una plantilla que únicamente va a contener como servicios Apache/Nginx y PHP.</p>
 <p>Para ello, vamos a rellenar el archivo <code>docker-compose.yaml</code> con:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Apache y PHP</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Services</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nt">services</span><span class="p">:</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="c1"># Apache + PHP</span>
@@ -718,8 +737,31 @@
 <span class="linenos" data-linenos="11 "></span>    <span class="nt">ports</span><span class="p">:</span>
 <span class="linenos" data-linenos="12 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80:80</span>
 </code></pre></div>
-<p>Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta <code>src</code> donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla disponible para su <a href="recursos/plantilla-AP.zip">descarga</a>.</p>
-<p>Cuando estemos listo, lanzaremos el servicio mediante:</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Nginx y PHP</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Services</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nt">services</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="nt">nginx</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx:1.19</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nt">ports</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 7 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80:80</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">volumes</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 9 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./src:/var/www/php</span>
+<span class="linenos" data-linenos="10 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./.docker/nginx/conf.d:/etc/nginx/conf.d</span> <span class="c1"># cargamos la configuración de un fichero externo</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nt">depends_on</span><span class="p">:</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">php</span>   <span class="c1"># enlazamos nginx con php</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>  <span class="nt">php</span><span class="p">:</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">php:8.0-fpm</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="nt">working_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/php</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nt">volumes</span><span class="p">:</span>
+<span class="linenos" data-linenos="18 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./src:/var/www/php</span>
+</code></pre></div>
+</div>
+</div>
+<p>Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta <code>src</code> donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla de <a href="recursos/plantilla-AP.zip">Apache/PHP</a> (<a href="recursos/plantilla-AP2.zip">versión 2</a> con <code>a2enmod rewrite</code>) o <a href="recursos/plantilla-NP.zip">Nginx/PHP</a> disponible para su descarga.</p>
+<p>Cuando estemos listos, lanzaremos el servicio mediante:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">docker-compose up -d</span>
 </code></pre></div>
 <p>Si queremos ver el contenido de los archivos de log del servicio utilizaremos:</p>
@@ -751,6 +793,10 @@
 <p class="admonition-title">Docker stack</p>
 <p>Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto <em>Devilbox</em> (<a href="http://devilbox.org">http://devilbox.org</a>) como <em>Laradock</em> (<a href="https://laradock.io">https://laradock.io</a>)</p>
 </div>
+<div class="admonition question">
+<p class="admonition-title">Pero quiero saber cómo funciona...</p>
+<p>En el módulo de <em>Despliegue de aplicaciones</em> estudiaréis en profundidad, además de Docker, Apache y otros servicios que nos servirán de ayuda para el desarrollo en entorno servidor.</p>
+</div>
 <h3 id="entorno-de-desarrollo">Entorno de desarrollo<a class="headerlink" href="#entorno-de-desarrollo" title="Permanent link">&para;</a></h3>
 <p>En este curso vamos a emplear <em>Visual Studio Code</em> (<a href="https://code.visualstudio.com">https://code.visualstudio.com</a>) como entorno de desarrollo (IDE). Existen otras alternativas, siendo <a href="https://www.jetbrains.com/es-es/phpstorm/">PhpStorm</a> la más conocida pero siendo de pago. Otra posibilidad es utilizar <a href="https://www.eclipse.org/pdt/">Eclipse</a>, aunque es un entorno bastante pesado.</p>
 <p><em>VSCode</em> es un editor de código fuente que se complementa mediante extensiones. Para facilitar el trabajo a lo largo del curso vamos a utilizar las siguientes extensiones:</p>
@@ -759,7 +805,7 @@
 <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a></li>
 </ul>
 <p>En la siguiente sesión comenzaremos a utilizar <em>Intelephense</em> pero en esta sesión nos vamos a centrar en <em>Docker</em> (más adelante instalaremos nuevas extensiones).</p>
-<p>Por ejemplo, si abrís la extensión de <em>Docker</em>, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.</p>
+<p>Por ejemplo, si abrimos la extensión de <em>Docker</em>, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.</p>
 <figure>
   <img src="imagenes/01/vscodedocker.png" width="300"/>
   <figcaption>Opciones mediante extensión Docker en VSCode</figcaption>
@@ -767,7 +813,7 @@
 
 <h3 id="hola-mundo">Hola Mundo<a class="headerlink" href="#hola-mundo" title="Permanent link">&para;</a></h3>
 <p>Y como no, nuestro primer ejemplo será un <em>Hola Mundo</em> en PHP.</p>
-<p>Si nombramos el archivo como <code>index.jsp</code>, al acceder a <code>http://localhost</code> automáticamente cargará el resultado:</p>
+<p>Si nombramos el archivo como <code>index.php</code>, al acceder a <code>http://localhost</code> automáticamente cargará el resultado:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;es&quot;</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -785,6 +831,7 @@
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Curso de introducción a Docker, por <em>Sergi García Barea</em> : <a href="https://sergarb1.github.io/CursoIntroduccionADocker/">https://sergarb1.github.io/CursoIntroduccionADocker/</a></li>
+<li>Artículo <a href="https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/">Arquitecturas Web y su evolución</a></li>
 </ul>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="101">
@@ -815,12 +862,16 @@ Anota los valores de:</p>
 </ul>
 </li>
 <li>
-<p>Abre el archivo <code>php.ini</code> e indica para qué sirven las siguientes propiedades y qué valores tienen:</p>
+<p>Abre el archivo <code>php.ini-production</code> que está dentro del contenedor (puedes averiguar la ruta a partir de la propiedad <em>Configuration File (php.ini) Path</em>) e indica para qué sirven las siguientes propiedades y qué valores contienen:</p>
 <ul>
 <li><code>file_uploads</code></li>
 <li><code>max_execution_time</code></li>
 <li><code>short_open_tag</code></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">php.ini</p>
+<p>Es el archivo de configuración de PHP, y en toda instalación vienen dos plantillas (<code>php.ini-development</code> y <code>php.ini-production</code>) para que elijamos los valores más acordes a nuestro proyecto y creemos nuestro archivo propio de <code>php.ini</code>.</p>
+</div>
 </li>
 </ol>
                 
@@ -833,11 +884,6 @@ Anota los valores de:</p>
             </article>
           </div>
         </div>
-        
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
-            Volver al principio
-          </a>
         
       </main>
       
@@ -887,10 +933,12 @@ Anota los valores de:</p>
             2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -921,10 +969,10 @@ Anota los valores de:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      <script src="assets/javascripts/bundle.f89c2efe.min.js"></script>
       
     
   </body>
