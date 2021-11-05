@@ -792,8 +792,7 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <span class="linenos" data-linenos="3 "></span><span class="nb">session_id</span><span class="p">()</span> <span class="c1">// devuelve el id</span>
 <span class="linenos" data-linenos="4 "></span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">]</span> <span class="o">=</span> <span class="nx">valor</span><span class="p">;</span> <span class="c1">// inserción</span>
 <span class="linenos" data-linenos="5 "></span><span class="nb">session_destroy</span><span class="p">();</span> <span class="c1">// destruye la sesión</span>
-<span class="linenos" data-linenos="6 "></span><span class="nb">session_unset</span><span class="p">();</span> <span class="c1">// vacía la sesión</span>
-<span class="linenos" data-linenos="7 "></span><span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">];</span> <span class="c1">// borrado</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="nx">clave</span><span class="p">];</span> <span class="c1">// borrado</span>
 </code></pre></div>
 <p>Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. Por ejemplo, en <code>sesion1.php</code> tendríamos</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
@@ -900,7 +899,7 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <span class="linenos" data-linenos="18 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="19 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="20 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;usuario&#39;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Pulse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;salir.php&quot;</span><span class="p">&gt;</span>aquí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> para salir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Pulse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;logout.php&quot;</span><span class="p">&gt;</span>aquí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> para salir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Volver al <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;main.php&quot;</span><span class="p">&gt;</span>inicio<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="23 "></span>    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="24 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
@@ -977,10 +976,14 @@ Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegid
 </li>
 <li>
 <p><code>408fondoSesion1.php</code>: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
-    <code>408fondoSesion2.php</code>: Debe mostrar el color y dar la posibilidad de volver a la página anterior mediante un enlace, y de vaciar la sesión y volver a la página anterior.</p>
+    <code>408fondoSesion2.php</code>: Debe mostrar el color y dar la posibilidad de:</p>
+<ul>
+<li>volver a la página anterior mediante un enlace</li>
+<li>y mediante otro enlace, vaciar la sesión y volver a la página anterior.</li>
+</ul>
 </li>
 <li>
-<p><code>409formulariosN.html</code>: Haciendo uso de la la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
+<p><code>409formulariosN.html</code>: Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
 <ul>
 <li><code>409formulario1.php</code> envía los datos (nombre y apellidos, email, url y sexo) a <code>409formulario2.php</code>.</li>
 <li><code>409formulario2.php</code> lee los datos, los mete en la sesión, y luego muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía los datos a <code>409formulario3.php</code>.</li>
