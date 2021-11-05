@@ -359,7 +359,6 @@ session_start(); // carga la sesión
 session_id() // devuelve el id
 $_SESSION[clave] = valor; // inserción
 session_destroy(); // destruye la sesión
-session_unset(); // vacía la sesión
 unset($_SESSION[clave]; // borrado
 ```
 
@@ -369,8 +368,8 @@ Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la 
 <?php
 session_start(); // inicializamos
 $_SESSION["ies"] = "IES Severo Ochoa"; // asignación
-$intituto = $_SESSION["ies"]; // recuperación
-echo "Estamos en el $intituto";
+$instituto = $_SESSION["ies"]; // recuperación
+echo "Estamos en el $instituto ";
 ?>
 <br />
 <a href="sesion2.php">Y luego</a>
@@ -381,8 +380,8 @@ Y posteriormente podemos acceder a la sesión en `sesion2.php`:
 ``` php
 <?php
 session_start();
-$intituto = $_SESSION["ies"]; // recuperación
-echo "Otra vez, en el $intituto";
+$instituto = $_SESSION["ies"]; // recuperación
+echo "Otra vez, en el $instituto ";
 ?>
 ```
 
@@ -483,7 +482,7 @@ Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. P
 </head>
 <body>
     <h1>Bienvenido <?= $_SESSION['usuario'] ?></h1>
-    <p>Pulse <a href="salir.php">aquí</a> para salir</p>
+    <p>Pulse <a href="logout.php">aquí</a> para salir</p>
     <p>Volver al <a href="main.php">inicio</a></p>
     <h2>Listado de productos</h2>
     <ul>
@@ -502,8 +501,8 @@ Finalmente, necesitamos la opción de cerrar la sesión que colocamos en `logout
 // Recuperamos la información de la sesión
 session_start();
 
-// Y la vaciamos
-session_unset();
+// Y la destruimos
+session_destroy();
 header("Location: index.php");
 ?>
 ```
@@ -555,9 +554,11 @@ Además, debes permitir que el usuario reinicialice su contador de visitas.
 Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegido y la próxima vez que se cargue la pagina, lo haga con el último color seleccionado.
 
 408. `408fondoSesion1.php`: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
-    `408fondoSesion2.php`: Debe mostrar el color y dar la posibilidad de volver a la página anterior mediante un enlace, y de vaciar la sesión y volver a la página anterior.
+    `408fondoSesion2.php`: Debe mostrar el color y dar la posibilidad de:
+    * volver a la página anterior mediante un enlace
+    * y mediante otro enlace, vaciar la sesión y volver a la página anterior.
 
-409. `409formulariosN.html`: Haciendo uso de la la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
+409. `409formulariosN.html`: Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
 
     * `409formulario1.php` envía los datos (nombre y apellidos, email, url y sexo) a `409formulario2.php`.
     * `409formulario2.php` lee los datos, los mete en la sesión, y luego muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía los datos a `409formulario3.php`.
