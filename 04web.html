@@ -798,8 +798,8 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span> <span class="c1">// inicializamos</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IES Severo Ochoa&quot;</span><span class="p">;</span> <span class="c1">// asignación</span>
-<span class="linenos" data-linenos="4 "></span><span class="nv">$intituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
-<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Estamos en el </span><span class="si">$intituto</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$instituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Estamos en el </span><span class="si">$instituto </span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
 <span class="linenos" data-linenos="7 "></span><span class="x">&lt;br /&gt;</span>
 <span class="linenos" data-linenos="8 "></span><span class="x">&lt;a href=&quot;sesion2.php&quot;&gt;Y luego&lt;/a&gt;</span>
@@ -807,8 +807,8 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <p>Y posteriormente podemos acceder a la sesión en <code>sesion2.php</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">session_start</span><span class="p">();</span>
-<span class="linenos" data-linenos="3 "></span><span class="nv">$intituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">&quot;Otra vez, en el </span><span class="si">$intituto</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$instituto </span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s2">&quot;ies&quot;</span><span class="p">];</span> <span class="c1">// recuperación</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">&quot;Otra vez, en el </span><span class="si">$instituto </span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <div class="admonition note">
