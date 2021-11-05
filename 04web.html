@@ -915,8 +915,8 @@ Cada sesión tiene asociado un almacén de datos mediante el array global <code>
 <span class="linenos" data-linenos="2 "></span><span class="c1">// Recuperamos la información de la sesión</span>
 <span class="linenos" data-linenos="3 "></span><span class="nb">session_start</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span>
-<span class="linenos" data-linenos="5 "></span><span class="c1">// Y la vaciamos</span>
-<span class="linenos" data-linenos="6 "></span><span class="nb">session_unset</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// Y la destruimos</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">session_destroy</span><span class="p">();</span>
 <span class="linenos" data-linenos="7 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Location: index.php&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
