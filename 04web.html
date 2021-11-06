@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/04web.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.1c75ef36.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
@@ -983,18 +983,18 @@ Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegid
 </ul>
 </li>
 <li>
-<p><code>409formulariosN.html</code>: Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
+<p>Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio <code>402formulario.php</code> en 2 subformularios:</p>
 <ul>
 <li><code>409formulario1.php</code> envía los datos (nombre y apellidos, email, url y sexo) a <code>409formulario2.php</code>.</li>
-<li><code>409formulario2.php</code> lee los datos, los mete en la sesión, y luego muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía los datos a <code>409formulario3.php</code>.</li>
-<li><code>409formulario3.php</code>se muestran todos los datos recuperados que están almacenados en la sesión.</li>
+<li><code>409formulario2.php</code> lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a <code>409formulario3.php</code>.</li>
+<li><code>409formulario3.php</code> recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.</li>
 </ul>
 </li>
 </ol>
 <h3 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h3>
 <p>En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.</p>
 <ol start="410">
-<li><code>410index.html</code>: formulario de inicio de sesión</li>
+<li><code>410index.php</code>: formulario de inicio de sesión</li>
 <li><code>411login.php</code>: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de <code>usuario/usuario</code> y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.</li>
 <li><code>412peliculas.php</code>: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.</li>
 <li><code>413logout.php</code>: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML</li>
@@ -1160,10 +1160,10 @@ Una vez eliminado, debe volver al listado de clientes.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="assets/javascripts/bundle.c7d1b464.min.js"></script>
       
     
   </body>
