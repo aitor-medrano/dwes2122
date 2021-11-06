@@ -36,9 +36,9 @@
 ## 4.- Programación Web (12h)
 
 - [X] 1.- (25) Formularios. Ejercicios 401-403
-- [ ] 2.- (26) Upload. Cookies. Ejercicios 404-406 - *Martes 2/11/21*
-- [ ] 3.- (27) Cookies. Sesión. Ejercicios 407-409
-- [ ] 4.- (28) Gestión de usuarios. Ejercicios 410-415
+- [X] 2.- (26) Upload. Cookies. Ejercicios 404-406 - *Martes 2/11/21*
+- [X] 3.- (27) Cookies. Sesión. Ejercicios 407-409
+- [X] 4.- (28) Gestión de usuarios. Ejercicios 410-415
 - [ ] 5.- (29) Proyecto Videoclub III. Ejercicios 420-423 - *Lunes 8/11/21*
 - [ ] 6.- (30) Proyecto Videoclub III. Ejercicios 424-426
 
