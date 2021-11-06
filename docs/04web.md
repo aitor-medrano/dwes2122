@@ -558,17 +558,17 @@ Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegid
     * volver a la página anterior mediante un enlace
     * y mediante otro enlace, vaciar la sesión y volver a la página anterior.
 
-409. `409formulariosN.html`: Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
+409. Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
 
     * `409formulario1.php` envía los datos (nombre y apellidos, email, url y sexo) a `409formulario2.php`.
-    * `409formulario2.php` lee los datos, los mete en la sesión, y luego muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía los datos a `409formulario3.php`.
-    * `409formulario3.php`se muestran todos los datos recuperados que están almacenados en la sesión.
+    * `409formulario2.php` lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a `409formulario3.php`.
+    * `409formulario3.php` recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.
 
 ### Autenticación
 
 En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.
 
-410. `410index.html`: formulario de inicio de sesión
+410. `410index.php`: formulario de inicio de sesión
 411. `411login.php`: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de `usuario/usuario` y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.
 412. `412peliculas.php`: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.
 413. `413logout.php`: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML
