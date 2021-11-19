@@ -39,14 +39,14 @@
 - [X] 2.- (26) Upload. Cookies. Ejercicios 404-406 - *Martes 2/11/21*
 - [X] 3.- (27) Cookies. Sesión. Ejercicios 407-409
 - [X] 4.- (28) Gestión de usuarios. Ejercicios 410-415
-- [ ] 5.- (29) Proyecto Videoclub III. Ejercicios 420-423 - *Lunes 8/11/21*
-- [ ] 6.- (30) Proyecto Videoclub III. Ejercicios 424-426
+- [X] 5.- (29) Proyecto Videoclub III. Ejercicios 420-423 - *Lunes 8/11/21*
+- [X] 6.- (30) Proyecto Videoclub III. Ejercicios 424-426
 
 ## 5.- Herramientas Web (16h)
 
-- [ ] 1.- (31) Composer. Introducción Monolog. Ejercicio 501
-- [ ] 2.- (32) Manejadores. Uso de logs con *Monolog*. Ejercicios 502 - 503
-- [ ] 3.- (33) Proyecto Videoclub IV. Ejercicios 511 - 515 / *Lunes 15/11/21*
+- [X] 1.- (31) Composer. Introducción Monolog. Ejercicio 501
+- [X] 2.- (32) Manejadores. Uso de logs con *Monolog*. Ejercicios 502 - 503
+- [X] 3.- (33) Proyecto Videoclub IV. Ejercicios 511 - 515 / *Lunes 15/11/21*
 - [ ] 4.- (34) Documentación con *phpDocumentor* . Ejercicios 521 - 522.
 - [ ] 5.- (35) Webscrapping. Ejercicios 531 - 533.
 - [ ] 6.- (36) Pruebas con *PhpUnit*. Ejercicios 541 - 545.
