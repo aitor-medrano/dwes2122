@@ -14,9 +14,9 @@
     .center { text-align: center; }
     .right { text-align: right; }
 
-    .img-small { max-width: 200px; }
-    .img-medium { max-width: 400px; }
-    .img-large { max-width: 800px; }
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
 
     .leyenda {
         font-size: small;
