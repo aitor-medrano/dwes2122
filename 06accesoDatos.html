@@ -508,22 +508,22 @@
 <li>MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot</li>
 </ul>
 <p>Ahora que ya tenemos el archivo de configuración modificado, podemos ejecutar el comando para instalar el contenedor a través de la consola <span class="alert">en el directorio donde se encuentra nuestro <strong><em>docker-compose.yml</em></strong></span></p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    docker-compose up -d
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>docker-compose up -d
 </code></pre></div>
 <p>En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin es el 800 así que:</p>
 <ul>
 <li>Arrancamos la imagen de docker</li>
 <li>Nos metemos al phpMyAdmin</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    http://localhost:8000
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>http://localhost:8000
 </code></pre></div>
 <div class="center img-medium">
     <img src="imagenes/06/06-bbdd-phpMyAdmin-login.png">
 </div>
 
 <p>Recuerda que hemos configurado el contenedor con un usuario normal y hemos cambiado la contraseña de root, en este caso nos meteremos con las siguientes credenciales.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    usuario: root
-<span class="linenos" data-linenos="2 "></span>    contraseña: 1234
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>usuario: root
+<span class="linenos" data-linenos="2 "></span>contraseña: 1234
 </code></pre></div>
 <h2 id="estructura-de-una-base-de-datos">Estructura de una base de datos<a class="headerlink" href="#estructura-de-una-base-de-datos" title="Permanent link">&para;</a></h2>
 <p>Sabemos que una base de datos tiene muchos campos con sus nombres y valores, pero además sabemos que la base de datos debe tener un nombre. por tanto tendríamos la siguiente estructura para una base de datos:</p>
@@ -557,7 +557,7 @@
 <span class="linenos" data-linenos="16 "></span>         |__id[*]
 <span class="linenos" data-linenos="17 "></span>         |__nombre
 </code></pre></div>
-<div class="leyenda right">
+<div class="leyenda">
     [*] Clave primaria [^] Clave Foránea
 </div>
 
@@ -581,7 +581,7 @@
 
 <p>Este software funciona bajo Apache y PHP y es más que nada una interfaz web para gestionar las bases de datos que tengamos disponibles en nuestro servidor local. Muchos <em>hostings</em> ofrecen esta herramienta por defecto para poder gestionar las BBDD que tengamos configuradas bajo nuestra cuenta.</p>
 <h3 id="creando-una-base-de-datos-dentro-de-phpmyadmin">Creando una base de datos dentro de phpMyAdmin<a class="headerlink" href="#creando-una-base-de-datos-dentro-de-phpmyadmin" title="Permanent link">&para;</a></h3>
-<div class="center img-medium">
+<div class="center img-large">
     <img src="imagenes/06/06-bbdd-phpMyAdmin.gif">
 </div>
 
