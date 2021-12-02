@@ -7,17 +7,6 @@
 <style>
     img { margin: 20px 0; border-radius: 8px; }
 
-    ul {
-        margin: 20px;
-        list-style-type: square;
-    }
-    
-    li:hover {
-        background: #8A9B0F;
-        color: white;
-        cursor: pointer;
-    }
-
     .alert { color: #BD1550; }
     .warning { color: #E97F02; }
     .success { color: #8A9B0F; }
@@ -212,18 +201,20 @@ Cualquier consulta que queramos hacer a una base de datos necesitaremos hacer us
 Veamos como conectarnos con una base de datos a través del código PHP
 
 ``` php
-// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒
+<?php
+    // ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒
 
-// "SERVIDOR", "USUARIO", "CONTRASEÑA", "BASE DE DATOS"
-$conexion = mysqli_connect("d939ebf6a741","tuUsuario","1234","pruebas");
+    // "SERVIDOR", "USUARIO", "CONTRASEÑA", "BASE DE DATOS"
+    $conexion = mysqli_connect("d939ebf6a741","tuUsuario","1234","pruebas");
 
-// COMPROBAMOS LA CONEXIÓN
-if(mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
+    // COMPROBAMOS LA CONEXIÓN
+    if(mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        exit();
+    }
 
-echo "<h1>Bienvenid@ a MySQL !!</h1>";
+    echo "<h1>Bienvenid@ a MySQL !!</h1>";
+?>
 ```
 
 - `servidor`: El servidor donde se encuentra la base de datos que queremos usar suele ser **localhost**, pero en nuestro caso, al utilizar Docker será el nombre de la imagen <span class="warning">***mysql:8.0***</span> que aparece al dejar el ratón encima en el Visual Studio Code
@@ -247,32 +238,34 @@ Durante la instalación de la imagen de Docker, se ha creado una tabla llamada *
 Vamos a recuperar esos datos para ver de qué forma se hace con PHP.
 
 ``` php
-// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒
+<?php
+    // ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒
 
-$conexion = mysqli_connect("d939ebf6a741", "lupa", "1234", "pruebas");
+    $conexion = mysqli_connect("d939ebf6a741", "lupa", "1234", "pruebas");
 
-// COMPROBAMOS LA CONEXIÓN
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
-
-// CONSULTA A LA BASE DE DATOS
-$consulta = "SELECT * FROM `Person`";
-$listaUsuarios = mysqli_query($conexion, $consulta);
-
-// COMPROBAMOS SI EL SERVIDOR NOS HA DEVUELTO RESULTADOS
-if($listaUsuarios) {
-
-    // RECORREMOS CADA RESULTADO QUE NOS DEVUELVE EL SERVIDOR
-    foreach ($listaUsuarios as $usuario) {
-        echo "
-            $usuario[id]
-            $usuario[name]
-            <br>
-        ";
+    // COMPROBAMOS LA CONEXIÓN
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        exit();
     }
-}
+
+    // CONSULTA A LA BASE DE DATOS
+    $consulta = "SELECT * FROM `Person`";
+    $listaUsuarios = mysqli_query($conexion, $consulta);
+
+    // COMPROBAMOS SI EL SERVIDOR NOS HA DEVUELTO RESULTADOS
+    if($listaUsuarios) {
+
+        // RECORREMOS CADA RESULTADO QUE NOS DEVUELVE EL SERVIDOR
+        foreach ($listaUsuarios as $usuario) {
+            echo "
+                $usuario[id]
+                $usuario[name]
+                <br>
+            ";
+        }
+    }
+?>
 ```
 
 Si todo ha salido bien, por pantalla verás el siguiente listado
