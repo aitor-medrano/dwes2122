@@ -1,9 +1,3 @@
-[arquitectura-3-niveles]: imagenes/06/06-bbdd-arquitectura-3-niveles.png "Arquitectura de 3 niveles"
-[phpMyAdmin-logo]: imagenes/06/06-bbdd-phpMyAdmin-logo.png "phpMyAdmin"
-[bbdd-estructura]: imagenes/06/06-bbdd-estructura.png "Estructura de una base de datos"
-
-<!-- ////////////////////////////////////////////////////////////////////// -->
-
 <style>
     img { margin: 20px 0; border-radius: 8px; }
 
@@ -32,7 +26,9 @@ En esta unidad vamos a aprender a acceder a datos que se encuentran en un servid
 
 A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemos (*Apache*, *PHP*) y *MySQL*la que vamos a estudiar en este tema.
 
-![arquitectura-3-niveles]
+<div class="center img-large">
+    <img src="imagenes/06/06-bbdd-arquitectura-3-niveles.png">
+</div>
 
 ## Instalación
 A través de ***XAMPP*** es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP [pulsa aquí](https://www.apachefriends.org/es/download.html).
@@ -123,7 +119,9 @@ Veámoslo en un ejemplo real
     [*] Clave primaria [^] Clave Foránea
 </div>
 
-![bbdd-estructura]
+<div class="center img-large">
+    <img src="imagenes/06/06-bbdd-estructura.png">
+</div>
 
 ## SQL
 
