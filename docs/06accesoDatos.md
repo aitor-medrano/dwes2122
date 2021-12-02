@@ -277,7 +277,7 @@ Si todo ha salido bien, por pantalla verás el siguiente listado
     3 John
     4 Antonio Moreno
 
-### CholloSevero
+## CholloSevero
 
 Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo ***[Chollometro](https://www.chollometro.com)***.
 
