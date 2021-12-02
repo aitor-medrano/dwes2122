@@ -16,7 +16,7 @@
     
     
       
-        <title>Acceso a datos (26h) - Desarrollo Web en Entorno Servidor</title>
+        <title>06accesoDatos - Desarrollo Web en Entorno Servidor</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#acceso-a-datos-26h" class="md-skip">
+        <a href="#acceso-a-datos" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Acceso a datos (26h)
+              06accesoDatos
             
           </span>
         </div>
@@ -314,33 +314,310 @@
               
                 
                 
-                <h1 id="acceso-a-datos-26h">Acceso a datos (26h)<a class="headerlink" href="#acceso-a-datos-26h" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Duración estimada: 26 sesiones</p>
-</blockquote>
-<p>Esta unidad trabaja el acceso a los datos desde PHP.</p>
+                <!-- ////////////////////////////////////////////////////////////////////// -->
+
+<style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    ul {
+        margin: 20px;
+        list-style-type: square;
+    }
+
+    li:hover {
+        background: #8A9B0F;
+        color: white;
+        cursor: pointer;
+    }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; }
+    .img-medium { max-width: 400px; }
+    .img-large { max-width: 800px; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
+<h1 id="acceso-a-datos">Acceso a datos<a class="headerlink" href="#acceso-a-datos" title="Permanent link">&para;</a></h1>
+<!-- 
+> Duración estimada: 26 sesiones
+ -->
+<p>En esta unidad vamos a aprender a acceder a datos que se encuentran en un servidor; recuperando, editando y creando dichos datos a través de una base de datos.</p>
+<p>A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemos (<em>Apache</em>, <em>PHP</em>) y <em>MySQL</em>la que vamos a estudiar en este tema.</p>
+<p><img alt="arquitectura-3-niveles" src="imagenes/06/06-bbdd-arquitectura-3-niveles.png" title="Arquitectura de 3 niveles" /></p>
+<h2 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h2>
+<p>A través de <strong><em>XAMPP</em></strong> es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP <a href="https://www.apachefriends.org/es/download.html">pulsa aquí</a>.</p>
+<p>Con <strong><em>Docker</em></strong> es algo distinto, primero de todo necesitamos descargar una imagen ya preparada con todos los paquetes necesario, es decir; MySQL, PHP, Apache y PHPMyAdmin. Para ello nos descargaremos <a href="https://github.com/jersonmartinez/docker-lamp/archive/refs/heads/main.zip">esta imagen de docker</a>.</p>
+<h3 id="configuracion-del-docker">Configuración del docker<a class="headerlink" href="#configuracion-del-docker" title="Permanent link">&para;</a></h3>
+<p>Una vez <a href="https://github.com/jersonmartinez/docker-lamp/archive/refs/heads/main.zip">descargada la imagen de docker</a> tenemos que configurar el archivo <strong><em>docker-compose.yml</em></strong> para que exista un usuario y la contraseña de root.</p>
+<div class="center img-large">
+    <img src="imagenes/06/06-docker-compose.png">
+</div>
+
+<ul>
+<li>MYSQL_DATABASE: pruebas</li>
+<li>MYSQL_USER: vuestroUsuario</li>
+<li>MYSQL_PASSWORD: unaContraseña</li>
+<li>MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot <br>
+[...]</li>
+<li>MYSQL_USER: vuestroUsuario</li>
+<li>MYSQL_PASSWORD: unaContraseña</li>
+<li>MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot</li>
+</ul>
+<p>Ahora que ya tenemos el archivo de configuración modificado, podemos ejecutar el comando para instalar el contenedor a través de la consola <span class="alert">en el directorio donde se encuentra nuestro <strong><em>docker-compose.yml</em></strong></span></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    docker-compose up -d
+</code></pre></div>
+<p>En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin es el 800 así que:</p>
+<ul>
+<li>Arrancamos la imagen de docker</li>
+<li>Nos metemos al phpMyAdmin</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    http://localhost:8000
+</code></pre></div>
+<div class="center img-medium">
+    <img src="imagenes/06/06-bbdd-phpMyAdmin-login.png">
+</div>
+
+<p>Recuerda que hemos configurado el contenedor con un usuario normal y hemos cambiado la contraseña de root, en este caso nos meteremos con las siguientes credenciales.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    usuario: root
+<span class="linenos" data-linenos="2 "></span>    contraseña: 1234
+</code></pre></div>
+<h2 id="estructura-de-una-base-de-datos">Estructura de una base de datos<a class="headerlink" href="#estructura-de-una-base-de-datos" title="Permanent link">&para;</a></h2>
+<p>Sabemos que una base de datos tiene muchos campos con sus nombres y valores, pero además sabemos que la base de datos debe tener un nombre. por tanto tendríamos la siguiente estructura para una base de datos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>NombreBaseDeDatos
+<span class="linenos" data-linenos=" 2 "></span>    |__Tabla-#1
+<span class="linenos" data-linenos=" 3 "></span>    |       |__DatosTabla-#1
+<span class="linenos" data-linenos=" 4 "></span>    |
+<span class="linenos" data-linenos=" 5 "></span>    |__Tabla-#2
+<span class="linenos" data-linenos=" 6 "></span>    |       |__DatosTabla-#2
+<span class="linenos" data-linenos=" 7 "></span>    |
+<span class="linenos" data-linenos=" 8 "></span>    |__Tabla-#3
+<span class="linenos" data-linenos=" 9 "></span>    |       |__DatosTabla-#3
+<span class="linenos" data-linenos="10 "></span>    [...]
+</code></pre></div>
+<p>Veámoslo en un ejemplo real</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>Ryanair
+<span class="linenos" data-linenos=" 2 "></span>    |__pasajero
+<span class="linenos" data-linenos=" 3 "></span>    |    |__id[*]
+<span class="linenos" data-linenos=" 4 "></span>    |    |__nombre
+<span class="linenos" data-linenos=" 5 "></span>    |    |__apellidos
+<span class="linenos" data-linenos=" 6 "></span>    |    |__edad
+<span class="linenos" data-linenos=" 7 "></span>    |    |__id_vuelo[^]
+<span class="linenos" data-linenos=" 8 "></span>    |
+<span class="linenos" data-linenos=" 9 "></span>    |__vuelo
+<span class="linenos" data-linenos="10 "></span>    |    |__id[*]
+<span class="linenos" data-linenos="11 "></span>    |    |__n_plazas
+<span class="linenos" data-linenos="12 "></span>    |    |__disponible
+<span class="linenos" data-linenos="13 "></span>    |    |__id_pais[^]
+<span class="linenos" data-linenos="14 "></span>    |
+<span class="linenos" data-linenos="15 "></span>    |__pais
+<span class="linenos" data-linenos="16 "></span>         |__id[*]
+<span class="linenos" data-linenos="17 "></span>         |__nombre
+</code></pre></div>
+<div class="leyenda right">
+    [*] Clave primaria [^] Clave Foránea
+</div>
+
+<p><img alt="bbdd-estructura" src="imagenes/06/06-bbdd-estructura.png" title="Estructura de una base de datos" /></p>
 <h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
-<p>Partir de un par de ejemplos ... la Tienda puede ser uno
-Otro un Yahoo Respuestas (https://github.com/PacktPublishing/Laravel-Foundations-Basics-to-Every-App) ...
-    Tabla pregunta: con id, titulo, descripcion, created_at, updated_at</p>
-<h3 id="la-severo-tienda">La Severo Tienda<a class="headerlink" href="#la-severo-tienda" title="Permanent link">&para;</a></h3>
-<p>A lo largo de esta unidad vamos a trabajar con una base de datos existente, que almacena la información de un tienda:</p>
-<p>Vamos a ver como crear la base de datos dependiendo de nuestra instalación,</p>
-<h4 id="xamp">XAMP<a class="headerlink" href="#xamp" title="Permanent link">&para;</a></h4>
-<p>Si estamos utilizando XAMP, ya viene instalado tanto con MariaDB como sistema gestor de base de datos, como PhpMyAdmin como herramienta web para facilitar su gestión.</p>
-<p>Así pues, si entraís a ...... podréis ver el inicio</p>
-<h4 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
-<p>En cambio, si trabajamos con Docker, tendremos que modificar nuestra plantilla, para configurar un nuevo contenedor que contenga la base de datos.</p>
-<h3 id="mysqli">mysqli<a class="headerlink" href="#mysqli" title="Permanent link">&para;</a></h3>
-<h3 id="pdo">PDO<a class="headerlink" href="#pdo" title="Permanent link">&para;</a></h3>
-<h2 id="acceso-a-ficheros">Acceso a ficheros<a class="headerlink" href="#acceso-a-ficheros" title="Permanent link">&para;</a></h2>
-<h3 id="archivos-csv">Archivos CSV<a class="headerlink" href="#archivos-csv" title="Permanent link">&para;</a></h3>
-<h3 id="archivos-pdf">Archivos PDF<a class="headerlink" href="#archivos-pdf" title="Permanent link">&para;</a></h3>
-<h2 id="eloquent">Eloquent<a class="headerlink" href="#eloquent" title="Permanent link">&para;</a></h2>
-<h3 id="mapeo-orm">Mapeo ORM<a class="headerlink" href="#mapeo-orm" title="Permanent link">&para;</a></h3>
-<h4 id="modelo">Modelo<a class="headerlink" href="#modelo" title="Permanent link">&para;</a></h4>
+<p>Este lenguaje de consulta estructurada (<em>Structured Query Language</em>) es el que vamos a utilizar para realizar las consultas a nuestras bases de datos para mostrar el contenido en las distintas interfaces web que creemos a lo largo de la unidad. Si quieres saber más detalles visita <a href="https://es.wikipedia.org/wiki/SQL">Wiki SQL</a></p>
+<p>Ejemplo de una sentencia SQL donde seleccionamos todas las filas y columnas de nuestra tabla llamada <strong>'pais'</strong></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pais</span>
+</code></pre></div>
+<p>Estas sentencias pueden invocarse desde la consola de comandos mediante el intérprete <em>mysql</em> (previamente instalado en el sistema) o a través de la herramienta phpMyAdmin.</p>
+<p>Las sentencias SQL también las podemos usar dentro de nuestro código php, de tal manera que cuando se cargue nuestra interfaz web, lance una sentecia SQL para mostrar los datos que queramos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="c1">// Listado de clientes, ordenados por DNI de manera ASCendente</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$clientesOrdenadosPorDNI</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM `pasajero` ORDER BY `dni`&quot;</span> <span class="nx">ASC</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<h2 id="phpmyadmin">phpMyAdmin<a class="headerlink" href="#phpmyadmin" title="Permanent link">&para;</a></h2>
+<div class="center img-medium">
+    <img src="imagenes/06/06-bbdd-phpMyAdmin-logo.png">
+</div>
+
+<p>Este software funciona bajo Apache y PHP y es más que nada una interfaz web para gestionar las bases de datos que tengamos disponibles en nuestro servidor local. Muchos <em>hostings</em> ofrecen esta herramienta por defecto para poder gestionar las BBDD que tengamos configuradas bajo nuestra cuenta.</p>
+<h3 id="creando-una-base-de-datos-dentro-de-phpmyadmin">Creando una base de datos dentro de phpMyAdmin<a class="headerlink" href="#creando-una-base-de-datos-dentro-de-phpmyadmin" title="Permanent link">&para;</a></h3>
+<div class="center img-medium">
+    <img src="imagenes/06/06-bbdd-phpMyAdmin.gif">
+</div>
+
+<ol>
+<li>
+<p>Para crear una nueva base de datos debemos entrar en phpMyAdmin como <strong>usuario root</strong> y pinchar en la opción <span class="warning"><strong><em>Nueva</em></strong></span> del menú de la izquierda.</p>
+</li>
+<li>
+<p>En la nueva ventana de creación pondremos un <strong>nombre</strong> a nuestra bbdd.</p>
+</li>
+<li>
+<p>También estableceremos el <strong>cotejamiento</strong> <span class="warning"><strong><em>utf8m4_unicode_ci</em></strong></span> para que nuestra bbdd soporte todo tipo de caracteres (como los asiáticos) e incluso emojis ;)</p>
+</li>
+<li>
+<p>Le damos al botón de <strong>Crear</strong> para crear la bbdd y empezar a escribir las distintas tablas que vayamos a introducir en ella.</p>
+</li>
+</ol>
+<p>El sistema generará el código SQL para crear todo lo que le hemos puesto y creará la base de datos con las tablas que le hayamos metido.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">persona</span><span class="o">`</span><span class="p">.</span> <span class="p">(</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="p">,</span> <span class="o">`</span><span class="n">nombre</span><span class="o">`</span> <span class="n">TINYTEXT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span> <span class="o">`</span><span class="n">apellidos</span><span class="o">`</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span> <span class="o">`</span><span class="n">telefono</span><span class="o">`</span> <span class="n">TINYTEXT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="p">,</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="opciones-en-phpmyadmin">Opciones en phpMyAdmin<a class="headerlink" href="#opciones-en-phpmyadmin" title="Permanent link">&para;</a></h3>
+<p>Cuando seleccionamos una base de datos de la lista, el sistema nos muestra varias pestañas con las cuales interactuar con la base de datos en cuestión:</p>
+<ul>
+<li>
+<p><code>Estructura</code>: Podemos ver las distintas tablas que consolidan nuestra base de datos</p>
+</li>
+<li>
+<p><code>SQL</code>: Por si queremos inyectar código SQL para que el sistema lo interprete</p>
+</li>
+<li>
+<p><code>Buscar</code>: Sirve para buscar por términos, en nuestra base de datos, aplicando distintos filtros de búsqueda</p>
+</li>
+<li>
+<p><code>Generar consulta</code>: parecido a SQL pero de una manera más gráfica, sin tener que saber nada del lenguaje</p>
+</li>
+<li>
+<p><code>Exportar e importar</code>: Como su nombre indica, para hacer cualquiera de las 2 operaciones sobre la base de datos</p>
+</li>
+<li>
+<p><code>Operaciones</code>: Distintas opciones avanzadas para realizar en nuestra base de datos, de la cual destacaremos la opción <strong><em>Cotejamiento</em></strong> dondte podremos cambiar el cotejamiento de nuestra tabla pero <span class="alert"><strong><em>OJO CON ÉSTO</em></strong> porque podemos eliminar datos sin querer, ya que al cambiar el cotejamiento podemos suprimir caracteres no soportados por el nuevo cotejamiento</span></p>
+</li>
+</ul>
+<p>No vamos a profundizar en el resto de opciones pero, en la pestaña <strong>Màs</strong> existe la opción <strong><em>Diseñador</em></strong> para poder editar las relaciones entre tablas de una manera gráfica (pinchando y arrastrando) que veremos más adelante.</p>
+<h2 id="mysqli">MySQLi<a class="headerlink" href="#mysqli" title="Permanent link">&para;</a></h2>
+<p>PHP hace uso de esta extensión mejorada para poder comunicarse con las bases de datos, ya sean MySQL (4.1 o superior) o MariaDB.</p>
+<p>Cualquier consulta que queramos hacer a una base de datos necesitaremos hacer uso de la extensión mysqli()</p>
+<p>Veamos como conectarnos con una base de datos a través del código PHP</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">// &quot;SERVIDOR&quot;, &quot;USUARIO&quot;, &quot;CONTRASEÑA&quot;, &quot;BASE DE DATOS&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">$conexion = mysqli_connect(&quot;d939ebf6a741&quot;,&quot;tuUsuario&quot;,&quot;1234&quot;,&quot;pruebas&quot;);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">// COMPROBAMOS LA CONEXIÓN</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">if(mysqli_connect_errno()) {</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    echo &quot;Failed to connect to MySQL: &quot; . mysqli_connect_error();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    exit();</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">echo &quot;&lt;h1&gt;Bienvenid@ a MySQL !!&lt;/h1&gt;&quot;;</span>
+</code></pre></div>
+<ul>
+<li><code>servidor</code>: El servidor donde se encuentra la base de datos que queremos usar suele ser <strong>localhost</strong>, pero en nuestro caso, al utilizar Docker será el nombre de la imagen <span class="warning"><strong><em>mysql:8.0</em></strong></span> que aparece al dejar el ratón encima en el Visual Studio Code</li>
+</ul>
+<div class="center img-large">
+    <img src="imagenes/06/06-mysql-servidor-docker.gif">
+</div>
+
+<ul>
+<li><code>usuarioDB</code>: El usuario de la base de datos</li>
+<li><code>passwordDB</code>: La contraseña para ese usuario de la base de datos</li>
+<li><code>baseDeDatos</code>: Nombre de la base de datos que queramos usar</li>
+</ul>
+<p>Si todo ha salido bien habréis visto un mensaje diciendo <span class="success"><strong><em>Bienvenid@ a MySQL !!</em></strong></span></p>
+<h3 id="recuperando-datos-de-una-bd">Recuperando datos de una BD<a class="headerlink" href="#recuperando-datos-de-una-bd" title="Permanent link">&para;</a></h3>
+<p>Ahora que ya sabemos cómo conectarnos a una base de datos alojada en nuestro servidor, lo que necesitamos saber es cómo recuperar datos almacenados en la base de datos.</p>
+<p>Durante la instalación de la imagen de Docker, se ha creado una tabla llamada <strong>Pruebas</strong> que contiene varios registros de distintas personas.</p>
+<p>Vamos a recuperar esos datos para ver de qué forma se hace con PHP.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$conexion = mysqli_connect(&quot;d939ebf6a741&quot;, &quot;lupa&quot;, &quot;1234&quot;, &quot;pruebas&quot;);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">// COMPROBAMOS LA CONEXIÓN</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">if (mysqli_connect_errno()) {</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">    echo &quot;Failed to connect to MySQL: &quot; . mysqli_connect_error();</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    exit();</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">// CONSULTA A LA BASE DE DATOS</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">$consulta = &quot;SELECT * FROM `Person`&quot;;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">$listaUsuarios = mysqli_query($conexion, $consulta);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="x">// COMPROBAMOS SI EL SERVIDOR NOS HA DEVUELTO RESULTADOS</span>
+<span class="linenos" data-linenos="16 "></span><span class="x">if($listaUsuarios) {</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="x">    // RECORREMOS CADA RESULTADO QUE NOS DEVUELVE EL SERVIDOR</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">    foreach ($listaUsuarios as $usuario) {</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">        echo &quot;</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">            $usuario[id]</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">            $usuario[name]</span>
+<span class="linenos" data-linenos="23 "></span><span class="x">            &lt;br&gt;</span>
+<span class="linenos" data-linenos="24 "></span><span class="x">        &quot;;</span>
+<span class="linenos" data-linenos="25 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="26 "></span><span class="x">}</span>
+</code></pre></div>
+<p>Si todo ha salido bien, por pantalla verás el siguiente listado</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>▒▒▒▒▒▒▒▒ http://localhost/pruebas.php ▒▒▒▒▒▒▒▒
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>1 William
+<span class="linenos" data-linenos="4 "></span>2 Marc
+<span class="linenos" data-linenos="5 "></span>3 John
+<span class="linenos" data-linenos="6 "></span>4 Antonio Moreno
+</code></pre></div>
+<h3 id="chollosevero">CholloSevero<a class="headerlink" href="#chollosevero" title="Permanent link">&para;</a></h3>
+<p>Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo <strong><em><a href="https://www.chollometro.com">Chollometro</a></em></strong>.</p>
+<div class="center img-large">
+    <img src="imagenes/06/06-chollometro.gif">
+</div>
+
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<ol start="601">
+<li>
+<p>Crea una nueva base de datos con el nombre <code>lol</code> y cotejamiento de datos <code>utf8mb4_unicode_ci</code>.</p>
+</li>
+<li>
+<p>En nuestra base de datos <code>lol</code> que acabamos de crear, vamos a crear la tabla <code>campeon</code> con los siguientes campos.</p>
+</li>
+</ol>
+<ul>
+<li>id [*]</li>
+<li>nombre</li>
+<li>rol</li>
+<li>dificultad</li>
+<li>
+<p>descripcion</p>
+<p>Acuérdate que [*] significa que es clave primaria y no olvides poner el tipo de datos de cada uno de los campos.</p>
+</li>
+</ul>
+<ol start="603">
+<li>
+<p>Rellena la tabla <code>campeon</code> con, al menos 5 registros, con los datos que tú quieras o si lo prefieres, puedes basarte en la <a href="https://www.leagueoflegends.com/es-es/champions">página oficial del juego</a> pero <span class="alert"><strong>¡¡ NO TE PONGAS A JUGAR !!</strong></span></p>
+</li>
+<li>
+<p>Crea el archivo <code>604campeones.php</code> donde listes todos los campeones del LOL que has metido en tu base de datos. Acuérdate que para ello deberas hacer una conexión con la base de datos y un <code>foreach</code> para cada campeón que tengas albergado en la tabla <code>campeon</code>.</p>
+</li>
+</ol>
+<!--
+
+### La Severo Tienda
+
+A lo largo de esta unidad vamos a trabajar con una base de datos existente, que almacena la información de un tienda:
+
+Vamos a ver como crear la base de datos dependiendo de nuestra instalación,
+
+### PDO
+
+## Acceso a ficheros
+
+### Archivos CSV
+
+### Archivos PDF
+
+## Eloquent
+
+### Mapeo ORM
+
+#### Modelo
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Pregunta</span>
 </code></pre></div>
+ -->
                 
               
               
