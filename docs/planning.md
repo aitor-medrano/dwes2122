@@ -47,11 +47,11 @@
 - [X] 1.- (31) Composer. Introducción Monolog. Ejercicio 501
 - [X] 2.- (32) Manejadores. Uso de logs con *Monolog*. Ejercicios 502 - 503
 - [X] 3.- (33) Proyecto Videoclub IV. Ejercicios 511 - 515 / *Lunes 15/11/21*
-- [ ] 4.- (34) Documentación con *phpDocumentor* . Ejercicios 521 - 522.
-- [ ] 5.- (35) Webscrapping. Ejercicios 531 - 533.
-- [ ] 6.- (36) Pruebas con *PhpUnit*. Ejercicios 541 - 545.
-- [ ] 7.- (37) Proyecto Videoclub V. Ejercicios 551 - 554. - *Lunes 22/11/21*
-- [ ] 8.- (38) Prueba escrita
+- [X] 4.- (34) Documentación con *phpDocumentor* . Ejercicios 521 - 522.
+- [X] 5.- (35) Webscrapping. Ejercicios 531 - 533.
+- [X] 6.- (36) Pruebas con *PhpUnit*. Ejercicios 541 - 545.
+- [X] 7.- (37) Proyecto Videoclub V. Ejercicios 551 - 554. - *Lunes 22/11/21*
+- [X] 8.- (38) Prueba escrita
 
 ## 6.- Acceso a Datos (24h)
 
