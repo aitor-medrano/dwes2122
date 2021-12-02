@@ -419,15 +419,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#chollosevero" class="md-nav__link">
     CholloSevero
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -463,17 +463,6 @@
 
 <style>
     img { margin: 20px 0; border-radius: 8px; }
-
-    ul {
-        margin: 20px;
-        list-style-type: square;
-    }
-
-    li:hover {
-        background: #8A9B0F;
-        color: white;
-        cursor: pointer;
-    }
 
     .alert { color: #BD1550; }
     .warning { color: #E97F02; }
@@ -640,18 +629,20 @@
 <p>PHP hace uso de esta extensión mejorada para poder comunicarse con las bases de datos, ya sean MySQL (4.1 o superior) o MariaDB.</p>
 <p>Cualquier consulta que queramos hacer a una base de datos necesitaremos hacer uso de la extensión mysqli()</p>
 <p>Veamos como conectarnos con una base de datos a través del código PHP</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="x">// &quot;SERVIDOR&quot;, &quot;USUARIO&quot;, &quot;CONTRASEÑA&quot;, &quot;BASE DE DATOS&quot;</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="x">$conexion = mysqli_connect(&quot;d939ebf6a741&quot;,&quot;tuUsuario&quot;,&quot;1234&quot;,&quot;pruebas&quot;);</span>
-<span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span><span class="x">// COMPROBAMOS LA CONEXIÓN</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="x">if(mysqli_connect_errno()) {</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="x">    echo &quot;Failed to connect to MySQL: &quot; . mysqli_connect_error();</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="x">    exit();</span>
-<span class="linenos" data-linenos="10 "></span><span class="x">}</span>
-<span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span><span class="x">echo &quot;&lt;h1&gt;Bienvenid@ a MySQL !!&lt;/h1&gt;&quot;;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">// &quot;SERVIDOR&quot;, &quot;USUARIO&quot;, &quot;CONTRASEÑA&quot;, &quot;BASE DE DATOS&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$conexion</span> <span class="o">=</span> <span class="nb">mysqli_connect</span><span class="p">(</span><span class="s2">&quot;d939ebf6a741&quot;</span><span class="p">,</span><span class="s2">&quot;tuUsuario&quot;</span><span class="p">,</span><span class="s2">&quot;1234&quot;</span><span class="p">,</span><span class="s2">&quot;pruebas&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// COMPROBAMOS LA CONEXIÓN</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span><span class="p">(</span><span class="nx">mysqli_connect_errno</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">&quot;Failed to connect to MySQL: &quot;</span> <span class="o">.</span> <span class="nx">mysqli_connect_error</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">exit</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;h1&gt;Bienvenid@ a MySQL !!&lt;/h1&gt;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <ul>
 <li><code>servidor</code>: El servidor donde se encuentra la base de datos que queremos usar suele ser <strong>localhost</strong>, pero en nuestro caso, al utilizar Docker será el nombre de la imagen <span class="warning"><strong><em>mysql:8.0</em></strong></span> que aparece al dejar el ratón encima en el Visual Studio Code</li>
@@ -670,32 +661,34 @@
 <p>Ahora que ya sabemos cómo conectarnos a una base de datos alojada en nuestro servidor, lo que necesitamos saber es cómo recuperar datos almacenados en la base de datos.</p>
 <p>Durante la instalación de la imagen de Docker, se ha creado una tabla llamada <strong>Pruebas</strong> que contiene varios registros de distintas personas.</p>
 <p>Vamos a recuperar esos datos para ver de qué forma se hace con PHP.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="x">$conexion = mysqli_connect(&quot;d939ebf6a741&quot;, &quot;lupa&quot;, &quot;1234&quot;, &quot;pruebas&quot;);</span>
-<span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span><span class="x">// COMPROBAMOS LA CONEXIÓN</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="x">if (mysqli_connect_errno()) {</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="x">    echo &quot;Failed to connect to MySQL: &quot; . mysqli_connect_error();</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="x">    exit();</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="x">}</span>
-<span class="linenos" data-linenos="10 "></span>
-<span class="linenos" data-linenos="11 "></span><span class="x">// CONSULTA A LA BASE DE DATOS</span>
-<span class="linenos" data-linenos="12 "></span><span class="x">$consulta = &quot;SELECT * FROM `Person`&quot;;</span>
-<span class="linenos" data-linenos="13 "></span><span class="x">$listaUsuarios = mysqli_query($conexion, $consulta);</span>
-<span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="x">// COMPROBAMOS SI EL SERVIDOR NOS HA DEVUELTO RESULTADOS</span>
-<span class="linenos" data-linenos="16 "></span><span class="x">if($listaUsuarios) {</span>
-<span class="linenos" data-linenos="17 "></span>
-<span class="linenos" data-linenos="18 "></span><span class="x">    // RECORREMOS CADA RESULTADO QUE NOS DEVUELVE EL SERVIDOR</span>
-<span class="linenos" data-linenos="19 "></span><span class="x">    foreach ($listaUsuarios as $usuario) {</span>
-<span class="linenos" data-linenos="20 "></span><span class="x">        echo &quot;</span>
-<span class="linenos" data-linenos="21 "></span><span class="x">            $usuario[id]</span>
-<span class="linenos" data-linenos="22 "></span><span class="x">            $usuario[name]</span>
-<span class="linenos" data-linenos="23 "></span><span class="x">            &lt;br&gt;</span>
-<span class="linenos" data-linenos="24 "></span><span class="x">        &quot;;</span>
-<span class="linenos" data-linenos="25 "></span><span class="x">    }</span>
-<span class="linenos" data-linenos="26 "></span><span class="x">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// ▒▒▒▒▒▒▒▒ pruebas.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$conexion</span> <span class="o">=</span> <span class="nb">mysqli_connect</span><span class="p">(</span><span class="s2">&quot;d939ebf6a741&quot;</span><span class="p">,</span> <span class="s2">&quot;lupa&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span> <span class="s2">&quot;pruebas&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1">// COMPROBAMOS LA CONEXIÓN</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">mysqli_connect_errno</span><span class="p">())</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">&quot;Failed to connect to MySQL: &quot;</span> <span class="o">.</span> <span class="nx">mysqli_connect_error</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">exit</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c1">// CONSULTA A LA BASE DE DATOS</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nv">$consulta</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM `Person`&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$listaUsuarios</span> <span class="o">=</span> <span class="nx">mysqli_query</span><span class="p">(</span><span class="nv">$conexion</span><span class="p">,</span> <span class="nv">$consulta</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>    <span class="c1">// COMPROBAMOS SI EL SERVIDOR NOS HA DEVUELTO RESULTADOS</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="k">if</span><span class="p">(</span><span class="nv">$listaUsuarios</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        <span class="c1">// RECORREMOS CADA RESULTADO QUE NOS DEVUELVE EL SERVIDOR</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$listaUsuarios</span> <span class="k">as</span> <span class="nv">$usuario</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="k">echo</span> <span class="s2">&quot;</span>
+<span class="linenos" data-linenos="22 "></span><span class="s2">                </span><span class="si">$usuario[id]</span><span class="s2"></span>
+<span class="linenos" data-linenos="23 "></span><span class="s2">                </span><span class="si">$usuario[name]</span><span class="s2"></span>
+<span class="linenos" data-linenos="24 "></span><span class="s2">                &lt;br&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="s2">            &quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">}</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="28 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Si todo ha salido bien, por pantalla verás el siguiente listado</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>▒▒▒▒▒▒▒▒ http://localhost/pruebas.php ▒▒▒▒▒▒▒▒
@@ -705,7 +698,7 @@
 <span class="linenos" data-linenos="5 "></span>3 John
 <span class="linenos" data-linenos="6 "></span>4 Antonio Moreno
 </code></pre></div>
-<h3 id="chollosevero">CholloSevero<a class="headerlink" href="#chollosevero" title="Permanent link">&para;</a></h3>
+<h2 id="chollosevero">CholloSevero<a class="headerlink" href="#chollosevero" title="Permanent link">&para;</a></h2>
 <p>Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo <strong><em><a href="https://www.chollometro.com">Chollometro</a></em></strong>.</p>
 <div class="center img-large">
     <img src="imagenes/06/06-chollometro.gif">
