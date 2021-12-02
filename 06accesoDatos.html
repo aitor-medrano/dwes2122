@@ -459,9 +459,7 @@
               
                 
                 
-                <!-- ////////////////////////////////////////////////////////////////////// -->
-
-<style>
+                <style>
     img { margin: 20px 0; border-radius: 8px; }
 
     .alert { color: #BD1550; }
@@ -487,7 +485,10 @@
  -->
 <p>En esta unidad vamos a aprender a acceder a datos que se encuentran en un servidor; recuperando, editando y creando dichos datos a través de una base de datos.</p>
 <p>A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemos (<em>Apache</em>, <em>PHP</em>) y <em>MySQL</em>la que vamos a estudiar en este tema.</p>
-<p><img alt="arquitectura-3-niveles" src="imagenes/06/06-bbdd-arquitectura-3-niveles.png" title="Arquitectura de 3 niveles" /></p>
+<div class="center img-large">
+    <img src="imagenes/06/06-bbdd-arquitectura-3-niveles.png">
+</div>
+
 <h2 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h2>
 <p>A través de <strong><em>XAMPP</em></strong> es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP <a href="https://www.apachefriends.org/es/download.html">pulsa aquí</a>.</p>
 <p>Con <strong><em>Docker</em></strong> es algo distinto, primero de todo necesitamos descargar una imagen ya preparada con todos los paquetes necesario, es decir; MySQL, PHP, Apache y PHPMyAdmin. Para ello nos descargaremos <a href="https://github.com/jersonmartinez/docker-lamp/archive/refs/heads/main.zip">esta imagen de docker</a>.</p>
@@ -561,7 +562,10 @@
     [*] Clave primaria [^] Clave Foránea
 </div>
 
-<p><img alt="bbdd-estructura" src="imagenes/06/06-bbdd-estructura.png" title="Estructura de una base de datos" /></p>
+<div class="center img-large">
+    <img src="imagenes/06/06-bbdd-estructura.png">
+</div>
+
 <h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <p>Este lenguaje de consulta estructurada (<em>Structured Query Language</em>) es el que vamos a utilizar para realizar las consultas a nuestras bases de datos para mostrar el contenido en las distintas interfaces web que creemos a lo largo de la unidad. Si quieres saber más detalles visita <a href="https://es.wikipedia.org/wiki/SQL">Wiki SQL</a></p>
 <p>Ejemplo de una sentencia SQL donde seleccionamos todas las filas y columnas de nuestra tabla llamada <strong>'pais'</strong></p>
