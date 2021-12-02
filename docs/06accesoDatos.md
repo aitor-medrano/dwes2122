@@ -60,7 +60,7 @@ Una vez [descargada la imagen de docker](https://github.com/jersonmartinez/docke
 Ahora que ya tenemos el archivo de configuración modificado, podemos ejecutar el comando para instalar el contenedor a través de la consola <span class="alert">en el directorio donde se encuentra nuestro ***docker-compose.yml***</span>
 
 ``` bash
-    docker-compose up -d
+docker-compose up -d
 ```
 
 En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin es el 800 así que:
@@ -69,7 +69,7 @@ En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin 
 - Nos metemos al phpMyAdmin
 
 ```
-    http://localhost:8000
+http://localhost:8000
 ```
 
 <div class="center img-medium">
@@ -79,8 +79,8 @@ En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin 
 Recuerda que hemos configurado el contenedor con un usuario normal y hemos cambiado la contraseña de root, en este caso nos meteremos con las siguientes credenciales.
 
 ```
-    usuario: root
-    contraseña: 1234
+usuario: root
+contraseña: 1234
 ```
 
 ## Estructura de una base de datos
@@ -119,7 +119,7 @@ Veámoslo en un ejemplo real
              |__id[*]
              |__nombre
 
-<div class="leyenda right">
+<div class="leyenda">
     [*] Clave primaria [^] Clave Foránea
 </div>
 
@@ -156,7 +156,7 @@ Este software funciona bajo Apache y PHP y es más que nada una interfaz web par
 
 ### Creando una base de datos dentro de phpMyAdmin
 
-<div class="center img-medium">
+<div class="center img-large">
     <img src="imagenes/06/06-bbdd-phpMyAdmin.gif">
 </div>
 
