@@ -734,7 +734,32 @@
 <li>
 <p>Crea el archivo <code>604campeones.php</code> donde listes todos los campeones del LOL que has metido en tu base de datos. Acuérdate que para ello deberas hacer una conexión con la base de datos y un <code>foreach</code> para cada campeón que tengas albergado en la tabla <code>campeon</code>.</p>
 </li>
+<li>
+<p>Modifica el archivo <code>604campeones.php</code> y guárdalo como <code>606campeones.php</code> pero pon al lado de cada uno de los campeones listados un botón para <code>editar</code> y otro para <code>borrar</code>. Cada uno de esos botones hará la correspondiente función dependiendo del id del campeón seleccionado.</p>
+</li>
 </ol>
+<ul>
+<li>
+<p>Al pinchar en editar, el usuario será redirigido al archivo <code>605editando.php</code> donde mostrará un formulario con los campos rellenos por los datos del campeón seleccionado. Al darle al botón de <code>guardar</code> los datos se guardarán en la base de datos y el usuario será redirigido a la lista de campones para poder ver los cambios.</p>
+</li>
+<li>
+<p>Al pinchar en borrar, el usuario será preguntado a través de un mensaje de JavaScript (prompt) si está seguro de que quiere borrar al campeón seleccionado. En el mensaje de confirmación debe aparecer el <strong>nombre del campeón seleccionado</strong>. Si el usuario pincha en <code>Aceptar</code> el campeón será eliminado de la base de datos y el usuario será redirigido nuevamente al listado de campeones para comprobar que, efectivamente dicho campeón se ha eliminado de la lista.</p>
+</li>
+</ul>
+<ol start="606">
+<li>modifica el archivo <code>604campeones.php</code> y guárdalo como <code>606campeones.php</code> para que se muestre como una tabla con las columnas de la propia tabla de la base de datos, es decir; id, nombre, rol, dificultad, descripción. Al lado de cada nombre de cada columna, pon 2 iconos que sean ˄ ˅ y que cada uno de ellos ordene el listado en función de cuál se haya pinchado.</li>
+</ol>
+<ul>
+<li>
+<p>Si se ha pulsado en Nombre el icono de ˄, el listado debe aparecer ordenado por nombre ascendente. Si por el contrario se ha pulsado ˅ tendrá que ordenarse por nombre descendente.</p>
+</li>
+<li>
+<p>Ten en cuenta que cada icono debe llevar consigo un enlace al listado que contenga parámetros en la URL que satisfagan las opciones seleccionadas así que haced uso de $_GET para poder capturarlos y escribid las consultas SQL que sean necesarias para hacer cada uno de los filtros.</p>
+</li>
+<li>
+<p>Puedes usar <a href="https://fontawesome.com">Font Awesome</a> para los iconos pero es algo opcional</p>
+</li>
+</ul>
 <!--
 
 ### La Severo Tienda
