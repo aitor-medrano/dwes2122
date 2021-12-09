@@ -432,6 +432,82 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#php-data-objects-pdo" class="md-nav__link">
+    PHP Data Objects :: PDO
+  </a>
+  
+    <nav class="md-nav" aria-label="PHP Data Objects :: PDO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fichero-de-configuracion-de-la-bd" class="md-nav__link">
+    Fichero de configuración de la BD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-preparadas" class="md-nav__link">
+    Sentencias preparadas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-parametros" class="md-nav__link">
+    Ejemplo parámetros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-bindparam" class="md-nav__link">
+    Ejemplo bindParam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindparam-vs-bindvalue" class="md-nav__link">
+    bindParam VS bindValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insertando-registros" class="md-nav__link">
+    Insertando registros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultando-registros" class="md-nav__link">
+    Consultando registros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-con-modelos" class="md-nav__link">
+    Consultas con modelos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-con-like" class="md-nav__link">
+    Consultas con LIKE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
     Actividades
   </a>
@@ -708,13 +784,299 @@
     <img src="imagenes/06/06-chollometro.gif">
 </div>
 
+<h2 id="php-data-objects-pdo">PHP Data Objects :: PDO<a class="headerlink" href="#php-data-objects-pdo" title="Permanent link">&para;</a></h2>
+<p>De la misma manera que hemos visto con mysqli, PHP Data Objects (o PDO) es un driver de PHP que se utiliza para trabajar bajo una interfaz de objetos con la base de datos. A día de hoy es lo que más se utiliza para manejar información desde una base de datos, ya sea relacional o no relacional.</p>
+<p>De igual manera que pasaba con los objetos en PHP nativos, en la interfaz de MySQL la cosa cambia la hora de conectarnos con una base de datos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$conexion = new PDO(&#39;mysql:host=localhost; dbname=dwes&#39;, &#39;dwes&#39;, &#39;abc123&#39;);</span>
+</code></pre></div>
+<p>Además, con PDO podemos usar las excepciones con try catch para gestionar los errores que se produzcan en nuestra aplicación, para ello, como hacíamos antes, debemos encapsular el código entre bloques try / catch.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">$dsn = &#39;mysql:dbname=prueba;host=127.0.0.1&#39;;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="x">$usuario = &#39;usuario&#39;;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$contraseña = &#39;contraseña&#39;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">try {</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    $mbd = new PDO($dsn, $usuario, $contraseña);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">    $mbd-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">} catch (PDOException $e) {</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    echo &#39;Falló la conexión: &#39; . $e-&gt;getMessage();</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">}</span>
+</code></pre></div>
+En primer lugar, creamos la conexión con la base de datos a través del constructor PDO pasándole la información de la base de datos.</p>
+<p>En segundo lugar, establecemos los parámetros para manejar las excepciones, en este caso hemos utilizado:</p>
+<ul>
+<li><code>PDO::ATTR_ERRMODE</code> indicándole a PHP que queremos un reporte de errores.</li>
+<li><code>PDO::ERRMODE_EXCEPTION</code> con este atributo obligamos a que lance excepciones, además de ser la opción más humana y legible que hay a la hora de controlar errores.</li>
+</ul>
+<p>Cualquier error que se lance a través de PDO, el sistema lanzará una <span class="alert"><strong>PDOException</strong></span>.</p>
+<h3 id="fichero-de-configuracion-de-la-bd">Fichero de configuración de la BD<a class="headerlink" href="#fichero-de-configuracion-de-la-bd" title="Permanent link">&para;</a></h3>
+<p>De la misma manera que creamos nuestro archivo de funciones <code>funciones-php</code> y albergamos todas las funciones que se usan de manera global en la aplicación, podemos establecer un archivo de constantes donde definamos los parámetros de conexión con la base de datos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ conexion.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">constDSN = &quot;mysql:host=localhost;dbname=dwes&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">constUSUARIO = &quot;dwes&quot;;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">constPASSWORD = &quot;abc123&quot;;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">/*  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    ▒▒▒▒▒▒▒▒ NO SUBAS ESTE ARCHIVO A git ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ */</span>
+</code></pre></div>
+<p>Este archivo contiene información <span class="alert"><strong>muy sensible</strong></span> así que no es recomendable que subas este archivo a git.</p>
+<h3 id="sentencias-preparadas">Sentencias preparadas<a class="headerlink" href="#sentencias-preparadas" title="Permanent link">&para;</a></h3>
+<p>Se trata de sentencias que se establecen como si fueran plantillas de la SQL que vamos a lanzar, aceptando parámetros que son establecidos a posteriori de la declaración de la sentencia preparada.</p>
+<p>Las sentencias preparadas evitan la injección de SQL (SQL Injection) y mejoran el rendimiento de nuestras aplicaciónes o páginas web.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$sql = &quot;INSERT INTO Clientes VALUES (?, ?, ?, ?)&quot;;</span>
+</code></pre></div>
+<p>Cada interrogante es un parámetro que estableceremos después, unas cuantas líneas más abajo.</p>
+<p>Una vez tenemos la plantilla de nuestra consulta, debemos seguir con la preparación junto con 3 métodos más de PHP para su completa ejecución:</p>
+<ul>
+<li><code>prepare:</code> prepara la sentencián antes de ser ejecutada</li>
+<li><code>bind</code>: el tipo de unión (bind) de dato que puede ser mediante ' ? ' o ' :parametro '</li>
+<li><code>execute</code> se ejecuta la consulta uniendo la plantilla con las bariables o parámetros que hemos establecido.</li>
+</ul>
+<h3 id="ejemplo-parametros">Ejemplo parámetros<a class="headerlink" href="#ejemplo-parametros" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Borrando con parámetros ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">include &quot;config/database.inc.php&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">$conexion = null;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">try { </span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    $cantidad = $_GET[&quot;cantidad&quot;];</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="x">    $conexion = new PDO(DSN, USUARIO, PASSWORD);</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    $conexion -&gt; setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    $sql = &quot;DELETE FROM stock WHERE unidades = ?&quot;;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">    $sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="x">    $isOk = $sentencia -&gt; execute([$cantidad]);</span>
+<span class="linenos" data-linenos="17 "></span><span class="x">    $cantidadAfectada = $sentencia -&gt; rowCount();</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="x">    echo $cantidadAfectada;</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">} catch (PDOException $e) {</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">    echo $e -&gt; getMessage();</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">}</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="x">$conexion = null</span>
+</code></pre></div>
+<h3 id="ejemplo-bindparam">Ejemplo bindParam<a class="headerlink" href="#ejemplo-bindparam" title="Permanent link">&para;</a></h3>
+<p>Muy parecido a utilizar parámetros pero esta vez la variable está dentro de la sentencia SQL, en este caso la hemos llamado <code>:cant</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">include &quot;config/database.inc.php&quot;;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$conexion=null;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">try {</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    $cantidad = $_GET[&quot;cantidad&quot;] ?? 0;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    $conexion = new PDO(DSN, USUARIO, PASSWORD);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    $conexion -&gt; setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    $sql = &quot;DELETE FROM stock WHERE unidades = :cant&quot;;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    $sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">    $sentencia -&gt; bindParam(&quot;:cant&quot;, $cantidad);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="x">    $isOk = $sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="x">    $cantidadAfectada = $sentencia -&gt; rowCount();</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="x">    echo $cantidadAfectada;</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">} catch (PDOException $e) {</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">    echo $e -&gt; getMessage();</span>
+<span class="linenos" data-linenos="23 "></span><span class="x">}</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="x">$conexion = null;</span>
+</code></pre></div>
+<h3 id="bindparam-vs-bindvalue">bindParam VS bindValue<a class="headerlink" href="#bindparam-vs-bindvalue" title="Permanent link">&para;</a></h3>
+<p>Utilizaremos <code>bindValue()</code> cuando tengamos que insertar datos sólo una vez, en cambio, deberemos usar <code>bindParam()</code> cuando tengamos que pasar datos múltiples, como por ejemplo, un array.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// se asignan nombre a los parámetros</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="x">$sql = &quot;DELETE FROM stock WHERE unidades = :cant&quot;;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">// bindParam enlaza por referencia</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$cantidad = 0;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">$sentencia -&gt; bindParam(&quot;:cant&quot;, $cantidad);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">$cantidad = 1;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">// se eliminan con cant = 1</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">$isOk = $sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="x">// bindValue enlaza por valor</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">$cantidad = 0;</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="x">$sentencia -&gt; bindValue(&quot;:cant&quot;, $cantidad);</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">$cantidad = 1;</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="x">// se eliminan con cant = 0</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">$isOk = $sentencia-&gt;execute();</span>
+</code></pre></div>
+<p>Para más información y uso de las variables PDO <a href="https://www.php.net/manual/es/pdo.constants.php">consulta el manual de PHP</a>.</p>
+<h3 id="insertando-registros">Insertando registros<a class="headerlink" href="#insertando-registros" title="Permanent link">&para;</a></h3>
+<p>A la hora de insertar registros en una base de datos, debemos tener en cuenta que en la tabla puede haber valores autoincrementados. Para salvaguardar ésto, lo que debemos hacer es dejar ese cambpo autoincrementado vacío, pero a la hora de hacer la conexión, debemos recuperarlo con el método <code>lastInsertId()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">$nombre = $_GET[&quot;nombre&quot;] ?? &quot;SUCURSAL X&quot;;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="x">$telefono = $_GET[&quot;telefono&quot;] ?? &quot;636123456&quot;;</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">$sql=&quot;INSERT INTO tienda(nombre, tlf) VALUES (:nombre, :telefono)&quot;;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">$sentencia -&gt; bindParam(&quot;:nombre&quot;, $nombre);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">$sentencia -&gt; bindParam(&quot;:telefono&quot;, $telefono);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="x">$isOk = $sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">$idGenerado = $conexion -&gt; lastInsertId();</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">echo $idGenerado;</span>
+</code></pre></div>
+<h3 id="consultando-registros">Consultando registros<a class="headerlink" href="#consultando-registros" title="Permanent link">&para;</a></h3>
+<p>A la hora de recuperar los resultados de una consulta, bastará con invocar al método <code>PDOStatement::fetch</code> para listar las filas generadas por la consulta.</p>
+<p>Pero debemos elegir el tipo de dato que queremos recibir entre los 3 que hay disponibles:</p>
+<ul>
+<li><code>PDO::FETCH_ASSOC:</code> array indexado cuyos keys son el nombre de las columnas.</li>
+<li><code>PDO::FETCH_NUM:</code> array indexado cuyos keys son números.</li>
+<li><code>PDO::FETCH_BOTH:</code> valor por defecto. Devuelve un array indexado cuyos keys son tanto el nombre de las columnas como números.</li>
+</ul>
+<div class="center img-large">
+    <img src="imagenes/06/06-pdo-listado-fetch.png">
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ consulta con array asociativo.php ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">include &quot;config/database.inc.php&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">$conexion=null;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">try{</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    $conexion = new PDO(DSN, USUARIO, PASSWORD);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    $conexion -&gt; setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    $sql = &quot;select * from tienda&quot;;</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    $sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">    $sentencia -&gt; setFetchMode(PDO::FETCH_ASSOC);</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">    $sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="x">    while($fila = $sentencia -&gt; fetch()){</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">        echo &quot;Codigo:&quot; . $fila[&quot;cod&quot;] . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">        echo &quot;Nombre:&quot; . $fila[&quot;nombre&quot;] . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">        echo &quot;Teléfono:&quot; . $fila[&quot;tlf&quot;] . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span><span class="x">}catch(PDOException $e) {</span>
+<span class="linenos" data-linenos="24 "></span><span class="x">    echo $e -&gt; getMessage();</span>
+<span class="linenos" data-linenos="25 "></span><span class="x">}</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span><span class="x">$conexion = null;</span>
+</code></pre></div>
+<p>Recuperando datos con una matriz como resultado de nuestra consulta</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ consulta con array asociativo ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$sql=&quot;SELECT * FROM tienda&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$sentencia -&gt; setFetchMode(PDO::FETCH_ASSOC);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">$sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">$tiendas = $sentencia -&gt; fetchAll();</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">foreach($tiendasas$tienda) {</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">    echo&quot;Codigo:&quot; . $tienda[&quot;cod&quot;] . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    echo&quot;Nombre:&quot; . $tienda[&quot;nombre&quot;] . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">}</span>
+</code></pre></div>
+Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::FETCH_OBJ</code>, debemos crear un objeto con propiedades públicas con el mismo nombre que las columnas de la tabla que vayamos a consultar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ consulta con formato de objeto ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$sql=&quot;SELECT * FROM tienda&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$sentencia -&gt; setFetchMode(PDO::FETCH_OBJ);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">$sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">while($t = $sentencia -&gt; fetch()) {</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">    echo&quot;Codigo:&quot; . $t -&gt; cod . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    echo&quot;Nombre:&quot; . $t -&gt; nombre . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">    echo&quot;Teléfono:&quot; . $t -&gt; tlf . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">}</span>
+</code></pre></div>
+<h3 id="consultas-con-modelos">Consultas con modelos<a class="headerlink" href="#consultas-con-modelos" title="Permanent link">&para;</a></h3>
+<p>Llevamos tiempo creando clases en PHP y las consultas también admiten este tipo de datos mediante el uso de <code>PDO::FETCH_CLASS</code></p>
+<p>Si usamos este método, debemos tener en cuenta que los nombres de los atributos privados deben coincidir con los nombres de las columnas de la tabla que vayamos a manejar.</p>
+<p>Así pues, si por lo que sea cambiamos la estructura de la tabla <span class="alert"><strong>DEBEMOS CAMBIAR</strong></span> nuestra clase para que todo siga funcionando.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ clase Tienda ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">classTienda {</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">    private int $cod;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">    private string $nombre;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    private ? string $tlf;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    public function getCodigo() : int {</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">        return $this -&gt; cod;</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">    public function getNombre() : string {</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">        return $this -&gt; nombre;</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="x">    public function getTelefono() : ?string {</span>
+<span class="linenos" data-linenos="17 "></span><span class="x">        return $this -&gt; tlf;</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Consultando a través de la clase Tienda ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$sql = &quot;SELECT * FROM tienda&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">// Aquí &#39;Tienda&#39; es el nombre de nuestra clase</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">$sentencia -&gt; setFetchMode(PDO::FETCH_CLASS, &quot;Tienda&quot;);</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">$sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="x">while($t = $sentencia -&gt; fetch()) {</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    echo &quot;Codigo: &quot; . $t -&gt; getCodigo() . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">    echo &quot;Nombre: &quot; . $t -&gt; getNombre() . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    echo &quot;Teléfono: &quot; . $t -&gt; getTelefono() . &quot;&lt;br /&gt;&quot;;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="x">    var_dump($t);</span>
+<span class="linenos" data-linenos="16 "></span><span class="x">}</span>
+</code></pre></div>
+<p>Pero ¿qué pasa si nuestras clases tienen constructor? pues que debemos indicarle, al método FECTH, que rellene las propiedades después de llamar al constructor y para ello hacemos uso de <code>PDO::FETCH_PROPS_LATE</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Consulta para una clase con constructor ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">$sql = &quot;SELECT * FROM tienda&quot;;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos="6 "></span><span class="x">$sentencia -&gt; setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tienda::class);</span>
+<span class="linenos" data-linenos="7 "></span><span class="x">$sentencia -&gt; execute();</span>
+<span class="linenos" data-linenos="8 "></span>
+<span class="linenos" data-linenos="9 "></span><span class="x">$tiendas = $sentencia -&gt; fetchAll();</span>
+</code></pre></div>
+<h3 id="consultas-con-like">Consultas con LIKE<a class="headerlink" href="#consultas-con-like" title="Permanent link">&para;</a></h3>
+<p>Para utilizar el comodín LIKE u otros comodines, debemos asociarlo al dato y NUNCA en la propia consulta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Utilizando comodines :: LIKE ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$sql = &quot;SELECT * FROM tienda where nombre like :nombre or tlf like :tlf&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">$sentencia = $conexion -&gt; prepare($sql);</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$sentencia -&gt; setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tienda::class);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">$cadBuscar = &quot;%&quot; . $busqueda . &quot;%&quot;;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="x">$sentencia -&gt; execute([&quot;nombre&quot; =&gt; $cadBuscar,&quot;tlf&quot; =&gt; $cadBuscar]);</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">$result = $sentencia -&gt; fetchAll();</span>
+</code></pre></div>
+<p>Tenéis una lista de ejemplos muy completa en la <a href="https://phpdelusions.net/pdo/objects">documentación oficial</a>.</p>
+<hr>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="601">
 <li>
 <p>Crea una nueva base de datos con el nombre <code>lol</code> y cotejamiento de datos <code>utf8mb4_unicode_ci</code>.</p>
 </li>
 <li>
-<p>En nuestra base de datos <code>lol</code> que acabamos de crear, vamos a crear la tabla <code>campeon</code> con los siguientes campos.</p>
+<p>En nuestra base de datos <code>lol</code> que acabamos de crear,  vamos a crear la tabla <code>campeon</code> con los siguientes campos.</p>
 </li>
 </ol>
 <ul>
@@ -785,6 +1147,8 @@ Vamos a ver como crear la base de datos dependiendo de nuestra instalación,
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Pregunta</span>
 </code></pre></div>
  -->
+
+<hr>
                 
               
               
