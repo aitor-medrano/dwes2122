@@ -123,6 +123,14 @@ Veámoslo en un ejemplo real
     <img src="imagenes/06/06-bbdd-estructura.png">
 </div>
 
+## CholloSevero
+
+Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo ***[Chollometro](https://www.chollometro.com)***.
+
+<div class="center img-large">
+    <img src="imagenes/06/06-chollometro.gif">
+</div>
+
 ## SQL
 
 Este lenguaje de consulta estructurada (*Structured Query Language*) es el que vamos a utilizar para realizar las consultas a nuestras bases de datos para mostrar el contenido en las distintas interfaces web que creemos a lo largo de la unidad. Si quieres saber más detalles visita [Wiki SQL](https://es.wikipedia.org/wiki/SQL)
@@ -274,14 +282,6 @@ Si todo ha salido bien, por pantalla verás el siguiente listado
     2 Marc
     3 John
     4 Antonio Moreno
-
-## CholloSevero
-
-Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo ***[Chollometro](https://www.chollometro.com)***.
-
-<div class="center img-large">
-    <img src="imagenes/06/06-chollometro.gif">
-</div>
 
 ## PHP Data Objects :: PDO
 
