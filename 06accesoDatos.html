@@ -371,6 +371,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#chollosevero" class="md-nav__link">
+    CholloSevero
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
     SQL
   </a>
@@ -421,13 +428,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chollosevero" class="md-nav__link">
-    CholloSevero
-  </a>
   
 </li>
       
@@ -504,6 +504,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-password" class="md-nav__link">
+    Login &amp; Password
+  </a>
   
 </li>
       
@@ -642,6 +649,12 @@
     <img src="imagenes/06/06-bbdd-estructura.png">
 </div>
 
+<h2 id="chollosevero">CholloSevero<a class="headerlink" href="#chollosevero" title="Permanent link">&para;</a></h2>
+<p>Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo <strong><em><a href="https://www.chollometro.com">Chollometro</a></em></strong>.</p>
+<div class="center img-large">
+    <img src="imagenes/06/06-chollometro.gif">
+</div>
+
 <h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <p>Este lenguaje de consulta estructurada (<em>Structured Query Language</em>) es el que vamos a utilizar para realizar las consultas a nuestras bases de datos para mostrar el contenido en las distintas interfaces web que creemos a lo largo de la unidad. Si quieres saber más detalles visita <a href="https://es.wikipedia.org/wiki/SQL">Wiki SQL</a></p>
 <p>Ejemplo de una sentencia SQL donde seleccionamos todas las filas y columnas de nuestra tabla llamada <strong>'pais'</strong></p>
@@ -778,12 +791,6 @@
 <span class="linenos" data-linenos="5 "></span>3 John
 <span class="linenos" data-linenos="6 "></span>4 Antonio Moreno
 </code></pre></div>
-<h2 id="chollosevero">CholloSevero<a class="headerlink" href="#chollosevero" title="Permanent link">&para;</a></h2>
-<p>Como muy bien habéis elegido, a lo largo de esta unidad vamos a trabajar con una base de datos que iremos confeccionando conforme avancemos, donde almacenaremos la información relacionada con ofertas que publiquen los usuarios y los listaremos en función de varios filtros; nuevos, más votados, más vistos, más comentados entre otros, al más puro estilo <strong><em><a href="https://www.chollometro.com">Chollometro</a></em></strong>.</p>
-<div class="center img-large">
-    <img src="imagenes/06/06-chollometro.gif">
-</div>
-
 <h2 id="php-data-objects-pdo">PHP Data Objects :: PDO<a class="headerlink" href="#php-data-objects-pdo" title="Permanent link">&para;</a></h2>
 <p>De la misma manera que hemos visto con mysqli, PHP Data Objects (o PDO) es un driver de PHP que se utiliza para trabajar bajo una interfaz de objetos con la base de datos. A día de hoy es lo que más se utiliza para manejar información desde una base de datos, ya sea relacional o no relacional.</p>
 <p>De igual manera que pasaba con los objetos en PHP nativos, en la interfaz de MySQL la cosa cambia la hora de conectarnos con una base de datos.</p>
@@ -957,7 +964,7 @@ En primer lugar, creamos la conexión con la base de datos a través del constru
 <span class="linenos" data-linenos=" 3 "></span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="k">include</span> <span class="s2">&quot;config/database.inc.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$conexion</span><span class="o">=</span><span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$conexion</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 7 "></span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="k">try</span><span class="p">{</span>
 <span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$conexion</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="nx">DSN</span><span class="p">,</span> <span class="nx">USUARIO</span><span class="p">,</span> <span class="nx">PASSWORD</span><span class="p">);</span>
@@ -1086,7 +1093,63 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <span class="linenos" data-linenos="13 "></span>    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$sentencia</span> <span class="o">-&gt;</span> <span class="na">fetchAll</span><span class="p">();</span>
 </code></pre></div>
 <p>Tenéis una lista de ejemplos muy completa en la <a href="https://phpdelusions.net/pdo/objects">documentación oficial</a>.</p>
-<hr>
+<h2 id="login-password">Login &amp; Password<a class="headerlink" href="#login-password" title="Permanent link">&para;</a></h2>
+<div class="center img-medium">
+    <img src="imagenes/06/06-login-password.gif">
+</div>
+
+<p>Para manejar un sistema completo de login y password con contraseñas cifradas, necesitamos un método que cifre esos strings que el usuario introduce como contraseña; tanto en el formulario de registro como en el del login, ya que al codificar una contraseña, después tenemos que decodificarla para comprobar que ambas contrasñeas (la que instroduce el usuario en el login y la que tenemos en la base de datos) coincidan.</p>
+<p>Necesitamos pues:</p>
+<ul>
+<li>
+<p><code>password_hash()</code> para almacenar la contraseña en la base de datos a la hora de hacer el INSERT</p>
+<ul>
+<li>
+<p><code>PASSWORD_DEFAULT</code> almacenamos la contraseña usando el método de encriptación bcrypt</p>
+</li>
+<li>
+<p><code>PASSWORD_BCRYPT</code> almacenamos la contraseña usando el algoritmo CRYPT_BLOWFISH compatible con crypt()</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>password_verify()</code> para verificar el usuario y la contraseña</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">//  ▒▒▒▒▒▒▒▒ Almacenando usuario y password en BD ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$usu</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;usuario&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$pas</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">];</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO usuarios(usuario, password) VALUES (:usuario, :password)&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$sentencia</span> <span class="o">=</span> <span class="nv">$conexion</span> <span class="o">-&gt;</span> <span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$isOk</span> <span class="o">=</span> <span class="nv">$sentencia</span> <span class="o">-&gt;</span> <span class="na">execute</span><span class="p">([</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="s2">&quot;usuario&quot;</span> <span class="o">=&gt;</span> <span class="nv">$usu</span><span class="p">,</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="s2">&quot;password&quot;</span> <span class="o">=&gt;</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$pas</span><span class="p">,</span><span class="nx">PASSWORD_DEFAULT</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="p">]);</span>
+</code></pre></div>
+<p>Ahora que tenemos el usuario codificado y guardado en la base de datos, vamos a recuperarlo para poder loguearlo correctamente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">//  ▒▒▒▒▒▒▒▒ Recuperando usuario y password en BD ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$usu</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;login&quot;</span><span class="p">]</span> <span class="o">??</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;select * from usuarios where usuario = ?&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nv">$sentencia</span> <span class="o">=</span> <span class="nv">$conexion</span> <span class="o">-&gt;</span> <span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$sentencia</span> <span class="o">-&gt;</span> <span class="na">execute</span><span class="p">([</span><span class="nv">$usu</span><span class="p">]);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$usuario</span> <span class="o">=</span> <span class="nv">$sentencia</span> <span class="o">-&gt;</span> <span class="na">fetch</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">if</span><span class="p">(</span><span class="nv">$usuario</span> <span class="o">&amp;&amp;</span> <span class="nb">password_verify</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">],</span> <span class="nv">$usuario</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span><span class="s2">&quot;OK!&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="k">echo</span><span class="s2">&quot;KO&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
+</code></pre></div>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="601">
 <li>
@@ -1139,15 +1202,45 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <p>Puedes usar <a href="https://fontawesome.com">Font Awesome</a> para los iconos pero es algo opcional</p>
 </li>
 </ul>
+<ol start="607">
+<li>
+<p>Aprovecha lo que hiciste de los ejercicios 601 al 604 pero esta vez utilizando <code>PDO::FETCH_ASSOC</code>.</p>
+</li>
+<li>
+<p>Crea una tabla nueva dentro de la base de datos <code>lol</code> que ya tienes y crea un sistema de login con usuarios. Introduce en la base de datos al menos 3 usuarios diferentes con sus contraseñas distintas. Recuerda que:</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>La tabla nueva ha de llamarse <code>usuario</code></p>
+</li>
+<li>
+<p>Los campos a crear en la nueva tabla deben ser</p>
+<ul>
+<li><code>id</code> [*]</li>
+<li><code>nombre</code></li>
+<li><code>usuario</code></li>
+<li><code>password</code></li>
+<li><code>email</code></li>
+</ul>
+</li>
+<li>
+<p>Las contraseñas deben ser cifradas antes de guardar el datos en la base de datos.</p>
+</li>
+<li>
+<p>Crea el formulario <code>608registro.php</code> donde el usuario introduzca los datos de registro y vincúlalo con <code>608nuevoUsuario.php</code> para que recoja los datos mediante POST y los inserte en la base de datos si todo ha ido bien.</p>
+</li>
+<li>
+<p>Queda <span class="alert"><strong>PROHIBIDÍSIMO</strong></span> acceder a <code>608nuevoUsuario.php</code> sin el formulario rellenado.</p>
+</li>
+<li>
+<p>La sentencia de INSERT debe estar controlada para que no pueda introducirse ningún dato en blanco. Ten en cuenta que estás modificando la base de datos y no queremos campos mal rellenados.</p>
+</li>
+<li>
+<p>Si todo ha ido bien, muestra un mensaje por pantalla diciendo <code>El usuario XXX ha sido introducido en el sistema con la contraseña YYY</code>.</p>
+</li>
+</ul>
 <!--
-
-### La Severo Tienda
-
-A lo largo de esta unidad vamos a trabajar con una base de datos existente, que almacena la información de un tienda:
-
-Vamos a ver como crear la base de datos dependiendo de nuestra instalación,
-
-### PDO
 
 ## Acceso a ficheros
 
@@ -1164,8 +1257,6 @@ Vamos a ver como crear la base de datos dependiendo de nuestra instalación,
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model Pregunta</span>
 </code></pre></div>
  -->
-
-<hr>
                 
               
               
