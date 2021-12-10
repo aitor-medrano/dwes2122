@@ -496,7 +496,7 @@ Pero debemos elegir el tipo de dato que queremos recibir entre los 3 que hay dis
 
     include "config/database.inc.php";
 
-    $conexion=null;
+    $conexion = null;
 
     try{
         $conexion = new PDO(DSN, USUARIO, PASSWORD);
@@ -647,7 +647,62 @@ Para utilizar el comodín LIKE u otros comodines, debemos asociarlo al dato y NU
 
 Tenéis una lista de ejemplos muy completa en la [documentación oficial](https://phpdelusions.net/pdo/objects).
 
-<hr><hr>
+## Login & Password
+
+<div class="center img-medium">
+    <img src="imagenes/06/06-login-password.gif">
+</div>
+
+Para manejar un sistema completo de login y password con contraseñas cifradas, necesitamos un método que cifre esos strings que el usuario introduce como contraseña; tanto en el formulario de registro como en el del login, ya que al codificar una contraseña, después tenemos que decodificarla para comprobar que ambas contrasñeas (la que instroduce el usuario en el login y la que tenemos en la base de datos) coincidan.
+
+Necesitamos pues:
+
+- `password_hash()` para almacenar la contraseña en la base de datos a la hora de hacer el INSERT
+    - `PASSWORD_DEFAULT` almacenamos la contraseña usando el método de encriptación bcrypt
+
+    - `PASSWORD_BCRYPT` almacenamos la contraseña usando el algoritmo CRYPT_BLOWFISH compatible con crypt()
+
+- `password_verify()` para verificar el usuario y la contraseña
+
+``` php
+<?php
+    //  ▒▒▒▒▒▒▒▒ Almacenando usuario y password en BD ▒▒▒▒▒▒▒▒
+
+    $usu = $_POST["usuario"];
+    $pas = $_POST["password"];
+
+    $sql = "INSERT INTO usuarios(usuario, password) VALUES (:usuario, :password)";
+
+    $sentencia = $conexion -> prepare($sql);
+
+    $isOk = $sentencia -> execute([
+        "usuario" => $usu,
+        "password" => password_hash($pas,PASSWORD_DEFAULT)
+    ]);
+```
+
+Ahora que tenemos el usuario codificado y guardado en la base de datos, vamos a recuperarlo para poder loguearlo correctamente.
+
+``` php
+<?php
+    //  ▒▒▒▒▒▒▒▒ Recuperando usuario y password en BD ▒▒▒▒▒▒▒▒
+
+    $usu = $_POST["login"] ?? "";
+
+    $sql = "select * from usuarios where usuario = ?";
+
+    $sentencia = $conexion -> prepare($sql);
+    $sentencia -> execute([$usu]);
+
+    $usuario = $sentencia -> fetch();
+
+    if($usuario && password_verify($_POST['pass'], $usuario['password'])) {
+        echo"OK!";
+    } else {
+        echo"KO";
+    }
+```
+
 
 ## Actividades
 
@@ -682,16 +737,31 @@ Tenéis una lista de ejemplos muy completa en la [documentación oficial](https:
 - Puedes usar [Font Awesome](https://fontawesome.com) para los iconos pero es algo opcional
 
 
+607. Aprovecha lo que hiciste de los ejercicios 601 al 604 pero esta vez utilizando `PDO::FETCH_ASSOC`.
+
+608. Crea una tabla nueva dentro de la base de datos `lol` que ya tienes y crea un sistema de login con usuarios. Introduce en la base de datos al menos 3 usuarios diferentes con sus contraseñas distintas. Recuerda que:
+
+- La tabla nueva ha de llamarse `usuario`
+
+- Los campos a crear en la nueva tabla deben ser
+
+    - `id` [*]
+    - `nombre`
+    - `usuario`
+    - `password`
+    - `email`
+
+- Las contraseñas deben ser cifradas antes de guardar el datos en la base de datos.
+
+- Crea el formulario `608registro.php` donde el usuario introduzca los datos de registro y vincúlalo con `608nuevoUsuario.php` para que recoja los datos mediante POST y los inserte en la base de datos si todo ha ido bien.
+
+- Queda <span class="alert">**PROHIBIDÍSIMO**</span> acceder a `608nuevoUsuario.php` sin el formulario rellenado.
+
+- La sentencia de INSERT debe estar controlada para que no pueda introducirse ningún dato en blanco. Ten en cuenta que estás modificando la base de datos y no queremos campos mal rellenados.
+
+- Si todo ha ido bien, muestra un mensaje por pantalla diciendo `El usuario XXX ha sido introducido en el sistema con la contraseña YYY`.
 
 <!--
-
-### La Severo Tienda
-
-A lo largo de esta unidad vamos a trabajar con una base de datos existente, que almacena la información de un tienda:
-
-Vamos a ver como crear la base de datos dependiendo de nuestra instalación,
-
-### PDO
 
 ## Acceso a ficheros
 
