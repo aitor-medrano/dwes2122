@@ -703,6 +703,108 @@ Ahora que tenemos el usuario codificado y guardado en la base de datos, vamos a 
     }
 ```
 
+## Acceso a ficheros
+
+Gracias a la funcion fopen() desde PHP podemos abrir archivos que se encuentren en nuestros servidor o una URL.
+
+A esta función hay que pasarle 2 parámetros; el nombre del archivo que queremos abrir y el modo en el que se abrirá
+
+``` php
+$fp = fopen("miarchivo.txt", "r");
+```
+
+Muchas veces no podemos abrir el archivo porque éste no se encuentra o no tenemos acceso a él, por eso es recomendable comprobar que podemos hacerlo
+
+``` php
+if (!$fp = fopen("miarchivo.txt", "r")){
+    echo "No se ha podido abrir el archivo";
+}
+```
+
+### Modos de apertura de ficheros
+
+- `r`:  Modo lectura. Puntero al principio del archivo.
+- `r+`: Apertura para lectura y escritura. Puntero al principio del archivo
+- `w`: Apertura para escritura. Puntero al principio del archivo y lo sobreescribe. Si no existe se intenta crear.
+- `w+`: Apertura para lectura y escritura. Puntero al principio del archivo y lo sobreescribe. Si no existe se intenta crear.
+- `a`: Apertura para escritura. Puntero al final del archivo. Si no existe se intenta crear.
+- `a+`: Apertura para lectura y escritura. Puntero al final del archivo. Si no existe se intenta crear.
+- `x`: Creación y apertura para sólo escritura. Puntero al principio del archivo. Si el archivo ya existe dará error E_WARNING. Si no existe se intenta crear.
+- `x+`: Creación y apertura para lectura y escritura. Mismo comportamiento que x.
+- `c`: Apertura para escritura. Si no existe se crea. Si existe no se sobreescribe ni da ningún error. Puntero al principio del archivo.
+- `c+`: Apertura para lectura y escritura. Mismo comportamiento que C.
+- `b`: Cuando se trabaja con archivos binarios como jpg, pdf, png y demás. Se suele colocar al final del modo, es decir rb, r+b, x+b, wb...
+
+### Operaciones con archivos
+
+Para poder **leer** un archivo necesitamos usar la función fread() de PHP
+
+```php
+//  ▒▒▒▒▒▒▒▒ Abriendo un archivo y leyendo su contenido ▒▒▒▒▒▒▒▒
+
+$file = "miarchivo.txt";
+$fp = fopen($file, "r");
+
+// filesize() nos devuelve el tamaño del archivo en cuestión
+$contents = fread($fp, filesize($file));
+
+// Cerramos la conexión con el archivo
+fclose();
+```
+
+Si lo que queremos es **escribir** en un archivo, deberemos hacer uso de la función fwrite()
+
+```php
+//  ▒▒▒▒▒▒▒▒ Escribiendo en un archivo ▒▒▒▒▒▒▒▒
+
+$file = "miarchivo.txt";
+$texto = "Hola que tal";
+
+$fp = fopen($file, "w");
+
+fwrite($fp, $texto);
+fclose($fp);
+```
+
+### Información de un fichero
+
+Con PHP y su método stat() podemos obtener información sobre los archivos que le indiquemos. Este método devuelve hasta un total de 12 elementos con ifnormación acerca de nuestro archivo.
+
+    0	dev	        número de dispositivo
+    1	ino	        número de i-nodo
+    2	mode	    modo de protección del i-nodo
+    3	nlink	    número de enlaces
+    4	uid	        ID de usuario del propietario
+    5	gid	        ID de grupo del propietario
+    6	rdev	    tipo de dispositivo, si es un dispositivo i-nodo
+    7	size	    tamaño en bytes
+    8	atime	    momento del último acceso (tiempo Unix)
+    9	mtime	    momento de la última modificación (tiempo Unix)
+    10	ctime	    momento de la última modificación del i-nodo (tiempo Unix)
+    11	blksize	    tamaño del bloque E/S del sistema de ficheros
+    12	blocks	    número de bloques de 512 bytes asignados
+
+Unos ejemplos...
+
+``` php
+//  ▒▒▒▒▒▒▒▒ Información del archivo ▒▒▒▒▒▒▒▒
+
+$file = "miarchivo.txt";
+$texto = "Todos somos muy ignorantes, lo que ocurre es que no todos ignoramos las mismas cosas.";
+
+$fp = fopen($file, "w");
+fwrite($fp, $texto);
+
+$datos = stat($file);
+
+echo $datos[3] . "<br>"; // Número de enlaces, 1
+echo $datos[7] . "<br>"; // Tamaño en bytes, 85
+echo $datos[8] . "<br>"; // Momento de último acceso, 1444138104
+echo $datos[9] . "<br>"; // Momento de última modificación, 1444138251
+```
+
+Echa un vistazo a [las funciones de directorios](https://www.php.net/manual/es/book.dir.php) que tiene PHP, es muy interesante.
+
 
 ## Actividades
 
@@ -760,6 +862,10 @@ Ahora que tenemos el usuario codificado y guardado en la base de datos, vamos a 
 - La sentencia de INSERT debe estar controlada para que no pueda introducirse ningún dato en blanco. Ten en cuenta que estás modificando la base de datos y no queremos campos mal rellenados.
 
 - Si todo ha ido bien, muestra un mensaje por pantalla diciendo `El usuario XXX ha sido introducido en el sistema con la contraseña YYY`.
+
+609. Métete en [loremipsum.com](https://www.lipsum.com/) y genera un texto de 3 párrafos. Copia el texto generado y guárdalo en un archivo nuevo llamado `609loremIpsum.txt`. Genera un archivo php llamado `609loremIpsum.php` y muestra por pantalla el texto del archivo txt que acabas de crear, su tamaño en **Kilobytes** , la fecha de su última modificación y el ID de usuario que creó el archivo.
+
+610. Vuelve a cargar el archivo `606campeones.php` y renómbralo a `610campeones.php` pero en vez de mostrar la tabla por pantalla, genera un archivo CSV `610campeones.csv` y otro `610campeonesCSV.php` donde saques por pantalla el contenido del archivo `610campeones.csv`.
 
 <!--
 
