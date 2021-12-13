@@ -553,6 +553,47 @@
     Actividades
   </a>
   
+    <nav class="md-nav" aria-label="Actividades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysqli_1" class="md-nav__link">
+    MySQLi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-y-comodines" class="md-nav__link">
+    Filtros y comodines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdo" class="md-nav__link">
+    PDO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ficheros" class="md-nav__link">
+    Ficheros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-chollosevero" class="md-nav__link">
+    Proyecto CholloSevero
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1266,6 +1307,7 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 </code></pre></div>
 <p>Echa un vistazo a <a href="https://www.php.net/manual/es/book.dir.php">las funciones de directorios</a> que tiene PHP, es muy interesante.</p>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<h3 id="mysqli_1">MySQLi<a class="headerlink" href="#mysqli_1" title="Permanent link">&para;</a></h3>
 <ol start="601">
 <li>
 <p>Crea una nueva base de datos con el nombre <code>lol</code> y cotejamiento de datos <code>utf8mb4_unicode_ci</code>.</p>
@@ -1303,6 +1345,7 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <p>Al pinchar en borrar, el usuario será preguntado a través de un mensaje de JavaScript (prompt) si está seguro de que quiere borrar al campeón seleccionado. En el mensaje de confirmación debe aparecer el <strong>nombre del campeón seleccionado</strong>. Si el usuario pincha en <code>Aceptar</code> el campeón será eliminado de la base de datos y el usuario será redirigido nuevamente al listado de campeones para comprobar que, efectivamente dicho campeón se ha eliminado de la lista.</p>
 </li>
 </ul>
+<h3 id="filtros-y-comodines">Filtros y comodines<a class="headerlink" href="#filtros-y-comodines" title="Permanent link">&para;</a></h3>
 <ol start="606">
 <li>modifica el archivo <code>604campeones.php</code> y guárdalo como <code>606campeones.php</code> para que se muestre como una tabla con las columnas de la propia tabla de la base de datos, es decir; id, nombre, rol, dificultad, descripción. Al lado de cada nombre de cada columna, pon 2 iconos que sean ˄ ˅ y que cada uno de ellos ordene el listado en función de cuál se haya pinchado.</li>
 </ol>
@@ -1317,6 +1360,7 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <p>Puedes usar <a href="https://fontawesome.com">Font Awesome</a> para los iconos pero es algo opcional</p>
 </li>
 </ul>
+<h3 id="pdo">PDO<a class="headerlink" href="#pdo" title="Permanent link">&para;</a></h3>
 <ol start="607">
 <li>
 <p>Aprovecha lo que hiciste de los ejercicios 601 al 604 pero esta vez utilizando <code>PDO::FETCH_ASSOC</code>.</p>
@@ -1355,12 +1399,38 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <p>Si todo ha ido bien, muestra un mensaje por pantalla diciendo <code>El usuario XXX ha sido introducido en el sistema con la contraseña YYY</code>.</p>
 </li>
 </ul>
+<h3 id="ficheros">Ficheros<a class="headerlink" href="#ficheros" title="Permanent link">&para;</a></h3>
 <ol start="609">
 <li>
 <p>Métete en <a href="https://www.lipsum.com/">loremipsum.com</a> y genera un texto de 3 párrafos. Copia el texto generado y guárdalo en un archivo nuevo llamado <code>609loremIpsum.txt</code>. Genera un archivo php llamado <code>609loremIpsum.php</code> y muestra por pantalla el texto del archivo txt que acabas de crear, su tamaño en <strong>Kilobytes</strong> , la fecha de su última modificación y el ID de usuario que creó el archivo.</p>
 </li>
 <li>
 <p>Vuelve a cargar el archivo <code>606campeones.php</code> y renómbralo a <code>610campeones.php</code> pero en vez de mostrar la tabla por pantalla, genera un archivo CSV <code>610campeones.csv</code> y otro <code>610campeonesCSV.php</code> donde saques por pantalla el contenido del archivo <code>610campeones.csv</code>.</p>
+</li>
+</ol>
+<h3 id="proyecto-chollosevero">Proyecto CholloSevero<a class="headerlink" href="#proyecto-chollosevero" title="Permanent link">&para;</a></h3>
+<ol start="615">
+<li>
+<p>Estructura el proyecto y piensa en las tablas y bases de datos que necesitéis para crear el proyecto. Crea los UML necesarios con nombres como <code>615UMLnombreTabla</code> metiendo todos los campos que se necesiten así como las relaciones que creas necesarias. Establece un sistema de archivos para el proyecto, teniendo en cuenta que van a haber imágenes, css, funciones php, constantes e incluso javaScript (pero algo básico) para controlar los eventos del usuario a lo largo de la interfaz.</p>
+</li>
+<li>
+<p>Crea un sistema de login/password con los roles <code>administrador</code> y <code>usuario</code>. De momento que se validen los usuarios correctamente utilizando encriptación en la contraseña.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><code>Administrador</code>: Puede ver todos los usuarios registrados así como los administradores y los chollos creados en la base de datos.</p>
+</li>
+<li>
+<p><code>Usuario</code>: Puede ver sus propios chollos, editarlos y borrarlos, además de crear nuevos.</p>
+</li>
+</ul>
+<ol start="617">
+<li>
+<p>Crea la vista para poner nuevos chollos y recuerda <span class="alert"><strong><em>sólo pueden entrar a esta vista usuarios registrados o administradores</em></strong></span>.</p>
+</li>
+<li>
+<p>Crea la vista donde se muestren todos los chollos creados. Esta vista puede verla cualquier usuario, registrado o no en el sistema. Ten en cuenta que esta vista será la vista general de la web así que puedes llamarla <code>index.php</code> donde después aplicaremos filtros por $_GET.</p>
 </li>
 </ol>
 <!--
