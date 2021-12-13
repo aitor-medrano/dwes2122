@@ -515,6 +515,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#acceso-a-ficheros" class="md-nav__link">
+    Acceso a ficheros
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceso a ficheros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-apertura-de-ficheros" class="md-nav__link">
+    Modos de apertura de ficheros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-con-archivos" class="md-nav__link">
+    Operaciones con archivos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacion-de-un-fichero" class="md-nav__link">
+    Información de un fichero
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
     Actividades
   </a>
@@ -1150,6 +1184,87 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <span class="linenos" data-linenos="16 "></span>        <span class="k">echo</span><span class="s2">&quot;KO&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="17 "></span>    <span class="p">}</span>
 </code></pre></div>
+<h2 id="acceso-a-ficheros">Acceso a ficheros<a class="headerlink" href="#acceso-a-ficheros" title="Permanent link">&para;</a></h2>
+<p>Gracias a la funcion fopen() desde PHP podemos abrir archivos que se encuentren en nuestros servidor o una URL.</p>
+<p>A esta función hay que pasarle 2 parámetros; el nombre del archivo que queremos abrir y el modo en el que se abrirá</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$fp = fopen(&quot;miarchivo.txt&quot;, &quot;r&quot;);</span>
+</code></pre></div>
+<p>Muchas veces no podemos abrir el archivo porque éste no se encuentra o no tenemos acceso a él, por eso es recomendable comprobar que podemos hacerlo</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">if (!$fp = fopen(&quot;miarchivo.txt&quot;, &quot;r&quot;)){</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    echo &quot;No se ha podido abrir el archivo&quot;;</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">}</span>
+</code></pre></div>
+<h3 id="modos-de-apertura-de-ficheros">Modos de apertura de ficheros<a class="headerlink" href="#modos-de-apertura-de-ficheros" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>r</code>:  Modo lectura. Puntero al principio del archivo.</li>
+<li><code>r+</code>: Apertura para lectura y escritura. Puntero al principio del archivo</li>
+<li><code>w</code>: Apertura para escritura. Puntero al principio del archivo y lo sobreescribe. Si no existe se intenta crear.</li>
+<li><code>w+</code>: Apertura para lectura y escritura. Puntero al principio del archivo y lo sobreescribe. Si no existe se intenta crear.</li>
+<li><code>a</code>: Apertura para escritura. Puntero al final del archivo. Si no existe se intenta crear.</li>
+<li><code>a+</code>: Apertura para lectura y escritura. Puntero al final del archivo. Si no existe se intenta crear.</li>
+<li><code>x</code>: Creación y apertura para sólo escritura. Puntero al principio del archivo. Si el archivo ya existe dará error E_WARNING. Si no existe se intenta crear.</li>
+<li><code>x+</code>: Creación y apertura para lectura y escritura. Mismo comportamiento que x.</li>
+<li><code>c</code>: Apertura para escritura. Si no existe se crea. Si existe no se sobreescribe ni da ningún error. Puntero al principio del archivo.</li>
+<li><code>c+</code>: Apertura para lectura y escritura. Mismo comportamiento que C.</li>
+<li><code>b</code>: Cuando se trabaja con archivos binarios como jpg, pdf, png y demás. Se suele colocar al final del modo, es decir rb, r+b, x+b, wb...</li>
+</ul>
+<h3 id="operaciones-con-archivos">Operaciones con archivos<a class="headerlink" href="#operaciones-con-archivos" title="Permanent link">&para;</a></h3>
+<p>Para poder <strong>leer</strong> un archivo necesitamos usar la función fread() de PHP</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Abriendo un archivo y leyendo su contenido ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$file = &quot;miarchivo.txt&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">$fp = fopen($file, &quot;r&quot;);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">// filesize() nos devuelve el tamaño del archivo en cuestión</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">$contents = fread($fp, filesize($file));</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">// Cerramos la conexión con el archivo</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">fclose();</span>
+</code></pre></div>
+<p>Si lo que queremos es <strong>escribir</strong> en un archivo, deberemos hacer uso de la función fwrite()</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Escribiendo en un archivo ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">$file = &quot;miarchivo.txt&quot;;</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">$texto = &quot;Hola que tal&quot;;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="x">$fp = fopen($file, &quot;w&quot;);</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="x">fwrite($fp, $texto);</span>
+<span class="linenos" data-linenos="9 "></span><span class="x">fclose($fp);</span>
+</code></pre></div>
+<h3 id="informacion-de-un-fichero">Información de un fichero<a class="headerlink" href="#informacion-de-un-fichero" title="Permanent link">&para;</a></h3>
+<p>Con PHP y su método stat() podemos obtener información sobre los archivos que le indiquemos. Este método devuelve hasta un total de 12 elementos con ifnormación acerca de nuestro archivo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>0   dev         número de dispositivo
+<span class="linenos" data-linenos=" 2 "></span>1   ino         número de i-nodo
+<span class="linenos" data-linenos=" 3 "></span>2   mode        modo de protección del i-nodo
+<span class="linenos" data-linenos=" 4 "></span>3   nlink       número de enlaces
+<span class="linenos" data-linenos=" 5 "></span>4   uid         ID de usuario del propietario
+<span class="linenos" data-linenos=" 6 "></span>5   gid         ID de grupo del propietario
+<span class="linenos" data-linenos=" 7 "></span>6   rdev        tipo de dispositivo, si es un dispositivo i-nodo
+<span class="linenos" data-linenos=" 8 "></span>7   size        tamaño en bytes
+<span class="linenos" data-linenos=" 9 "></span>8   atime       momento del último acceso (tiempo Unix)
+<span class="linenos" data-linenos="10 "></span>9   mtime       momento de la última modificación (tiempo Unix)
+<span class="linenos" data-linenos="11 "></span>10  ctime       momento de la última modificación del i-nodo (tiempo Unix)
+<span class="linenos" data-linenos="12 "></span>11  blksize     tamaño del bloque E/S del sistema de ficheros
+<span class="linenos" data-linenos="13 "></span>12  blocks      número de bloques de 512 bytes asignados
+</code></pre></div>
+<p>Unos ejemplos...</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Información del archivo ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">$file = &quot;miarchivo.txt&quot;;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">$texto = &quot;Todos somos muy ignorantes, lo que ocurre es que no todos ignoramos las mismas cosas.&quot;;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">$fp = fopen($file, &quot;w&quot;);</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">fwrite($fp, $texto);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">$datos = stat($file);</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="x">echo $datos[3] . &quot;&lt;br&gt;&quot;; // Número de enlaces, 1</span>
+<span class="linenos" data-linenos="12 "></span><span class="x">echo $datos[7] . &quot;&lt;br&gt;&quot;; // Tamaño en bytes, 85</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">echo $datos[8] . &quot;&lt;br&gt;&quot;; // Momento de último acceso, 1444138104</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">echo $datos[9] . &quot;&lt;br&gt;&quot;; // Momento de última modificación, 1444138251</span>
+</code></pre></div>
+<p>Echa un vistazo a <a href="https://www.php.net/manual/es/book.dir.php">las funciones de directorios</a> que tiene PHP, es muy interesante.</p>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="601">
 <li>
@@ -1240,6 +1355,14 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <p>Si todo ha ido bien, muestra un mensaje por pantalla diciendo <code>El usuario XXX ha sido introducido en el sistema con la contraseña YYY</code>.</p>
 </li>
 </ul>
+<ol start="609">
+<li>
+<p>Métete en <a href="https://www.lipsum.com/">loremipsum.com</a> y genera un texto de 3 párrafos. Copia el texto generado y guárdalo en un archivo nuevo llamado <code>609loremIpsum.txt</code>. Genera un archivo php llamado <code>609loremIpsum.php</code> y muestra por pantalla el texto del archivo txt que acabas de crear, su tamaño en <strong>Kilobytes</strong> , la fecha de su última modificación y el ID de usuario que creó el archivo.</p>
+</li>
+<li>
+<p>Vuelve a cargar el archivo <code>606campeones.php</code> y renómbralo a <code>610campeones.php</code> pero en vez de mostrar la tabla por pantalla, genera un archivo CSV <code>610campeones.csv</code> y otro <code>610campeonesCSV.php</code> donde saques por pantalla el contenido del archivo <code>610campeones.csv</code>.</p>
+</li>
+</ol>
 <!--
 
 ## Acceso a ficheros
