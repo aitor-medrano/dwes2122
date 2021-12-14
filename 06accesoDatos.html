@@ -543,6 +543,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#archivos-pdf" class="md-nav__link">
+    Archivos PDF
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1306,6 +1313,109 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <span class="linenos" data-linenos="14 "></span><span class="x">echo $datos[9] . &quot;&lt;br&gt;&quot;; // Momento de última modificación, 1444138251</span>
 </code></pre></div>
 <p>Echa un vistazo a <a href="https://www.php.net/manual/es/book.dir.php">las funciones de directorios</a> que tiene PHP, es muy interesante.</p>
+<h3 id="archivos-pdf">Archivos PDF<a class="headerlink" href="#archivos-pdf" title="Permanent link">&para;</a></h3>
+<p>Con PHP podemos manejar todo tipo de archivos como ya hemos visto pero, ¿qué pasa si queremos generar ficheros PDF con datos sacados de una base de datos?</p>
+<div class="center img-small">
+    <img src="imagenes/06/06-pdf.png">
+</div>
+
+<p>Gracias a una clase escrita en PHP, podemos generar archivos PDF sin necesidad de instalar librerías adicionales en nuestro servidor.</p>
+<p>Para ello, visitaremos la <a href="http://www.fpdf.org/">página oficial de FPDF</a> y nos descargaremos los archivos necesarios.</p>
+<p>Trabajaremos con la versión 1.84 que <a href="http://www.fpdf.org/es/dl.php?v=184&amp;f=zip">la puedes descargar desde aquí</a>.</p>
+<p>Una vez descargada y descomprimida nuestra nueva clase para generar PDFs, lo que tenemos que hacer es importarla en nuestro proyecto</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// Dependiendo de dónde la hayamos puesto</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">require</span><span class="p">(</span><span class="s1">&#39;fpdf/fpdf.php&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Veamos un ejemplo de Hello World convertido a PDF</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">ob_end_clean</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">require</span><span class="p">(</span><span class="s1">&#39;fpdf/fpdf.php&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">// Instanciamos la clase</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">// P = Portrait | mm = unidades en milímetros | A4 = formato</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$pdf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FPDF</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;mm&#39;</span><span class="p">,</span><span class="s1">&#39;A4&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1">// Añadimos una página</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">AddPage</span><span class="p">();</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="c1">// Establecemos la fuente y el tamaño de letra</span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">SetFont</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="c1">// Imprimimos una celda con el texto que nosotros queramos</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">Cell</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="c1">// Terminamos el PDF</span>
+<span class="linenos" data-linenos="20 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">Output</span><span class="p">();</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+Hay muchos ejemplos y tutoriales, así como documentación de la clase FPDF en la página oficial.</p>
+<p>Visita <a href="http://www.fpdf.org/">la sección de tutoriales y el manual</a> para sacar mayor partido a esta clase.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">require</span><span class="p">(</span><span class="s1">&#39;fpdf/fpdf.php&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">class</span> <span class="nc">PDF</span> <span class="k">extends</span> <span class="nx">FPDF</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Cabecera</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">function</span> <span class="nf">Header</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>        <span class="c1">// Añadimos un logotipo</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Image</span><span class="p">(</span><span class="s1">&#39;logo.png&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">33</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>        <span class="c1">// establecemos la fuente y el tamaño</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">SetFont</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>        <span class="c1">// Movemos el contenido un poco a la derecha</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Cell</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>        <span class="c1">// Pintamos la celda</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Cell</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;Cabecera&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>        <span class="c1">// Pasamos a la siguiente línea</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Ln</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span>    <span class="c1">// Pie de página</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">function</span> <span class="nf">Footer</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="28 "></span>
+<span class="linenos" data-linenos="29 "></span>        <span class="c1">// Nos posicionamos a 1.5 cm  desde abajo del todo de la página</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">SetY</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">);</span>
+<span class="linenos" data-linenos="31 "></span>
+<span class="linenos" data-linenos="32 "></span>        <span class="c1">// Arial italic 8</span>
+<span class="linenos" data-linenos="33 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">SetFont</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>        <span class="c1">// Número de página</span>
+<span class="linenos" data-linenos="36 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;Página &#39;</span> <span class="o">.</span> 
+<span class="linenos" data-linenos="37 "></span>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">PageNo</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/{nb}&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="39 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="40 "></span>
+<span class="linenos" data-linenos="41 "></span><span class="c1">// Instanciamos la clase</span>
+<span class="linenos" data-linenos="42 "></span><span class="nv">$pdf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDF</span><span class="p">();</span>
+<span class="linenos" data-linenos="43 "></span>
+<span class="linenos" data-linenos="44 "></span><span class="c1">// Definimos un alias para la numeración de páginas</span>
+<span class="linenos" data-linenos="45 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">AliasNbPages</span><span class="p">();</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">AddPage</span><span class="p">();</span>
+<span class="linenos" data-linenos="48 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">SetFont</span><span class="p">(</span><span class="s1">&#39;Times&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
+<span class="linenos" data-linenos="49 "></span>
+<span class="linenos" data-linenos="50 "></span><span class="k">for</span><span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos" data-linenos="51 "></span>    <span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">Cell</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Número de línea &#39;</span> 
+<span class="linenos" data-linenos="52 "></span>            <span class="o">.</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="53 "></span><span class="nv">$pdf</span><span class="o">-&gt;</span><span class="na">Output</span><span class="p">();</span>
+<span class="linenos" data-linenos="54 "></span>
+<span class="linenos" data-linenos="55 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<div class="center img-large">
+    <img src="imagenes/06/06-pdf-output.gif">
+</div>
+
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <h3 id="mysqli_1">MySQLi<a class="headerlink" href="#mysqli_1" title="Permanent link">&para;</a></h3>
 <ol start="601">
@@ -1434,12 +1544,6 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 </li>
 </ol>
 <!--
-
-## Acceso a ficheros
-
-### Archivos CSV
-
-### Archivos PDF
 
 ## Eloquent
 
