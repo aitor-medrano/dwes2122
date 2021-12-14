@@ -805,6 +805,125 @@ echo $datos[9] . "<br>"; // Momento de última modificación, 1444138251
 
 Echa un vistazo a [las funciones de directorios](https://www.php.net/manual/es/book.dir.php) que tiene PHP, es muy interesante.
 
+### Archivos PDF
+
+
+Con PHP podemos manejar todo tipo de archivos como ya hemos visto pero, ¿qué pasa si queremos generar ficheros PDF con datos sacados de una base de datos?
+
+<div class="center img-small">
+    <img src="imagenes/06/06-pdf.png">
+</div>
+
+
+Gracias a una clase escrita en PHP, podemos generar archivos PDF sin necesidad de instalar librerías adicionales en nuestro servidor.
+
+Para ello, visitaremos la [página oficial de FPDF](http://www.fpdf.org/) y nos descargaremos los archivos necesarios.
+
+Trabajaremos con la versión 1.84 que [la puedes descargar desde aquí](http://www.fpdf.org/es/dl.php?v=184&f=zip).
+
+Una vez descargada y descomprimida nuestra nueva clase para generar PDFs, lo que tenemos que hacer es importarla en nuestro proyecto
+
+``` php
+<?php
+
+// Dependiendo de dónde la hayamos puesto
+require('fpdf/fpdf.php');
+
+?>
+```
+
+Veamos un ejemplo de Hello World convertido a PDF
+
+```php
+<?php
+    
+ob_end_clean();
+require('fpdf/fpdf.php');
+  
+// Instanciamos la clase
+// P = Portrait | mm = unidades en milímetros | A4 = formato
+$pdf = new FPDF('P','mm','A4');
+  
+// Añadimos una página
+$pdf->AddPage();
+  
+// Establecemos la fuente y el tamaño de letra
+$pdf->SetFont('Arial', 'B', 18);
+  
+// Imprimimos una celda con el texto que nosotros queramos
+$pdf->Cell(60,20,'Hello World!');
+  
+// Terminamos el PDF
+$pdf->Output();
+  
+?>
+```
+Hay muchos ejemplos y tutoriales, así como documentación de la clase FPDF en la página oficial.
+
+Visita [la sección de tutoriales y el manual](http://www.fpdf.org/) para sacar mayor partido a esta clase.
+
+```php
+<?php
+  
+require('fpdf/fpdf.php');
+  
+class PDF extends FPDF {
+  
+    // Cabecera
+    function Header() {
+          
+        // Añadimos un logotipo
+        $this->Image('logo.png',10,8,33);
+          
+        // establecemos la fuente y el tamaño
+        $this->SetFont('Arial','B',20);
+          
+        // Movemos el contenido un poco a la derecha
+        $this->Cell(80);
+          
+        // Pintamos la celda
+        $this->Cell(50,10,'Cabecera',1,0,'C');
+          
+        // Pasamos a la siguiente línea
+        $this->Ln(20);
+    }
+  
+    // Pie de página
+    function Footer() {
+          
+        // Nos posicionamos a 1.5 cm  desde abajo del todo de la página
+        $this->SetY(-15);
+          
+        // Arial italic 8
+        $this->SetFont('Arial','I',8);
+          
+        // Número de página
+        $this->Cell(0,10,'Página ' . 
+            $this->PageNo() . '/{nb}',0,0,'C');
+    }
+}
+  
+// Instanciamos la clase
+$pdf = new PDF();
+  
+// Definimos un alias para la numeración de páginas
+$pdf->AliasNbPages();
+
+$pdf->AddPage();
+$pdf->SetFont('Times','',14);
+  
+for($i = 1; $i <= 30; $i++)
+    $pdf->Cell(0, 10, 'Número de línea ' 
+            . $i, 0, 1);
+$pdf->Output();
+  
+?>
+```
+
+<div class="center img-large">
+    <img src="imagenes/06/06-pdf-output.gif">
+</div>
+
 
 ## Actividades
 
@@ -891,12 +1010,6 @@ Echa un vistazo a [las funciones de directorios](https://www.php.net/manual/es/b
 618. Crea la vista donde se muestren todos los chollos creados. Esta vista puede verla cualquier usuario, registrado o no en el sistema. Ten en cuenta que esta vista será la vista general de la web así que puedes llamarla `index.php` donde después aplicaremos filtros por $_GET.
 
 <!--
-
-## Acceso a ficheros
-
-### Archivos CSV
-
-### Archivos PDF
 
 ## Eloquent
 
