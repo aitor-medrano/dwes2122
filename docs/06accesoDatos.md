@@ -787,6 +787,8 @@ Con PHP y su método stat() podemos obtener información sobre los archivos que 
 Unos ejemplos...
 
 ``` php
+<?php
+
 //  ▒▒▒▒▒▒▒▒ Información del archivo ▒▒▒▒▒▒▒▒
 
 $file = "miarchivo.txt";
@@ -801,6 +803,8 @@ echo $datos[3] . "<br>"; // Número de enlaces, 1
 echo $datos[7] . "<br>"; // Tamaño en bytes, 85
 echo $datos[8] . "<br>"; // Momento de último acceso, 1444138104
 echo $datos[9] . "<br>"; // Momento de última modificación, 1444138251
+
+?>
 ```
 
 Echa un vistazo a [las funciones de directorios](https://www.php.net/manual/es/book.dir.php) que tiene PHP, es muy interesante.
