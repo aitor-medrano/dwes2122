@@ -1297,20 +1297,24 @@ Pero si lo que queremos es leer datos con forma de objeto utilizando <code>PDO::
 <span class="linenos" data-linenos="13 "></span>12  blocks      número de bloques de 512 bytes asignados
 </code></pre></div>
 <p>Unos ejemplos...</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">//  ▒▒▒▒▒▒▒▒ Información del archivo ▒▒▒▒▒▒▒▒</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="x">$file = &quot;miarchivo.txt&quot;;</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="x">$texto = &quot;Todos somos muy ignorantes, lo que ocurre es que no todos ignoramos las mismas cosas.&quot;;</span>
-<span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span><span class="x">$fp = fopen($file, &quot;w&quot;);</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="x">fwrite($fp, $texto);</span>
-<span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span><span class="x">$datos = stat($file);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">//  ▒▒▒▒▒▒▒▒ Información del archivo ▒▒▒▒▒▒▒▒</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$file</span> <span class="o">=</span> <span class="s2">&quot;miarchivo.txt&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$texto</span> <span class="o">=</span> <span class="s2">&quot;Todos somos muy ignorantes, lo que ocurre es que no todos ignoramos las mismas cosas.&quot;</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$texto</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>
-<span class="linenos" data-linenos="11 "></span><span class="x">echo $datos[3] . &quot;&lt;br&gt;&quot;; // Número de enlaces, 1</span>
-<span class="linenos" data-linenos="12 "></span><span class="x">echo $datos[7] . &quot;&lt;br&gt;&quot;; // Tamaño en bytes, 85</span>
-<span class="linenos" data-linenos="13 "></span><span class="x">echo $datos[8] . &quot;&lt;br&gt;&quot;; // Momento de último acceso, 1444138104</span>
-<span class="linenos" data-linenos="14 "></span><span class="x">echo $datos[9] . &quot;&lt;br&gt;&quot;; // Momento de última modificación, 1444138251</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$datos</span> <span class="o">=</span> <span class="nb">stat</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Número de enlaces, 1</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">echo</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Tamaño en bytes, 85</span>
+<span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Momento de último acceso, 1444138104</span>
+<span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nv">$datos</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// Momento de última modificación, 1444138251</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Echa un vistazo a <a href="https://www.php.net/manual/es/book.dir.php">las funciones de directorios</a> que tiene PHP, es muy interesante.</p>
 <h3 id="archivos-pdf">Archivos PDF<a class="headerlink" href="#archivos-pdf" title="Permanent link">&para;</a></h3>
