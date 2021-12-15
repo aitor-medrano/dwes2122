@@ -643,39 +643,10 @@
 
 <h2 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h2>
 <p>A través de <strong><em>XAMPP</em></strong> es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP <a href="https://www.apachefriends.org/es/download.html">pulsa aquí</a>.</p>
-<p>Con <strong><em>Docker</em></strong> nos descargaremos <a href="https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip">esta imagen de docker</a> y lanzamos </p>
+<p>Con <strong><em>Docker</em></strong> nos descargaremos <a href="recursos/plantilla-APCM.zip">esta imagen de docker</a> y lanzamos </p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>docker-compose up -d
 </code></pre></div>
 <p>Si todo ha salido bien y el contenedor está en marcha, podremos visitar la página de phpMyAdmin de la siguiente manera</p>
-<!--
-### Configuración del docker
-
-Una vez [descargada la imagen de docker](https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip) tenemos que configurar el archivo ***docker-compose.yml*** para que exista un usuario y la contraseña de root.
-
-
-<div class="center img-large">
-    <img src="imagenes/06/06-docker-compose.png">
-</div>
-
-- MYSQL_DATABASE: pruebas
-- MYSQL_USER: vuestroUsuario
-- MYSQL_PASSWORD: unaContraseña
-- MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot <br>
-[...]
-- MYSQL_USER: vuestroUsuario
-- MYSQL_PASSWORD: unaContraseña
-- MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot
-
-Ahora que ya tenemos el archivo de configuración modificado, podemos ejecutar el comando para instalar el contenedor a través de la consola <span class="alert">en el directorio donde se encuentra nuestro ***docker-compose.yml***</span>
-
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>docker-compose up -d
-</code></pre></div>
-
-En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin es el 800 así que:
-
-- Arrancamos la imagen de docker
-- Nos metemos al phpMyAdmin
- -->
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>http://localhost:8000
 </code></pre></div>
 <div class="center img-medium">
