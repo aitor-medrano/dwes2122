@@ -24,7 +24,7 @@
  -->
 En esta unidad vamos a aprender a acceder a datos que se encuentran en un servidor; recuperando, editando y creando dichos datos a través de una base de datos.
 
-A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemos (*Apache*, *PHP*) y *MySQL*la que vamos a estudiar en este tema.
+A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemos (*Apache*, *PHP*) y *MySQL* la que vamos a estudiar en este tema.
 
 <div class="center img-large">
     <img src="imagenes/06/06-bbdd-arquitectura-3-niveles.png">
