@@ -33,7 +33,7 @@ A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemo
 ## Instalación
 A través de ***XAMPP*** es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP [pulsa aquí](https://www.apachefriends.org/es/download.html).
 
-Con ***Docker*** nos descargaremos [esta imagen de docker](https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip) y lanzamos 
+Con ***Docker*** nos descargaremos [esta imagen de docker](recursos/plantilla-APCM.zip) y lanzamos 
 
 ``` bash
 docker-compose up -d
@@ -41,37 +41,6 @@ docker-compose up -d
 
 Si todo ha salido bien y el contenedor está en marcha, podremos visitar la página de phpMyAdmin de la siguiente manera
 
-
-<!--
-### Configuración del docker
-
-Una vez [descargada la imagen de docker](https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip) tenemos que configurar el archivo ***docker-compose.yml*** para que exista un usuario y la contraseña de root.
-
-
-<div class="center img-large">
-    <img src="imagenes/06/06-docker-compose.png">
-</div>
-
-- MYSQL_DATABASE: pruebas
-- MYSQL_USER: vuestroUsuario
-- MYSQL_PASSWORD: unaContraseña
-- MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot <br>
-[...]
-- MYSQL_USER: vuestroUsuario
-- MYSQL_PASSWORD: unaContraseña
-- MYSQL_ROOT_PASSWORD: unaContraseñaDeRoot
-
-Ahora que ya tenemos el archivo de configuración modificado, podemos ejecutar el comando para instalar el contenedor a través de la consola <span class="alert">en el directorio donde se encuentra nuestro ***docker-compose.yml***</span>
-
-``` bash
-docker-compose up -d
-```
-
-En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin es el 800 así que:
-
-- Arrancamos la imagen de docker
-- Nos metemos al phpMyAdmin
- -->
 ``` html
 http://localhost:8000
 ```
