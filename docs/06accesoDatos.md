@@ -33,11 +33,19 @@ A través de las distintas capas o niveles, de las cuales 2 de ellas ya conocemo
 ## Instalación
 A través de ***XAMPP*** es muy sencillo, simplemente nos descargaríamos el programa y lo activaríamos. Para descargar XAMPP [pulsa aquí](https://www.apachefriends.org/es/download.html).
 
-Con ***Docker*** es algo distinto, primero de todo necesitamos descargar una imagen ya preparada con todos los paquetes necesario, es decir; MySQL, PHP, Apache y PHPMyAdmin. Para ello nos descargaremos [esta imagen de docker](https://github.com/jersonmartinez/docker-lamp/archive/refs/heads/main.zip).
+Con ***Docker*** nos descargaremos [esta imagen de docker](https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip) y lanzamos 
 
+``` bash
+docker-compose up -d
+```
+
+Si todo ha salido bien y el contenedor está en marcha, podremos visitar la página de phpMyAdmin de la siguiente manera
+
+
+<!--
 ### Configuración del docker
 
-Una vez [descargada la imagen de docker](https://github.com/jersonmartinez/docker-lamp/archive/refs/heads/main.zip) tenemos que configurar el archivo ***docker-compose.yml*** para que exista un usuario y la contraseña de root.
+Una vez [descargada la imagen de docker](https://aitor-medrano.github.io/dwes2122/recursos/plantilla-APCM.zip) tenemos que configurar el archivo ***docker-compose.yml*** para que exista un usuario y la contraseña de root.
 
 
 <div class="center img-large">
@@ -63,8 +71,8 @@ En la configuración que hemos modificado, el puerto para acceder al phpMyAdmin 
 
 - Arrancamos la imagen de docker
 - Nos metemos al phpMyAdmin
-
-```
+ -->
+``` html
 http://localhost:8000
 ```
 
@@ -72,7 +80,7 @@ http://localhost:8000
     <img src="imagenes/06/06-bbdd-phpMyAdmin-login.png">
 </div>
 
-Recuerda que hemos configurado el contenedor con un usuario normal y hemos cambiado la contraseña de root, en este caso nos meteremos con las siguientes credenciales.
+Para acceder debemos utilizar las siguientes credenciales que vienen configuradas en el alrchivo `docker-compose.yml` 
 
 ```
 usuario: root
@@ -821,26 +829,15 @@ Con PHP podemos manejar todo tipo de archivos como ya hemos visto pero, ¿qué p
 
 Gracias a una clase escrita en PHP, podemos generar archivos PDF sin necesidad de instalar librerías adicionales en nuestro servidor.
 
-Para ello, visitaremos la [página oficial de FPDF](http://www.fpdf.org/) y nos descargaremos los archivos necesarios.
+Para ello, como tenemos composer dentro de nuestra imagen de Docker, usaremos composer para instalar esta dependencia.
 
-Trabajaremos con la versión 1.84 que [la puedes descargar desde aquí](http://www.fpdf.org/es/dl.php?v=184&f=zip).
-
-Una vez descargada y descomprimida nuestra nueva clase para generar PDFs, lo que tenemos que hacer es importarla en nuestro proyecto
-
-``` php
-<?php
-
-// Dependiendo de dónde la hayamos puesto
-require('fpdf/fpdf.php');
-
-?>
-```
+Acuérdate que debemes haber hecho `composer init` para empezar un proyecto con composer, de lo contrario no podrás añadir ningún paquete.
 
 Veamos un ejemplo de Hello World convertido a PDF
 
 ```php
 <?php
-    
+
 ob_end_clean();
 require('fpdf/fpdf.php');
   
