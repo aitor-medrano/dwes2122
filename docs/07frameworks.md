@@ -22,8 +22,6 @@
 
 > Duración estimada: 40 sesiones
 
-## Frameworks
-
 ## Puesta en marcha
 
 Lo primero de todo es crear una carpeta con el nombre del proyecto que vayamos a crear y nos metemos en ella.
@@ -99,6 +97,8 @@ Las rutas en Laravel (y en casi cualquier Framework) sirven para redireccionar a
 Estas rutas se configuran en el archivo `public/routes/web.php` donde se define la ruta que el usuario pone en la URL después del dominio y se retorna la vista que se quiere cargar al introducir dicha dirección en el navegador.
 
 ```php
+<?php
+
 // Ruta por defecto para cargar la vista welcome cuando el usuario introduce simplemente el dominio
 
 Route::get('/', function () {
@@ -115,6 +115,8 @@ Es interesante darle un alias o un nombre a nuestras rutas para poder utilizar d
 Para ello, basta con utilizar la palabra `name` al final de la estructura de la ruta y darle un nombre que queramos; normalmente descriptivo y asociado a la vista que tiene que cargar el enroutador de Laravel.
 
 ```php
+<?php
+
 Route::get('/users', function () {
     return view('users');
 }) -> name('usuarios');
@@ -125,6 +127,8 @@ Después veremos que es muy útil ya que a la hora de refactorizar o hacer un ca
 Laravel nos proporciona una manera más cómoda a la hora de cargar una vista si no queremos parámetros ni condiciones. Tan sólo definiremos la siguiente línea que hace referencia la ruta `datos` en la URL y va a cargar el archivo `usuarios.php` de nuestra carpeta `views` como le hemos indicado en el segundo parámetro.
 
 ```php
+<?php
+
 /* http://localhost/datos/ */
 
 Route::view('datos', 'usuarios');
@@ -143,6 +147,8 @@ Con Laravel también podemos introducir parámetros pero de una forma más visto
 Para configurar este tipo de rutas en nuestro archivo de rutas `public/routes/web.php` haremos lo siguiente.
 
 ``` php
+<?php
+
 Route::get('cliente/{id}', function($id) {
     return('Cliente con el id: ' . $id);
 });
@@ -153,6 +159,8 @@ Route::get('cliente/{id}', function($id) {
 Para resolver ésto, podemos definir una ruta por defecto en caso de que el `id` (o parámetro) no sea pasado. Para ello usaremos el símbolo `?` en nuestro nombre de ruta e inicializaremos la variable con el valor que queramos.
 
 ``` php
+<?php
+
 Route::get('cliente/{id?}', function($id = 1) {
     return ('Cliente con el id: ' . $id);
 });
@@ -163,6 +171,8 @@ Ahora tenemos otro problema, porque estamos filtrando por id del cliente que, no
 Para resolver este caso haremos uso de la cláusula `where` junto con una expresión regular númerica.
 
 ``` php
+<?php
+
 Route::get('cliente/{id?}', function($id = 1) {
     return ('Cliente con el id: ' . $id);
 }) -> where('id', '[0-9]+');
@@ -171,6 +181,8 @@ Route::get('cliente/{id?}', function($id = 1) {
 Además, podemos pasarle variables a nuestra URL para luego utilzarlas en nuestros archivos de plantillas o en archivos `.php` haciendo uso de un array asociativo. Veamos un ejemplo con la forma reducida para ahorrarnos código
 
 ```php
+<?php
+
 Route::view('datos', 'usuarios', ['id' => 5446]);
 ```
 
@@ -248,6 +260,8 @@ Cada sección que haga uso de esta plantilla contendrá el texto estático `Bien
 Ahora crearemos los archivos dinámicos de cada una de las secciones, en nuestro caso `blog.blade.php` y `fotos.blade.php`
 
 ```php
+<?php
+
 // blog.blade.php
 
 @extends('plantilla')
@@ -262,6 +276,8 @@ Importamos el contenido de `plantilla` bajo la directiva `@extends` para que car
 Ahora casi lo mismo para la sección de `fotos`
 
 ```php
+<?php
+
 // fotos.blade.html
 
 @extends('plantilla')
@@ -274,6 +290,8 @@ Ahora casi lo mismo para la sección de `fotos`
 El último paso que nos queda es configurar el archivo de rutas `routes/web.php`
 
 ```php
+<?php
+
 // web.php
 
 Route::view('blog', 'blog') -> name('noticias');
@@ -296,6 +314,8 @@ En Blade (plantillas de Laravel) siempre que iniciemos un bloque de estructura d
   - `@default` si ninguna casuística se cumple
 
 ```php
+<?php
+
 $equipo = ['María', 'Alfredo', 'William', 'Verónica'];
 
 @foreach ($equipo as $nombre)
@@ -306,6 +326,8 @@ $equipo = ['María', 'Alfredo', 'William', 'Verónica'];
 Acordaros que podemos pasar variables a través de las rutas como si fueran parámetros. Pero en este caso, vamos a ver otra directiva más; el uso de `@compact`.
 
 ```php
+<?php
+
 // Uso de @compact
 $equipo = ['María', 'Alfredo', 'William', 'Verónica'];
 
@@ -325,7 +347,7 @@ Para crear un controlador nuevo debemos hacer uso de nuestro querido autómata `
 
 Abrimos la consola y nos situamos en la raíz de nuestro proyecto
 
-``` console
+```console
 php artisan make:controller PagesController
 ```
 Si todo ha salido bien, recibiremos un mensaje por consola con que todo ha ido bien y podremos comprobar que, efectivamente se ha creado el archivo `PagesController.php` con una estructura básica de controlador, dentro de la carpeta `Controllers` que hemos descrito anteriormente.
@@ -341,6 +363,8 @@ Veamos cómo quedaría un refactor del archivo de rutas utilizando un `Controlle
 Ahora nos quedaría de la siguiente manera
 
 ```php
+<?php
+
 // web.php (v2.0) ▒▒▒▒ Refactorizado
 
 use App\Http\Controllers\PagesController;
@@ -355,6 +379,8 @@ Route::get('nosotros/{nosotros?}', [ PagesController::class, 'nosotros']) -> nam
 y en nuestro archivo controlador lo dejaríamos de la siguiente manera
 
 ```php
+<?php
+
 // PagesController.php
 
 namespace App\Http\Controllers;
