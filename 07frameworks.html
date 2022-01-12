@@ -16,7 +16,7 @@
     
     
       
-        <title>Frameworks PHP. Laravel - Desarrollo Web en Entorno Servidor</title>
+        <title>07frameworks - Desarrollo Web en Entorno Servidor</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Frameworks PHP. Laravel
+              07frameworks
             
           </span>
         </div>
@@ -329,52 +329,325 @@
               
                 
                 
-                <h1 id="frameworks-php-laravel">Frameworks PHP. Laravel<a class="headerlink" href="#frameworks-php-laravel" title="Permanent link">&para;</a></h1>
+                <style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
+<h1 id="frameworks-php-laravel">Frameworks PHP. Laravel<a class="headerlink" href="#frameworks-php-laravel" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Duración estimada: 40 sesiones</p>
 </blockquote>
 <h2 id="frameworks">Frameworks<a class="headerlink" href="#frameworks" title="Permanent link">&para;</a></h2>
 <h2 id="puesta-en-marcha">Puesta en marcha<a class="headerlink" href="#puesta-en-marcha" title="Permanent link">&para;</a></h2>
-<p>Los requisitos para poner en marcha Laravel son tener instalados los comandos <code>php</code> y <code>composer</code>. </p>
-<p>Para crear el proyecto:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer create-project laravel/laravel --prefer-dist NombreProyecto</span>
+<p>Lo primero de todo es crear una carpeta con el nombre del proyecto que vayamos a crear y nos metemos en ella.</p>
+<p>Vamos a utilizar la imagen de Bitnami ya preparada, así que lo que hacer ahora es <a href="https://github.com/bitnami/bitnami-docker-laravel/blob/master/docker-compose.yml">descargar el archivo docker-compose.yml</a> del repositorio de Github oficial.</p>
+<p>Una vez descargado el archivo en nuestra carpeta que acabamos de crear con el nombre del proyecto, lanzamos el siguiente comando por consola para instalar todas las dependencias y crear las imágenes de Docker correspondientes.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">docker-compose -p Laravel up -d</span>
 </code></pre></div>
-<p>Una vez creado el proyecto Laravel, es conveniente situarse en el raíz del mismo  y ejecutar</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer update</span>
-<span class="linenos" data-linenos="2 "></span><span class="go">php artisan key:generate</span>
+<p>Si todo ha salido bien podrás ver en el Visual Studio Code que se han creado 2 imágenes y que el servidor web de Laravel está funcionando bajo la siguiente URL.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">http://localhost:8000</span>
 </code></pre></div>
-<h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
-<p>En el directorio raiz del proyecto tenemos el archivo <code>.env</code>. Este archivo define las variables de entorno que personalizan nuestro entorno. Así pues, es aquí donde deberemos configurar nuestra base de datos.</p>
+<p>Si por alguna extraña razón <strong>estás en Windows</strong> y no te funciona una de las 2 imágenes, puede ser debido a la instalción de composer dentro de la imagen de Laravel.</p>
+<div class="center img-large">
+    <img src="imagenes/07/error-laravel.png">
+</div>
+
+<p>Para solucionarlo, nos vamos a la carpeta del proyecto que se te habrá creado por defecto al hacer docker-compose, en este caso y si no has modificado el archivo .yml la carpeta del proyecto sera <code>my-proyect</code> y dentro de ella eliminamos la carpeta <code>vendor</code>.</p>
+<p>Cuando hayamos eliminado dicha carpeta, necesitaremos instalar <code>Composer</code> de manera global en nuestro sistema Windows. Para ello. bájate el instalador <a href="https://getcomposer.org/Composer-Setup.exe">desde este enlace</a>.</p>
+<p>Una vez lo instales ya serás capaz de lanzar el comando <code>composer</code> desde cualquier consola de Windows.</p>
+<p>Por último, abrimos una consola dentro de la carpeta <code>my-project</code> o el nombre que le hayas puesto a la carpeta del proyecto de Laravel y ejecutamos el siguiente comando.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer install</span>
+</code></pre></div>
+<p>Para terminar tan sólo tendremos que volver a ejecutar el contenedor de Laravel desde Docker.</p>
+<h3 id="vscode-extensiones">VSCode extensiones<a class="headerlink" href="#vscode-extensiones" title="Permanent link">&para;</a></h3>
+<p>Recomendable instalar los siguientes plugins para Visual Studio Code</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  Laravel Blade Snippets
+</code></pre></div>
+<h2 id="carpetas-en-laravel">Carpetas en Laravel<a class="headerlink" href="#carpetas-en-laravel" title="Permanent link">&para;</a></h2>
+<p>Al crear un nuevo proyecto con este framework, Laravel crea una serie de carpetas por defecto. Esta estructura de carpetas es la recomendada para utilizar Laravel.</p>
+<h3 id="public">Public<a class="headerlink" href="#public" title="Permanent link">&para;</a></h3>
+<p>Esta es la carpeta más importante ya que es donde se ponen todos los archivos que el cliente va a mostrar al usuario cuando introduzcamos la URL de nuestro sitio web. Normalmente se carga el archivo <code>index.php</code> por defecto.</p>
+<h3 id="routes">Routes<a class="headerlink" href="#routes" title="Permanent link">&para;</a></h3>
+<p>Otra de las carpetas que más vamos a usar a lo largo de este curso de Laravel. En ella se albergan todas las rutas (redirecciones web) de nuestro proyecto, pero más concretamente en el archivo <code>web.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Dada una ruta → se cargará una vista
+</code></pre></div>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
+<p>Esta es nuestra carpeta de recursos donde guardaremos los siguientes archivos, que también, están separados por sus carpetas... como cada nombre indica:</p>
+<ul>
+<li><code>css</code> Archivos CSS</li>
+<li><code>js</code> Archivos JS (JavaScript)</li>
+<li><code>lang</code> Archivos relacionados con el idioma del sitio (variables &amp; strings)</li>
+<li><code>views</code> Archivos de nuestras vistas, lo que las rutas cargan</li>
+</ul>
+<h2 id="rutas">Rutas<a class="headerlink" href="#rutas" title="Permanent link">&para;</a></h2>
+<p>Las rutas en Laravel (y en casi cualquier Framework) sirven para redireccionar al cliente (o navegador) a las vistas que nosotros queramos.</p>
+<p>Estas rutas se configuran en el archivo <code>public/routes/web.php</code> donde se define la ruta que el usuario pone en la URL después del dominio y se retorna la vista que se quiere cargar al introducir dicha dirección en el navegador.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// Ruta por defecto para cargar la vista welcome cuando el usuario introduce simplemente el dominio</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">Route::get(&#39;/&#39;, function () {</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">    return view(&#39;welcome&#39;);</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">});</span>
+</code></pre></div>
+<p>En el ejemplo de arriba vamos a cargar la vista llamada <code>welcome</code> que hace referencia a la vista <code>resources/views/welcome.blade.php</code></p>
+<h3 id="alias">Alias<a class="headerlink" href="#alias" title="Permanent link">&para;</a></h3>
+<p>Es interesante darle un alias o un nombre a nuestras rutas para poder utilizar dichos alias en nuestras plantillas de Laravel que veremos más adelante.</p>
+<p>Para ello, basta con utilizar la palabra <code>name</code> al final de la estructura de la ruta y darle un nombre que queramos; normalmente descriptivo y asociado a la vista que tiene que cargar el enroutador de Laravel.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::get(&#39;/users&#39;, function () {</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    return view(&#39;users&#39;);</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">}) -&gt; name(&#39;usuarios&#39;);</span>
+</code></pre></div>
+<p>Después veremos que es muy útil ya que a la hora de refactorizar o hacer un cambio, si tenemos enlaces o menús de navegación que apuntan a esta ruta, sólo tendríamos que cambiar el parámetro dentro del <code>get()</code> y no tener que ir archivo por archivo.</p>
+<p>Laravel nos proporciona una manera más cómoda a la hora de cargar una vista si no queremos parámetros ni condiciones. Tan sólo definiremos la siguiente línea que hace referencia la ruta <code>datos</code> en la URL y va a cargar el archivo <code>usuarios.php</code> de nuestra carpeta <code>views</code> como le hemos indicado en el segundo parámetro.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">/* http://localhost/datos/ */</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">Route::view(&#39;datos&#39;, &#39;usuarios&#39;);</span>
+</code></pre></div>
+<p>Pero no sólo podemos retornar una vista sino, desde un simple string a módulos propios de Laravel.</p>
+<h3 id="parametros">Parámetros<a class="headerlink" href="#parametros" title="Permanent link">&para;</a></h3>
+<p>Ya hemos visto que con PHP podemos pasar parámetros a través de la URL, como si fueran variables, que las recuperábamos a través del método GET o POST.</p>
+<p>Con Laravel también podemos introducir parámetros pero de una forma más vistosa y ordenada, de tal manera que sea visualmente más cómodo de recordar y de indexar por los motores de búsqueda como Google.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  http://localhost/cliente/324
+</code></pre></div>
+<p>Para configurar este tipo de rutas en nuestro archivo de rutas <code>public/routes/web.php</code> haremos lo siguiente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::get(&#39;cliente/{id}&#39;, function($id) {</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    return(&#39;Cliente con el id: &#39; . $id);</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">});</span>
+</code></pre></div>
+<p>¿Qué pasa si no introducimos un id y sólo navegamos hasta <code>cliente/</code> ? ... Nos va a devolver un 404</p>
+<p>Para resolver ésto, podemos definir una ruta por defecto en caso de que el <code>id</code> (o parámetro) no sea pasado. Para ello usaremos el símbolo <code>?</code> en nuestro nombre de ruta e inicializaremos la variable con el valor que queramos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::get(&#39;cliente/{id?}&#39;, function($id = 1) {</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    return (&#39;Cliente con el id: &#39; . $id);</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">});</span>
+</code></pre></div>
+<p>Ahora tenemos otro problema, porque estamos filtrando por id del cliente que, normalmente es un número, pero si metemos un parámetro que no sea un número, vamos a obtener un resultado no deseado.</p>
+<p>Para resolver este caso haremos uso de la cláusula <code>where</code> junto con una expresión regular númerica.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::get(&#39;cliente/{id?}&#39;, function($id = 1) {</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    return (&#39;Cliente con el id: &#39; . $id);</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">}) -&gt; where(&#39;id&#39;, &#39;[0-9]+&#39;);</span>
+</code></pre></div>
+<p>Además, podemos pasarle variables a nuestra URL para luego utilzarlas en nuestros archivos de plantillas o en archivos <code>.php</code> haciendo uso de un array asociativo. Veamos un ejemplo con la forma reducida para ahorrarnos código</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">Route::view(&#39;datos&#39;, &#39;usuarios&#39;, [&#39;id&#39; =&gt; 5446]);</span>
+</code></pre></div>
+<p>... y el archivo <code>resources/views/usuarios.php</code> debe tener algo parecido a ésto</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c">&lt;!-- Estructura típica de un archivo HTML5 --&gt;</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Usuario con id: <span class="cp">&lt;?= $id ?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c">&lt;!-- ... --&gt;</span>
+</code></pre></div>
+<p><strong><em>Con las plantillas de Laravel <code>blade.php</code> veremos cómo simplificar aún más nuestro código.</em></strong></p>
+<p>Para más información acerca de las rutas, parámetros y expresiones regulares en las rutas puedes echar un vistazo a la <a href="https://laravel.com/docs/8.x/routing#route-parameters">documentación oficial de rutas</a> que contiene numerosos ejemplos.</p>
+<h2 id="plantillas-o-templates">Plantillas o Templates<a class="headerlink" href="#plantillas-o-templates" title="Permanent link">&para;</a></h2>
+<p>A través de las plantillas de Laravel vamos a escribir menos código PHP y vamos a tener nuestros archivos mejor organizados.</p>
+<p><strong>Blade</strong> es el sistema de plantillas que trae Laravel, por eso los archivos de plantillas que guardamos en el directorio de <code>views</code> llevan la extensión <code>blade.php</code>.</p>
+<p>De esta manera sabemos inmediatamente que se trata de una plantilla de Laravel y que forma parte de una vista que se mostrará en el navegador.</p>
+<h3 id="directivas">Directivas<a class="headerlink" href="#directivas" title="Permanent link">&para;</a></h3>
+<p>Laravel tiene un gran número de directivas que podemos utilizar para ahorrarnos mucho código repetitivo entre otras funciones.</p>
+<p>Digamos que las directivas son pequeñas funciones ya escritas que aceptan parámetros y que cada una de ellas hace una función diferente dentro de Laravel.</p>
+<ul>
+<li><code>@yield</code> Define el contenido dinámico que se va a cargar. Se usa conjuntamente con @section</li>
+<li><code>@section</code> y <code>@endsection</code> bloque de código dinámico</li>
+<li><code>@extends</code> importa el contenido de una plantilla ya creada</li>
+</ul>
+<h3 id="separando-codigo">Separando código<a class="headerlink" href="#separando-codigo" title="Permanent link">&para;</a></h3>
+<p>Veamos un ejemplo de cómo hacer uso del poder de Laravel para crear plantillas y no repetir código.</p>
+<p>Supongamos que tenemos ciertas estructuras HTML repetidas como puede ser una cabecera <code>header</code>, un menú de navegación <code>nav</code> y un par de secciones que hacen uso de este mismo código.</p>
+<p>Supongamos que tenemos 2 apartados en la web:</p>
+<ul>
+<li><code>Blog</code></li>
+<li><code>Fotos</code></li>
+</ul>
+<p>Primero de todo tendremos que generar un archivo que haga de <code>plantilla</code> de nuestro sitio web.</p>
+<p>Para ello creamos el archivo <code>plantilla.blade.php</code> dentro de nuestro directorio de plantillas <code>resources/views</code>.</p>
+<p>Dicho archivo va a contener el típico código de una página simple de HTML y en el body añadiremos nuestros contenido estático y dinámico.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c">&lt;!-- CONTENIDO ESTÁTICO PARA TODAS LAS SECCIONES --&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenid@s a Laravel<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c">&lt;!-- MENÚ --&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">route</span><span class="err">(&#39;</span><span class="na">noticias</span><span class="err">&#39;)</span> <span class="err">}}</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> | 
+<span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">route</span><span class="err">(&#39;</span><span class="na">galeria</span><span class="err">&#39;)</span> <span class="err">}}</span><span class="p">&gt;</span>Fotos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="c">&lt;!-- CONTENIDO DINÁMICO EN FUNCIÓN DE LA SECCIÓN QUE SE VISITA --&gt;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>        @yield(&#39;apartado&#39;)
+<span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Cada sección que haga uso de esta plantilla contendrá el texto estático <code>Bienvenid@s a Laravel</code> seguido de un menú de navegación con enlaces a cada una de las secciones y el contenido dinámico de cada sección.</p>
+<p>Ahora crearemos los archivos dinámicos de cada una de las secciones, en nuestro caso <code>blog.blade.php</code> y <code>fotos.blade.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// blog.blade.php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">@extends(&#39;plantilla&#39;)</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="x">@section(&#39;apartado&#39;)</span>
+<span class="linenos" data-linenos="6 "></span><span class="x">  &lt;h2&gt;Estás en BLOG&lt;/h2&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="x">@endsection</span>
+</code></pre></div>
+<p>Importamos el contenido de <code>plantilla</code> bajo la directiva <code>@extends</code> para que cargue los elementos estáticos que hemos declarado y con la directiva <code>@section</code> y <code>@endsection</code> definimos el bloque de código dinámico, en función de la sección que estemos visitando.</p>
+<p>Ahora casi lo mismo para la sección de <code>fotos</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// fotos.blade.html</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">@extends(&#39;plantilla&#39;)</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="x">@section(&#39;apartado&#39;)</span>
+<span class="linenos" data-linenos="6 "></span><span class="x">  &lt;h2&gt;Estás en FOTOS&lt;/h2&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="x">@endsection</span>
+</code></pre></div>
+<p>El último paso que nos queda es configurar el archivo de rutas <code>routes/web.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// web.php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">Route::view(&#39;blog&#39;, &#39;blog&#39;) -&gt; name(&#39;noticias&#39;);</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">Route::view(&#39;fotos&#39;, &#39;fotos&#39;) -&gt; name(&#39;galeria&#39;);</span>
+</code></pre></div>
+<p>De esta manera podremos hacer uso del menú de navegación que hemos puesto en nuestra plantilla y gracias a los alias <code>noticias</code> y <code>galeria</code>, la URL será más amigable.</p>
+<h3 id="estructuras-de-control">Estructuras de control<a class="headerlink" href="#estructuras-de-control" title="Permanent link">&para;</a></h3>
+<p>Como en todo buen lenguaje de programación, en Laravel también tenemos estructuras de control.</p>
+<p>En Blade (plantillas de Laravel) siempre que iniciemos un bloque de estructura de control DEBEMOS cerrarla</p>
+<ul>
+<li><code>@foreach</code> ~ <code>@endforeach</code> lo usamos para recorrer arrays</li>
+<li><code>@if</code> ~ <code>@endif</code> para comprobar condiciones lógicas</li>
+<li><code>@switch</code> ~ <code>@endswitch</code> en función del valor de una variable ejecutar un código</li>
+<li><code>@case</code> define la casuística del switch</li>
+<li><code>@break</code> rompe la ejecución del código en curso</li>
+<li><code>@default</code> si ninguna casuística se cumple</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$equipo = [&#39;María&#39;, &#39;Alfredo&#39;, &#39;William&#39;, &#39;Verónica&#39;];</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">@foreach ($equipo as $nombre)</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">  &lt;p&gt; {{ $nombre }} &lt;/p&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">@endforeach</span>
+</code></pre></div>
+<p>Acordaros que podemos pasar variables a través de las rutas como si fueran parámetros. Pero en este caso, vamos a ver otra directiva más; el uso de <code>@compact</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// Uso de @compact</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">$equipo = [&#39;María&#39;, &#39;Alfredo&#39;, &#39;William&#39;, &#39;Verónica&#39;];</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="x">// Route::view(&#39;nosotros&#39;, [&#39;equipo&#39; =&gt; &#39;equipo&#39;]);</span>
+<span class="linenos" data-linenos="5 "></span><span class="x">Route::view(&#39;nosotros&#39;, @compact(&#39;equipo&#39;));</span>
+</code></pre></div>
+<h2 id="controladores">Controladores<a class="headerlink" href="#controladores" title="Permanent link">&para;</a></h2>
+<p>Los controladores son el lugar perfecto para definir la lógica de negocio de nuestra aplicación o sitio web.</p>
+<p>Hace de intermediario entre la vista (lo que vemos con nuestro navegador o cliente) y el servidor donde la app está alojada.</p>
+<p>Por defecto, los controladores se guardan en una carpeta específica situada en <code>app/Http/Controllers</code> y tienen extensión <code>.php</code>.</p>
+<p>Para crear un controlador nuevo debemos hacer uso de nuestro querido autómata <code>artisan</code> donde le diremos que cree un controlador con el nombre que nosotros queramos.</p>
+<p>Abrimos la consola y nos situamos en la raíz de nuestro proyecto</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:controller PagesController</span>
+</code></pre></div>
+Si todo ha salido bien, recibiremos un mensaje por consola con que todo ha ido bien y podremos comprobar que, efectivamente se ha creado el archivo <code>PagesController.php</code> con una estructura básica de controlador, dentro de la carpeta <code>Controllers</code> que hemos descrito anteriormente.</p>
+<p>Ahora podemos modificar nuestro archivo de rutas <code>web.pbp</code> para dejarlo limpio de lógica y trasladar ésta a nuestro nuevo controlador.</p>
+<p>La idea de ésto es dejar el archivo <code>web.php</code> tan limpio como podamos para que, de un vistazo, se entienda todo perfectamente.</p>
+<p><strong>RECUERDA</strong> que sólo movemos la lógica, mientras que las cláusulas como <code>where</code> y <code>name</code> las seguimos dejando en el archivo de rutas <code>web.php</code></p>
+<p>Veamos cómo quedaría un refactor del archivo de rutas utilizando un <code>Controller</code> como el que acabamos de crear</p>
+<p>Ahora nos quedaría de la siguiente manera</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">// web.php (v2.0) ▒▒▒▒ Refactorizado</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="x">use App\Http\Controllers\PagesController;</span>
+<span class="linenos" data-linenos="4 "></span><span class="x">use Illuminate\Support\Facades\Route;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="x">Route::get(&#39;/&#39;, [ PagesController::class, &#39;inicio&#39; ]);</span>
+<span class="linenos" data-linenos="7 "></span><span class="x">Route::get(&#39;datos&#39;, [ PagesController::class, &#39;datos&#39; ]);</span>
+<span class="linenos" data-linenos="8 "></span><span class="x">Route::get(&#39;cliente/{id?}&#39;, [ PagesController::class, &#39;cliente&#39; ]) -&gt; where(&#39;id&#39;, &#39;[0-9]+&#39;);</span>
+<span class="linenos" data-linenos="9 "></span><span class="x">Route::get(&#39;nosotros/{nosotros?}&#39;, [ PagesController::class, &#39;nosotros&#39;]) -&gt; name(&#39;nosotros&#39;);</span>
+</code></pre></div>
+<p>y en nuestro archivo controlador lo dejaríamos de la siguiente manera</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// PagesController.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">namespace App\Http\Controllers;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">class PagesController extends Controller</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">{</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">    public function inicio() { return view(&#39;welcome&#39;); }</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    public function datos() { </span>
+<span class="linenos" data-linenos="10 "></span><span class="x">        return view(&#39;usuarios&#39;, [&#39;id&#39; =&gt; 56]);</span>
+<span class="linenos" data-linenos="11 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="x">    public function cliente($id = 1) {</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">        return (&#39;Cliente con el id: &#39; . $id);</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="x">    public function nosotros($nombre = null) {</span>
+<span class="linenos" data-linenos="18 "></span><span class="x">        $equipo = [</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">            &#39;Paco&#39;,</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">            &#39;Enrique&#39;,</span>
+<span class="linenos" data-linenos="21 "></span><span class="x">            &#39;Maria&#39;,</span>
+<span class="linenos" data-linenos="22 "></span><span class="x">            &#39;Veronica&#39;</span>
+<span class="linenos" data-linenos="23 "></span><span class="x">        ];</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="x">        return view(&#39;nosotros&#39;, @compact(&#39;equipo&#39;, &#39;nombre&#39;));</span>
+<span class="linenos" data-linenos="26 "></span><span class="x">    }</span>
+<span class="linenos" data-linenos="27 "></span><span class="x">}</span>
+</code></pre></div>
+<!--
+### Configuración
+
+En el directorio raiz del proyecto tenemos el archivo `.env`. Este archivo define las variables de entorno que personalizan nuestro entorno. Así pues, es aquí donde deberemos configurar nuestra base de datos.
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>DB_HOST=localhost
 <span class="linenos" data-linenos="2 "></span>DB_DATABASE=severorespuestas
 <span class="linenos" data-linenos="3 "></span>DB_USERNAME=severo
 <span class="linenos" data-linenos="4 "></span>DB_PASSWORD=ochoa
 </code></pre></div>
-<h2 id="migraciones">Migraciones<a class="headerlink" href="#migraciones" title="Permanent link">&para;</a></h2>
-<p><a href="https://richos.gitbooks.io/laravel-5/content/capitulos/chapter6.html">https://richos.gitbooks.io/laravel-5/content/capitulos/chapter6.html</a></p>
-<p>A la hora de definir nuestra base de datos, el primer paso suele ser su diseño tanto conceptual, como lógico y físico, haciendo uso de algúna herramienta gráfica tipo <em>MySQL Workbench</em> para la posterior generación del código SQL con la estructura de las tablas y sus relaciones.</p>
-<p>Las migraciones (<a href="https://laravel.com/docs/master/migrations">https://laravel.com/docs/master/migrations</a>) permiten a <em>Laravel</em> definir la estructura de la base de datos de manera programática, esto es, mediante PHP en vez de SQL. </p>
-<p>Además de desacoplar el sistema gestor de base de datos de nuestra aplicación mediante el uso de la fachada <code>Schema</code>, las migraciones evitan errores de sintaxis y mantienen los entornos de producción, preproducción, pruebas y entorno local con la misma información.</p>
-<p>Todo proyecto <em>Laravel</em> viene con tres migraciones por defecto, las cuales podemos modificar o eliminar.</p>
-<h3 id="creacion">Creación<a class="headerlink" href="#creacion" title="Permanent link">&para;</a></h3>
-<p>Para crear una migración podemos crear directamente nuestras clases en la ruta <code>database/migrations/</code> de nuestro proyecto <em>Laravel</em>, o utilizar los comandos de <code>artisan</code>.</p>
-<p>Para crear nuestras migraciones en Laravel se usa el siguiente comando:</p>
+
+## Migraciones
+
+<https://richos.gitbooks.io/laravel-5/content/capitulos/chapter6.html>
+
+A la hora de definir nuestra base de datos, el primer paso suele ser su diseño tanto conceptual, como lógico y físico, haciendo uso de algúna herramienta gráfica tipo *MySQL Workbench* para la posterior generación del código SQL con la estructura de las tablas y sus relaciones.
+
+Las migraciones (<https://laravel.com/docs/master/migrations>) permiten a *Laravel* definir la estructura de la base de datos de manera programática, esto es, mediante PHP en vez de SQL. 
+
+Además de desacoplar el sistema gestor de base de datos de nuestra aplicación mediante el uso de la fachada `Schema`, las migraciones evitan errores de sintaxis y mantienen los entornos de producción, preproducción, pruebas y entorno local con la misma información.
+
+Todo proyecto *Laravel* viene con tres migraciones por defecto, las cuales podemos modificar o eliminar.
+
+### Creación
+
+Para crear una migración podemos crear directamente nuestras clases en la ruta `database/migrations/` de nuestro proyecto *Laravel*, o utilizar los comandos de `artisan`.
+
+Para crear nuestras migraciones en Laravel se usa el siguiente comando:
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration nombreMigracion</span>
 </code></pre></div>
-<p>que nos crea la clase vacía para escribir nuestra migración, o bien el comando:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration nombreMigracion --create=nombreTabla</span>
+
+que nos crea la clase vacía para escribir nuestra migración, o bien el comando:
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration nombreMigracion --create=nombreTabla</span>
 </code></pre></div>
-que nos agrega una plantilla de trabajo básica para empezar a trabajar.</p>
-<p>Esta clase que acabamos de crear hereda de <code>Illuminate\Database\Migrations\Migration</code>. El método que se encarga de generar la migración es <code>up()</code>, y dentro de él, mediante la clase <code>Schema</code> indicaremos la estructura de la tabla junto con sus atributos y dominios. Para deshacer las migraciones rescribiremos el método <code>down()</code>.</p>
-<p>Por ejemplo, vamos a crear la tabla <code>preguntas</code> de nuestra aplicación.</p>
-<div class="admonition important">
-<p class="admonition-title">Tablas en plural</p>
-</div>
-<p>Ya lo comentamos en la unidad anterior. Laravel se basa en la convención sobre la configuración. Por ello, las tablas se nombran en plural.</p>
-<p>Para ello, primero crearemos la migración mediante la consola:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration createPreguntasTable</span>
+que nos agrega una plantilla de trabajo básica para empezar a trabajar.
+
+Esta clase que acabamos de crear hereda de `Illuminate\Database\Migrations\Migration`. El método que se encarga de generar la migración es `up()`, y dentro de él, mediante la clase `Schema` indicaremos la estructura de la tabla junto con sus atributos y dominios. Para deshacer las migraciones rescribiremos el método `down()`.
+
+Por ejemplo, vamos a crear la tabla `preguntas` de nuestra aplicación.
+
+!!! important "Tablas en plural"
+  Ya lo comentamos en la unidad anterior. Laravel se basa en la convención sobre la configuración. Por ello, las tablas se nombran en plural.
+
+Para ello, primero crearemos la migración mediante la consola:
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration createPreguntasTable</span>
 </code></pre></div>
-Y posteriormente rellenaremos los métodos con su definición:</p>
+Y posteriormente rellenaremos los métodos con su definición:
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
@@ -408,68 +681,89 @@ Y posteriormente rellenaremos los métodos con su definición:</p>
 <span class="linenos" data-linenos="31 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="32 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Si nos fijamos en el método <code>up()</code>, mediante <code>Schema::create('nombreTabla', funcionBlueprint)</code> le indicamos los campos, con sus tipos de datos y restricciones.</p>
-<p>Podéis consultar todos los tipos disponibles en <a href="https://laravel.com/docs/master/migrations#available-column-types">https://laravel.com/docs/master/migrations#available-column-types</a>. Los tipos más utilizados son:</p>
-<ul>
-<li><code>id</code>: crea un campo autoincrementable y le asigna la clave primaria. No recibe ningún parámetro.</li>
-<li><code>integer</code>: crea un campo de tipo entero</li>
-<li><code>decimal</code>: crea un campo de tipo decimal, al que se le indican tanto la precisión como las escala (dígitos decimales)
+
+Si nos fijamos en el método `up()`, mediante `Schema::create('nombreTabla', funcionBlueprint)` le indicamos los campos, con sus tipos de datos y restricciones.
+
+Podéis consultar todos los tipos disponibles en <https://laravel.com/docs/master/migrations#available-column-types>. Los tipos más utilizados son:
+
+* `id`: crea un campo autoincrementable y le asigna la clave primaria. No recibe ningún parámetro.
+* `integer`: crea un campo de tipo entero
+* `decimal`: crea un campo de tipo decimal, al que se le indican tanto la precisión como las escala (dígitos decimales)
   <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">table-&gt;decimal(&#39;amount&#39;, $precision = 8, $scale = 2);</span>
-</code></pre></div></li>
-<li><code>string</code>: crea una campo de tipo cadena</li>
-<li><code>text</code>: crea un campo de tipo texto</li>
-<li><code>timestamp</code>: crea las columnas <code>created_at</code> y <code>updated_at</code>. No recibe ningún parámetro.</li>
-</ul>
-<h3 id="ejecucion">Ejecución<a class="headerlink" href="#ejecucion" title="Permanent link">&para;</a></h3>
-<p>Así pues, una vez creada la migración, sólo nos queda ejecutarla mediante la opción <code>migrate</code>:</p>
+</code></pre></div>
+* `string`: crea una campo de tipo cadena
+* `text`: crea un campo de tipo texto
+* `timestamp`: crea las columnas `created_at` y `updated_at`. No recibe ningún parámetro.
+
+### Ejecución
+
+Así pues, una vez creada la migración, sólo nos queda ejecutarla mediante la opción `migrate`:
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php artisan migrate
 </code></pre></div>
-<p>Si en algún momento queremos deshacer la última migración, realizaremos un <em>rollback</em>:</p>
+
+Si en algún momento queremos deshacer la última migración, realizaremos un *rollback*:
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php artisan migrate:rollback
 </code></pre></div>
-<p>Finalmente, si queremos deshacer todos los cambios, realizaremos un <em>reset</em>:</p>
+
+Finalmente, si queremos deshacer todos los cambios, realizaremos un *reset*:
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>php artisan migrate:reset
 </code></pre></div>
-<p>Así pues, si ejecutamos nuestras migraciones y nos conectamos a nuestra base de datos, podremos ver cómo se ha creado la tabla <code>preguntas</code>.</p>
+
+Así pues, si ejecutamos nuestras migraciones y nos conectamos a nuestra base de datos, podremos ver cómo se ha creado la tabla `preguntas`.
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="gp">$ </span>php artisan migrate      
 <span class="linenos" data-linenos="2 "></span><span class="go">Migrating: 2021_08_06_112804_create_preguntas_table</span>
 <span class="linenos" data-linenos="3 "></span><span class="go">Migrated:  2021_08_06_112804_create_preguntas_table (97.47ms)</span>
 </code></pre></div>
-<p>Y si nos conectamos a la base de datos, veremos que realmente ha creado dos tablas: <code>migrations</code> y <code>preguntas</code>. La tabla <code>migrations</code> almacena un historico de las migraciones realizadas y nuestra tabla <code>preguntas</code> tiene la estructura que habíamos definido:</p>
-<p><img alt="Resultado migración preguntas" src="imagenes/06/migracionPreguntas.png" /></p>
-<h2 id="rutas">Rutas<a class="headerlink" href="#rutas" title="Permanent link">&para;</a></h2>
-<p>https://laravel.com/docs/master/routing</p>
-<h2 id="vistas">Vistas<a class="headerlink" href="#vistas" title="Permanent link">&para;</a></h2>
-<p>https://laravel.com/docs/master/views</p>
-<h2 id="controladores">Controladores<a class="headerlink" href="#controladores" title="Permanent link">&para;</a></h2>
-<p>https://laravel.com/docs/master/controllers</p>
-<h3 id="validaciones">Validaciones<a class="headerlink" href="#validaciones" title="Permanent link">&para;</a></h3>
-<p>https://laravel.com/docs/master/validation</p>
-<h2 id="integracion-con-eloquent">Integración con Eloquent<a class="headerlink" href="#integracion-con-eloquent" title="Permanent link">&para;</a></h2>
-<p>Para integrar nuestras migraciones con los modelos, si el nombre de la tabla coincide, ya estarían conectados.</p>
-<div class="admonition important">
-<p class="admonition-title">Modelos en singural</p>
-</div>
-<p>Ya lo comentamos en la unidad anterior. Laravel se basa en la convención sobre la configuración. Por ello, los modelos se nombran en singular, y su tablas asociadas en plural.</p>
-<p>Para facilitar el trabajo a la hora de crear los modelos, podemos indicarle que también genere su migración con la opción <code>--migration</code> o <code>-m</code> (la migración se crea desde 0, con lo cual no puede existir una migración previa con dicho nombre):</p>
+
+Y si nos conectamos a la base de datos, veremos que realmente ha creado dos tablas: `migrations` y `preguntas`. La tabla `migrations` almacena un historico de las migraciones realizadas y nuestra tabla `preguntas` tiene la estructura que habíamos definido:
+
+![Resultado migración `preguntas`](imagenes/06/migracionPreguntas.png)
+
+### Validaciones
+
+https://laravel.com/docs/master/validation
+
+## Integración con Eloquent
+
+Para integrar nuestras migraciones con los modelos, si el nombre de la tabla coincide, ya estarían conectados.
+
+
+!!! important "Modelos en singural"
+  Ya lo comentamos en la unidad anterior. Laravel se basa en la convención sobre la configuración. Por ello, los modelos se nombran en singular, y su tablas asociadas en plural.
+
+
+Para facilitar el trabajo a la hora de crear los modelos, podemos indicarle que también genere su migración con la opción `--migration` o `-m` (la migración se crea desde 0, con lo cual no puede existir una migración previa con dicho nombre):
+
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:model nombreModelo --migration</span>
 </code></pre></div>
-<p>La migración creada tendrá el esqueleto rellenado con los atributos <code>$table-&gt;id()</code> y el <code>$table-&gt;timestamps()</code>.</p>
-<h3 id="controlador-recurso">Controlador recurso<a class="headerlink" href="#controlador-recurso" title="Permanent link">&para;</a></h3>
-<p>Métodos create, show....</p>
-<p>Formulario de create Pregunta</p>
-<p>Formulario de store Pregunta
+
+La migración creada tendrá el esqueleto rellenado con los atributos `$table->id()` y el `$table->timestamps()`.
+
+### Controlador recurso
+
+Métodos create, show....
+
+Formulario de create Pregunta
+
+Formulario de store Pregunta
 1 Validar
 2 Guardar en BD
-3 Redirect a vista/controller</p>
-<p>TODO: Revisar las validaciones de los controladores ... creo que el lugar correcto es aquí al recoger datos</p>
-<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Curso de Laravel de www.pildorasinformaticas.es: <a href="https://www.pildorasinformaticas.es/course/laravel/">https://www.pildorasinformaticas.es/course/laravel/</a></li>
-<li>Libro / Apuntes sobre Laravel 5 en castellano: <a href="https://richos.gitbooks.io/laravel-5">https://richos.gitbooks.io/laravel-5</a></li>
-<li>Apuntes Laravel creados por <code>igomis</code>, docente del IES Batoi de Alcoy(valenciano): https://igomis.github.io/apunts/</li>
-</ul>
-<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+3 Redirect a vista/controller
+
+TODO: Revisar las validaciones de los controladores ... creo que el lugar correcto es aquí al recoger datos
+
+## Referencias
+
+* Curso de Laravel de www.pildorasinformaticas.es: <https://www.pildorasinformaticas.es/course/laravel/>
+* Libro / Apuntes sobre Laravel 5 en castellano: <https://richos.gitbooks.io/laravel-5>
+* Apuntes Laravel creados por `igomis`, docente del IES Batoi de Alcoy(valenciano): https://igomis.github.io/apunts/
+
+## Actividades
+-->
                 
               
               
