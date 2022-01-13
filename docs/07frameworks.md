@@ -410,6 +410,39 @@ class PagesController extends Controller
 }
 ```
 
+## Actividades
+
+701. Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:
+
+  - `Inicio` enlace a la página principal donde se visualizará el texto de Lorem Ipsum además de los elementos estáticos (Título y menú de navegación).
+
+  - `Nosotros` enlace que vaya a la página "nosotros"  y muestre, además de los elementos estáticos de todo el sitio, un h2 que diga "Estás en la sección Nosotros"
+
+  - `Proyecto` enlace que cargue una vista con el siguiente texto "Estás en el proyecto numero: X" donde X es un número entero que podamos introducirlo en la propia ruta. Si no se mete ningún número en la ruta, por defecto tiene que ser 1; por ejemplo
+
+        http://localhost:8000s/proyecto/210937
+
+  - Recuerda que el título y el menú de navegación han de aparecer en todas las vistas que cargues.
+
+---
+
+
+702. Utilizando las `estructuras` de control y los `controladores` crea un sitio web que contenga lo siguiente:
+
+  - `Inicio` página principal con un título que diga "Bienvenid@s a FOTO ░▒▓ BLOG" y un texto de bienvenida (con un par de frases sobra)
+
+  - `Nosotros` un título de la sección en la que te encuentras y un listado de 3 personas diferentes que, cada uno de los nombres mostrará un texto descriptivo de cada persona cuando pinchemos sobre su nombre.
+
+  - `Fotos` Una sección que aparezca el texto "Estás visualizando la foto con el ID: X" donde X es un parámetro que dependerá de la ruta que se haya introducido. Por defecto, si no se introduce dicho parámetro éste debe valer 1. 
+
+  - Como elementos estáticos debe aparecer:
+      - `Imagen` como logtipo
+      - El título `FOTO ░▒▓ BLOG` a la derecha del logotipo
+      - `Menú` de navegación para moverse por las distintas secciones
+
+  - Puedes usar Bootstrap como algo opcional para practicar. Recuerda que viene incluido con la instalación de Laravel.
+
+---
 <!--
 ### Configuración
 
