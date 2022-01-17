@@ -410,6 +410,154 @@ class PagesController extends Controller
 }
 ```
 
+## Migraciones & Eloquent
+
+Con las migraciones vamos a gestionar la base de datos de nuestro sitio web; tanto crear nuevas BBDD como editarlas desde Laravel.
+
+Las migraciones de un sitio hecho con Laravel se alojan en la ruta `database/migrations` y tienen extensión `.php`.
+
+Si te fijas, nada más instalar Laravel con la imagen de Bitnami, se han creado varios archivos de migraciones que podemos usar, pero de momento los dejamos ahí y **NO LOS BORRAMOS** porque son muy útiles.
+
+### Archivos .env
+
+Es de uso común trabajr con archivos de entorno llamados también `archivos .env`. Normalmente, eun unproyecto real puedes encontrarte con varios archivos de este tipo en función del despliegue que se quiera hacer; como por ejemplo:
+
+  - `test.env` config. para desplegar en entorno seguro de pruebas
+  - `release.env` config. para desplegar cambios de versión que se envía a los *beta testers*
+  - `production.env`config. para desplegar el código ya probado al resto del mundo.
+
+En nuestro caso, como no vamos a desplegar nada, sólo vamos a usar un único archivo `.env` y en cuestión de las migraciones vamos a fijarnos a partir de la línea 11 donde dice:
+
+```console
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+En este archivo debemos configurar los datos de nuestro servidor MySQL y rellenarlo con la información correspondiente a nuestra base de datos <span class="alert">***ya creada***</span>
+
+Una vez tengamos ésto, lo que nos queda es ejecutar el comando de las migraciones a través del CLI `artisan`
+
+```console
+php artisan migrate
+```
+
+Si todo ha salido bien obtendremos el siguiente resultado donde podremos observar que todas las migraciones se han insertado correctamente en la base de datos.
+
+<div class="center img-large">
+    <img src="imagenes/07/migraciones.png">
+</div>
+
+Si nos vamos al cliente que utilicemos para manejar la base de datos (phpMyAdmin por ejemplo) veremos que en nuestra base de datos se han creado todas las tablas de la migración que hemos ejecutado y **además** una tabla que se llama <span class="success">***migrations***</span>.
+
+La tabla `migrations` es simplemente un registro de todas las migraciones llevadas a cabo. Además, podemos hacer un ***rollback*** en caso de que queramos reestablecer nuestra base de datos.
+
+```console
+php artisan migrate:rollback
+```
+
+### Modelos
+
+Gracias a Eloquent y su integración con Laravel, podremos crear modelos de datos de una manera automatizada a través de `artisan`
+
+Ahora que ya sabemos manejar las migraciones es hora de crear nuestras propias migraciones pero a través de Eloquent.
+
+A través de la instrucción `make:model` creamos un nuevo modelo de datos, a continuación ponemos el nombre <span class="alert">***siempre empezando en Mayúsucla y en SINGULAR***</span> y pasamos el parámetro relacionado con las migraciones `-m`.
+
+```console
+php artisan make:model Nota -m
+```
+
+Si todo ha salido bien, veremos en nuestro directorio de migraciones `database/migrations` un nuevo archivo que se llama `2022_01_07_81237_create_notas_table.php`.
+
+El siguiente paso es ver nuestro archivo de migraciones y editarlo para que contenga las tablas que nosotros queramos. Si lo visualizamos tan sólo tendrá la estructura básica con un par de tablas. Vamos a añadir un par de tablas más.
+
+```php
+<?php
+
+Schema::create('notas', function (Blueprint $table) {
+  $table->id();
+  $table->timestamps();
+
+  $table->string('nombre');
+  $table->text('descripcion');
+});
+```
+En esta `Schema` podemos poner todas las tablas que nosotros queramos y establecer el tipo de dato para cada una de ellas, así como el nombre.
+
+Una vez que estamos satisfechos con nuestro esquema debemos volver a ejecutar el código de migración a través de artisan para que se introduzca esta nueva información en la base de datos.
+
+Para ver todos los tipos de datos que maneja Eloquent puedes visitar la [documentación oficial](https://laravel.com/docs/5.0/schema#adding-columns).
+
+### Recuperando datos
+
+Ya tenemos nuestra base de datos creada con nuestras tablas migradas, ahora sólo falta rellenar esas tablas con datos para poder pintarlos en nuestro código HTML.
+
+Rellenamos las tablas a través del cliente de MySQL que más nos guste:
+
+- PHP MyAdmin
+- [MySQL Workbench](https://www.mysql.com/products/workbench/)
+- [HeidiSQL](https://www.heidisql.com/download.php) *
+- [SquirrelSQL](http://www.squirrelsql.org/#installation)
+
+Ahora tendremos que irnos a una vista ya creada o creamos una nueva y solicitamos los datos desde el HTML.
+
+¿Nos acordamos del `PagesController`? pues hacer uso de su magia junto con las rutas que creamos en `web.php`
+
+```php
+<?php
+
+// estamos en ▓▓▓ web.php 
+
+Route::get('notas', [ PagesController::class, 'notas' ]);
+```
+
+Antes de intentar entrar, debemos configurar nuestro controlador de la siguiente manera:
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php 
+
+public function notas() {
+  $notas = Nota::all();
+
+  return view('notas', compact('notas'));
+}
+
+```
+
+El último paso sería, crear la vista con la tabla que pinte los datos a través de la variable que le pasamos por parámetro en la ruta que acabamos de describir.
+
+```php
+<?php
+
+// estamos en ▓▓▓ notas.blade.php 
+
+<h1>Notas desde base de datos</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    
+    @foreach ($notas as $nota)
+        <tr>
+            <td>{{$nota -> nombre}}</td>
+            <td>{{$nota -> descripcion}}</td>
+        </tr>
+    @endforeach
+</table>
+
+```
+Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de datos, es justo lo que va después de `->` y siempre rodeado por los símbolos `{{  }}` ya que estamos en un archivo de plantilla.
+
 ## Actividades
 
 701. Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:
