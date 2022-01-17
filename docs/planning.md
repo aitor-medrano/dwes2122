@@ -55,18 +55,18 @@
 
 ## 6.- Acceso a Datos (24h)
 
-- [ ] 1.- (39) SQL. Ejercicios 601 - *Jueves 25/11/21* 
-- [ ] 2.- (40) PDO. Ejercicios -
-- [ ] 3.- (41) . Ejercicios - *Lunes 29/11/21*
-- [ ] 4.- (42) . Ejercicios -
-- [ ] 5.- (43) CSV. Ejercicios -
-- [ ] 6.- (44) PDF. Ejercicios -
-- [ ] 7.- (45) Eloquent. Ejercicios - *Martes 7/12/21*
-- [ ] 8.- (46) Migraciones. . Ejercicios -
-- [ ] 9.- (47) . Ejercicios -
-- [ ] 10.- (48) ORM. Ejercicios -
-- [ ] 11.- (49) . Ejercicios - *Martes 14/12/21*
-- [ ] 12.- (50) . Ejercicios - 
+- [x] 1.- (39) SQL. Ejercicios 601 - *Jueves 25/11/21* 
+- [x] 2.- (40) PDO. Ejercicios -
+- [x] 3.- (41) . Ejercicios - *Lunes 29/11/21*
+- [x] 4.- (42) . Ejercicios -
+- [x] 5.- (43) CSV. Ejercicios -
+- [x] 6.- (44) PDF. Ejercicios -
+- [x] 7.- (45) Eloquent. Ejercicios - *Martes 7/12/21*
+- [x] 8.- (46) Migraciones. . Ejercicios -
+- [x] 9.- (47) . Ejercicios -
+- [x] 10.- (48) ORM. Ejercicios -
+- [x] 11.- (49) . Ejercicios - *Martes 14/12/21*
+- [x] 12.- (50) . Ejercicios - 
 
 ## Proyecto Innova - Fase I
 
@@ -74,11 +74,11 @@ Del Miércoles 15 al Martes 21 de Diciembre.
 
 ## 7.- Frameworks PHP (32h)
 
-- [ ] 1.- (51) Laravel. Ejercicio 701 - *Lunes 10/01/22* 
-- [ ] 2.- (52) 
-- [ ] 3.- (53) 
-- [ ] 4.- (54) 
-- [ ] 5.- (55) *Lunes 17/01/22* 
+- [x] 1.- (51) Introduccion a Laravel - *Lunes 10/01/22* 
+- [x] 2.- (52) Rutas
+- [x] 3.- (53) Plantillas
+- [x] 4.- (54) Controladores
+- [ ] 5.- (55) Migraciones & Eloquent*Lunes 17/01/22* 
 - [ ] 6.- (56) 
 - [ ] 7.- (57) 
 - [ ] 8.- (58) 

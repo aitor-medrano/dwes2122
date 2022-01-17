@@ -558,6 +558,53 @@ El último paso sería, crear la vista con la tabla que pinte los datos a travé
 ```
 Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de datos, es justo lo que va después de `->` y siempre rodeado por los símbolos `{{  }}` ya que estamos en un archivo de plantilla.
 
+
+¿Qué pasaría si sólo queremos acceder a un único elemento? como si hiciésemos un `SELECT * from usuarios where id = 1`
+
+Para éso, tenemos una instrucción específica en Eloquent que nos soluciona el problema. En este caso usaremos la instrucción `findOrFail` y como buenos usuarios de Laravel, lo utilizaremos dentro del controlador.
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php 
+
+public function detalle($id) {
+  $nota = Nota::findOrFail($id);
+
+  return view('notas.detalle', compact('nota'));
+}
+```
+
+Hay que acordarse que debemos configurar la ruta en nuestro archivo de rutas.
+
+```php
+<?php
+
+// estamos en ▓▓▓ web.php 
+
+Route::get('notas/{id?}', [ PagesController::class, 'detalle' ]) -> name('notas.detalle');
+```
+
+Y por último, debemos crear la plantilla, pero como es un archivo de detalle o que está relacionado con otra plantilla ya creada, podemos crear una carpeta con el nombre de la plantilla y dentro, el archivo de plantilla en cuestión.
+
+De tal manera que quedaría así `resources/views/notas/detalle.blade.php`
+
+```php
+<?php
+
+// estamos en ▓▓▓ detalle.blade.php
+
+@extends('plantilla')
+
+@section('apartado')
+    <h1>Detalle de la nota</h1>
+
+    <h3>ID: {{ $nota -> id }}</h3>
+    <h3>Nombre: {{ $nota -> nombre }}</h3>
+    <h3>Descripción: {{ $nota -> descripcion }}</h3>    
+@endsection
+```
+
 ## Actividades
 
 701. Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:
