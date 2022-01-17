@@ -942,6 +942,41 @@ En esta <code>Schema</code> podemos poner todas las tablas que nosotros queramos
 <span class="linenos" data-linenos="21 "></span><span class="o">&lt;/</span><span class="nx">table</span><span class="o">&gt;</span>
 </code></pre></div>
 Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de datos, es justo lo que va después de <code>-&gt;</code> y siempre rodeado por los símbolos <code>{{  }}</code> ya que estamos en un archivo de plantilla.</p>
+<p>¿Qué pasaría si sólo queremos acceder a un único elemento? como si hiciésemos un <code>SELECT * from usuarios where id = 1</code></p>
+<p>Para éso, tenemos una instrucción específica en Eloquent que nos soluciona el problema. En este caso usaremos la instrucción <code>findOrFail</code> y como buenos usuarios de Laravel, lo utilizaremos dentro del controlador.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php </span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">detalle</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span>  <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.detalle&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;nota&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Hay que acordarse que debemos configurar la ruta en nuestro archivo de rutas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ web.php </span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;notas/{id?}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;detalle&#39;</span> <span class="p">])</span> <span class="o">-&gt;</span> <span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.detalle&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Y por último, debemos crear la plantilla, pero como es un archivo de detalle o que está relacionado con otra plantilla ya creada, podemos crear una carpeta con el nombre de la plantilla y dentro, el archivo de plantilla en cuestión.</p>
+<p>De tal manera que quedaría así <code>resources/views/notas/detalle.blade.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ detalle.blade.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">@</span><span class="k">extends</span><span class="p">(</span><span class="s1">&#39;plantilla&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">@</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;apartado&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Detalle</span> <span class="nx">de</span> <span class="nx">la</span> <span class="nx">nota</span><span class="o">&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">ID</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">id</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>    
+<span class="linenos" data-linenos="13 "></span><span class="o">@</span><span class="nx">endsection</span>
+</code></pre></div>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
 <li>Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:</li>
