@@ -515,6 +515,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#formularios" class="md-nav__link">
+    Formularios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
     Actividades
   </a>
@@ -869,6 +876,9 @@ Si todo ha salido bien, recibiremos un mensaje por consola con que todo ha ido b
 <p>La tabla <code>migrations</code> es simplemente un registro de todas las migraciones llevadas a cabo. Además, podemos hacer un <strong><em>rollback</em></strong> en caso de que queramos reestablecer nuestra base de datos.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate:rollback</span>
 </code></pre></div>
+<p>O si preferimos hacer un reset para dejarla limpia</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate:reset</span>
+</code></pre></div>
 <h3 id="modelos">Modelos<a class="headerlink" href="#modelos" title="Permanent link">&para;</a></h3>
 <p>Gracias a Eloquent y su integración con Laravel, podremos crear modelos de datos de una manera automatizada a través de <code>artisan</code></p>
 <p>Ahora que ya sabemos manejar las migraciones es hora de crear nuestras propias migraciones pero a través de Eloquent.</p>
@@ -976,6 +986,70 @@ Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de
 <span class="linenos" data-linenos="11 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
 <span class="linenos" data-linenos="12 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>    
 <span class="linenos" data-linenos="13 "></span><span class="o">@</span><span class="nx">endsection</span>
+</code></pre></div>
+<h2 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h2>
+<p>Ahora que ya sabemos cómo cargar de una base de datos, vamos a ver cómo insertarlos con Laravel y sin escribir ni una sola línea de SQL.</p>
+<p>Gracias al método <code>save()</code> de Laravel podremos guardar datos que provengan de un formulario desde nuestras plantillas. Para ello, lo primero que necesitamos lo siguiente:</p>
+<ul>
+<li><code>formulario HTML</code> que recoja los datos que el usuario introduce</li>
+<li>Una <code>ruta</code> que sea la encargada de recibir los datos del formulario</li>
+<li>Método <code>POST</code> para enviar los datos al servidor</li>
+<li>Un método en nuestro <code>controlador</code> que procese los datos y los guarde a través de <code>save()</code></li>
+<li>La cláusula de seguridad <code>@csrf</code> para evitar ataques desde otros sitios</li>
+</ul>
+<p>Así pues, empecemos por el formulario</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ route(&#39;notas.crear&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Nombre de la nota&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control mb-2&quot;</span> <span class="na">autofocus</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;descripcion&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Descripción de la nota&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control mb-2&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-block&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>      Crear nueva nota
+<span class="linenos" data-linenos=" 9 "></span>    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Como vemos, creamos 2 inputs relacionados con nuestras columnas dentro de la tabla, en este caso <code>nombre</code> y <code>descripción</code></p>
+<p>El <code>action</code> del formulario debe apuntar a una nueva ruta que vayamos a crear y donde enviemos los datos mediante <code>POST</code>.</p>
+<p>Ahora crearemos la ruta en nuestro archivo de rutas <code>web.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ web.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;crear&#39;</span> <span class="p">])</span> <span class="o">-&gt;</span> <span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.crear&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Si nos fijamos, ya no estamos haciendo uso del <code>get</code>sino del método <code>post</code> y como son métodos diferentes, podemos nombrar la ruta de la misma manera que en <code>get</code> ya que no habrá conflicto.</p>
+<p>Por otro lado, necesitamos invocar nuestro <code>PagesController</code>famoso y decirle que vamos a utilizar el método <code>crear</code> que bueno, todavía no existe pero que vamos a crear a contnuación. No olvidemos crear un alias para poder vincularlo al <code>action</code>del formulario <span class="alert"><strong><em>SUPER IMPORTANTE</em></strong></span>.</p>
+<p>Para terminar, editaremos nuetro archivo <code>PagesController.php</code> para que el controlador que estamos usando tenga el método que hemos nombrado previamente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">App\Models\Nota</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">crear</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nv">$notaNueva</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Nota</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$notaNueva</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="o">=</span> <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">$notaNueva</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nv">$notaNueva</span> <span class="o">-&gt;</span> <span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span>    <span class="k">return</span> <span class="nx">back</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota agregada exitósamente&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Nuestro método <code>crear</code> va a recibir un objeto llamado <code>$request</code> (el cual podemos cambiarle el nombre perfectamente) de tipo <code>Request</code> por lo que <span class="alert"><strong><em>DEBEMOS IMPORTAR Request</em></strong></span> para poder utilizar dicha clase de Laravel.</p>
+<p>Dentro del método <code>crear</code> que acabamos de escribir, debemos hacer uso del modelo <code>Nota</code> que ya creamos en otros ejemplos e instanciarla a traves de una variable, en nuestro caso <code>$notaNueva</code>.</p>
+<p>De esta manera, podremos aceder a los métodos y propiedades de la misma, por eso podemos utilizar <code>nombre</code> y <code>descripcion</code>.</p>
+<p>Así mismo, la variable <code>$request</code> está formada por los mismos nombres de <code>input</code> que hemos puesto en el formulario de la plantilla, si os acordáis eran <code>name="nombre"</code> y <code>name="descripcion"</code>.</p>
+<p>Finalmente usamos el método <code>save()</code> para guardar estos nuevos datos en la base de datos y retornamos a la página del formulario con el método <code>back()</code> añadiendo un mensaje con <code>with()</code>.</p>
+<p>Pero ¿dónde va a salir este mensaje? -- lo tenemos que declarar en nuestra plantilla</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>@if (session(&#39;mensaje&#39;))
+<span class="linenos" data-linenos="2 "></span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mensaje-nota-creada&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>      {{ session(&#39;mensaje&#39;) }}
+<span class="linenos" data-linenos="4 "></span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="5 "></span>@endif
 </code></pre></div>
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
