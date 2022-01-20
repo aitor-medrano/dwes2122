@@ -459,6 +459,12 @@ La tabla `migrations` es simplemente un registro de todas las migraciones llevad
 php artisan migrate:rollback
 ```
 
+O si preferimos hacer un reset para dejarla limpia
+
+```console
+php artisan migrate:reset
+```
+
 ### Modelos
 
 Gracias a Eloquent y su integración con Laravel, podremos crear modelos de datos de una manera automatizada a través de `artisan`
@@ -603,6 +609,93 @@ De tal manera que quedaría así `resources/views/notas/detalle.blade.php`
     <h3>Nombre: {{ $nota -> nombre }}</h3>
     <h3>Descripción: {{ $nota -> descripcion }}</h3>    
 @endsection
+```
+
+## Formularios
+
+Ahora que ya sabemos cómo cargar de una base de datos, vamos a ver cómo insertarlos con Laravel y sin escribir ni una sola línea de SQL.
+
+Gracias al método `save()` de Laravel podremos guardar datos que provengan de un formulario desde nuestras plantillas. Para ello, lo primero que necesitamos lo siguiente:
+
+  - `formulario HTML` que recoja los datos que el usuario introduce
+  - Una `ruta` que sea la encargada de recibir los datos del formulario
+  - Método `POST` para enviar los datos al servidor
+  - Un método en nuestro `controlador` que procese los datos y los guarde a través de `save()`
+  - La cláusula de seguridad `@csrf` para evitar ataques desde otros sitios
+
+Así pues, empecemos por el formulario
+
+```html
+<form action="{{ route('notas.crear') }}" method="POST">
+    @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+
+    <input type="text" name="nombre" placeholder="Nombre de la nota" class="form-control mb-2" autofocus>
+    <input type="text" name="descripcion" placeholder="Descripción de la nota" class="form-control mb-2">
+
+    <button class="btn btn-primary btn-block" type="submit">
+      Crear nueva nota
+    </button>
+</form>
+```
+
+Como vemos, creamos 2 inputs relacionados con nuestras columnas dentro de la tabla, en este caso `nombre` y `descripción`
+
+El `action` del formulario debe apuntar a una nueva ruta que vayamos a crear y donde enviemos los datos mediante `POST`.
+
+Ahora crearemos la ruta en nuestro archivo de rutas `web.php`
+
+```php
+<?php
+
+// estamos en ▓▓▓ web.php
+
+Route::post('notas', [ PagesController::class, 'crear' ]) -> name('notas.crear');
+```
+
+Si nos fijamos, ya no estamos haciendo uso del `get`sino del método `post` y como son métodos diferentes, podemos nombrar la ruta de la misma manera que en `get` ya que no habrá conflicto.
+
+Por otro lado, necesitamos invocar nuestro `PagesController`famoso y decirle que vamos a utilizar el método `crear` que bueno, todavía no existe pero que vamos a crear a contnuación. No olvidemos crear un alias para poder vincularlo al `action`del formulario <span class="alert">***SUPER IMPORTANTE***</span>.
+
+Para terminar, editaremos nuetro archivo `PagesController.php` para que el controlador que estamos usando tenga el método que hemos nombrado previamente.
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php
+
+use App\Models\Nota;
+use Illuminate\Http\Request;
+
+public function crear(Request $request) {
+    $notaNueva = new Nota;
+
+    $notaNueva -> nombre = $request -> nombre;
+    $notaNueva -> descripcion = $request -> descripcion;
+
+    $notaNueva -> save();
+
+    return back() -> with('mensaje', 'Nota agregada exitósamente');
+}
+```
+
+Nuestro método `crear` va a recibir un objeto llamado `$request` (el cual podemos cambiarle el nombre perfectamente) de tipo `Request` por lo que <span class="alert">***DEBEMOS IMPORTAR Request***</span> para poder utilizar dicha clase de Laravel.
+
+Dentro del método `crear` que acabamos de escribir, debemos hacer uso del modelo `Nota` que ya creamos en otros ejemplos e instanciarla a traves de una variable, en nuestro caso `$notaNueva`.
+
+De esta manera, podremos aceder a los métodos y propiedades de la misma, por eso podemos utilizar `nombre` y `descripcion`.
+
+Así mismo, la variable `$request` está formada por los mismos nombres de `input` que hemos puesto en el formulario de la plantilla, si os acordáis eran `name="nombre"` y `name="descripcion"`.
+
+Finalmente usamos el método `save()` para guardar estos nuevos datos en la base de datos y retornamos a la página del formulario con el método `back()` añadiendo un mensaje con `with()`.
+
+Pero ¿dónde va a salir este mensaje? -- lo tenemos que declarar en nuestra plantilla
+
+```html
+@if (session('mensaje'))
+  <div class="mensaje-nota-creada">
+      {{ session('mensaje') }}
+  </div>
+@endif
 ```
 
 ## Actividades
