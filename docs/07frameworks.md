@@ -698,6 +698,236 @@ Pero ¿dónde va a salir este mensaje? -- lo tenemos que declarar en nuestra pla
 @endif
 ```
 
+### Validaciones
+
+Laravel nos proporciona herramientas para poder validar los datos que el usuario introduce en los campos del formulario.
+
+Además de poder hacerlo con la etiqueta `required` de HTML5, debemos validar los datos a través del Framework.
+
+Para ello, necesitamos modificar varios elementos:
+
+  - En primer lugar, nuestro archivo `controller`
+  - En segundo lugar, nuestra `plantilla` que carga el formulario
+
+Empecemos con el controlador. A través del método `validate()` le decimos a Eloquent qué campos son requeridos para poder enviar el formulario. Utilizaremos para ello un array asociativo con el nombre del input y la palabra reservada `required`
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php
+
+$request -> validate([
+  'nombre' => 'required',
+  'descripcion' => 'required'
+]);
+```
+
+Seguidamente nos moveremos a la plantilla donde esté el formulario y a través de la directiva `@error` crearemos un bloque html con nuestro mensaje de error por cada uno de los inputs requeridos.
+
+```php
+<?php
+
+// estamos en ▓▓▓ notas.blade.php
+
+@error('nombre')
+    <div class="alert alert-danger">
+      No olvides rellenar el nombre
+    </div>
+@enderror
+
+```
+
+Pero ¿qué pasa cuando ha habido un error y nos muestra el mensaje que hemos escrito? Si te fijas, los campos que habías rellenado perderán la información, pero con Laravel podemos persistirlos sin hacer que el usuario vuelva a introducirlos.
+
+Para poder persistir los datos una vez enviados pero con algún error de campo requerido, utilizaremos la directiva `old()` como value del input dentro de nuestro formulario y le pasaremos el nombre del input declarado en la etiqueta `name`.
+
+```php
+<?php
+
+// estamos en ▓▓▓ notas.blade.php
+
+<input
+  type="text"
+  name="nombre"
+  value="{{ old('nombre') }}"
+  class="form-control mb-2"
+  placeholder="Nombre de la nota"
+  autofocus
+>
+```
+
+### Editando registros
+
+Después de tener campos en la base de datos, lo interesante sería poder editarlos a través de un formulario.
+
+Laravel nos proporciona las herramientas necesarias para ello; veamos pues lo que necesitamos para poder realizar el cambio a través de la directiva `put()`.
+
+Para poder hacer el cambio de resgistros necesitamos lo siguiente:
+
+  - Un enalce para redirigir a la página de editar, pasando el id del elemento en cuestión
+  - Una nueva `ruta`que apunte a nuestra plantilla de editar
+  - Una `plantilla` para poder editar con un formulario que reciba los datos a editar
+  - Una nueva función dentro de nuestro `controlador` para poder manejar los datos ya introducidos
+  - Una nueva `ruta` que utilice el método `put()` para poder actualizar los datos
+  - Un nuevo método dentro de nuestro `controlador`para actualizar los datos nuevos introducidos
+
+```php
+<?php
+
+// estamos en ▓▓▓ notas.blade.php
+
+<a href="{{ route('notas.editar', $nota) }}" class="btn btn-warning btn-sm">
+  Editar
+</a>
+```
+Ahora creamos la ruta
+
+```php
+<?php
+
+// estamos en ▓▓▓ wep.php
+
+Route::get('editar/{id}', [ PagesController::class, 'editar' ]) -> name('notas.editar');
+Route::put('editar/{id}', [ PagesController::class, 'actualizar' ]) -> name('notas.actualizar');
+```
+
+Ahora necesitamos crear una nueva plantilla `resources/views/notas/editar.blade.php`
+
+```php
+<?php
+
+// estamos en ▓▓▓ editar.blade.php
+@extends('plantilla')
+
+@section('apartado')
+<h2>Editando la nota {{ $nota -> id }}</h2>
+
+@if (session('mensaje'))
+  <div class="alert alert-success">{{ session('mensaje')}}</div>
+@endif
+
+<form action="{{ route('notas.actualizar', $nota -> id) }}" method="POST">
+  @method('PUT') {{-- Necesitamos cambiar al método PUT para editar --}}
+  @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
+
+  @error('nombre')
+      <div class="alert alert-danger">
+          El nombre es obligatorio
+      </div>
+  @enderror
+  @error('descripcion')
+      <div class="alert alert-danger">
+          La descripción es obligatoria
+      </div>
+  @enderror
+
+  <input
+      type="text"
+      name="nombre"
+      class="form-control mb-2"
+      value="{{ $nota -> nombre }}"
+      placeholder="Nombre de la nota"
+      autofocus
+  >
+  <input
+      type="text"
+      name="descripcion"
+      placeholder="Descripción de la nota"
+      class="form-control mb-2"
+      value="{{ $nota -> descripcion }}"
+  >
+
+  <button class="btn btn-primary btn-block" type="submit">Guardar cambios</button>
+</form>
+@endsection
+```
+Y por último, modificamos nuestro `PagesController`
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php
+
+public function editar($id) {
+  $nota = Nota::findOrFail($id);
+
+  return view('notas.editar', compact('nota'));
+}
+
+public function actualizar(Request $request, $id) {
+  $request -> validate([
+      'nombre' => 'required',
+      'descripcion' => 'required'
+  ]);
+
+  $notaActualizar = Nota::findOrFail($id);
+
+  $notaActualizar -> nombre = $request -> nombre;
+  $notaActualizar -> descripcion = $request -> descripcion;
+
+  $notaActualizar -> save();
+
+  return back() -> with('mensaje', 'Nota actualizada');
+}
+```
+
+### Eliminando registros
+
+A la hora de eliminar un registro nuevo, no necesitamos crear una plantilla nueva ya que podemos mandar la instrucción directamente a través de otro formulario.
+
+Por lo tanto, para eliminar un registro de la base de datos utilizaremos lo siguiente.
+
+  - Un formulario básico con un único botón de eliminar
+  - Usaremos el método `DELETE` para sobreescribir el método del formulario HTML
+  - Una `ruta` nueva para controlar el `action` de este nuevo formulario
+  - Un nuevo método dentro de nuestro `Controlador` que lleve la lógica para borrar el registro
+
+Vamos a ver cómo meter ese formulario dentro de nuestro listado de notas
+
+```php
+<?php
+
+// estamos en ▓▓▓ notas.blade.php
+
+<form action="{{ route('notas.eliminar', $nota) }}" method="POST" class="d-inline">
+  @method('DELETE')
+  @csrf
+
+  <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+</form>
+```
+Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear la ruta que hemos colocado en el `action`del formulario para borrar elementos.
+
+```php
+<?php
+
+// estamos en ▓▓▓ web.php
+
+Route::delete('eliminar/{id}', [ PagesController::class, 'eliminar' ]) -> name('notas.eliminar');
+```
+
+El último paso que nos queda es modificar el `PagesController`
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php
+
+public function eliminar($id) {
+  $notaEliminar = Nota::findOrFail($id);
+  $notaEliminar -> delete();
+
+  return back() -> with('mensaje', 'Nota Eliminada');
+}
+```
+
+Si todo ha salido bien, habremos creado un sitio en Laravel y Eloquent que es capaz de hacer un ***CRUD*** validando campos en formularios e insertando datos reales en una base de datos.
+
+## Autenticación
+
+---
+
+
 ## Actividades
 
 701. Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:
