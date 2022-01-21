@@ -764,7 +764,7 @@ Laravel nos proporciona las herramientas necesarias para ello; veamos pues lo qu
 
 Para poder hacer el cambio de resgistros necesitamos lo siguiente:
 
-  - Un enalce para redirigir a la página de editar, pasando el id del elemento en cuestión
+  - Un enlace para redirigir a la página de editar, pasando el id del elemento en cuestión
   - Una nueva `ruta`que apunte a nuestra plantilla de editar
   - Una `plantilla` para poder editar con un formulario que reciba los datos a editar
   - Una nueva función dentro de nuestro `controlador` para poder manejar los datos ya introducidos
@@ -961,6 +961,78 @@ Si todo ha salido bien, habremos creado un sitio en Laravel y Eloquent que es ca
   - Puedes usar Bootstrap como algo opcional para practicar. Recuerda que viene incluido con la instalación de Laravel.
 
 ---
+
+703. Crear el proyecto CholloSevero:
+
+  - Crea un nuevo repositorio para el proyecto
+  - Configura el `.gitignore` para no incluir en el repo los siguientes archivos y carpetas:
+      - carpeta `vendor`
+      - archivos `.env` y cualquier archivo que empiece por `.` excepto el `.gitignore`
+  - La página principal del sitio debe ser un listado con todos los chollos disponibles
+  - Configura la base de datos con Eloquent, olvídate de usar la consola mysql
+  - Crea una vista para las siguientes acciones:
+      - Crear un chollo
+      - Editar un chollo
+  - La tabla Chollo debe contener las siguientes columnas:
+      - `id` único y autoincremental
+      - `titulo` un título para el chollo
+      - `descripcion` descripcion del chollo
+      - `url` un campo para introducir la URL externa del chollo
+      - `categoria` albergará la categoría de los chollos
+      - `puntuacion` un número entero que indique la puntuación del chollo
+      - `precio` para albergar el precio del chollo
+      - `precio_descuento` para albergar el nuevo precio
+      - `disponible` de tipo boolean
+  - Por lo menos, el sitio debe contener un `controlador` de Laravel; puedes crear tantos como creas necesarios pero mínimo debe haber uno.
+
+`::: Elementos estáticos`
+Como ya hemos visto, hay ciertos elementos que siempre se muestran en todas las vistas del sitio web. A continuación se listan los elementos que deben estar si o si en todas las plantillas que creéis.
+
+  - Logo del sitio y el título `Chollo ░▒▓ Severo`
+  - `Inicio` | `Nuevos` | `Destacados`
+  - Un footer con vuestro nombre y algún dato copyright del tipo `©CholloSevero 2022` donde el año debe ser calculado a través de la fecha del servidor.
+
+`::: Pagína principal` <br>
+Además del listado de todos los chollos de la base de datos debe contener el menú de navegación:
+
+  - Cada chollo debe ser accesible desde este listado
+  - Cada chollo debe contener una imagen que estará guardada en `public/img`
+  - Cada chollo debe contener sus botones de `editar` y `borrar` que haga las funciones que tocan. Puedes utilizar iconos para cada uno de los botones.
+  - El nombre de las imágenes debe estar compuesta por la siguiente fórmula `idChollo`-chollo-severo.`extension`
+      - Por ejemplo: 25-chollo-severo.jpg
+  - La imagen del chollo no se sube a través del formulario, la pones directamente en la carpeta. Si te animas a subirlo a través del formulario, puedes hacerlo.
+
+`::: Página de Chollo` <br>
+Cuando pinchemos en uno de los chollos del listados debemos ser redireccionados a esta vista donde podremos ver toda la información del tabla chollo. Puedes maquetarla como quieras e incluso puedes basarte en la web de [Chollo Metro](https://www.chollometro.com). El campo `disponible` no es necesario que lo muestres en esta vista
+
+`::: Página de Crear un chollo` <br>
+Un formulario con los campos necesarios para poder crear un chollo nuevo. Además, debes tener en cuenta que tienes que validar los campos, de tal manera que no se pueda enviar el formulario si se ha dejado algún campo en blanco; dichas validaciones, además de añadir la propiedad `required` de HTML5 debes hacerlo con Laravel.
+
+En caso de que haya habido algún error en el formulario debes mostrar un mensaje en la parte de arriba del mismo con el mensaje de error (por ejemplo, si el campo está vacío).
+
+`::: Página de Editar un chollo` <br>
+Muy parecida a la de Crear un chollo pero que puedas editar un Chollo en función de su `id`. Acuérdate que no puedes dejar ningún campo vacío, para ello has de utilizar las validaciones de Laravel.
+
+`░▒▓ COSAS A TENER EN CUENTA ░▒▓` <br>
+- Tienes que usar `Bootstrap` o `Material Design`, aunque si lo prefieres puedes hacer tus propios archivos `.css`
+
+- Los mensajes de error o de información deben estar estilizados para que el usuario pueda verlos con facilidad
+
+- Los elementos estáticos deben estar presentes en todas las vistas; incluidas las de editar y crear.
+
+- Las plantillas que formen parte de otra ya creada deben estar en una carpeta con el nombre de la plantilla madre, como hicimos con el ejercicio de `Notas`:
+
+      resources
+      |__ views
+          |__ notas
+              |__ detalle.blade.php
+              |__ editar.blade.php
+
+- Ve haciendo commits en función de las tareas que vayas acabando o que veas que el commit tiene sentido. No es buena práctica subir los camios de un archivo y el siguiente commit volver a subir más cambios del mismo archivo (a no ser que nos hayamos saltado o equivocado en algo).
+
+- El proyecto es individual y después se presentará, uno por uno al profesor para que evalúe todos los aspectos del mismo. Se harán preguntas de cómo se ha hecho cierta cosa o por qué se ha determinado cierto flujo de trabajo así que, <span class="alert">***no os copiéis porque se evalúa también la presentación del proyecto***</span>
+
+
 <!--
 ### Configuración
 
