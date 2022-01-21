@@ -1134,7 +1134,7 @@ Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de
 <p>Laravel nos proporciona las herramientas necesarias para ello; veamos pues lo que necesitamos para poder realizar el cambio a través de la directiva <code>put()</code>.</p>
 <p>Para poder hacer el cambio de resgistros necesitamos lo siguiente:</p>
 <ul>
-<li>Un enalce para redirigir a la página de editar, pasando el id del elemento en cuestión</li>
+<li>Un enlace para redirigir a la página de editar, pasando el id del elemento en cuestión</li>
 <li>Una nueva <code>ruta</code>que apunte a nuestra plantilla de editar</li>
 <li>Una <code>plantilla</code> para poder editar con un formulario que reciba los datos a editar</li>
 <li>Una nueva función dentro de nuestro <code>controlador</code> para poder manejar los datos ya introducidos</li>
@@ -1322,6 +1322,87 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 </li>
 </ul>
 <hr />
+<ol start="703">
+<li>Crear el proyecto CholloSevero:</li>
+</ol>
+<ul>
+<li>Crea un nuevo repositorio para el proyecto</li>
+<li>Configura el <code>.gitignore</code> para no incluir en el repo los siguientes archivos y carpetas:<ul>
+<li>carpeta <code>vendor</code></li>
+<li>archivos <code>.env</code> y cualquier archivo que empiece por <code>.</code> excepto el <code>.gitignore</code></li>
+</ul>
+</li>
+<li>La página principal del sitio debe ser un listado con todos los chollos disponibles</li>
+<li>Configura la base de datos con Eloquent, olvídate de usar la consola mysql</li>
+<li>Crea una vista para las siguientes acciones:<ul>
+<li>Crear un chollo</li>
+<li>Editar un chollo</li>
+</ul>
+</li>
+<li>La tabla Chollo debe contener las siguientes columnas:<ul>
+<li><code>id</code> único y autoincremental</li>
+<li><code>titulo</code> un título para el chollo</li>
+<li><code>descripcion</code> descripcion del chollo</li>
+<li><code>url</code> un campo para introducir la URL externa del chollo</li>
+<li><code>categoria</code> albergará la categoría de los chollos</li>
+<li><code>puntuacion</code> un número entero que indique la puntuación del chollo</li>
+<li><code>precio</code> para albergar el precio del chollo</li>
+<li><code>precio_descuento</code> para albergar el nuevo precio</li>
+<li><code>disponible</code> de tipo boolean</li>
+</ul>
+</li>
+<li>Por lo menos, el sitio debe contener un <code>controlador</code> de Laravel; puedes crear tantos como creas necesarios pero mínimo debe haber uno.</li>
+</ul>
+<p><code>::: Elementos estáticos</code>
+Como ya hemos visto, hay ciertos elementos que siempre se muestran en todas las vistas del sitio web. A continuación se listan los elementos que deben estar si o si en todas las plantillas que creéis.</p>
+<ul>
+<li>Logo del sitio y el título <code>Chollo ░▒▓ Severo</code></li>
+<li><code>Inicio</code> | <code>Nuevos</code> | <code>Destacados</code></li>
+<li>Un footer con vuestro nombre y algún dato copyright del tipo <code>©CholloSevero 2022</code> donde el año debe ser calculado a través de la fecha del servidor.</li>
+</ul>
+<p><code>::: Pagína principal</code> <br>
+Además del listado de todos los chollos de la base de datos debe contener el menú de navegación:</p>
+<ul>
+<li>Cada chollo debe ser accesible desde este listado</li>
+<li>Cada chollo debe contener una imagen que estará guardada en <code>public/img</code></li>
+<li>Cada chollo debe contener sus botones de <code>editar</code> y <code>borrar</code> que haga las funciones que tocan. Puedes utilizar iconos para cada uno de los botones.</li>
+<li>El nombre de las imágenes debe estar compuesta por la siguiente fórmula <code>idChollo</code>-chollo-severo.<code>extension</code><ul>
+<li>Por ejemplo: 25-chollo-severo.jpg</li>
+</ul>
+</li>
+<li>La imagen del chollo no se sube a través del formulario, la pones directamente en la carpeta. Si te animas a subirlo a través del formulario, puedes hacerlo.</li>
+</ul>
+<p><code>::: Página de Chollo</code> <br>
+Cuando pinchemos en uno de los chollos del listados debemos ser redireccionados a esta vista donde podremos ver toda la información del tabla chollo. Puedes maquetarla como quieras e incluso puedes basarte en la web de <a href="https://www.chollometro.com">Chollo Metro</a>. El campo <code>disponible</code> no es necesario que lo muestres en esta vista</p>
+<p><code>::: Página de Crear un chollo</code> <br>
+Un formulario con los campos necesarios para poder crear un chollo nuevo. Además, debes tener en cuenta que tienes que validar los campos, de tal manera que no se pueda enviar el formulario si se ha dejado algún campo en blanco; dichas validaciones, además de añadir la propiedad <code>required</code> de HTML5 debes hacerlo con Laravel.</p>
+<p>En caso de que haya habido algún error en el formulario debes mostrar un mensaje en la parte de arriba del mismo con el mensaje de error (por ejemplo, si el campo está vacío).</p>
+<p><code>::: Página de Editar un chollo</code> <br>
+Muy parecida a la de Crear un chollo pero que puedas editar un Chollo en función de su <code>id</code>. Acuérdate que no puedes dejar ningún campo vacío, para ello has de utilizar las validaciones de Laravel.</p>
+<p><code>░▒▓ COSAS A TENER EN CUENTA ░▒▓</code> <br>
+- Tienes que usar <code>Bootstrap</code> o <code>Material Design</code>, aunque si lo prefieres puedes hacer tus propios archivos <code>.css</code></p>
+<ul>
+<li>
+<p>Los mensajes de error o de información deben estar estilizados para que el usuario pueda verlos con facilidad</p>
+</li>
+<li>
+<p>Los elementos estáticos deben estar presentes en todas las vistas; incluidas las de editar y crear.</p>
+</li>
+<li>
+<p>Las plantillas que formen parte de otra ya creada deben estar en una carpeta con el nombre de la plantilla madre, como hicimos con el ejercicio de <code>Notas</code>:</p>
+<p>resources
+  |<strong> views
+      |</strong> notas
+          |<strong> detalle.blade.php
+          |</strong> editar.blade.php</p>
+</li>
+<li>
+<p>Ve haciendo commits en función de las tareas que vayas acabando o que veas que el commit tiene sentido. No es buena práctica subir los camios de un archivo y el siguiente commit volver a subir más cambios del mismo archivo (a no ser que nos hayamos saltado o equivocado en algo).</p>
+</li>
+<li>
+<p>El proyecto es individual y después se presentará, uno por uno al profesor para que evalúe todos los aspectos del mismo. Se harán preguntas de cómo se ha hecho cierta cosa o por qué se ha determinado cierto flujo de trabajo así que, <span class="alert"><strong><em>no os copiéis porque se evalúa también la presentación del proyecto</em></strong></span></p>
+</li>
+</ul>
 <!--
 ### Configuración
 
