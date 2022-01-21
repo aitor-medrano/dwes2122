@@ -519,6 +519,40 @@
     Formularios
   </a>
   
+    <nav class="md-nav" aria-label="Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validaciones" class="md-nav__link">
+    Validaciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editando-registros" class="md-nav__link">
+    Editando registros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminando-registros" class="md-nav__link">
+    Eliminando registros
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    Autenticación
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1051,6 +1085,196 @@ Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de
 <span class="linenos" data-linenos="4 "></span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="5 "></span>@endif
 </code></pre></div>
+<h3 id="validaciones">Validaciones<a class="headerlink" href="#validaciones" title="Permanent link">&para;</a></h3>
+<p>Laravel nos proporciona herramientas para poder validar los datos que el usuario introduce en los campos del formulario.</p>
+<p>Además de poder hacerlo con la etiqueta <code>required</code> de HTML5, debemos validar los datos a través del Framework.</p>
+<p>Para ello, necesitamos modificar varios elementos:</p>
+<ul>
+<li>En primer lugar, nuestro archivo <code>controller</code></li>
+<li>En segundo lugar, nuestra <code>plantilla</code> que carga el formulario</li>
+</ul>
+<p>Empecemos con el controlador. A través del método <code>validate()</code> le decimos a Eloquent qué campos son requeridos para poder enviar el formulario. Utilizaremos para ello un array asociativo con el nombre del input y la palabra reservada <code>required</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="7 "></span>  <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">]);</span>
+</code></pre></div>
+<p>Seguidamente nos moveremos a la plantilla donde esté el formulario y a través de la directiva <code>@error</code> crearemos un bloque html con nuestro mensaje de error por cada uno de los inputs requeridos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ notas.blade.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="o">@</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-danger&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="7 "></span>      <span class="nx">No</span> <span class="nx">olvides</span> <span class="nx">rellenar</span> <span class="nx">el</span> <span class="nx">nombre</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="9 "></span><span class="o">@</span><span class="nx">enderror</span>
+</code></pre></div>
+<p>Pero ¿qué pasa cuando ha habido un error y nos muestra el mensaje que hemos escrito? Si te fijas, los campos que habías rellenado perderán la información, pero con Laravel podemos persistirlos sin hacer que el usuario vuelva a introducirlos.</p>
+<p>Para poder persistir los datos una vez enviados pero con algún error de campo requerido, utilizaremos la directiva <code>old()</code> como value del input dentro de nuestro formulario y le pasaremos el nombre del input declarado en la etiqueta <code>name</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ notas.blade.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&lt;</span><span class="nx">input</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;nombre&quot;</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;{{ old(&#39;nombre&#39;) }}&quot;</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;form-control mb-2&quot;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Nombre de la nota&quot;</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="nx">autofocus</span>
+<span class="linenos" data-linenos="12 "></span><span class="o">&gt;</span>
+</code></pre></div>
+<h3 id="editando-registros">Editando registros<a class="headerlink" href="#editando-registros" title="Permanent link">&para;</a></h3>
+<p>Después de tener campos en la base de datos, lo interesante sería poder editarlos a través de un formulario.</p>
+<p>Laravel nos proporciona las herramientas necesarias para ello; veamos pues lo que necesitamos para poder realizar el cambio a través de la directiva <code>put()</code>.</p>
+<p>Para poder hacer el cambio de resgistros necesitamos lo siguiente:</p>
+<ul>
+<li>Un enalce para redirigir a la página de editar, pasando el id del elemento en cuestión</li>
+<li>Una nueva <code>ruta</code>que apunte a nuestra plantilla de editar</li>
+<li>Una <code>plantilla</code> para poder editar con un formulario que reciba los datos a editar</li>
+<li>Una nueva función dentro de nuestro <code>controlador</code> para poder manejar los datos ya introducidos</li>
+<li>Una nueva <code>ruta</code> que utilice el método <code>put()</code> para poder actualizar los datos</li>
+<li>Un nuevo método dentro de nuestro <code>controlador</code>para actualizar los datos nuevos introducidos</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ notas.blade.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;{{ route(&#39;notas.editar&#39;, </span><span class="si">$nota</span><span class="s2">) }}&quot;</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;btn btn-warning btn-sm&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="nx">Editar</span>
+<span class="linenos" data-linenos="7 "></span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;</span>
+</code></pre></div>
+Ahora creamos la ruta</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ wep.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;editar/{id}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;editar&#39;</span> <span class="p">])</span> <span class="o">-&gt;</span> <span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.editar&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;editar/{id}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;actualizar&#39;</span> <span class="p">])</span> <span class="o">-&gt;</span> <span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.actualizar&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Ahora necesitamos crear una nueva plantilla <code>resources/views/notas/editar.blade.php</code></p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ editar.blade.php</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">@</span><span class="k">extends</span><span class="p">(</span><span class="s1">&#39;plantilla&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="o">@</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;apartado&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Editando</span> <span class="nx">la</span> <span class="nx">nota</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">id</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h2</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">@</span><span class="k">if</span> <span class="p">(</span><span class="nx">session</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-success&quot;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="nx">session</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">)}}</span><span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="o">@</span><span class="k">endif</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="s2">&quot;{{ route(&#39;notas.actualizar&#39;, </span><span class="si">$nota</span><span class="s2"> -&gt; id) }}&quot;</span> <span class="nx">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>  <span class="o">@</span><span class="nx">method</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">)</span> <span class="p">{{</span><span class="o">--</span> <span class="nx">Necesitamos</span> <span class="nx">cambiar</span> <span class="nx">al</span> <span class="nx">método</span> <span class="nx">PUT</span> <span class="nx">para</span> <span class="nx">editar</span> <span class="o">--</span><span class="p">}}</span>
+<span class="linenos" data-linenos="15 "></span>  <span class="o">@</span><span class="nx">csrf</span> <span class="p">{{</span><span class="o">--</span> <span class="nx">Cláusula</span> <span class="nx">para</span> <span class="nx">obtener</span> <span class="nx">un</span> <span class="nx">token</span> <span class="nx">de</span> <span class="nx">formulario</span> <span class="nx">al</span> <span class="nx">enviarlo</span> <span class="o">--</span><span class="p">}}</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>  <span class="o">@</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-danger&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="19 "></span>          <span class="nx">El</span> <span class="nx">nombre</span> <span class="nx">es</span> <span class="nx">obligatorio</span>
+<span class="linenos" data-linenos="20 "></span>      <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>  <span class="o">@</span><span class="nx">enderror</span>
+<span class="linenos" data-linenos="22 "></span>  <span class="o">@</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;descripcion&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;alert alert-danger&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="24 "></span>          <span class="nx">La</span> <span class="nx">descripción</span> <span class="nx">es</span> <span class="nx">obligatoria</span>
+<span class="linenos" data-linenos="25 "></span>      <span class="o">&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>  <span class="o">@</span><span class="nx">enderror</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span>  <span class="o">&lt;</span><span class="nx">input</span>
+<span class="linenos" data-linenos="29 "></span>      <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+<span class="linenos" data-linenos="30 "></span>      <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;nombre&quot;</span>
+<span class="linenos" data-linenos="31 "></span>      <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;form-control mb-2&quot;</span>
+<span class="linenos" data-linenos="32 "></span>      <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;{{ </span><span class="si">$nota</span><span class="s2"> -&gt; nombre }}&quot;</span>
+<span class="linenos" data-linenos="33 "></span>      <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Nombre de la nota&quot;</span>
+<span class="linenos" data-linenos="34 "></span>      <span class="nx">autofocus</span>
+<span class="linenos" data-linenos="35 "></span>  <span class="o">&gt;</span>
+<span class="linenos" data-linenos="36 "></span>  <span class="o">&lt;</span><span class="nx">input</span>
+<span class="linenos" data-linenos="37 "></span>      <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+<span class="linenos" data-linenos="38 "></span>      <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;descripcion&quot;</span>
+<span class="linenos" data-linenos="39 "></span>      <span class="nx">placeholder</span><span class="o">=</span><span class="s2">&quot;Descripción de la nota&quot;</span>
+<span class="linenos" data-linenos="40 "></span>      <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;form-control mb-2&quot;</span>
+<span class="linenos" data-linenos="41 "></span>      <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;{{ </span><span class="si">$nota</span><span class="s2"> -&gt; descripcion }}&quot;</span>
+<span class="linenos" data-linenos="42 "></span>  <span class="o">&gt;</span>
+<span class="linenos" data-linenos="43 "></span>
+<span class="linenos" data-linenos="44 "></span>  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;btn btn-primary btn-block&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Guardar</span> <span class="nx">cambios</span><span class="o">&lt;/</span><span class="nx">button</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="45 "></span><span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="46 "></span><span class="o">@</span><span class="nx">endsection</span>
+</code></pre></div>
+Y por último, modificamos nuestro <code>PagesController</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">editar</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$nota</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas.editar&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;nota&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">actualizar</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">validate</span><span class="p">([</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="s1">&#39;nombre&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="14 "></span>      <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required&#39;</span>
+<span class="linenos" data-linenos="15 "></span>  <span class="p">]);</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>  <span class="nv">$notaActualizar</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span>  <span class="nv">$notaActualizar</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="o">=</span> <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">nombre</span><span class="p">;</span>
+<span class="linenos" data-linenos="20 "></span>  <span class="nv">$notaActualizar</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="o">=</span> <span class="nv">$request</span> <span class="o">-&gt;</span> <span class="na">descripcion</span><span class="p">;</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>  <span class="nv">$notaActualizar</span> <span class="o">-&gt;</span> <span class="na">save</span><span class="p">();</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span>  <span class="k">return</span> <span class="nx">back</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota actualizada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="eliminando-registros">Eliminando registros<a class="headerlink" href="#eliminando-registros" title="Permanent link">&para;</a></h3>
+<p>A la hora de eliminar un registro nuevo, no necesitamos crear una plantilla nueva ya que podemos mandar la instrucción directamente a través de otro formulario.</p>
+<p>Por lo tanto, para eliminar un registro de la base de datos utilizaremos lo siguiente.</p>
+<ul>
+<li>Un formulario básico con un único botón de eliminar</li>
+<li>Usaremos el método <code>DELETE</code> para sobreescribir el método del formulario HTML</li>
+<li>Una <code>ruta</code> nueva para controlar el <code>action</code> de este nuevo formulario</li>
+<li>Un nuevo método dentro de nuestro <code>Controlador</code> que lleve la lógica para borrar el registro</li>
+</ul>
+<p>Vamos a ver cómo meter ese formulario dentro de nuestro listado de notas</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ notas.blade.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="s2">&quot;{{ route(&#39;notas.eliminar&#39;, </span><span class="si">$nota</span><span class="s2">) }}&quot;</span> <span class="nx">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;d-inline&quot;</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">@</span><span class="nx">method</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="o">@</span><span class="nx">csrf</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&quot;btn btn-danger btn-sm&quot;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span><span class="nx">Eliminar</span><span class="o">&lt;/</span><span class="nx">button</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&lt;/</span><span class="nx">form</span><span class="o">&gt;</span>
+</code></pre></div>
+Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear la ruta que hemos colocado en el <code>action</code>del formulario para borrar elementos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="c1">// estamos en ▓▓▓ web.php</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;eliminar/{id}&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">PagesController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;eliminar&#39;</span> <span class="p">])</span> <span class="o">-&gt;</span> <span class="na">name</span><span class="p">(</span><span class="s1">&#39;notas.eliminar&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>El último paso que nos queda es modificar el <code>PagesController</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">eliminar</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="nv">$notaEliminar</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">findOrFail</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$notaEliminar</span> <span class="o">-&gt;</span> <span class="na">delete</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="k">return</span> <span class="nx">back</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">with</span><span class="p">(</span><span class="s1">&#39;mensaje&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota Eliminada&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si todo ha salido bien, habremos creado un sitio en Laravel y Eloquent que es capaz de hacer un <strong><em>CRUD</em></strong> validando campos en formularios e insertando datos reales en una base de datos.</p>
+<h2 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h2>
+<hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
 <li>Crea un sitio web con Laravel que contenga el título "Bienvenidos a Laravel", un texto de bienvenida (puede ser un poco de Lorem Ipsum) y a continuación un menú de navegación con sus correspondientes alias y los siguientes enlaces:</li>
