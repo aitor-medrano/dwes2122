@@ -549,6 +549,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#paginacion" class="md-nav__link">
+    Paginación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#autenticacion" class="md-nav__link">
     Autenticación
   </a>
@@ -1273,6 +1280,22 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="10 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Si todo ha salido bien, habremos creado un sitio en Laravel y Eloquent que es capaz de hacer un <strong><em>CRUD</em></strong> validando campos en formularios e insertando datos reales en una base de datos.</p>
+<h2 id="paginacion">Paginación<a class="headerlink" href="#paginacion" title="Permanent link">&para;</a></h2>
+<p>Para añadir paginación a nuestros resultados, Eloquent tiene un método que se llama <code>paginate()</code> donde le pasamos un número entero como parámetro para indicarle el número de resultados que queremos por página.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ PagesController.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">notas</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="c1">// $notas = Nota::all();</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="nv">$notas</span> <span class="o">=</span> <span class="nx">Nota</span><span class="o">::</span><span class="na">paginate</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ahora veremos ciertos elementos HTML que se han generado en nuestra vista, ésto es porque Laravel hace uso de una librería de paginación situada en la carpeta <code>vendor/laravel/framework/src/illuminate/Pagination</code></p>
+<p>Si os metéis en el directorio y abrís el archivo <code>tailwind.blade.php</code> veréis la estructura HTML que os sale en la vista. Podéis modificar este archivo a vuestro antojo, pero es recomendable guardarse una copia del mismo.</p>
+<p>Existe otra dependencia en <code>resources/lang/en/pagination.php</code> donde encontrarás el idioma para la paginación.</p>
 <h2 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h2>
 <hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
