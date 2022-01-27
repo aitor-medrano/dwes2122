@@ -923,6 +923,30 @@ public function eliminar($id) {
 
 Si todo ha salido bien, habremos creado un sitio en Laravel y Eloquent que es capaz de hacer un ***CRUD*** validando campos en formularios e insertando datos reales en una base de datos.
 
+## Paginación
+
+Para añadir paginación a nuestros resultados, Eloquent tiene un método que se llama `paginate()` donde le pasamos un número entero como parámetro para indicarle el número de resultados que queremos por página.
+
+```php
+<?php
+
+// estamos en ▓▓▓ PagesController.php
+
+public function notas() {
+  // $notas = Nota::all();
+  $notas = Nota::paginate(5);
+
+  return view('notas', compact('notas'));
+}
+```
+
+Ahora veremos ciertos elementos HTML que se han generado en nuestra vista, ésto es porque Laravel hace uso de una librería de paginación situada en la carpeta `vendor/laravel/framework/src/illuminate/Pagination`
+
+Si os metéis en el directorio y abrís el archivo `tailwind.blade.php` veréis la estructura HTML que os sale en la vista. Podéis modificar este archivo a vuestro antojo, pero es recomendable guardarse una copia del mismo.
+
+Existe otra dependencia en `resources/lang/en/pagination.php` donde encontrarás el idioma para la paginación.
+
+
 ## Autenticación
 
 ---
