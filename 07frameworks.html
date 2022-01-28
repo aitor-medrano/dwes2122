@@ -560,6 +560,26 @@
     Autenticación
   </a>
   
+    <nav class="md-nav" aria-label="Autenticación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restringir-una-ruta" class="md-nav__link">
+    Restringir una ruta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-del-usuario" class="md-nav__link">
+    Datos del usuario
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1297,6 +1317,41 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <p>Si os metéis en el directorio y abrís el archivo <code>tailwind.blade.php</code> veréis la estructura HTML que os sale en la vista. Podéis modificar este archivo a vuestro antojo, pero es recomendable guardarse una copia del mismo.</p>
 <p>Existe otra dependencia en <code>resources/lang/en/pagination.php</code> donde encontrarás el idioma para la paginación.</p>
 <h2 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">&para;</a></h2>
+<p>Para la utenticación de usuarios necesitamos instalar unas cuantas dependencias ya preparadas para ello.</p>
+<p>No es necesarios crear un proyecto nuevo pero nosotros vamos a hacerlo para tener uno con autenticación y otro no, el que ya hicimos al principio.</p>
+<p>Primero de todo, vamos a crear un nuevo proyecto en Laravel que se llame <code>notas_auth</code> y nos metemos dentro de la carpeta del mismo cuando el script haya terminado.</p>
+<p>Dentro de la carpeta <code>notas_auth</code> lanzamos los siguientes comandos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer require laravel/ui</span>
+<span class="linenos" data-linenos="2 "></span><span class="go">php artisan ui vue --auth</span>
+</code></pre></div>
+<p>Para terminar, lanzaremos el comando <code>migrate</code> que ya conocemos... <span class="alert"><strong>SI ESTÁS WINDOWS</strong></span> fuera de la imagen de Docker (utilizando xampp o parecidos) debes crear una nueva base de datos y posteriormente modificiar el archivo <code>.env</code> poniendo el nombre de esa base de datos que acabas de crear.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate</span>
+</code></pre></div>
+<p>Si todo ha salido bien, podrás ver en la carpeta <code>resources/views</code> una carpeta que se llama <strong>auth</strong> y un controlador nuevo que llama <code>HomeController</code></p>
+<h3 id="restringir-una-ruta">Restringir una ruta<a class="headerlink" href="#restringir-una-ruta" title="Permanent link">&para;</a></h3>
+<p>Si nos fijamos, en el nuevo controlador que se ha creado <code>HomeController</code> podemos ver unas líneas al principio del archivo que son las que determinan si la ruta está restringida a usuarios registrados y logueados.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">middleware</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Mediante el uso del <code>middleware</code> llamado <code>auth</code> establecemos que todas las rutas que hagan uso de este controlador deban pasar por el login para mostrar el contenido.</p>
+<p>Por lo tanto, en nuestros proyectos es recomendable utilizar diferentes controladores para diferentes vistas; las que estén reestringidas por el login y las que no.</p>
+<h3 id="datos-del-usuario">Datos del usuario<a class="headerlink" href="#datos-del-usuario" title="Permanent link">&para;</a></h3>
+<p>Siempre que queramos acceder a cualquier dato del usuario logueado, utilizaremos el método <code>auth()</code> para sacar por pantalla la información o para utilizar lógica a la hora de guardar datos en la base de datos en función de un usuario, un email o el campo que sea.</p>
+<p>Imaginemos que tenemos una ruta donde accedemos a dicha información</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">notas</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="k">return</span> <span class="nx">auth</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">();</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span>  <span class="c1">// return auth()-&gt;user() -&gt; name;</span>
+<span class="linenos" data-linenos="7 "></span>  <span class="c1">// return auth()-&gt;user() -&gt; email;</span>
+<span class="linenos" data-linenos="8 "></span>  <span class="c1">// ...</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Si visitamos esta ruta con nuestro login y password, nos aparecerá por pantalla toda la información de nuestro <code>user</code> a excepción de la contraseña y, aunque así fuera porque se lo forzamos, ésta aparecerá encriptada.</p>
 <hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
