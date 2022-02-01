@@ -1006,8 +1006,259 @@ public function notas() {
 
 Si visitamos esta ruta con nuestro login y password, nos aparecerá por pantalla toda la información de nuestro `user` a excepción de la contraseña y, aunque así fuera porque se lo forzamos, ésta aparecerá encriptada.
 
----
+## Relaciones con Eloquent
 
+A través de Eloquent vamos a poder gestionar las relaciones entre nuestras tablas de la base de datos de una manera muy sencilla y sin sentencias SQL.
+
+### Uno a uno (1 a 1)
+
+Para crear este tipo de relaciones en Eloquent y Laravel, debemos tener creadas las tablas que vayamos a relacionar y establecer la relación entre ellas a través del método `hasOne`.
+
+Supongamos que tenemos una tablas `usuario` que está relacionada con la tabla `telefono`.
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Usuario extends Model
+{
+  /**
+   * Obtener el Teléfono asocioado con el Usuario
+   */
+  public function telefono()
+  {
+      return $this -> hasOne(Telefono::class);
+  }
+}
+
+```
+
+Una vez hecho ésto, para poder recuperar el dato relacionado, debemos utilizar las propiedades dinámicas de Eloquent. Con estas propiedades dinámicas podremos obtener dicho dato.
+
+```php
+<?php
+
+$telefono = Usuario::find(1)->telefono;
+```
+
+En este caso, Eloquent asume que en `Usuario` existe la clave ajena `usuario_id` pero ¿qué pasa si tenemos otro nombre? pues se lo pasamos como parámetro.
+
+```php
+<?php
+
+return $this->hasOne(Telefono::class, 'clave_ajena');
+```
+
+### Uno a Uno ***INVERSA***
+
+Ahora que podemos acceder al modelo teléfono desde el modelo usuario, vamos a ver cómo hacerlo de manera inversa, es decir, cómo acceder desde el módelo `usuario` desdel el modelo `telefono` gracias al método `belongsTo()`.
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Telefono extends Model
+{
+  public function usuario()
+  {
+      return $this -> belongsTo(Usuario::class);
+  }
+}
+```
+
+Al llamar el método de `usuario`, Eloquent intentará encontrar un modelo de usuario que tenga un `id` que coincida con la columna de `usuario_id` en el modelo de `telefono`.
+
+Eloquent determina el nombre de la clave externa examinando el nombre del método de relación y agregando el sufijo `_id` al nombre del método. Entonces, asume que el modelo `Telefono` tiene una columna `usuario_id`. Sin embargo, si no se llama de esa manera, puedes pasarle como argumento el nombre de la clave.
+
+```php
+<?php
+
+public function usuario()
+{
+    return $this -> belongsTo(Usuario::class, 'clave_ajena');
+}
+```
+
+### Uno a Muchos (1 a MM)
+
+En este caso, las relaciones de 1 a muchos podemos decir que en una entrada de un blog, o en un post de Facebook, hay muchos comentarios relacionados a esa misma publicación.
+
+Para empezar, ya sabemos que debemos crear el modelo y en este caso usaremos el método `hasMany()` para obtener los datos relacionados con ese post o entrada en el blog
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+  
+  public function comentarios()
+  {
+      return $this -> hasMany(Comentario::class);
+  }
+}
+```
+
+Cuidado con las claves ajenas, que aquí pasa lo mismo... Eloquent establece por defecto el sufijo `_id` por lo tanto, en este ejemplo buscaría por `post_id`. Si no queremos éso o nuestra clave ajena tiene otro nombre, se lo pasamos por parámetro en el método `hasMany` como hacíamos más arriba.
+
+Ahora, al haber más de un dato, necesitamos iterar, por tanto debemos crear un bucle para poder sacar cada dato.
+
+```php
+<?php
+use App\Models\Post;
+
+$comentarios = Post::find(1) -> comentarios;
+
+foreach ($comentarios as $comentario) {
+    // Lo que sea que hagamos con esos datos
+}
+```
+
+Además, como todas las relaciones son sentencias SQL, podemos anidar varios filtros en función de lo que queramos sacar.
+
+```php
+$comentario = Post::find(1) -> comentarios()
+    ->where('titulo', 'lo que sea')
+    ->first();
+```
+
+### Uno a Muchos ***INVERSA***
+
+Ahora que podemos acceder a todos los comentarios de una publicación, definamos una relación para permitir que un comentario acceda a su publicación principal.
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comentario extends Model
+{
+
+  public function post()
+  {
+      return $this -> belongsTo(Post::class);
+  }
+}
+```
+
+Y ahora, a través de la propiedad de relación dinámica...
+
+```php
+<?php
+
+use App\Models\Comentario;
+
+$comentario = Comentario::find(1);
+
+return $comentario -> post -> titulo;
+```
+
+Pasaría lo mismo con el nombre de la clave ajena, si no se llama de la misma manera que Eloquent establece con el sufijo `_id` podemos pasarle como parámetro el nombre de la clave donde debe buscar.
+
+### Muchos a Muchos (MM a MM)
+
+Este tipo de relaciones son las más complicadas ya que, en un Blog del estilo Wordpress por ejemplo, un usuario puede tener muchos roles (lector, autor, administrador) pero un rol pueden tenerlo varios usuarios, es decir, puede haber muchos usuarios administradores, otros lectores y demás.
+
+Para realizar este tipo de relaciones necesitaríamos 3 tablas diferentes.
+
+  - usuarios [ id, nombre]
+  - roles [id, nombre]
+  - rol_usuario [usuario_id, rol_id] (Tabla Pivote)
+
+Lo primero de todo, vamos a crear las tablas con sus modelos <span class="alert">***a excepción de la tabla pivote rol_usuario***</span> que <span class="warning">***sólo crearemos la tabla, sin su modelo***</span>
+
+```console
+php artisan make:migration create_rol_usuario_table --create=rol_usuario
+```
+
+Y la estructura de dicha seria de la siguiente manera...
+
+```php
+<?php
+
+public function up()
+{
+    Schema::create('rol_usuario', function (Blueprint $table) {
+        $table->bigIncrements('id');
+        $table->unsignedInteger('usuario_id');
+        $table->unsignedInteger('rol_id');
+        $table->timestamps();
+    });
+}
+```
+
+Ahora que ya tenemos todo listo, las relaciones de Muchos a Muchos vienen definidas por un método que devuelve el resultado de usar el método `belongsToMany()`
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Usuario extends Model
+{
+    public function roles()
+    {
+        return $this -> belongsToMany(Rol::class);
+    }
+}
+```
+
+Una vez que tengamos las relaciones definidas, accederemos a ellas mediante las propiedades dinámicas de `rol`
+
+```php
+<?php
+
+use App\Models\Usuario;
+
+$usuario = Usuario::find(1);
+
+foreach ($usuario -> roles as $rol) {
+    // nuestro código
+}
+```
+
+Acordaros que podemos encadenar comandos sql a través de los mñetodos de Eloquent
+
+```php
+<?php
+
+$roles = Usuario::find(1) -> roles() -> orderBy('nombre') -> get();
+```
+
+### Muchos a Muchos ***INVERSA***
+
+Para definir el "inverso" de una relación de muchos a muchos, debemos establecer un método en el modelo relacionado que también devuelva el resultado del método `belongsToMany `. Según el ejemplo que estamos siguiendo...
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Rol extends Model
+{
+  public function usuarios()
+  {
+      return $this -> belongsToMany(Usuario::class);
+  }
+}
+```
+
+---
 
 ## Actividades
 
