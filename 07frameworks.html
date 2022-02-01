@@ -583,6 +583,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relaciones-con-eloquent" class="md-nav__link">
+    Relaciones con Eloquent
+  </a>
+  
+    <nav class="md-nav" aria-label="Relaciones con Eloquent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uno-a-uno-1-a-1" class="md-nav__link">
+    Uno a uno (1 a 1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uno-a-uno-inversa" class="md-nav__link">
+    Uno a Uno INVERSA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uno-a-muchos-1-a-mm" class="md-nav__link">
+    Uno a Muchos (1 a MM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uno-a-muchos-inversa" class="md-nav__link">
+    Uno a Muchos INVERSA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muchos-a-muchos-mm-a-mm" class="md-nav__link">
+    Muchos a Muchos (MM a MM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#muchos-a-muchos-inversa" class="md-nav__link">
+    Muchos a Muchos INVERSA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
     Actividades
   </a>
@@ -1352,6 +1407,195 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Si visitamos esta ruta con nuestro login y password, nos aparecerá por pantalla toda la información de nuestro <code>user</code> a excepción de la contraseña y, aunque así fuera porque se lo forzamos, ésta aparecerá encriptada.</p>
+<h2 id="relaciones-con-eloquent">Relaciones con Eloquent<a class="headerlink" href="#relaciones-con-eloquent" title="Permanent link">&para;</a></h2>
+<p>A través de Eloquent vamos a poder gestionar las relaciones entre nuestras tablas de la base de datos de una manera muy sencilla y sin sentencias SQL.</p>
+<h3 id="uno-a-uno-1-a-1">Uno a uno (1 a 1)<a class="headerlink" href="#uno-a-uno-1-a-1" title="Permanent link">&para;</a></h3>
+<p>Para crear este tipo de relaciones en Eloquent y Laravel, debemos tener creadas las tablas que vayamos a relacionar y establecer la relación entre ellas a través del método <code>hasOne</code>.</p>
+<p>Supongamos que tenemos una tablas <code>usuario</code> que está relacionada con la tabla <code>telefono</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Usuario</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="sd">/**</span>
+<span class="linenos" data-linenos="10 "></span><span class="sd">   * Obtener el Teléfono asocioado con el Usuario</span>
+<span class="linenos" data-linenos="11 "></span><span class="sd">   */</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">telefono</span><span class="p">()</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="p">{</span>
+<span class="linenos" data-linenos="14 "></span>      <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">hasOne</span><span class="p">(</span><span class="nx">Telefono</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="15 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Una vez hecho ésto, para poder recuperar el dato relacionado, debemos utilizar las propiedades dinámicas de Eloquent. Con estas propiedades dinámicas podremos obtener dicho dato.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$telefono</span> <span class="o">=</span> <span class="nx">Usuario</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">telefono</span><span class="p">;</span>
+</code></pre></div>
+<p>En este caso, Eloquent asume que en <code>Usuario</code> existe la clave ajena <code>usuario_id</code> pero ¿qué pasa si tenemos otro nombre? pues se lo pasamos como parámetro.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasOne</span><span class="p">(</span><span class="nx">Telefono</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;clave_ajena&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="uno-a-uno-inversa">Uno a Uno <strong><em>INVERSA</em></strong><a class="headerlink" href="#uno-a-uno-inversa" title="Permanent link">&para;</a></h3>
+<p>Ahora que podemos acceder al modelo teléfono desde el modelo usuario, vamos a ver cómo hacerlo de manera inversa, es decir, cómo acceder desde el módelo <code>usuario</code> desdel el modelo <code>telefono</code> gracias al método <code>belongsTo()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Telefono</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">usuario</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>      <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">belongsTo</span><span class="p">(</span><span class="nx">Usuario</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Al llamar el método de <code>usuario</code>, Eloquent intentará encontrar un modelo de usuario que tenga un <code>id</code> que coincida con la columna de <code>usuario_id</code> en el modelo de <code>telefono</code>.</p>
+<p>Eloquent determina el nombre de la clave externa examinando el nombre del método de relación y agregando el sufijo <code>_id</code> al nombre del método. Entonces, asume que el modelo <code>Telefono</code> tiene una columna <code>usuario_id</code>. Sin embargo, si no se llama de esa manera, puedes pasarle como argumento el nombre de la clave.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">usuario</span><span class="p">()</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">belongsTo</span><span class="p">(</span><span class="nx">Usuario</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;clave_ajena&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="uno-a-muchos-1-a-mm">Uno a Muchos (1 a MM)<a class="headerlink" href="#uno-a-muchos-1-a-mm" title="Permanent link">&para;</a></h3>
+<p>En este caso, las relaciones de 1 a muchos podemos decir que en una entrada de un blog, o en un post de Facebook, hay muchos comentarios relacionados a esa misma publicación.</p>
+<p>Para empezar, ya sabemos que debemos crear el modelo y en este caso usaremos el método <code>hasMany()</code> para obtener los datos relacionados con ese post o entrada en el blog</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Post</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">comentarios</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">hasMany</span><span class="p">(</span><span class="nx">Comentario</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Cuidado con las claves ajenas, que aquí pasa lo mismo... Eloquent establece por defecto el sufijo <code>_id</code> por lo tanto, en este ejemplo buscaría por <code>post_id</code>. Si no queremos éso o nuestra clave ajena tiene otro nombre, se lo pasamos por parámetro en el método <code>hasMany</code> como hacíamos más arriba.</p>
+<p>Ahora, al haber más de un dato, necesitamos iterar, por tanto debemos crear un bucle para poder sacar cada dato.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">use</span> <span class="nx">App\Models\Post</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nv">$comentarios</span> <span class="o">=</span> <span class="nx">Post</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="na">comentarios</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$comentarios</span> <span class="k">as</span> <span class="nv">$comentario</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="c1">// Lo que sea que hagamos con esos datos</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Además, como todas las relaciones son sentencias SQL, podemos anidar varios filtros en función de lo que queramos sacar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$comentario = Post::find(1) -&gt; comentarios()</span>
+<span class="linenos" data-linenos="2 "></span><span class="x">    -&gt;where(&#39;titulo&#39;, &#39;lo que sea&#39;)</span>
+<span class="linenos" data-linenos="3 "></span><span class="x">    -&gt;first();</span>
+</code></pre></div>
+<h3 id="uno-a-muchos-inversa">Uno a Muchos <strong><em>INVERSA</em></strong><a class="headerlink" href="#uno-a-muchos-inversa" title="Permanent link">&para;</a></h3>
+<p>Ahora que podemos acceder a todos los comentarios de una publicación, definamos una relación para permitir que un comentario acceda a su publicación principal.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Comentario</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">post</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">belongsTo</span><span class="p">(</span><span class="nx">Post</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Y ahora, a través de la propiedad de relación dinámica...</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">App\Models\Comentario</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$comentario</span> <span class="o">=</span> <span class="nx">Comentario</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">return</span> <span class="nv">$comentario</span> <span class="o">-&gt;</span> <span class="na">post</span> <span class="o">-&gt;</span> <span class="na">titulo</span><span class="p">;</span>
+</code></pre></div>
+<p>Pasaría lo mismo con el nombre de la clave ajena, si no se llama de la misma manera que Eloquent establece con el sufijo <code>_id</code> podemos pasarle como parámetro el nombre de la clave donde debe buscar.</p>
+<h3 id="muchos-a-muchos-mm-a-mm">Muchos a Muchos (MM a MM)<a class="headerlink" href="#muchos-a-muchos-mm-a-mm" title="Permanent link">&para;</a></h3>
+<p>Este tipo de relaciones son las más complicadas ya que, en un Blog del estilo Wordpress por ejemplo, un usuario puede tener muchos roles (lector, autor, administrador) pero un rol pueden tenerlo varios usuarios, es decir, puede haber muchos usuarios administradores, otros lectores y demás.</p>
+<p>Para realizar este tipo de relaciones necesitaríamos 3 tablas diferentes.</p>
+<ul>
+<li>usuarios [ id, nombre]</li>
+<li>roles [id, nombre]</li>
+<li>rol_usuario [usuario_id, rol_id] (Tabla Pivote)</li>
+</ul>
+<p>Lo primero de todo, vamos a crear las tablas con sus modelos <span class="alert"><strong><em>a excepción de la tabla pivote rol_usuario</em></strong></span> que <span class="warning"><strong><em>sólo crearemos la tabla, sin su modelo</em></strong></span></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration create_rol_usuario_table --create=rol_usuario</span>
+</code></pre></div>
+<p>Y la estructura de dicha seria de la siguiente manera...</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;rol_usuario&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">bigIncrements</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">unsignedInteger</span><span class="p">(</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">unsignedInteger</span><span class="p">(</span><span class="s1">&#39;rol_id&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">});</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Ahora que ya tenemos todo listo, las relaciones de Muchos a Muchos vienen definidas por un método que devuelve el resultado de usar el método <code>belongsToMany()</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Usuario</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">roles</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">belongsToMany</span><span class="p">(</span><span class="nx">Rol</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Una vez que tengamos las relaciones definidas, accederemos a ellas mediante las propiedades dinámicas de <code>rol</code></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">App\Models\Usuario</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nv">$usuario</span> <span class="o">=</span> <span class="nx">Usuario</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$usuario</span> <span class="o">-&gt;</span> <span class="na">roles</span> <span class="k">as</span> <span class="nv">$rol</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="c1">// nuestro código</span>
+<span class="linenos" data-linenos="9 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Acordaros que podemos encadenar comandos sql a través de los mñetodos de Eloquent</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$roles</span> <span class="o">=</span> <span class="nx">Usuario</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="na">roles</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<h3 id="muchos-a-muchos-inversa">Muchos a Muchos <strong><em>INVERSA</em></strong><a class="headerlink" href="#muchos-a-muchos-inversa" title="Permanent link">&para;</a></h3>
+<p>Para definir el "inverso" de una relación de muchos a muchos, debemos establecer un método en el modelo relacionado que también devuelva el resultado del método <code>belongsToMany</code>. Según el ejemplo que estamos siguiendo...</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Database\Eloquent\Model</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">Rol</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="k">public</span> <span class="k">function</span> <span class="nf">usuarios</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>      <span class="k">return</span> <span class="nv">$this</span> <span class="o">-&gt;</span> <span class="na">belongsToMany</span><span class="p">(</span><span class="nx">Usuario</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="p">}</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
