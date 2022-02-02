@@ -611,6 +611,38 @@ De tal manera que quedaría así `resources/views/notas/detalle.blade.php`
 @endsection
 ```
 
+### Modificar tablas sin perder datos
+
+Uno de los dilemas que tenemos a la hora de manejar las bases de datos con Laravel y Eloquent, es que a veces cometemos errores y queremos introducir una nueva columna dentro de nuestra tabla o modificar una de esas columnas <span class="alert">***SIN PERDER LOS DATOS DE LA BASE DE DATOS***</span>.
+
+Imaginemos que en nuestra tabla `notas` queremos agregar una columna con el nombre `autor`.
+
+Lo primero de todo es crear una nueva migración para realizar este cambio. Para ello, haremos uso de nuestro querido `artisan` y debemos crear el nombre de esta migración con la siguiente fórmula `add_fields_to_` seguidamente del nombre de la tabla que queremos modificar.
+
+```console
+php artisan migrate add_fields_to_nota
+```
+
+Seguidamente, nos metemos en el archivo de la migración que acabamos de crear y en el apartado up() debemos poner el cambio que queremos realizar y en la sección down() debemos hacer lo mismo pero tenemos que decirle a Eloquent que la elimine ¿por qué? para en caso de hacer migrate rollback, se cargue este nuevo campo que hemos creado.
+
+```php
+<?php
+
+public function up()
+{
+  Schema::table('notas', function (Blueprint $table) {
+      $table -> string('autor');
+  });
+}
+
+public function down()
+{
+  Schema::table('notas', function (Blueprint $table) {
+      $table -> dropColumn('autor');
+  });
+}
+```
+
 ## Formularios
 
 Ahora que ya sabemos cómo cargar de una base de datos, vamos a ver cómo insertarlos con Laravel y sin escribir ni una sola línea de SQL.
