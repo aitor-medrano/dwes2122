@@ -509,6 +509,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#modificar-tablas-sin-perder-datos" class="md-nav__link">
+    Modificar tablas sin perder datos
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1102,6 +1109,29 @@ Hay que fijarse bien en los nombres de las columnas que tienen nuestras bases de
 <span class="linenos" data-linenos="11 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
 <span class="linenos" data-linenos="12 "></span>    <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span> <span class="p">{{</span> <span class="nv">$nota</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>    
 <span class="linenos" data-linenos="13 "></span><span class="o">@</span><span class="nx">endsection</span>
+</code></pre></div>
+<h3 id="modificar-tablas-sin-perder-datos">Modificar tablas sin perder datos<a class="headerlink" href="#modificar-tablas-sin-perder-datos" title="Permanent link">&para;</a></h3>
+<p>Uno de los dilemas que tenemos a la hora de manejar las bases de datos con Laravel y Eloquent, es que a veces cometemos errores y queremos introducir una nueva columna dentro de nuestra tabla o modificar una de esas columnas <span class="alert"><strong><em>SIN PERDER LOS DATOS DE LA BASE DE DATOS</em></strong></span>.</p>
+<p>Imaginemos que en nuestra tabla <code>notas</code> queremos agregar una columna con el nombre <code>autor</code>.</p>
+<p>Lo primero de todo es crear una nueva migración para realizar este cambio. Para ello, haremos uso de nuestro querido <code>artisan</code> y debemos crear el nombre de esta migración con la siguiente fórmula <code>add_fields_to_</code> seguidamente del nombre de la tabla que queremos modificar.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan migrate add_fields_to_nota</span>
+</code></pre></div>
+<p>Seguidamente, nos metemos en el archivo de la migración que acabamos de crear y en el apartado up() debemos poner el cambio que queremos realizar y en la sección down() debemos hacer lo mismo pero tenemos que decirle a Eloquent que la elimine ¿por qué? para en caso de hacer migrate rollback, se cargue este nuevo campo que hemos creado.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span>      <span class="nv">$table</span> <span class="o">-&gt;</span> <span class="na">string</span><span class="p">(</span><span class="s1">&#39;autor&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="p">});</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;notas&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="nv">$table</span> <span class="o">-&gt;</span> <span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;autor&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>  <span class="p">});</span>
+<span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="formularios">Formularios<a class="headerlink" href="#formularios" title="Permanent link">&para;</a></h2>
 <p>Ahora que ya sabemos cómo cargar de una base de datos, vamos a ver cómo insertarlos con Laravel y sin escribir ni una sola línea de SQL.</p>
