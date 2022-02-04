@@ -16,7 +16,7 @@
     
     
       
-        <title>Servicios REST - Desarrollo Web en Entorno Servidor</title>
+        <title>8.- Servicios REST - Desarrollo Web en Entorno Servidor</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Servicios REST
+              8.- Servicios REST
             
           </span>
         </div>
@@ -331,6 +331,83 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          8.- Servicios REST
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="09rest.html" class="md-nav__link md-nav__link--active">
+        8.- Servicios REST
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest" class="md-nav__link">
+    REST
+  </a>
+  
+    <nav class="md-nav" aria-label="REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creando-recurso-resource" class="md-nav__link">
+    Creando Recurso (Resource)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -344,17 +421,102 @@
               
                 
                 
-                <h1 id="servicios-rest">Servicios REST<a class="headerlink" href="#servicios-rest" title="Permanent link">&para;</a></h1>
+                <style>
+    img { margin: 20px 0; border-radius: 8px; }
+
+    .alert { color: #BD1550; }
+    .warning { color: #E97F02; }
+    .success { color: #8A9B0F; }
+
+    .center { text-align: center; }
+    .right { text-align: right; }
+
+    .img-small { max-width: 200px; margin: auto; }
+    .img-medium { max-width: 400px; margin: auto; }
+    .img-large { max-width: 800px; margin: auto; }
+
+    .leyenda {
+        font-size: small;
+        margin: 10px 0;
+    }
+</style>
+
+<h1 id="servicios-rest">Servicios REST<a class="headerlink" href="#servicios-rest" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Duración estimada: 32 sesiones</p>
 </blockquote>
-<h2 id="produccion-y-consumo">Producción y consumo<a class="headerlink" href="#produccion-y-consumo" title="Permanent link">&para;</a></h2>
-<h2 id="ajax-con-json">AJAX con JSON<a class="headerlink" href="#ajax-con-json" title="Permanent link">&para;</a></h2>
-<h2 id="interaccion-con-vuejs">Interacción con Vue.js<a class="headerlink" href="#interaccion-con-vuejs" title="Permanent link">&para;</a></h2>
-<p><a href="https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)">https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)</a>
-<a href="https://github.com/jmnavarro/http-api-design">https://github.com/jmnavarro/http-api-design</a>
-<a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api</a>
-<a href="https://leanpub.com/build-apis-you-wont-hate">https://leanpub.com/build-apis-you-wont-hate</a></p>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>Una API (Application Programming Interface) es un conjunto de funciones y procedimientos por los cuales, una aplicación externa accede a los datos, a modo de biblioteca como una capa de abstracción y la API se encarga de enviar el dato solicitado.</p>
+<p>Una de las características fundamentales de las API es que son <strong><em>Sateless</em></strong>, lo que quiere decir que las peticiones se hacen y desaparecen, no hay usuarios logueados ni datos que se quedan almacenados.</p>
+<p>Ejemplos de APIs gratuitas:</p>
+<ul>
+<li><a href="https://api.chucknorris.io/#!">ChuckNorris IO</a></li>
+<li><a href="https://www.omdbapi.com/">OMDB</a></li>
+<li><a href="https://pokeapi.co/">PokeAPI - Pokemon</a></li>
+<li><a href="https://rawg.io/">RAWg - Videojuegos</a></li>
+<li><a href="https://swapi.dev/">The Star Wars API</a></li>
+</ul>
+<p>Para hacer pruebas con estas APIs podemos implementar el código para consumirlas o utilizar un cliente especial para el consumo de estos servicios.</p>
+<ul>
+<li><a href="https://www.postman.com/">PostMan</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client">Thunder Client</a></li>
+<li><a href="https://insomnia.rest/download">Insomnia</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=es">Advance REST Client (desde el navegador)</a></li>
+</ul>
+<h2 id="rest">REST<a class="headerlink" href="#rest" title="Permanent link">&para;</a></h2>
+<p>Con esta metodología llamada REST vamos a poder construir APIs para que desde un cliente externo se puedan consumir.</p>
+<p>Gracias a este <em>standard</em> de la arquitectura del software vamos a poder montar un API que utilice los métodos standard GET, POST, PUT y DELETE.</p>
+<h3 id="creando-recurso-resource">Creando Recurso (Resource)<a class="headerlink" href="#creando-recurso-resource" title="Permanent link">&para;</a></h3>
+<p>Para crear un recurso dentro de nuestra aplicación hecha con Laravel, necesitamos crear un controlador del tipo <strong><em>resource</em></strong> donde establezcamos los métodos que nosotros queramos realizar a la hora de trabajar con los datos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:controller ChollosController --resource</span>
+</code></pre></div>
+<p>Artisan nos creará un nuevo controlador en la carpeta <code>controllers</code> con el nombre <code>ChollosController</code> o el nombre que le hayamos pasado.</p>
+<p>La estructura de este archivo es un poco diferente a los controladores que ya hemos visto anteriormente. Ahora tenemos los siguientes métodos creados de manera automática:</p>
+<ul>
+<li><code>index()</code> normalmente para listar, en nuestro caso los chollos</li>
+<li><code>create()</code> para crear plantillas (no lo vamos a usar)</li>
+<li><code>store()</code> para guardar los datos que pasemos a la API</li>
+<li><code>update()</code> para actualizar un dato ya existente en la BDD</li>
+<li><code>delete()</code> para eliminar un dato ya existente en la BDD</li>
+</ul>
+<p>En el caso de devolver un listado con todos los chollos, lo primero que debemos hacer es importar nuestro modelo Chollo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">App\Models\Chollo</span><span class="p">;</span>
+</code></pre></div>
+<p>Y como hemos ido haciendo en controladores anteriores, necesitamos hacer la consulta apropiada para devolver todos los chollos. <span class="alert"><strong>CUIDADO CON EL RETURN</strong></span> porque ahora no estamos devolviendo una vista sino un array de datos en formato JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$chollos</span> <span class="o">=</span> <span class="nx">Chollo</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nv">$chollos</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+</code></pre></div>
+<p>El último paso sería configurar el archivo de rutas, pero en este caso <span class="warning"><strong>el archivo de rutas de la api se llama <code>api.php</code></strong></span></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ api.php </span>
+<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">App\Http\Controllers\ChollosController</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/chollos&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">ChollosController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span> <span class="p">]);</span>
+</code></pre></div>
+<p>Una vez hecho ésto, debemos poner en marcha nuestro servidor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan serve</span>
+</code></pre></div>
+<p>Ahora ya podemos usar el Postman o cualquier cliente de la misma índole para testear nuestra API a través de la URL de nuestro servidor <code>http://127.0.0.1:8000/api/chollos</code></p>
+<!-- 
+## Producción y consumo
+
+## AJAX con JSON
+
+## Interacción con Vue.js
+
+<https://manuais.iessanclemente.net/index.php/LARAVEL_Framework_-_Tutorial_01_-_Creación_de_API_RESTful_(actualizado)>
+<https://github.com/jmnavarro/http-api-design>
+<https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api>
+<https://leanpub.com/build-apis-you-wont-hate> -->
                 
               
               
@@ -370,6 +532,26 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="07frameworks.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 7.- Frameworks PHP - Laravel" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              7.- Frameworks PHP - Laravel
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
