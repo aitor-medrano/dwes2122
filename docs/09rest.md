@@ -146,6 +146,7 @@ Modificamos nuestra vista `blade` para poder listar los datos correctamente o si
 El nombre que va entre corchetes es el nombre de las columnas de la tabla de la base de datos
 
 ```php
+<?php
 // estamos en ▓▓▓ chollos.blade.php
 
 @foreach ($restChollos as $chollo)
