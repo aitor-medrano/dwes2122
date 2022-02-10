@@ -395,8 +395,29 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#recuperando-datos-en-vista-blade" class="md-nav__link">
+    Recuperando datos en vista BLADE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enviando-datos-post" class="md-nav__link">
+    Enviando datos (POST)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividades" class="md-nav__link">
+    Actividades
+  </a>
   
 </li>
       
@@ -496,16 +517,71 @@
 <p>El último paso sería configurar el archivo de rutas, pero en este caso <span class="warning"><strong>el archivo de rutas de la api se llama <code>api.php</code></strong></span></p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="c1">// estamos en ▓▓▓ api.php </span>
-<span class="linenos" data-linenos="3 "></span><span class="k">use</span> <span class="nx">App\Http\Controllers\ChollosController</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Route</span><span class="p">;</span>
-<span class="linenos" data-linenos="6 "></span>
-<span class="linenos" data-linenos="7 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/chollos&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">ChollosController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span> <span class="p">]);</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="nx">App\Http\Controllers\ChollosController</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">Illuminate\Http\Request</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Route</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/chollos&#39;</span><span class="p">,</span> <span class="p">[</span> <span class="nx">ChollosController</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span> <span class="p">]);</span>
 </code></pre></div>
 <p>Una vez hecho ésto, debemos poner en marcha nuestro servidor.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan serve</span>
 </code></pre></div>
 <p>Ahora ya podemos usar el Postman o cualquier cliente de la misma índole para testear nuestra API a través de la URL de nuestro servidor <code>http://127.0.0.1:8000/api/chollos</code></p>
+<h3 id="recuperando-datos-en-vista-blade">Recuperando datos en vista <strong><em>BLADE</em></strong><a class="headerlink" href="#recuperando-datos-en-vista-blade" title="Permanent link">&para;</a></h3>
+<p>Ya tenemos nuestra API montada y puede ser consumida a través del navegador o cualquier cliente como <code>PostMan</code> o <code>Thunder Client</code> pero lo que nos interesa ahora es <strong>poder listar la información en una vista</strong> como hacíamos en el tema anterior.</p>
+<p>Lo que vamos a tener que hacer es lo siguiente</p>
+<ul>
+<li>Modificar el <code>Controlador</code> para que consuma de la API</li>
+<li>Convertir el tipo de dato que nos devuelve la API como respuesta</li>
+<li>Utilizar una estructura de control <code>forEach</code> dentro de nuestra vista</li>
+<li>Acceder a cada clave del objeto JSON recibido en la vista <code>blade</code></li>
+</ul>
+<p>Vamos a modificar el controlador para que consuma de la API y convertimos los datos con el método <code>collect()</code>.</p>
+<p>Para la llamada debemos importar <code>Http</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ CholloController.php</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Http</span><span class="p">;</span> <span class="c1">// INDISPENSABLE</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">RestController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">restList</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="nv">$restChollos</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;http://localhost/api/chollos&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="na">collect</span><span class="p">();</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;restChollos&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Modificamos nuestra vista <code>blade</code> para poder listar los datos correctamente o si lo prefieres, puedes crear una ruta nueva e incluso un nuevo controlador que se encargue de manejar las llamadas a la API.</p>
+<p>El nombre que va entre corchetes es el nombre de las columnas de la tabla de la base de datos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// estamos en ▓▓▓ chollos.blade.php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">@foreach ($restChollos as $chollo)</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">    &lt;p&gt;ID:  {{ $chollo[&quot;id&quot;] }}&lt;/p&gt; // Columna id</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="x">    &lt;p&gt;Nombre:  {{ $chollo[&quot;nombre&quot;] }}&lt;/p&gt; // Columna nombre</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    &lt;p&gt;Descripción:  {{ $chollo[&quot;descripcion&quot;] }}&lt;/p&gt; // Columna descripcion</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">    // [...]</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">    &lt;hr&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">@endforeach</span>
+</code></pre></div>
+<h3 id="enviando-datos-post">Enviando datos (POST)<a class="headerlink" href="#enviando-datos-post" title="Permanent link">&para;</a></h3>
+<p>En una API, para poder enviar datos y que se guarden en la base de datos, debemos usar el método post bajo <code>Http</code> y pasarle los nuevos datos como un array asociativo, poniendo como <code>clave</code> el nombre de las columnas de la base de datos</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$response</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/api/chollo-severo&#39;</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="s1">&#39;titulo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Chollazo para este producto&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="s1">&#39;descripcion&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lorem ipsum dolo...&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">// [...]</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">]);</span>
+</code></pre></div>
+<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<ol start="901">
+<li><span class="success"><strong>Chollo Severo V 2.0</strong></span> Crea un controlador nuevo que se llame <code>RestController</code> (o como quieras llamarlo) y escribe todos los métodos que necesites para convertir tu <code>app</code> que, consume de una Base de Datos, a una <code>Restful App</code> que reciba los datos a través de la API de tu proyecto de Chollos.</li>
+</ol>
 <!-- 
 ## Producción y consumo
 
