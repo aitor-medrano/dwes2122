@@ -556,16 +556,17 @@
 </code></pre></div>
 <p>Modificamos nuestra vista <code>blade</code> para poder listar los datos correctamente o si lo prefieres, puedes crear una ruta nueva e incluso un nuevo controlador que se encargue de manejar las llamadas a la API.</p>
 <p>El nombre que va entre corchetes es el nombre de las columnas de la tabla de la base de datos</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">// estamos en ▓▓▓ chollos.blade.php</span>
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="x">@foreach ($restChollos as $chollo)</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="x">    &lt;p&gt;ID:  {{ $chollo[&quot;id&quot;] }}&lt;/p&gt; // Columna id</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="x">    &lt;p&gt;Nombre:  {{ $chollo[&quot;nombre&quot;] }}&lt;/p&gt; // Columna nombre</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="x">    &lt;p&gt;Descripción:  {{ $chollo[&quot;descripcion&quot;] }}&lt;/p&gt; // Columna descripcion</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span><span class="x">    // [...]</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="x">    &lt;hr&gt;</span>
-<span class="linenos" data-linenos="10 "></span><span class="x">@endforeach</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ chollos.blade.php</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">@</span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$restChollos</span> <span class="k">as</span> <span class="nv">$chollo</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">ID</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna id</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna nombre</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;descripcion&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna descripcion</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="c1">// [...]</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="o">&lt;</span><span class="nx">hr</span><span class="o">&gt;</span>
+<span class="linenos" data-linenos="11 "></span><span class="o">@</span><span class="k">endforeach</span>
 </code></pre></div>
 <h3 id="enviando-datos-post">Enviando datos (POST)<a class="headerlink" href="#enviando-datos-post" title="Permanent link">&para;</a></h3>
 <p>En una API, para poder enviar datos y que se guarden en la base de datos, debemos usar el método post bajo <code>Http</code> y pasarle los nuevos datos como un array asociativo, poniendo como <code>clave</code> el nombre de las columnas de la base de datos</p>
