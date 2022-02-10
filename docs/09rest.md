@@ -92,6 +92,7 @@ El último paso sería configurar el archivo de rutas, pero en este caso <span c
 ```php
 <?php
 // estamos en ▓▓▓ api.php 
+
 use App\Http\Controllers\ChollosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -106,6 +107,76 @@ php artisan serve
 ```
 
 Ahora ya podemos usar el Postman o cualquier cliente de la misma índole para testear nuestra API a través de la URL de nuestro servidor `http://127.0.0.1:8000/api/chollos`
+
+### Recuperando datos en vista ***BLADE***
+
+Ya tenemos nuestra API montada y puede ser consumida a través del navegador o cualquier cliente como `PostMan` o `Thunder Client` pero lo que nos interesa ahora es **poder listar la información en una vista** como hacíamos en el tema anterior.
+
+Lo que vamos a tener que hacer es lo siguiente
+
+- Modificar el `Controlador` para que consuma de la API
+- Convertir el tipo de dato que nos devuelve la API como respuesta
+- Utilizar una estructura de control `forEach` dentro de nuestra vista
+- Acceder a cada clave del objeto JSON recibido en la vista `blade`
+
+
+Vamos a modificar el controlador para que consuma de la API y convertimos los datos con el método `collect()`.
+
+Para la llamada debemos importar `Http`.
+
+```php
+<?php
+
+// estamos en ▓▓▓ CholloController.php
+
+use Illuminate\Support\Facades\Http; // INDISPENSABLE
+
+class RestController extends Controller
+{
+    public function restList() {
+        $restChollos = Http::get('http://localhost/api/chollos') -> collect();
+
+        return view('rest', compact('restChollos'));
+    }
+}
+```
+
+Modificamos nuestra vista `blade` para poder listar los datos correctamente o si lo prefieres, puedes crear una ruta nueva e incluso un nuevo controlador que se encargue de manejar las llamadas a la API.
+
+El nombre que va entre corchetes es el nombre de las columnas de la tabla de la base de datos
+
+```php
+// estamos en ▓▓▓ chollos.blade.php
+
+@foreach ($restChollos as $chollo)
+    <p>ID:  {{ $chollo["id"] }}</p> // Columna id
+    <p>Nombre:  {{ $chollo["nombre"] }}</p> // Columna nombre
+    <p>Descripción:  {{ $chollo["descripcion"] }}</p> // Columna descripcion
+
+    // [...]
+    <hr>
+@endforeach
+```
+
+### Enviando datos (POST)
+
+En una API, para poder enviar datos y que se guarden en la base de datos, debemos usar el método post bajo `Http` y pasarle los nuevos datos como un array asociativo, poniendo como `clave` el nombre de las columnas de la base de datos
+
+```php
+<?php
+
+$response = Http::post('http://localhost:8000/api/chollo-severo', [
+    'titulo' => 'Chollazo para este producto',
+    'descripcion' => 'Lorem ipsum dolo...',
+
+// [...]
+]);
+```
+
+## Actividades
+
+901. <span class="success">**Chollo Severo V 2.0**</span> Crea un controlador nuevo que se llame `RestController` (o como quieras llamarlo) y escribe todos los métodos que necesites para convertir tu `app` que, consume de una Base de Datos, a una `Restful App` que reciba los datos a través de la API de tu proyecto de Chollos.
+
 <!-- 
 ## Producción y consumo
 
