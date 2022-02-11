@@ -129,14 +129,17 @@ Para la llamada debemos importar `Http`.
 
 // estamos en ▓▓▓ CholloController.php
 
-use Illuminate\Support\Facades\Http; // INDISPENSABLE
+use App\Models\Chollo; // EN CASO DE API LOCAL
+use Illuminate\Support\Facades\Http; // INDISPENSABLE EN CASO DE API EXTERNA
 
 class RestController extends Controller
 {
-    public function restList() {
-        $restChollos = Http::get('http://localhost/api/chollos') -> collect();
+    public function index() {
+        // $restChollos = Http::get('http://localhost/api/chollos') -> collect(); // PARA API EXTERNA
 
-        return view('rest', compact('restChollos'));
+        $chollos = Chollo::all();
+
+        return view('rest', compact('chollos'));
     }
 }
 ```
@@ -149,10 +152,10 @@ El nombre que va entre corchetes es el nombre de las columnas de la tabla de la 
 <?php
 // estamos en ▓▓▓ chollos.blade.php
 
-@foreach ($restChollos as $chollo)
-    <p>ID:  {{ $chollo["id"] }}</p> // Columna id
-    <p>Nombre:  {{ $chollo["nombre"] }}</p> // Columna nombre
-    <p>Descripción:  {{ $chollo["descripcion"] }}</p> // Columna descripcion
+@foreach ($chollos as $chollo)
+    <p>ID:  {{ $chollo -> id }}</p> // Columna ID
+    <p>Nombre:  {{ $chollo -> nombre }}</p>  // Columna NOMBRE
+    <p>Descripción:  {{ $chollo -> descripcion }}</p>  // Columna DESCRIPCION
 
     // [...]
     <hr>
