@@ -543,26 +543,29 @@
 <span class="linenos" data-linenos=" 2 "></span>
 <span class="linenos" data-linenos=" 3 "></span><span class="c1">// estamos en ▓▓▓ CholloController.php</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Http</span><span class="p">;</span> <span class="c1">// INDISPENSABLE</span>
-<span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">RestController</span> <span class="k">extends</span> <span class="nx">Controller</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">restList</span><span class="p">()</span> <span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>        <span class="nv">$restChollos</span> <span class="o">=</span> <span class="nx">Http</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;http://localhost/api/chollos&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="na">collect</span><span class="p">();</span>
-<span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;restChollos&#39;</span><span class="p">));</span>
-<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="14 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">App\Models\Chollo</span><span class="p">;</span> <span class="c1">// EN CASO DE API LOCAL</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Http</span><span class="p">;</span> <span class="c1">// INDISPENSABLE EN CASO DE API EXTERNA</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">RestController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="c1">// $restChollos = Http::get(&#39;http://localhost/api/chollos&#39;) -&gt; collect(); // PARA API EXTERNA</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>        <span class="nv">$chollos</span> <span class="o">=</span> <span class="nx">Chollo</span><span class="o">::</span><span class="na">all</span><span class="p">();</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> <span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;chollos&#39;</span><span class="p">));</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Modificamos nuestra vista <code>blade</code> para poder listar los datos correctamente o si lo prefieres, puedes crear una ruta nueva e incluso un nuevo controlador que se encargue de manejar las llamadas a la API.</p>
 <p>El nombre que va entre corchetes es el nombre de las columnas de la tabla de la base de datos</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="c1">// estamos en ▓▓▓ chollos.blade.php</span>
 <span class="linenos" data-linenos=" 3 "></span>
-<span class="linenos" data-linenos=" 4 "></span><span class="o">@</span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$restChollos</span> <span class="k">as</span> <span class="nv">$chollo</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">ID</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna id</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna nombre</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span><span class="p">[</span><span class="s2">&quot;descripcion&quot;</span><span class="p">]</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna descripcion</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">@</span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$chollos</span> <span class="k">as</span> <span class="nv">$chollo</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">ID</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span> <span class="o">-&gt;</span> <span class="na">id</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span> <span class="c1">// Columna ID</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Nombre</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span> <span class="o">-&gt;</span> <span class="na">nombre</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Columna NOMBRE</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Descripción</span><span class="o">:</span>  <span class="p">{{</span> <span class="nv">$chollo</span> <span class="o">-&gt;</span> <span class="na">descripcion</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="c1">// Columna DESCRIPCION</span>
 <span class="linenos" data-linenos=" 8 "></span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="c1">// [...]</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="o">&lt;</span><span class="nx">hr</span><span class="o">&gt;</span>
