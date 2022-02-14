@@ -1306,49 +1306,49 @@ php artisan make:migration create_materias_table
 php artisan make:migration create_alumno_materia_table
 ```
 
-!!! "MIGRACIONES"
+Modificando las migraciones se quedaría de la siguiente manera:
 
-  === "create_alumnos_table.php"
-    ```php
-    <?php
-      Schema::create('alumnos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->timestamps();
-        });
-    ```
-
-  === "create_materias_table.php"
-    ```php
-    <?php
-      Schema::create('materias', function (Blueprint $table) {
+=== "create_alumnos_table.php"
+```php
+<?php
+  Schema::create('alumnos', function (Blueprint $table) {
         $table->id();
         $table->string('nombre');
         $table->timestamps();
-      });
-    ```
+    });
+```
 
-  === "create_alumno_materia_table.php"
-    ```php
-    <?php
-      Schema::create('alumno_materia', function (Blueprint $table) {
-        $table->id();
+=== "create_materias_table.php"
+```php
+<?php
+  Schema::create('materias', function (Blueprint $table) {
+    $table->id();
+    $table->string('nombre');
+    $table->timestamps();
+  });
+```
 
-        $table->foreignId('alumno_id')
-            ->nullable()
-            ->constrained('alumnos')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+=== "create_alumno_materia_table.php"
+```php
+<?php
+  Schema::create('alumno_materia', function (Blueprint $table) {
+    $table->id();
 
-        $table->foreignId('materia_id')
-            ->nullable()
-            ->constrained('materias')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+    $table->foreignId('alumno_id')
+        ->nullable()
+        ->constrained('alumnos')
+        ->cascadeOnUpdate()
+        ->nullOnDelete();
 
-        $table->timestamps();
-      });
-    ```
+    $table->foreignId('materia_id')
+        ->nullable()
+        ->constrained('materias')
+        ->cascadeOnUpdate()
+        ->nullOnDelete();
+
+    $table->timestamps();
+  });
+```
 
 
 ---
