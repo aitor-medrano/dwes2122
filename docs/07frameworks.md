@@ -1308,9 +1308,40 @@ php artisan make:migration create_alumno_materia_table
 
 Modificando las migraciones se quedaría de la siguiente manera:
 
+=== "create_alumnos_table.php"
+
+    ``` php
+    <?php
+
+    public function up()
+    {
+      Schema::create('alumnos', function (Blueprint $table) {
+        $table->id();
+        $table->string('nombre');
+        $table->timestamps();
+      });
+    }
+    ```
+=== "create_materias_table.php"
+
+    ``` php
+    <?php
+
+    public function up()
+    {
+      Schema::create('materias', function (Blueprint $table) {
+        $table->id();
+        $table->string('nombre');
+        $table->timestamps();
+      });
+    }
+    ```
+
 === "create_alumno_materia_table.php"
 
     ``` php
+    <?php
+
     public function up()
     {
       Schema::create('alumno_materia', function (Blueprint $table) {
@@ -1332,19 +1363,32 @@ Modificando las migraciones se quedaría de la siguiente manera:
       });
     }
     ```
+=== "create_alumno_materia_table.php"
 
-=== "C++"
+    ``` php
+    <?php
 
-    ``` c++
-    #include <iostream>
+    public function up()
+    {
+      Schema::create('alumno_materia', function (Blueprint $table) {
+        $table->id();
 
-    int main(void) {
-      std::cout << "Hello world!" << std::endl;
-      return 0;
+        $table->foreignId('alumno_id')
+          ->nullable()
+          ->constrained('alumnos')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
+
+        $table->foreignId('materia_id')
+          ->nullable()
+          ->constrained('materias')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
+
+        $table->timestamps();
+      });
     }
     ```
-
-
 
 ---
 
