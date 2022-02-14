@@ -770,7 +770,9 @@
 <h4 id="plantilla-servidor-web-php">Plantilla Servidor Web + PHP<a class="headerlink" href="#plantilla-servidor-web-php" title="Permanent link">&para;</a></h4>
 <p><em>Docker</em> se basa en el uso de imágenes para crear contenedores. <em>Docker Compose</em> simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en <em>Docker Compose</em> utilizando una plantilla que únicamente va a contener como servicios Apache/Nginx y PHP.</p>
 <p>Para ello, vamos a rellenar el archivo <code>docker-compose.yaml</code> con:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Apache y PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Apache y PHP</label><label for="__tabbed_1_2">Nginx y PHP</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Services</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nt">services</span><span class="p">:</span>
 <span class="linenos" data-linenos=" 3 "></span>  <span class="c1"># Apache + PHP</span>
@@ -785,7 +787,7 @@
 <span class="linenos" data-linenos="12 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">80:80</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Nginx y PHP</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Services</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nt">services</span><span class="p">:</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -805,6 +807,7 @@
 <span class="linenos" data-linenos="17 "></span>    <span class="nt">volumes</span><span class="p">:</span>
 <span class="linenos" data-linenos="18 "></span>      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./src:/var/www/php</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta <code>src</code> donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla de <a href="recursos/plantilla-AP.zip">Apache/PHP</a> (<a href="recursos/plantilla-AP2.zip">versión 2</a> con <code>a2enmod rewrite</code>) o <a href="recursos/plantilla-NP.zip">Nginx/PHP</a> disponible para su descarga.</p>
@@ -1016,7 +1019,7 @@ Anota los valores de:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.b1047164.min.js"></script>

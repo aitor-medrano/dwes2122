@@ -1329,7 +1329,9 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <li><code>array_push($array, $elem)</code>: añade un <code>$elemento</code> al final</li>
 <li><code>$booleano = in_array($elem, $array)</code>: averigua si <code>$elem</code> está en el <code>$array</code></li>
 </ul>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">PHP</label><label for="__tabbed_1_2">Consola</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span> <span class="s2">&quot;pera&quot;</span><span class="p">,</span> <span class="s2">&quot;manzana&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1345,7 +1347,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="13 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$frutas</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Consola</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="go">  [0] =&gt; naranja</span>
@@ -1363,6 +1365,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 </code></pre></div>
 </div>
 </div>
+</div>
 <ul>
 <li><code>$claves = array_keys($array)</code>: devuelve las claves del <code>$array</code> asociativo</li>
 <li><code>$tam = count($array)</code>: devuelve el tamaño de <code>$array</code></li>
@@ -1370,7 +1373,9 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <li><code>isset($array[elemento])</code>: indica si existe/tiene valor elemento dentro del array</li>
 <li><code>unset($array[elemento])</code>: elimina el elemento del array (deja un hueco)</li>
 </ul>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">PHP</label><label for="__tabbed_2_2">Consola</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$capitales</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;Italia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Roma&quot;</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="s2">&quot;Francia&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
@@ -1385,7 +1390,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="12 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$capitales</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Consola</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="go">  [0] =&gt; Italia</span>
@@ -1406,8 +1411,11 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>Al asignar un array a otro se realiza una copia. Cuidado con esta operación que puede consumir muchos recursos.</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">PHP</label><label for="__tabbed_3_2">Consola</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;Pedro&quot;</span><span class="p">,</span> <span class="s2">&quot;Laura&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$copia</span> <span class="o">=</span> <span class="nv">$nombres</span><span class="p">;</span>
@@ -1416,7 +1424,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="6 "></span><span class="nb">print_r</span><span class="p">(</span><span class="nv">$copia</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Consola</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="go">Array</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="go">(</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="go">    [0] =&gt; Ana</span>
@@ -1432,6 +1440,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="13 "></span><span class="go">    [3] =&gt; Laura</span>
 <span class="linenos" data-linenos="14 "></span><span class="go">)</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>Existen muchísimas más funciones para trabajar con arrays. Puedes consultar roda la información en la <a href="https://www.php.net/manual/es/ref.array.php">documentación oficial</a>.</p>
@@ -1644,7 +1653,9 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <p>Las variables definidas fuera de las funciones tienen alcance <strong>global</strong>: accesibles desde cualquier función.
 Los parámetros de una función y las variables declaradas dentro de una función (se conocen como variables locales) sólo son accesibles desde dentro de la misma función → alcance de <strong>función</strong>.</p>
 <p>En caso de conflicto, tienen prioridad las variables locales. Para evitar el conflicto, dentro de la función, podemos declarar la variable como <code>global</code>.</p>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Alcance local</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Alcance local</label><label for="__tabbed_4_2">Alcance global</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$ciudad</span> <span class="o">=</span> <span class="s2">&quot;Elche&quot;</span><span class="p">;</span>
@@ -1658,7 +1669,7 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Alcance global</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">miCiudad</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">global</span> <span class="nv">$ciudad</span><span class="p">;</span>
@@ -1672,6 +1683,7 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="s2">&quot;Después de llamar: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span>
 <span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <div class="admonition important">
@@ -2460,7 +2472,7 @@ Además de la propia función, el ejercicio debe contener código para poder pro
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.b1047164.min.js"></script>

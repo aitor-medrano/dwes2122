@@ -921,7 +921,9 @@ No es una buena práctica usar el nombre de la clase como canal, esto se hace co
 <h3 id="procesadores">Procesadores<a class="headerlink" href="#procesadores" title="Permanent link">&para;</a></h3>
 <p>Los procesadores permiten añadir información a los mensajes. Para ello, se apilan después de cada manejador mediante el método <code>pushProcessor($procesador)</code>.</p>
 <p>Algunos procesadores conocidos son <code>IntrospectionProcessor</code> (muestran la linea, fichero, clase y metodo desde el que se invoca el log), <code>WebProcessor</code> (añade la URI, método e IP) o <code>GitProcessor</code> (añade la rama y el commit).</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">PHP</label><label for="__tabbed_1_2">Consola en formato texto</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="k">new</span> <span class="nx">RotatingFileHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">));</span>
@@ -931,15 +933,18 @@ No es una buena práctica usar el nombre de la clase como canal, esto se hace co
 <span class="linenos" data-linenos="7 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushProcessor</span><span class="p">(</span><span class="k">new</span> <span class="nx">WebProcessor</span><span class="p">());</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Consola en formato texto</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>[2020-11-26T13:35:31.076138+01:00] MiLogger.DEBUG: Esto es un mensaje de DEBUG [] {&quot;file&quot;:&quot;C:\\xampp\\htdocs\\log\\procesador.php&quot;,&quot;line&quot;:12,&quot;class&quot;:null,&quot;function&quot;:null}
 <span class="linenos" data-linenos="2 "></span>[2020-11-26T13:35:31.078344+01:00] MiLogger.INFO: Esto es un mensaje de INFO [] {&quot;file&quot;:&quot;C:\\xampp\\htdocs\\log\\procesador.php&quot;,&quot;line&quot;:13,&quot;class&quot;:null,&quot;function&quot;:null}
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="formateadores">Formateadores<a class="headerlink" href="#formateadores" title="Permanent link">&para;</a></h3>
 <p>Se asocian a los manejadores con <code>setFormatter</code>. Los formateadores más utilizados son <code>LineFormatter</code>, <code>HtmlFormatter</code> o <code>JsonFormatter</code>.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">PHP</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">PHP</label><label for="__tabbed_2_2">Consola en JSON</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$log</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">(</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$rfh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RotatingFileHandler</span><span class="p">(</span><span class="s2">&quot;logs/milog.log&quot;</span><span class="p">,</span> <span class="nx">Logger</span><span class="o">::</span><span class="na">DEBUG</span><span class="p">);</span>
@@ -947,10 +952,11 @@ No es una buena práctica usar el nombre de la clase como canal, esto se hace co
 <span class="linenos" data-linenos="5 "></span><span class="nv">$log</span><span class="o">-&gt;</span><span class="na">pushHandler</span><span class="p">(</span><span class="nv">$rfh</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Consola en JSON</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Esto es un mensaje de DEBUG&quot;</span><span class="p">,</span><span class="nt">&quot;context&quot;</span><span class="p">:{},</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;level_name&quot;</span><span class="p">:</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">,</span><span class="nt">&quot;datetime&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-27T15:36:52.747211+01:00&quot;</span><span class="p">,</span><span class="nt">&quot;extra&quot;</span><span class="p">:{}}</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Esto es un mensaje de INFO&quot;</span><span class="p">,</span><span class="nt">&quot;context&quot;</span><span class="p">:{},</span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;level_name&quot;</span><span class="p">:</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="s2">&quot;MiLogger&quot;</span><span class="p">,</span><span class="nt">&quot;datetime&quot;</span><span class="p">:</span><span class="s2">&quot;2020-11-27T15:36:52.747538+01:00&quot;</span><span class="p">,</span><span class="nt">&quot;extra&quot;</span><span class="p">:{}}</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <div class="admonition tip">
@@ -1652,7 +1658,7 @@ Haz todos los cambios necesarios, primero en las pruebas y luego en el código.<
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.b1047164.min.js"></script>

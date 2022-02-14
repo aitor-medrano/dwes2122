@@ -1641,6 +1641,63 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="12 "></span>  <span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div>
+<p>Vamos a hacer un ejemplo con una APP que gestiones alumnos y asignaturas, de tal manera que MUCHOS ALUMNOS pueden cursar MUCHAS ASIGNATURAS</p>
+<p>¿Qué necesitamos para este ejemplo?</p>
+<ul>
+<li>
+<p>3 migraciones para crear las tablas</p>
+<ul>
+<li><code>Alumnos</code> /// <code>Materias</code> /// <code>AlumnosMateria</code></li>
+</ul>
+</li>
+<li>
+<p>Modificar los archivos de las migraciones <code>create_alumnos_table</code> y <code>create_materias_table</code>.</p>
+</li>
+</ul>
+<p><span class="success"><strong>3 MIGRACIONES</strong></span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">php artisan make:migration create_alumnos_table</span>
+<span class="linenos" data-linenos="2 "></span><span class="go">php artisan make:migration create_materias_table</span>
+<span class="linenos" data-linenos="3 "></span><span class="go">php artisan make:migration create_alumno_materia_table</span>
+</code></pre></div></p>
+<div class="admonition modificando migraciones">
+<p class="admonition-title">Modificando</p>
+</div>
+<p>=== "create_alumnos_table.php"
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;alumnos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">});</span>
+</code></pre></div></p>
+<p>=== "create_materias_table.php"
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;materias&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="p">});</span>
+</code></pre></div></p>
+<p>=== "create_alumno_materia_table.php"
+    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;alumno_materia&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;alumno_id&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="o">-&gt;</span><span class="na">nullable</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="o">-&gt;</span><span class="na">constrained</span><span class="p">(</span><span class="s1">&#39;alumnos&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="o">-&gt;</span><span class="na">cascadeOnUpdate</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="o">-&gt;</span><span class="na">nullOnDelete</span><span class="p">();</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">foreignId</span><span class="p">(</span><span class="s1">&#39;materia_id&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="o">-&gt;</span><span class="na">nullable</span><span class="p">()</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="o">-&gt;</span><span class="na">constrained</span><span class="p">(</span><span class="s1">&#39;materias&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="o">-&gt;</span><span class="na">cascadeOnUpdate</span><span class="p">()</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="o">-&gt;</span><span class="na">nullOnDelete</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+<span class="linenos" data-linenos="18 "></span>  <span class="p">});</span>
+</code></pre></div></p>
 <hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
@@ -2033,7 +2090,7 @@ TODO: Revisar las validaciones de los controladores ... creo que el lugar correc
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.b1047164.min.js"></script>
