@@ -1306,7 +1306,7 @@ php artisan make:migration create_materias_table
 php artisan make:migration create_alumno_materia_table
 ```
 
-!!! "MODIFICANDO MIGRACIONES"
+!!! "MIGRACIONES"
 
   === "create_alumnos_table.php"
     ```php
