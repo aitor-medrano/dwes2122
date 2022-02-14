@@ -1308,47 +1308,28 @@ php artisan make:migration create_alumno_materia_table
 
 Modificando las migraciones se quedaría de la siguiente manera:
 
-=== "create_alumnos_table.php"
-  ```php
-  <?php
-    Schema::create('alumnos', function (Blueprint $table) {
-          $table->id();
-          $table->string('nombre');
-          $table->timestamps();
-      });
-  ```
+=== "C"
 
-=== "create_materias_table.php"
-  ```php
-  <?php
-    Schema::create('materias', function (Blueprint $table) {
-      $table->id();
-      $table->string('nombre');
-      $table->timestamps();
-    });
-  ```
+    ``` c
+    #include <stdio.h>
 
-=== "create_alumno_materia_table.php"
-  ```php
-  <?php
-    Schema::create('alumno_materia', function (Blueprint $table) {
-      $table->id();
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
 
-      $table->foreignId('alumno_id')
-          ->nullable()
-          ->constrained('alumnos')
-          ->cascadeOnUpdate()
-          ->nullOnDelete();
+=== "C++"
 
-      $table->foreignId('materia_id')
-          ->nullable()
-          ->constrained('materias')
-          ->cascadeOnUpdate()
-          ->nullOnDelete();
+    ``` c++
+    #include <iostream>
 
-      $table->timestamps();
-    });
-  ```
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```
+
 
 
 ---
