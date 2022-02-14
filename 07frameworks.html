@@ -1659,25 +1659,37 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="2 "></span><span class="go">php artisan make:migration create_materias_table</span>
 <span class="linenos" data-linenos="3 "></span><span class="go">php artisan make:migration create_alumno_materia_table</span>
 </code></pre></div></p>
-<p>!!! "MIGRACIONES"</p>
-<p>=== "create_alumnos_table.php"
-    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+<p>Modificando las migraciones se quedaría de la siguiente manera:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">create_alumnos_table.php</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;alumnos&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="p">});</span>
-</code></pre></div></p>
-<p>=== "create_materias_table.php"
-    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">create_materias_table.php</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;materias&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="s1">&#39;nombre&#39;</span><span class="p">);</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
 <span class="linenos" data-linenos="6 "></span>  <span class="p">});</span>
-</code></pre></div></p>
-<p>=== "create_alumno_materia_table.php"
-    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">create_alumno_materia_table.php</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span>  <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">&#39;alumno_materia&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 4 "></span>
@@ -1695,7 +1707,7 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="16 "></span>
 <span class="linenos" data-linenos="17 "></span>    <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
 <span class="linenos" data-linenos="18 "></span>  <span class="p">});</span>
-</code></pre></div></p>
+</code></pre></div>
 <hr />
 <h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
 <ol start="701">
