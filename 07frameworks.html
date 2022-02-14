@@ -1660,15 +1660,29 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <span class="linenos" data-linenos="3 "></span><span class="go">php artisan make:migration create_alumno_materia_table</span>
 </code></pre></div></p>
 <p>Modificando las migraciones se quedaría de la siguiente manera:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C</label><label for="__tabbed_1_2">C++</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">create_alumno_materia_table.php</label><label for="__tabbed_1_2">C++</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="linenos" data-linenos="2 "></span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos" data-linenos="4 "></span><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos" data-linenos="6 "></span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="x">public function up()</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="x">{</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="x">  Schema::create(&#39;alumno_materia&#39;, function (Blueprint $table) {</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="x">    $table-&gt;id();</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="x">    $table-&gt;foreignId(&#39;alumno_id&#39;)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="x">      -&gt;nullable()</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="x">      -&gt;constrained(&#39;alumnos&#39;)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="x">      -&gt;cascadeOnUpdate()</span>
+<span class="linenos" data-linenos="10 "></span><span class="x">      -&gt;nullOnDelete();</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="x">    $table-&gt;foreignId(&#39;materia_id&#39;)</span>
+<span class="linenos" data-linenos="13 "></span><span class="x">      -&gt;nullable()</span>
+<span class="linenos" data-linenos="14 "></span><span class="x">      -&gt;constrained(&#39;materias&#39;)</span>
+<span class="linenos" data-linenos="15 "></span><span class="x">      -&gt;cascadeOnUpdate()</span>
+<span class="linenos" data-linenos="16 "></span><span class="x">      -&gt;nullOnDelete();</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="x">    $table-&gt;timestamps();</span>
+<span class="linenos" data-linenos="19 "></span><span class="x">  });</span>
+<span class="linenos" data-linenos="20 "></span><span class="x">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
