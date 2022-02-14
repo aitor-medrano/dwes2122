@@ -1290,6 +1290,67 @@ class Rol extends Model
 }
 ```
 
+Vamos a hacer un ejemplo con una APP que gestiones alumnos y asignaturas, de tal manera que MUCHOS ALUMNOS pueden cursar MUCHAS ASIGNATURAS
+
+¿Qué necesitamos para este ejemplo?
+
+  - 3 migraciones para crear las tablas
+    - `Alumnos` /// `Materias` /// `AlumnosMateria`
+  
+  - Modificar los archivos de las migraciones `create_alumnos_table` y `create_materias_table`.
+  
+<span class="success">**3 MIGRACIONES**</span>
+```console
+php artisan make:migration create_alumnos_table
+php artisan make:migration create_materias_table
+php artisan make:migration create_alumno_materia_table
+```
+
+!!! MODIFICANDO MIGRACIONES
+
+  === "create_alumnos_table.php"
+    ```php
+    <?php
+      Schema::create('alumnos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->timestamps();
+        });
+    ```
+
+  === "create_materias_table.php"
+    ```php
+    <?php
+      Schema::create('materias', function (Blueprint $table) {
+        $table->id();
+        $table->string('nombre');
+        $table->timestamps();
+      });
+    ```
+
+  === "create_alumno_materia_table.php"
+    ```php
+    <?php
+      Schema::create('alumno_materia', function (Blueprint $table) {
+        $table->id();
+
+        $table->foreignId('alumno_id')
+            ->nullable()
+            ->constrained('alumnos')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+
+        $table->foreignId('materia_id')
+            ->nullable()
+            ->constrained('materias')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+
+        $table->timestamps();
+      });
+    ```
+
+
 ---
 
 ## Actividades
