@@ -1309,46 +1309,46 @@ php artisan make:migration create_alumno_materia_table
 Modificando las migraciones se quedaría de la siguiente manera:
 
 === "create_alumnos_table.php"
-```php
-<?php
-  Schema::create('alumnos', function (Blueprint $table) {
-        $table->id();
-        $table->string('nombre');
-        $table->timestamps();
-    });
-```
+  ```php
+  <?php
+    Schema::create('alumnos', function (Blueprint $table) {
+          $table->id();
+          $table->string('nombre');
+          $table->timestamps();
+      });
+  ```
 
 === "create_materias_table.php"
-```php
-<?php
-  Schema::create('materias', function (Blueprint $table) {
-    $table->id();
-    $table->string('nombre');
-    $table->timestamps();
-  });
-```
+  ```php
+  <?php
+    Schema::create('materias', function (Blueprint $table) {
+      $table->id();
+      $table->string('nombre');
+      $table->timestamps();
+    });
+  ```
 
 === "create_alumno_materia_table.php"
-```php
-<?php
-  Schema::create('alumno_materia', function (Blueprint $table) {
-    $table->id();
+  ```php
+  <?php
+    Schema::create('alumno_materia', function (Blueprint $table) {
+      $table->id();
 
-    $table->foreignId('alumno_id')
-        ->nullable()
-        ->constrained('alumnos')
-        ->cascadeOnUpdate()
-        ->nullOnDelete();
+      $table->foreignId('alumno_id')
+          ->nullable()
+          ->constrained('alumnos')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
 
-    $table->foreignId('materia_id')
-        ->nullable()
-        ->constrained('materias')
-        ->cascadeOnUpdate()
-        ->nullOnDelete();
+      $table->foreignId('materia_id')
+          ->nullable()
+          ->constrained('materias')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
 
-    $table->timestamps();
-  });
-```
+      $table->timestamps();
+    });
+  ```
 
 
 ---
