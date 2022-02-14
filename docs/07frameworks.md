@@ -1308,14 +1308,28 @@ php artisan make:migration create_alumno_materia_table
 
 Modificando las migraciones se quedaría de la siguiente manera:
 
-=== "C"
+=== "create_alumno_materia_table.php"
 
-    ``` c
-    #include <stdio.h>
+    ``` php
+    public function up()
+    {
+      Schema::create('alumno_materia', function (Blueprint $table) {
+        $table->id();
 
-    int main(void) {
-      printf("Hello world!\n");
-      return 0;
+        $table->foreignId('alumno_id')
+          ->nullable()
+          ->constrained('alumnos')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
+
+        $table->foreignId('materia_id')
+          ->nullable()
+          ->constrained('materias')
+          ->cascadeOnUpdate()
+          ->nullOnDelete();
+
+        $table->timestamps();
+      });
     }
     ```
 
