@@ -1262,7 +1262,7 @@ foreach ($usuario -> roles as $rol) {
 }
 ```
 
-Acordaros que podemos encadenar comandos sql a través de los mñetodos de Eloquent
+Acordaros que podemos encadenar comandos sql a través de los métodos de Eloquent
 
 ```php
 <?php
