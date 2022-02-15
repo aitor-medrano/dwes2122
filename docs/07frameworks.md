@@ -1296,8 +1296,16 @@ Vamos a hacer un ejemplo con una APP que gestiones alumnos y asignaturas, de tal
 
   - 3 migraciones para crear las tablas
     - `Alumnos` /// `Materias` /// `AlumnosMateria`
-  
+
   - Modificar los archivos de las migraciones `create_alumnos_table` y `create_materias_table`.
+  - Crear la base de datos `muchos_a_muchos`
+  - Ejecutar las Migraciones
+  - 2 **modelos** para `Alumnos` /// `Materias`
+  - Método dentro de `Alumno` para crear la relación Alumno -> Materia
+  - Crear el controlador para la vista
+  - Crear la ruta de nuestra vista
+  - Rellenar la base de datos
+  - Crear la vista con los datos
   
 <span class="success">**3 MIGRACIONES**</span>
 ```console
@@ -1306,7 +1314,7 @@ php artisan make:migration create_materias_table
 php artisan make:migration create_alumno_materia_table
 ```
 
-Modificando las migraciones se quedaría de la siguiente manera:
+<span class="success">**MODIFICANDO LAS MIGRACIONES**</span>
 
 === "create_alumnos_table.php"
 
@@ -1363,33 +1371,193 @@ Modificando las migraciones se quedaría de la siguiente manera:
       });
     }
     ```
-=== "create_alumno_materia_table.php"
+
+<span class="success">**CREAMOS LA BASE DE DATOS**</span>
+
+Para este ejemplo, vamos a crear una base de datos que se llame `muchos_a_muchos` desde la consola de MySQL o MariaDB.
+
+``` console
+CREATE TABLE `muchos_a_muchos`
+```
+
+<span class="success">**EJECUTANDO LAS MIGRACIONES**</span>
+
+Ya tenemos las migraciones creadas y la base de datos lista para insertar el contenido de las migraciones que hemos escrito más arriba, lo que nos queda es `ejecutar las migraciones` para volcar toda la estructura en nuestra nueva base de datos.
+
+``` console
+php artisan migrate
+```
+
+<span class="success">**2 MODELOS PARA ALUMNOS Y MATERIAS**</span>
+
+``` console
+php artisan make:model Alumno
+php artisan make:model Materia
+```
+
+<span class="success">**MÉTODOS PARA CREAR LAS RELACIONES ALUMNO <-> MATERIA**</span>
+
+=== "Alumno.php"
 
     ``` php
     <?php
 
-    public function up()
-    {
-      Schema::create('alumno_materia', function (Blueprint $table) {
-        $table->id();
-
-        $table->foreignId('alumno_id')
-          ->nullable()
-          ->constrained('alumnos')
-          ->cascadeOnUpdate()
-          ->nullOnDelete();
-
-        $table->foreignId('materia_id')
-          ->nullable()
-          ->constrained('materias')
-          ->cascadeOnUpdate()
-          ->nullOnDelete();
-
-        $table->timestamps();
-      });
+    public function materias() {
+      return $this -> belongsToMany(Materia::class, 'alumno_materia');
     }
     ```
 
+=== "Materia.php"
+
+    ``` php
+    <?php
+
+    public function alumnos() {
+      return $this -> belongsToMany(Alumno::class, 'alumno_materia');
+    }
+    ```
+
+<span class="success">**CREANDO EL CONTROLADOR DE LA VISTA**</span>
+
+Necesitamos un controlador para redireccionar las rutas a las vistas que nosotros queramos, para ello crearemos el controlador `RelacionController`
+
+```console
+php artisan make:controller RelacionController
+```
+
+
+<span class="success">**CREANDO RUTAS**</span>
+
+Ahora que ya tenemos nuestro controlador, vamos a crear una única vista para mostrar el ejemplo de la relación MUCHOS a MUCHOS, en este caso un alumno determinado.
+
+Además, en nuestro controlador `RelacionController` vamos a escribir el código necesario para que nos devuelva los datos relacionados con el alumno con id `1` y la materia con id `2`.
+
+=== "web.php"
+
+    ``` php
+    <?php
+
+      use App\Http\Controllers\RelacionController;
+      use Illuminate\Support\Facades\Route;
+
+      Route::get('muchos', [ RelacionController::class, 'index' ]);
+    ```
+
+=== "RelacionController.php"
+
+    ``` php
+    <?php
+
+      namespace App\Http\Controllers;
+
+      use App\Models\Alumno;
+      use App\Models\Materia;
+      use Illuminate\Http\Request;
+
+      class RelacionController extends Controller
+      {
+        public function index() {
+          $alumno = Alumno::find(1);
+          $materia = Materia::find(2);
+
+          return view('muchos', compact('alumno', 'materia'));
+        }
+      }
+    ```
+
+<span class="success">**RELLENANDO LA BASE DE DATOS**</span>
+
+Necesitamos meter algunos registros en nuestra base de datos, por tanto, vamos a crear varios datos en nuestro sistema con las siguientes sentencias SQL.
+
+=== "Tabla Alumnos"
+
+    ``` sql
+      INSERT INTO alumnos (`nombre`) VALUES
+      ('Antonio'),
+      ('Laura'),
+      ('Marta'),
+      ('Pedro');
+    ```
+
+=== "Tabla Materias"
+
+    ``` sql
+      INSERT INTO materias (`nombre`) VALUES
+      ('Programacion'),
+      ('Interfaces'),
+      ('JavaScript'),
+      ('Sistemas');
+    ```
+
+=== "Tabla Alumno_Materia"
+
+    ``` sql
+      INSERT INTO alumno_materia (`alumno_id`, `materia_id`) VALUES
+      (1, 2),
+      (1, 4),
+      (3, 2),
+      (3, 1),
+      (2, 3),
+      (2, 4),
+      (4, 4),
+      (4, 1);
+    ```
+
+<span class="success">**CREANDO LA VISTA CON LOS DATOS**</span>
+
+El último paso que vamos a hacer es, listar los datos relacionados en una vista o plantilla `Blade` sencilla. Para ello nos creamos el archivo `muchos.blade.php` ya que es el nombre que hemos puesto en nuestro archivo de rutas.
+
+=== "Alumnos que cursan materias"
+
+    ``` html
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <h3>Alumno {{ $alumno -> nombre }} está cursando las materias</h3>
+
+        <table class="table table-striped table-hover">
+          <thead class="bg-primary text-white">
+            <th>MATERIAS</th>
+          </thead>
+
+          <tbody>
+            @foreach ($alumno -> materias as $registro)
+              <tr>
+                <td>
+                    {{ $registro -> nombre }}
+                 </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    ```
+
+=== "Materias cursadas por alumnos"
+
+    ``` html
+    <div class="row justify-content-center">
+        <div class="col-auto">
+          <h3>La materia {{ $materia -> nombre }} la están cursando los alumnos</h3>
+
+          <table class="table table-striped table-hover">
+            <thead class="bg-primary text-white">
+              <th>ALUMNOS</th>
+            </thead>
+
+            <tbody>
+              @foreach ($materia -> alumnos as $registro)
+                <tr>
+                  <td>
+                    {{ $registro -> nombre }}
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+    </div>
+    ```
 ---
 
 ## Actividades
