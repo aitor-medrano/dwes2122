@@ -1295,7 +1295,7 @@ Vamos a hacer un ejemplo con una APP que gestiones alumnos y asignaturas, de tal
 ¿Qué necesitamos para este ejemplo?
 
   - 3 migraciones para crear las tablas
-    - `Alumnos` /// `Materias` /// `AlumnosMateria`
+    - `Alumnos` /// `Materias` /// `AlumnoMateria`
 
   - Modificar los archivos de las migraciones `create_alumnos_table` y `create_materias_table`.
   - Crear la base de datos `muchos_a_muchos`
@@ -1537,25 +1537,25 @@ El último paso que vamos a hacer es, listar los datos relacionados en una vista
 
     ``` html
     <div class="row justify-content-center">
-        <div class="col-auto">
-          <h3>La materia {{ $materia -> nombre }} la están cursando los alumnos</h3>
+      <div class="col-auto">
+        <h3>La materia {{ $materia -> nombre }} la están cursando los alumnos</h3>
 
-          <table class="table table-striped table-hover">
-            <thead class="bg-primary text-white">
-              <th>ALUMNOS</th>
-            </thead>
+        <table class="table table-striped table-hover">
+          <thead class="bg-primary text-white">
+            <th>ALUMNOS</th>
+          </thead>
 
-            <tbody>
-              @foreach ($materia -> alumnos as $registro)
-                <tr>
-                  <td>
-                    {{ $registro -> nombre }}
-                  </td>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
+          <tbody>
+            @foreach ($materia -> alumnos as $registro)
+              <tr>
+                <td>
+                  {{ $registro -> nombre }}
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
     </div>
     ```
 ---
