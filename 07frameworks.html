@@ -1647,7 +1647,7 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <li>
 <p>3 migraciones para crear las tablas</p>
 <ul>
-<li><code>Alumnos</code> /// <code>Materias</code> /// <code>AlumnosMateria</code></li>
+<li><code>Alumnos</code> /// <code>Materias</code> /// <code>AlumnoMateria</code></li>
 </ul>
 </li>
 <li>
@@ -1860,25 +1860,25 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row justify-content-center&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-auto&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 3 "></span>      <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>La materia {{ $materia -&gt; nombre }} la están cursando los alumnos<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-auto&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>La materia {{ $materia -&gt; nombre }} la están cursando los alumnos<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span>      <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped table-hover&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="p">&lt;</span><span class="nt">thead</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-primary text-white&quot;</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span>          <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>ALUMNOS<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped table-hover&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>      <span class="p">&lt;</span><span class="nt">thead</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-primary text-white&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>ALUMNOS<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>      <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span>        <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="11 "></span>          @foreach ($materia -&gt; alumnos as $registro)
-<span class="linenos" data-linenos="12 "></span>            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="13 "></span>              <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="14 "></span>                {{ $registro -&gt; nombre }}
-<span class="linenos" data-linenos="15 "></span>              <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="16 "></span>            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="17 "></span>          @endforeach
-<span class="linenos" data-linenos="18 "></span>        <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="19 "></span>      <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="20 "></span>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>      <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>        @foreach ($materia -&gt; alumnos as $registro)
+<span class="linenos" data-linenos="12 "></span>          <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="14 "></span>              {{ $registro -&gt; nombre }}
+<span class="linenos" data-linenos="15 "></span>            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="16 "></span>          <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>        @endforeach
+<span class="linenos" data-linenos="18 "></span>      <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="21 "></span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 </div>
