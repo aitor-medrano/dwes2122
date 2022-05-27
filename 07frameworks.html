@@ -8,48 +8,46 @@
       
       
       
-      
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/07frameworks.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
     
     
       
-        <title>7.- Frameworks PHP - Laravel - Desarrollo Web en Entorno Servidor</title>
+        <title>07frameworks - Desarrollo Web en Entorno Servidor</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.2d9f7617.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-X6D0LR7TC8",{page_path:e.pathname})})})</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
 
 
@@ -68,9 +66,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -86,6 +83,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -109,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7.- Frameworks PHP - Laravel
+              07frameworks
             
           </span>
         </div>
@@ -143,8 +141,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -316,364 +313,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          7.- Frameworks PHP - Laravel
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="07frameworks.html" class="md-nav__link md-nav__link--active">
-        7.- Frameworks PHP - Laravel
-      </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#puesta-en-marcha" class="md-nav__link">
-    Puesta en marcha
-  </a>
-  
-    <nav class="md-nav" aria-label="Puesta en marcha">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vscode-extensiones" class="md-nav__link">
-    VSCode extensiones
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#carpetas-en-laravel" class="md-nav__link">
-    Carpetas en Laravel
-  </a>
-  
-    <nav class="md-nav" aria-label="Carpetas en Laravel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#public" class="md-nav__link">
-    Public
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#routes" class="md-nav__link">
-    Routes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rutas" class="md-nav__link">
-    Rutas
-  </a>
-  
-    <nav class="md-nav" aria-label="Rutas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    Alias
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parametros" class="md-nav__link">
-    Parámetros
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plantillas-o-templates" class="md-nav__link">
-    Plantillas o Templates
-  </a>
-  
-    <nav class="md-nav" aria-label="Plantillas o Templates">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#directivas" class="md-nav__link">
-    Directivas
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#separando-codigo" class="md-nav__link">
-    Separando código
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estructuras-de-control" class="md-nav__link">
-    Estructuras de control
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#controladores" class="md-nav__link">
-    Controladores
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migraciones-eloquent" class="md-nav__link">
-    Migraciones &amp; Eloquent
-  </a>
-  
-    <nav class="md-nav" aria-label="Migraciones &amp; Eloquent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archivos-env" class="md-nav__link">
-    Archivos .env
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modelos" class="md-nav__link">
-    Modelos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recuperando-datos" class="md-nav__link">
-    Recuperando datos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modificar-tablas-sin-perder-datos" class="md-nav__link">
-    Modificar tablas sin perder datos
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#formularios" class="md-nav__link">
-    Formularios
-  </a>
-  
-    <nav class="md-nav" aria-label="Formularios">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#validaciones" class="md-nav__link">
-    Validaciones
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#editando-registros" class="md-nav__link">
-    Editando registros
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eliminando-registros" class="md-nav__link">
-    Eliminando registros
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#paginacion" class="md-nav__link">
-    Paginación
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#autenticacion" class="md-nav__link">
-    Autenticación
-  </a>
-  
-    <nav class="md-nav" aria-label="Autenticación">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#restringir-una-ruta" class="md-nav__link">
-    Restringir una ruta
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#datos-del-usuario" class="md-nav__link">
-    Datos del usuario
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relaciones-con-eloquent" class="md-nav__link">
-    Relaciones con Eloquent
-  </a>
-  
-    <nav class="md-nav" aria-label="Relaciones con Eloquent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#uno-a-uno-1-a-1" class="md-nav__link">
-    Uno a uno (1 a 1)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uno-a-uno-inversa" class="md-nav__link">
-    Uno a Uno INVERSA
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uno-a-muchos-1-a-mm" class="md-nav__link">
-    Uno a Muchos (1 a MM)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uno-a-muchos-inversa" class="md-nav__link">
-    Uno a Muchos INVERSA
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#muchos-a-muchos-mm-a-mm" class="md-nav__link">
-    Muchos a Muchos (MM a MM)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#muchos-a-muchos-inversa" class="md-nav__link">
-    Muchos a Muchos INVERSA
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#actividades" class="md-nav__link">
-    Actividades
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="09rest.html" class="md-nav__link">
-        8.- Servicios REST
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -686,8 +325,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <style>
+
+
+<style>
     img { margin: 20px 0; border-radius: 8px; }
 
     .alert { color: #BD1550; }
@@ -816,11 +456,11 @@
 <span class="linenos" data-linenos="3 "></span><span class="nx">Route</span><span class="o">::</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;datos&#39;</span><span class="p">,</span> <span class="s1">&#39;usuarios&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">5446</span><span class="p">]);</span>
 </code></pre></div>
 <p>... y el archivo <code>resources/views/usuarios.php</code> debe tener algo parecido a ésto</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c">&lt;!-- Estructura típica de un archivo HTML5 --&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cm">&lt;!-- Estructura típica de un archivo HTML5 --&gt;</span>
 <span class="linenos" data-linenos="2 "></span>
 <span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Usuario con id: <span class="cp">&lt;?= $id ?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="4 "></span>
-<span class="linenos" data-linenos="5 "></span><span class="c">&lt;!-- ... --&gt;</span>
+<span class="linenos" data-linenos="5 "></span><span class="cm">&lt;!-- ... --&gt;</span>
 </code></pre></div>
 <p><strong><em>Con las plantillas de Laravel <code>blade.php</code> veremos cómo simplificar aún más nuestro código.</em></strong></p>
 <p>Para más información acerca de las rutas, parámetros y expresiones regulares en las rutas puedes echar un vistazo a la <a href="https://laravel.com/docs/8.x/routing#route-parameters">documentación oficial de rutas</a> que contiene numerosos ejemplos.</p>
@@ -848,17 +488,17 @@
 <p>Para ello creamos el archivo <code>plantilla.blade.php</code> dentro de nuestro directorio de plantillas <code>resources/views</code>.</p>
 <p>Dicho archivo va a contener el típico código de una página simple de HTML y en el body añadiremos nuestros contenido estático y dinámico.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="c">&lt;!-- CONTENIDO ESTÁTICO PARA TODAS LAS SECCIONES --&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="cm">&lt;!-- CONTENIDO ESTÁTICO PARA TODAS LAS SECCIONES --&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenid@s a Laravel<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="c">&lt;!-- MENÚ --&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="cm">&lt;!-- MENÚ --&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 8 "></span>        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">route</span><span class="err">(&#39;</span><span class="na">noticias</span><span class="err">&#39;)</span> <span class="err">}}</span><span class="p">&gt;</span>Blog<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> | 
 <span class="linenos" data-linenos=" 9 "></span>        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">route</span><span class="err">(&#39;</span><span class="na">galeria</span><span class="err">&#39;)</span> <span class="err">}}</span><span class="p">&gt;</span>Fotos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span>    <span class="c">&lt;!-- CONTENIDO DINÁMICO EN FUNCIÓN DE LA SECCIÓN QUE SE VISITA --&gt;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="cm">&lt;!-- CONTENIDO DINÁMICO EN FUNCIÓN DE LA SECCIÓN QUE SE VISITA --&gt;</span>
 <span class="linenos" data-linenos="13 "></span>    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="14 "></span>        @yield(&#39;apartado&#39;)
 <span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
@@ -1801,31 +1441,31 @@ Ahora que ya tenemos montado el formulario en nuestra plantilla, pasemos a crear
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Tabla Alumnos</label><label for="__tabbed_4_2">Tabla Materias</label><label for="__tabbed_4_3">Tabla Alumno_Materia</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">alumnos</span> <span class="p">(</span><span class="o">`</span><span class="n">nombre</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="p">(</span><span class="s1">&#39;Antonio&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="3 "></span>  <span class="p">(</span><span class="s1">&#39;Laura&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="p">(</span><span class="s1">&#39;Marta&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="5 "></span>  <span class="p">(</span><span class="s1">&#39;Pedro&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">alumnos</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">nombre</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Antonio&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Laura&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Marta&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Pedro&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">materias</span> <span class="p">(</span><span class="o">`</span><span class="n">nombre</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="p">(</span><span class="s1">&#39;Programacion&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="3 "></span>  <span class="p">(</span><span class="s1">&#39;Interfaces&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="5 "></span>  <span class="p">(</span><span class="s1">&#39;Sistemas&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">materias</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">nombre</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Programacion&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Interfaces&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="p">(</span><span class="s1">&#39;Sistemas&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">alumno_materia</span> <span class="p">(</span><span class="o">`</span><span class="n">alumno_id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">materia_id</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="linenos" data-linenos="2 "></span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-<span class="linenos" data-linenos="3 "></span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="linenos" data-linenos="4 "></span>  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-<span class="linenos" data-linenos="5 "></span>  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-<span class="linenos" data-linenos="6 "></span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-<span class="linenos" data-linenos="7 "></span>  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="linenos" data-linenos="8 "></span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="linenos" data-linenos="9 "></span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">alumno_materia</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">alumno_id</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">materia_id</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">  </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">  </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="6 "></span><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="7 "></span><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="8 "></span><span class="w">  </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span><span class="w"></span>
+<span class="linenos" data-linenos="9 "></span><span class="w">  </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -2181,11 +1821,6 @@ TODO: Revisar las validaciones de los controladores ... creo que el lugar correc
 
 ## Actividades
 -->
-                
-              
-              
-                
-
 
               
             </article>
@@ -2194,80 +1829,43 @@ TODO: Revisar las validaciones de los controladores ... creo que el lugar correc
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-        
-        <a href="06accesoDatos.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 6.- Acceso a Datos" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              6.- Acceso a Datos
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="09rest.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 8.- Servicios REST" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              8.- Servicios REST
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -2276,10 +1874,10 @@ TODO: Revisar las validaciones de los controladores ... creo que el lugar correc
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="assets/javascripts/bundle.5413a266.min.js"></script>
       
     
   </body>
