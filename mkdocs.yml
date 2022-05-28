@@ -10,9 +10,9 @@ nav:
   - "4.- Programación Web": "04web.md"
   - "5.- Herramientas Web": "05herramientas.md"
   - "6.- Acceso a Datos": "06accesoDatos.md"
-  # - "7.- Frameworks PHP - Laravel": "07frameworks.md"
+  - "7.- Frameworks PHP - Laravel": "07frameworks.md"
   # - "8.- Uso avanzado de Frameworks": "08frameworks2.md"
-  # - "8.- Servicios REST": "09rest.md"
+  - "8.- Servicios REST": "09rest.md"
 
 theme:
   language: es
