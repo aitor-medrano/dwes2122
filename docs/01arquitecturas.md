@@ -1,65 +1,57 @@
-# Arquitecturas Web
+# Arquitectures Web
 
-??? abstract "Duración y criterios de evaluación"
+??? abstract "Duració i criteris d'avaluació"
 
-    Duración estimada: 4 sesiones
+    Duració estimada: 4 hores
 
     <hr />
 
-    Resultado de aprendizaje:
+    | Resultat d'aprenentatge | Criteris d'avaluació|
+    | -------                 | -------             |
+    | 1. Selecciona les arquitectures i tecnologies de programació web en entorn servidor, analitzant les seves capacitats i característiques pròpies. | a) S'han caracteritzat i diferenciat els models d'execució de codi en el servidor i en el client Web. <br/> b) S'han reconegut els avantatges que proporciona la generació dinàmica de pàgines Web i les seues diferències amb la inclusió de sentències de guions a l'interior de les pàgines Web. <br/> c) S'han identificat els mecanismes d'execució de codi en els servidors Web. <br/> d) S'han reconegut les funcionalitats que aporten els servidors d'aplicacions i la seua integració amb els servidors Web. <br/> e) S'han identificat i caracteritzat els principals llenguatges i tecnologies relacionats amb la programació Web en entorn servidor. <br/> f) S'han verificat els mecanismes d'integració dels llenguatges de marques amb els llenguatges de programació en entorn servidor. <br/> g) S'han reconegut i avaluat les eines de programació en entorn servidor. <br/> |
 
-    1. Selecciona las arquitecturas y tecnologías de programación Web en entorno servidor, analizando sus capacidades y características propias.
 
-    Criterios de evaluación:
+Les arquitectures web defineixen la forma en què les pàgines d'un lloc web estan estructurades i enllaçades entre si. Les aplicacions web es basen en el model client-servidor.
 
-    1. Se han caracterizado y diferenciado los modelos de ejecución de código en el servidor y en el cliente Web.
-    2. Se han reconocido las ventajas que proporciona la generación dinámica de páginas Web y sus diferencias con la inclusión de sentencias de guiones en el interior de las páginas Web.
-    3. Se han identificado los mecanismos de ejecución de código en los servidores Web.
-    4. Se han reconocido las funcionalidades que aportan los servidores de aplicaciones y su integración con los servidores Web.
-    5. Se han identificado y caracterizado los principales lenguajes y tecnologías relacionados con la programación Web en entorno servidor.
-    6. Se han verificado los mecanismos de integración de los lenguajes de marcas con los lenguajes de programación en entorno servidor.
-    7. Se han reconocido y evaluado las herramientas de programación en entorno servidor.
-
-Las arquitecturas web definen la forma en que las páginas de un sitio web están estructuradas y enlazadas entre sí. Las aplicaciones web se basan en en modelo cliente-servidor.
-
-## Cliente / Servidor
+## Client / Servidor
 
 <figure>
   <img src="imagenes/01/clienteservidor.png" />
-  <figcaption>Arquitectura Cliente Servidor</figcaption>
+  <figcaption>Arquitectura Client Servidor</figcaption>
 </figure>
 
-Uno o varios cliente acceden a un servidor. La nuevas arquitecturas sustituyen el servidor por un balanceador de carga de manera que N servidores dan respuesta a M clientes.
+El client inicia el procés amb una sol·licitud al servidor que genera un missatge de resposta. Ambdos es comuniquen utilitzant un protocol comú.
 
-En las aplicaciones web, el cliente es el navegador web.
+En les aplicacions web, els clients solen ser navegadors els que realitzen peticions(**request** normalment mitjançant el protocol **GET** mitjançant el port 80/443), i estos responen(**response**) amb la pàgina web sol·licitada o amb un missatge d’error.
 
-El cliente hace la petición (*request* normalmente mediante el protocolo GET mediante el puerto 80/443) y el servidor responde (*response*).
+La noves arquitectures substitueixen el servidor per un balancejador de càrrega de manera que N servidors donen resposta a M clients.
 
-### Página web dinámica
 
-Si la página web únicamente contiene HTML + CSS se considera una página estática. Para generar una página dinámica, donde el contenido cambia, a día de hoy tenemos dos alternativas:
+### Pàgina web dinàmica
 
-* Utilizar un lenguaje de servidor que genere el contenido, ya sea mediante el acceso a una BD o servicios externos.
-* Utilizar servicios REST de terceros invocados desde JS.
+Si la pàgina web únicament conté HTML + CSS es considera una pàgina estàtica. Per a generar una pàgina dinàmica, on el contingut canvia, hui dia tenim dues alternatives:
+
+* Utilitzar un llenguatge de servidor que genere el contingut, ja siga mitjançant l'accés a una BD o serveis externs.
+* Utilitzar serveis REST de tercers invocats des de JS.
 
 <figure>
   <img src="imagenes/01/paginadinamica.png" />
-  <figcaption>Página web dinámica</figcaption>
+  <figcaption>Pàgina web dinàmica</figcaption>
 </figure>
 
-Las tecnologías empleadadas (y los perfiles de desarrollo asociados) para la generación de páginas dinámicas son:
+Les tecnologies utlitzades (i els perfils de desenvolupament associats) per a la generació de pàgines dinàmiques són:
 
-| Perfil                    | Herramienta           | Tecnología
-| ---                       | ---                   | ---
-| *Front-end* / cliente     | Navegador Web         | HTML + CSS + JavaScript
-| *Back-end* / servidor     | Servidor Web + BBDD   | PHP, Python, Ruby, Java / JSP, .Net / .asp
+| Perfil                   | Ferramenta          | Tecnologia
+| ---                       |---------------------| ---
+| *Front-end* / client     | Navegador Web       | HTML + CSS + JavaScript
+| *Back-end* / servidor    | Servidor Web + BBDD | PHP, Python, Ruby, Java / JSP, .Net / .asp
 
 !!! tip "Perfil *Full-stack*"
-    En las ofertas de trabajo cuando hacen referencia a un *Full-stack developer*, están buscando un perfil que domina tanto el *front-end* como el *back-end*.
+    En les ofertes de treball quan fan referència a un **Full-stack developer**, estan buscant un perfil que domina tant el **front-end** com el **back-end**.
 
-### *Single Page Application*
+### Single Page Application
 
-A día de hoy, gran parte del desarrollo web está transicionando de una arquitectura web cliente-servidor clásica donde el cliente realiza una llamada al backend, por una arquitectura SPA donde el cliente gana mucho mayor peso y sigue una programación reactiva que accede a servicios remotos REST que realizan las operaciones (comunicandose mediante JSON).
+Hui dia, gran part del desenvolupament web està mudant des d'una arquitectura web client-servidor clàssica on el client realitza una petició al **backend**, per una arquitectura SPA on el client guanya molt major pes i segueix una programació reactiva que accedeix a serveis remots **REST** que realitzen les operacions (comunicant-se mitjançant **JSON**).
 
 <figure>
   <img src="imagenes/01/01spa.png" />
@@ -68,191 +60,259 @@ A día de hoy, gran parte del desarrollo web está transicionando de una arquite
 
 ## Arquitectura de 3 capas
 
-Hay que distinguir entre capas **físicas** (*tier*) y capas **lógicas** (*layer*).
+Cal distingir entre capes **físiques** (*tier*) i capes **lògiques** (*layer*).
 
 ### Tier
 
-Capa física de una arquitectura. Supone un nuevo elemento hardware separado físicamente. Las capas físicas más alejadas del cliente están más protegidas, tanto por firewalls como por VPN.
+Capa física d'una arquitectura suposa un nou element de maquinari separat físicament. Les capes físiques més allunyades del client estan més protegides, tant per **firewalls** com per **VPN**.
 
-Ejemplo de arquitectura en tres capas físicas (*3 tier*):
+Exemple d'arquitectura en tres capes físiques (3 **tier**):
 
 * Servidor Web
-* Servidor de Aplicaciones
-* Servidor de base de datos
+* Servidor d'Aplicacions
+* Servidor de base de dades
 
 <figure>
   <img src="imagenes/01/tier3.png" />
-  <figcaption>Arquitectura de tres capas físicas</figcaption>
+  <figcaption>Arquitectura de tres capes físiques</figcaption>
 </figure>
 
 !!! warning "Cluster en tiers"
-    No confundir las capas con la cantidad de servidores. Actualmente se trabaja con arquitecturas con múltiples servidores en una misma capa física mediante un cluster, para ofrecer tolerancia a errores y escalabilidad horizontal.
+    No confondre les capes amb la quantitat de servidors. Actualment es treballa amb arquitectures amb múltiples servidors en una mateixa capa física mitjançant un clúster, per a oferir tolerància a errors i escalabilitat horitzontal.
 
 ### Layer
 
 ![Arquitectura de tres capas físicas](imagenes/01/layer3.png){ align=right }
 
-En cambio, las capas lógicas (*layers*) organizan el código respecto a su funcionalidad:
+En canvi, les capes lògiques (**layers**) organitzen el codi respecte a la seua funcionalitat:
 
-* Presentación
-* Negocio / Aplicación / Proceso
-* Datos / Persistencia
+* Presentació
+* Negoci / Aplicació / Procés
+* Dades / Persistència
 
-Como se observa, cada una de las capas se puede implementar con diferentes lenguajes de programación y/o herramientas.
+Com s'observa, cadascuna de les capes es pot implementar amb diferents llenguatges de programació i/o eines.
 
 <figure>
   <img src="imagenes/01/tierlayer.png" />
-  <figcaption>Arquitectura de tres capas físicas en tres lógicas</figcaption>
+  <figcaption>Arquitectura de tres capes físiques en tres lògiques</figcaption>
 </figure>
 
 ## MVC
 
 ![MVC](imagenes/01/mvc.png){align=right & width=500}
 
-*Model-View-Controller* o Modelo-Vista-Controlador es un modelo de arquitectura que separa los datos y la lógica de negocio respecto a la interfaz de usuario y el componente encargado de gestionar los eventos y las comunicaciones.
+*Model-View-Controller* o Model-Vista-Controlador és un model d'arquitectura que separa les dades i la lògica de negoci respecte a la interfície d'usuari i el component encarregat de gestionar els esdeveniments i les comunicacions.
 
-Al separar los componentes en elementos conceptuales permite reutilizar el código y mejorar su organización y mantenimiento. Sus elementos son:
+En separar els components en elements conceptuals permet reutilitzar el codi i millorar la seua organització i manteniment. Els seus elements són:
 
-* Modelo: representa la información y gestiona todos los accesos a ésta, tanto consultas como actualizaciones provenientes, normalmente, de una base de datos. Se accede via el controlador.
-* Controlador: Responde a las acciones del usuario, y realiza peticiones al modelo para solicitar información. Tras recibir la respuesta del modelo, le envía los datos a la vista.
-* Vista: Presenta al usuario de forma visual el modelo y los datos preparados por el controlador. El usuario interactura con la vista y realiza nuevas peticiones al controlador.
+* Model: representa la informació i gestiona tots els accessos a aquesta, tant consultes com actualitzacions provinents, normalment, d'una base de dades. S'accedeix via el controlador.
+* Controlador: Respon a les accions de l'usuari, i realitza peticions al model per a sol·licitar informació. Després de rebre la resposta del model, li envia les dades a la vista.
+* Vista: Presenta a l'usuari de manera visual el model i les dades preparades pel controlador. L'usuari *interactura amb la vista i realitza noves peticions al controlador.
 
-Lo estudiaremos en más detalle al profundizar en el uso de los frameworks PHP.
+L'estudiarem en més detall en aprofundir en l'ús dels **frameworks PHP**.
 
-## Decisiones de diseño
+## Decisions de disseny
 
-* ¿Qué tamaño tiene el proyecto?
-* ¿Qué lenguajes de programación conozco? ¿Vale la pena el esfuerzo de aprender uno nuevo?
-* ¿Voy a usar herramientas de código abierto o herramientas propietarias? ¿Cuál es el coste de utilizar soluciones comerciales?
-* ¿Voy a programar la aplicación yo solo o formaré parte de un grupo de programadores?
-* ¿Cuento con algún servidor web o gestor de base de datos disponible o puedo decidir libremente utilizar el que crea necesario?
-* ¿Qué tipo de licencia voy a aplicar a la aplicación que desarrolle?
+* Quina grandària té el projecte?
+* Quins llenguatges de programació conec? Val la pena l'esforç d'aprendre un nou?
+* Usaré eines de codi obert o eines propietàries? Quin és el cost d'utilitzar solucions comercials?
+* Programaré l'aplicació jo només o formaré part d'un grup de programadors?
+* Conte amb algun servidor web o gestor de base de dades disponible o puc decidir lliurement utilitzar el que crega necessari?
+* Quin tipus de llicència aplicaré a l'aplicació que desenvolupe?
 
 ## Herramientas
 
 ### Servidor Web
 
-Software que recibe peticiones HTTP (GET, POST, DELETE, ...). Devuelve el recurso solicitado (HTML, CSS, JS, JSON, imágenes, etc...)
+Programari que rep peticions HTTP (GET, POST, DELETE, ...). Retorna el recurs sol·licitat (HTML, CSS, JS, JSON, imatges, etc...)
 
-El producto más implantando es Apache Web Server (<https://httpd.apache.org/>), creado en 1995.
+El producte més implantant és **Apatxe Web Server** (<https://httpd.apache.org/>), creat en 1995.
 
-* Software libre y multiplataforma
-* Sistema de módulos dinámicos → PHP, Python, Perl
-* Utiliza el archivo `.htaccess` para su configuración
+* Programari lliure i multiplataforma
+* Sistema de mòduls dinàmics → PHP, Python, Perl
+* Utilitza l'arxiu `.*htaccess` per a la seua configuració
 
-En la actualidad, *Apache* está perdiendo mercado respecto a Nginx (<https://www.nginx.com>). Se trata de un producto más moderno (2004) y que en determinados escenarios tiene mejor rendimiento que Apache.
+En l'actualitat, Apatxe està perdent mercat respecte a **Nginx** (<https://www.nginx.com>). Es tracta d'un producte més modern (2004) i que en determinats escenaris té millor rendiment que Apatxe.
 
-* Comparativa servidores web: <https://w3techs.com/technologies/history_overview/web_server/ms/q>
+* Comparativa servidors web: <https://w3techs.com/technologies/history_overview/web_server/ms/q>
 
-### Servidor de Aplicaciones
+### Servidor d'Aplicacions
 
-* Software que ofrece servicios adicionales a los de un servidor web:
-    * Clustering
-    * Balanceo de carga
-    * Tolerancia a fallos
-* *Tomcat* (<http://tomcat.apache.org/>) es el servidor de aplicaciones *open source* y multiplataforma de referencia para una arquitectura Java.
-    * Contiende un contenedor Web Java que interpreta *Servlets* y JSP.
+* Programari que ofereix serveis addicionals als d'un servidor web:
+  * Clustering
+  * Balanceig de càrrega
+  * Tolerància a fallades
+  * **Tomcat** (<http://tomcat.apache.org/>) és el servidor d'aplicacions **open source** i multiplataforma de referència per a una arquitectura Java.
+  * Contén un contenidor Web Java que interpreta **Servlets** i **JSP**.
 
 !!! info
-    Tanto los servidores web como los servidores de aplicaciones los estudiaremos en profundidad en el módulo de *"Despliegue de Aplicaciones Web"*.
+    Tant els servidors web com els servidors d'aplicacions s'estudien en el mòdul de "Desplegament d'Aplicacions Web".
 
-### Lenguajes en el servidor
+### Llenguatges en el servidor
 
-Las aplicaciones que generan las páginas web se programan en alguno de los siguientes lenguajes:
+Les aplicacions que generen les pàgines web es programen en algun dels següents llenguatges:
 
-* PHP
-* JavaEE: Servlets / JSP
-* Python
-* ASP.NET → Visual Basic .NET / C#
-* Ruby
-* ...
+* PHP: El més estés. Normalment s'executa com un mòdul al servidor. Es fàcil i barat trobar allotjaments que l'oferisquen.
+* JSP: La versió de Java per a la web. Li cal un contenidor web.
+* ASP.NET: Integrada en la plataforma de microsoft .NET
+* Ruby: Molt apreciat per els desenvolupadors web.
+* GO: La versió de google de phyton.
+* Phyton: El més popular.
+* NodeJS: Utilitza Javascript.
+
+[Comparació de llenguatges](https://www.codementor.io/@iliawebdev/top-programming-languages-for-web-development-in-2021-1hzczfuoei)
+
+[Criteris per apendre un llenguatge de programació](https://blog.educacionit.com/2018/04/10/4-criterios-para-elegir-tu-primer-lenguaje-de-programacion/)
 
 #### JavaEE
 
-*Java Enterprise Edition* es la solución Java para el desarrollo de aplicaciones *enterprise*. Ofrece una arquitectura muy completa y compleja, escalable y tolerante a fallos. Planteada para aplicaciones para grandes sistemas.
+**Java Enterprise Edition** és la solució Java per al desenvolupament d'aplicacions **enterprise*. Ofereix una arquitectura molt completa i complexa, escalable i tolerant a fallades. Plantejada per a aplicacions per a grans sistemes.
 
 ![JavaEE](imagenes/01/javaee.png)
 
 #### PHP
 
-* Lenguaje de propósito general diseñado para el desarrollo de páginas web dinámicas
-* En un principio, lenguaje no tipado.
-* Actualmente en la versión 8. Se recomienda al menos utilizar una versión superior a la 7.0.
-* Código embebido en el HTML
-* Instrucciones entre etiquetas `<?php` y `?>`
-    * Para generar codigo dentro de PHP, podemos usar la instrucción `echo`
-* Multitud de librerías y frameworks:
-    * Laravel, Symfony, Codeigniter, Zend
+* Llenguatge de propòsit general dissenyat per al desenvolupament de pàgines web dinàmiques
+* Al principi, llenguatge no tipat.
+* Actualment en la versió 8. Es recomana almenys utilitzar una versió superior a la 7.0.
+* Codi embegut en l'HTML
+* Instruccions entre etiquetes `<?php` y `?>`
+* Per a generar codi dins de PHP, podem usar la instrucció `echo`
+* Multitud de llibreries i frameworks:
+  * Laravel, Symfony, Codeigniter, Zend
 
-Su documentación es bastante completa: <https://www.php.net/manual/es/index.php>
+La seua documentació és bastant completa: <https://www.php.net/manual/es/index.php>
 
-El siguiente mapa mental muestra un resumen de sus elementos:
+El següent mapa mental mostra un resum dels seus elements:
 
 <figure>
   <img src="imagenes/01/php.jpg" />
-  <figcaption>Elementos del lenguaje PHP</figcaption>
+  <figcaption>Elements del llenguatge PHP</figcaption>
 </figure>
 
-Durante las siguientes unidades vamos a estudiar PHP en profundidad.
+Durant les següents unitats estudiarem PHP en profunditat.
 
-## Puesta en marcha
+## Posada en marxa
 
-Para poder trabajar con un entorno de desarrollo local, hemos de preparar nuestro entorno de desarrollo con las herramientas comentadas. A lo largo del curso vamos a utilizar la versión 8 de PHP.
+Pera fer correr les aplicacions de servidor ens cal, com a mínim, un **servidor web**, l'interpret de **php** i un **motor de base de dades**. Hem de distinguir l'**entorn de desenvolupament**, on anem a programar i mantindre la nostra aplicació, de l'**entorn de producció**, on anem a executar-la.
+Normalment el primer depén de nosaltres mentre que el segon pot dependre de l'empresa on s'allotjarà la nostra web. Per a preparar el nostre entorn de desenvolupament podem optar per:
+
+* Qualsevol solució **LAMP** (Linux, Apache, Mysql, PHP). Als que haurem d'afegir, una vegada els projectes es facen grans **composer, git i les opcions de la part de client**.
+* Una màquina virtual ja configurada.
+* Una solució docker.
+
+La primera solució és senzilla d'implementar però no hauria de ser la nostra primera opció per:
+
+* Estem possant en marxa en la nostra màquina una sèrie de servicis que normalment no fariem, baixant el rendiment de la màquina i obrint vulnerabilitats.
+* Si treballem en grup, les instal·lacions i el funcionament no són iguals, depenen del sistema operatiu que té instal·lat cadascú. Allò que li funciona a ú  pot ser no li funciona a un altre. Això és inevitable quan el projecte es complica i es perd molt de temps.
+* Passa el mateix quan passem a l'entorn de producció.
+
+La segona solució soluciona els dos primers problemes, doncs tots els desenvolupadors poden tindre virtualitzada, la mateixa màquina. Encara que si la màquina no la fem nosaltres sinó que utilitzem alguna ja configurada (**vagrant**) o si ens cal instal·lar alguna cosa més, ho hauria de fer tot l'equip.
+
+Així i tot, tindriem les següents desaventatges:
+
+* A l'instal·lar una maquina virtual sencera ocupa recursos del sistema.
+* La màquina instal·la més coses de les necessàries habitualment.
+* No reprodueix l'entorn de producció.
+
+Pot ser molt útil, per exemple, quan la fem servir per desenvolupar en un framework, que ja ve configurat per fer-lo funcionar inmediatament i amb totes les característiques instal·lades.
+
+La tercera opció té les següents característiques:
+
+* Al principi és més difícil de possar en funcionamet ja que calen coneixements de docker.
+* Tots els desenvolupadors comparteixen entorn encara que utilitzen màquines o sistemes operatius diferents.
+* Si hi ha algun canvi de configuració de l'entorn és fácilment transladable a tots els desenvolupadors.
+* Es poden crear tants entorns  de desenvolupament com projectes diferents hi hajen.
+* Els contenidors ocupen pocs recursos.
+* Els projectes es poden possar en producció utilitzan una solució docker de manera inmediata.
 
 ### XAMPP
 
-XAMPP (https://www.apachefriends.org/es/index.html) es una distribución compuesta con el software necesario para desarrollar en entorno servidor. Se compone de las siguientes herramientas en base a sus siglas:
+XAMPP (https://www.apachefriends.org/es/index.html) és una distribució composta amb el programari necessari per a desenvolupar en entorn servidor. Es compon de les següents eines sobre la base de les seues sigles:
 
-* X para el sistema operativo (de ahí que se conozca tamnbién como LAMP o WAMP).
-* A para Apache.
-* M para MySQL / MariaDB. También incluye phpMyAdmin para la administración de la base de datos desde un interfaz web.
-* P para PHP.
-* la última P para Perl.
+* X per al sistema operatiu (d'aquí ve que es conega altrament com LAMP o WAMP).
+* A per a Apatxe.
+* M per a MySQL / MariaDB. També inclou phpMyAdmin per a l'administració de la base de dades des d'una interfície web.
+* P per a PHP.
+* l'última P per a Perl.
 
-Desde la propia página se puede descargar el archivo ejecutable para el sistema operativo de nuestro ordenador. Se recomienda leer la FAQ de cada sistema operativo con instrucciones para su puesta en marcha.
+Des de la pròpia pàgina es pot descarregar l'arxiu executable per al sistema operatiu del nostre ordinador. Es recomana llegir la FAQ de cada sistema operatiu amb instruccions per a la seua posada en marxa.
 
 !!! note "XAMPP en Windows"
-    Si vas a trabajar con tu propio ordenador, XAMPP es una solución más sencilla que Docker, sobre todo si trabajar con Windows como sistema operativo.
+    Si treballes amb el teu propi ordinador, XAMPP és una solució més senzilla que Docker, sobretot si treballes amb Windows com a sistema operatiu.
 
 ### Docker
 
-Docker (<https://www.docker.com>) es un gestor de contenedores, considerando un contenedor como un método de virtualización del sistema operativo.
+Docker (<https://www.docker.com>) és un gestor de contenidors, considerant un contenidor com un mètode de virtualització del sistema operatiu.
 
-El uso de contenedores requiere menos recursos que una máquina virtual, por lo tanto, su lanzamiento y detención son más rápidos que las máquinas virtuales.
+L'ús de contenidors requereix menys recursos que una màquina virtual, per tant, el seu llançament i detenció són més ràpids que les màquines virtuals.
 
-Así pues, *Docker* permite crear, probar e implementar aplicaciones rápidamente, a partir de una serie de plantillas que se conocen como imágenes de *Docker*.
+Així doncs, *Docker* permet crear, provar i implementar aplicacions ràpidament, a partir d'una sèrie de plantilles que es coneixen com a **imatges** de *Docker*.
 
-Para ello es necesario tener instalado *Docker Desktop* (<https://www.docker.com/products/docker-desktop>) en nuestros entornos de desarrollo (el cual ya incluye en nucleo de *Docker* y la herramienta *docker compose*). En los ordenadores del aula ya está instalado. Para instalarlo en casa, en el caso de Windows, es necesario instalar previamente *WSL 2*, el cual es un subsistema de *Linux* dentro de *Windows*.
+Per a això és necessari tindre instal·lat **Docker Desktop** (<https://www.docker.com/products/docker-desktop>) en els nostres entorns de desenvolupament (el qual ja inclou en **nucli** de *Docker* i l'eina **docker compose**). Per a instal·lar-ho en Windows, és necessari instal·lar prèviament **WSL 2**, el qual és un subsistema de *Linux* dins de *Windows*.
 
-A lo largo del curso iremos creando diferentes contenedores con los servicios necesarios, de manera que cada vez sólo trabajemos con el software mínimo.
+Al llarg del curs anirem creant diferents contenidors amb els serveis necessaris, de manera que cada vegada només treballem amb el programari mínim.
 
-!!! caution "Versiones"
-    A lo largo del curso vamos a usar PHP `8.0`. Respecto a *Docker*, para escribir los apuntes hemos utilizado la version `20.10` y la version `2.19` de *docker compose*. Finalmente, la versión de *Docker Desktop* que hemos utilizado es la `4.0`.
+!!! caution "Versions"
+    Al llarg del curs usarem PHP `8.0`. Respecte a *Docker*, per a escriure les anotacions hem utilitzat la versio `20.10` i la versio `2.19` de **docker compose**. Finalment, la versió de *Docker Desktop* que hem utilitzat és la `4.0`.
+
+#### Instal·lació de docker
+
+
+La instal·lació de docker dependrà del sistema operatiu que estem utilitzant. Ací anem a vore la que efecturan els que utilitzen linux, amb el sistema operatiu linux-mint o ubuntu , que és el que ve instal·lat en les imatges suministrades. Per a mac o windows s'haurà de mirar la pàgina web de [docker](https://www.docker.com/get-started)
+
+Ens donem privilegis
+
+~~~
+sudo su
+~~~
+
+Utilitzant els repositoris de docker l'instal·lem:
+
+~~~
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" | tee /etc/apt/sources.list.d/docker.list
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+apt update
+
+apt install docker-ce docker-ce-cli containerd.io pigz
+~~~
+
+Donem permisos a l'usuari afegint-lo al grup de docker
+
+~~~
+usermod -aG docker $USER
+~~~
+On $USER és el teu usuari.
+
+També haurem d'instal·lar el docker-compose
+
+~~~
+curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+~~~
+
+I provem
+
+~~~
+docker --version
+~~~
+
+Faltarà engegar el servei de docker per a poder executar contenidors
+
+~~~
+sudo systemctl start docker.service
+~~~
 
 #### Plantilla Servidor Web + PHP
 
-*Docker* se basa en el uso de imágenes para crear contenedores. *Docker Compose* simplifica el trabajo con múltiples contenedores, y por ello, para facilitar el arraque, nos centraremos en *Docker Compose* utilizando una plantilla que únicamente va a contener como servicios Apache/Nginx y PHP.
+**Docker** es basa en l'ús d'imatges per a crear contenidors. *Docker Compose* simplifica el treball amb múltiples contenidors, i per això, per a facilitar l'arranc, ens centrarem en *Docker Compose* utilitzant una plantilla que únicament contindrà com a serveis Nginx i PHP.
 
-Para ello, vamos a rellenar el archivo `docker-compose.yaml` con:
+Per a això, emplenarem l'arxiu `docker-compose.yaml` amb:
 
-=== "Apache y PHP"
-
-    ``` yaml
-    # Services
-    services:
-      # Apache + PHP
-      apache_php:
-        image: php:8-apache
-        # Preparamos un volumen para almacenar nuestro código
-        volumes:
-          - ./src/:/var/www/html
-        expose:
-          - 80
-        ports:
-          - 80:80
-    ```
-
-=== "Nginx y PHP"
+=== "Nginx i PHP"
 
     ``` yaml
     # Services
@@ -275,81 +335,67 @@ Para ello, vamos a rellenar el archivo `docker-compose.yaml` con:
           - ./src:/var/www/php
     ```
 
-Dentro de la carpeta que contenga dicho archivo, hemos de crear una carpeta `src` donde colocaremos nuestro código fuente. Para facilitar la puesta en marcha, tenéis la plantilla de [Apache/PHP](recursos/plantilla-AP.zip) ([versión 2](recursos/plantilla-AP2.zip) con `a2enmod rewrite`) o [Nginx/PHP](recursos/plantilla-NP.zip) disponible para su descarga.
+Dins de la carpeta que continga aquest arxiu, hem de crear una carpeta `src` on col·locarem el nostre codi font. Per a facilitar la posada en marxa, teniu la plantilla de  [Nginx/PHP](recursos/plantilla-NP.zip) disponible per a la seua descàrrega.
 
-Cuando estemos listos, lanzaremos el servicio mediante:
+Quan estiguem llestos, llançarem el servei mitjançant:
 
 ``` console
 docker-compose up -d
 ```
 
-Si queremos ver el contenido de los archivos de log del servicio utilizaremos:
+Si volem veure el contingut dels arxius de log del servei utilitzarem:
 
 ``` console
 docker-compose logs -f
 ```
 
-Para copiar un archivo desde nuestro sistema al interior del contenedor:
+Per a copiar un arxiu des del nostre sistema a l'interior del contenidor:
 
 ``` console
 docker cp ./miFichero idContenedor:/tmp
 ```
 
-Y al revés, si queremos consultar un archivo contenido dentro de un contenedor, lo copiaremos a nuestro sistema:
+I a l'inrevés, si volem consultar un arxiu contingut dins d'un contenidor, el copiarem al nostre sistema:
 
 ``` console
 docker cp idContenedor:/tmp/archivoAConsultar.txt ./
 ```
 
-Finalmente, si queremos acceder a un terminal interactivo dentro del contenedor:
+Finalment, si volem accedir a un terminal interactiu dins del contenidor:
 
 ``` console
 docker exec -it nombreContenedor bash
 ```
 
-Otros comandos que podemos llegar a utilizar son:
+Altres comandos que podem arribar a utilitzar són:
 
-* `docker ps`: Ver los contenedores que se estan ejecutando
-* `docker ps -a`: Ver todos los contenedores
-* `docker start nombreContenedor`: Arrancar un contenedor
-* `docker images`: Ver las imágenes que tenemos descargadas
+* `docker ps`: Veure els contenidors que es estan executant
+* `docker ps -a`: Veure tots els contenidors
+* `docker start nombreContenedor`: Arrancar un contenidor
+* `docker images`: Veure les imatges que tenim descarregades
 
-Otra forma más sencilla para lanzar de nuevo los contenedores y gestionarlos una vez creados es utilizar el interfaz gráfico que ofrece *Docker Desktop*:
+Una altra forma més senzilla per a llançar de nou els contenidors i gestionar-los una vegada creats és utilitzar la interfície gràfica que ofereix Docker Desktop:
 
 <figure>
   <img src="imagenes/01/dockerdesktop.png" />
-  <figcaption>Arranque de contenedor mediante Docker Desktop</figcaption>
+  <figcaption>Arranc de contenidor mitjançant Docker Desktop</figcaption>
 </figure>
 
 !!! tip "Docker stack"
-    Existen diversas opciones mediante Docker que ofrecen soluciones completas y empaquetas para todo el stack de desarrollo. En posteriores sesiones utilizaremos tanto *Devilbox* (<http://devilbox.org>) como *Laradock* (<https://laradock.io>)
+    Existeixen diverses opcions mitjançant Docker que ofereixen solucions completes i empaquetes per a tot el stack de desenvolupament. En posteriors sessions utilitzarem tant *Devilbox* (<http://devilbox.org>) com *Laradock* (<https://laradock.io>)
 
-!!! question "Pero quiero saber cómo funciona..."
-    En el módulo de *Despliegue de aplicaciones* estudiaréis en profundidad, además de Docker, Apache y otros servicios que nos servirán de ayuda para el desarrollo en entorno servidor.
+!!! question "Però vull saver com funciona..."
+    En el mòdul de Desplegament d'aplicacions estudiareu en profunditat, a més de Docker, Apatxe i altres serveis que ens serviran d'ajuda per al desenvolupament en entorn servidor.
 
-### Entorno de desarrollo
+### Entorn de desenvolupament
 
-En este curso vamos a emplear *Visual Studio Code* (<https://code.visualstudio.com>) como entorno de desarrollo (IDE). Existen otras alternativas, siendo [PhpStorm](https://www.jetbrains.com/es-es/phpstorm/) la más conocida pero siendo de pago. Otra posibilidad es utilizar [Eclipse](https://www.eclipse.org/pdt/), aunque es un entorno bastante pesado.
+En este curso utilitzarem *PHP Storm* (<https://www.jetbrains.com/phpstorm/>) com a entorn de desenvolupament. Existixen altres alternatives, com *Visual Studio Code* (<https://code.visualstudio.com>).
 
-*VSCode* es un editor de código fuente que se complementa mediante extensiones. Para facilitar el trabajo a lo largo del curso vamos a utilizar las siguientes extensiones:
+### Hola mon
 
-* [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
-* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+I com no, el nostre primer exemple serà un Hola Món en PHP.
 
-En la siguiente sesión comenzaremos a utilizar *Intelephense* pero en esta sesión nos vamos a centrar en *Docker* (más adelante instalaremos nuevas extensiones).
-
-Por ejemplo, si abrimos la extensión de *Docker*, podréis visualizar tanto los contenedores como las imágenes de vuestro sistema. Desde cada contenedor, mediante clic derecho, podemos iniciar/detener/reiniciar cada contenedor, así como ver su contenido o abrir un terminal dentro del mismo.
-
-<figure>
-  <img src="imagenes/01/vscodedocker.png" width="300"/>
-  <figcaption>Opciones mediante extensión Docker en VSCode</figcaption>
-</figure>
-
-### Hola Mundo
-
-Y como no, nuestro primer ejemplo será un *Hola Mundo* en PHP.
-
-Si nombramos el archivo como `index.php`, al acceder a `http://localhost` automáticamente cargará el resultado:
+Si nomenem l'arxiu com `index.php`, en accedir a `http://localhost` automàticament carregarà el resultat:
 
 ``` html+php hl_lines="9-11"
 <!DOCTYPE html>
@@ -357,46 +403,46 @@ Si nombramos el archivo como `index.php`, al acceder a `http://localhost` autom�
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo</title>
+    <title>Hola Món</title>
 </head>
 <body>
     <?php
-        echo "Hola Mundo";
+        echo "Hola Món";
     ?>
 </body>
 </html>
 ```
 
-## Referencias
+## Referències
 
-* Curso de introducción a Docker, por *Sergi García Barea* : <https://sergarb1.github.io/CursoIntroduccionADocker/>
-* Artículo [Arquitecturas Web y su evolución](https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/)
+* Curs de introducció a Docker, per *Sergi García Barea* : <https://sergarb1.github.io/CursoIntroduccionADocker/>
+* Article [Arquitectures Web i sa evolució](https://www.arquitecturajava.com/arquitecturas-web-y-su-evolucion/)
 
-## Actividades
+## Activitats
 
-101. Busca en internet cuales son los tres frameworks PHP más utilizados, y indica:
+101. Cerca en internet quals són els tres *frameworks *PHP més utilitzats, i indica:
 
-    * Nombre y URL
-    * Año de creación
-    * Última versión
+     * Nom i URL
+     * Any de creació
+     * Última versió
 
-102. Busca tres ofertas de trabajo de *desarrollo de software* en Infojobs en la provincia de Alicante que citen PHP y anota:
+102. Cerca tres ofertes de treball de *desenvolupament de programari* en *Infojobs* a la província d'Alacant que citen PHP i anota:
 
-    * Empresa + puesto + frameworks PHP + requísitos + sueldo + enlace a la oferta.
+     * Empresa + lloc + frameworks PHP + requeriments + sou + enllaç a l'oferta.
 
-103. Una vez arrancado el servicio PHP (mediante XAMPP o Docker), crea el archivo `info.php` y añade el siguiente fragmento de código:
-
+103. Una vegada arrancat el servei PHP (mitjançant XAMPP o Docker), crea l'arxiu `info.php` i afig el següent fragment de codi:
+   
     ``` php
     <?php phpinfo() ?>
     ```
-    Anota los valores de:
+    Anota els valors de:
 
-    * Versión de PHP
+    * Versió de PHP
     * *Loaded Configuration File*
     * `memory_limit`
     * `DOCUMENT_ROOT`
 
-104. Abre el archivo `php.ini-production` que está dentro del contenedor (puedes averiguar la ruta a partir de la propiedad *Configuration File (php.ini) Path*) e indica para qué sirven las siguientes propiedades y qué valores contienen:
+104. Obri l'arxiu `php.ini-production` que està dins del contenidor (pots esbrinar la ruta a partir de la propietat *Configuration File* (php.ini) *Path*) i indica per a què serveixen les següents propietats i quins valors contenen:
 
     * `file_uploads`
     * `max_execution_time`

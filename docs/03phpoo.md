@@ -1,71 +1,62 @@
-# PHP Orientado a Objetos
+# PHP Orientant a Objectes
 
-??? abstract "Duración y criterios de evaluación"
+??? abstract "Duració i criteris d'avaluació"
 
-    Duración estimada: 18 sesiones
+    Duració estimada: 18 hores
 
     <hr />
 
-    Resultado de aprendizaje:
+    | Resultat d'aprenentatge | Criteris d'avaluació |
+    | --------                | --------             |
+    | 5. Desenvolupa aplicacions Web identificant i aplicant mecanismes per a separar el codi de presentació de la lògica de negoci.| a) S'han identificat els avantatges de separar la lògica de negoci dels aspectes de presentació de l'aplicació. <br/> b) S'han analitzat tecnologies i mecanismes que permeten realitzar aquesta separació i les seues característiques principals. <br/> c) S'han utilitzat objectes i controls en el servidor per a generar l'aspecte visual de l'aplicació Web en el client. <br/> d) S’han utilitzat formularis generats de forma dinàmica per a respondre als esdeveniments de l'aplicació Web. <br/> e) S'han identificat i aplicat els paràmetres relatius a la configuració de l'aplicació Web. <br/> f) S'han escrit aplicacions Web amb manteniment d'estat i separació de la lògica de negoci. <br/> g) S'han aplicat els principis de la programació orientada a objectes. <br/> g) S'ha provat i documentat el codi. |
 
-    5. Desarrolla aplicaciones Web identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.
 
-    Criterios de evaluación:
+## Classes i Objectes
 
-    1. Se han identificado las ventajas de separar la lógica de negocio de los aspectos de presentación de la aplicación. 
-    2. Se han analizado tecnologías y mecanismos que permiten realizar esta separación y sus características principales. 
-    3. Se han utilizado objetos y controles en el servidor para generar el aspecto visual de la aplicación web en el cliente. 
-    4. Se han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación Web. 
-    6. Se han escrito aplicaciones Web con mantenimiento de estado y separación de la lógica de negocio. 
-    7. Se han aplicado los principios de la programación orientada a objetos. 
-    8. Se ha probado y documentado el código.
+PHP segueix un paradigma de programació orientada a objectes (POO) basada en classes.
 
-## Clases y Objetos
+Un classe és un plantilla que defineix les propietats i mètodes per a poder crear objectes. D'aquest manera, un objecte és una instància d'una classe.
 
-PHP sigue un paradigma de programación orientada a objetos (POO) basada en clases.
+Tant les propietats com els mètodes es defineixen amb una visibilitat (qui pot accedir)
 
-Un clase es un plantilla que define las propiedades y métodos para poder crear objetos. De este manera, un objeto es una instancia de una clase.
+* Privat - `private`: Només pot accedir la pròpia classe.
+* Protegit - `protected`: Només pot accedir la pròpia classe o els seus descendents.
+* Público - `public`: Pot accedir qualsevol altra classe.
 
-Tanto las propiedades como los métodos se definen con una visibilidad (quien puede acceder)
-
-* Privado - `private`:  Sólo puede acceder la propia clase.
-* Protegido - `protected`: Sólo puede acceder la propia clase o sus descendientes.
-* Público - `public`: Puede acceder cualquier otra clase.
-
-Para declarar una clase, se utiliza la palabra clave `class` seguido del nombre de la clase. Para instanciar un objeto a partir de la clase, se utiliza `new`:
+Per a declarar una classe, s'utilitza la paraula clau `class` seguit del nom de la classe. Per a instanciar un objecte a partir de la classe, s'utilitza `new`:
 
 ``` php
 <?php
-class NombreClase {
+class NomClase {
 // propiedades
 // y métodos
 }
 
-$ob = new NombreClase();
+$ob = new NomClase();
 ```
 
-!!! important "Clases con mayúscula"
-    Todas las clases empiezan por letra mayúscula.
+!!! important "Classes amb majúscula"
+    Totes les classes comencen per lletra majúscula.
 
-Cuando un proyecto crece, es normal modelar las clases mediante UML (¿recordáis *Entornos de Desarrollo*?). La clases se representan mediante un cuadrado, separando el nombre, de las propiedades y los métodos:
+Quan un projecte creix, és normal modelar les classes mitjançant UML (recordeu Entorns de Desenvolupament?). La classes es representen mitjançant un quadrat, separant el nom, de les propietats i els mètodes:
 
 ![UML](imagenes/03/uml.png){ width=500 }
 
-Una vez que hemos creado un objeto, se utiliza el operador `->` para acceder a una propiedad o un método:
+Una vegada que hem creat un objecte, s'utilitza l'operador `->` per a accedir a una propietat o un mètode:
 
 ``` php
 $objeto->propiedad;
 $objeto->método(parámetros);
 ```
 
-Si desde dentro de la clase, queremos acceder a una propiedad o método de la misma clase, utilizaremos la referencia `$this`;
+Si des de dins de la classe, volem accedir a una propietat o mètode de la mateixa classe, utilitzarem la referència `$this`;
 
 ``` php
 $this->propiedad;
 $this->método(parámetros);  
 ```
 
-Así pues, como ejemplo, codificaríamos una persona en el fichero `Persona.php` como:
+Així doncs, com a exemple, codificaríem una persona en el fitxer `Persona.php` com:
 
 ``` php
 <?php
@@ -87,20 +78,20 @@ $bruno->setNombre("Bruno Díaz");
 $bruno->imprimir();
 ```
 
-Aunque se pueden declarar varias clases en el mismo archivo, es una mala práctica. Así pues, cada fichero contedrá una sola clase, y se nombrará con el nombre de la clase.
+Encara que es poden declarar diverses classes en el mateix arxiu, és una mala pràctica. Així doncs, cada fitxer contedrá una sola classe, i es nomenarà amb el nom de la classe.
 
-## Encapsulación
+## Encapsulació
 
-Las propiedades se definen privadas o protegidas (si queremos que las clases heredadas puedan acceder).
+Les propietats es defineixen privades o protegides (si volem que les classes heretades puguen accedir).
 
-Para cada propiedad, se añaden métodos públicos (*getter/setter*):
+Per a cada propietat, s'afigen mètodes públics (*getter/setter*):
 
 ``` php
 public setPropiedad(tipo $param)
 public getPropiedad() : tipo
 ```
 
-Las constantes se definen públicas para que sean accesibles por todos los recursos.
+Les constants es defineixen públiques perquè siguen accessibles per tots els recursos.
 
 ``` php
 <?php
@@ -126,12 +117,12 @@ class MayorMenor {
 }
 ```
 
-### Recibiendo y enviando objetos
+### Rebent i enviant objectes
 
-Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone `?` delante del nombre de la clase.
+És recomanable indicar-ho en la mena de paràmetres. Si l'objecte pot retornar nuls es posa `?` davant del nom de la classe.
 
-!!! important "Objetos por referencia"
-    Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.
+!!! important "Objectes per referència"
+    Els objectes que s'envien i reben com a paràmetres sempre es passen per referència.
 
 ``` php hl_lines="2"
 <?php
@@ -153,8 +144,8 @@ echo "<br>Menor: ".$resultado->getMenor();
 
 ## Constructor
 
-El constructor de los objetos se define mediante el método mágico `__construct`.
-Puede o no tener parámetros, pero sólo puede haber un único constructor.
+El constructor dels objectes es defineix mitjançant el mètode màgic `__construct`.
+Pot o no tindre paràmetres, però només pot haver-hi un únic constructor.
 
 ``` php hl_lines="5"
 <?php
@@ -175,13 +166,13 @@ $bruno = new Persona("Bruno Díaz");
 $bruno->imprimir();
 ```
 
-### Constructores en PHP 8
+### Constructors en PHP 8
 
-Una de las grandes novedades que ofrece PHP 8 es la simplificación de los constructores con parámetros, lo que se conoce como *promoción de las propiedades del constructor*.
+Una de les grans novetats que ofereix PHP 8 és la simplificació dels constructors amb paràmetres, la qual cosa es coneix com a promoció de les propietats del constructor*.
 
-Para ello, en vez de tener que declarar las propiedades como privadas o protegidas, y luego dentro del constructor tener que asignar los parámetros a estás propiedades, el propio constructor promociona las propiedades.
+Per a això, en comptes d'haver de declarar les propietats com a privades o protegides, i després dins del constructor haver d'assignar els paràmetres a estàs propietats, el propi constructor promociona les propietats.
 
-Veámoslo mejor con un ejemplo. Imaginemos una clase `Punto` donde queramos almacenar sus coordenadas:
+Vegem-ho millor amb un exemple. Imaginem una classe `Punt` on vulguem emmagatzemar les seues coordenades:
 
 ``` php
 <?php
@@ -202,7 +193,7 @@ class Punto {
 }
 ```
 
-En PHP 8, quedaría del siguiente modo (mucho más corto, lo que facilita su legibilidad):
+En PHP 8, quedaria de la següent manera (molt més curt, la qual cosa facilita la seua llegibilitat):
 
 ``` php
 <?php
@@ -215,8 +206,8 @@ class Punto {
 }
 ```
 
-!!! info "El orden importa"
-    A la hora de codificar el orden de los elementos debe ser:
+!!! info "L'ordre importa"
+    A l'hora de codificar l'ordre dels elements ha de ser:
 
     ``` php
     <?php
@@ -234,14 +225,14 @@ class Punto {
     ?>
     ```
 
-## Clases estáticas
+## Classes estàtiques
 
-Son aquellas que tienen propiedades y/o métodos estáticos (también se conocen como *de clase*, por que su valor se comparte entre todas las instancias de la misma clase).
+Són aquelles que tenen propietats i/o mètodes estàtics (també es coneixen com *de classe*, perquè el seu valor es comparteix entre totes les instàncies de la mateixa classe).
 
-Se declaran con `static` y se referencian con `::`.
+Es declaren amb `static` i es referencien amb `::`.
 
-* Si queremos acceder a un método estático, se antepone el nombre de la clase: `Producto::nuevoProducto()`.
-* Si desde un método queremos acceder a una propiedad estática de la misma clase, se utiliza la referencia `self`: `self::$numProductos`
+* Si volem accedir a un mètode estàtic, s'anteposa el nom de la classe: `Producte::nuevoProducto()`.
+* Si des d'un mètode volem accedir a una propietat estàtica de la mateixa classe, s'utilitza la referència `self`: `self::$numProductos`
 
 ``` php
 <?php
@@ -258,7 +249,9 @@ Producto::nuevoProducto();
 $impuesto = Producto::IVA;
 ```
 
-También podemos tener clases normales que tengan alguna propiedad estática:
+## Classes estàtiques
+
+També podem tindre classes normals que tinguen alguna propietat estàtica:
 
 ``` php
 <?php
@@ -283,18 +276,18 @@ $prod3 = new Producto("Nintendo Switch");
 echo $prod3->mostrarResumen();
 ```
 
-## Introspección
+## Introspecció
 
-Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que permiten obtener información sobre los objetos:
+En treballar amb classes i objectes, existeixen un conjunt de funcions ja definides pel llenguatge que permeten obtindre informació sobre els objectes:
 
-* `instanceof`: permite comprobar si un objeto es de una determinada clase
-* `get_class`: devuelve el nombre de la clase
-* `get_declared_class`: devuelve un array con los nombres de las clases definidas
-* `class_alias`: crea un alias
-* `class_exists` / `method_exists` / `property_exists`: `true` si la clase / método / propiedad está definida
-* `get_class_methods` / `get_class_vars` / `get_object_vars`: Devuelve un array con los nombres de los métodos / propiedades de una clase / propiedades de un objeto que son accesibles desde dónde se hace la llamada.
+* `instanceof`: permet comprovar si un objecte és d'una determinada classe
+* `get_class`: retorna el nom de la classe
+* `get_declared_class`: retorna un array amb els noms de les classes definides
+* `class_àlies`: crea un àlies
+* `class_exists` / `method_exists` / `property_exists`: `true` si la classe / mètode / propietat està definida
+* `get_class_methods` / `get_class_vars` / `get_object_vars`: Retorna un array amb els noms dels mètodes / propietats d'una classe / propietats d'un objecte que són accessibles des d'on es fa la crida.
 
-Un ejemplo de estas funciones puede ser el siguiente:
+Un exemple d'aquestes funcions pot ser el següent:
 
 ``` php
 <?php
@@ -316,28 +309,27 @@ if ($p instanceof Producto) {
     }
 }
 ```
+!!! caution "Clonat"
+    En assignar dos objectes no es copien, es crea una nova referència. Si volem una còpia, cal clonar-ho mitjançant el mètode `clone(object) : object`
 
-!!! caution "Clonado"
-    Al asignar dos objetos no se copian, se crea una nueva referencia. Si queremos una copia, hay que clonarlo mediante el método `clone(object) : object`
+    Si volem modificar el clonat per defecte, cal definir el mètode màgic `__clone()` que es dirà després de copiar totes les propietats.
 
-    Si queremos modificar el clonado por defecto, hay que definir el método mágico `__clone()` que se llamará después de copiar todas las propiedades.
+    Més informació en <https://www.php.net/manual/es/language.oop5.cloning.php>
 
-    Más información en <https://www.php.net/manual/es/language.oop5.cloning.php>
+## Herència
 
-## Herencia
-
-PHP soporta herencia simple, de manera que una clase solo puede heredar de otra, no de dos clases a la vez. Para ello se utiliza la palabra clave `extends`. Si queremos que la clase A hereda de la clase B haremos:
+PHP suporta herència simple, de manera que una classe només pot heretar d'una altra, no de dues classes alhora. Per a això s'utilitza la paraula clau `extends`. Si volem que la classe A hereta de la classe B farem:
 
 ``` php
 class A extends B
 ```
 
-El hijo hereda los atributos y métodos públicos y protegidos.
+El fill hereta els atributs i mètodes públics i protegits.
 
-!!! warning "Cada clase en un archivo"
-    Como ya hemos comentado, deberíamos colocar cada clase en un archivo diferente para posteriormente utilizarlo mediante `include`. En los siguiente ejemplo los hemos colocado junto para facilitar su legibilidad.
+!!! warning "Cada classe en un arxiu"
+Com ja hem comentat, hauríem de col·locar cada classe en un arxiu diferent per a posteriorment utilitzar-lo mitjançant `include`. En els següent exemple els hem col·locats junt per a facilitar la seua llegibilitat.
 
-Por ejemplo, tenemos una clase `Producto` y una `Tv` que hereda de `Producto`:
+Per exemple, tenim una classe `Producte` i una `Tv` que hereta de `Producte`:
 
 ``` php
 <?php
@@ -381,10 +373,10 @@ if (is_subclass_of($t, 'Producto')) {
 }
 ```
 
-### Sobreescribir métodos
+### Sobreescriure mètodes
 
-Podemos crear métodos en los hijos con el mismo nombre que el padre, cambiando su comportamiento.
-Para invocar a los métodos del padre -> `parent::nombreMetodo()`
+Podem crear mètodes en els fills amb el mateix nom que el pare, canviant el seu comportament.
+Per a invocar als mètodes del pare -> `parent::nombreMetodo()`
 
 ``` php
 <?php
@@ -399,9 +391,9 @@ class Tv extends Producto {
 }
 ```
 
-### Constructor en hijos
+### Constructor en fills
 
-En los hijos no se crea ningún constructor de manera automática. Por lo que si no lo hay, se invoca automáticamente al del padre. En cambio, si lo definimos en el hijo, hemos de invocar al del padre de manera explícita.
+En els fills no es crea cap constructor de manera automàtica. Pel que si no n'hi ha, s'invoca automàticament al del pare. En canvi, si el definim en el fill, hem d'invocar al del pare de manera explícita.
 
 === "PHP7"
 
@@ -465,10 +457,10 @@ En los hijos no se crea ningún constructor de manera automática. Por lo que si
     }
     ```
 
-## Clases abstractas
+## Classes abstractes
 
-Las clases abstractas obligan a heredar de una clase, ya que no se permite su instanciación. Se define mediante `abstract class NombreClase {`.  
-Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o métodos abstractos.
+Les classes abstractes obliguen a heretar d'una classe, ja que no es permet la seua instanciación. Es defineix mitjançant `abstract class NombreClase {`.
+Una classe abstracta pot contindre propietats i mètodes no-abstractes, i/o mètodes abstractes.
 
 ``` php
 <?php
@@ -483,7 +475,7 @@ abstract class Producto {
 }
 ```
 
-Cuando una clase hereda de una clase abstracta, obligatoriamente debe implementar los métodos que tiene el padre marcados como abstractos.
+Quan una classe hereta d'una classe abstracta, obligatòriament ha d'implementar els mètodes que té el pare marcats com a abstractes.
 
 ``` php
 <?php
@@ -501,9 +493,9 @@ $t = new Tv();
 echo $t->getCodigo();
 ```
 
-## Clases finales
+## Classes finals
 
-Son clases opuestas a abstractas, ya que evitan que se pueda heredar una clase o método para sobreescribirlo.
+Són classes oposades a abstractes, ja que eviten que es puga heretar una classe o mètode per a sobreescriure-ho.
 
 ``` php
 <?php
@@ -531,11 +523,11 @@ final class Microondas extends Producto {
 }
 ```
 
-## Interfaces
+## Interfícies
 
-Permite definir un contrato con las firmas de los métodos a cumplir. Así pues, sólo contiene declaraciones de funciones y todas deben ser públicas.
+Permet definir un contracte amb les signatures dels mètodes a complir. Així doncs, només conté declaracions de funcions i totes han de ser públiques.
 
-Se declaran con la palabra clave `interface` y luego las clases que cumplan el contrato lo realizan mediante la palabra clave `implements`.
+Es declaren amb la paraula clau `interface` i després les classes que complisquen el contracte el realitzen mitjançant la paraula clau `implements`.
 
 ``` php
 <?php
@@ -568,9 +560,9 @@ class Producto implements MostrableTodo, Facturable {
 }
 ```
 
-## Métodos encadenados
+## Mètodes encadenats
 
-Sigue el planteamiento de la programación funcional, y también se conoce como *method chaining*. Plantea que sobre un objeto se realizan varias llamadas.
+Segueix el plantejament de la programació funcional, i també es coneix com *method chaining*. Planteja que sobre un objecte es realitzen diverses crides.
 
 ``` php
 <?php
@@ -585,7 +577,7 @@ $p2->setNombre("Patria")->setAutor("Aramburu");
 echo $p2;
 ```
 
-Para facilitarlo, vamos a modificar todos sus métodos mutadores (que modifican datos, *setters*, ...) para que devuelvan una referencia a `$this`:
+Per a facilitar-ho, modificarem tots els seus mètodes mutadores (que modifiquen dades, setters*, ...) perquè retornen una referència a `$this`:
 
 ``` php
 <?php
@@ -615,40 +607,40 @@ class Libro {
 }
 ```
 
-## Métodos mágicos
+## Mètodes màgics
 
-Todas las clases PHP ofrecen un conjunto de métodos, también conocidos como *magic methods* que se pueden sobreescribir para sustituir su comportamiento. Algunos de ellos ya los hemos utilizado.
+Totes les classes PHP ofereixen un conjunt de mètodes, també coneguts com *magic methods* que es poden sobreescriure per a substituir el seu comportament. Alguns d'ells ja els hem utilitzats.
 
-Ante cualquier duda, es conveniente consultar la [documentación oficial](https://www.php.net/manual/es/language.oop5.magic.php).
+Davant qualsevol dubte, és convenient consultar la [documentació oficial](https://www.php.net/manual/es/language.oop5.magic.php).
 
-Los más destacables son:
+Els més destacables són:
 
 * `__construct()`
-* `__destruct()` → se invoca al perder la referencia. Se utiliza para cerrar una conexión a la BD, cerrar un fichero, ...
-* `__toString()` → representación del objeto como cadena. Es decir, cuando hacemos `echo $objeto` se ejecuta automáticamente este método.
-* `__get(propiedad)`, `__set(propiedad, valor)` → Permitiría acceder a las propiedad privadas, aunque siempre es más legible/mantenible codificar los *getter/setter*.
-* `__isset(propiedad)`, `__unset(propiedad)` → Permite averiguar o quitar el valor a una propiedad.
-* `__sleep()`, `__wakeup()` → Se ejecutan al recuperar (*unserialize^*) o almacenar un objeto que se serializa (*serialize*), y se utilizan para permite definir qué propiedades se serializan.
-* `__call()`, `__callStatic()` → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.
+* `__destruct()` → s'invoca en perdre la referència. S'utilitza per a tancar una connexió a la BD, tancar un fitxer, ...
+* `__toString()` → representació de l'objecte com a cadena. És a dir, quan fem `tire $objecte` s'executa automàticament aquest mètode.
+* `__get(propietat)`, `__set(propietat, valor)` → Permetria accedir a les propietat privades, encara que sempre és més llegible/mantenible codificar els *getter/setter*.
+* `__isset(propietat)`, `__unset(propietat)` → Permet esbrinar o llevar el valor a una propietat.
+* `__sleep()`, `__wakeup()` → S'executen en recuperar (*unserialize^) o emmagatzemar un objecte que se serialitza (*serialize), i s'utilitzen per a permet definir quines propietats se serialitzen.
+* `__call()`, `__callStatic()` → S'executen en cridar a un mètode que no és públic. Permeten sobrecarreguen mètodes.
 
-## Espacio de nombres
+## Espai de noms
 
-Desde PHP 5.3 y también conocidos como *Namespaces*, permiten organizar las clases/interfaces, funciones y/o constantes de forma similar a los paquetes en *Java*.
+Des de PHP 5.3 i també coneguts com *Namespaces*, permeten organitzar les classes/interfícies, funcions i/o constants de manera similar als paquets a *Java*.
 
-!!! tip "Recomendación"
-    Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en *Java*)
+!!! tip "Recomanació"
+    Un només namespace per arxiu i crear una estructura de carpetes respectant els anivelles/subnivells (igual que es fa a Java)
 
-Se declaran en la primera línea mediante la palabra clave `namespace` seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida `\`):
+Es declaren en la primera línia mitjançant la paraula clau `namespace` seguida del nom de l'espai de noms assignat (cada subnivell se separa amb la barra invertida `\`):
 
-Por ejemplo, para colocar la clase `Producto` dentro del *namespace* `Dwes\Ejemplos` lo haríamos así:
+Per exemple, per a col·locar la classe `Producte` dins del *namespace* `Dwes\Exemples` ho faríem així:
 
 ``` php
 <?php
-namespace Dwes\Ejemplos;
+namespace Dwes\Exemples;
 
 const IVA = 0.21;
 
-class Producto {
+class Producte {
     public $nombre;
       
     public function muestra() : void {
@@ -657,15 +649,15 @@ class Producto {
 }
 ```
 
-### Acceso
+### Accés
 
-Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de `include` o `require`. Si el recurso está en el mismo *namespace*, se realiza un acceso directo (se conoce como acceso sin cualificar).
+Per a referenciar a un recurs que conté un namespace, primer hem de tindre'l disponible fent ús de `include` o `require`. Si el recurs està en el mateix *namespace*, es realitza un accés directe (es coneix com a accés sense qualificar).
 
-Realmente hay tres tipos de acceso:
+Realment hi ha tres tipus d'accés:
 
-* sin cualificar: `recurso`
-* cualificado: `rutaRelativa\recurso` → no hace falta poner el *namespace* completo
-* totalmente cualificado: `\rutaAbsoluta\recurso`
+* sense qualificar: `recurs`
+* qualificat: `rutaRelativa\recurs` → no fa falta posar el *namespace* complet
+* totalment qualificat: `\rutaAbsoluta\recurs`
 
 ``` php
 <?php
@@ -682,52 +674,54 @@ $p2 = new Model\Producto(); // daría error, no existe el namespace Model. Es
 $p3 = new \Dwes\Ejemplos\Producto(); // \Dwes\Ejemplos\Producto
 ```
 
-Para evitar la referencia cualificada podemos declarar el uso mediante `use` (similar a hacer `import` en *Java*). Se hace en la cabecera, tras el `namespace`:
+### Accés
 
-Los tipos posibles son:
+Per a evitar la referència qualificada podem declarar l'ús mitjançant `use` (similar a fer `import` a Java). Es fa en la capçalera, després del `namespace`:
+
+Els tipus Posibles són:
 
 * `use const nombreCualificadoConstante`
 * `use function nombreCualificadoFuncion`
 * `use nombreCualificadoClase`
-* `use nombreCualificadoClase as NuevoNombre` // para renombrar elementos
+* `use nombreCualificadoClase as NuevoNombre` // per a canviar de nom elements
 
-Por ejemplo, si queremos utilizar la clase `\Dwes\Ejemplos\Producto` desde un recurso que se encuentra en la raíz, por ejemplo en `inicio.php`, haríamos:
+Per exemple, si volem utilitzar la classe `\Dwes\Exemples\Producte` des d'un recurs que es troba en l'arrel, per exemple en `inici.php`, faríem:
 
 ``` php
 <?php
-include_once("Dwes\Ejemplo\Producto.php");
+include_once("Dwes\Exemples\Producte.php");
 
-use const Dwes\Ejemplos\IVA;
-use \Dwes\Ejemplos\Producto;
+use const Dwes\Exemples\IVA;
+use \Dwes\Exemples\Producte;
 
 echo IVA;
-$p1 = new Producto();
+$p1 = new Producte();
 ```
 
 !!! tip "To `use` or not to `use`"
-    En resumen, `use` permite acceder sin cualificar a recursos que están en otro *namespace*. Si estamos en el mismo espacio de nombre, no necesitamos `use`.
+    En resum, `use` permet accedir sense qualificar a recursos que estan en un altre *namespace*. Si estem en el mateix espai de nom, no necessitem `use`.
 
-### Organización
+### Organització
 
-Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización en la que los archivos que interactuan con el navegador se colocan en el raíz, y las clases que definamos van dentro de un namespace (y dentro de su propia carpeta `src` o `app`).
+Tot projecte, conforme creix, necessita organitzar el seu codi font. Es planteja una organització en la qual els arxius que interactuan amb el navegador es col·loquen en l'arrel, i les classes que definim van dins d'un namespace (i dins de la seua pròpia carpeta `src` o `app`).
 
 <figure>
 <img src="imagenes/03/03organizacion.png">
-<figcaption>Organización del código fuente</figcaption>
+<figcaption>Organització del codi font</figcaption>
 </figure>
 
-!!! tip "Organización, includes y usos"
-    * Colocaremos cada recurso en un fichero aparte.
-    * En la primera línea indicaremos su *namespace* (si no está en el raíz).
-    * Si utilizamos otros recursos, haremos un `include_once` de esos recursos (clases, interfaces, etc...).
-        * Cada recurso debe incluir todos los otros recursos que referencie: la clase de la que hereda, interfaces que implementa, clases utilizadas/recibidas como parámetros, etc...
-    * Si los recursos están en un espacio de nombres diferente al que estamos, emplearemos `use` con la ruta completa para luego utilizar referencias sin cualificar.
+!!! tip "Organització, includes i usos"
+    * Col·locarem cada recurs en un fitxer a part.
+    * En la primera línia indicarem la seua *namespace* (si no està en l'arrel).
+    * Si utilitzem altres recursos, farem un `include_once` d'aqueixos recursos (classes, interfícies, etc...).
+    * Cada recurs ha d'incloure tots els altres recursos que referencie: la classe de la qual hereta, interfícies que implementa, classes utilitzades/rebudes com a paràmetres, etc...
+    * Si els recursos estan en un espai de noms diferent al que estem, emprarem `use` amb la ruta completa per a després utilitzar referències sense qualificar.
 
 ### Autoload
 
-¿No es tedioso tener que hacer el `include` de las clases? El *autoload* viene al rescate.
+No és tediós haver de fer el `include` de les classes? El autolloeu* ve al rescat.
 
-Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el `include_once` de cada una de ellas. Para ello, se utiliza la función `spl_autoload_register`
+Així doncs, permet carregar les classes (no les constants ni les funcions) que s'utilitzaran i evitar haver de fer el `include_onze` de cadascuna d'elles. Per a això, s'utilitza la funció `spl_autolloeu_register`
 
 ``` php
 <?php
@@ -737,19 +731,19 @@ spl_autoload_register( function( $nombreClase ) {
 ?>
 ```
 
-!!! question "¿Por qué se llaman *autoload*?"
-    Porque antes se realizaba mediante el método mágico `__autoload()`, el cual está *deprecated* desde PHP 7.2
+!!! question "Per què es diuen autoload?"
+    Perquè abans es realitzava mitjançant el mètode màgic `__autoload()`, el qual està *deprecated* des de PHP 7.2
 
-Y ¿cómo organizamos ahora nuestro código aprovechando el *autoload*?
+I com organitzem ara el nostre codi aprofitant el autoload?
 
 <figure style="float: right;">
     <img src="imagenes/03/03autoload.png" width="600">
-    <figcaption>Organización con autoload</figcaption>
+    <figcaption>Organització amb autoload</figcaption>
 </figure>
 
-Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de `app` (más adelante, cuando estudiemos *Laravel* veremos el motivo de esta decisión). Otras carpetas que podemos crear son `test` para colocar las pruebas *PhpUnit* que luego realizaremos, o la carpeta `vendor` donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que *Composer* la crea automáticamente).
+Per a facilitar la cerca dels recursos a incloure, és recomanable col·locar totes les classes dins d'una mateixa carpeta. Nosaltres la col·locarem dins de `app` (més endavant, quan estudiem *Laravel* veurem el motiu d'aquesta decisió). Altres carpetes que podem crear són `test` per a col·locar les proves *PhpUnit* que després realitzarem, o la carpeta `vendor` on s'emmagatzemaran les llibreries del projecte (aquesta carpeta és un estándard dins de PHP, ja que *Composer* la crea automàticament).
 
-Como hemos colocado todos nuestros recursos dentro de `app`, ahora nuestro `autoload.php` (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:
+Com hem col·locat tots els nostres recursos dins de `app`, ara nostre `autoload.php` (el qual col·loquem en la carpeta arrel) només buscarà dins d'aqueixa carpeta:
 
 ``` php
 <?php
@@ -759,9 +753,8 @@ spl_autoload_register( function( $nombreClase ) {
 ?>
 ```
 
-!!! tip "Autoload y rutas erróneas"
-    En *Ubuntu* al hacer el *include* de la clase que recibe como parámetro, las barras de los namespace (`\`) son diferentes a las de las rutas (`/`). Por ello, es mejor que utilicemos el fichero autoload:
-
+!!! tip "autolloeu i rutes errònies"
+    En *Ubuntu* en fer el *include* de la classe que rep com a paràmetre, les barres dels namespace (`\`) són diferents a les de les rutes (`/`). Per això, és millor que utilitzem el fitxer autoload:
     ``` php
     <?php
     spl_autoload_register( function( $nombreClase ) {
@@ -772,29 +765,29 @@ spl_autoload_register( function( $nombreClase ) {
     ?>
     ```
 
-## Gestión de Errores
+## Gestió d'Errors
 
-PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:
+PHP classifica els errors que ocorren en diferents nivells. Cada nivell s'identifica amb una constant. Per exemple:
 
-* `E_ERROR`: errores fatales, no recuperables. Se interrumpe el script.
-* `E_WARNING`: advertencias en tiempo de ejecución. El script no se interrumpe.
-* `E_NOTICE`: avisos en tiempo de ejecución.  
+* `E_ERROR`: errors fatals, no recuperables. S'interromp el script.
+* `E_WARNING`: advertiments en temps d'execució. El script no s'interromp.
+* `E_NOTICE`: avisos en temps d'execució.
 
-Podéis comprobar el listado completo de constantes de <https://www.php.net/manual/es/errorfunc.constants.php>
+Podeu comprovar el llistat complet de constants de <https://www.php.net/manual/es/errorfunc.constants.php>
 
-Para la configuración de los errores podemos hacerlo de dos formas:
+Per a la configuració dels errors podem fer-ho de dues formes:
 
-* A nivel de `php.ini`:
-    * `error_reporting`: indica los niveles de errores a notificar
-        * `error_reporting = E_ALL & ~E_NOTICE` -> Todos los errores menos los avisos en tiempo de ejecución.
-    * `display_errors`: indica si mostrar o no los errores por pantalla. En entornos de producción es común ponerlo a `off`
-* mediante código con las siguientes funciones:
-    * `error_reporting(codigo)` -> Controla qué errores notificar
-    * `set_error_handler(nombreManejador)` -> Indica que función se invocará cada vez que se encuentre un error. El manejador recibe como parámetros el nivel del error y el mensaje
+* A nivell de `php.ini`:
+  * `error_reporting`: indica els nivells d'errors a notificar
+    * `error_reporting = E_ALL & ~E_NOTICE` -> Tots els errors menys els avisos en temps d'execució.
+  * `display_errors`: indica si mostrar o no els errors per pantalla. En entorns de producció és comuna posar-ho a `off`
+  * mitjançant codi amb les següents funcions:
+    * `error_reporting(codigo)` -> Controla quins errors notificar
+    * `set_error_handler(nombreManejador)` -> Indica que funció s'invocarà cada vegada que es trobe un error. El manejador rep com a paràmetres el nivell de l'error i el missatge
 
-A continuación tenemos un ejemplo mediante código:
+A continuació tenim un exemple mitjançant codi:
 
-=== "Funciones para la gestión de errores"
+=== "Funcions per a la gestió d'errors"
 
     ``` php
     <?php
@@ -825,10 +818,10 @@ A continuación tenemos un ejemplo mediante código:
     Error de tipo Warning: Division by zero.
     ```
 
-## Excepciones
+## Excepcions
 
-La gestión de excepciones forma parte desde PHP 5. Su funcionamiento es similar a *Java*, haciendo uso de un bloque `try / catch / finally`.
-Si detectamos una situación anómala y queremos lanzar una excepción, deberemos realizar `throw new Exception` (adjuntando el mensaje que lo ha provocado).
+La gestió d'excepcions forma part des de PHP 5. El seu funcionament és similar a Java*, fent ús d'un bloc `try / catch / finally`.
+Si detectem una situació anòmala i volem llançar una excepció, haurem de realitzar `throw new Exception` (adjuntant el missatge que l'ha provocat).
 
 ``` php
 <?php
@@ -842,22 +835,22 @@ try {
 }
 ```
 
-La clase `Exception` es la clase padre de todas las excepciones. Su constructor recibe `mensaje[,codigoError][,excepcionPrevia]`.
+La classe `Exception` és la classe pare de totes les excepcions. El seu constructor rep `missatge[,codigoError][,excepcionPrevia]`.
 
-A partir de un objeto `Exception`, podemos acceder a los métodos `getMessage()`y `getCode()` para obtener el mensaje y el código de error de la excepción capturada.
+A partir d'un objecte `Exception`, podem accedir als mètodes `getMessage()`i `getCode()` per a obtindre el missatge i el codi d'error de l'excepció capturada.
 
-El propio lenguaje ofrece un conjunto de excepciones ya definidas, las cuales podemos capturar (y lanzar desde PHP 7). Se recomienda su consulta en la [documentación oficial](https://www.php.net/manual/es/class.exception.php).
+El propi llenguatge ofereix un conjunt d'excepcions ja definides, les quals podem capturar (i llançar des de PHP 7). Es recomana la seua consulta en la [documentació oficial](https://www.php.net/manual/es/class.exception.php).
 
-### Creando excepciones
+### Creant excepcions
 
-Para crear una excepción, la forma más corta es crear una clase que únicamente herede de `Exception`.
+Per a crear una excepció, la forma més curta és crear una classe que únicament herete de `Exception`.
 
 ``` php
 <?php
 class HolaExcepcion extends Exception {}
 ```
 
-Si queremos, y es recomendable dependiendo de los requisitos, podemos sobrecargar los métodos mágicos, por ejemplo, sobrecargando el constructor y llamando al constructor del padre, o rescribir el método `__toString` para cambiar su mensaje:
+Si volem, i és recomanable depenent dels requisits, podem sobrecarregar els mètodes màgics, per exemple, sobrecarregant el constructor i cridant al constructor del pare, o reescriure el mètode `__toString` per a canviar el seu missatge:
 
 ``` php
 <?php
@@ -875,16 +868,16 @@ class MiExcepcion extends Exception {
 }
 ```
 
-Si definimos una excepción de aplicación dentro de un *namespace*, cuando referenciemos a `Exception`, deberemos referenciarla mediante su nombre totalmente cualificado (`\Exception`), o utilizando `use`:
+Si definim una excepció d'aplicació dins d'un *namespace*, quan referenciem a `Exception`, haurem de referenciar-la mitjançant el seu nom totalment qualificat (`\Exception`), o utilitzant `use`:
 
-=== "Mediante nombre totalmente cualificado"
+=== "Mitjançant nom totalment qualificat"
     ``` php
     <?php
     namespace \Dwes\Ejemplos;
 
     class AppExcepcion extends \Exception {}
     ```
-=== "Mediante `use`"
+=== "Mitjançant `use`"
     ``` php
     <?php
     namespace \Dwes\Ejemplos;
@@ -894,9 +887,9 @@ Si definimos una excepción de aplicación dentro de un *namespace*, cuando refe
     class AppExcepcion extends Exception {}
     ```
 
-### Excepciones múltiples
+### Excepcions múltiples
 
-Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.
+Es poden usar excepcions múltiples per a comprovar diferents condicions. A l'hora de capturar-les, es fa de més específica a més general.
 
 ``` php
 <?php
@@ -935,7 +928,7 @@ try {
     }
     ```
 
-Si en el mismo `catch` queremos capturar varias excepciones, hemos de utilizar el operador `|`:
+Si en el mateix `catch` volem capturar diverses excepcions, hem d'utilitzar l'operador `|`:
 
 ``` php
 <?php
@@ -949,7 +942,7 @@ try {
 }
 ```
 
-Desde PHP 7, existe el tipo `Throwable`, el cual es un interfaz que implementan tanto los errores como las excepciones, y nos permite capturar los dos tipos a la vez:
+Des de PHP 7, existeix el tipus `Throwable`, el qual és una interfície que implementen tant els errors com les excepcions, i ens permet capturar els dos tipus alhora:
 
 ``` php
 <?php
@@ -960,7 +953,7 @@ try {
 }
 ```
 
-Si sólo queremos capturar los errores fatales, podemos hacer uso de la clase `Error`:
+Si només volem capturar els errors fatals, podem fer ús de la classe `Error`:
 
 ``` php
 <?php
@@ -974,10 +967,10 @@ try {
 }
 ```
 
-### Relanzar excepciones
+### Rellançar excepcions
 
-En las aplicaciones reales, es muy común capturar una excepción de sistema y lanzar una de aplicación que hemos definido nostros.
-También podemos lanzar las excepciones sin necesidad de estar dentro de un `try/catch`.
+En les aplicacions reals, és molt comuna capturar una excepció de sistema i llançar una d'aplicació que hem definit nostros.
+També podem llançar les excepcions sense necessitat d'estar dins d'un `try/catch`.
 
 ``` php
 <?php
@@ -992,16 +985,16 @@ try {
 
 ## SPL
 
-*Standard PHP Library* es el conjunto de funciones y utilidades que ofrece PHP, como:
+*Standard PHP Library* és el conjunt de funcions i utilitats que ofereix PHP, com:
 
-* Estructuras de datos
-    * Pila, cola, cola de prioridad, lista doblemente enlazada, etc... 
-* Conjunto de iteradores diseñados para recorrer estructuras agregadas
-    * arrays, resultados de bases de datos, árboles XML, listados de directorios, etc.
+* Estructures de dades
+* Pila, cua, cua de prioritat, llista doblement enllaçada, etc...
+* Conjunt de iteradores dissenyats per a recórrer estructures agregades
+* arrays, resultats de bases de dades, arbres XML, llistats de directoris, etc.
 
-Podéis consultar la documentación en <https://www.php.net/manual/es/book.spl.php> o ver algunos ejemplos en <https://diego.com.es/tutorial-de-la-libreria-spl-de-php>
+Podeu consultar la documentació en <https://www.php.net/manual/es/book.spl.php> o veure alguns exemples en <https://diego.com.es/tutorial-de-la-libreria-spl-de-php>
 
-También define un conjunto de excepciones que podemos utilizar para que las lancen nuestras aplicaciones:
+També defineix un conjunt d'excepcions que podem utilitzar perquè les llancen les nostres aplicacions:
 
 * `LogicException` (`extends Exception`)
     * `BadFunctionCallException`
@@ -1017,52 +1010,50 @@ También define un conjunto de excepciones que podemos utilizar para que las lan
     * `UnderflowException`
     * `UnexpectedValueException`
 
-También podéis consultar la documentación de estas excepciones en <https://www.php.net/manual/es/spl.exceptions.php>.
+També podeu consultar la documentació d'aquestes excepcions en <https://www.php.net/manual/es/spl.exceptions.php>.
 
-## Referencias
+## Referències
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [Manual de OO en PHP - www.desarrolloweb.com](https://desarrolloweb.com/manuales/manual-php.html#manual68)
-## Actividades
 
-300. Investiga la diferencia entre un paradigma orientado a objetos basado en clases (*PHP*) respecto a uno basado en prototipos (*JavaScript*).
+## Activitats
+
+300. Investiga la diferència entre un paradigma orientat a objectes basat en classes (*PHP*) respecte a un basat en prototips (JavaScript).
 
 ### Objetos
 
-301. `301Empleado.php`: Crea una clase `Empleado` con su nombre, apellidos y sueldo.
-Encapsula las propiedades mediante *getters/setters* y añade métodos para:
-    * Obtener su nombre completo → `getNombreCompleto(): string`
-    * Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → `debePagarImpuestos(): bool`
-302. `302EmpleadoTelefonos.php`: Copia la clase del ejercicio anterior y modifícala.
-Añade una propiedad privada que almacene un array de números de teléfonos.
-Añade los siguientes métodos:
-    * `public function anyadirTelefono(int $telefono) : void` → Añade un teléfono al array
-    * `public function listarTelefonos(): string` → Muestra los teléfonos separados por comas
-    * `public function vaciarTelefonos(): void` → Elimina todos los teléfonos
-303. `303EmpleadoConstructor.php`: Copia la clase del ejercicio anterior y modifícala.
-Elimina los *setters* de `nombre` y `apellidos`, de manera que dichos datos se asignan mediante el constructor (utiliza la sintaxis de PHP7).
-Si el constructor recibe un tercer parámetro, será el sueldo del `Empleado`. Si no, se le asignará 1000€ como sueldo inicial.
+301. `301Empleado.php`: Crea una classe `Emprat` amb el seu nom, cognoms i sou.
+     Encapsula les propietats mitjançant *getters/setters* i afig mètodes per a:
+     * Obtindre el seu nom complet → `getNombreCompleto(): string`
+     * Que retorne un booleà indicant si deu o no pagar impostos (es paguen quan el sou és superior a 3333€) → `debePagarImpuestos(): bool`
+302. `302EmpleadoTelefonos.php`: Còpia la classe de l'exercici anterior i modifica-la.
+     Afig una propietat privada que emmagatzeme un array de nombres de telèfons.
+     Afig els següents mètodes:
+     * `public function anyadirTelefono(int $telefono) : void` → Afig un telèfon al array
+     * `public function listarTelefonos(): string` → Mostra els telèfons separats per comes
+     * `public function vaciarTelefonos(): void` → Elimina tots els telèfons
+303. `303EmpleadoConstructor.php`: Còpia la classe de l'exercici anterior i modifica-la.
+     Elimina els setters* de `nom` i `cognoms`, de manera que aquestes dades s'assignen mitjançant el constructor (utilitza la sintaxi de PHP7).
+     Si el constructor rep un tercer paràmetre, serà el sou del `Empleat`. Si no, se li assignarà 1000€ com a sou inicial.
 
-    `303EmpleadoConstructor8.php`: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del constructor.
+`303EmpleadoConstructor8.php`: Modifica la classe i utilitza la sintaxi de PHP 8 de promoció de les propietats del constructor.
 
-304. `304EmpleadoConstante.php`: Copia la clase del ejercicio anterior y modifícala.
-Añade una constante `SUELDO_TOPE` con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.
-305. `305EmpleadoSueldo.php`: Copia la clase del ejercicio anterior y modifícala.
-Cambia la constante por una variable estática `sueldoTope`, de manera que mediante *getter/setter* puedas modificar su valor.
-306. `306EmpleadoStatic.php`: Copia la clase del ejercicio anterior y modifícala.
-Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada (para ello, deberás crear un *getter* para los teléfonos):
-    * `public static function toHtml(Empleado $emp): string`
+304. `304EmpleadoConstante.php`: Còpia la classe de l'exercici anterior i modifica-la.
+     Afig una constant `SOU_TOPALL` amb el valor del sou que ha de pagar impostos, i modifica el codi per a utilitzar la constant.
+305. `305EmpleadoSueldo.php`: Còpia la classe de l'exercici anterior i modifica-la.
+     Canvia la constant per una variable estàtica `sueldoTope`, de manera que mitjançant *getter/setter* pugues modificar el seu valor.306. `306EmpleadoStatic.php`: Copia la clase del ejercicio anterior y modifícala.
+306. Completa el següent mètode amb una cadena HTML que mostre les dades d'un empleat dins d'un paràgraf i tots els telèfons mitjançant una llista ordenada (per a això, hauràs de crear un *getter* per als telèfons):
+     * `public static function toHtml(Empleado $emp): string`
+ <figure style="float: right;">
+     <img src="imagenes/03/03p307.png">
+     <figcaption>Ejercicio 307</figcaption>
+ </figure>
+307. `307Persona.php`: Còpia la classe de l'exercici anterior en `307Empleado.php` i modifica-la.
+     Crea una classe `Persona` que siga pare de `Empleat`, de manera que `Persona` continga el nom i els cognoms, i en `Empleat` quede el salari i els telèfons.
 
-    <figure style="float: right;">
-        <img src="imagenes/03/03p307.png">
-        <figcaption>Ejercicio 307</figcaption>
-    </figure>
-
-307. `307Persona.php`: Copia la clase del ejercicio anterior en `307Empleado.php` y modifícala.  
-Crea una clase `Persona` que sea padre de `Empleado`, de manera que `Persona` contenga el nombre y los apellidos, y en `Empleado` quede el salario y los teléfonos.
-
-308. `308PersonaH.php`: Copia las clases del ejercicio anterior y modifícalas. Crea en `Persona` el método estático `toHtml(Persona $p)`, y modifica en `Empleado` el mismo método `toHtml(Persona $p)`, pero cambia la firma para que reciba una `Persona` como parámetro.  
-    Para acceder a las propiedades del empleado con la persona que recibimos como parámetro, comprobaremos su tipo:
+308. `308PersonaH.php`: Còpia les classes de l'exercici anterior i modifica-les. Crea en `Persona` el mètode estàtic `toHtml(Persona $p)`, i modifica en `Empleat` el mateix mètode `toHtml(Persona $p)`, però canvia la signatura perquè reba una `Persona` com a paràmetre.
+     Per a accedir a les propietats de l'empleat amb la persona que rebem com a paràmetre, comprovarem el seu tipus:
 
     ``` php
     <?php
@@ -1078,84 +1069,82 @@ Crea una clase `Persona` que sea padre de `Empleado`, de manera que `Persona` co
     }
     ```
 
-309. `309PersonaE.php`: Copia las clases del ejercicio anterior y modifícalas.  
-Añade en `Persona` un atributo `edad`  
-A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años y dependa del valor de su sueldo.
-Modifica todo el código necesario para mostrar y/o editar la edad cuando sea necesario.
+309. `309PersonaE.php`: Còpia les classes de l'exercici anterior i modifica-les.
+     Afig en `Persona` un atribut `edat`
+     A l'hora de saber si un empleat ha de pagar impostos, el farà sempre que tinga més de 21 anys i depenga del valor del seu sou.
+     Modifica tot el codi necessari per a mostrar i/o editar l'edat quan siga necessari.
 
-310. `310PersonaS.php`: Copia las clases del ejercicio anterior y modifícalas.  
-Añade nuevos métodos que hagan una representación de todas las propiedades de las clases `Persona` y `Empleado`, de forma similar a los realizados en HTML, pero sin que sean estáticos, de  manera que obtenga los datos mediante `$this`.
-    * `function public __toString(): string`
+310. `310PersonaS.php`: Còpia les classes de l'exercici anterior i modifica-les.
+     Afig nous mètodes que facen una representació de totes les propietats de les classes `Persona` i `Empleat`, de manera similar als realitzats en HTML, però sense que siguen estàtics, de manera que  obtinga les dades mitjançant `$this`.
+     * `function public __toString(): string`
 
 !!! tip "*Magic methods*"
-    El método `__toString()` es un método mágico que se invoca automáticamente cuando queremos obtener la representación en cadena de un objeto.
-
-311. `311PersonaA.php`: Copia las clases del ejercicio anterior y modifícalas.  
-Transforma `Persona` a una clase abstracta donde su método estático `toHtml(Persona $p)` tenga que ser redefinido en todos sus hijos.
-
-312. `312Trabajador.php`: Copia las clases del ejercicio anterior y modifícalas.
-    * Cambia la estructura de clases conforme al gráfico respetando todos los métodos que ya están hechos.
-    * `Trabajador` es una clase abstracta que ahora almacena los `telefonos` y donde `calcularSueldo` es un método abstracto de manera que:
-        * El sueldo de un `Empleado` se calcula a partir de las horas trabajadas y lo que cobra por hora.
-        * Para los `Gerente`s, su sueldo se incrementa porcentualmente en base a su edad: `salario + salario*edad/100`
-
-    <figure>
-        <img src="imagenes/03/03p312.png">
-        <figcaption>Ejercicio 312</figcaption>
-    </figure>
-
-313. `313Empresa.php`: Utilizando las clases de los ejercicios anteriores:
-    * Crea una clase `Empresa` que además del nombre y la dirección, contenga una propiedad con un array de `Trabajador`es, ya sean `Empleado`s o `Gerente`s. 
-    * Añade *getters/setters* para el nombre y dirección.
-    * Añade métodos para añadir y listar los trabajadores.
-        * `public function anyadirTrabajador(Trabajador $t)`
-        * `public function listarTrabajadoresHtml() : string` -> utiliza `Trabajador::toHtml(Persona $p)`
-    * Añade un método para obtener el coste total en nóminas.
-        * `public function getCosteNominas(): float` -> recorre los trabajadores e invoca al método `calcularSueldo()`.
-
-314. `314EmpresaI.php`: Copia las clases del ejercicio anterior y modifícalas.
-    * Crea un interfaz JSerializable, de manera que ofrezca los métodos:
-        * `toJSON(): string` → utiliza la función [`json_encode(mixed)`](https://www.php.net/manual/es/function.json-encode.php). Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
-        ``` php
-        <?php
-        public function toJSON(): string {
-            foreach ($this as $clave => $valor) {
-                $mapa->$clave = $valor;
-            }
-            return json_encode($mapa);
-        }
-        ?>
-        ```
-        * `toSerialize(): string` → utiliza la función [`serialize(mixed)`](https://www.php.net/manual/es/function.serialize.php)
-    * Modifica todas las clases que no son abstractas para que implementen el interfaz creado.
+    El mètode `__toString()` és un mètode màgic que s'invoca automàticament quan volem obtindre la representació en cadena d'un objecte.
 
 
-### Proyecto Videoclub
+311. `311PersonaA.php`: Còpia les classes de l'exercici anterior i modifica-les.
+     Transforma `Persona` a una classe abstracta on el seu mètode estàtic `toHtml(Persona $p)` haja de ser redefinit en tots els seus fills.
 
-En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub (basado en la propuesta que hace el tutorial de desarrolloweb.com), el cual vamos a realizar mediante un desarrollo incremental y siguiendo la práctica de programación en parejas (*pair programming*).
+312. `312Trabajador.php`: Còpia les classes de l'exercici anterior i modifica-les.
+     * Canvia l'estructura de classes conforme al gràfic respectant tots els mètodes que ja estan fets.
+     * `Treballador` és una classe abstracta que ara emmagatzema els `telefonos` i on `calcularSueldo` és un mètode abstracte de manera que:
+       * El sou d'un `Empleat` es calcula a partir de les hores treballades i el que cobra per hora.
+       * Per als `Gerent`s, el seu sou s'incrementa percentualment sobre la base de la seua edat: `salari + salariedat/100`
+<figure>
+   <img src="imagenes/03/03p312.png">
+   <figcaption>Ejercicio 312</figcaption>
+</figure>
+313. `313Empresa.php`: Utilitzant les classes dels exercicis anteriors:
+     * Crea una classe `Empresa` que a més del nom i la direcció, continga una propietat amb un array de `Treballador`és, ja siguen `Emprat`s o `Gerent`s. 
+     * Afig *getters/setters* per al nom i direcció.
+     * Afig mètodes per a afegir i llistar els treballadors.
+        * `public function anyadirTrabajador(Treballador $t)`
+        * `public function listarTrabajadoresHtml() : string` -> utilitza `Treballador::toHtml(Persona $p)`
+     * Afig un mètode per a obtindre el cost total en nòmines.
+        * `public function getCosteNominas(): float` -> recorre els treballadors i invoca al mètode `calcularSueldo()`.
 
-Antes de nada, crea un repositorio privado en GitHub y sube el proyecto actual de *Videoclub*. Una vez creado, invita a tu compañero al repositorio como colaborador.
+314. `314EmpresaI.php`: Còpia les classes de l'exercici anterior i modifica-les.
+     * Crea una interfície JSerializable, de manera que oferisca els mètodes:
+       * `toJSON(): string` → utilitza la funció [`json_encode(mixed)`](https://www.php.net/manual/es/function.json-encode.php). Tingues en compte que com tenim les propietats dels objectes privats, has de recórrer les propietats i col·locar-les en un mapa. Per exemple:        ``` php
+               <?php
+               public function toJSON(): string {
+                   foreach ($this as $clave => $valor) {
+                       $mapa->$clave = $valor;
+                   }
+                   return json_encode($mapa);
+               }
+               ?>
+               ```
 
-* Inicializa en local tu repostorio de git, mediante `git init`
-* Añade y sube los cambios a tu repositorio, mediante `git add .` y luego `git commit -m 'Inicializando proyecto'.`
-* Conecta tu repositorio con GitHub y sube los cambios (mira la instrucciones de GitHub: comandos `git remote` y `git push`).
-* Tu compañero deberá descargar el proyecto con sus credenciales.
+       * `toSerialize(): string` → utilizta la funció [`serialize(mixed)`](https://www.php.net/manual/es/function.serialize.php)
+    * Modifica totes les classes que no són abstractes perquè implementen la interfície creada.
 
-!!! warning "Proyecto no real"
-    El siguiente proyecto está pensado desde un punto de vista formativo. Algunas de las decisiones que se toman no se deben usar (como hacer `echo` dentro de las clases) o probar el código comparando el resultado en el navegador.
 
-Cada clase debe ir en un archivo php separado. Para facilitar su implementación, se muestra la estructura UML del modelo y un fragmento de código para probar las clases:
+### Projecte Videoclub
 
+En els següents exercicis simularem un xicotet projecte d'un Videoclub (basat en la proposta que fa el tutorial de desarrolloweb.com), el qual realitzarem mitjançant un desenvolupament incremental i seguint la pràctica de programació en parelles (*pair programming*).
+
+Abans de res, crea un repositori privat en GitHub i puja el projecte actual de Videoclub*. Una vegada creat, convida al teu company al repositori com a col·laborador.
+
+  * Inicialitza en local el teu repostorio de git, mitjançant `git init`
+  * Afig i puja els canvis al teu repositori, mitjançant `git add .` i després `git commit -m 'Inicialitzant projecte'.`
+  * Connecta el teu repositori amb GitHub i puja els canvis (mira la instruccions de GitHub: comandos `git remalnom` i `git push`).
+  * El teu company haurà de descarregar el projecte amb les seues credencials.
+
+!!! warning "Projecte no real"
+    El següent projecte està pensat des d'un punt de vista formatiu. Algunes de les decisions que es prenen no s'han d'usar (com fer `tire` dins de les classes) o provar el codi comparant el resultat en el navegador.
+
+Cada classe ha d'anar en un arxiu php separat. Per a facilitar la seua implementació, es mostra l'estructura UML del model i un fragment de codi per a provar les classes:
 <figure style="float: right;">
     <img src="imagenes/03/03p320.png" width="150">
     <figcaption>Creamos el Soporte</figcaption>
 </figure>
 
-320. Crea una clase para almacenar soportes (`Soporte.php`). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):
+320. Crea una classe per a emmagatzemar suports (`Soporte.php`). Aquesta classe serà la classe pare dels diferents suports amb els quals treballe el nostre videoclub (cintes de vídeo, videojocs, etc...):
 
-    * Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos *setters*.
-    * Definir una constante mediante un propiedad privada y estática denominada `IVA con un valor del 21%
-    * Crear un archivo (`inicio.php`) para usar las clases y copia el siguiente fragmento:
+     * Crea el constructor que inicialitze les seues propietats. Fixa't que la classe no té mètodes setters*.
+     * Definir una constant mitjançant un propietat privada i estàtica denominada `IVA amb un valor del 21%
+     * Crear un arxiu (`inici.php`) per a usar les classes i còpia el següent fragment:
 
 === "Código de prueba"
 
@@ -1182,12 +1171,12 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
 <figure style="float: right;">
     <img src="imagenes/03/03p321.png" width="150">
-    <figcaption>Añadimos Cinta de Video</figcaption>
+    <figcaption>Afegim Cinta de Video</figcaption>
 </figure>
 
-321. Crea la clase `CintaVideo` la cual hereda de `Soporte`. Añade el atributo `duracion` y sobreescribe tanto el contructor como el método `muestraResumen` (desde `CintaVideo` deberás llamar al método `muestraResumen` del padre).
+321. Crea la classe `CintaVideo` la qual hereta de `Soporte`. Afig l'atribut `duracion` i sobreescriu tant el contructor com el mètode `MuestraResumen` (des de `CintaVideo` hauràs de cridar al mètode `MuestraResumen` del pare).
 
-    Añade a `inicio.php` el código para probar la clase:
+    Afig a `inici.php` el codi per a provar la classe:
 
 === "Código de prueba"
 
@@ -1216,12 +1205,12 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
 
 <figure style="float: right;">
     <img src="imagenes/03/03p322.png" width="250">
-    <figcaption>Añadimos Dvd</figcaption>
+    <figcaption>Afegim Dvd</figcaption>
 </figure>
 
-322. Crea la clase `Dvd` la cual hereda de `Soporte`. Añade los atributos `idiomas` y `formatoPantalla`. A continuación sobreescribe tanto el contructor como el método `muestraResumen`.
+322. Crea la classe `Dvd` la qual hereta de `Soporte`. Afig els atributs `idiomas` i `formatoPantalla`. A continuació sobreescriu tant el contructor com el mètode `MuestraResumen`.
 
-    Añade a `inicio.php` el código para probar la clase:
+    Afig a `inici.php` el codi per a provar la classe:
 
 === "Código de prueba"
 
@@ -1249,14 +1238,14 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     Formato Pantalla:16:9
     </pre>
 
-<figure style="float: right;">
+<figure style="float: left;">
     <img src="imagenes/03/03p323.png" width="350">
-    <figcaption>Añadimos Juego</figcaption>
+    <figcaption>Afegim Juego</figcaption>
 </figure>
 
-323. Crea la clase `Juego` la cual hereda de `Soporte`. Añade los atributos `consola`, `minNumJugadores` y `maxNumJugadores`. A continuación añade el método `muestraJugadoresPosibles`, el cual debe mostrar *Para un jugador*, *Para X jugadores* o *De X a Y jugadores* dependiendo de los valores de las atributos creados. Finalmente, sobreescribe tanto el contructor como el método `muestraResumen`.
+323. Crea la classe `Juego` la qual hereta de `Soporte`. Afig els atributs `consola`, `minNumJugadores` i `maxNumJugadores`. A continuació afig el mètode `muestraJugadoresPosibles`, el qual ha de mostrar Per a un *jugador*, Per a X *Jugadores* o De X a I *Jugadores* depenent dels valors de les atributs creats. Finalment, sobreescriu tant el contructor com el mètode `MuestraResumen`.
 
-    Añade a `inicio.php` el código para probar la clase:
+    Afig a `inici.php` el codi per a provar la classe:
 
 === "Código de prueba"
 
@@ -1283,31 +1272,30 @@ Cada clase debe ir en un archivo php separado. Para facilitar su implementación
     Para un jugador
     </pre>
 
-Llegados a este punto, nuestro modelo es similar al siguiente diagrama:
-
+Arribats a aquest punt, el nostre model és similar al següent diagrama:
 <figure>
     <img src="imagenes/03/03videoclub1.png" width="600">
-    <figcaption>Modelo inicial de Videoclub</figcaption>
+    <figcaption>Model inicial de Videoclub</figcaption>
 </figure>
 
 <figure style="float: right;">
     <img src="imagenes/03/03p324.png" width="275">
-    <figcaption>Añadimos Cliente</figcaption>
+    <figcaption>Afegim Cliente</figcaption>
 </figure>
 
-324. Crear la clase `Cliente`. El constructor recibirá el `nombre`, `numero` y `maxAlquilerConcurrente`, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade *getter/setter* únicamente a `numero`, y un *getter* a `numSoportesAlquilados` (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de soportes alquilados contedrá clases que hereden de `Soporte`. Finalmente, añade el método `muestraResumen` que muestre el nombre y la cantidad de alquileres (tamaño del array `soportesAlquilados`).
+324. Crear la classe `Cliente`. El constructor rebrà el `nom`, `numere` i `maxLloguerConcurrent`, aquest últim podent ser opcional i prenent com a valor per defecte 3. Després d'això, afig *getter/setter* únicament a `numere`, i un *getter* a `numSoportsalquilados` (aquest camp emmagatzemarà un comptador del total de lloguers que ha realitzat). El array de suports alquilados contedrá classes que hereten de `Soporte`. Finalment, afig el mètode `MuestraResumen` que mostre el nom i la quantitat de lloguers (grandària del array `soportsalquilados`).
 
-325. Dentro de `Cliente`, añade las siguiente operaciones:
-    * `tieneAlquilado(Soporte $s): bool` → Recorre el array de soportes y comprueba si está el soporte
-    * `alquilar(Soporte $s): bool` -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el `numSoportesAlquilados` y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.
+325. Dins de `Cliente`, afig les següent operacions:
+     * `tieneAlquilado(Soporte $s): bool` → Recorre el array de suports i comprova si està el suport
+     * `alquilar(Soporte $s): bool` -→ Ha de comprovar si el suport està alquilado i si no ha superat el contingent de lloguers. En llogar, incrementarà el `numSoportsalquilados` i emmagatzemarà el suport en el array. Per a cada cas ha de mostrar un missatge informant de l'ocorregut.
 
-326. Seguimos con `Cliente` para añadir las operaciones:
-    * `devolver(int $numSoporte): bool` → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido
-    * `listarAlquileres(): void` → Informa de cuantos alquileres tiene el cliente y los muestra.
+326. Seguim amb `Cliente` per a afegir les operacions:
+     * `retornar(int $numSoporte): bool` → Ha de comprovar que el suport estava llogat i actualitzar la quantitat de suports llogats. Per a cada cas ha de mostrar un missatge informant de l'ocorregut
+     * `llistarLloguers(): void` → Informa de quants lloguers té el client i els mostra.
 
-Crea el archivo `inicio2.php` con el siguiente código fuente para probar la clase:
+Crea l'arxiu `inicio2.php` amb el següent codi font per a provar la classe:
 
-=== "Código de prueba"
+=== "Codi de prova"
 
     ``` php
     <?php
@@ -1316,7 +1304,7 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
     include_once "Juego.php";
     include_once "Cliente.php";
 
-    //instanciamos un par de objetos cliente
+    //instanciamos un par de objetos Clientee
     $cliente1 = new Cliente("Bruce Wayne", 23);
     $cliente2 = new Cliente("Clark Kent", 33);
 
@@ -1341,15 +1329,15 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
     //este soporte no lo va a poder alquilar
     $cliente1->alquilar($soporte4);
     //este soporte no lo tiene alquilado
-    $cliente1->devolver(4);
+    $cliente1->tornar(4);
     //devuelvo un soporte que sí que tiene alquilado
-    $cliente1->devolver(2);
+    $cliente1->tornar(2);
     //alquilo otro soporte
-    $cliente1->alquilar($soporte4);
+    $cliente1->Alquilar($soporte4);
     //listo los elementos alquilados
-    $cliente1->listaAlquileres();
+    $cliente1->llistaLloguers();
     //este cliente no tiene alquileres
-    $cliente2->devolver(2);
+    $cliente2->tornar(2);
     ```
 
 === "Navegador"
@@ -1410,21 +1398,21 @@ Crea el archivo `inicio2.php` con el siguiente código fuente para probar la cla
     Este cliente no tiene alquilado ningún elemento
     </pre>
 
-327. Llegado a este punto, vamos a relacionar los clientes y los soportes mediante la clase `Videoclub`. Así pues crea la clase que representa el gráfico, teniendo en cuenta que:
-    * `productos` es un array de `Soporte`
-    * `socios` es una array de `Cliente`
-    * Los métodos públicos de incluir algún soporte, crearán la clase y llamarán al método privado de `incluirProducto`, el cual es el encargado de introducirlo dentro del array.
+327. Arribat a aquest punt, relacionarem els clients i els suports mitjançant la classe `Videoclub`. Així doncs crea la classe que representa el gràfic, tenint en compte que:
+     * `productes` és un array de `Soporte`
+     * `socis` és una array de `Cliente`
+     * Els mètodes públics d'incloure algun suport, crearan la classe i cridaran al mètode privat de `incluirProducto`, el qual és l'encarregat d'introduir-lo dins del array.
 
-El modelo completo quedará de la siguiente manera:
+El model complet quedarà de la següent manera:
 
 <figure>
     <img src="imagenes/03/03videoclub2.png" width="800">
-    <figcaption>Modelo completo de Videoclub</figcaption>
+    <figcaption>Model complet de Videoclub</figcaption>
 </figure>
 
-Y para probar el proyecto, dentro `inicio3.php` colocaremos:
+I per a provar el projecte, dins `inicio3.php` col·locarem:
 
-=== "Código de prueba"
+=== "Codi de prova"
 
     ``` php
     <?php
@@ -1535,45 +1523,44 @@ Y para probar el proyecto, dentro `inicio3.php` colocaremos:
     Alquileres actuales: 2
     </pre>
 
-328. Transforma `Soporte` a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?
+328. Transforma `Soporte` a una classe abstracta i comprova que tot continua funcionant. Què aconseguim en fer-la abstracta?
 
-329. Crea un interfaz `Resumible`, de manera que las clases que lo implementen deben ofrecer el método `muestraResumen()`. Modifica la clase `Soporte` y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?
+329. Crea una interfície `Resumible`, de manera que les classes que l'implementen han d'oferir el mètode `muestraResumen()`. Modifica la classe `Soporte` i feix que implemente la interfície. Fa falta que també l'implementen els fills?
 
-### Proyecto Videoclub 2.0
+### Projecte Videoclub 2.0
 
 Antes de comenzar con la segunda parte del videoclub, crea una etiqueta mediante `git tag` con el nombre `v0.329` y sube los cambios a GitHub.
 
-330. Modifica las operaciones de alquilar, tanto en `Cliente` como en `Videoclub`, para dar soporte al encadenamiento de métodos.
-Posteriormente, modifica el código de prueba para utilizar esta técnica.
-331. Haciendo uso de *namespaces*:
-    * Coloca todas las clases/interfaces en `Dwes\ProyectoVideoclub`
-    * Cada clase debe hacer `include_once` de los recursos que emplea
-    * Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)
-    * Desde el archivo de pruebas, utiliza `use` para poder realizar accesos sin cualificar
-    * Etiqueta los cambios como `v0.331`.
-332. Reorganiza las carpeta tal como hemos visto en los apuntes: `app`, `test` y `vendor`.
-    * Crea un fichero `autoload.php` para registrar la ruta donde encontrar las clases
-    * Modifica todo el código necesario, incluyendo `autoload.php` donde sea necesario y borrando los *includes* previos.
-333. A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación `VideoclubException` en el *namespace* `Dwes\ProyectoVideoclub\Util`.
-Posteriormente crea los siguientes hijos (deben heredar de `VideoclubException`), cada uno en su propio archivo:
-    * `SoporteYaAlquiladoException`
+330. Modifica els operacions de llogar, tant en `Client` com en `Videoclub`, per a donar suport a l'encadenament de mètodes.
+     Posteriorment, modifica el codi de prova per a utilitzar aquesta tècnica.
+331. Fent ús de *namespaces*:
+     * Col·boja totes els classes/interfícies en `Dwes\ProyectoVideoclub`
+     * Cada classe ha de fer `include_once` dels recursos que empra
+     * Col·boja el/els arxivaments de prova en l'arrel (sense espai de noms)
+     * Dones de l'arxiu de proves, utilitza `use` per a poder realitzar accessos sense qualificar
+     * Etiqueta els canvis com `v0.331`.
+332. Reorganitza els carpeta tal com hem vist en els anotacions: `app`, `test` i `vendor`.
+     * Crea un fitxer `autolloeu.php` per a registrar la ruta on trobar els classes
+     * Modifica tot el codi necessari, incloent `autolloeu.php` on seguisca necessari i esborrant els *includes* previs.
+333. A continuació crearem un conjunt d'excepcions d'aplicació. Aquestes excepcions són simples, no necessiten sobreescriure cap mètode. Així doncs, crea l'excepció d'aplicació `VideoclubException` en el *namespace* `Dwes\ProyectoVideoclub\Util`.
+     Posteriorment crea els següents fills (han d'heretar de `VideoclubException`), cadascun en el seu propi arxiu:    * `SoporteYaAlquiladoException`
     * `CupoSuperadoException`
     * `SoporteNoEncontradoException`
     * `ClienteNoEncontradoException`
-334. En `Cliente`, modifica los métodos `alquilar` y `devolver`, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
-En `Videoclub`, modifica `alquilarSocioPelicula` para capturar todas las excepciones que ahora lanza `Cliente` e informar al usuario en consecuencia.
-335. Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:
-    * En `Soporte`, crea una propiedad pública cuyo nombre sea `alquilado` que inicialmente estará a `false`. Cuando se alquile, se pondrá a `true`. Al devolver, la volveremos a poner a `false`.
-    * En `Videoclub`, crea dos nuevas propiedades y sus getters:
-        * `numProductosAlquilados`
-        * `numTotalAlquileres`
-336. Crea un nuevo método en `Videoclub` llamado `alquilarSocioProductos(int numSocio, array numerosProductos)`, el cual debe recibir un array con los productos a alquilar.  
-Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.
-337. Crea dos nuevos métodos en `Videoclub`, y mediante la definición, deduce qué deben realizar:
+334. En `Cliente`, modifica els mètodes `alquilar` i `retornar`, perquè facen ús de les noves excepcions (llançant-les quan siga necessari) i funcionen com a mètodes encadenats. Destacar que aquests mètodes, no es capturar estàs excepcions, només es llancen.
+     En `Videoclub`, modifica `alquilarSocioPelicula` per a capturar totes les excepcions que ara llança `Cliente` i informar l'usuari en conseqüència.
+335. Modificarem el projecte perquè el videoclub sàpia quins productes estan o no llogats:
+     * En `Soporte`, crea una propietat pública el nom de la qual siga `alquilado` que inicialment estarà a `false`. Quan es llogue, es posarà a `true`. En retornar, la tornarem a posar a `false`.
+     * En `Videoclub`, crea dues noves propietats i les seues getters:
+             * `numProductosAlquilados`
+             * `numTotalAlquileres`
+336. Crea un nou mètode en `Videoclub` anomenat `alquilarSocioProductos(int numSocio, array numerosProductos)`, el qual ha de rebre un array amb els productes a llogar.
+     Abans de llogar-los, ha de comprovar que tots els suports estiguen disponibles, de manera que si un no ho està, no se li llogue cap.
+337. Crea dos nous mètodes en `Videoclub`, i mitjançant la definició, dedueix què han de realitzar:
     * `devolverSocioProducto(int numSocio, int numeroProducto)`
     * `devolverSocioProductos(int numSocio, array numerosProductos)`
 
-    Deben soportar el encadenamiento de métodos.
-    Recuerda actualizar la propiedad `alquilado` de los diferentes soportes.
+    Han de suportar l'encadenament de mètodes.
+    Recorda actualitzar la propietat `alquilado` dels diferents suports.
 
-Cuando hayas realizado todos los ejercicios, crea una etiqueta mediante `git tag` con el nombre `v0.337` y sube los cambios a GitHub.
+Quan hages realitzat tots els exercicis, crea una etiqueta mitjançant `git tag` amb el nom `v0.337` i puja els canvis a GitHub.

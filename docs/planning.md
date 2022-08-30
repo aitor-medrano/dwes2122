@@ -1,27 +1,27 @@
-# Planificación
+# Planificació
 
-## 1.- Arquitecturas Web (4h)
+## 1.- Arquitectures Web (3h)
 
-- [X] 1.- (1) Introducción asignatura. Arquitecturas, decisiones de diseño - Ejercicios 101,102
-- [X] 2.- (2) Herramientas. Puesta en marcha / Docker - Ejercicios 103,104
+- [ ] 1.- (1) Introducción asignatura. Arquitecturas, decisiones de diseño Herramientas. Puesta en marcha / Docker - Ejercicios 101,102,103,104
 
-## 2.- El lenguaje PHP (26h)
 
-- [X] 1.- (3) Sintaxis. Ejercicios 201-207
-- [X] 2.- (4) Condiciones. Ejercicios 208-213
-- [X] 3.- (5) Bucles. Ejercicios 220-223 - *Lunes 20/10/21*
-- [X] 4.- (6) Ejercicios 224-228
-- [X] 5.- (7) Arrays, asociativos. Ejercicios 230-235
-- [X] 6.- (8) Array bidimensionales. Ejercicios 236-238
-- [X] 7.- (9) Funciones, parámetros por defecto y con nombre. Ejercicios 240-242 - *Lunes 27/09/21*
-- [X] 8.- (10) Alcance y Funciones variable. Biblioteca de funciones. Ejercicios 243-245
-- [X] 9.- (11) Plantillas. Ejercicios 246-247.
-- [X] 10.- (12) Cadenas. Ejercicios 250-253
-- [X] 11.- (13) Subcadenas. Ejercicios 254-257 - *Lunes 4/10/21*
-- [X] 12.- (14) Math y tipos de datos. Ejercicios 260-262
-- [X] 13.- (15) Prueba escrita - *Jueves 7/10/21*
+## 2.- El llenguatge PHP (26h)
 
-## 3.- PHP Orientado a Objetos (18h)
+- [ ] 1.- (3) Sintaxis. Ejercicios 201-207
+- [ ] 2.- (4) Condiciones. Ejercicios 208-213
+- [ ] 3.- (5) Bucles. Ejercicios 220-223 - 
+- [ ] 4.- (6) Ejercicios 224-228
+- [ ] 5.- (7) Arrays, asociativos. Ejercicios 230-235
+- [ ] 6.- (8) Array bidimensionales. Ejercicios 236-238
+- [ ] 7.- (9) Funciones, parámetros por defecto y con nombre. Ejercicios 240-242 - *Lunes 27/09/21*
+- [ ] 8.- (10) Alcance y Funciones variable. Biblioteca de funciones. Ejercicios 243-245
+- [ ] 9.- (11) Plantillas. Ejercicios 246-247.
+- [ ] 10.- (12) Cadenas. Ejercicios 250-253
+- [ ] 11.- (13) Subcadenas. Ejercicios 254-257 -
+- [ ] 12.- (14) Math y tipos de datos. Ejercicios 260-262
+- [ ] 13.- (15) Prueba escrita -
+
+## 3.- PHP Orientat a Objectes (18h)
 
 - [X] 1.- (16) Clases y objetos. Constructor. Ejercicios 300-303 - *Jueves 14/10/21*
 - [X] 2.- (17) Clases estáticas. Herencia. Ejercicios 304-307
@@ -33,7 +33,7 @@
 - [X] 8.- (23) Excepciones. Ejercicios 333-334
 - [X] 9.- (24) Proyecto Videoclub II. Ejercicios 335-337
 
-## 4.- Programación Web (12h)
+## 4.- Programació Web (12h)
 
 - [X] 1.- (25) Formularios. Ejercicios 401-403
 - [X] 2.- (26) Upload. Cookies. Ejercicios 404-406 - *Martes 2/11/21*
@@ -42,7 +42,7 @@
 - [X] 5.- (29) Proyecto Videoclub III. Ejercicios 420-423 - *Lunes 8/11/21*
 - [X] 6.- (30) Proyecto Videoclub III. Ejercicios 424-426
 
-## 5.- Herramientas Web (16h)
+## 5.- Ferramentes Web (16h)
 
 - [X] 1.- (31) Composer. Introducción Monolog. Ejercicio 501
 - [X] 2.- (32) Manejadores. Uso de logs con *Monolog*. Ejercicios 502 - 503
@@ -53,7 +53,7 @@
 - [X] 7.- (37) Proyecto Videoclub V. Ejercicios 551 - 554. - *Lunes 22/11/21*
 - [X] 8.- (38) Prueba escrita
 
-## 6.- Acceso a Datos (24h)
+## 6.- Accès a Dades (24h)
 
 - [x] 1.- (39) SQL. Ejercicios 601 - *Jueves 25/11/21* 
 - [x] 2.- (40) PDO. Ejercicios -
@@ -91,7 +91,7 @@ Del Miércoles 15 al Martes 21 de Diciembre.
 - [x] 15.- (65) 
 - [x] 16.- (66) 
 
-## 8.- Servicios REST (22h)
+## 8.- Serveis REST (22h)
 
 - [ ] 1.- (67) *Lunes 7/02/22* 
 - [ ] 2.- (68) 

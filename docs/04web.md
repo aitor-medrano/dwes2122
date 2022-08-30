@@ -1,36 +1,36 @@
-# Programación Web
+# Programació Web
 
-??? abstract "Duración y criterios de evaluación"
+??? abstract "Duració i criteris d'evaluació"
 
-    Duración estimada: 12 sesiones
+    Duració estimada: 12 hores
 
     <hr />
 
-    | Resultado de aprendizaje  | Criterios de evaluación   |
-    | ------                    | -----                     |
-    | 4. Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.     |  a) Se han identificado los mecanismos disponibles para el mantenimiento de la información que concierne a un cliente web concreto y se han señalado sus ventajas.<br /> b) Se han utilizado sesiones para mantener el estado de las aplicaciones Web. <br /> c) Se han utilizado *cookies* para almacenar información en el cliente Web y para recuperar su contenido. <br /> d) Se han identificado y caracterizado los mecanismos disponibles para la autentificación de usuarios. <br /> e) Se han escrito aplicaciones que integren mecanismos de autentificación de usuarios. <br /> f) Se han realizado adaptaciones a aplicaciones Web existentes como gestores de contenidos u otras. <br /> g) Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código. |
+    | Resultat d'aprenentatge  | Criteris d'avaluació  |
+    | ------                    | -----                |
+    | 4. Desenvolupa aplicacions Web embegudes en llenguatges de marques analitzant i incorporant funcionalitats segons especificacions     |  a) S'han identificat els mecanismes disponibles per al manteniment de la informació que concerneix a un client Web concret i s'han assenyalat els seus avantatges.<br /> b) S'han utilitzat sessions per a mantenir l'estat de les aplicacions Web. <br /> c) S'han utilitzat *cookies* per a emmagatzemar informació en el client Web i per a recuperar el seu contingut.  <br /> d) S'han identificat i caracteritzat els mecanismes disponibles per a l'autenticació d'usuaris. <br /> e) S'han escrit aplicacions que integren mecanismes d'autenticació d'usuaris.  <br /> f) S'han realitzat adaptacions a aplicacions Web existents com a gestors de continguts o unes altres.  <br /> g) S'han utilitzat eines i entorns per a facilitar la programació, prova i depuració del codi. |
 
 ## Variables de servidor
 
-PHP almacena la información del servidor y de las peticiones HTTP en seis arrays globales:
+PHP emmagatzema la informació del servidor i de les peticions HTTP en sis arrays globals:
 
-* `$_ENV`: información sobre las variables de entorno
-* `$_GET`: parámetros enviados en la petición GET
-* `$_POST`: parámetros enviados en el envio POST
-* `$_COOKIE`: contiene las cookies de la petición, las claves del array son los nombres de las *cookies*
-* `$_SERVER`: información sobre el servidor
-* `$_FILES`: información sobre los ficheros cargados via upload
+* `$_ENV`: informació sobre les variables d'entorn
+* `$_GET`: paràmetres enviats en la petició GET
+* `$_POST`: paràmetres enviats en el envio POST
+* `$_COOKIE`: conté les cookies de la petició, les claus del array són els noms de les cookies
+* `$_SERVER`: informació sobre el servidor
+* `$_FILES`: informació sobre els fitxers carregats via upload
 
-Si nos centramos en el array `$_SERVER` podemos consultar las siguientes propiedades:
+Si ens centrem en el array `$_SERVER` podem consultar les següents propietats:
 
-* `PHP_SELF`: nombre del script ejecutado, relativo al document root (p.ej: `/tienda/carrito.php`)
-* `SERVER_SOFTWARE`: (p.ej: Apache)
-* `SERVER_NAME`: dominio, alias DNS (p.ej: `www.elche.es`)
+* `PHP_SELF`: nom del script executat, relatiu al document root (p.ej: `/tendisca/carret.php`)
+* `SERVER_PROGRAMARI`: (p.ej: Apatxe)
+* `SERVER_NAME`: domini, àlies DNS (p.ej: `www.elche.es`)
 * `REQUEST_METHOD`: GET
-* `REQUEST_URI`: URI, sin el dominio
-* `QUERY_STRING`: todo lo que va después de `?` en la URL (p.ej: `heroe=Batman&nombre=Bruce`)
+* `REQUEST_URI`: URI, sense el domini
+* `QUERY_STRING`: tot el que va després de `?` en la URL (p.ej: `heroe=Batman&nomene=Bruce`)
 
-Más información en <https://www.php.net/manual/es/reserved.variables.server.php>
+Més informació en <https://www.php.net/manual/es/reserved.variables.server.php>
 
 ``` php
 <?php
@@ -43,40 +43,41 @@ echo $_SERVER["REQUEST_URI"]."<br>"; // /u4/401server.php?heroe=Batman
 echo $_SERVER["QUERY_STRING"]."<br>"; // heroe=Batman
 ```
 
-Otras propiedades relacionadas:
+Altres propietats relacionades:
 
-* `PATH_INFO`: ruta extra tras la petición. Si la URL es `http://www.php.com/php/pathInfo.php/algo/cosa?foo=bar`, entonces `$_SERVER['PATH_INFO']` será `/algo/cosa`.
-* `REMOTE_HOST`: hostname que hizo la petición
-* `REMOTE_ADDR`: IP del cliente
-* `AUTH_TYPE`: tipo de autenticación (p.ej: Basic)
-* `REMOTE_USER`: nombre del usuario autenticado
+* `PATH_INFO`: ruta extra després de la petició. Si la URL és `http://www.php.com/php/pathinfo.php/algo/cosa?foo=bar`, llavors `$_SERVER['PATH_INFO']` serà `/alguna cosa/cosa`.
+* `REMALNOM_HOST`: hostname que va fer la petició
+* `REMALNOM_ADDR`: IP del client
+* `AUTH_TYPE`: tipus d'autenticació (p.ej: Basic)
+* `REMALNOM_USER`: nom de l'usuari autenticat
 
-Apache crea una clave para cada cabecera HTTP, en mayúsculas y sustituyendo los guiones por subrayados:
+Apatxe crea una clau per a cada capçalera HTTP, en majúscules i substituint els guions per subratllats:
 
-* `HTTP_USER_AGENT`: agente (navegador)
-* `HTTP_REFERER`: página desde la que se hizo la petición
+* `HTTP_USER_AGENT`: agent (navegador)
+* `HTTP_REFERER`: pàgina des de la qual es va fer la petició
+
 
 ``` php
 <?php
 echo $_SERVER["HTTP_USER_AGENT"]."<br>"; // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
 ```
 
-## Formularios
+## Formularis
 
-A la hora de enviar un formulario, debemos tener claro cuando usar GET o POST
+A l'hora d'enviar un formulari, hem de tindre clar quan usar GET o POST
 
-* GET: los parámetros se pasan en la URL
-    * <2048 caracteres, sólo ASCII
-    * Permite almacenar la dirección completa (marcador  / historial)
-    * Idempotente: dos llamadas con los mismos datos siempre debe dar el mismo resultado
-    * El navegador puede cachear las llamadas
+* GET: els paràmetres es passen en la URL
+    * <2048 caràcters, només ASCII
+    * Permet emmagatzemar la direcció completa (marcador / historial)
+    * Idempotent: dues crides amb les mateixes dades sempre ha de donar el mateix resultat
+    * El navegador pot cachejar les cridades
 
-* POST: parámetros ocultos (no encriptados)
-    * Sin límite de datos, permite datos binarios.
-    * No se pueden cachear
-    * No idempotente → actualizar la BBDD
+* POST: paràmetres ocults (no encriptats)
+    * Sense límit de dades, permet dades binàries.
+    * No es poden escorcollar
+    * No idempotent → actualitzar la BBDD
 
-Así pues, para recoger los datos accederemos al array dependiendo del método del formulario que nos ha invocado:
+Així doncs, per a recollir les dades accedirem al array depenent del mètode del formulari que ens ha invocat:
 
 ``` php
 <?php
@@ -84,7 +85,7 @@ $par = $_GET["parametro"]
 $par = $_POST["parametro"]
 ```
 
-Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:
+A l'hora d'enviar un formulari, hem de tindre clar quan usar GET o POST. Per als següents apartats ens basarem en el següent exemple:
 
 ``` html
 <form action="formulario.php" method="GET">
@@ -104,12 +105,12 @@ Para los siguientes apartados nos vamos a basar en el siguiente ejemplo:
 </form>
 ```
 
-### Validación
+### Validació
 
-Respecto a la validación, es conveniente siempre hacer **validación doble**:
+Respecte a la validació, és convenient sempre fer *validació doble*:
 
-* En el cliente mediante JS
-* En servidor, antes de llamar a negocio, es conveniente volver a validar los datos.
+* En el client mitjançant JS
+* En servidor, abans de cridar a negoci, és convenient tornar a validar les dades.
 
 ``` php
 <?php
@@ -119,18 +120,18 @@ if (isset($_GET["parametro"])) {
 }
 ```
 
-!!! info "Librerías de validación"
-    Existen diversas librerías que facilitan la validación de los formularios, como son [respect/validation](https://respect-validation.readthedocs.io/en/latest/) o [particle/validator](http://validator.particle-php.com/en/latest/).
-    Cuando estudiemos Laravel profundizaremos en la validación de forma declarativa.
+!!! info "Llibreries de validació"
+    Existeixen diverses llibreries que faciliten la validació dels formularis, com són [respect/validation](https://respect-validation.readthedocs.io/en/latest/) o [particle/validator](http://validator.particle-php.com/en/latest/).
+    Quan estudiem Laravel aprofundirem en la validació de manera declarativa.
 
-### Parámetro multivalor
+### Parámetre multivalor
 
-Existen elementos HTML que envían varios valores:
+Existeixen elements HTML que envien diversos valors:
 
 * `select multiple`
 * `checkbox`
 
-Para recoger los datos, el nombre del elemento debe ser un array.
+Per a recollir les dades, el nom de l'element ha de ser un array.
 
 ``` html
 <select name="lenguajes[]" multiple="true">
@@ -146,7 +147,7 @@ Para recoger los datos, el nombre del elemento debe ser un array.
 <input type="checkbox" name="lenguajes[]" value="python" /> Python<br />
 ```
 
-De manera que luego al recoger los datos:
+De manera que després en recollir les dades:
 
 ``` php
 <?php
@@ -157,9 +158,9 @@ foreach ($lenguajes as $lenguaje) {
 }
 ```
 
-### Volviendo a rellenar un formulario
+### Tornant a emplenar un formulari
 
-Un *sticky form* es un formulario que recuerda sus valores. Para ello, hemos de rellenar los atributos `value` de los elementos HTML con la información que contenían:
+Un *sticky form* és un formulari que recorda els seus valors. Per a això, hem d'emplenar els atributs `value` dels elements HTML amb la informació que contenien:
 
 ``` html+php
 <?php
@@ -187,9 +188,9 @@ if (!empty($_POST['modulos']) && !empty($_POST['nombre'])) {
 <?php } ?>
 ```
 
-### Subiendo archivos
+### Pujant arxius
 
-Se almacenan en el servidor en el array `$_FILES` con el nombre del campo del tipo `file` del formulario.
+S'emmagatzemen en el servidor en el array `$_FILES` amb el nom del camp del tipus `file` del formulari.
 
 ``` html
 <form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="POST">
@@ -199,18 +200,18 @@ Se almacenan en el servidor en el array `$_FILES` con el nombre del campo del ti
 </form>
 ```
 
-Configuración en `php.ini`
+Configuració en `php.ini`
 
 * `file_uploads`: on / off
 * `upload_max_filesize`: 2M
-* `upload_tmp_dir`: directorio temporal. No es necesario configurarlo, cogerá el predeterminado del sistema
-* `post_max_size`: tamaño máximo de los datos POST. Debe ser mayor a upload_max_filesize.
-* `max_file_uploads`: número máximo de archivos que se pueden cargar a la vez.
-* `max_input_time`: tiempo máximo empleado en la carga (GET/POST y upload → normalmente se configura en 60)
+* `upload_tmp_dir`: directori temporal. No és necessari configurar-ho, agafarà el predeterminat del sistema
+* `post_max_size`: grandària màxima de les dades POST. Ha de ser major a upload_max_filesize.
+* `max_file_uploads`: nombre màxim d'arxius que es poden carregar alhora.
+* `max_input_estafe`: temps màxim emprat en la càrrega (GET/POST i upload → normalment es configura en 60)
 * `memory_limit`: 128M
-* `max_execution_time`: tiempo de ejecución de un script (no tiene en cuenta el upload)
+* `max_execution_estafe`: temps d'execució d'un script (no té en compte el upload)
 
-Para cargar los archivos, accedemos al array `$_FILES`:
+Per a carregar els arxius, accedim al array `$_FILES`:
 
 ``` php
 <?php
@@ -225,17 +226,17 @@ if (isset($_POST['btnSubir']) && $_POST['btnSubir'] == 'Subir') {
 }
 ```
 
-Cada archivo cargado en `$_FILES` tiene:
+Cada arxiu carregat en `$_FILES` té:
 
-* `name`: nombre
+* `name`: nom
 * `tmp_name`: ruta temporal
-* `size`: tamaño en bytes
-* `type`: tipo MIME
-* `error`: si hay error, contiene un mensaje. Si ok → 0.
+* `size`: grandària en bytes
+* `type`: tipus ACARONE
+* `error`: si hi ha error, conté un missatge. Si ok → 0.
 
-## Cabeceras de respuesta
+## Capçaleres de resposta
 
-Debe ser lo primero a devolver. Se devuelven mediante la función `header(cadena)`. Mediante las cabeceras podemos configurar el tipo de contenido, tiempo de expiración, redireccionar el navegador, especificar errores HTTP, etc.
+Ha de ser el primer a retornar. Es retornen mitjançant la funció `header(cadena)`. Mitjançant les capçaleres podem configurar el tipus de contingut, temps d'expiració, redirigir el navegador, especificar errors HTTP, etc.
 
 ``` php
 <?php header("Content-Type: text/plain"); ?>
@@ -243,9 +244,9 @@ Debe ser lo primero a devolver. Se devuelven mediante la función `header(cadena
 exit(); 
 ```
 
-Se puede comprobar en las herramientas del desarrollador de los navegadores web mediante *Developer Tools --> Network --> Headers*.
+Es pot comprovar en les eines del desenvolupador dels navegadors web mitjançant *Developer Tools --> Network --> Headers*.
 
-Es muy común configurar las cabeceras para evitar consultas a la caché o provocar su renovación:
+És molt comú configurar les capçaleres per a evitar consultes a la caixet o provocar la seua renovació:
 
 ``` php
 <?php
@@ -269,19 +270,19 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 ```
 
-## Gestión del estado
+## Gestió de l'estat
 
-HTTP es un protocolo *stateless*, sin estado. Por ello, se simula el estado mediante el uso de cookies, tokens o la sesión. El estado es necesario para procesos tales como el carrito de la compra, operaciones asociadas a un usuario, etc...
-El mecanismo de PHP para gestionar la sesión emplea cookies de forma interna.
-Las cookies se almacenan en el navegador, y la sesión en el servidor web.
+HTTP és un protocol *stateless*, sense estat. Per això, se simula l'estat mitjançant l'ús de cookies, tokens o la sessió. L'estat és necessari per a processos com ara el carret de la compra, operacions associades a un usuari, etc...
+El mecanisme de PHP per a gestionar la sessió empra cookies de manera interna.
+Les cookies s'emmagatzemen en el navegador, i la sessió en el servidor web.
 
 ### Cookies
 
-Las cookies se almacenan en el array global `$_COOKIE`. Lo que coloquemos dentro del array, se guardará en el cliente. Hay que tener presente que el cliente puede no querer almacenarlas. 
+Les cookies s'emmagatzemen en el array global `$_COOKIE`. El que col·loquem dins del array, es guardarà en el client. Cal tindre present que el client pot no voler emmagatzemar-les.
 
-Existe una limitació de 20 cookies por dominio y 300 en total en el navegador.
+Existeix una limitació de 20 cookies per domini i 300 en total en el navegador.
 
-En PHP, para crear una cookie se utiliza la función `setcookie`:
+En PHP, per a crear una cookie s'utilitza la funció `setcookie`:
 
 ``` php
 <?php
@@ -289,11 +290,9 @@ setcookie(nombre [, valor [, expira [, ruta [, dominio [, seguro [, httponly ]]]
 setcookie(nombre [, valor = "" [, opciones = [] ]] )
 ?>
 ```
+Destacar que el nom no pot contindre espais ni el caràcter `;`. Respecte al contingut de la cookie, no pot superar els 4 KB.
 
-Destacar que el nombre no puede contener espacios ni el caracter `;`. Respecto al contenido de la cookie, no puede superar los 4 KB.
-
-
-Por ejemplo, mediante *cookies* podemos comprobar la cantidad de visitas diferentes que realiza un usuario:
+Per exemple, mitjançant *cookies* podem comprovar la quantitat de visites diferents que realitza un usuari:
 
 ``` php
 <?php
@@ -305,19 +304,19 @@ if (isset($_COOKIE['accesos'])) { 
 ?>
 ```
 
-!!! tip "Inspeccionando las cookies"
-    Si queremos ver que contienen las cookies que tenemos almacenadas en el navegador, se puede comprobar su valor en *Dev Tools --> Application --> Storage*
+!!! tip "Inspeccionant les cookies"
+    Si volem veure que contenen les cookies que tenim emmagatzemades en el navegador, es pot comprovar el seu valor en *Dev Tools --> Application --> Storage
 
-El tiempo de vida de las cookies puede ser tan largo como el sitio web en el que residen. Ellas seguirán ahí, incluso si el navegador está cerrado o abierto.
+El temps de vida de les cookies pot ser tan llarg com el lloc web en el qual resideixen. Elles seguiran ací, fins i tot si el navegador està tancat o obert.
 
-Para borrar una cookie se puede poner que expiren en el pasado:
+Per a esborrar una cookie es pot posar que expiren en el passat:
 
 ``` php
 <?php
 setcookie(nombre, "", 1) // pasado
 ```
 
-O que caduquen dentro de un periodo de tiempo deteminado:
+O que caduquen dins d'un període de temps deteminado:
 
 ``` php
 <?php
@@ -326,32 +325,32 @@ setcookie(nombre, valor, time() + 3600) // Caducan dentro de una hora
 
 <figure style="align: center;">
     <img src="imagenes/04/04cookies.png" width="700">
-    <figcaption>Comunicación con cookies</figcaption>
+    <figcaption>Comunicació amb cookies</figcaption>
 </figure>
 
-Se utilizan para:
+S'utilitzen per a:
 
-* Recordar los inicios de sesión
-* Almacenar valores temporales de usuario
-* Si un usuario está navegando por una lista paginada de artículos, ordenados de cierta manera, podemos almacenar el ajuste de la clasificación.
+* Recordar els inicis de sessió
+* Emmagatzemar valors temporals d'usuari
+* Si un usuari està navegant per una llista paginada d'articles, ordenats d'una certa manera, podem emmagatzemar l'ajust de la classificació.
 
-La alternativa en el cliente para almacenar información en el navegador es el objeto [LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage).
+L'alternativa en el client per a emmagatzemar informació en el navegador és l'objecte [LocalStorage](https://developer.mozilla.org/es/docs/web/api/window/localstorage).
 
-### Sesión
+### Sessió
 
-La sesión añade la gestión del estado a HTTP, almacenando en este caso la información en el servidor.
-Cada visitante tiene un ID de sesión único, el cual por defecto se almacena en una cookie denominada `PHPSESSID`.
-Si el cliente no tiene las cookies activas, el ID se propaga en cada URL dentro del mismo dominio.
-Cada sesión tiene asociado un almacén de datos mediante el array global `$_SESSION`, en el cual podemos almacenar y recuperar información.
+La sessió afig la gestió de l'estat a HTTP, emmagatzemant en aquest cas la informació en el servidor.
+Cada visitant té un ANEU de sessió únic, el qual per defecte s'emmagatzema en una cookie denominada `PHPSESSID`.
+Si el client no té les cookies actives, l'ANEU es propaga en cada URL dins del mateix domini.
+Cada sessió té associat un magatzem de dades mitjançant el array global `$_SESSION`, en el qual podem emmagatzemar i recuperar informació.
 
-La sesión comienza al ejecutar un script PHP. Se genera un nuevo ID y se cargan los datos del almacén:
+La sessió comença en executar un script PHP. Es genera un nou ANEU i es carreguen les dades del magatzem:
 
 <figure style="align: center;">
     <img src="imagenes/04/04sesion.png" width="700">
-    <figcaption>Comunicación con sesión</figcaption>
+    <figcaption>Comunicació amb sessions</figcaption>
 </figure>
 
-Las operaciones que podemos realizar con la sesión son:
+Les operacions que podem realitzar amb la sessió són:
 
 ``` php
 <?php
@@ -362,7 +361,7 @@ session_destroy(); // destruye la sesión
 unset($_SESSION[clave]; // borrado
 ```
 
-Vamos a ver mediante un ejemplo como podemos insertar en un página datos en la sesión para posteriormente en otra página acceder a esos datos. Por ejemplo, en `sesion1.php` tendríamos
+Veurem mitjançant un exemple com podem inserir en un pàgina dades en la sessió per a posteriorment en una altra pàgina accedir a aqueixes dades. Per exemple, en `sesion1.php` tindríem
 
 ``` php
 <?php
@@ -375,7 +374,7 @@ echo "Estamos en el $instituto ";
 <a href="sesion2.php">Y luego</a>
 ```
 
-Y posteriormente podemos acceder a la sesión en `sesion2.php`:
+I posteriorment podem accedir a la sessió en `sesion2.php`:
 
 ``` php
 <?php
@@ -385,31 +384,30 @@ echo "Otra vez, en el $instituto ";
 ?>
 ```
 
-!!! note "Configurando la sesión en `php.ini`"
-    Las siguiente propiedades de `php.ini` permiten configurar algunos aspectos de la sesión:
+!!! note "Configurant la sessió en `php.ini`"
+    Les següent propietats de `php.ini` permeten configurar alguns aspectes de la sessió:
 
-    * `session.save_handler`: controlador que gestiona cómo se almacena (`files`)
-    * `session.save_path`: ruta donde se almacenan los archivos con los datos (si tenemos un cluster, podríamos usar `/mnt/sessions` en todos los servidor de manera que apuntan a una carpeta compartida)
-    * `session.name`: nombre de la sesión (`PHSESSID`)
-    * `session.auto_start`: Se puede hacer que se autocargue con cada script. Por defecto está deshabilitado
-    * `session.cookie_lifetime`: tiempo de vida por defecto
+      * `session.save_handler`: controlador que gestiona com s'emmagatzema (`files`)
+      * `session.save_path`: ruta on s'emmagatzemen els arxius amb les dades (si tenim un clúster, podríem usar `/mnt/sessions` en tots els servidor de manera que apunten a una carpeta compartida)
+      * `session.name`: nom de la sessió (`PHSESSID`)
+      * `session.acte_start`: Es pot fer que s'autocarregue amb cada script. Per defecte està deshabilitat
+      * `session.cookie_lifetime`: temps de vida per defecte
 
-    Más información en la [documentación oficial](https://www.php.net/manual/es/session.configuration.php).
+Més informació en la [documentació oficial](https://www.php.net/manual/es/session.configuration.php).
 
-## Autentificación de usuarios
+## Autenticació d'usuaris
 
-Una sesión establece una relación anónima con un usuario particular, de manera que podemos saber si es el mismo usuario entre dos peticiones distintas. Si preparamos un sistema de login, podremos saber quien utiliza nuestra aplicación.
+Una sessió estableix una relació anònima amb un usuari particular, de manera que podem saber si és el mateix usuari entre dues peticions diferents. Si preparem un sistema de login, podrem saber qui utilitza la nostra aplicació.
 
-Para ello, preparemos un sencillo sistema de autenticación:
+Per a això, preparem un senzill sistema d'autenticació:
 
-* Mostrar el formulario login/password
-* Comprobar los datos enviados
-* Añadir el login a la sesión
-* Comprobar el login en la sesión para realizar tareas específicas del usuario
-* Eliminar el login de la sesión cuando el usuario la cierra.
+* Mostrar el formulari login/password
+* Comprovar les dades enviades
+* Afegir el login a la sessió
+* Comprovar el login en la sessió per a fer tasques específiques de l'usuari
+* Eliminar el login de la sessió quan l'usuari la tanca.
 
-Vamos a ver en código cada paso del proceso. Comenzamos con el archivo `index.php`:
-
+Veurem en codi cada pas del procés. Comencem amb l'arxiu `index.php`:
 ``` html
 <form action='login.php' method='post'>
   <fieldset>
@@ -430,7 +428,7 @@ Vamos a ver en código cada paso del proceso. Comenzamos con el archivo `index.p
   </form>
 ```
 
-Al hacer *submit* nos lleva a `login.php`, el cual hace de controlador:
+En fer *submit* ens porta a `login.php`, el qual fa de controlador:
 
 ``` php
 <?php
@@ -458,8 +456,7 @@ if (isset($_POST['enviar'])) {
     }
 }
 ```
-
-Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. Por ejemplo, en `main.php` tendríamos:
+Depenent de l'usuari que s'hi haja logueado, anirem a una vista o a una altra. Per exemple, en `main.php` tindríem:
 
 ``` html+php
 <?php
@@ -494,7 +491,7 @@ Dependiendo del usuario que se haya logueado, vamos a ir a una vista o a otra. P
 </html>
 ```
 
-Finalmente, necesitamos la opción de cerrar la sesión que colocamos en `logout.php`:
+Finalment, necessitem l'opció de tancar la sessió que col·loquem en `logout.php`:
 
 ``` php
 <?php
@@ -507,116 +504,115 @@ header("Location: index.php");
 ?>
 ```
 
-!!! warning "Autenticación en producción"
-    En la actualidad la autenticación de usuario no se realiza gestionando la sesión direcamente, sino que se realiza mediante algún framekwork que abstrae todo el proceso o la integración de mecanismos de autenticación tipo *OAuth*, como  estudiaremos en la última unidad mediante *Laravel*.
+!!! warning "Autenticació en producció"
+    En l'actualitat l'autenticació d'usuari no es realitza gestionant la sessió direcamente, sinó que es realitza mitjançant algun framekwork que abstrau tot el procés o la integració de mecanismes d'autenticació tipus *OAuth*, com estudiarem en l'última unitat mitjançant *Laravel*.
 
-## Referencias
+## Referències
 
 * [Cookies en PHP](https://www.php.net/manual/es/features.cookies.php)
 * [Manejo de sesiones en PHP](https://www.php.net/manual/es/book.session.php)
 
-## Actividades
+## Activitats
 
-401. `401server.php`: igual que el ejemplo visto en los apuntes, muestra los valores de `$_SERVER` al ejecutar un script en tu ordenador.  
-Prueba a pasarle parámetros por GET (y a no pasarle ninguno).  
-Prepara un formulario (`401post.html`) que haga un envío por POST y compruébalo de nuevo.  
-Crea una página (`401enlace.html`) que tenga un enlace a `401server.php` y comprueba el valor de `HTTP_REFERER`.
+401. `401server.php`: igual que l'exemple vist en les anotacions, mostra els valors de `$_SERVER` en executar un script en el teu ordinador.
+     Prova a passar-li paràmetres per GET (i a no passar-li cap).
+     Prepara un formulari (`401post.html`) que faça un enviament per POST i comprova'l de nou.
+     Crea una pàgina (`401enlace.html`) que tinga un enllaç a `401server.php` i comprova el valor de `HTTP_REFERER`.
 
-### Formularios
+### Formularis
 
-402. `402formulario.html` y `402formulario.php`: Crea un formulario que solicite:
+402. `402formulario.html` i `402formulario.php`: Crea un formulari que sol·licite:
 
-    * Nombre y apellidos.
-    * Email.
-    * URL página personal.
-    * Sexo (radio).
-    * Número de convivientes en el domicilio.
-    * Aficiones (checkboxes) – poner mínimo 4 valores.
-    * Menú favorito (lista selección múltiple) – poner mínimo 4 valores.
+       * Nom i cognoms.
+       * Email.
+       * URL pàgina personal.
+       * Sexe (ràdio).
+       * Nombre de convivents en el domicili.
+       * Aficions (caselles de selecció) – posar mínim 4 valors.
+       * Menú favorit (llesta selecció múltiple) – posar mínim 4 valors.
+
+    Mostra els valors carregats en una taula-resumeixen.
+
+403. `403validacion.php`: A partir del formulari anterior, introdueix validacions en HTML mitjançant l'atribut `required` dels camps (ús els tipus adequats per a cada camp), i en comprova els tipus de les dades i que compleixen els valors esperats (per exemple, en les caselles de selecció que els valors recollits formen part de tots els possibles). Pots provar de passar-li dades erroneos via URL i comprovar el seu comportament.
+     Tip: Investiga l'ús de la funció `filter_var`.
+
+404. `404subida.html` i `404subida.php`: Crea un formulari que permeta pujar un arxiu al servidor.
+     A més del fitxer, ha de demanar en el mateix formulari dos camps numèrics que sol·liciten l'amplària i l'altura. Comprova que tant el fitxer com les dades arriben correctament.
+
+405. `405subidaImagen.php`: Modifica l'exercici anterior perquè únicament permeta pujar imatges (comprova la propietat `type` de l'arxiu pujat). Si l'usuari selecciona un altre tipus d'arxius, se l'ha d'informar de l'error i permetre que puge un nou arxiu.
+     En el cas de pujar el tipus correcte, visualitzar la imatge amb la grandària d'amplària i altura rebut com a paràmetre.
+
+### Cookies i Sessió
+
+406. `406contadorVisitas.php`: Mitjançant l'ús de cookies, informa l'usuari de si és la seua primera visita, o si no ho és, mostre el seu valor (valor d'un comptador).
+     A més, has de permetre que l'usuari reinicialitze el seu comptador de visites.
+
+407. `407fondo.php`: Mitjançant l'ús de cookies, crea una pàgina amb un desplegable amb diversos colors, de manera que l'usuari puga canviar el color de fons de la pàgina (atribut `bgcolor`).
+     En tancar la pàgina, aquesta ha de recordar, almenys durant 24h, el color triat i la pròxima vegada que es carregue la pàgina, ho faça amb l'últim color seleccionat.
+
+408. `408fondoSesion1.php`: Modifica l'exercici anterior per a emmagatzemar el color de fons en la sessió i no emprar cookies. A més, ha de contindre un enllaç al següent arxiu.
+     `408fondoSesion2.php`: Ha de mostrar el color i donar la possibilitat de:
+* tornar a la pàgina anterior mitjançant un enllaç i mitjançant un altre enllaç, buidar la sessió i tornar a la pàgina anterior.
+
+409. Fent ús de la sessió, dividirem el formulari de l'exercici `402formulario.php` en 2 subformularios:
+
+     * `409formulario1.php` envia les dades (nom i cognoms, email, url i sexe) a `409formulario2.php`.
+     * `409formulario2.php` llig les dades i els fica en la sessió. A continuació, mostra la resta de camps del formulari a emplenar (convivents, aficions i menú). Envia aquestes dades a `409formulario3.php`.
+     * `409formulario3.php` recull les dades enviades en el pas anterior i al costat dels quals ja estaven en la sessió, es mostren totes les dades en una taula/llista desordenada.
      
-    Muestra los valores cargados en una tabla-resumen.
+### Autenticació
 
-403. `403validacion.php`: A partir del formulario anterior, introduce validaciones en HTML mediante el atributo `required` de los campos (uso los tipos adecuados para cada campo), y en comprueba los tipos de los datos y que cumplen los valores esperados (por ejemplo, en los checkboxes que los valores recogidos forman parte de todos los posibles). Puedes probar a pasarle datos erroneos via URL y comprobar su comportamiento.  
-Tip: Investiga el uso de la función `filter_var`.
+En els següents exercicis muntarem una estructura d'inici de sessió similar a la vista en les anotacions.
 
-404. `404subida.html` y `404subida.php`: Crea un formulario que permita subir un archivo al servidor.
-Además del fichero, debe pedir en el mismo formulario dos campos numéricos que soliciten la anchura y la altura. Comprueba que tanto el fichero como los datos llegan correctamente.
+410. `410index.php`: formulari d'inici de sessió
+411. `411login.php`: fa de controlador, per la qual cosa ha de comprovar les dades rebudes (només permet l'entrada de `usuari/usuari` i si tot és correcte, cedir el control a la vista del següent exercici. No conté codi HTML.
+412. `412peliculas.php`: vista que mostra com a títol "Llistat de Pel·lícules", i una llista desordenada amb tres pel·lícules.
+413. `413logout.php`: buida la sessió i ens porta de nou al formulari d'inici de sessió. No conté codi HTML
+414. `414series.php`: Afig un nova vista similar a `412peliculas.php` que mostra un "Llistat de Sèries" amb una llista desordenada amb tres sèries. Tant `412pelicuas.php` com la vista recien creades, han de tindre un xicotet menú (senzill, mitjançant enllaços) que permeta passar d'un llistat a un altre.
+     Comprova que si s'accedeix directament a qualsevol de les vistes sense tindre un usuari *loguejao* via URL del navegador, no es mostra el llistat.
+415. Modifica tant el controlador com les vistes perquè:
+     * les dades els obtinga el controlador (emmagatzema en la sessió un array de pel·lícules i un altre de sèries)
+     * col·loque les dades en la sessió
+     * En les vistes, les dades es recuperen de la sessió i es pinten* en la llista desordenada recorrent el array corresponent.
 
-405. `405subidaImagen.php`: Modifica el ejercicio anterior para que únicamente permita subir imágenes (comprueba la propiedad `type` del archivo subido). Si el usuario selecciona otro tipo de archivos, se le debe informar del error y permitir que suba un nuevo archivo.  
-En el caso de subir el tipo correcto, visualizar la imagen con el tamaño de anchura y altura recibido como parámetro.
+### Projecte Videoclub 3.0
 
-### Cookies y Sesión
+420. Per al Videoclub, crearem una pàgina `index.php` amb un formulari que continga un formulari de login/password.
+     Es comprovaran les dades en `login.php`. Els possibles usuaris són admin/admin o usuari/usuari
+* Si l'usuari és correcte, en `main.php` mostrar un missatge de benvinguda amb el nom de l'usuari, al costat d'un enllaç per a tancar la sessió, que el portaria de nou al login.
+* Si l'usuari és incorrecte, ha de tornar a carregar el formulari donant informació a l'usuari d'accés incorrecte.
 
-406. `406contadorVisitas.php`: Mediante el uso de cookies, informa al usuario de si es su primera visita, o si no lo es, muestre su valor (valor de un contador).
-Además, debes permitir que el usuario reinicialice su contador de visitas.
-
-407. `407fondo.php`: Mediante el uso de cookies, crea una página con un desplegable con varios colores, de manera que el usuario pueda cambiar el color de fondo de la página (atributo `bgcolor`).
-Al cerrar la página, ésta debe recordar, al menos durante 24h, el color elegido y la próxima vez que se cargue la pagina, lo haga con el último color seleccionado.
-
-408. `408fondoSesion1.php`: Modifica el ejercicio anterior para almacenar el color de fondo en la sesión y no emplear cookies. Además, debe contener un enlace al siguiente archivo.
-    `408fondoSesion2.php`: Debe mostrar el color y dar la posibilidad de:
-    * volver a la página anterior mediante un enlace
-    * y mediante otro enlace, vaciar la sesión y volver a la página anterior.
-
-409. Haciendo uso de la sesión, vamos a dividir el formulario del ejercicio `402formulario.php` en 2 subformularios:
-
-    * `409formulario1.php` envía los datos (nombre y apellidos, email, url y sexo) a `409formulario2.php`.
-    * `409formulario2.php` lee los datos y los mete en la sesión. A continuación, muestra el resto de campos del formulario a rellenar (convivientes, aficiones y menú). Envía estos datos a `409formulario3.php`.
-    * `409formulario3.php` recoge los datos enviados en el paso anterior y junto a los que ya estaban en la sesión, se muestran todos los datos en una tabla/lista desordenada.
-
-### Autenticación
-
-En los siguientes ejercicios vamos a montar una estructura de inicio de sesión similar a la vista en los apuntes.
-
-410. `410index.php`: formulario de inicio de sesión
-411. `411login.php`: hace de controlador, por lo que debe comprobar los datos recibidos (solo permite la entrada de `usuario/usuario` y si todo es correcto, ceder el control a la vista del siguiente ejercicio. No contiene código HTML.
-412. `412peliculas.php`: vista que muestra como título "Listado de Películas", y una lista desordenada con tres películas.
-413. `413logout.php`: vacía la sesión y nos lleva de nuevo al formulario de inicio de sesión. No contiene código HTML
-414. `414series.php`: Añade un nueva vista similar a `412peliculas.php` que muestra un "Listado de Series" con una lista desordenada con tres series. Tanto `412pelicuas.php` como la vista recien creadas, deben tener un pequeño menú (sencillo, mediante enlaces) que permita pasar de un listado a otro.
-Comprueba que si se accede directamente a cualquiera de las vistas sin tener un usuario *logueado* via URL del navegador, no se muestra el listado.
-415. Modifica tanto el controlador como las vistas para que:
-    * los datos los obtenga el controlador (almacena en la sesión un array de películas y otro de series)
-    * coloque los datos en la sesión
-    * En las vistas, los datos se recuperan de la sesión y se *pintan* en la lista desordenada recorriendo el array correspondiente.
-
-### Proyecto Videoclub 3.0
-
-420. Para el Videoclub, vamos a crear una página `index.php` con un formulario que contenga un formulario de login/password.
-Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin o usuario/usuario
-    * Si el usuario es correcto, en `main.php` mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.
-    * Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.
-
-421. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas.
-En la siguiente unidad los obtendremos de la base de datos.
-En `mainAdmin.php`, además de la bienvenida, debe mostrar:
-    * Listado de clientes
-    * Listado de soportes
+421. Si l'usuari és administrador, es carregaran en la sessió les dades de suports i clients del videoclub que teníem en les nostres proves.
+     En la següent unitat els obtindrem de la base de dades.
+     En `mainAdmin.php`, a més de la benvinguda, ha de mostrar:
+     * Llistat de clients
+     * Llistat de suports
 
 <figure style="float: right;">
-    <img src="imagenes/04/04p423.png" width="400">
-    <figcaption>Esquema navegación ejercicio 423</figcaption>
+ <img src="imagenes/04/04p423.png" width="400">
+ <figcaption>Esquema navegació exercici 423</figcaption>
 </figure>
 
-422. Vamos a modificar la clase `Cliente` para almacenar el `user` y la `password` de cada cliente.
-Tras codificar los cambios, modificar el listado de clientes de `mainAdmin.php` para añadir al listado el usuario.
+422. Modificarem la classe `Client` per a emmagatzemar el `user` i la `password` de cada client.
+     Després de codificar els canvis, modificar el llistat de clients de `mainAdmin.php` per a afegir al llistat l'usuari.
 
-423. Si el usuario que accede no es administrador y coincide con alguno de los clientes que tenemos cargados tras el login, debe cargar `mainCliente.php` donde se mostrará un listado de los alquileres del cliente. Para ello, modificaremos la clase `Cliente` para ofrecer el método `getAlquileres() : array`, el cual llamaremos y luego recorreremos para mostrar el listado solicitado.
+423. Si l'usuari que accedeix no és administrador i coincideix amb algun dels clients que tenim carregats després del login, ha de carregar `mainCliente.php` on es mostrarà un llistat dels lloguers del client. Per a això, modificarem la classe `Client` per a oferir el mètode `getAlquileres() : array`, el qual anomenarem i després recorrerem per a mostrar el llistat sol·licitat.
 
-Ahora volvemos a la parte de administración
+Ara tornem a la part d'administració
 
-424. Además de mostrar el listado de clientes, vamos a ofrecer la opción de dar de alta a un nuevo cliente en `formCreateCliente.php`.
-Los datos se enviarán mediante POST a `createCliente.php` que los introducirá en la sesión.
-Una vez creado el cliente, debe volver a cargar `mainAdmin.php` donde se podrá ver el cliente insertado.
-Si hay algún dato incorrecto, debe volver a cargar el formulario de alta.
+424. A més de mostrar el llistat de clients, oferirem l'opció de donar d'alta a un nou client en `formCreateCliente.php`.
+     Les dades s'enviaran mitjançant POST a `createCliente.php` que els introduirà en la sessió.
+     Una vegada creat el client, ha de tornar a carregar `mainAdmin.php` on es podrà veure el client inserit.
+     Si hi ha alguna dada incorrecta, ha de tornar a carregar el formulari d'alta.
 
-425. Crea en `formUpdateCliente.php` un formulario que permita editar los datos de un cliente.
-Debes recoger los datos en `updateCliente.php`
-Los datos de cliente se deben poder modificar desde la propia página de un cliente, así como desde el listado del administrador.
+425. Crea en `formUpdateCliente.php` un formulari que permeta editar les dades d'un client.
+     Has de recollir les dades en `updateCliente.php`
+     Les dades de client s'han de poder modificar des de la pròpia pàgina d'un client, així com des del llistat de l'administrador.
 
-426. Desde el listado de clientes del administrador debes ofrecer la posibilidad de borrar un cliente.
-En el navegador, antes de redirigir al servidor, el usuario debe confirmar mediante JS que realmente desea eliminar al cliente.
-Finalmente, en `removeCliente.php` elimina al cliente de la sesión.
-Una vez eliminado, debe volver al listado de clientes.
+426. Des del llistat de clients de l'administrador has d'oferir la possibilitat d'esborrar un client.
+     En el navegador, abans de redirigir al servidor, l'usuari ha de confirmar mitjançant JS que realment desitja eliminar al client.
+     Finalment, en `removeCliente.php` elimina al client de la sessió.
+     Una vegada eliminat, ha de tornar al llistat de clients.
 
 <figure style="align: center;">
     <img src="imagenes/04/04p426.png" width="600">

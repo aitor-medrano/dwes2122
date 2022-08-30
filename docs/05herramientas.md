@@ -1,16 +1,16 @@
-# Herramientas
+# Ferramentes
 
-??? abstract "Duración y criterios de evaluación"
+??? abstract "Duració y criteris d'avaluació"
 
-    Duración estimada: 16 sesiones
+    Duració estimada: 16 hores
 
     <hr />
 
-    | Resultado de aprendizaje  | Criterios de evaluación   |
-    | ------                    | -----                     |
+    | Resultat d'aprenentatge  | Criteris d'avaluació  |
+    | ------                    | -----                |
     | 4.- Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.        | g) Se han utilizado herramientas y entornos para facilitar la programación, prueba y depuración del código.   |
 
-En esta unidad vamos a estudiar algunas de las herramientas más utilizadas en PHP.
+En aquesta unitat estudiarem algunes de les eines més utilitzades en PHP.
 
 ## Composer
 
@@ -19,41 +19,41 @@ En esta unidad vamos a estudiar algunas de las herramientas más utilizadas en P
     <figcaption>Logo Composer</figcaption>
 </figure>
 
-Herramienta por excelencia en PHP para la gestión de librerías y dependencias, de manera que instala y las actualiza asegurando que todo el equipo de desarrollo tiene el mismo entorno y versiones. Además, ofrece *autoloading* de nuestro código, de manera que no tengamos que hacerlo nosotros "a mano".
+Eina per excel·lència en PHP per a la gestió de llibreries i dependències, de manera que instal·la i les actualitza assegurant que tot l'equip de desenvolupament té el mateix entorn i versions. A més, ofereix *autoloading* del nostre codi, de manera que no hàgem de fer-lo nosaltres "a mà".
 
-Está escrito en PHP, y podéis consultar toda su documentación en [https://getcomposer.org/](https://getcomposer.org/).
+Està escrit en PHP, i podeu consultar tota la seua documentació en [https://getcomposer.org/](https://getcomposer.org/).
 
-Utiliza [*Packagist*]( https://packagist.org/) como repositorio de librerías.
+Utilitza [*Packagist*]( https://packagist.org/) com a repositori de llibreries.
 
-Funcionalmente, es similar a Maven (Java) / npm (JS).
+Funcionalment, és similar a Maven (Java) / npm (JS).
 
-### Instalación
+### Instal·lació
 
-Si estamos usando XAMPP, hemos de instalar *Composer* en el propio sistema operativo. Se recomienda seguir las [instrucciones oficiales](https://getcomposer.org/doc/00-intro.md) según el sistema operativo a emplear.
+Si estem usant XAMPP, hem d'instal·lar *Composer* en el propi sistema operatiu. Es recomana seguir les [instruccions oficials](https://getcomposer.org/doc/00-intro.md) segons el sistema operatiu a emprar.
 
-En cambio, si usamos *Docker*, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo `Dockerfile` y añadir el siguiente comando:
+En canvi, si usem *Docker*, necessitem modificar la configuració del nostre contenidor. En el nostre cas, hem decidit modificar l'arxiu `Dockerfile` i afegir el següent comando:
 
 ``` docker
 COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
 ```
 
-Para facilitar el trabajo, hemos creado una [plantilla ya preparada](recursos/plantilla-APC.zip).
+Per a facilitar el treball, hem creat una [plantilla ja preparada](recursos/plantilla-APC.zip).
 
-Es importante que dentro del contenedor comprobemos que tenemos la v2:
+És important que dins del contenidor comprovem que tenim la v2:
 
 ``` bash
 composer -V
 ```
 
-### Primeros pasos
+### Primers passos
 
-Cuando creemos un proyecto por primera vez, hemos de inicializar el repositorio. Para ello, ejecutaremos el comando `composer init` donde:
+Quan creem un projecte per primera vegada, hem d'inicialitzar el repositori. Per a això, executarem el comando `composer init` on:
 
-* Configuramos el nombre del paquete, descripción, autor (nombre <email>), tipo de paquete (project), etc...
-* Definimos las dependencias del proyecto (`require`) y las de desarrollo (`require-dev`) de manera interactiva.
-    * En las de desarrollo se indica aquellas que no se instalarán en el entorno de producción, por ejemplo, las librerías de pruebas.
+* Configurem el nom del paquet, descripció, autor (nom <email>), tipus de paquet (project), etc...
+* Definim les dependències del projecte (`require`) i les de desenvolupament (`require-dev`) de manera interactiva.
+* En les de desenvolupament s'indica aquelles que no s'instal·laran a l'entorn de producció, per exemple, les llibreries de proves.
 
-Tras su configuración, se creará automáticamente el archivo `composer.json` con los datos introducidos y descarga las librerías en la carpeta `vendor`. La instalación de las librerías siempre se realiza de manera local para cada proyecto.
+Després de la seua configuració, es crearà automàticament l'arxiu `composer.json` amb les dades introduïdes i descàrrega les llibreries en la carpeta `vendor`. La instal·lació de les llibreries sempre es realitza de manera local per a cada projecte.
 
 ``` json
 {
@@ -73,54 +73,54 @@ Tras su configuración, se creará automáticamente el archivo `composer.json` c
 }
 ```
 
-A la hora de indicar cada librería introduciremos:
+A l'hora d'indicar cada llibreria introduirem:
 
-* el nombre de la librería, compuesta tanto por el creador o "vendor", como por el nombre del proyecto. Ejemplos: `monolog/monolog` o `laravel/installer`.
-* la versión de cada librería. Tenemos diversas opciones para indicarla:
+* el nom de la llibreria, composta tant pel creador o "vendor", com pel nom del projecte. Exemples: `monolog/monolog` o `laravel/installer`.
+* la versió de cada llibreria. Tenim diverses opcions per a indicar-la:
 
-    * Directamente: 1.4.2
-    * Con comodines: 1.*
+    * Directament: 1.4.2
+    * Amb comodins: 1.
     * A partir de: >= 2.0.3
-    * Sin rotura de cambios: ^1.3.2 // >=1.3.2 <2.0.0
+    * Sense trencament de canvis: ^1.3.2 // >=1.3.2 <2.0.0
 
-### Actualizar librerías
+### Actualitzar llibreries
 
-Podemos definir las dependencias via el archivo `composer.json` o mediante comandos con el formato `composer require vendor/package:version`. Por ejemplo, si queremos añadir phpUnit como librería de desarrollo, haremos:
+Podem definir les dependències via l'arxiu `composer.json` o mitjançant comandos amb el format `composer require vendor/package:version`. Per exemple, si volem afegir phpUnit com a llibreria de desenvolupament, farem:
 
 ``` bash
 composer require phpunit/phpunit –dev
 ```
 
-Tras añadir nuevas librerías, hemos de actualizar nuestro proyecto:
+Després d'afegir noves llibreries, hem d'actualitzar el nostre projecte:
 
 ``` bash
 composer update
 ```
 
-Si creamos el archivo `composer.json` nosotros directamente sin inicializar el repositorio, hemos de instalar las dependencias:
+Si creem l'arxiu `composer.json` nosaltres directament sense inicialitzar el repositori, hem d'instal·lar les dependències:
 
 ``` bash
 composer install
 ```
 
-Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías en dentro de la carpeta `vendor`. Es muy importante añadir esta carpeta al archivo `.gitignore` para no subirlas a GitHub.
+En fer aquest pas (tant instal·lar com actualitzar), com ja hem comentat, es descarreguen les llibreries en dins de la carpeta `vendor`. És molt important afegir aquesta carpeta a l'arxiu `.gitignore` per a no pujar-les a GitHub.
 
-Además se crea el archivo `composer.lock`, que almacena la versión exacta que se ha instalado de cada librería (este archivo no se toca).
+A més es crea l'arxiu `composer.lock`, que emmagatzema la versió exacta que s'ha instal·lat de cada llibreria (aquest arxiu no es toca).
 
 ### `autoload.php`
 
-*Composer* crea de forma automática en `vendor/autoload.php` el código para incluir de forma automática todas las librerías que tengamos configuradas en `composer.json`.
+*Composer* crea de manera automàtica en `vendor/autoload.php` el codi per a incloure de manera automàtica totes les llibreries que tinguem configurades en `composer.json`.
 
-Para utilizarlo, en la cabecera de nuestro archivos pondremos:
+Per a utilitzar-ho, en la capçalera del nostre arxius posarem:
 
 ``` php
 <?php
 require 'vendor/autoload.php';
 ```
 
-En nuestro caso, de momento sólo lo podremos en los archivos donde probamos las clases
+En el nostre cas, de moment només el podrem en els arxius on provem les classes
 
-Si queremos que Composer también se encargue de cargar de forma automática nuestras clases de dominio, dentro del archivo `composer.json`, definiremos la propiedad `autoload`:
+Si volem que Composer també s'encarregue de carregar de manera automàtica les nostres classes de domini, dins de l'arxiu `composer.json`, definirem la propietat `autoload`:
 
 ``` json
 "autoload": {
@@ -128,7 +128,7 @@ Si queremos que Composer también se encargue de cargar de forma automática nue
 },
 ```
 
-Posteriormente, hemos de volver a generar el *autoload* de *Composer* mediante la opción `dump-autoload` (o `du`):
+Posteriorment, hem de tornar a generar el *autoload* de *Composer* mitjançant l'opció `dump-autoload` (o `du`):
 
 ``` bash
 composer dump-autoload
@@ -136,40 +136,40 @@ composer dump-autoload
 
 ## Monolog
 
-Vamos a probar *Composer* añadiendo la librería de [*Monolog*](https://github.com/Seldaek/monolog) a nuestro proyecto. Se trata de un librería para la gestión de logs de nuestras aplicaciones, soportando diferentes niveles (info, warning, etc...), salidas (ficheros, sockets, BBDD, Web Services, email, etc) y formatos (texto plano, HTML, JSON, etc...).
+Provarem *Composer* afegint la llibreria de [*Monolog*](https://github.com/seldaek/monolog) al nostre projecte. Es tracta d'un llibreria per a la gestió de logs de les nostres aplicacions, suportant diferents nivells (info, warning, etc...), eixides (fitxers, sockets, BBDD, Web Services, email, etc) i formats (text pla, HTML, JSON, etc...).
 
-Para ello, incluiremos la librería en nuestro proyecto con:
+Per a això, inclourem la llibreria en el nostre projecte amb:
 
 ``` bash
 composer require monolog/monolog
 ```
 
-Monolog 2 requiere al menos PHP 7.2, cumple con el estandar de logging PSR-3, y es la librería empleada por *Laravel* y *Symfony* para la gestión de logs.
+Monolog 2 requereix almenys PHP 7.2, compleix amb el estandar de logging PSR-3, i és la llibreria emprada per *Laravel* i *Symfony* per a la gestió de logs.
 
-!!! info "Cuando usar un log"
-    * Seguir las acciones/movimientos de los usuarios
-    * Registrar las transacciones
-    * Rastrear los errores de usuario
-    * Fallos/avisos a nivel de sistema
-    * Interpretar y coleccionar datos para posterior investigación de patrones
+!!! info "Quan usar un log"
+    * Seguir les acciones/moviments dels usuaris
+    * Registrar les transaccions
+    * Rastrejar els errors d'usuari
+    * Fallades/avisos a nivell de sistema
+    * Interpretar i col·leccionar dades per a posterior investigació de patrons
 
-### Niveles
+### Nivells
 
-A continuación mostramos los diferentes niveles de menos a más restrictivo:
-
-* *debug -100*: Información detallada con propósitos de debug. No usar en entornos de producción.
-* *info - 200*: Eventos interesantes como el inicio de sesión de usuarios.
-* *notice - 250*: Eventos normales pero significativos.
-* *warning - 300*: Ocurrencias excepcionales que no llegan a ser error.
-* *error - 400*: Errores de ejecución que permiten continuar con la ejecución de la aplicación pero que deben ser monitorizados.
-* *critical - 500*: Situaciones importantes donde se generan excepciones no esperadas o no hay disponible un componente.
-* *alert - 550*: Se deben tomar medidas inmediatamente.
-Caída completa de la web, base de datos no disponible, etc... Además, se suelen enviar mensajes por email.
-* *emergency - 600*: Es el error más grave e indica que todo el sistema está inutilizable.
+A continuació vam mostrar els diferents nivells de menys a més restrictiu:
+ 
+    * *debug -100*: Informació detallada amb propòsits de debug. No usar en entorns de producció.
+    * *info - 200*: Esdeveniments interessants com l'inici de sessió d'usuaris.
+    * *notice - 250*: Esdeveniments normals però significatius.
+    * *warning - 300*: Ocurrències excepcionals que no arriben a ser error.
+    * error - 400*: Errors d'execució que permeten continuar amb l'execució de l'aplicació però que han de ser monitorats.
+    * *critical - 500*: Situacions importants on es generen excepcions no esperades o no hi ha disponible un component.
+    * *alert - 550*: S'han de prendre mesures immediatament.
+      Caiguda completa de la web, base de dades no disponible, etc... A més, se solen enviar missatges per email.
+    * *emergency - 600*: És l'error més greu i indica que tot el sistema està inutilitzable.
 
 ### Hola Monolog
 
-Por ejemplo, en el archivo `pruebaLog.php` que colocaríamos en el raíz, primero incluimos el *autoload*, importamos las clases a utilizar para finalmente usar los métodos de *Monolog*:
+Per exemple, en l'arxiu `pruebaLog.php` que col·locaríem en l'arrel, primer incloem el *autoload*, importem els classes a utilitzar per a finalment usar els mètodes de *Monolog*:
 
 ``` php
 <?php
@@ -189,7 +189,7 @@ $log->critical("Esto es un mensaje de CRITICAL");
 $log->alert("Esto es un mensaje de ALERT");
 ```
 
-En todos los métodos de registro de mensajes (`debug`, `info`, ...), además del propio mensaje, le podemos pasar información como el contenido de alguna variable, usuario de la aplicación, etc.. como segundo parámetro dentro de un array, el cual se conoce como **array de contexto**. Es conveniente hacerlo mediante un array asociativo para facilitar la lectura del log.
+En tots els mètodes de registre de missatges (`debug`, `info`, ...), a més del propi missatge, li podem passar informació com el contingut d'alguna variable, usuari de l'aplicació, etc.. com a segon paràmetre dins d'un array, el qual es coneix com **array de context**. És convenient fer-ho mitjançant un array associatiu per a facilitar la lectura del log.
 
 ``` php
 <?php
@@ -197,26 +197,26 @@ $log->warning("Producto no encontrado", [$producto]);
 $log->warning("Producto no encontrado", ["datos" => $producto]);
 ```
 
-### Funcionamiento
+### Funcionament
 
-Cada instancia `Logger` tiene un nombre de canal y una pila de manejadores (*handler*).
-Cada mensaje que mandamos al log atraviesa la pila de manejadores, y cada uno decide si debe registrar la información, y si se da el caso, finalizar la propagación.
-Por ejemplo, un `StreamHandler` en el fondo de la pila que lo escriba todo en disco, y en el tope añade un `MailHandler` que envíe un mail sólo cuando haya un error.
+Cada instància `Logger` té un nom de canal i una pila de manejadores (*handler*).
+Cada missatge que manem al log travessa la pila de manejadores, i cadascun decideix si ha de registrar la informació, i si es dona el cas, finalitzar la propagació.
+Per exemple, un `StreamHandler` en el fons de la pila que ho escriga tot en disc, i en el topall afig un `MailHandler` que envie un mail només quan hi haja un error.
 
 ### Manejadores
 
-Cada manejador tambien tiene un formateador (`Formatter`). Si no se indica ninguno, se le asigna uno por defecto. El último manejador insertado será el primero en ejecutarse.
-Luego se *van ejecutando* conforme a la pila.
+Cada manejador tambien té un formateador (`Formatter`). Si no s'indica cap, se li assigna un per defecte. L'últim manejador inserit serà el primer a executar-se.
+Després es van executant* conforme a la pila.
 
-Los manejadores más utilizados son:
+Els manejadores més utilitzats són:
 
 * `StreamHandler(ruta, nivel)`
 * `RotatingFileHandler(ruta, maxFiles, nivel)`
 * `NativeMailerHandler(para, asunto, desde, nivel)`
 * `FirePHPHandler(nivel)`
 
-Si queremos que los mensajes de la aplicación salgan por el log del servidor, 
-en nuestro caso el archivo `error.log` de *Apache* utilizaremos como ruta la salida de error:
+Si volem que els missatges de l'aplicació isquen pel log del servidor,
+en el nostre cas l'arxiu `error.log` de Apatxe* utilitzarem com a ruta l'eixida d'error:
 
 ``` php
 <?php
@@ -225,8 +225,8 @@ $log->pushHandler(new StreamHandler("php://stderr", Logger::DEBUG));
 ```
 
 !!! tip "FirePHP"
-    Por ejemplo, mediante `FirePHPHandler`, podemos utilizar `FirePHP`, la cual es una herramienta para hacer debug en la consola de *Firefox*.
-    Tras instalar la extensión en Firefox, habilitar las opciones y configurar el *Handler*, podemos ver los mensajes coloreados con sus datos:
+    Per exemple, mitjançant `FirePHPHandler`, podem utilitzar `FirePHP`, la qual és una eina per a fer debug en la consola de Firefox*.
+    Després d'instal·lar l'extensió en Firefox, habilitar les opcions i configurar el *Handler*, podem veure els missatges acolorits amb les seues dades:
 
     ``` php
     <?php
@@ -247,10 +247,10 @@ $log->pushHandler(new StreamHandler("php://stderr", Logger::DEBUG));
 
 ### Canales
 
-Se les asigna al crear el `Logger`. En grandes aplicaciones, se crea un canal por cada subsistema: ventas, contabilidad, almacén.
-No es una buena práctica usar el nombre de la clase como canal, esto se hace con un *procesador*.
+Se'ls assigna en crear el `Logger`. En grans aplicacions, es crea un canal per cada subsistema: vendes, comptabilitat, magatzem.
+No és una bona pràctica usar el nom de la classe com a canal, això es fa amb un processador*.
 
-Para su uso, es recomiendo asignar el log a una propiedad privada a Logger, y posteriormente, en el constructor de la clase, asignar el canal, manejadores y formato.
+Per al seu ús, és recomane assignar el log a una propietat privada a Logger, i posteriorment, en el constructor de la classe, assignar el canal, manejadores i format.
 
 ``` php
 <?php
@@ -259,18 +259,18 @@ $this->log->pushHandler(new StreamHandler("logs/milog.log", Logger::DEBUG));
 $this->log->pushHandler(new FirePHPHandler(Logger::DEBUG));
 ```
 
-Y dentro de los métodos para escribir en el log:
+I dins dels mètodes per a escriure en el log:
 
 ``` php
 <?php
 $this->log->warning("Producto no encontrado", [$producto]);
 ```
 
-### Procesadores
+### Processadors
 
-Los procesadores permiten añadir información a los mensajes. Para ello, se apilan después de cada manejador mediante el método `pushProcessor($procesador)`.
+Els processadors permeten afegir informació als missatges. Per a això, s'apilen després de cada manejador mitjançant el mètode `pushProcessor($processador)`.
 
-Algunos procesadores conocidos son `IntrospectionProcessor` (muestran la linea, fichero, clase y metodo desde el que se invoca el log), `WebProcessor` (añade la URI, método e IP) o `GitProcessor` (añade la rama y el commit).
+Alguns processadors coneguts són `IntrospectionProcessor` (mostren la línia, fitxer, classe i metodo des del qual s'invoca el log), `WebProcessor` (afig la URI, mètode i IP) o `GitProcessor` (afig la branca i el commit).
 
 === "PHP"
 
@@ -284,7 +284,7 @@ Algunos procesadores conocidos son `IntrospectionProcessor` (muestran la linea, 
     $log->pushProcessor(new WebProcessor());
     ```
 
-=== "Consola en formato texto"
+=== "Consola en format text"
 
     ``` log
     [2020-11-26T13:35:31.076138+01:00] MiLogger.DEBUG: Esto es un mensaje de DEBUG [] {"file":"C:\\xampp\\htdocs\\log\\procesador.php","line":12,"class":null,"function":null}
@@ -293,7 +293,7 @@ Algunos procesadores conocidos son `IntrospectionProcessor` (muestran la linea, 
 
 ### Formateadores
 
-Se asocian a los manejadores con `setFormatter`. Los formateadores más utilizados son `LineFormatter`, `HtmlFormatter` o `JsonFormatter`.
+S'associen als manejadores amb `setFormatter`. Els formateadores més utilitzats són `LineFormatter`, `HtmlFormatter` o `JsonFormatter`.
 
 === "PHP"
 
@@ -312,14 +312,14 @@ Se asocian a los manejadores con `setFormatter`. Los formateadores más utilizad
     {"message":"Esto es un mensaje de INFO","context":{},"level":200,"level_name":"INFO","channel":"MiLogger","datetime":"2020-11-27T15:36:52.747538+01:00","extra":{}}
     ```
 
-!!! tip "Más información"
-    Más información sobre manejadores, formateadores y procesadores en <https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md>
+!!! tip "Més informació"
+    Més informació sobre manejadores, formateadores i processadors en <https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md>
 
-### Uso de Factorías
+### Ús de Factories
 
-En vez de instanciar un log en cada clase, es conveniente crear una factoría (por ejemplo, siguiendo la idea del patrón de diseño [*Factory Method*](https://refactoring.guru/es/design-patterns/factory-method)).
+En comptes de instanciar un log en cada classe, és convenient crear una factoria (per exemple, seguint la idea del patró de disseny [*Factory Method*](https://refactoring.guru/és/design-patterns/factory-method)).
 
-Para el siguiente ejemplo, vamos a suponer que creamos la factoría en el *namespace* `Dwes\Ejemplos\Util`.
+Per al següent exemple, suposarem que creguem la factoria en el *namespace* `Dwes\Exemples\Util`.
 
 ``` php
 <?php
@@ -339,7 +339,7 @@ class LogFactory {
 }
 ```
 
-Si en vez de devolver un `Monolog\Logger` utilizamos el interfaz de PSR, si en el futuro cambiamos la implementación del log, no tendremos que modificar nuestro codigo. Así pues, la factoría ahora devolverá `Psr\Log\LoggerInterface`:
+Si en comptes de retornar un `Monolog\Logger` utilitzem la interfície de PSR, si en el futur canviem la implementació del log, no haurem de modificar nostre codigo. Així doncs, la factoria ara retornarà `Psr\Log\LoggerInterface`:
 
 ``` php
 <?php
@@ -360,7 +360,7 @@ class LogFactory {
 }
 ```
 
-Finalmente, para utilizar la factoría, sólo cambiamos el código que teníamos en el constructor de las clases que usan el log, quedando algo asi:
+Finalment, per a utilitzar la factoria, només canviem el codi que teníem en el constructor de les classes que usen el log, quedant alguna cosa asi:
 
 ``` php
 <?php
@@ -388,15 +388,17 @@ class Cliente {
 
 ## Documentación con *phpDocumentor*
 
-[phpDocumentor](https://www.phpdoc.org/) es la herramienta *de facto* para documentar el código PHP. Es similar en propósito y funcionamiento a *Javadoc*.
 
-Así pues, es un herramienta que facilita la documentación del código PHP, creando un sitio web con el API de la aplicación.
 
-Se basa en el uso de anotaciones sobre los docblocks. Para ponerlo en marcha, en nuestro caso nos decantaremos por utilizar la imagen que ya existe de Docker.
+[phpDocumentor](https://www.phpdoc.org/) és l'eina per a documentar el codi PHP. És similar en propòsit i funcionament a *Javadoc*.
 
-### Instalación como binario
+Així doncs, és un eina que facilita la documentació del codi PHP, creant un lloc web amb l'API de l'aplicació.
 
-Otra opción es seguir los pasos que recomienda la [documentación oficial](https://www.phpdoc.org) para instalarlo como un ejecutable, que son descargar el archivo `phpDocumentor.phar` y darles permisos de ejecución:
+Es basa en l'ús d'anotacions sobre els docblocks. Per a posar-ho en marxa, en el nostre cas ens decantarem per utilitzar la imatge que ja existeix de Docker.
+
+### Instal·lació com a binari
+
+Una altra opció és seguir els passos que recomana la [documentació oficial](https://www.phpdoc.org) per a instal·lar-ho com un executable, que són descarregar l'arxiu `phpDocumentor.phar` i donar-los permisos d'execució:
 
 ``` bash
 wget https://phpdoc.org/phpDocumentor.phar
@@ -405,21 +407,21 @@ mv phpDocumentor.phar /usr/local/bin/phpdoc
 phpdoc --version
 ```
 
-Una vez instalado, desde el raíz del proyecto, suponiendo que tenemos nuestro código dentro de `app` y que queremos la documentación dentro de `docs/api` ejecutamos:
+Una vegada instal·lat, des de l'arrel del projecte, suposant que tenim el nostre codi dins de `app` i que volem la documentació dins de `docs/api` executem:
 
 ``` bash
 phpdoc -d ./app -t docs/api
 ```
 
-### Uso en Docker
+### Ús en Docker
 
-En el caso de usar *Docker*, usaremos el siguiente comando para ejecutarlo (crea el contenedor, ejecuta el comando que le pidamos, y automáticamente lo borra):
+En el cas d'usar *Docker*, usarem el següent comando per a executar-lo (crea el contenidor, executa el comando que li demanem, i automàticament l'esborra):
 
 ``` bash
 docker run --rm -v "$(pwd)":/data phpdoc/phpdoc:3
 ```
 
-A dicho comando, le adjuntaremos los diferentes parámetros que admite phpDocumentor, por ejemplo:
+A aquest comando, li adjuntarem els diferents paràmetres que admet phpDocumentor, per exemple:
 
 ``` bash
 # Muestra la versión
@@ -431,51 +433,50 @@ docker run --rm -v "$(pwd)":/data phpdoc/phpdoc:3 -d ./src/app -t ./docs/api
 
 ### DocBlock
 
-Un *docblock* es el bloque de código que se coloca encima de un recurso. Su formato es:
+Un *docblock* és el bloc de codi que es col·loca damunt d'un recurs. El seu format és:
 
 ``` php
 <?php
 /**
-* *Sumario*, una sola línea
-*
-* *Descripción* que puede utilizar varias líneas
-* y que ofrece detalles del elemento o referencias
-* para ampliar la información
-*
-* @param string $miArgumento con una *descripción* del argumento
-* que puede usar varias líneas.
-*
+* Sumari*, una sola línia
+
+* Descripció* que pot utilitzar diverses línies
+* i que ofereix detalls de l'element o referències
+* per a ampliar la informació
+
+* @param string $miArgumento amb una descripció* de l'argument
+* que pot usar diverses línies.
+
 * @return void
 */
 function miFuncion(tipo $miArgumento)
 {
 }
 ```
+### Documentant el codi
 
-### Documentando el código
+En tots els elements, ademas del sumari i/o descripció, posarem:
 
-En todos los elementos, ademas del sumario y/o descripción, pondremos:
+* En les classes:
+     * `@author` nom <email>
+     * `@package` ruta del namespace
+* En les propietats:
+     * `@var` tipus descripció
+* En els mètodes:
+     * `@param` tipus $nomene descripció
+     * `@throws` ClaseException descripció
+     * `@return` tipus descripció
 
-* En las clases:
-    * `@author` nombre <email>
-    * `@package` ruta del namespace
-* En las propiedades:
-    * `@var` tipo descripción
-* En los métodos:
-    * `@param` tipo $nombre descripción
-    * `@throws` ClaseException descripción
-    * `@return` tipo descripción
-
-Veámoslo con un ejemplo. Supongamos que tenemos una clase que representa un cliente:
+Vegem-ho amb un exemple. Suposem que tenim una classe que representa un client:
 
 ``` php
 <?php
 /**
-* Clase que representa un cliente
+* Classe que representa un client
 * 
-* El cliente se encarga de almacenar los soportes que tiene alquilado,
-* de manera que podemos alquilar y devolver productos mediante las operaciones
-* homónimas.
+* El client s'encarrega d'emmagatzemar els suports que té llogat,
+* de manera que podem llogar i retornar productes mitjançant les operacions
+* homònimes.
 * 
 * @package Dwes\Videoclub\Model
 * @author Aitor Medrano <a.medrano@edu.gva.es>
@@ -486,22 +487,22 @@ class Cliente {
     private string $numero;
 
     /**
-    * Colección de soportes alquilados
+    * Colecció de soports alquilats
     * @var array<Soporte> 
     */
     private $soportesAlquilados[];
 
-    /**
-    * Comprueba si el soporte recibido ya lo tiene alquilado el cliente
-    * @param Soporte $soporte Soporte a comprobar
-    * @return bool true si lo tiene alquilado
-    */
+    /*
+    * Comprova si el suport rebut ja el té llogat el client
+    * @param Suport $suporte Suport a comprovar
+    * @return bool true si ho té llogat
+    /
     public function tieneAlquilado(Soporte $soporte) : bool { 
         // ...
     }
 ```
 
-Si generamos la documentación y abrimos con un navegador el archivo `docs/api/index.html` podremos navegar hasta la clase `Cliente:
+Si generem la documentació i obrim amb un navegador l'arxiu `docs/api/index.html` podrem navegar fins a la classe `Client:
 
 <figure style="align: center;">
     <img src="imagenes/05/phpdoc.png">
@@ -510,28 +511,27 @@ Si generamos la documentación y abrimos con un navegador el archivo `docs/api/i
 
 ## *Web Scraping*
 
-Consiste en navegar a una página web y extraer información automáticamente, a partir del código HTML generado, y organizar la información pública disponible en Internet.
+Consisteix a navegar a una pàgina web i extraure informació automàticament, a partir del codi HTML generat, i organitzar la informació pública disponible en Internet.
+Aquesta pràctica requereix l'ús d'una llibreria que facilite la descàrrega de la informació desitjada imitant la interacció d'un navegador web. Aquest "robot" pot accedir a diverses pàgines simultàniament.
 
-Esta práctica requiere el uso de una librería que facilite la descarga de la información deseada imitando la interacción de un navegador web. Este "robot" puede acceder a varias páginas simultáneamente.
-
-!!! question "¿Es legal?"
-    Si el sitio web indica que tiene el contenido protegido por derechos de autor o en las normas de acceso via usuario/contraseña nos avisa de su prohibición, estaríamos incurriendo en un delito.
-    Es recomendable estudiar el archivo `robots.txt` que se encuentra en el raíz de cada sitio web.
-    Más información en el artículo [El manual completo para el web scraping legal y ético en 2021](https://ichi.pro/es/el-manual-completo-para-el-web-scraping-legal-y-etico-en-2021-69178542830388)
+!!! question "¿És legal?"
+        Si el lloc web indica que té el contingut protegit per drets d'autor o en les normes d'accés via usuari/contrasenya ens avisa de la seua prohibició, estaríem incorrent en un delicte.
+        És recomanable estudiar l'arxiu `robots.txt` que es troba en l'arrel de cada lloc web.
+        Més informació en l'article [El manual complet per al web scraping legal i ètic en 2021](https://ichi.pro/es/el-manual-completo-para-el-web-scraping-legal-y-etico-en-2021-69178542830388)
 
 ### Goutte
 
-[Goutte](https://github.com/FriendsOfPHP/Goutte) es un sencillo cliente HTTP para PHP creado específicamente para hacer web scraping. Lo desarrolló el mismo autor del framework *Symfony* y ofrece un API sencilla para extraer datos de las respuestas HTML/XML de los sitios web.
+[Goutte](https://github.com/FriendsOfPHP/Goutte) és un senzill client HTTP per a PHP creat específicament per a fer web scraping. Ho va desenvolupar el mateix autor del framework *Symfony* i ofereix un API senzilla per a extraure dades de les respostes HTML/XML dels llocs web.
 
-FIXME: Revisar https://godofredo.ninja/web-scraping-con-php-utilizando-goutte/
+FIXME: Revisar https://godofredo.ninja/web-scraping-amb-php-utilitzant-goutte/
 
-Los componentes principales que abstrae *Goutte* sobre *Symfony* son:
+Els components principals que abstrau *Goutte* sobre *Symfony* són:
 
-* `BrowserKit`: simula el comportamiento de un navegador web.
-* `CssSelector`: traduce consultas CSS en consultas XPath.
-* `DomCrawler`: facilita el uso del DOM y XPath.
+* `BrowserKit`: simula el comportament d'un navegador web.
+* `CssSelector`: tradueix consultes CSS en consultes XPath.
+* `DomCrawler`: facilita l'ús del DOM i XPath.
 
-Para poder utilizar *Goutte* en nuestro proyecto, ejecutaremos el siguiente comando en el terminal:
+Per a poder utilitzar *Goutte* en el nostre projecte, executarem el següent comando en el terminal:
 
 ``` bash
 composer require fabpot/goutte
@@ -539,11 +539,11 @@ composer require fabpot/goutte
 
 ### Goutte con selectores CSS
 
-A continuación vamos a hacer un ejemplo muy sencillo utilizando los selectores CSS, extrayendo información de la web `https://books.toscrape.com/`, la cual es una página para pruebas que no rechazará nuestras peticiones.
+A continuació farem un exemple molt senzill utilitzant els selectors CSS, extraient informació de la web `https://books.toscrape.com/`, la qual és una pàgina per a proves que no rebutjarà les nostres peticions.
 
-Tras crear un cliente con *Goutte*, hemos de realizar un petición a una URL. Con la respuesta obtenida, podemos utilizar el método `filter` para indicarle la ruta CSS que queremos recorrer e iterar sobre los resultados mediante una función anónima. Una vez estamos dentro de un determinado nodo, el método `text()` nos devolverá el contenido del propio nodo.
+Després de crear un client amb *Goutte*, hem de realitzar un petició a una URL. Amb la resposta obtinguda, podem utilitzar el mètode `filter` per a indicar-li la ruta CSS que volem recórrer i iterar sobre els resultats mitjançant una funció anònima. Una vegada estem dins d'un determinat node, el mètode `text()` ens retornarà el contingut del propi node.
 
-En concreto, vamos a meter en un array asociativo el título y el precio de todos los libros de la categoría *Classics*.
+En concret, ficarem en un array associatiu el títol i el preu de tots els llibres de la categoria *Classics*.
 
 ``` php
 <?php
@@ -573,9 +573,9 @@ $response->filter('.row li article h3 a')->each(
 
 ### Crawler
 
-Un caso muy común es obtener la información de una página que tiene los resultados paginados, de manera que vayamos recorriendo los enlaces y accediendo a cada uno de los resultados.
+Un cas molt comú és obtindre la informació d'una pàgina que té els resultats paginados, de manera que anem recorrent els enllaços i accedint a cadascun dels resultats.
 
-En este caso vamos a coger todos los precios de los libros de fantasía, y vamos a sumarlos:
+En aquest cas agafarem tots els preus dels llibres de fantasia, i els sumarem:
 
 ``` php
 <?php
@@ -614,30 +614,30 @@ $precioTotal = array_sum($precios);
 echo $precioTotal;
 ```
 
-## Pruebas con PHPUnit
+## Proves amb PHPUnit
 
-El curso pasado, dentro del módulo de *Entornos de Desarrollo*, estudiamos la importancia de la realización de pruebas, así como las pruebas unitarias mediante [JUnit](https://junit.org/junit5/).
+El curs passat, dins del mòdul de Entorns de Desenvolupament*, estudiarieu la importància de la realització de proves, així com les proves unitàries mitjançant [JUnit](https://junit.org/junit5/).
 
 <figure style="float: right;">
     <img src="imagenes/05/tdd.png" width="300">
     <figcaption>Test Driven Development</figcaption>
 </figure>
 
-A día de hoy es de gran importancia seguir una buena metodología de pruebas, siendo el desarrollo dirigido por las pruebas (*Test Driven Development* / TDD) uno de los enfoques más empleados, el cual consiste en:
+Hui dia és de gran importància seguir una bona metodologia de proves, sent el desenvolupament dirigit per les proves (Test Driven Development* / TDD) un dels enfocaments més emprats, el qual consisteix en:
 
-1. Escribir el test, y como no hay código implementado, la prueba falle (rojo).
-2. Escribir el código de aplicación para que la prueba funcione (verde).
-3. Refactorizar el código de la aplicación con la ayuda de la prueba para comprobar que no rompemos nada (refactor).
+1. Escriure el test, i com no hi ha codi implementat, la prova falle (roig).
+2. Escriure el codi d'aplicació perquè la prova funcione (verda).
+3. refactoritzar el codi de l'aplicació amb l'ajuda de la prova per a comprovar que no trenquem res (refactor).
 
-En el caso de PHP, la herramienta que se utiliza es *PHPUnit* (<https://phpunit.de/>), que como su nombre indica, está basada en JUnit. La versión actual es la 9.0
+En el cas de PHP, l'eina que s'utilitza és *PHPUnit* (<https://phpunit.de/>), que com el seu nom indica, està basada en JUnit. La versió actual és la 9.0
 
-Se recomienda consultar su documentación en <https://phpunit.readthedocs.io/es/latest/index.html>.
+Es recomana consultar la seua documentació en <https://phpunit.readthedocs.io/es/latest/index.html>.
 
-### Puesta en marcha
+### Posada en marxa
 
-Vamos a colocar todas las pruebas en una carpeta `tests` en el raíz de nuestro proyecto.
+Col·locarem totes les proves en una carpeta `tests` en l'arrel del nostre projecte.
 
-En el archivo `composer.json`, añadimos:
+En l'arxiu `composer.json`, afegim:
 
 ``` json
 "require-dev": {
@@ -648,22 +648,22 @@ En el archivo `composer.json`, añadimos:
 }
 ```
 
-Si quisiéramos añadir la librería desde un comando del terminal, también podríamos ejecutar:
+Si volguérem afegir la llibreria des d'un comando del terminal, també podríem executar:
 
 ``` bash
 composer require --dev phpunit/phpunit ^9
 ```
 
-!!! tip "Librerías de desarrollo"
-    Las librerías que se colocan en `require-dev` son las de desarrollo y *testing*, de manera que no se instalarán en un entorno de producción.
+!!! tip "Llibreries de desenvolupament"
+        Les llibreries que es col·loquen en `require-dev` són les de desenvolupament i *testing*, de manera que no s'instal·laran en un entorn de producció.
 
-Como hemos creado un *script*, podemos lanzar las pruebas mediante:
+Com hem creat un *script*, podem llançar les proves mitjançant:
 
 ``` bash
 composer test
 ```
 
-Vasmos a realizar nuestra primera prueba:
+Vasmos a realitzar la nostra primera prova:
 
 ``` php
 <?php
@@ -686,7 +686,7 @@ class PilaTest extends TestCase
 }
 ```
 
-Tenemos diferentes formas de ejecutar una prueba:
+Tenim diferents maneres d'executar una prova:
 
 ``` bash
 ./vendor/bin/phpunit tests/PilaTest.php
@@ -695,40 +695,40 @@ Tenemos diferentes formas de ejecutar una prueba:
 ./vendor/bin/phpunit --testdox --colors tests
 ```
 
-### Diseñando pruebas
+### Dissenyant proves
 
-Tal como hemos visto en el ejemplo, la clase de prueba debe heredar de `TestCase`, y el nombre de la clase debe acabar en `Test`, de ahí que hayamos llamado la clase de prueba como `PilaTest`.
+Tal com hem vist en l'exemple, la classe de prova ha d'heretar de `TestCase`, i el nom de la classe ha d'acabar en `Test`, d'aquí ve que hàgem anomenat la classe de prova com `PilaTest`.
 
-Una prueba implica un método de prueba (público) por cada funcionalidad a probar. Cada un de los métodos se les asocia un caso de prueba.
+Una prova implica un mètode de prova (públic) per cada funcionalitat a provar. Cada un dels mètodes se'ls associa un cas de prova.
 
-Los métodos deben nombrarse con el prefijo `test`, por ejemplo, `testPushAndPop`. Es muy importante que el nombre sea muy claro y descriptivo del propósito de la prueba. (*camelCase*).
+Els mètodes han de nomenar-se amb el prefix `test`, per exemple, `testPushAndPop`. És molt important que el nom siga molt clar i descriptiu del propòsit de la prova. (*camelCase).
 
-En los casos de prueba prepararemos varias aserciones para toda la casuística: rangos de valores, tipos de datos, excepciones, etc...
+En els casos de prova prepararem diverses assercions per a tota la casuística: rangs de valors, tipus de dades, excepcions, etc...
 
-### Aserciones
+### Assercions
 
-Las aserciones permiten comprobar el resultado de los métodos que queremos probar. Las aserciones esperan que el predicado siempre sea verdadero.
+Les assercions permeten comprovar el resultat dels mètodes que volem provar. Les assercions esperen que el predicat sempre siga vertader.
 
-PHPUnit ofrece las siguiente aserciones:
+PHPUnit ofereix les següent assercions:
 
-* `assertTrue` / `assertFalse`: Comprueba que la condición dada sea evaluada como true / false
-* `assertEquals` / `assertSame`: Comprueba que dos variables sean iguales
-* `assertNotEquals` / `assertNotSame`: Comprueba que dos variables NO sean iguales
-    * `Same` → comprueba los tipos. Si no coinciden los tipos y los valores, la aserción fallará
-    * `Equals` → sin comprobación estricta
-* `assertArrayHasKey` / `assertArrayNotHasKey`: Comprueba que un array posea un *key* determinado / o NO lo posea
-* `assertArraySubset`: Comprueba que un array posea otro array como subset del mismo
-* `assertAttributeContains` / `assertAttributeNotContains`: Comprueba que un atributo de una clase contenga una variable determinada / o NO contenga una variable determinada
-* `assertAttributeEquals`: Comprueba que un atributo de una clase sea igual a una variable determinada.
+* `assertTrue` / `assertFalse`: Comprova que la condició donada siga avaluada com true / false
+* `assertEquals` / `assertSame`: Comprova que dues variables siguen iguals
+* `assertNotEquals` / `assertNotSame`: Comprova que dues variables NO siguen iguals
+* `Same` → comprova els tipus. Si no coincideixen els tipus i els valors, l'asserció fallarà
+* `Equals` → sense comprovació estricta
+* `assertArrayHasKey` / `assertArrayNotHasKey`: Comprova que un array posseïsca un *key* determinat / o NO ho posseïsca
+* `assertArraySubset`: Comprova que un array posseïsca un altre array com subset del mateix
+* `assertAttributeContains` / `assertAttributeNotContains`: Comprova que un atribut d'una classe continga una variable determinada / o NO continga una variable determinada
+* `assertAttributeEquals`: Comprova que un atribut d'una classe siga igual a una variable determinada.
 
-### Comparando la salida
+### Comparant l'eixida
 
-Si los métodos a probar generan contenido mediante `echo` o una instrucción similar, disponemos de las siguiente expectativas:
+Si els mètodes a provar generen contingut mitjançant `echo` o una instrucció similar, disposem de les següent expectatives:
 
 * `expectOutputString(salidaEsperada)`
 * `expectOutputRegex(expresionRegularEsperada)`
 
-Las expectativas difieren de las aserciones que informan del resultado que se espera antes de invocar al método. Tras definir la expectativa, se invoca al método que realiza el `echo`/`print`.
+Les expectatives difereixen de les assercions que informen del resultat que s'espera abans d'invocar al mètode. Després de definir l'expectativa, s'invoca al mètode que realitza el `echo`/`print`.
 
 ``` php
 <?php
@@ -758,15 +758,15 @@ class CintaVideoTest extends TestCase {
 }
 ```
 
-### Proveedores de datos
+### Proveïdors de dades
 
-Cuando tenemos pruebas que solo cambian respecto a los datos de entrada y de salida, es útil utilizar proveedores de datos.
+Quan tenim proves que només canvien respecte a les dades d'entrada i d'eixida, és útil utilitzar proveïdors de dades.
 
-Se declaran en el docblock mediante `@dataProvider nombreMetodo`, donde se indica el nombre de un método público que devuelve un array de arrays, donde cada elemento es un caso de prueba.
+Es declaren en el docblock mitjançant `@dataProvider nombreMetodo`, on s'indica el nom d'un mètode públic que retorna un array de arrays, on cada element és un cas de prova.
 
-La clase de prueba recibe como parámetros los datos a probar y el resultado de la prueba como último parámetro.
+La classe de prova rep com a paràmetres les dades a provar i el resultat de la prova com a últim paràmetre.
 
-El siguiente ejemplo comprueba con diferentes datos el funcionamiento de `muestraResumen`:
+El següent exemple comprova amb diferents dades el funcionament de `muestraResumen`:
 
 ``` php
 <?php
@@ -788,17 +788,17 @@ public function cintasProvider() {
 }
 ```
 
-### Probando excepciones
+### Provant excepcions
 
-Las pruebas además de comprobar que las clases funcionan como se espera,  han de cubrir todos los casos posibles. Así pues, debemos poder hacer pruebas que esperen que se lance una excepción (y que el mensaje contenga cierta información):
+Les proves a més de comprovar que les classes funcionen com s'espera, han de cobrir tots els casos possibles. Així doncs, hem de poder fer proves que esperen que es llance una excepció (i que el missatge continga una certa informació):
 
-Para ello, se utilizan las siguiente expectativas:
+Per a això, s'utilitzen les següent expectatives:
 
 * `expectException(Excepcion::class)`
 * `expectExceptionCode(codigoExcepcion)`
-* `expectExceptionMessage(mensaje)`
+* `expectExceptionMessage(missatge)`
 
-Del mismo modo que antes, primero se pone la expectativa, y luego se provoca que se lance la excepción:
+De la mateixa manera que abans, primer es posa l'expectativa, i després es provoca que es llance l'excepció:
 
 ``` php
 <?php
@@ -818,39 +818,39 @@ public function testAlquilarCupoLleno() {
 }
 ```
 
-### Cobertura de código
+### Cobertura de codi
 
-La cobertura de pruebas indica la cantidad de código que las pruebas cubren, siendo recomendable que cubran entre el 95 y el 100%.
+La cobertura de proves indica la quantitat de codi que les proves cobreixen, sent recomanable que cobrisquen entre el 95 i el 100%.
 
-Una de las métricas asociadas a los informes de cobertura es el CRAP (Análisis y Predicciones sobre el Riesgo en Cambios), el cual mide la cantidad de esfuerzo, dolor y tiempo requerido para mantener una porción de código. Esta métrica debe mantenerse con un valor inferior a 5.
+Una de les mètriques associades als informes de cobertura és el CRAP (Anàlisi i Prediccions sobre el Risc en Canvis), el qual mesura la quantitat d'esforç, dolor i temps requerit per a mantindre una porció de codi. Aquesta mètrica ha de mantindre's amb un valor inferior a 5.
 
-!!! warning "Requisito xdebug"
-    Aunque ya viene instalado dentro de PHPUnit, para que funcione la cobertura del código, es necesario que el código PHP se ejecute con XDEBUG, y e indicarle a Apache que así es (colocando en el archivo de configuración `php.ini`la directiva `xdebug.mode=coverage`).
+!!! warning "Requeriment xdebug"
+            Encara que ja ve instal·lat dins de PHPUnit, perquè funcione la cobertura del codi, és necessari que el codi PHP s'execute amb XDEBUG, i i indicar-li a Apatxe que així és (col·locant en l'arxiu de configuració `php.ini`la directiva `xdebug.mode=coverage`).
 
-Añadimos en `composer.json` un nuevo *script*:
+Afegim en `composer.json` un nou *script*:
 
 ``` json
 "coverage": "phpunit --coverage-html coverage --coverage-filter app tests"
 ```
 
-Y posteriormente ejecutamos
+I posteriorment executem
 
 ``` bash
 composer coverage
 ```
 
-Por ejemplo, si accedemos a la clase `CintaVideo` con la prueba que habíamos realizado anteriormente, podemos observar la cobertura que tiene al 100% y que su CRAP es 2.
+Per exemple, si accedim a la classe `CintaVideo` amb la prova que havíem realitzat anteriorment, podem observar la cobertura que té al 100% i que el seu CRAP és 2.
 
 <figure style="align: center;">
     <img src="imagenes/05/coverage.png">
     <figcaption>Informe de cobertura de la clase CintaVideo</figcaption>
 </figure>
 
-!!! warning "Temas pendientes"
-    * Dependencia entre casos de prueba con el atributo `@depends`
-    * Completamente configurable mediante el archivo `phpxml.xml`: <https://phpunit.readthedocs.io/es/latest/configuration.html>
-    * Preparando las pruebas con `setUpBeforeClass()` y `tearDownAfterClass()`
-    * Objetos y pruebas *Mock* (dobles) con `createMock()`
+!!! warning "Temes pendents"
+            * Dependencia entre casos de prueba con el atributo `@depends`
+            * Completamente configurable mediante el archivo `phpxml.xml`: <https://phpunit.readthedocs.io/es/latest/configuration.html>
+            * Preparando las pruebas con `setUpBeforeClass()` y `tearDownAfterClass()`
+            * Objetos y pruebas *Mock* (dobles) con `createMock()`
 
 ## Referencias
 
@@ -859,117 +859,117 @@ Por ejemplo, si accedemos a la clase `CintaVideo` con la prueba que habíamos re
 * [PHP Monolog](https://zetcode.com/php/monolog/)
 * [Unit Testing con PHPUnit — Parte 1](https://medium.com/@emilianozublena/unit-testing-con-phpunit-parte-1-148c6d73e822), de Emiliano Zublena.
 
-## Actividades
+## Activitats
 
 ### Monolog
 
-501. Crea un nuevo proyecto con *Composer* llamado `Monologos`:
-    * Incluye como librería la última versión de Monolog.
-    * Crea la clase `Dwes\Monologos\HolaMonolog`.
-    * Define una propiedad privada nombrada `miLog` para guardar el log.
-    * Define en el constructor un `RotatingFileHandler` que escriba en la carpeta `logs` del proyecto, y que almacene los mensajes a partir de *debug*.
-    * Crea los métodos `saludar` y `despedir` que hagan un log de tipo *info* con la acción correspondiente.
+501. Crea un nou projecte amb *Composer* anomenat `Monologos`:
+     * Inclou com a llibreria l'última versió de Monolog.
+     * Crea la classe `Dwes\Monologos\HolaMonolog`.
+     * Defineix una propietat privada nomenada `miLog` per a guardar el log.
+     * Defineix en el constructor un `RotatingFileHandler` que escriga en la carpeta `logs` del projecte, i que emmagatzeme els missatges a partir de *debug*.
+     * Crea els mètodes `saludar` i `acomiadar` que facen un log de tipus *info* amb l'acció corresponent.
 
-502. Siguiendo con el proyecto `Monologos`:
-    * Crea un archivo llamado `inicio.php` que permita probar `HolaMonolog`.
-    * Comprueba que los mensajes aparecen en el *log*.
-    * Cambia el nivel para que el manejador solo muestre los mensajes a partir de *warning*.
-    * Vuelve a ejectuar `inicio.php` y comprueba el archivo de log.
-503. Modifica la clase `HolaMonolog`:
-    * En el constructor, añade a la pila un manejador que escriba a la salida de error conjunto al procesador de introspección, mostrando mensajes desde el nivel *debug*.
-    * Añade una propiedad denominada `hora`, la cual se inicializa únicamente como parámetro del constructor. Si la `hora` es inferior a 0 o mayor de 24, debe escribir un log de *warning* con un mensaje apropiado.
-    * Modifica los métodos `saludar` y `despedir` para hacerlo acorde a la propiedad `hora` (buenos días, buenas tardes, hasta mañana, etc...)
+502. Seguint amb el projecte `Monologos`:
+     * Crea un arxiu anomenat `inici.php` que permeta provar `HolaMonolog`.
+     * Comprova que els missatges apareixen en el *log*.
+     * Canvia el nivell perquè el manejador només mostre els missatges a partir de *warning*.
+     * Torna a ejectuar `inici.php` i comprova l'arxiu de log.
+503. Modifica la classe `HolaMonolog`:
+     * En el constructor, afig a la pila un manejador que escriga a l'eixida d'error conjunt al processador d'introspecció, mostrant missatges des del nivell *debug*.
+     * Afig una propietat denominada `hora`, la qual s'inicialitza únicament com a paràmetre del constructor. Si la `hora` és inferior a 0 o major de 24, ha d'escriure un log de *warning* amb un missatge apropiat.
+     * Modifica els mètodes `saludar` i `acomiadar` per a fer-lo concorde a la propietat `hora` (bon dia, bona vesprada, fins demà, etc...)
 
 ### Proyecto Videoclub IV
 
-511. Como ya tenemos *Composer* instalado:
-    * Inicialízalo dentro de tu proyecto *Videoclub*
-    * Incluye *Monolog* y *PhpUnit*, cada una en su lugar adecuado.
-    * Añade el *autoload* al archivo `composer.json`, y haz los cambios necesarios en las clases para utilizar el *autoload* de *Composer*.
-    * Sube los cambios a *GitHub* y crea la etiqueta `v0.511`.
+511. Com ja tenim *Composer* instal·lat:
+     * Inicialitza-ho dins del teu projecte Videoclub
+     * Inclou *Monolog* i *PhpUnit*, cadascuna en el seu lloc adequat.
+     * Afig el autoload a l'arxiu `composer.json`, i feix els canvis necessaris en les classes per a utilitzar el autolloeu* de *Composer*.
+     * Puja els canvis a *GitHub* i crea l'etiqueta `v0.511`.
 
-512. Modifica la clase `Cliente` para introducir un `Logger` de *Monolog*.
-    * Añade el log como una propiedad de la clase e inicialízalo en el constructor, con el nombre del canal `VideoclubLogger`.
-    * Se debe almacenar en `logs/videoclub.log` mostrando todos los mensajes desde *debug*.
-    * Antes de lanzar cualquier excepción, debe escribir un log de tipo *warning*.
-    * Sustituir los `echo` que haya en el código, que ahora pasarán por el log con el nivel info, a excepción del método `muestraResumen` que seguirá haciendo `echo`.
+512. Modifica la classe `Client` per a introduir un `Logger` de *Monolog*.
+     * Afig el log com una propietat de la classe i inicialitza-ho en el constructor, amb el nom del canal `VideoclubLogger`.
+     * S'ha d'emmagatzemar en `logs/videoclub.log` mostrant tots els missatges des de *debug*.
+     * Abans de llançar qualsevol excepció, ha d'escriure un log de tipus *warning*.
+     * Substituir els `echo` que hi haja en el codi, que ara passaran pel log amb el nivell info, a excepció del mètode `muestraResumen` que continuarà fent `echo`.
 
-513. Vuelve a hacer lo mismo que en el ejercicio anterior, pero ahora con la clase `Videoclub`. Además:
-    * Siempre que se llame a un método del log, se le pasará como segundo parámetro la información que dispongamos.
-    * Ejecuta el archivo de prueba y comprueba que el log se rellena correctamente.
+513. Torna a fer el mateix que en l'exercici anterior, però ara amb la classe `Videoclub`. A més:
+     * Sempre que es cride a un mètode del log, se li passarà com a segon paràmetre la informació que disposem.
+     * Executa l'arxiu de prova i comprova que el log s'emplena correctament.
 
-514. Vamos a refactorizar el código común de inicialización de *Monolog* que tenemos repetidos en los constructores a una factoría de *Monolog*, la cual colocaremos en `\Dwes\Videoclub\Util\LogFactory`. Comprueba que sigue funcionando correctamente.
+514. REFACTORITZAREM el codi comú d'inicialització de *Monolog* que tenim repetits en els constructors a una factoria de *Monolog*, la qual col·locarem en `\Dwes\Videoclub\Util\LogFactory`. Comprova que continua funcionant correctament.
 
-515. Modifica la factoría para que devuelva `LogInterface` y comprueba que sigue funcionando. Sube los cambios a GitHub con la etiqueta `v0.515`.
+515. Modifica la factoria perquè retorne `LogInterface` i comprova que continua funcionant. Puja els canvis a GitHub amb l'etiqueta `v0.515`.
 
 ### phpDocumentor
 
-521. Comprueba que en el contenedor de Docker funciona *phpDocumentor*.
-Ejecuta phpdoc sobre tu proyecto *Monolog* y comprueba el api que se crea.
-Comenta tanto la clase como los métodos, y posteriormente, vuelve a ejecutar phpdoc.
-522. Documenta el proyecto *Videoclub*, y genera la documentación. Empieza por las clases de `Soporte` y sus hijos. Comprueba el resultado. Luego sigue con `Cliente` y finalmente `Videoclub`.
+521. Comprova que en el contenidor de Docker funciona *phpDocumentor*.
+     Executa phpdoc sobre el teu projecte *Monolog* i comprova el api que es crea.
+     Comenta tant la classe com els mètodes, i posteriorment, torna a executar phpdoc.
+522. Documenta el projecte Videoclub*, i genera la documentació. Comença per les classes de `Suport` i els seus fills. Comprova el resultat. Després segueix amb `Client` i finalment `Videoclub`.
 
 ### Web Scraping
 
-531. A partir de los datos de <http://www.seleccionbaloncesto.es>, calcula la altura y edad media del equipo de baloncesto masculino. Observa que tienes los datos dentro de una tabla debajo de las noticias.
+531. A partir de les dades de <http://www.seleccionbaloncesto.es>, calcula l'altura i edat mitjana de l'equip de bàsquet masculí. Observa que tens les dades dins d'una taula davall de les notícies.
 
-532. Volviendo al Videoclub, en `Soporte` añade una propiedad llamada `metacritic` para almacenar la URL de cada soporte. A continuación, modifica los métodos `incluirXXX` de `Videoclub` para que admitan como primer parámetro dicha URL. Tras ello, modifica el fichero `inicio3.php` para pasarle la URL  de cada soporte (para ello deberás consultarlos en Metacritic haciendo búsquedas manuales). Por ejemplo, en el caso de la película Cazafantasmas, su URL es <https://www.metacritic.com/movie/ghostbusters>.
+532. Tornant al Videoclub, en `Suport` afig una propietat anomenada `metacritic` per a emmagatzemar la URL de cada suport. A continuació, modifica els mètodes `incluirXXX` de `Videoclub` perquè admeten com a primer paràmetre aquesta URL. Després d'això, modifica el fitxer `inicio3.php` per a passar-li la URL de cada suport (per a això hauràs de consultar-los en Metacritic fent cerques manuals). Per exemple, en el cas de la pel·lícula Cazafantasmas, la seua URL és <https://www.metacritic.com/movie/ghostbusters>.
 
-533. Finalmente, añade un método abstracto en `Soporte` llamado `getPuntuacion`, que haciendo uso de *Web Scraping* se conecte a *Metacritic* y obtenga su puntuación. Modifica `inicio3.php` para obtener todos los alquileres de un cliente mediante `getAlquileres() : array`, y para cada uno de ellos, además del título, muestra su puntuación.
+533. Finalment, afig un mètode abstracte en `Suport` anomenat `getPuntuacion`, que fent ús de Web Scraping* es connecte a *Metacritic* i obtinga la seua puntuació. Modifica `inicio3.php` per a obtindre tots els lloguers d'un client mitjançant `getAlquileres() : array`, i per a cadascun d'ells, a més del títol, mostra la seua puntuació.
 
 ### phpUnit
 
-541. A partir de la clase `HolaMonolog`, modifica los métodos para que además de escribir en en log, devuelvan el saludo como una cadena.  
-Crea la clase `HolaMonologTest` y añade diferentes casos de prueba para comprobar que los saludos y despedidas son acordes a la hora con la que se crea la clase.
+541. A partir de la classe `HolaMonolog`, modifica els mètodes perquè a més d'escriure en en log, retornen la salutació com una cadena.
+     Crea la classe `HolaMonologTest` i afig diferents casos de prova per a comprovar que les salutacions i comiats són concordes a l'hora amb la qual es crea la classe.
 
-542. Vamos a simular *Test Driven Development*. Queremos que nuestra aplicación almacene los últimos tres saludos que ha realizado. Para ello:
+542. Simularem Test Driven Development*. Volem que la nostra aplicació emmagatzeme els últims tres salutacions que ha realitzat. Per a això:
 
-    * Crea las prueba necesarias (invoca al método `saludar` varias veces y llama al método que te devuelva los saludos almacenados)
-    * Implementa el código para pasar las pruebas
-    * Refactoriza el código
+* Crea les prova necessàries (invoca al mètode `saludar` diverses vegades i crida al mètode que et retorne les salutacions emmagatzemades)
+* Implementa el codi per a passar les proves
+* refactoritza el codi
 
-543. Crea una nueva prueba que utilice proveedores de datos para comprobar esta última funcionalidad, pasándole:
-    * Un saludo.
-    * Tres saludos.
-    * Cuatro saludos.
+543. Crea una nova prova que utilitze proveïdors de dades per a comprovar aquesta última funcionalitat, passant-li:
+* Una salutació.
+* Tres salutacions.
+* Quatre salutacions.
 
-544. ¿Recuerdas que si la hora es negativa o superior a 24 escribíamos en el log un *warning*?
-Ahora debe lanzar una excepción de tipo `InvalidArgumentException` (como la excepción forma para de PHP, hay que poner su FQN: `\InvalidArgumentException`). Vuelve a aplicar TDD y completa tus casos de prueba.
+544. Recordes que si l'hora és negativa o superior a 24 escrivíem en el log un *warning?
+     Ara ha de llançar una excepció de tipus `InvalidArgumentException` (com l'excepció forma per a de PHP, cal posar la seua FQN: `\InvalidArgumentException`). Torna a aplicar TDD i completa els teus casos de prova.
 
-545. Comenta la última prueba realizada (la comprobación de las excepciones) y realiza un informe de cobertura de pruebas. Analiza los resultados obtenidos. Elimina los últimos comentarios sobre la última prueba y vuelve a generar y analizar el informe de cobertura.
+545. Comenta l'última prova realitzada (la comprovació de les excepcions) i realitza un informe de cobertura de proves. Analitza els resultats obtinguts. Elimina els últims comentaris sobre l'última prova i torna a generar i analitzar l'informe de cobertura.
 
-### Proyecto Videoclub V
+### Projecte Videoclub V
 
-El objetivo de los siguientes ejercicios es conseguir de manera incremental una cobertura de pruebas superior al 95%.
+L'objectiu dels següents exercicis és aconseguir de manera incremental una cobertura de proves superior al 95%.
 
-551. Crea pruebas dentro de la carpeta `tests` para las clases `Soporte`, `CintaVideo`, `Dvd` y `Juego`.
-Recuerda respetar el espacio de nombres.
-Los métodos `muestraResumen`, tras hacer echo de los mensajes, deben devolver una cadena con el propio mensaje.
+551. Crea proves dins de la carpeta `tests` per a les classes `Suport`, `CintaVideo`, `Dvd` i `Joc`.
+     Recorda respectar l'espai de noms.
+     Els mètodes `muestraResumen`, després de fer tire dels missatges, han de retornar una cadena amb el propi missatge.
 
-552. Crea pruebas para la clase `Cliente`, aprovechando todo el código que teníamos para comprobar la funcionalidad.
-Utiliza proveedores de datos para añadir conjuntos de datos mayores que los empleados.
-Comprueba que funciona con diferentes cupos, que al intentar alquilar un soporte marcado como ya alquilado debe lanzar una excepción, que no coincidan los ids de los soportes, etc...
+552. Crea proves per a la classe `Client`, aprofitant tot el codi que teníem per a comprovar la funcionalitat.
+     Utilitza proveïdors de dades per a afegir conjunts de dades majors que els empleats.
+     Comprova que funciona amb diferents contingents, que en intentar llogar un suport marcat com ja llogat ha de llançar una excepció, que no coincidisquen els ids dels suports, etc...
 
-553. Crea las pruebas para la clase `Videoclub`. Ten en cuenta los últimos métodos añadidos que permitían alquilar y devolver soportes, tanto de manera individual como mediante un array.
+553. Crea les proves per a la classe `Videoclub`. Tingues en compte els últims mètodes afegits que permetien llogar i retornar suports, tant de manera individual com mitjançant un array.
 
-554. Crea el informe de cobertura. Una vez creado, analiza los datos de cobertura (>= 90%) y comprueba el valor de CRAP, de manera que siempre sea <= 5.
-En caso de no cumplirse, crea nuevos casos de prueba y/o refactoriza el código de tu aplicación.
+554. Crea l'informe de cobertura. Una vegada creat, analitza les dades de cobertura (>= 90%) i comprova el valor de CRAP, de manera que sempre siga <= 5.
+     En cas de no complir-se, crea nous casos de prova i/o refactoritza el codi de la teua aplicació.
 
-Sube los cambios a GitHub con la etiqueta `v0.554`.
+Puja els canvis a GitHub amb l'etiqueta `v0.554`.
 
-### Ampliación
+### Ampliació
 
-561. Queremos que en `Videoclub`, cuando un cliente no existe (tanto al alquilar como al devolver) se lance una nueva excepción: `ClienteNoExisteException`.
-Además, dado el número creciente de excepciones, queremos mover las excepciones al namespace `Dwes\Videoclub\Exception`.  
-Siguiendo TDD, primero crea las pruebas, y luego modifica el código de aplicación.  
-Vuelve a generar el informe de cobertura y comprueba la calidad de nuestras pruebas.
+561. Volem que en `Videoclub`, quan un client no existeix (tant en llogar com en retornar) es llance una nova excepció: `ClienteNoExisteException`.
+     A més, donat el nombre creixent d'excepcions, volem moure les excepcions al namespace `Dwes\Videoclub\Exception`.
+     Seguint TDD, primer crea les proves, i després modifica el codi d'aplicació.
+     Torna a generar l'informe de cobertura i comprova la qualitat de les nostres proves.
 
-562. ¿Nadie se ha dado cuenta que en los Dvd no estamos almacenando su duración?
-Haz todos los cambios necesarios, primero en las pruebas y luego en el código.
+562. Ningú s'ha adonat que en els Dvd no estem emmagatzemant la seua duració?
+     Fes tots els canvis necessaris, primer en les proves i després en el codi.
 
-563. Tras años luchando contra la tecnología, decidimos introducir los Blu-ray en nuestra empresa.
-Hemos decido que `Bluray` herede de `Soporte`.
-Además del `título` y la `duracion`, nos interesa almacenar si `es4k`.
-Haz todos los cambios necesarios, primero en las pruebas y luego en el código.
+563. Després d'anys lluitant contra la tecnologia, decidim introduir els Blu-ray en la nostra empresa.
+     Hem decidisc que `Bluray` herete de `Suport`.
+     A més del `títol` i la `duracion`, ens interessa emmagatzemar si `es4k`.
+     Fes tots els canvis necessaris, primer en les proves i després en el codi.
 
-Sube los cambios a GitHub con la etiqueta `v0.563`.
+Puja els canvis a GitHub amb l'etiqueta `v0.563`.

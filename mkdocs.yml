@@ -1,21 +1,21 @@
-site_name: Desarrollo Web en Entorno Servidor
-site_url: https://aitor-medrano.github.io/dwes2122
+site_name: Desenvolupament web en entorn de Servidor
+site_url: https://cipfpbatoi.github.io/dwes2223/
 use_directory_urls: false
 
 nav:
   - "Inicio": "index.md"
-  - "1.- Arquitecturas Web": "01arquitecturas.md"
-  - "2.- El lenguaje PHP": "02php.md"
-  - "3.- PHP Orientado a Objetos": "03phpoo.md"
-  - "4.- Programación Web": "04web.md"
-  - "5.- Herramientas Web": "05herramientas.md"
-  - "6.- Acceso a Datos": "06accesoDatos.md"
+  - "1.- Arquitectures Web": "01arquitecturas.md"
+  - "2.- El llenguatge PHP": "02php.md"
+  - "3.- PHP Orientat a Objectes": "03phpoo.md"
+  - "4.- Programació Web": "04web.md"
+  - "5.- Ferramentes Web": "05herramientas.md"
+  - "6.- Accès a Dades": "06accesoDatos.md"
   - "7.- Frameworks PHP - Laravel": "07frameworks.md"
-  # - "8.- Uso avanzado de Frameworks": "08frameworks2.md"
-  - "8.- Servicios REST": "09rest.md"
+  - "8.- Ús avançat de Frameworks": "08frameworks2.md"
+  - "8.- Serveis REST": "09rest.md"
 
 theme:
-  language: es
+  language: ca
   favicon: imagenes/favicon.png
   name: "material"
   palette:
@@ -24,13 +24,13 @@ theme:
       accent: "Teal"
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Cambiar a modo noche
+        name: Canviar a mode nit
     - scheme: slate 
       primary: light blue
       accent: "Teal"
       toggle:
         icon: material/toggle-switch
-        name: Cambiar a modo día
+        name: Canviar a mode dia
   font:
     text: Roboto
     code: Roboto Mono
@@ -44,7 +44,7 @@ theme:
 
 extra:
   search:
-    language: "es"
+    language: "ca"
   social:
     - icon: material/twitter
       link: https://twitter.com/aitormedrano

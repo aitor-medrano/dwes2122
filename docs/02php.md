@@ -1,58 +1,35 @@
-# El lenguaje PHP
+# El llenguatge PHP
 
-??? abstract "Duración y criterios de evaluación"
+??? abstract "Duració i criteris d'avaluació"
 
-    Duración estimada: 26 sesiones
-
-    <hr />
-
-    Resultado de aprendizaje y criterios de evaluación:
-
-    2. Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.
-
-        1. Se han reconocido los mecanismos de generación de páginas Web a partir de lenguajes de marcas con código embebido.
-        2. Se han identificado las principales tecnologías asociadas.
-        3. Se han utilizado etiquetas para la inclusión de código en el lenguaje de marcas.
-        4. Se ha reconocido la sintaxis del lenguaje de programación que se ha de utilizar.
-        5. Se han escrito sentencias simples y se han comprobado sus efectos en el documento resultante.
-        6. Se han utilizado directivas para modificar el comportamiento predeterminado.
-        7. Se han utilizado los distintos tipos de variables y operadores disponibles en el lenguaje.
-        8. Se han identificado los ámbitos de utilización de las variables.
+    Duració estimada: 26 hores
 
     <hr />
 
-    Resultado de aprendizaje:
+    | Resultat d'aprenentatge | Criteris d'avaluació|
+    | -------                 | -------             |
+    | 2. Escriu sentències executables per un servidor Web reconeixent i aplicant procediments d'integració del codi en llenguatges de marques. | a) S'han reconegut els mecanismes de generació de pàgines Web a partir de llenguatges de marques amb codi embegut. <br/> b) S'han identificat les principals tecnologies associades.  <br/> c) S'han utilitzat etiquetes per a la inclusió de codi en el llenguatge de marques.  <br/> d) S'ha reconegut la sintaxi del llenguatge de programació que s'ha d'utilitzar.  <br/> e) S'han escrit sentències simples i s'ha comprovat els seus efectes en el document resultant.  <br/> f) S'han utilitzat directives per a modificar el comportament predeterminat.  <br/> g) S'han utilitzat els diferents tipus de variables i operadors disponibles en el llenguatge.  <br/> h) S'han identificat els àmbits d'utilització de les variables.  <br/> |
+    | 3. Escriu blocs de sentències embeguts en llenguatges de marques, seleccionant i utilitzant les estructures de programació.  | a) S'han utilitzat mecanismes de decisió en la creació de blocs de sentències. <br/> b) S'han utilitzat bucles i s'ha verificat el seu funcionament.  <br/> c) S'han utilitzat *«arrays»* per a emmagatzemar i recuperar conjunts de dades.  <br/> d) S'han creat i utilitzat funcions.  <br/> e) S'han utilitzat formularis Web per a interactuar amb l'usuari del navegador Web.  <br/> f) S'han emprat mètodes per a recuperar la informació introduïda en el formulari.  <br/> g) S'han afegit comentaris al codi.  <br/> |
 
-    3. Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.
-
-    Criterios de evaluación:
-
-    1. Se han utilizado mecanismos de decisión en la creación de bloques de sentencias.
-    2. Se han utilizado bucles y se ha verificado su funcionamiento.
-    3. Se han utilizado “arrays” para almacenar y recuperar conjuntos de datos.
-    4. Se han creado y utilizado funciones.
-    5. Se han utilizado formularios web para interactuar con el usuario del navegador Web.
-    6. Se han empleado métodos para recuperar la información introducida en el formulario.
-    7. Se han añadido comentarios al código.
 
 ## PHP
 
 ![PHP](imagenes/02/phplogo.png){align=right & width=300}
 
-* Acrónimo de *Personal Home Page*
-* Lenguaje de propósito general, aunque su fuerte es el desarollo web.
-* Sintaxis similar a C / Java
-* El código se ejecuta en el servidor (en *Apache* mediante *mod_php*)
-* El cliente recibe el resultado generado tras interpretar el código en el servidor.
-* El código se almacena en archivo con extensión `.php`.
+* Acrònim de *Personal Home Page*
+* Llenguatge de propòsit general, encara que el seu fort és el *desarollo web.
+* Sintaxi similar a C / Java
+* El codi s'executa en el servidor (en *Apatxe* mitjançant *mod_php*)
+* El client rep el resultat generat després d'interpretar el codi en el servidor.
+* El codi s'emmagatzema en arxiu amb extensió `.*php`.
 
-La última versión es la 8.0, de Noviembre de 2020 (y en menos de un par de meses tendremos la versión 8.1). La versión 7.0 salió en Diciembre de 2015. Además de numerosas nuevas funcionalidades que iremos viendo durante el curso, tiene más de dos veces mejor rendimiento que PHP5.
+L'última versió és la 8.1, de Novembre de 2021.
 
-Su documentación es extensa y está traducida: <https://www.php.net/manual/es/>.
+La seua documentació és extensa i està traduïda: <https://www.php.net/manual/es/>.
 
-### Código embebido
+### Codi embegut
 
-Los bloques de código se escriben entre **`<?php`** y **`?>`**, mientras que las sentencias se separan mediante **`;`**.
+Els blocs de codi s'escriuen entre **`<?php`** y **`?>`**, mentre que les sentències se separen mitjançant **`;`**.
 
 ``` html+php
 <!DOCTYPE html>
@@ -70,18 +47,18 @@ Hola mundo<br>
 </html>
 ```
 
-!!! tip "Sólo etiquetas de apertura"
-    Si nuestro código sólo va a contener código PHP y nada de html, como por ejemplo, cuando codifiquemos clases o interfaces, sólo pondremos la etiqueta de apertura, para así indicar que es una archivo de php puro.
+!!! tip "Només etiquetes d'obertura"
+    Si el nostre codi només contindrà codi PHP i res d'html, com per exemple, quan codifiquem classes o interfícies, només posarem l'etiqueta d'obertura, per a així indicar que és una arxiu de php pur.
 
-### Generando contenido
+### Generant contingut
 
-Tenemos tres posibilidades a la hora de generar contenido en nuestros documentos PHP:
+Tenim tres possibilitats a l'hora de generar contingut en els nostres documents PHP:
 
-* **`echo`**`expresión;`
-* **`print`**`(expresión);`
-* **`<?=`**` expresión ?>`
+  * **`echo`**`expresión`; 
+  * **`print`**`(expresión);`
+  * **`<?=`**` expresión ?>`
 
-Las que vamos a utilizar son `echo` cuando lo hagamos dentro de un bloque de instrucciones y `<?=` cuando sólo vayamos a mostrar el valor de una variable dentro de un fragmento HTML.
+Les que utilitzarem són `echo` quan ho fem dins d'un bloc d'instruccions i `<?=` quan només anem a mostrar el valor d'una variable dins d'un fragment HTML.
 
 ``` html+php
 <!DOCTYPE html>
@@ -99,9 +76,9 @@ Las que vamos a utilizar son `echo` cuando lo hagamos dentro de un bloque de ins
 </html>
 ```
 
-### Comentarios
+### Comentaris
 
-Podemos utilizar comentarios de una línea o de bloque:
+Podem utilitzar comentaris d'una línia o de bloc:
 
 ``` html+php
 <?php
@@ -115,9 +92,9 @@ Podemos utilizar comentarios de una línea o de bloque:
 ?>
 ```
 
-### Errores
+### Errors
 
-Si hay un error de ejecución, se produce un *Fatal Error*.
+Si hi ha un error d'execució, es produeix un *Fatal Error*.
 
 ``` console
 Fatal error: Uncaught Error: Call to undefined function plint() in C:\xampp\htdocs\202echo.php:11
@@ -126,15 +103,16 @@ Fatal error: Uncaught Error: Call to undefined function plint() in C:\xampp\htdo
 	thrown in C:\xampp\htdocs\202echo.php on line 11
 ```
 
-Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de `try` / `catch`.
+Des de PHP 5 es llancen com una excepció. Més endavant veurem l'ús de `try` / `catch`.
 
 ### Variables
 
-* No es necesario declararlas previamente.
-* Comienzan por `$`, por ejemplo `$nombre`. Tras el `$`, el siguiente caracter debe ser una letra en minúscula (recomendación) o guión bajo `_`. Luego ya se pueden poner números.
-* Son *case sensitive*: `$var != $vAR`
-* No se declara su tipo, el tipado es dinámico. Se asigna en tiempo de ejecución dependiendo del valor asignado.
-* Conveniente inicializarlas, sino dan error.
+* No és necessari declarar-les prèviament.
+* Comencen per `$`, per exemple `$nom`. Després del `$`, el següent caràcter ha de ser una lletra en minúscula (recomanació) o guió baix `_`. Després ja es poden posar números.
+* Són case *sensitive*: `$*var != $*vAR`
+* No es declara el seu tipus, el tipat és dinàmic. S'assigna en temps d'execució depenent del valor assignat.
+* Convenient inicialitzar-les, sinó donen error.
+
 
 ``` php
 <?php
@@ -150,12 +128,12 @@ echo $sinValor;
 ?>
 ```
 
-!!! info "Tipos"
-    Aunque a priori no hay tipos de datos, internamente PHP trabaja con cuatro tipos escalares: *boolean*, *integer*, *float* y *string* y cuatro tipos compuestos: *array*, *object*, *callable* e *iterable*. Existe un tipo especial para *null* (más información en <http://php.net/manual/es/language.types.null.php>).
+!!! info "Tipus"
+    Encara que a priori no hi ha tipus de dades, internament PHP treballa amb quatre tipus escalars: *boolean*, *integer*, *float* i *string* i quatre tipus compostos: *array*, *object*, *callable* i *iterable*. Existeix un tipus especial per a *null* (més informació en <http://php.net/manual/es/language.types.null.php>).
 
-### Constantes
+### Constants
 
-Son variables cuyo valor no varían. Existen dos posibilidades:
+Són variables el valor dels quals no varien. Existeixen dues possibilitats:
 
 * `define(NOMBRE, valor);`
 * `const NOMBRE; // PHP > 5.3`
@@ -169,24 +147,24 @@ echo PI, " ", IVA; // No se pone el símbolo dolar
 ?>
 ```
 
-* Se declaran siempre en MAYÚSCULAS
-* Hay un conjunto de constantes ya predefinidas, también conocidas como *magic constants*: <https://www.php.net/manual/es/language.constants.predefined.php>
+* Es declaren sempre en MAJÚSCULES
+* Hi ha un conjunt de constants ja predefinides, també conegudes com *magic constants*: <https://www.php.net/manual/es/language.constants.predefined.php>
 
-## Operadores
+## Operadors
 
-### Ariméticos
+### Arimètics
 
-| Ejemplo | Nombre | Resultado
-| ---   | ---   | ---
-| `-$a` | Negación | Opuesto de `$a`.
-| `$a + $b` | Suma | Suma de `$a` y `$b`.
-| `$a - $b` | Resta | Diferencia de `$a` y `$b`.
-| `$a * $b` | Multiplicación | Producto de `$a` y `$b`.
-| `$a / $b` | División | Cociente de `$a` y `$b`.
-| `$a % $b` | Módulo / Resto | Resto de `$a` dividido por `$b`.
-| `$a ** $b` | Potencia | Resultado de `$a` elevado a `$b`. PHP >= 5.6.
+| Exemple    | Nom           | Resultadt
+|------------|---------------| ---
+| `-$a`      | Negació       | Oposat de `$a`.
+| `$a + $b`  | Suma          | Suma de `$a` i `$b`.
+| `$a - $b`  | Resta         | Diferència de `$a` i `$b`.
+| `$a * $b`  | Multiplicació | Producte de `$a` i `$b`.
+| `$a / $b`  | Divisió       | Cocient de `$a` i `$b`.
+| `$a % $b`  | Mòdul / Resto | Resta de `$a` dividit per `$b`.
+| `$a ** $b` | Potència      | Resultat de `$a` elevat a `$b`. 
 
-En el caso de **cadenas**, si queremos concatenarlas, se utiliza el operador `.`:
+En el cas de **cadenes**, si volem concatenar-les, s'utilitza l'operador `.`:
 
 ``` php
 <?php
@@ -199,14 +177,15 @@ echo "La suma de ".$x." y ".$y." es ".$z."<br />";
 ?>
 ```
 
-Realmente, en vez de concatenar cadenas con variables, podemos imprimirlas directamente ya que se expanden automáticamente:
+Realment, en comptes de concatenar cadenes amb variables, podem imprimir-les directament ja que s'expandeixen automàticament:
+
 ``` php
 <?php
 echo "La suma de $x y $y es $z <br />";
 ?>
 ```
 
-En ocasiones, necesitamos rodear el nombre de la variable entre llaves para poder unir más texto al resultado:
+A vegades, necessitem envoltar el nom de la variable entre claus per a poder unir més text al resultat:
 
 ``` php
 <?php
@@ -215,64 +194,64 @@ echo "El plural de $color el ${color}s";
 ?>
 ```
 
-Más adelante estudiaremos algunas funciones para el tratamiento de cadenas.
+Més endavant estudiarem algunes funcions per al tractament de cadenes.
 
-### Comparación
+### Comparació
 
-| Ejemplo | Nombre | Resultado
-| ---   | ---   | ---
-| `$a == $b` | Igual | `true` si `$a` es igual a `$b` tras de la conversión de tipos.
-| `$a === $b` | Idéntico, Comparación estricta | `true` si `$a` es igual a `$b`, y son del mismo tipo de dato.
-| `$a != $b`, `$a <> $b` | Diferente |`true` si `$a` no es igual a `$b` después de la conversión de tipos.
-| `$a !== $b` | No idéntico |`true` si `$a` no es igual a `$b`, o si no son del mismo tipo.
-| `$a < $b` | Menor que |`true` si `$a` es estrictamente menor que `$b`.
-| `$a > $b` | Mayor que |`true` si `$a` es estrictamente mayor que `$b`.
-| `$a <= $b` | Menor o igual que |`true` si `$a` es menor o igual que `$b`.
-| `$a >= $b` | Mayor o igual que |`true` si `$a` es mayor o igual que `$b`.
-| `$a <=> $b` | Nave espacial | Devuelve `-1`, `0` o `1` cuando `$a` es respectivamente menor, igual, o mayor que `$b`. PHP >= 7.
-| `$a ?? $b ?? $c` | Fusión de *null* | El primer operando de izquierda a derecha que exista y no sea `null`. `null` si no hay valores definidos y no son `null`. PHP >= 7.
+| Exemple                | Nom                          | Resultat
+|------------------------|------------------------------| ---
+| `$a == $b`             | Igual                        | `true` si `$a` és igual a `$b` despres de la conversió de tipus.
+| `$a === $b`            | Idèntic, Comparació estricta | `true` si `$a` és igual a `$b`, i són del mateix tipus de dades.
+| `$a != $b`, `$a <> $b` | Diferent                     |`true` si `$a` no és igual a `$b` despres de la conversió de tipus.
+| `$a !== $b`            | No idèntic                   |`true` si `$a` no és igual a `$b`, o si no són del mateix tipus.
+| `$a < $b`              | Menor que                    |`true` si `$a` és estrictament menor que `$b`.
+| `$a > $b`              | Major que                    |`true` si `$a` és estrictamente major que `$b`.
+| `$a <= $b`             | Menor o igual que            |`true` si `$a` és menor o igual que `$b`.
+| `$a >= $b`             | Major o igual que            |`true` si `$a` és major o igual que `$b`.
+| `$a <=> $b`            | Nau espacial                 | Torna `-1`, `0` o `1` cuando `$a` és respectivament menor, igual, o major que `$b`.
+| `$a ?? $b ?? $c`       | Fussió de *null*             | El primer operador d'esquerra a dreta que existisca i no siga `null`. `null` si no hi ha valors definits i no són `null`. PHP >= 7.
 
-### Lógicos
+### Lògics
 
-| Ejemplo | Nombre | Resultado
-| ---   | ---   | ---
-| `$a and $b`, `$a && $b` | *And* (y) | `true` si tanto `$a` como `$b` son `true`.
-| `$a or $b`, `$a || $b`| *Or* (o inclusivo) | `true` si cualquiera de `$a` o `$b` es `true`.
-| `$a xor $b` | *Xor* (o exclusivo) | `true` si `$a` o `$b` es `true`, pero no ambos.
-| `!$a` | *Not* (no) | `true` si `$a` no es `true`.
+| Exemple                 | Nom                 | Resultat
+|-------------------------|---------------------| ---
+| `$a and $b`, `$a && $b` | *And* (i)           | `true` si tant `$a` com `$b` sòn `true`.
+| `$a or $b`, `$a         || $b`                 | *Or* (o inclusiva) | `true` si qualsevol de `$a` o `$b` són `true`.
+| `$a xor $b`             | *Xor* (o exclusiva) | `true` si `$a` o `$b` són `true`, pero no ambdós.
+| `!$a`                   | *Not* (no)          | `true` si `$a` no és `true`.
 
-### Asignación
+### Assignació
 
-| Ejemplo | Nombre | Resultado
-| ---   | ---   | ---
-| `$a = $b` | Asignación | Asigna a `$a` el valor de `$b`
-| `$a += $b` | Asignación de la suma | Le suma a `$a` el valor de `$b`. Equivalente a `$a = $a + $b`
-| `$a -= $b` | Asignación de la resta | Le resta a `$a` el valor de `$b`. Equivalente a `$a = $a - $b`
-| `$a *= $b` | Asignación del producto | Asigna a `$a` el producto de `$a` por `$b`. Equivalente a `$a = $a * $b`
-| `$a /= $b` | Asignación de la división | Asigna a `$a` el conciente de `$a` entre `$b`. Equivalente a `$a = $a / $b`
-| `$a %= $b` | Asignación del resto | Asigna a `$a` el resto de dividir `$a` entre `$b`. Equivalente a `$a = $a % $b`
-| `$a .= $b` | Concatenación | Concatena a `$a` la cadena `$b`. Equivalente a `$a = $a . $b`
-| `$a++` | Incremento | Incrementa `$a` en una unidad. Equivalente a `$a = $a + 1`
-| `$a--` | Decremento | Decrementa `$a` en una unidad. Equivalente a `$a = $a - 1`
+| Exemple    | Nom                      | Resultat
+|------------|--------------------------| ---
+| `$a = $b`  | Assignació               | Assign a `$a` el valor de `$b`
+| `$a += $b` | Assignació de la suma    | Li afegix a `$a` el valor de `$b`. Equivalent a `$a = $a + $b`
+| `$a -= $b` | Assignació de la resta   | Li resta a `$a` el valor de `$b`. Equivalent a `$a = $a - $b`
+| `$a *= $b` | Assignació del producte  | Assigna a `$a` el producte de `$a` per `$b`. Equivalent a `$a = $a * $b`
+| `$a /= $b` | Assignació de la divisió | Assigna a `$a` el concient de `$a` entre `$b`. Equivalent a `$a = $a / $b`
+| `$a %= $b` | Assignació de la resta   | Assigna a `$a` la resta de dividir `$a` entre `$b`. Equivalent a `$a = $a % $b`
+| `$a .= $b` | Concatenació             | Concatena a `$a` la cadena `$b`. Equivalent a `$a = $a . $b`
+| `$a++`     | Increment                | Incrementa `$a` en una unitat. Equivalent a `$a = $a + 1`
+| `$a--`     | Decrement                | Decrementa `$a` en una unitat. Equivalent a `$a = $a - 1`
 
-!!! Tip "Prioridad de los operadores"
-    Recuerda la prioridad. Primero los paréntesis, luego la negación (`!`), productos/divisiones, sumas/restas, comparaciones, lógicos y por último se realiza la asignación.
-    Más información en <https://www.php.net/manual/es/language.operators.precedence.php>
+!!! Tip "Prioritat dels operadors"
+    Recorda la prioritat. Primer els parèntesis, després la negació (`!`), productes/divisions, sumes/restes, comparacions, lògics i finalment es realitza l'assignació.
+    Més informació en <https://www.php.net/manual/es/language.operators.precedence.php>
 
-!!! question "Autoevaluación"
-    Si `$a=5` y `$b=4`, averigua el valor de `$c` si `$c = $a*2 > $b+5 && !($b<>4)`
+!!! question "Autoavaluació"
+    Si `$a=5` i `$b=4`, esbrina el valor de `$c` si `$c = $a*2 > $b+5 && !($b<>4)`
 
-## Trabajando con formularios
+## Treballant amb formularis
 
-Los datos se envían via URL con el formato `var1=valor1&var2=valor2…`. Por ejemplo: `ejemplo.php?nombre=Bruce+apellido1=Wayne`
+Les dades s'envien via URL amb el format `var1=valor1&var2=valor2…`. Per exemple: `exemple.php?nom=Bruce&cognom=Wayne`
 
-Se divide en dos pasos:
+Es divideix en dos passos:
 
-1. Generar un formulario con `action='archivo.php' method='GET'`
-2. En el archivo `.php` leer los datos con `$_GET['nombreVar']`
+1. Generar un formulari amb `action='arxiu.php' method='GET'`
+2. En l'arxiu `.php` llegir les dades amb `$_GET['nombreVar']`
 
-Vamos a separar siempre que podamos el código HTML del de PHP.
-Por ejemplo, el formulario lo colocamos en `saluda.html`:
+Separarem sempre que podem el codi HTML del de PHP.
+Per exemple, el formulari el col·loquem en `saluda.html`:
 
 ``` html
 <form action="saluda.php" method="get">
@@ -284,7 +263,7 @@ Por ejemplo, el formulario lo colocamos en `saluda.html`:
 </form>
 ```
 
-Y recogemos los datos en `saluda.php`:
+I arrepleguem les dades en `saluda.php`:
 
 ``` php
 <?php
@@ -295,7 +274,7 @@ echo "Hola $nombre $apellido1";
 ?>
 ```
 
-Si lo quisiéramos realizar todo en un único archivo (*lo cual no es recomendable*), podemos hacerlo así:
+Si el volguérem realitzar tot en un únic arxiu (la qual cosa no és recomanable), podem fer-ho així:
 
 ``` html+php
 <form action="" method="get">
@@ -317,14 +296,14 @@ Si lo quisiéramos realizar todo en un único archivo (*lo cual no es recomendab
 </p>
 ```
 
-El trabajo con formularios lo estudiaremos en profundidad en la unidad 4, y veremos que además de `GET`, podemos enviar los datos con `POST`.
+El treball amb formularis l'estudiarem en profunditat en la unitat 4, i veurem que a més de `*GET`, podem enviar les dades amb `POST`.
 
-## Condiciones
+## Condicions
 
-La condición simple se realiza mediante la instrucción `if`. Entre paréntesis se pone la condición que se evalua a `true` o `false`. Si no se ponen llaves, en vez de abrir un bloque, se ejecutará sólo la siguiente instrucción.
+La condició simple es realitza mitjançant la instrucció `if`. Entre parèntesi es posa la condició que es avalua a `true` o `false`. Si no es posen claus, en comptes d'obrir un bloc, s'executarà només la següent instrucció.
 
-!!! warning "Siempre llaves"
-    Es recomendable poner llaves siempre aunque en el momento de codificar sólo haya una única instrucción. De este modo, se queda preparado para añadir más contenido en el futuro sin provocar *bugs*.
+!!! warning "Sempre claus"
+    És recomanable posar claus sempre encara que en el moment de codificar només hi haja una única instrucció. D'aquesta manera, es queda preparat per a afegir més contingut en el futur sense provocar *bugs*.
 
 ``` php
 <?php
@@ -338,7 +317,7 @@ if ($hora === 8)
 ?>
 ```
 
-Las condiciones compuesta mediante `if-else`:
+Les condicions compostes mitjançant `if-else`:
 
 ``` php
 <?php
@@ -351,7 +330,7 @@ if ($hora <= 12) {
 ?>
 ```
 
-Las condiciones anidadas mediante `if-else if-else`:
+Les condicions niades mitjançant `if-else if-else`:
 
 ``` php
 <?php
@@ -368,7 +347,7 @@ if ($hora === 8) {
 ?>
 ```
 
-La sentencia `switch` también permite trabajar con condiciones múltiples:
+La sentència `switch` també permet treballar amb condicions múltiples:
 
 ``` php
 <?php
@@ -389,10 +368,10 @@ switch ($hora) {
 ?>
 ```
 
-!!! warning "No olvides el `break`"
-    Un error muy común es olvidar la instrucción `break` tras cada caso. Si no lo ponemos, ejecutará el siguiente caso automáticamente.
+!!! warning "No oblides el `break`"
+    Un error molt comú és oblidar la instrucció `break` després de cada cas. Si no ho posem, executarà el següent cas automàticament.
 
-Finalmente, también tenemos el operador ternario `condición ? valorTrue : valorFalse`:
+Finalment, també tenim l'operador ternari `condició ? valorTrue : valorFalse`
 
 ``` php
 <?php
@@ -402,7 +381,7 @@ echo "El formato es de $formato horas"
 ?>
 ```
 
-Si queremos comprobar si una variable tiene valor y si no darle un valor determinado, usaremos el operador `?:` (se conoce como el operador *Elvis* - <https://en.wikipedia.org/wiki/Elvis_operator>) con la sintáxis `expresión ?: valorSiVacio`:
+Si volem comprovar si una variable té valor i si no donar-li un valor determinat, usarem l'operador `?:` (es coneix com l'operador Elvis - <https://en.wikipedia.org/wiki/Elvis_operator>) amb la sintaxi `expressió ?: valorSiVacio`:
 
 ``` php
 <?php
@@ -412,7 +391,7 @@ $nombre = $_GET['nombre'] ?: "desconocido"
 
 ## Bucles
 
-Mediante la instrucción `while`:
+Mitjançant la instrucció `while`:
 
 ``` php
 <?php
@@ -425,7 +404,7 @@ while ($i <= 10) {
 ?>
 ```
 
-Mediante la instrucción `do-while`:
+Mitjançant la instrucció `do-while`:
 
 ``` php
 <?php
@@ -440,7 +419,7 @@ echo "¡Bien! Saco una ficha de casa.";
 ?>
 ```
 
-Mediante la instrucción `for`:
+Mitjançant la instrucció `for`:
 
 ``` php
 <?php
@@ -458,13 +437,13 @@ for ($i = 10; $i >= 0; $i--) {
 ?>
 ```
 
-Más adelante estudiaremos el bucle `foreach` para recorrer arrays.
+Més endavant estudiarem el bucle `foreach` per a recórrer arrays.
 
-PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucción `break`.
-A su vez, `continue` permite saltar a la siguiente iteración.
+PHP, de la mateixa manera que Java i C, permet trencar els bucles mitjançant la instrucció `break`.
+Al seu torn, `continue` permet saltar a la següent iteració.
 
-!!! danger "Si puedes, evita `break` y `continue`"
-    Personalmente, no me gusta su uso. Prefiero el uso de variables *flag* para controlar la salida de los bucles. Por ejemplo:
+!!! danger "Si pots, evita `break` i `continue`"
+    Personalment, no m'agrada el seu ús. Preferisc l'ús de variables *flag* per a controlar l'eixida dels bucles. Per exemple:
 
     ``` php
     <?php
@@ -480,12 +459,12 @@ A su vez, `continue` permite saltar a la siguiente iteración.
 
 ## Arrays
 
-Para almacenar datos compuestos, podemos utilizar tanto arrays sencillos como arrays asociativos (similares a un mapa). En realidad todos los arrays son mapas ordenados compuestos de pares clave-valor.
+Per a emmagatzemar dades compostes, podem utilitzar tant arrays senzills com arrays associatius (similars a un mapa). En realitat tots els arrays són mapes ordenats compostos de parells clau-valor.
 
-!!! caution "Cuidado con mezclar tipos"
-    Como el tipado es dinámico, nuestros arrays pueden contenedor datos de diferentes tipos. No se recomienda mezclar los tipos.
+!!! caution "Compte amb mesclar tipus"
+    Com el tipat és dinàmic, nostres arrays poden contenir dades de diferents tipus. No es recomana mesclar els tipus.
 
-Del mismo modo que Java, se definen mediante corchetes, son *0-index*, y se puede asignar un valor a un posición determinada:
+De la mateixa manera que Java, es defineixen mitjançant claudàtors, són 0-index, i es pot assignar un valor a un posició determinada:
 
 ``` php
 <?php
@@ -499,7 +478,7 @@ $frutas3[1] = "pera";
 $frutas3[] = "manzana"; // lo añade al final
 ```
 
-Podemos obtener el tamaño del array mediante la función `count(array)`. Para recorrer el array haremos uso de un bucle `for`:
+Podem obtindre la grandària del array mitjançant la funció `count(array)`. Per a recórrer el array farem ús d'un bucle `for`:
 
 ``` php
 <?php
@@ -510,21 +489,21 @@ for ($i=0; $i<count($frutas); $i++) {
 }
 ```
 
-Otra forma de recorrer los arrays, incluso más elegante, es hacer uso de `foreach`. Su sintaxis es `foreach (array as elemento)`:
+Una altra manera de recórrer els arrays, fins i tot més elegant, és fer ús de `foreach`. La seua sintaxi és `foreach (array as element)`:
 
 ``` php
 <?php
-// Mediante foreach no necesitamos saber el tamaño del array
+// Mitjançant foreach no necessitem saber la grandària del array
 foreach ($frutas as $fruta) {
     echo "$fruta <br />";
 }
 ```
 
-### Arrays asociativos
+### Arrays associatius
 
-Cada elemento es un par clave-valor. En vez de acceder por la posición, lo hacemos mediante una clave. Así pues, para cada clave se almacena un valor.
+Cada element és un parell clau-valor. En comptes d'accedir per la posició, el fem mitjançant una clau. Així doncs, per a cada clau s'emmagatzema un valor.
 
-A la hora de recorrer este tipo de arrays, mediante `foreach` separamos cada elemento en una pareja `clave => valor`:
+A l'hora de recórrer aquest tipus de arrays, mitjançant `foreach` separem cada element en una parella `clau => valor`:
 
 ``` php
 <?php
@@ -549,15 +528,13 @@ foreach ($capitales as $pais => $ciudad) { // separamos cada elemento en clave =
 }
 ```
 
-### Operaciones
+### Operacions
 
-Las operaciones más importantes que podemos realizar con arrays son:
-
-* `print_r($array)`: muestra el contenido de todo el `$array`. Si queremos mostrar el contenido con un formato determinado, hemos de recorrer el array con `foreach`.
-* `var_dump($mixed)`: muestra el contenido del elemento recibido. Muestra más información que `print_r`.
-* `$elem = array_pop($array)`: elimina el último `$elemento`
-* `array_push($array, $elem)`: añade un `$elemento` al final
-* `$booleano = in_array($elem, $array)`: averigua si `$elem` está en el `$array`
+* `print_r($array)`: mostra el contingut de tot el `$array`. Si volem mostrar el contingut amb un format determinat, hem de recórrer el array amb `foreach`.
+* `var_dump($mixed)`: mostra el contingut de l'element rebut. Mostra més informació que `print_r`.
+* `$elem = array_pop($array)`: elimina l'últim `$element`
+* `array_push($array, $elem)`: afig un `$element` al final
+* `$booleà = in_array($elem, $array)`: esbrina si `$elem` està en el `$array`
 
 === "PHP"
 
@@ -596,11 +573,11 @@ Las operaciones más importantes que podemos realizar con arrays son:
     )
     ```
 
-* `$claves = array_keys($array)`: devuelve las claves del `$array` asociativo
-* `$tam = count($array)`: devuelve el tamaño de `$array`
-* `sort($array)`: ordena los elementos del `$array`
-* `isset($array[elemento])`: indica si existe/tiene valor elemento dentro del array
-* `unset($array[elemento])`: elimina el elemento del array (deja un hueco)
+* `$claus = array_keys($array)`: retorna les claus del `$array` associatiu
+* `$tam = count($array)`: retorna la grandària de `$array`
+* `sort($array)`: ordena els elements del `$array`
+* `isset($array[element])`: indica si existeix/té valor element dins del array
+* `unset($array[element])`: elimina l'element del array (deixa un buit)
 
 === "PHP"
 
@@ -641,7 +618,7 @@ Las operaciones más importantes que podemos realizar con arrays son:
     )
     ```
 
-Al asignar un array a otro se realiza una copia. Cuidado con esta operación que puede consumir muchos recursos.
+En assignar un array a un altre es realitza una còpia. Compte amb aquesta operació que pot consumir molts recursos.
 
 === "PHP"
 
@@ -673,16 +650,15 @@ Al asignar un array a otro se realiza una copia. Cuidado con esta operación que
     )
     ```
 
-Existen muchísimas más funciones para trabajar con arrays. Puedes consultar roda la información en la [documentación oficial](https://www.php.net/manual/es/ref.array.php).
+Existeixen moltíssimes més funcions per a treballar amb arrays. Pots consultar roda la informació en la [documentació oficial](https://www.php.net/manual/es/ref.array.php).
 
-!!! tip "Artículos para profundizar en las operaciones con arrays"
-    * Un artículo muy completo (en inglés) de [Cómo trabajar con arrays en PHP de la manera correcta](https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606).  
-    * Otro artículo recomendable (en inglés) es [Cómo ordenar arrays en PHP](https://code.tutsplus.com/tutorials/how-to-sort-arrays-in-php--cms-32313).
+!!! tip "Articles per a aprofundir en les operacions amb arrays"
+    * Un article molt complet (en anglés) de [Com treballar amb arrays en PHP de la manera correcta](https://code.tutsplus.com/tutorials/working-with-php-arrays-in-the-right-way--cms-28606).
+    * Un altre article recomanable (en anglés) és [Com ordenar arrays en PHP](https://code.tutsplus.com/tutorials/how-to-sort-arrays-in-php--cms-32313).
 
 ### Arrays bidimensionales
 
-Consiste en un array de arrays, ya sean arrays secuenciales o asociativos. Puede haber N dimensiones.
-
+Consisteix en un array de arrays, ja siguen arrays seqüencials o associatius. Pot haver-hi N dimensiones.
 ``` php
 <?php
 $persona["nombre"] = "Bruce Wayne";
@@ -691,8 +667,7 @@ $persona["profesion"] = ["dia" => "filántropo", "noche" => "caballero oscuro"];
 
 echo $persona['nombre']." por la noche trabaja de ".$persona['profesion']['noche'];
 ```
-
-Combinando los arrays asociativos en varias dimensiones podemos almacenar la información como si fuera una tabla:
+Combinant els arrays associatius en diverses dimensions podem emmagatzemar la informació com si fora una taula:
 
 ``` php
 <?php
@@ -708,15 +683,15 @@ foreach ($menus as $menudeldia) {
   }
 }
 
-// Para acceder a un elemento concreto se anidan los corchetes
+// Per a accedir a un element concret es nien els claudàtors
 $postre0 = $menus[0]["Postre"];
 ```
 
-Aunque pueda parecer una buena idea crear este tipo de estructuras, es mejor utilizar objetos conjuntamente con arrays (posiblemente arrays de otros objetos) para crear estructuras complejas que permitan modelar mejor los problemas.
+Encara que puga semblar una bona idea crear aquest tipus d'estructures, és millor utilitzar objectes conjuntament amb arrays (possiblement arrays d'altres objectes) per a crear estructures complexes que permeten modelar millor els problemes.
 
-## Funciones
+## Funcions
 
-Al no declararse los tipos de datos, los parámetros de las funciones no tienen tipo ni se indica el tipo de dato que devuelven. El paso de parámetros se realiza por valor, es decir, se realiza una copia de la variable.
+Al no declarar-se els tipus de dades, els paràmetres de les funcions no tenen tipus ni s'indica el tipus de dada que retornen. El pas de paràmetres es realitza per valor, és a dir, es realitza una còpia de la variable.
 
 ``` php
 <?php
@@ -729,7 +704,7 @@ $resultado = nombreFuncion($arg1, $arg2, …);
 ?>
 ```
 
-Por ejemplo:
+Per exemple:
 
 ``` php
 <?php
@@ -745,9 +720,9 @@ echo "El próximo $diaCine voy al cine.";
 ?>
 ```
 
-### Parámetros por referencia
+### Paràmetres per referència
 
-Si queremos pasar un parámetro por referencia, en la declaración de la función, indicaremos los parámetros mediante el operador **`&`** para indicar la dirección de memoria de la variable.
+Si volem passar un paràmetre per referència, en la declaració de la funció, indicarem els paràmetres mitjançant l'operador `&`* per a indicar la direcció de memòria de la variable.
 
 ``` php
 <?php
@@ -773,9 +748,9 @@ echo "Después de llamar: $numero2.<br>";
 ?>
 ```
 
-### Parámetros por defecto / opcionales
+### Paràmetres per defecte / opcionals
 
-Permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.
+Permeten assignar valors en la declaració, i posteriorment, deixar l'argument en blanc.
 
 ``` php
 <?php
@@ -796,7 +771,7 @@ echo "<br/>";
 echo obtenerCapital("Francia");
 ```
 
-En el caso de convivir con otro tipo de parámetros, los parámetros que tienen el valor asignado por defecto siempre se colocan al final.
+En el cas de conviure amb una altra mena de paràmetres, els paràmetres que tenen el valor assignat per defecte sempre es col·loquen al final.
 
 ``` php
 <?php
@@ -809,15 +784,15 @@ saluda("Aitor");
 saluda("Marina", "Srta");
 ```
 
-### Parámetros variables
+### Paràmetres variables
 
-Podemos tener funciones donde en la declaración no indiquemos la cantidad de datos de entrada.
+Podem tindre funcions on en la declaració no indiquem la quantitat de dades d'entrada.
 
-* `$arrayArgs = func_get_args();` --> Obtiene un array con los parámetros
-* `$cantidad = func_num_args();` --> Obtiene la cantidad de parámetros recibidos
-* `$valor = func_get_arg(numArgumento);` --> Obtiene el parámetro que ocupa la posición `numArgumento`.
+* `$arrayArgs = func_get_args();` --> Obté un array amb els paràmetres
+* `$quantitat = func_num_args();` --> Obté la quantitat de paràmetres rebuts
+* `$valor = func_get_arg(numArgumento);` --> Obté el paràmetre que ocupa la posició `numArgumento`.
 
-Estas funciones no se pueden pasar como parámetro a otra función (como funciones variable, que veremos más adelante). Para ello, debemos guardar previamente la función en una variable.
+Aquestes funcions no es poden passar com a paràmetre a una altra funció (com a funcions variable, que veurem més endavant). Per a això, hem de guardar prèviament la funció en una variable.
 
 ``` php
 <?php
@@ -839,7 +814,7 @@ echo sumaParametros(1, 5, 9); // 15
 ?>
 ```
 
-Desde PHP 5.6, se puede utilizar el operador `...` (*variadics*) el cual "disfraza" los parámetros como un array:
+Des de PHP 5.6, es pot utilitzar l'operador `...` (*variadics*) el qual "disfressa" els paràmetres com un array:
 
 ``` php
 <?php
@@ -861,8 +836,8 @@ echo sumaParametrosMejor(1, 5, 9); // 15
 ?>
 ```
 
-!!! tip "Más usos de `...`"
-    También se puede utilizar para dividir un array en variables separadas para proporcionar argumentos
+!!! tip "Més usos de `...`"
+    També es pot utilitzar per a dividir un array en variables separades per a proporcionar arguments
 
     ``` php
     <?php
@@ -877,11 +852,11 @@ echo sumaParametrosMejor(1, 5, 9); // 15
     ?>
     ```
 
-### Argumentos con nombre
+### Arguments amb nom
 
-Desde PHP 8.0 podemos pasar los argumentos con el nombre (además de por posición, como hemos hecho hasta ahora). Los argumentos con nombre se pasan poniendo el nombre como prefijo del parámetros separado por dos puntos: `$resultado = funcion( arg1 : valor1, arg2 : valor2);`
+Des de PHP 8.0 podem passar els arguments amb el nom (a més de per posició, com hem fet fins ara). Els arguments amb nom es passen posant el nom com a prefix del paràmetres separat per dos punts: `$resultat = funcion( arg1 : valor1, arg2 : valor2);`
 
-Esta característica complementa los parametros opcionales permitiendonos saltar su valor:
+Aquesta característica complementa els parametros opcionals permitiendonos saltar el seu valor:
 
 ``` php
 <?php
@@ -891,26 +866,25 @@ function funcionArgumentosNombre($a, $b = 2, $c = 4) {
 funcionArgumentosNombre(c: 3, a: 1); // "1 2 3"
 ```
 
-Tanto los parámetros opcionales como los obligatorios pueden tener nombre, pero lo argumentos con nombre se tienen que poner después de los que no lo tienen.
-
+Tant els paràmetres opcionals com els obligatoris poden tindre nom, però els arguments amb nom s'han de posar després dels que no ho tenen.
 ``` php
 <?php
 funcionArgumentosNombre(1, c: 3); // "1 2 3"
 ```
 
-### Funciones tipadas
+### Funcions amb tipus
 
-Desde PHP7 en las funciones, tanto los parámetro como su devolución, permiten la definición de tipos. Esto se conoce como *strict_types* (tipificación estricta) y hay que definirlo en la primera línea de cada archivo `.php` para que el propio interprete PHP compruebe los tipos y lance errores si los tipos son incorrectos, mediante la sentencia
+Des de PHP7 en les funcions, tant els paràmetre com la seua devolució, permeten la definició de tipus. Això es coneix com *strict_types* (tipificació estricta) i cal definir-ho en la primera línia de cada arxiu `.php` perquè el propi interprete PHP comprove els tipus i llance errors si els tipus són incorrectes, mitjançant la sentència
 
 ``` php
 <?php
 declare(strict_types=1);
 ```
 
-Así pues, vamos a  definir los tipos de los parámetros y de los valores devueltos mediante los tipos:
-`int`, `float`, `string`, `bool`, `object` y `array`.
+Així doncs, definirem  els tipus dels paràmetres i dels valors retornats mitjançant els tipus:
+`int`, `float`, `string`, `bool`, `object` i `array`.
 
-Si una función no devuelve nada se indica mediante el tipo `void`.
+Si una funció no retorna res s'indica mitjançant el tipus `void`.
 
 ``` php
 <?php
@@ -927,14 +901,14 @@ echo suma("10", 30); // error por tipificación estricta, sino daría 40
 ?>
 ```
 
-### Alcance
+### Abast
 
-Las variables definidas fuera de las funciones tienen alcance **global**: accesibles desde cualquier función.
-Los parámetros de una función y las variables declaradas dentro de una función (se conocen como variables locales) sólo son accesibles desde dentro de la misma función → alcance de **función**.
+Les variables definides fora de les funcions tenen abast *global**: accessibles des de qualsevol funció.
+Els paràmetres d'una funció i les variables declarades dins d'una funció (es coneixen com a variables locals) només són accessibles des de dins de la mateixa funció → aconseguisca de *funció**.
 
-En caso de conflicto, tienen prioridad las variables locales. Para evitar el conflicto, dentro de la función, podemos declarar la variable como `global`.
+En cas de conflicte, tenen prioritat les variables locals. Per a evitar el conflicte, dins de la funció, podem declarar la variable com a `global`.
 
-=== "Alcance local"
+=== "Abast local"
 
     ``` php
     <?php
@@ -950,7 +924,7 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
     ?>
     ```
 
-=== "Alcance global"
+=== "Abast global"
 
     ``` php
     <?php
@@ -967,15 +941,15 @@ En caso de conflicto, tienen prioridad las variables locales. Para evitar el con
     ?>
     ```
 
-!!! important "No globales"
-    Por favor, hay que evitar el uso de variables globales dentro de las funciones.
-    En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.
+!!! important "No globals"
+    Per favor, cal evitar l'ús de variables globals dins de les funcions.
+    En el cas de necessitar-les, és millor passar-les com a paràmetre a les funcions.
 
-### Funciones variable
+### Funcions variable
 
-* Permite asignar una función a una variable.
-* Nombre de la función entre comillas.
-* Si una variable va seguida de paréntesis, PHP buscará una función con su valor.
+* Permet assignar una funció a una variable.
+* Nom de la funció entre cometes.
+* Si una variable va seguida de parèntesi, PHP buscarà una funció amb el seu valor.
 
 ``` php
 <?php
@@ -984,8 +958,8 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
 ?>
 ```
 
-!!! info "Funciones anónimas"
-    PHP permite la definición y uso de funciones anónimas, es decir, funciones que no tienen nombre, y se utilizan principalmente para gestionar los *callbacks*. Este tipo de funciones se utiliza mucho en **Javascript** para gestionar los eventos y promesas.
+!!! info "Funcions anònimes"
+    PHP permet la definició i ús de funcions anònimes, és a dir, funcions que no tenen nom, i s'utilitzen principalment per a gestionar els *callbacks*. Aquest tipus de funcions s'utilitza molt en **JavaScript** per a gestionar els esdeveniments i promeses.
 
     ``` php
     <?php
@@ -993,19 +967,19 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
         echo "Hola";
     };
     $anonima();
-
+    
     $anonimaConParametro = function($nombre) {
         echo "Hola ".$nombre;
     };
     $anonimaConParametro("Aitor");
-
+    
     // Uso de variables externas a la función anónima --> `use`
     $mensaje = "Hola";
     $miClosure = function() use ($mensaje) {
         echo $mensaje;
     };
     $miClosure();
-
+    
     // Uso de parámetros
     $holaPHP = function($arg) use ($mensaje) {
         echo $mensaje." ".$arg;
@@ -1013,23 +987,23 @@ echo $miFuncionSuma(3,4); // invoca a la función suma
     $holaPHP("PHP");
     ?>
     ```
+    Des de PHP 7.4 s'han introduït les funciones fletxa (arrow functions) per a simplificar la seua definició i ús.
 
-    Desde PHP 7.4 se han introducido las funciones flecha (*arrow functions*) para simplificar su definición y uso.
+    Teniu més informació sobre funcions anònimes i fletxa en el següent article (en anglés): [Funcions anònimes i fletxa en PHP](https://code.tutsplus.com/tutorials/anonymous-and-arrow-functions-in-php--cms-36725)
 
-    Tenéis más información sobre funciones anónimas y flecha en el siguiente artículo (en inglés): [Funciones anónimas y flecha en PHP](https://code.tutsplus.com/tutorials/anonymous-and-arrow-functions-in-php--cms-36725)
+### Biblioteca de funcions
 
-### Biblioteca de funciones
+Podem agrupar un conjunt de funcions en un arxiu, per a permetre la seua reutilització.
+Posteriorment, s'inclou amb:
 
-Podemos agrupar un conjunto de funciones en un archivo, para permitir su reutilización.
-Posteriormente, se incluye con:
+* `include(arxiu);` / `include_once(arxiu);`
+* `require(arxiu);` / `require_once(arxiu);`
 
-* `include(archivo);` / `include_once(archivo);`
-* `require(archivo);` / `require_once(archivo);`
+Si no troba l'arxiu, `require` llança un error fatal, `include` l'ignora
+Les funcions `_once` només es carreguen una vegada, si ja ha sigut inclosa prèviament, no el torna a fer, evitant bucles.
 
-Si no encuentra el archivo, `require` lanza un error fatal, `include` lo ignora
-Las funciones `_once` sólo se cargan una vez, si ya ha sido incluida previamente, no lo vuelve a hacer, evitando bucles.
+Per exemple, col·loquem les funcions en l'arxiu `biblioteca.php`:
 
-Por ejemplo, colocamos las funciones en el archivo `biblioteca.php`:
 
 ``` php
 <?php
@@ -1043,7 +1017,7 @@ function resta(int $a, int $b) : int {
 ?>
 ```
 
-Y posteriormente en otro archivo:
+I posteriorment en un altre arxiu:
 
 ``` php
 <?php 
@@ -1053,9 +1027,9 @@ echo resta(40,20);
 ?>
 ```
 
-### Plantillas mediante `include`
+### Plantilles mitjançant `include`
 
-Mediante el uso de la instrucción `include` también podemos separar fragmentos de código PHP/HTML que queramos reutilizar en nuestros sitios web y crear un sistema muy sencillo de plantillas. Por ejemplo, vamos a separar una página en tres partes, primero la parte superior en `encabezado.php`:
+Mitjançant l'ús de la instrucció `include` també podem separar fragments de codi PHP/HTML que vulguem reutilitzar en els nostres llocs web i crear un sistema molt senzill de plantilles. Per exemple, separarem una pàgina en tres parts, primer la part superior en `encapçalat.php`:
 
 ``` html+php
 <!DOCTYPE html>
@@ -1068,33 +1042,33 @@ Mediante el uso de la instrucción `include` también podemos separar fragmentos
 <body>
 ```
 
-La parte de abajo, por ejemplo, solo va a contener HTML y la colocamos en `pie.html`:
+La part de baix, per exemple, només contindrà HTML i la col·loquem en `peu.html`:
 ``` html
 <footer>Aitor Medrano</footer>
 </body>
 </html>
 ```
 
-Y luego nos centramos únicamente en el contenido que cambia en `pagina.php`:
+I després ens centrem únicament en el contingut que canvia en `pagina.php`:
 
 ``` html+php
 <?php
 $titulo = "Página con includes";
-include("encabezado.php");
+include("encapçalat.php");
 ?>
 <h1><?= $titulo ?></h1>
 <?php
-include("pie.html");
+include("peu.html");
 ?>
 ```
 
-## Funciones predefinidas
+## Funcions predefinides
 
-El lenguaje ofrece un abanico de funciones ya definidas, agrupadas por su funcionalidad: <https://www.php.net/manual/es/funcref.php>
+El llenguatge ofereix un ventall de funcions ja definides, agrupades per la seua funcionalitat: <https://www.php.net/manual/es/funcref.php>
 
-### Cadenas
+### Cadenes
 
-Ya hemos visto que se pueden crear con comillas simples (`''`, sin interpretación) o comillas dobles (`""`, interpretan el contenido y las secuencias de escape `\n`, `\t`, `\$`, `{`, … - *magic quotes*)
+Ja hem vist que es poden crear amb cometes simples (`''`, sense interpretació) o cometes dobles (`""`, interpreten el contingut i les seqüències de fuita `\n`, `\t`, `\$`, `{`, … - *magic quotes)
 
 ``` php
 <?php
@@ -1103,7 +1077,7 @@ Ya hemos visto que se pueden crear con comillas simples (`''`, sin interpretaci�
 ?>
 ```
 
-Se acceden a los caracteres como si fuera un array.
+S'accedeixen als caràcters com si fora un array.
 
 ``` php
 <?php
@@ -1112,7 +1086,7 @@ $ygriega = $cadena[0];
 ?>
 ```
 
-Además de `echo`, podemos mostrar las cadenas mediante la función `printf`. Esta función viene heredada del lenguaje C, y en la cadena se indica el tipo de dato a formatear y genera una salida formateada. Si quiero guardar el resultado en una variable, podemos utilizar `sprintf`.
+A més de `echo`, podem mostrar les cadenes mitjançant la funció `printf`. Aquesta funció ve heretada del llenguatge C, i en la cadena s'indica el tipus de dada a formatar i genera una eixida formatada. Si vull guardar el resultat en una variable, podem utilitzar `sprintf`.
 
 ``` php
 <?php
@@ -1124,18 +1098,18 @@ echo $frase
 ?>
 ```
 
-Tenéis muchos más ejemplos en <https://www.w3schools.com/php/func_string_printf.asp>
+Teniu molts més exemples en <https://www.w3schools.com/php/func_string_printf.asp>
 
-#### Operaciones básicas
+#### Operacions bàsiques
 
-Todas las funciones se pueden consultar en <https://www.php.net/manual/es/ref.strings.php>
+Totes les funcions es poden consultar en <https://www.php.net/manual/es/ref.strings.php>
 
-Las más importantes son:
+Les més importants són:
 
-* `strlen`: obtiene la longitud de una cadena y devuelve un número entero
-* `substr`: devuelve una subcadena de la cadena original
-* `str_replace`: reemplaza caracteres en una cadena
-* `strtolower` y `strtoupper`: Transforman una cadena de caracteres en la misma cadena en minúsculas o mayúsculas respectivamente.
+* `strlen`: obté la longitud d'una cadena i retorna un nombre enter
+* `substr`: retorna una subcadena de la cadena original
+* `str_replau`: reemplaça caràcters en una cadena
+* `strtolower` i `strtoupper`: Transformen una cadena de caràcters en la mateixa cadena en minúscules o majúscules respectivament.
 
 ``` php
 <?php
@@ -1152,10 +1126,10 @@ echo "Grande ".strtoupper($cadena);
 ?>
 ```
 
-Si queremos trabajar con caracteres ASCII de forma individual, son útiles las funciones:
+Si volem treballar amb caràcters ASCII de manera individual, són útils les funcions:
 
-* `chr`: obtiene el carácter a partir de un ASCII
-* `ord`: obtiene el ASCII de un carácter
+* `chr`: obté el caràcter a partir d'un ASCII
+* `ord`: obté l'ASCII d'un caràcter
 
 ``` php
 <?php
@@ -1168,11 +1142,11 @@ echo despues("B");
 ?>
 ```
 
-Si queremos limpiar cadenas, tenemos las funciones:
+Si volem netejar cadenes, tenim les funcions:
 
-* `trim`: elimina los espacios al principio y al final
-* `ltrim` / `rtrim` o `chop`: Elimina los espacios iniciales / finales de una cadena.
-* `str_pad`: rellena la cadenas hasta una longitud especificada y con el carácter o caracteres especificados.
+* `trim`: elimina els espais al principi i al final
+* `ltrim` / `rtrim` o `chop`: Elimina els espais inicials / finals d'una cadena.
+* `str_pad`: emplena la cadenes fins a una longitud especificada i amb el caràcter o caràcters especificats.
 
 ``` php
 <?php
@@ -1183,16 +1157,16 @@ $sucia = str_pad($limpia, 23, "."); // "Programando en PHP....."
 ?>
 ```
 
-#### Comparando y buscando
+#### Comparant i buscant
 
-La comparación de cadenas puede ser con conversión de tipos mediante `==` o estricta con `===`.
-También funcionan los operadores `<` y `>` si ambas son cadenas.
-Al comparar cadenas con valores numericos podemos utilizar:
+La comparació de cadenes pot ser amb conversió de tipus mitjançant `==` o estricta amb `===`.
+També funcionen els operadors `<` i `>` si ambdues són cadenes.
+En comparar cadenes amb valors numericos podem utilitzar:
 
-* `strcmp`: 0 iguales, <0 si `a<b` o >0 si `a>b`
-* `strcasecmp`: las pasa a minúsculas y compara
-* `strncmp` / `strncasecmp`: compara los N primeros caracteres
-* `strnatcmp`: comparaciones naturales
+* `strcmp`: 0 iguals, <0 si `a<b` o >0 si `a>b`
+* `strcasecmp`: les passa a minúscules i compara
+* `strncmp` / `strncasecmp`: compara els N primers caràcters
+* `strnatcmp`: comparacions naturals
 
 ``` php
 <?php
@@ -1214,11 +1188,11 @@ var_dump( strnatcmp($frase4, $frase5) ); // -1 → f4 < f5
 ?>
 ```
 
-Si lo que queremos es buscar dentro de una cadena, tenemos:
+Si el que volem és buscar dins d'una cadena, tenim:
 
-* `strpos` / `strrpos`: busca en una cadena y devuelve la posición de la primera/última ocurrencia.
-* `strstr` / `strchr (alias)`: busca una cadena y devuelve la subcadena a partir de donde la ha encontrado
-* `stristr`: ignora las mayúsculas
+* `strpos` / `strrpos`: cerca en una cadena i retorna la posició de la primera/última ocurrència.
+* `strstr` / `strchr (àlies)`: cerca una cadena i retorna la subcadena a partir d'on l'ha trobada
+* `stristr`: ignora les majúscules
 
 ``` php
 <?php
@@ -1229,13 +1203,13 @@ $trasComa = strstr($frase, ","); // ", eso dicen, a veces"
 ?>
 ```
 
-Si queremos averiguar que contiene las cadenas, tenemos un conojunto de funciones de comprobaciones de tipo, se conocen como las funciones *ctype* que devuelven un booleano:
+Si volem esbrinar que conté les cadenes, tenim un conojunto de funcions de comprovacions de tipus, es coneixen com les funcions *ctype* que retornen un booleà:
 
-* `ctype_alpha` → letras
-* `ctype_alnum` → alfanuméricos
-* `ctype_digit` → dígitos
-* `ctype_punct` → caracteres de puntuación, sin espacios
-* `ctype_space` → son espacios, tabulador, salto de línea
+* `ctype_alpha` → lletres
+* `ctype_alnum` → alfanumèrics
+* `ctype_digit` → dígits
+* `ctype_punct` → caràcters de puntuació, sense espais
+* `ctype_space` → són espais, tabulador, salt de línia
 
 ``` php
 <?php
@@ -1254,13 +1228,13 @@ echo ctype_space($prueba5[0])."<br>"; // true
 ?>
 ```
 
-#### Trabajando con subcadenas
+#### Treballant amb subcadenes
 
-Si queremos romper las cadenas en trozos, tenemos:
+Si volem trencar les cadenes en trossos, tenim:
 
-* `explode`: convierte en array la cadena mediante un separador.
-* `implode` / `join`: pasa un array a cadena con un separador
-* `str_split` / `chunk_split`: pasa una cadena a una array/cadena cada X caracteres
+* `explode`: converteix en array la cadena mitjançant un separador.
+* `implode` / `join`: passa un array a cadena amb un separador
+* `str_split` / `chunk_split`: passa una cadena a una array/cadena cada X caràcters
 
 ``` php
 <?php
@@ -1281,19 +1255,19 @@ $partes3array = str_split($frase, 3);
 ?>
 ```
 
-Si queremos trabajar con tokens:
+Si volem treballar amb tokens:
 
 * `strtok(cadena, separador)`
-* y dentro del bucle: `strtok(separador)`
+* i dins del bucle: `strtok(separador)`
 
-Finalmente, para separarla en base al formato:
+Finalment, per a separar-la sobre la base del format:
 
-* `sscanf`: al revés que `sprintf`, crea un array a partir de la cadena y el patrón.
+* `sscanf`: a l'inrevés que `sprintf`, crea un array a partir de la cadena i el patró.
 
-Finalmente, otras operaciones que podemos realizar para trabajar con subcadenas son:
+Finalment, altres operacions que podem realitzar per a treballar amb subcadenes són:
 
-* `substr_count`: número de veces que aparece la subcadena dentro de la cadena
-* `substr_replace`: reemplaza parte de la cadena a partir de su posición, y opcionalmente, longitud
+* `substr_count`: nombre de vegades que apareix la subcadena dins de la cadena
+* `substr_replau`: reemplaça part de la cadena a partir de la seua posició, i opcionalment, longitud
 
 ``` php
 <?php
@@ -1308,33 +1282,33 @@ $bruno = substr_replace($batman, "Bruno", 0, 11);
 ?>
 ```
 
-También disponemos de una serie de funciones que facilitan las codificaciones desde y hacia HTML:
+També disposem d'una sèrie de funcions que faciliten les codificacions des d'i cap a HTML:
 
-* `htmlentities`: convierte a entidades HTML, por ejemplo, `á` por `&aacute;`,  `ñ` por `&ntilde;`, `<` por `&lt;`, etc..
-* `htmlspecialchars`: idem pero solo con los caracteres especiales (`&`, `"`, `'`, `<`, `>`, ...)
-* `striptags`: elimina etiquetas HTML.
-* `nl2br`: cambia saltos de línea por `<br />`.
-* `rawurlencode` / `rawurldecode`: codifica/decodifica una URL (espacios, ...).
+* `htmlentities`: converteix a entitats HTML, per exemple, `á` per `ￃﾡ`, `ñ` per `ￃﾱ`, `<` per&lt;` `, etc..
+* `htmlspecialchars`: idem però només amb els caràcters especials (`&`, `"`, `'`, `<`, `>`, ...)
+* `striptags`: elimina etiquetes HTML.
+* `nl2br`: canvia salts de línia per `<br />`.
+* `rawurlencode` / `rawurldecode`: codifica/descodifica una URL (espais, ...).
 
-Estas funciones las utilizaremos en la unidad 4.- Programación Web.
+Aquestes funcions les utilitzarem en la unitat 4.- Programació Web.
 
-### Matemáticas
+### Matemátiques
 
-Disponemos tanto de constantes como funciones ya definidas para trabajar con operaciones matemáticas: <https://www.php.net/manual/es/ref.math.php>
+Disposem tant de constants com funcions ja definides per a treballar amb operacions matemàtiques: <https://www.php.net/manual/es/ref.math.php>
 
-* Constantes ya definidas
+* Constants ja definides
     * `M_PI`, `M_E`, `M_EULER`, `M_LN2`, `M_LOG2E`
     * `PHP_INT_MAX`, `PHP_FLOAT_MAX`
-* Funciones de cálculo
+* Funciones de càlcul
     * `pow`, `sqrt`, `log`, `decbin`, `bindec`, `decoct`, `dechex`, `base_convert`, `max`, `min`
-* Funciones trigonométricas
-    * `sin`, `cos`, `tan`, `deg2rad`, `rad2deg`
-* Funciones para trabajar con números aleatorios
-    * `rand`, `mt_rand` (más rápida)
+* Funcions trigonomètriques
+    * `sense`, `cos`, `tan`, `deg2rad`, `rad2deg`
+* Funcions per a treballar amb números aleatoris
+    * `rand`, `mt_rand` (més ràpida)
 
-Aunque la mayoría de ellas son muy específicas de problemas matemáticos / estadísticos, es muy común que tengamos que redondear y/o formatear los cálculos antes de mostrarlos al usuario.
+Encara que la majoria d'elles són molt específiques de problemes matemàtics / estadístics, és molt comú que hàgem d'arredonir i/o formatar els càlculs abans de mostrar-los a l'usuari.
 
-Mediante la función `number_format(numero, cantidadDecimales, separadorDecimales, separadorMiles)` podermos pasar números a cadena con decimales y/o separadores de decimales y/o de miles.
+Mitjançant la funció `number_format(numere, cantidadDecimales, separadorDecimales, separadorMiles)` podermos passar números a cadena amb decimals i/o separadors de decimals i/o de milers.
 
 ``` php
 <?php
@@ -1344,7 +1318,7 @@ echo number_format($nf, 2, "M", "#"); // 1#234M57
 ?>
 ```
 
-Para redondear, tenemos `abs` para el valor absoluto y `round` para redondear, `ceil` para aproximación por exceso y `floor` por defecto.
+Per a arredonir, tenim `abs` per al valor absolut i `round` per a arredonir, `ceil` per a aproximació per excés i `floor` per defecte.
 
 ``` php
 <?php
@@ -1359,14 +1333,14 @@ $cinco = round($cuatrocinco);
 ?>
 ```
 
-### Tipos de datos
+### Tipus de dades
 
-Finalmente, para realizar conversiones de datos o si queremos trabajar con tipos de datos, tenemos las siguientes funciones:
+Finalment, per a realitzar conversions de dades o si volem treballar amb tipus de dades, tenim les següents funcions:
 
-* `floatval`, `intval`, `strval`: devuelve una variable del tipo de la función indicada
-* `settype`: fuerza la conversión
-* `gettype`: obtiene el tipo
-* `is_int`, `is_float`, `is_string`, `is_array`, `is_object`: devuelve un booleano a partir del tipo recibido
+* `floatval`, `intval`, `strval`: retorna una variable de la mena de la funció indicada
+* `settype`: força la conversió
+* `gettype`: obté el tipus
+* `is_int`, `is_float`, `is_string`, `is_array`, `is_object`: retorna un booleà a partir del tipus rebut
 
 ``` php
 <?php
@@ -1383,105 +1357,104 @@ var_dump(is_int(intval($uno))); // true
 ?>
 ```
 
-## Referencias
+## Referències
 
 * [Manual de PHP](https://www.php.net/manual/es/index.php)
 * [PHP en 2020](https://www.jesusamieiro.com/wp-content/uploads/2020/10/20201024-hacktoberday-PHP-en-2020.pdf), por Jesús Amieiro
-* [Apuntes de PHP](https://www.mclibre.org/consultar/php/) de Bartolomé Sintes, profesor del IES Abastos de Valencia
+* [Apunts de PHP](https://www.mclibre.org/consultar/php/) de Bartolomé Sintes, profesor del IES Abastos de Valencia
 * [Guía de Estilo - PSR](http://coppeldev.github.io/php/standards/coppel.html)
 * [PHP - La manera correcta](http://phpdevenezuela.github.io/php-the-right-way/)
 
-## Actividades
+## Activitats
 
-### PHP básico
+### PHP bàsic
 
-200. Visualiza el vídeo de Jesús Amieiro sobre [PHP en 2020](https://www.youtube.com/watch?v=o3IwAqslGUM&t=12724s) a partir del minuto 3:32 (son 40 minutos aproximadamente).
-    * ¿Qué relación existe entre PHP y Facebook?
-    * Respecto al rendimiento, ¿qué versión mínima deberíamos utilizar?
-    * ¿Por qué PHP tiene mala fama? 
-201. `201tresfrases.php`: Muestra 3 frases, cada una en un párrafo utilizando las tres posibilidades que existen de mostrar contenido.
-Tras ello, introduce dos comentarios, uno de bloque y otro de una línea.
-202. `202calculos.php`: Escribe un programa que utilice las variables `$x` y `$y`. Asígnales los valores `166` y `999` respectivamente.
-A continuación, muestra por pantalla el valor de cada variable, la suma, la resta, la división y la multiplicación.
-![203](imagenes/02/02p203.png){align=right}
-203. `203datosPersonales.php`: Escribe un programa que almacene en variables tu nombre, primer apellido, segundo apellido, email, año de nacimiento y teléfono. Luego muéstralos por pantalla dentro de una tabla.
-204. `204datosPersonales.html` y `204datosPersonales.php`: Es el mismo ejercicio que el anterior, pero separando la lógica. En el primer archivo crearemos el formulario para introducir los datos, y luego recogemos los datos y generamos la tabla en el segundo archivo.
+200. Visualitza el vídeo de Jesús Amieiro sobre [PHP en 2020](https://www.youtube.com/watch?v=o3iwaqslgum&t=12724s) a partir del minut 3.32 (són 40 minuts aproximadament).
 
-205. `205madlib.html`y `205madlib.php`: A partir de un nombre, un verbo, un adjetivo y un adverbio, crea una historia que contenga dichos elementos. Por ejemplo:
+     * Quina relació existeix entre PHP i Facebook?
+     * Respecte al rendiment, quina versió mínima hauríem d'utilitzar?
+     * Per què PHP té mala fama?
 
-    * Entrada: perro / caminar / azul / rápidamente
-    * Salida: ¿ Te gusta caminar con tu perro azul rápidamente ?
+201. `201.php`: tresfrases - Mostra 3 frases, cadascuna en un paràgraf utilitzant les tres possibilitats que existeixen de mostrar contingut.
+     Després d'això, introdueix dos comentaris, un de bloc i un altre d'una línia.
 
-    * `205madlib2.html` y `205madlib2.php` Crea un madlib más extenso, leyendo más datos de entrada.
+202. `202.php`: calculs -Escriu un programa que utilitze les variables `$x` i `$i`. Assigna'ls els valors `166` i `999` respectivament.
+     A continuació, mostra per pantalla el valor de cada variable, la suma, la resta, la divisió i la multiplicació.
+     ![203](imagenes/02/02p203.png){align=right}
 
-206. `206anyos.php`: Tras leer la edad de una persona, mostrar la edad que tendrá dentro de 10 años y hace 10 años.
-Además, muestra qué año será en cada uno de los casos.
-Finalmente, muestra el año de jubilación suponiendo que trabajarás hasta los 67 años.
-En este caso, no hace falta que previamente crees un formulario, puedes probar el ejercicio via URL: `206anyos.php?edad=33`.
+203. `203.php`: dadessPersonals -Escriu un programa que emmagatzeme en variables el teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.
 
-    Tip: `$anyoActual = date("Y");`
+204. `204.html` i `204.php`: dadesPersonals - És el mateix exercici que l'anterior, però separant la lògica. En el primer arxiu crearem el formulari per a introduir les dades, i després recollim les dades i generem la taula en el segon arxiu.
 
-207. `207dinero.php`: A partir de una cantidad de dinero, mostrar su descomposición en billetes  (500, 200, 100, 50, 20, 10, 5) y monedas (2, 1), para que el número de elementos sea mínimo.
-No se utilizar ninguna instrucción condicional.
-Por ejemplo, al introducir `139` debe mostrar:
+!!! tip "[Construir formulari Boostrap online](https://bootstrapformbuilder.com/)"
 
-    ``` out
-    1 billete de 100
-    0 billete de 50
-    1 billete de 20
-    1 billete de 10
-    1 billete de 5
-    2 moneda de 2
-    ```
+205. `205.html`i `205.php`: madlib -A partir d'un nom, un verb, un adjectiu i un adverbi, crea una història que continga aquests elements. Per exemple:
 
-    Tip: Puedes forzar a realizar la división entera mediante la función `intdiv($dividendo, $divisor)` o pasar un número flotante a entero puedes usar la función `intval()`
+* Entrada: gos / caminar / blau / ràpidament
+* Eixida: T'agrada caminar amb el teu gos blau ràpidament ?
 
-208. `208posnegcero.php`: A partir de un `numero`, muestra por pantalla si el número es `positivo`, `negativo` o `cero`.
+206. `206.php`: anys - Després de llegir l'edat d'una persona, mostrar l'edat que tindrà dins de 10 anys i fa 10 anys.
+     A més, mostra quin any serà en cadascun dels casos.
+     Finalment, mostra l'any de jubilació suposant que treballaràs fins als 67 anys.
+     En aquest cas, no fa falta que prèviament crees un formulari, pots provar l'exercici via URL: `206anyos.php?edat=33`.
 
-209. `209mayor3.php`: Sin hacer uso de condiciones que utilicen dentro la condición los operadores lógicos, muestra el mayor de tres números (`a`, `b` y `c`).
+!!! tip "`$anyoActual = date("Y");`"
+
+207. `207.php`: dines -A partir d'una quantitat de diners, mostrar la seua descomposició en bitllets (500, 200, 100, 50, 20, 10, 5) i monedes (2, 1), perquè el nombre d'elements siga mínim.
+     No s'ha d'utilitzar cap instrucció condicional. Per exemple, en introduir `139` ha de mostrar:
+
+
+     1 bitllet de 100
     
-    `209mayor3c.php`: Utiliza en las condiciones los operadores lógicos.
+     0 bitllet de 50
+    
+     1 bitllet de 20
+    
+     1 bitllet de 10
+    
+     1 bitllet de 5 
+    
+     2 moneda de 2 
 
-210. `210nombreEdad.php`: A partir de una `edad` muestra por pantalla:
+    !!! tip "Pots forçar a realitzar la divisió sencera mitjançant la funció `intdiv($dividend, $divisor)` o passar un número flotant a enter pots usar la funció `intval()`"
 
-    * `bebé` si tiene menos de 3 años
-    * `niño` si tiene entre 3 y 12 años
-    * `adolescente` entre 13 y 17 años
-    * `adulto` entre 18 y 66
-    * `jubilado` a partir de 67
+208.`208.php`: posnegzero - A partir d'un `numero`, mostra per pantalla si el número és `positiu`, `negatiu` o `zero`.
 
-211. `211reloj.php`: Escribe un programa que funcione similar a un reloj, de manera que a partir de los valores de `hora`, `minuto` y `segundo` muestre la hora dentro de un segundo. Tras las `23:59:59` serán las `0:0:0`.
+209.`209.php`: major3 -Sense fer ús de condicions amb operadors lògics, mostra el major de tres números (`a`, `b` i `c`).
 
-212. `212calendario.php`: Escribe un programa similar a un calendario de manera que a partir de `dia`, `mes` y `anyo` muestre la fecha dentro de un día. Debes tener en cuenta que no todos los meses tienen 30 días. En este caso, no vamos a tener en cuenta los años bisiestos.
+210. `210.php`: nomEdat - A partir d'una `edat` mostra per pantalla:
+
+     * `bebé` si té menys de 3 anys
+     * `xiquet` si té entre 3 i 12 anys
+     * `adolescent` entre 13 i 17 anys
+     * `adult` entre 18 i 66
+     * `jubilat` a partir de 67
+
+211. `211.php`: rellotge - Escriu un programa que funcione similar a un rellotge, de manera que a partir dels valors de `hora`, `minut` i `segon` mostre l'hora dins d'un segon. Després de les `23.59:59` seran les `0:0:0`.
 
 ![213](imagenes/02/02p213.png){align=right & width=150}
 
-213. `213ecuacion2g.php`: Crea un programa que resuelva una ecuación de 2º grado del tipo `ax² + bx + c = 0`.
-Ten en cuenta que puede tener 2, 1 o no tener solución dependiendo del valor del discriminante `b²-4ac`.
+212. `212.php`: ecuacio2g - Crea un programa que resolga una equació de 2n grau del tipus `ax² + bx + c = 0`.
+     Tingues en compte que pot tindre 2, 1 o no tindre solució depenent del valor del discriminant `b²-4ac`.
 
-    Tip: Para calcular la raíz cuadrada deberás utilizar la función `sqrt()`
+    !!! tip "Per a calcular l'arrel quadrada hauràs d'utilitzar la funció `sqrt()`"
 
-Ejercicios de investigación:
+213. `index.php` : index - Completa el fitxer index.php per enllaçar tots els exercicis
+ 
+Exercicis d'investigació:
 
-214. Investiga para que sirve el operador nave espacial, disponible desde PHP7 (<https://www.php.net/manual/es/migration70.new-features.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
-215. Investiga para qué sirve la instrucción `match()`, disponible desde PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica con un par de líneas su propósito y mediante código demuestra su uso.
+214. Investiga perquè serveix l'operador nau espacial, disponible des de PHP7 (<https://www.php.net/manual/es/migration70.new-features.php>). Explica amb un parell de línies el seu propòsit i mitjançant codi demostra el seu ús.
+215. Investiga per a què serveix la instrucció `match()`, disponible des de PHP8 (<https://www.php.net/manual/es/control-structures.match.php>). Explica amb un parell de línies el seu propòsit i mitjançant codi demostra el seu ús.
 
 ### Bucles
 
-220. `220pares050.php:` Escribe un programa que muestre los números pares del 0 al 50 (dentro de una lista desordenada).
+220. Escriu un programa que mostre els nombres parells del 0 al 50 (dins d'una llista desordenada).
 
-    `220paresAB.php`: A partir del anterior, refactorizar para que funcione con `inicio` y `fin`.
+221. Escriu un programa que sume els números de l'1 al 10.
 
-221. `221suma110.php`: Escribe un programa que sume los números del 1 al 10.
+222. A partir d'una `base` i `exponent`, mitjançant l'acumulació de productes, calcula la potència utilitzant la instrucció `for`.
 
-    `221sumaAB.php`: A partir del anterior, refactorizar para que funcione con `inicio` y `fin`.
-
-222. `222potencia.php`: A partir de una `base` y `exponente`, mediante la acumulación de productos, calcula la potencia utilizando la instrucción `for`.
-
-    `222potenciaWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `while`.  
-    `222potenciaDoWhile.php`: Reescribe el ejercicio anterior haciendo uso sólo de `do-while`.
-
-223. `223tablaMultiplicar.php`: Muestra dentro de una tabla HTML la tabla de multiplicar del `numero` que reciba como parámetro. Utiliza `<thead>` con sus respectivos `<th>` y `<tbody`> para dibujar la tabla. Por ejemplo:
+223. Mostra dins d'una taula HTML la taula de multiplicar del `nombre` que reba com a paràmetre. Utilitza `<thead>` amb els seus respectius `<th>` i `<tbody`> per a dibuixar la taula. Per exemple:
 
     a | * | b | = | a*b
     -- | -- | -- | -- | --
@@ -1491,148 +1464,146 @@ Ejercicios de investigación:
     7  | * | 10 | = | 70
 
 
-224. `224formulario.html`: Crea un formulario que permita leer una `cantidad`.  
+224. `224.html`: Crea un formulari que permeta llegir una `quantitat`.
+     `224.php`: a partir de la quantitat, prepara un formulari amb tantes caixes de dades com el seu valor.
+     Finalment a partir de les dades de totes les caixes de la pàgina anterior, suma'ls i mostra el total.
 
     !!! tip inline end
-        Para guardar un dato oculto puedes utilizar un campo de formulario de tipo oculto: `<input type="hidden" name="cantidad" value="33" />`
+        Per a guardar una dada oculta pots utilitzar un camp de formulari de tipus ocult: `<input type="hidden" name="cantidad" value="33" />`
 
-    `224leerDatos.php`: a partir de `cantidad`, prepara un formulario con tantas cajas de datos como su valor.  
-    Finalmente, en `224sumarDatos.php`: a partir de los datos de todas las cajas de la página anterior, súmalos y muestra el total.
+225. `225.html` i `225.php`: Apartir d'un nombre de `files` i `columnes`, crear una taula amb aqueixa grandària.
+     Les cel·les han d'estar emplenades amb els valors de les coordenades de cada cel·la.
 
-225. `225formulario.html` y `225tabla.php`: A partir de un número de `filas` y `columnas`, crear una tabla con ese tamaño.
-Las celdas deben estar rellenadas con los valores de las coordenadas de cada celda.
-226. `226formulario.html` y `226cuadrado.php`: Basándote en el ejercicio anterior, rellena la tabla de manera que solo los bordes tengan contenido, quedándose el resto de celdas en blanco.
-![228](imagenes/02/02p228.png){align=right & width=200}
-227. `227formulario.html` y `227equis.php`: Basándote en el ejercicio anterior, ahora sólo debe aparecer el contenido de los dos diagonales.
-228. `228cuadradoMultiplicar.php`: Crea un programa que muestre por pantalla un cuadrado exactamente igual (fíjate bien en los encabezados, tanto de las filas como de las columnas) al de la imagen con las tablas de multiplicar.
+226. `226.html` i `226.php`: Basant-te en l'exercici anterior, emplena la taula de manera que només les vores tinguen contingut, quedant-se la resta de cel·les en blanc.
+     ![228](imagenes/02/02p228.png){align=right & width=200}
+
+227. `227.html` i `227.php`:Basant-te en l'exercici anterior, ara només ha d'aparéixer el contingut dels dues diagonals.
+
+228. `228.php`: Crea un programa que mostre per pantalla un quadrat exactament igual (fixa't bé en els encapçalats, tant de les files com de les columnes) al de la imatge amb les taules de multiplicar.
+
 
 ### Arrays
 
-230. `230aleatorios50.php`: Rellena un array con 50 números aleatorios comprendidos entre el 0 y el 99, y luego muéstralo en una lista desordenada.
-Para crear un número aleatorio, utiliza la función `rand(inicio, fin)`. Por ejemplo:
+230. `230.php`: Emplena un array amb 50 números aleatoris compresos entre el 0 i el 99, i després mostra-ho en una llista desordenada.
+     Per a crear un número aleatori, utilitza la funció `rand(inici, fi)`. Per exemple:
 
     ``` php
     $num = rand(0, 99)
     ```
 
-231. `231bola8.html`: Prepara un formulario con un caja de texto que realice a una pregunta al usuario.  
-`231bola8.php`: A partir del anterior, crea un programa que muestre la pregunta recibida y genere una respuesta de manera aleatoria entre un conjunto de respuestas predefinidas, almacenadas en un array: *Si, no, quizás, claro que sí, por supuesto que no, no lo tengo claro, seguro, yo diría que sí, ni de coña, etc..*.  
-Este ejercicio se basa en el juego de la [Bola 8 mágica](https://es.wikipedia.org/wiki/Magic_8-Ball).
+231. `231.html`: Prepara un formulari amb un caixa de text que realitze a una pregunta a l'usuari.
+     `231.php`: A partir de l'anterior, crea un programa que mostre la pregunta rebuda i genere una resposta de manera aleatòria entre un conjunt de respostes predefinides, emmagatzemades en un array: Si, no, potser, clar que sí, per descomptat que no, no ho tinc clar, segur, jo diria que sí, ni de coña, etc..*.
 
-232. `232mates.php`: A partir del ejercicio 230, genera un array aleatorio de 33 elementos con números comprendidos entre el 0 y 100 y calcula:
+232. `232.php`: A partir de l'exercici 230, genera un array aleatori de 33 elements amb números compresos entre el 0 i 100 i calcula:
 
-    * El mayor
-    * El menor
-    * La media
+     * El major
+     * El menor
+     * La mitjana
 
-233. `233sexos.php`: Rellena un array de 100 elementos de manera aleatoria con valores `M` o `F` (por ejemplo `["M", "M", "F", "M", ...]`). Una vez completado, vuelve a recorrerlo y calcula cuantos elementos hay de cada uno de los valores almacenando el resultado en un array asociativo `['M' => 44, 'F' => 66]` (*no utilices variables para contar las `M` o las `F`*).
-Finalmente, muestra el resultado por pantalla
+233. `233.php`: Emplena un array de 100 elements de manera aleatòria amb valors `M` o `F` (per exemple `["M", "M", "F", "M", ...]`). Una vegada completat, torna a recórrer-ho i calcula quants elements hi ha de cadascun dels valors emmagatzemant el resultat en un array associatiu `['M' => 44, 'F' => 66]` (no utilitzes variables per a comptar les `M` o les `F`).
+     Finalment, mostra el resultat per pantalla
 
-234. `234monedas.php`: Vuelve a realizar el ejercicio 207, el de las monedas (500, 200, 100, 50, 20, 10, 5, 2, 1), pero haciendo uso de arrays y un bucle.
-Almacena el resultado en un array asociativo.
-Muestra el resultado en una lista desordenada únicamente con las cantidades que tienen algún valor.
+234. `234.php`: Torna a realitzar l'exercici 207, el de les monedes (500, 200, 100, 50, 20, 10, 5, 2, 1), però fent ús de arrays i un bucle.
+     Emmagatzema el resultat en un array associatiu.
+     Mostra el resultat en una llista desordenada únicament amb les quantitats que tenen algun valor.
 
-235. `235alturas.php`: Mediante un array asociativo, almacena el nombre y la altura de 5 personas (`nombre => altura`).
-Posteriormente, recorre el array y muéstralo en una tabla HTML.
-Finalmente añade una última fila a la tabla con la altura media.
+235. `235.php`: Mitjançant un array associatiu, emmagatzema el nom i l'alçada de 5 persones (`nom => alçada`).
+     Posteriorment, recorre el array i mostra-ho en una taula HTML.
+     Finalment afig una última fila a la taula amb l'altura mitjana.
 
-236. `236personas.php`: Mediante un array bidimensional, almacena el nombre, altura y email de 5 personas. Para ello, crea un array de personas, siendo cada persona un array asociativo: `[ ['nombre'=>'Aitor', 'altura'=>182, 'email'=>'aitor@correo.com'],[…],… ]`
-Posteriormente, recorre el array y muéstralo en una tabla HTML.
+236. `236.php`: Mitjançant un array bidimensional, emmagatzema el nom, altura i email de 5 persones. Per a això, crea un array de persones, sent cada persona un array associatiu: `[ ['nom'=>'Aitor', 'altura'=>182, 'email'=>'aitor@correo.com'],[…],… ]`
+     Posteriorment, recorre el array i mostra-ho en una taula HTML.
 
-237. `237leerCantidad.html` y `237leerPersonas.php`: a partir de un formulario con un campo de `cantidad` de personas, generar un nuevo formulario para leer el nombre, altura y email de `cantidad` personas.  
-`237gestionarPersonas.php`: A partir de las personas introducidas, mostrar sus datos en una tabla, y posteriormente, destacar los datos del más alto y el del más bajo.
+237. `237.html` i `237.php`: a partir d'un formulari amb un camp de `quantitat` de persones, generar un nou formulari per a llegir el nom, altura i email de `quantitat` persones.
+`237.php`: A partir de les persones introduïdes, mostrar les seues dades en una taula, i posteriorment, destacar les dades del més alt i el del més baix.
 
-238. `238tablaDistintos.php`: Rellena un array bidimensional de 6 filas por 9 columnas con números aleatorios comprendidos entre 100 y 999 (ambos incluidos). Todos los números deben ser distintos, es decir, no se puede repetir ninguno.  
-Muestra a continuación por pantalla el contenido del array de tal forma que:
+238. `238.php`: Emplena un array bidimensional de 6 files per 9 columnes amb números aleatoris compresos entre 100 i 999 (tots dos inclosos). Tots els números han de ser diferents, és a dir, no es pot repetir cap. 
+Mostra a continuació per pantalla el contingut del array de tal forma que:
 
-    * La columna del máximo debe aparecer en azul.
-    * La fila del mínimo debe aparecer en verde
-    * El resto de números deben aparecer en negro.
+     * La columna del màxim ha d'aparéixer en blau.
+     * La fila del mínim ha d'aparéixer en verd
+     * La resta de números han d'aparéixer en negre.
 
-### Funciones
+### Funcions
 
-240. `240arrayPar.php`: Crea las siguientes funciones:
+240. `functions.php`: Crea les següents funcions:
 
-    * Una función que averigüe si un número es par: `esPar(int $num): bool`
-    * Una función que devuelva un array de tamaño `$tam` con números aleatorios comprendido entre `$min` y `$max` : `arrayAleatorio(int $tam, int $min, int $max) : array`
-    * Una función que reciba un `$array` por referencia y devuelva la cantidad de números pares que hay almacenados: `arrayPares(array &$array): int`
+     * Una funció que esbrine si un número és parell: `esParell(int $num): bool`
+     * Una funció que retorne un array de grandària `$tam` amb números aleatoris comprés entre `$min` i `$max` : `arrayAleatori(int $tam, int $min, int $max) : array`
+     * Una funció que reba un `$array` per referència i retorne la quantitat de nombres parells que hi ha emmagatzemats: `countParells(array &$array): int`
 
-241. `241parametrosVariables.php`: Crea las siguientes funciones:
+241. `functions.php`: Crea les següents funcions:
 
-    * Una función que devuelva el mayor de todos los números recibidos como parámetros: `function mayor(): int`. Utiliza las funciones `func_get_args()`, etc... No puedes usar la función `max()`.
-    * Una función que concatene todos los parámetros recibidos separándolos con un espacio: `function concatenar(...$palabras) : string`. Utiliza el operador `...`.
+     * Una funció que retorne el major de tots els números rebuts com a paràmetres: `function major(): int`. No pots usar la funció `max()`.
+     * Una funció que concatene tots els paràmetres rebuts separant-los amb un espai: `function concatenar(...$paraules) : string`. Utilitza l'operador `...`.
 
-242. `242matematicas.php`: Añade las siguientes funciones:
+242. `functions.php`: Afig les següents funcions:
 
-    * `digitos(int $num): int` → devuelve la cantidad de dígitos de un número.
-    * `digitoN(int $num, int $pos): int` → devuelve el dígito que ocupa, empezando por la izquierda, la posición `$pos`.
-    * `quitaPorDetras(int $num, int $cant): int` → le quita por detrás (derecha) `$cant` dígitos.
-    * `quitaPorDelante(int $num, int $cant): int` → le quita por delante (izquierda) `$cant` dígitos.
+     * `digits(int $num): int` → retorna la quantitat de dígits d'un número.
+     * `digitN(int $num, int $post): int` → retorna el dígit que ocupa, començant per l'esquerra, la posició `$post`.
+     * `llevaDarrere(int $num, int $cant): int` → li lleva per darrere (dreta) `$cant` dígits.
+     * `llevaDavant(int $num, int $cant): int` → li lleva per davant (esquerra) `$cant` dígits.
 
-    Para probar las funciones, haz uso tanto de paso de argumentos posicionales como argumentos con nombre.
+    Per a provar les funcions, fes ús tant de pas d'arguments posicionals com arguments amb nom.
 
-243. `243biblioteca.php`: crea un archivo con funciones para sumar, restar, multiplicar y dividir dos números.  
-`243arrayFunciones.php`: haciendo uso de un array que almacene el nombre de las funciones del archivo anterior, a partir de dos números recibidos por URL, recorre el array e invoca a las funciones de manera dinámica haciendo uso de funciones variable.
+243. `functions.php`: Crea una biblioteca amb dues funcions:
 
-244. `244euros.php`: Crea una biblioteca con dos funciones:
+     * peseta2euros: passa de pessetes a euros
+     * euro2pesetes: passa d'euros a pessetes
 
-    * peseta2euros: pasa de pesetas a euros
-    * euros2pesetas: pasa de euros a pesetas 
+    Cada funció ha de rebre dos paràmetres:
 
-    Cada función debe recibir dos parámetros:
+    * La quantitat a transformar
+    * La cotització, amb un paràmetre per defecte amb el factor de transformació.
 
-    * La cantidad a transformar
-    * La cotización, con un parámetro por defecto con el factor de transformación.
-    
-    `244calculadoraEuros.php`: utiliza `243euros.php` y prueba las funciones pasando tanto cantidades con la cotización por defecto, como con nuevas cotizaciones. Recuerda que 1 euro son/eran 166.36 pesetas.
+    `243.php`: utilitza per construir un formulari que faça la transformació en ambdos sentits.
 
-245. `245preparaTiquetCompra.php`: A partir de una cantidad de productos, leer el nombre y coste de la cantidad de productos indicados (similar al ejercicio 237, pero esta vez no hace falta crear el formulario con la cantidad, se recibe mediante un parámetro GET via URL).  
-`245imprimeTiquetCompra.php`: Tras leer los datos del tiquet de compra, enumera en una tabla los productos, con su precio en euros y pesetas, y finalmente, en una última fila, totalizar en ambas monedas.
-![245](imagenes/02/02p245.png){align=right & width=200}
-246. A partir de los archivos creados en el ejercicio anterior, crea una plantilla mediante includes:
-`246preparaCompra.php`: similar a `245preparaTiquetCompra.php`, pero separando el encabezado (*Supermercado Severo* en `h1`) y el pie (*Tu supermercado de confianza*) en ficheros externos y referenciando a ellos mediante `include`.  
-`246listaCompra.php`: recibe los datos del anterior, y reutiliza parte de `245imprimeTiquetCompra.php` cambiando la tabla por una lista desordenada de los productos junto a su precio.
-247. Vamos a simular un formulario de acceso:
+244. `244.php`: A partir d'una quantitat de productes, llegir el nom i cost de la quantitat de productes indicats (similar a l'exercici 237, però aquesta vegada no fa falta crear el formulari amb la quantitat, es rep mitjançant un paràmetre GET via URL). 
 
-    * `247login.php`: el formulario de entrada, que solicita el usuario y contraseña.
-    * `247compruebaLogin.php`: recibe los datos y comprueba si son correctos (los usuarios se guardan en un array asociativo) pasando el control mediante el uso de `include` a:
-        * `247ok.php`: El usuario introducido es correcto
-        * `247ko.php`: El usuario es incorrecto. Informar si ambos están mal o solo la contraseña. Volver a mostrar el formulario de acceso.
+    `244.php`: Després de llegir les dades del tiquet de compra, enumera en una taula els productes, amb el seu preu en euros i pessetes, i finalment, en una última fila, totalitzar en totes dues monedes.
 
-### Funciones predefinidas
+245. Simularem un formulari d'accés:
 
-Todos los ejercicios se deben realizar creando nuevas funciones para encapsular el código.
-Además de la propia función, el ejercicio debe contener código para poder probarlo.
+     * `245.php`: el formulari d'entrada, que sol·licita l'usuari i contrasenya.
+     * `245.php`: rep les dades i comprova si són correctes (els usuaris es guarden en un array associatiu en el fitxer `247password.php`).Utilitza  `include`.
+     * `245.php`: L'usuari introduït és correcte
+     * `245.php`: L'usuari és incorrecte. Informar si tots dos estan mal o només la contrasenya. Tornar a mostrar el formulari d'accés.
 
-250. `250fraseImpares.php`: Lee una frase y devuelve una nueva con solo los caracteres de las posiciones impares.
-251. `251vocales.php`: A partir de una frase, devuelve la cantidad de cada una de las vocales, y el total de ellas.
-252. `252analizador.php`: A partir de una frase con palabras sólo separadas por espacios, devolver
-    * Letras totales y cantidad de palabras
-    * Una línea por cada palabra indicando su tamaño
+### Funcions predefinides
 
-    Nota: no se puede usar `str_word_count`  
-    `252analizadorWC.php`: Investiga que hace la función `str_word_count`, y vuelve a hacer el ejercicio.
+Tots els exercicis s'han de realitzar creant noves funcions per a encapsular el codi.
+A més de la pròpia funció, l'exercici ha de contindre codi per a poder provar-lo.
 
-253. `253cani.php`: EsCrIbE uNa FuNcIóN qUe TrAnSfOrMe UnA cAdEnA eN cAnI.
-254. `254palindromo.php`: Escribe una función que devuelva un booleano indicando si una palabra es palíndroma (se lee igual de izquierda a derecha que de derecha a izquierda, por ejemplo, “ligar es ser agil”).
-255. `255codificar.php`: Utilizando las funciones para trabajar con caracteres, a partir de una cadena y un desplazamiento: 
-    * Si el desplazamiento es 1, sustituye la A por B, la B por C, etc.
-    * El desplazamiento no puede ser negativo
-    * Si se sale del abecedario, debe volver a empezar
-    * Hay que respetar los espacios, puntos y comas.
-256. `256filtrado.html`: Crea un programa que permita al usuario leer un conjunto de números separados por espacios.  
-`256filtrado.php`: El programa filtrará los números leídos para volver a mostrar únicamente los números pares e indicará la cantidad existente.
-    ```
-    Dame números: 1 4 7 9 23 10 8
-    Los 3 números pares son: 4 10 8
-    ```
-257. `257investiga.php`: Investiga las siguientes funciones de cadena (explica para qué sirven mediante comentarios, y programa un pequeño ejemplo de cada una de ellas): `ucwords`, `strrev`, `str_repeat` y `md5`.
+250. `250fraseImpares.php`: Lee una frase i retorna una nova amb solo els caràcters de les posicions imparelles.
+251. `251vocales.php`: A partir d'una frase, retorna la quantitat de cadascuna de les vocals, i el total d'elles.
+252. `252analizador.php`: A partir d'una frase amb paraules només separades per espais, retornar
+     * Lletres totals i quantitat de paraules
+     * Una línia per cada paraula indicant la seua grandària
 
-Los siguientes ejercicios se basan en la generación de números aleatorios.
+!!! tip  "no es pot usar `str_word_count`"
+       
+ `252analizadorWC.php`: Investiga que fa la funció `str_word_count`, i torna a fer l'exercici.
 
-260. `260generador.php`: Crea una función que permite generar una letra aleatoria, mayúscula o minúscula.
-261. `261generaContrasenya.php`: Crea una función que a partir de un tamaño, genere una contraseña aleatoria compuesta de letras y dígitos de manera aleatoria.
-263. `262quinielas.php`: Crea las siguientes funciones:
-    * `quinigol() : array` --> Genera un array multidimensional con 6 resultados aleatorios con combinaciones `[012M, 012M]`
-    * `quiniela() : array` --> Genera un array con una combinación de quiniela generada de manera aleatoria: 14 resultados con `1X2` y el pleno al quince con `[012M, 012M]`
-    * `tabla(array $quiniela) : string` --> transforma un array de una quniela en una tabla HTML
+253. `253cani.php`: EsCrIu UnA fUnCiÓ qUe TrAnSfOrMe UnA cAdEnA eN cAnI.
+254. `254palindromo.php`: Escriu una funció que retorne un booleà indicant si una paraula és palíndroma (es llig igual d'esquerra a dreta que de dreta a esquerra, per exemple, “lligar és ser agil”).
+255. `255codificar.php`: Utilitzant les funcions per a treballar amb caràcters, a partir d'una cadena i un desplaçament:
+     * Si el desplaçament és 1, substitueix l'A per B, la B per C, etc.
+     * El desplaçament no pot ser negatiu
+     * Si s'ix de l'abecedari, ha de tornar a començar
+     * Cal respectar els espais, punts i comes.
+256. `256filtrado.html`: Crea un programa que permeta a l'usuari llegir un conjunt de números separats per espais.
+     `256filtrado.php`: El programa filtrarà els números llegits per a tornar a mostrar únicament els nombres parells i indicarà la quantitat existent.
+     ```
+     Dona'm números: 1 4 7 9 23 10 8
+     Els 3 nombres parells són: 4 10 8
+     ```
+257. `257investiga.php`: Investiga les següents funcions de cadena (explica per a què serveixen mitjançant comentaris, i programa un xicotet exemple de cadascuna d'elles): `ucwords`, `strrev`, `str_repeat` i `md5`.
+
+Els següents exercicis es basen en la generació de números aleatoris.
+
+260. `260generador.php`: Crea una funció que permet generar una lletra aleatòria, majúscula o minúscula.
+261. `261generaContrasenya.php`: Crea una funció que a partir d'una grandària, genere una contrasenya aleatòria composta de lletres i dígits de manera aleatòria.
+262. `262quinielas.php`: Crea les següents funcions:
+     * `quinigol() : array` --> Genera un array multidimensional amb 6 resultats aleatoris amb combinacions `[012M, 012M]`
+     * `travessa() : array` --> Genera un array amb una combinació de travessa generada de manera aleatòria: 14 resultats amb `1X2` i el ple al quinze amb `[012M, 012M]`
+     * `taula(array $travessa) : string` --> transforma un array d'una quniela en una taula HTML

@@ -1,90 +1,106 @@
-# Desarrollo Web en Entorno Servidor
+# Desenvolupament Web en Entorn Servidor
 
-Aquí puedes encontrar los apuntes del módulo de *Desarrollo web en entorno servidor*, que se imparte en el segundo curso del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web.
+Ací pots trobar les anotacions del mòdul de *Desenvolupament web en entorn servidor*, que s'imparteix en el segon curs del cicle formatiu de grau superior de Desenvolupament d'Aplicacions Web.
 
-La duración del módulo es de 160 horas lectivas, a razón de **8 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso. Se ha [planificado](planning.md) basándose en 4 sesiones de 2 horas lectivas por semana.
+La duració del mòdul és de 160 hores lectives, a raó de **8 hores setmanals**, i es desenvolupa al llarg dels **dos primers trimestres** del curs. S'ha [planificat](planning.md) basant-se en 3 sessions de 3,3 i 2 hores lectives per setmana.
 
-## ¿Qué voy a aprender?
+## Què aprendré?
 
-* A desarrollar aplicaciones web dinámicas, que obtienen la información a partir de una base de datos.
-* Analizar la estructura de una aplicación cliente/servidor, separando el código de presentación de la lógica de negocio
-* Obtener información a partir de los datos almacenados, así como modificarlos.
+* A desenvolupar aplicacions web dinàmiques, que obtenen la informació a partir d'una base de dades.
+* Analitzar l'estructura d'una aplicació client/servidor, separant el codi de presentació de la lògica de negoci
+* Obtindre informació a partir de les dades emmagatzemades, així com modificar-los.
 
-## Resultados de aprendizaje
+## Resultats d'aprenentatge
 
-1. Selecciona las arquitecturas y tecnologías de programación Web en entorno servidor, analizando sus capacidades y características propias.
-2. Escribe sentencias ejecutables por un servidor Web reconociendo y aplicando procedimientos de integración del código en lenguajes de marcas.
-3. Escribe bloques de sentencias embebidos en lenguajes de marcas, seleccionando y utilizando las estructuras de programación.
-4. Desarrolla aplicaciones Web embebidas en lenguajes de marcas analizando e incorporando funcionalidades según especificaciones.
-5. Desarrolla aplicaciones Web identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.
-6. Desarrolla aplicaciones de acceso a almacenes de datos, aplicando medidas para mantener la seguridad y la integridad de la información.
-7. Desarrolla servicios Web analizando su funcionamiento e implantando la estructura de sus componentes.
-8. Genera páginas Web dinámicas analizando y utilizando tecnologías del servidor Web que añadan código al lenguaje de marcas.
-9. Desarrolla aplicaciones Web híbridas seleccionando y utilizando librerías de código y repositorios heterogéneos de información.
+1. Selecciona les arquitectures i tecnologies de programació Web en entorn servidor, analitzant les seues capacitats i característiques pròpies.
+2. Escriu sentències executables per un servidor Web reconeixent i aplicant procediments d'integració del codi en llenguatges de marques.
+3. Escriu blocs de sentències embeguts en llenguatges de marques, seleccionant i utilitzant les estructures de programació.
+4. Desenvolupa aplicacions Web embegudes en llenguatges de marques analitzant i incorporant funcionalitats segons especificacions.
+5. Desenvolupa aplicacions Web identificant i aplicant mecanismes per a separar el codi de presentació de la lògica de negoci.
+6. Desenvolupa aplicacions d'accés a magatzems de dades, aplicant mesures per a mantindre la seguretat i la integritat de la informació.
+7. Desenvolupa serveis Web analitzant el seu funcionament i implantant l'estructura dels seus components.
+8. Genera pàgines Web dinàmiques analitzant i utilitzant tecnologies del servidor Web que afigen codi al llenguatge de marques.
+9. Desenvolupa aplicacions Web híbrides seleccionant i utilitzant llibreries de codi i repositoris heterogenis d'informació.
 
-## Unidades didácticas / Temporalización
+## Unitats didàctiques / Temporalització
 
-A continuación se muestran las unidades didácticas y una estimación temporal de cada una de ellas.
-La primera evaluación contendría las unidades comprendidas entre la 1 y 5, y parte de la unidades 6. Así pues, desde la mitad de la  unidad 6 a la unidad 9 se verán en la segunda evaluación.
+A continuació es mostren les unitats didàctiques i una estimació temporal de cadascuna d'elles.
+La primera avaluació contindria les unitats compreses entre la 1 i 5, i part de la unitats 6. Així doncs, des de la meitat de la unitat 6 a la unitat 9 es veuran en la segona avaluació.
 
-### Primera evaluación
+### Primera avaluació
 
-Duración estimada: 72 sesiones
+Duració estimada: 72 hores
 
-1. [Arquitecturas Web](01arquitecturas.md) (4h)
-    * Cliente/Servidor.
-    * MVC.
-2. [El lenguaje PHP](02php.md) (26h)
-    * Condiciones y bucles.
-    * Arrays.
-3. [Orientación a objetos con PHP](03phpoo.md) (18h)
-    * Clases y objetos
-    * Namespaces
-    * Excepciones
-4. [Programación Web](04web.md) (12h)
-    * Formularios.
-    * Cookies y sesión.
-5. [Herramientas Web](05herramientas.md) (16h)
-    * *Composer*.
-    * Uso de logs con *Monolog*.
-    * *Webscraping*.
-    * Documentación con *phpDocumentor*.
-    * Pruebas con *PhpUnit*.
+1. [Arquitectures Web](01arquitecturas.md) (4h)
 
-### Segunda evaluación
+     * Client/Servidor. 
+     * MVC.
 
-Duración estimada: 88 sesiones
+3. [El llenguatge PHP](02php.md) (26h)
+   
+     * Condicions i bucles.
+     * Arrays.
 
-6. Acceso a datos (28h)
-    * *SQL*
-    * *PDO*
-    * Ficheros CSV y PDF.
-    * *ORM* con *Eloquent*.
-7. Frameworks PHP. Laravel básico (24h)
-    * Rutas.
-    * Vistas.
-    * Migraciones e integración con *Eloquent*.
-8. Uso avanzado de Frameworks (22h)
-    * Plantillas con *Blade*.
-    * Autenticación y autorización.
+4. [Orientació a objectes amb *PHP](03phpoo.md) (18h)
+
+     * Classes i objectes 
+     * Namespaces
+     * Excepcions
+   
+5. [Programació Web](04web.md) (12h)
+
+     * Formularis.
+     * Cookies i sessió.
+
+6. [Eines Web](05herramientas.md) (16h)
+
+       * *Composer*.
+       * Ús de logs amb *Monolog*.
+       * *Webscraping*.
+       * Documentació amb *phpDocumentor*.
+       * Proves amb *PhpUnit*.
+
+### Segona avaluació
+
+Duració estimada: 88 hores
+
+6. [Accés a dades](06accesoDatos.md) (28h)
+
+     * SQL
+     * *PDO*
+     * Fitxers CSV i PDF.
+     * *ORM* amb *Eloquent*.
+   
+7. [Frameworks PHP. Laravel bàsic](07frameworks.md) (24h)
+   
+     * Rutes
+     * Vistes.
+     * Migracions i integració amb *Eloquent*.
+
+8. [Ús avançat de Frameworks](08frameworks2.md) (22h)
+
+    * Plantilles amb *Blade*.
+    * Autenticació i autorització.
     * *i18n*.
-9. Servicios REST (12h)
-    * Producción y consumo.
-    * *AJAX* con *JSON*.
-    * Interacción con *Vue.js*.
 
-## Instrumentos de calificación
+9. [Serveis REST](09rest.md) (12h)
 
-La nota de cada evaluación se calcula mediante:
+    * Producció i consum.
+    * *AJAX* amb *JSON*.
+    * Interacció amb *Vue.js*.
 
-* 30% Trabajo en Clase / Actividades
-    * Se evalúan todas las actividades realizadas en clase y en casa.
-    * Las actividades se evalúan mediante tareas de *Aules* con calificaciones comprendidas entre 0 y 3 puntos:
-        * 0: No entregada
-        * 1: Entregada pero solución errónea o incompleta
-        * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
-        * 3: Entregada y solución correcta.
-* 70% Actividad de evaluación
-    * Una o dos pruebas por evaluación.
+## Instruments de qualificació
 
-La nota final se calcula mediante la media de cada una de las evaluaciones.
+La nota de cada avaluació es calcula mitjançant:
+
+  * 30% Treball en Classe / Activitats
+    * S'avaluen totes les activitats realitzades en classe i a casa.
+    * Les activitats s'avaluen mitjançant tasques de *Aules* amb qualificacions compreses entre 0 i 3 punts:
+      * 0: No entregada
+      * 1: Entregada però solució errònia o incompleta
+      * 2: Entregada i solució acceptable, encara que té algun apartat incomplet
+      * 3: Entregada i solució correcta.
+  * 70% Activitat d'avaluació
+    * Una o dues proves per avaluació.
+
+La nota final es calcula mitjançant la mitjana de cadascuna de les avaluacions.

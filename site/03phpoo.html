@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="es" class="no-js">
+<html lang="ca" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,48 +8,46 @@
       
       
       
-      
-        <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
+        <link rel="canonical" href="https://cipfpbatoi.github.io/dwes2223/03phpoo.html">
       
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
-        <title>3.- PHP Orientado a Objetos - Desarrollo Web en Entorno Servidor</title>
+        <title>3.- PHP Orientat a Objectes - Desenvolupament web en entorn de Servidor</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.2d9f7617.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-X6D0LR7TC8",{page_path:e.pathname})})})</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
 
 
@@ -68,9 +66,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -78,8 +75,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#php-orientado-a-objetos" class="md-skip">
-          Saltar a contenido
+        <a href="#php-orientant-a-objectes" class="md-skip">
+          Salta el contingut
         </a>
       
     </div>
@@ -87,11 +84,12 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Desenvolupament web en entorn de Servidor" class="md-header__button md-logo" aria-label="Desenvolupament web en entorn de Servidor" data-md-component="logo">
       
   <img src="imagenes/logofp.png" alt="logo">
 
@@ -103,13 +101,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Desarrollo Web en Entorno Servidor
+            Desenvolupament web en entorn de Servidor
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.- PHP Orientado a Objetos
+              3.- PHP Orientat a Objectes
             
           </span>
         </div>
@@ -120,18 +118,18 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Canviar a mode nit"  type="radio" name="__palette" id="__palette_1">
           
-            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
+            <label class="md-header__button md-icon" title="Canviar a mode nit" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Canviar a mode dia"  type="radio" name="__palette" id="__palette_2">
           
-            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
+            <label class="md-header__button md-icon" title="Canviar a mode dia" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
             </label>
           
@@ -143,19 +141,18 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
         </button>
       </nav>
@@ -165,7 +162,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Inicializando búsqueda
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -199,14 +196,14 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-nav__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
+    <a href="index.html" title="Desenvolupament web en entorn de Servidor" class="md-nav__button md-logo" aria-label="Desenvolupament web en entorn de Servidor" data-md-component="logo">
       
   <img src="imagenes/logofp.png" alt="logo">
 
     </a>
-    Desarrollo Web en Entorno Servidor
+    Desenvolupament web en entorn de Servidor
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -235,7 +232,7 @@
   
     <li class="md-nav__item">
       <a href="01arquitecturas.html" class="md-nav__link">
-        1.- Arquitecturas Web
+        1.- Arquitectures Web
       </a>
     </li>
   
@@ -250,7 +247,7 @@
   
     <li class="md-nav__item">
       <a href="02php.html" class="md-nav__link">
-        2.- El lenguaje PHP
+        2.- El llenguatge PHP
       </a>
     </li>
   
@@ -274,16 +271,17 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          3.- PHP Orientado a Objetos
+          3.- PHP Orientat a Objectes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="03phpoo.html" class="md-nav__link md-nav__link--active">
-        3.- PHP Orientado a Objetos
+        3.- PHP Orientat a Objectes
       </a>
       
         
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
   
   
   
@@ -292,28 +290,28 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
+      Taula de continguts
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#clases-y-objetos" class="md-nav__link">
-    Clases y Objetos
+  <a href="#classes-i-objectes" class="md-nav__link">
+    Classes i Objectes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#encapsulacion" class="md-nav__link">
-    Encapsulación
+  <a href="#encapsulacio" class="md-nav__link">
+    Encapsulació
   </a>
   
-    <nav class="md-nav" aria-label="Encapsulación">
+    <nav class="md-nav" aria-label="Encapsulació">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#recibiendo-y-enviando-objetos" class="md-nav__link">
-    Recibiendo y enviando objetos
+  <a href="#rebent-i-enviant-objectes" class="md-nav__link">
+    Rebent i enviant objectes
   </a>
   
 </li>
@@ -332,8 +330,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#constructores-en-php-8" class="md-nav__link">
-    Constructores en PHP 8
+  <a href="#constructors-en-php-8" class="md-nav__link">
+    Constructors en PHP 8
   </a>
   
 </li>
@@ -344,37 +342,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clases-estaticas" class="md-nav__link">
-    Clases estáticas
+  <a href="#classes-estatiques" class="md-nav__link">
+    Classes estàtiques
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#introspeccion" class="md-nav__link">
-    Introspección
+  <a href="#classes-estatiques_1" class="md-nav__link">
+    Classes estàtiques
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introspeccio" class="md-nav__link">
+    Introspecció
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#herencia" class="md-nav__link">
-    Herencia
+    Herència
   </a>
   
-    <nav class="md-nav" aria-label="Herencia">
+    <nav class="md-nav" aria-label="Herència">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sobreescribir-metodos" class="md-nav__link">
-    Sobreescribir métodos
+  <a href="#sobreescriure-metodes" class="md-nav__link">
+    Sobreescriure mètodes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#constructor-en-hijos" class="md-nav__link">
-    Constructor en hijos
+  <a href="#constructor-en-fills" class="md-nav__link">
+    Constructor en fills
   </a>
   
 </li>
@@ -385,58 +390,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clases-abstractas" class="md-nav__link">
-    Clases abstractas
+  <a href="#classes-abstractes" class="md-nav__link">
+    Classes abstractes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#clases-finales" class="md-nav__link">
-    Clases finales
+  <a href="#classes-finals" class="md-nav__link">
+    Classes finals
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
-    Interfaces
+  <a href="#interficies" class="md-nav__link">
+    Interfícies
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodos-encadenados" class="md-nav__link">
-    Métodos encadenados
+  <a href="#metodes-encadenats" class="md-nav__link">
+    Mètodes encadenats
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodos-magicos" class="md-nav__link">
-    Métodos mágicos
+  <a href="#metodes-magics" class="md-nav__link">
+    Mètodes màgics
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#espacio-de-nombres" class="md-nav__link">
-    Espacio de nombres
+  <a href="#espai-de-noms" class="md-nav__link">
+    Espai de noms
   </a>
   
-    <nav class="md-nav" aria-label="Espacio de nombres">
+    <nav class="md-nav" aria-label="Espai de noms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#acceso" class="md-nav__link">
-    Acceso
+  <a href="#acces" class="md-nav__link">
+    Accés
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#organizacion" class="md-nav__link">
-    Organización
+  <a href="#acces_1" class="md-nav__link">
+    Accés
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organitzacio" class="md-nav__link">
+    Organització
   </a>
   
 </li>
@@ -454,37 +466,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gestion-de-errores" class="md-nav__link">
-    Gestión de Errores
+  <a href="#gestio-derrors" class="md-nav__link">
+    Gestió d'Errors
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#excepciones" class="md-nav__link">
-    Excepciones
+  <a href="#excepcions" class="md-nav__link">
+    Excepcions
   </a>
   
-    <nav class="md-nav" aria-label="Excepciones">
+    <nav class="md-nav" aria-label="Excepcions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creando-excepciones" class="md-nav__link">
-    Creando excepciones
+  <a href="#creant-excepcions" class="md-nav__link">
+    Creant excepcions
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#excepciones-multiples" class="md-nav__link">
-    Excepciones múltiples
+  <a href="#excepcions-multiples" class="md-nav__link">
+    Excepcions múltiples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#relanzar-excepciones" class="md-nav__link">
-    Relanzar excepciones
+  <a href="#rellancar-excepcions" class="md-nav__link">
+    Rellançar excepcions
   </a>
   
 </li>
@@ -502,18 +514,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    Referencias
+  <a href="#referencies" class="md-nav__link">
+    Referències
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#actividades" class="md-nav__link">
-    Actividades
+  <a href="#activitats" class="md-nav__link">
+    Activitats
   </a>
   
-    <nav class="md-nav" aria-label="Actividades">
+    <nav class="md-nav" aria-label="Activitats">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -524,15 +536,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#proyecto-videoclub" class="md-nav__link">
-    Proyecto Videoclub
+  <a href="#projecte-videoclub" class="md-nav__link">
+    Projecte Videoclub
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#proyecto-videoclub-20" class="md-nav__link">
-    Proyecto Videoclub 2.0
+  <a href="#projecte-videoclub-20" class="md-nav__link">
+    Projecte Videoclub 2.0
   </a>
   
 </li>
@@ -559,7 +571,7 @@
   
     <li class="md-nav__item">
       <a href="04web.html" class="md-nav__link">
-        4.- Programación Web
+        4.- Programació Web
       </a>
     </li>
   
@@ -574,7 +586,67 @@
   
     <li class="md-nav__item">
       <a href="05herramientas.html" class="md-nav__link">
-        5.- Herramientas Web
+        5.- Ferramentes Web
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06accesoDatos.html" class="md-nav__link">
+        6.- Accès a Dades
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07frameworks.html" class="md-nav__link">
+        7.- Frameworks PHP - Laravel
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08frameworks2.html" class="md-nav__link">
+        8.- Ús avançat de Frameworks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09rest.html" class="md-nav__link">
+        8.- Serveis REST
       </a>
     </li>
   
@@ -592,58 +664,61 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="php-orientado-a-objetos">PHP Orientado a Objetos<a class="headerlink" href="#php-orientado-a-objetos" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 18 sesiones</p>
+
+
+<h1 id="php-orientant-a-objectes">PHP Orientant a Objectes<a class="headerlink" href="#php-orientant-a-objectes" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duració i criteris d'avaluació</summary>
+<p>Duració estimada: 18 hores</p>
 <hr />
-<p>Resultado de aprendizaje:</p>
-<ol start="5">
-<li>Desarrolla aplicaciones Web identificando y aplicando mecanismos para separar el código de presentación de la lógica de negocio.</li>
-</ol>
-<p>Criterios de evaluación:</p>
-<ol>
-<li>Se han identificado las ventajas de separar la lógica de negocio de los aspectos de presentación de la aplicación. </li>
-<li>Se han analizado tecnologías y mecanismos que permiten realizar esta separación y sus características principales. </li>
-<li>Se han utilizado objetos y controles en el servidor para generar el aspecto visual de la aplicación web en el cliente. </li>
-<li>Se han utilizado formularios generados de forma dinámica para responder a los eventos de la aplicación Web. </li>
-<li>Se han escrito aplicaciones Web con mantenimiento de estado y separación de la lógica de negocio. </li>
-<li>Se han aplicado los principios de la programación orientada a objetos. </li>
-<li>Se ha probado y documentado el código.</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>Resultat d'aprenentatge</th>
+<th>Criteris d'avaluació</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5. Desenvolupa aplicacions Web identificant i aplicant mecanismes per a separar el codi de presentació de la lògica de negoci.</td>
+<td>a) S'han identificat els avantatges de separar la lògica de negoci dels aspectes de presentació de l'aplicació. <br/> b) S'han analitzat tecnologies i mecanismes que permeten realitzar aquesta separació i les seues característiques principals. <br/> c) S'han utilitzat objectes i controls en el servidor per a generar l'aspecte visual de l'aplicació Web en el client. <br/> d) S’han utilitzat formularis generats de forma dinàmica per a respondre als esdeveniments de l'aplicació Web. <br/> e) S'han identificat i aplicat els paràmetres relatius a la configuració de l'aplicació Web. <br/> f) S'han escrit aplicacions Web amb manteniment d'estat i separació de la lògica de negoci. <br/> g) S'han aplicat els principis de la programació orientada a objectes. <br/> g) S'ha provat i documentat el codi.</td>
+</tr>
+</tbody>
+</table>
 </details>
-<h2 id="clases-y-objetos">Clases y Objetos<a class="headerlink" href="#clases-y-objetos" title="Permanent link">&para;</a></h2>
-<p>PHP sigue un paradigma de programación orientada a objetos (POO) basada en clases.</p>
-<p>Un clase es un plantilla que define las propiedades y métodos para poder crear objetos. De este manera, un objeto es una instancia de una clase.</p>
-<p>Tanto las propiedades como los métodos se definen con una visibilidad (quien puede acceder)</p>
+<h2 id="classes-i-objectes">Classes i Objectes<a class="headerlink" href="#classes-i-objectes" title="Permanent link">&para;</a></h2>
+<p>PHP segueix un paradigma de programació orientada a objectes (POO) basada en classes.</p>
+<p>Un classe és un plantilla que defineix les propietats i mètodes per a poder crear objectes. D'aquest manera, un objecte és una instància d'una classe.</p>
+<p>Tant les propietats com els mètodes es defineixen amb una visibilitat (qui pot accedir)</p>
 <ul>
-<li>Privado - <code>private</code>:  Sólo puede acceder la propia clase.</li>
-<li>Protegido - <code>protected</code>: Sólo puede acceder la propia clase o sus descendientes.</li>
-<li>Público - <code>public</code>: Puede acceder cualquier otra clase.</li>
+<li>Privat - <code>private</code>: Només pot accedir la pròpia classe.</li>
+<li>Protegit - <code>protected</code>: Només pot accedir la pròpia classe o els seus descendents.</li>
+<li>Público - <code>public</code>: Pot accedir qualsevol altra classe.</li>
 </ul>
-<p>Para declarar una clase, se utiliza la palabra clave <code>class</code> seguido del nombre de la clase. Para instanciar un objeto a partir de la clase, se utiliza <code>new</code>:</p>
+<p>Per a declarar una classe, s'utilitza la paraula clau <code>class</code> seguit del nom de la classe. Per a instanciar un objecte a partir de la classe, s'utilitza <code>new</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">NombreClase</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">NomClase</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span><span class="c1">// propiedades</span>
 <span class="linenos" data-linenos="4 "></span><span class="c1">// y métodos</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span>
-<span class="linenos" data-linenos="7 "></span><span class="nv">$ob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NombreClase</span><span class="p">();</span>
+<span class="linenos" data-linenos="7 "></span><span class="nv">$ob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NomClase</span><span class="p">();</span>
 </code></pre></div>
 <div class="admonition important">
-<p class="admonition-title">Clases con mayúscula</p>
-<p>Todas las clases empiezan por letra mayúscula.</p>
+<p class="admonition-title">Classes amb majúscula</p>
+<p>Totes les classes comencen per lletra majúscula.</p>
 </div>
-<p>Cuando un proyecto crece, es normal modelar las clases mediante UML (¿recordáis <em>Entornos de Desarrollo</em>?). La clases se representan mediante un cuadrado, separando el nombre, de las propiedades y los métodos:</p>
+<p>Quan un projecte creix, és normal modelar les classes mitjançant UML (recordeu Entorns de Desenvolupament?). La classes es representen mitjançant un quadrat, separant el nom, de les propietats i els mètodes:</p>
 <p><img alt="UML" src="imagenes/03/uml.png" width="500" /></p>
-<p>Una vez que hemos creado un objeto, se utiliza el operador <code>-&gt;</code> para acceder a una propiedad o un método:</p>
+<p>Una vegada que hem creat un objecte, s'utilitza l'operador <code>-&gt;</code> per a accedir a una propietat o un mètode:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$objeto-&gt;propiedad;</span>
 <span class="linenos" data-linenos="2 "></span><span class="x">$objeto-&gt;método(parámetros);</span>
 </code></pre></div>
-<p>Si desde dentro de la clase, queremos acceder a una propiedad o método de la misma clase, utilizaremos la referencia <code>$this</code>;</p>
+<p>Si des de dins de la classe, volem accedir a una propietat o mètode de la mateixa classe, utilitzarem la referència <code>$this</code>;</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">$this-&gt;propiedad;</span>
 <span class="linenos" data-linenos="2 "></span><span class="x">$this-&gt;método(parámetros);  </span>
 </code></pre></div>
-<p>Así pues, como ejemplo, codificaríamos una persona en el fichero <code>Persona.php</code> como:</p>
+<p>Així doncs, com a exemple, codificaríem una persona en el fitxer <code>Persona.php</code> com:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$nombre</span><span class="p">;</span>
@@ -662,14 +737,14 @@
 <span class="linenos" data-linenos="16 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Bruno Díaz&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="17 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">imprimir</span><span class="p">();</span>
 </code></pre></div>
-<p>Aunque se pueden declarar varias clases en el mismo archivo, es una mala práctica. Así pues, cada fichero contedrá una sola clase, y se nombrará con el nombre de la clase.</p>
-<h2 id="encapsulacion">Encapsulación<a class="headerlink" href="#encapsulacion" title="Permanent link">&para;</a></h2>
-<p>Las propiedades se definen privadas o protegidas (si queremos que las clases heredadas puedan acceder).</p>
-<p>Para cada propiedad, se añaden métodos públicos (<em>getter/setter</em>):</p>
+<p>Encara que es poden declarar diverses classes en el mateix arxiu, és una mala pràctica. Així doncs, cada fitxer contedrá una sola classe, i es nomenarà amb el nom de la classe.</p>
+<h2 id="encapsulacio">Encapsulació<a class="headerlink" href="#encapsulacio" title="Permanent link">&para;</a></h2>
+<p>Les propietats es defineixen privades o protegides (si volem que les classes heretades puguen accedir).</p>
+<p>Per a cada propietat, s'afigen mètodes públics (<em>getter/setter</em>):</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">public setPropiedad(tipo $param)</span>
 <span class="linenos" data-linenos="2 "></span><span class="x">public getPropiedad() : tipo</span>
 </code></pre></div>
-<p>Las constantes se definen públicas para que sean accesibles por todos los recursos.</p>
+<p>Les constants es defineixen públiques perquè siguen accessibles per tots els recursos.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MayorMenor </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">int</span> <span class="nv">$mayor</span><span class="p">;</span>
@@ -692,11 +767,11 @@
 <span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="21 "></span><span class="p">}</span>
 </code></pre></div>
-<h3 id="recibiendo-y-enviando-objetos">Recibiendo y enviando objetos<a class="headerlink" href="#recibiendo-y-enviando-objetos" title="Permanent link">&para;</a></h3>
-<p>Es recomendable indicarlo en el tipo de parámetros. Si el objeto puede devolver nulos se pone <code>?</code> delante del nombre de la clase.</p>
+<h3 id="rebent-i-enviant-objectes">Rebent i enviant objectes<a class="headerlink" href="#rebent-i-enviant-objectes" title="Permanent link">&para;</a></h3>
+<p>És recomanable indicar-ho en la mena de paràmetres. Si l'objecte pot retornar nuls es posa <code>?</code> davant del nom de la classe.</p>
 <div class="admonition important">
-<p class="admonition-title">Objetos por referencia</p>
-<p>Los objetos que se envían y reciben como parámetros siempre se pasan por referencia.</p>
+<p class="admonition-title">Objectes per referència</p>
+<p>Els objectes que s'envien i reben com a paràmetres sempre es passen per referència.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="hll"><span class="linenos" data-linenos=" 2 "></span><span class="k">function</span> <span class="nf">maymen</span><span class="p">(</span><span class="k">array</span> <span class="nv">$numeros</span><span class="p">)</span> <span class="o">:</span> <span class="o">?</span><span class="nx">MayorMenor </span><span class="p">{</span>
@@ -715,8 +790,8 @@
 <span class="linenos" data-linenos="15 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Menor: &quot;</span><span class="o">.</span><span class="nv">$resultado</span><span class="o">-&gt;</span><span class="na">getMenor</span><span class="p">();</span>
 </code></pre></div>
 <h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
-<p>El constructor de los objetos se define mediante el método mágico <code>__construct</code>.
-Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
+<p>El constructor dels objectes es defineix mitjançant el mètode màgic <code>__construct</code>.
+Pot o no tindre paràmetres, però només pot haver-hi un únic constructor.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Persona </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$nombre</span><span class="p">;</span>
@@ -734,10 +809,10 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="15 "></span><span class="nv">$bruno </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Persona</span><span class="p">(</span><span class="s2">&quot;Bruno Díaz&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="16 "></span><span class="nv">$bruno</span><span class="o">-&gt;</span><span class="na">imprimir</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="constructores-en-php-8">Constructores en PHP 8<a class="headerlink" href="#constructores-en-php-8" title="Permanent link">&para;</a></h3>
-<p>Una de las grandes novedades que ofrece PHP 8 es la simplificación de los constructores con parámetros, lo que se conoce como <em>promoción de las propiedades del constructor</em>.</p>
-<p>Para ello, en vez de tener que declarar las propiedades como privadas o protegidas, y luego dentro del constructor tener que asignar los parámetros a estás propiedades, el propio constructor promociona las propiedades.</p>
-<p>Veámoslo mejor con un ejemplo. Imaginemos una clase <code>Punto</code> donde queramos almacenar sus coordenadas:</p>
+<h3 id="constructors-en-php-8">Constructors en PHP 8<a class="headerlink" href="#constructors-en-php-8" title="Permanent link">&para;</a></h3>
+<p>Una de les grans novetats que ofereix PHP 8 és la simplificació dels constructors amb paràmetres, la qual cosa es coneix com a promoció de les propietats del constructor*.</p>
+<p>Per a això, en comptes d'haver de declarar les propietats com a privades o protegides, i després dins del constructor haver d'assignar els paràmetres a estàs propietats, el propi constructor promociona les propietats.</p>
+<p>Vegem-ho millor amb un exemple. Imaginem una classe <code>Punt</code> on vulguem emmagatzemar les seues coordenades:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Punto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">protected</span> <span class="nx">float</span> <span class="nv">$x</span><span class="p">;</span>
@@ -755,7 +830,7 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="16 "></span><span class="p">}</span>
 </code></pre></div>
-<p>En PHP 8, quedaría del siguiente modo (mucho más corto, lo que facilita su legibilidad):</p>
+<p>En PHP 8, quedaria de la següent manera (molt més curt, la qual cosa facilita la seua llegibilitat):</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">Punto</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
@@ -766,8 +841,8 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">El orden importa</p>
-<p>A la hora de codificar el orden de los elementos debe ser:</p>
+<p class="admonition-title">L'ordre importa</p>
+<p>A l'hora de codificar l'ordre dels elements ha de ser:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -783,12 +858,12 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 </div>
-<h2 id="clases-estaticas">Clases estáticas<a class="headerlink" href="#clases-estaticas" title="Permanent link">&para;</a></h2>
-<p>Son aquellas que tienen propiedades y/o métodos estáticos (también se conocen como <em>de clase</em>, por que su valor se comparte entre todas las instancias de la misma clase).</p>
-<p>Se declaran con <code>static</code> y se referencian con <code>::</code>.</p>
+<h2 id="classes-estatiques">Classes estàtiques<a class="headerlink" href="#classes-estatiques" title="Permanent link">&para;</a></h2>
+<p>Són aquelles que tenen propietats i/o mètodes estàtics (també es coneixen com <em>de classe</em>, perquè el seu valor es comparteix entre totes les instàncies de la mateixa classe).</p>
+<p>Es declaren amb <code>static</code> i es referencien amb <code>::</code>.</p>
 <ul>
-<li>Si queremos acceder a un método estático, se antepone el nombre de la clase: <code>Producto::nuevoProducto()</code>.</li>
-<li>Si desde un método queremos acceder a una propiedad estática de la misma clase, se utiliza la referencia <code>self</code>: <code>self::$numProductos</code></li>
+<li>Si volem accedir a un mètode estàtic, s'anteposa el nom de la classe: <code>Producte::nuevoProducto()</code>.</li>
+<li>Si des d'un mètode volem accedir a una propietat estàtica de la mateixa classe, s'utilitza la referència <code>self</code>: <code>self::$numProductos</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
@@ -803,7 +878,8 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="11 "></span><span class="nx">Producto</span><span class="o">::</span><span class="na">nuevoProducto</span><span class="p">();</span>
 <span class="linenos" data-linenos="12 "></span><span class="nv">$impuesto</span> <span class="o">=</span> <span class="nx">Producto</span><span class="o">::</span><span class="na">IVA</span><span class="p">;</span>
 </code></pre></div>
-<p>También podemos tener clases normales que tengan alguna propiedad estática:</p>
+<h2 id="classes-estatiques_1">Classes estàtiques<a class="headerlink" href="#classes-estatiques_1" title="Permanent link">&para;</a></h2>
+<p>També podem tindre classes normals que tinguen alguna propietat estàtica:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">const</span> <span class="no">IVA </span><span class="o">=</span> <span class="mf">0.23</span><span class="p">;</span>
@@ -825,17 +901,17 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="19 "></span><span class="nv">$prod3 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;Nintendo Switch&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="20 "></span><span class="k">echo</span> <span class="nv">$prod3</span><span class="o">-&gt;</span><span class="na">mostrarResumen</span><span class="p">();</span>
 </code></pre></div>
-<h2 id="introspeccion">Introspección<a class="headerlink" href="#introspeccion" title="Permanent link">&para;</a></h2>
-<p>Al trabajar con clases y objetos, existen un conjunto de funciones ya definidas por el lenguaje que permiten obtener información sobre los objetos:</p>
+<h2 id="introspeccio">Introspecció<a class="headerlink" href="#introspeccio" title="Permanent link">&para;</a></h2>
+<p>En treballar amb classes i objectes, existeixen un conjunt de funcions ja definides pel llenguatge que permeten obtindre informació sobre els objectes:</p>
 <ul>
-<li><code>instanceof</code>: permite comprobar si un objeto es de una determinada clase</li>
-<li><code>get_class</code>: devuelve el nombre de la clase</li>
-<li><code>get_declared_class</code>: devuelve un array con los nombres de las clases definidas</li>
-<li><code>class_alias</code>: crea un alias</li>
-<li><code>class_exists</code> / <code>method_exists</code> / <code>property_exists</code>: <code>true</code> si la clase / método / propiedad está definida</li>
-<li><code>get_class_methods</code> / <code>get_class_vars</code> / <code>get_object_vars</code>: Devuelve un array con los nombres de los métodos / propiedades de una clase / propiedades de un objeto que son accesibles desde dónde se hace la llamada.</li>
+<li><code>instanceof</code>: permet comprovar si un objecte és d'una determinada classe</li>
+<li><code>get_class</code>: retorna el nom de la classe</li>
+<li><code>get_declared_class</code>: retorna un array amb els noms de les classes definides</li>
+<li><code>class_àlies</code>: crea un àlies</li>
+<li><code>class_exists</code> / <code>method_exists</code> / <code>property_exists</code>: <code>true</code> si la classe / mètode / propietat està definida</li>
+<li><code>get_class_methods</code> / <code>get_class_vars</code> / <code>get_object_vars</code>: Retorna un array amb els noms dels mètodes / propietats d'una classe / propietats d'un objecte que són accessibles des d'on es fa la crida.</li>
 </ul>
-<p>Un ejemplo de estas funciones puede ser el siguiente:</p>
+<p>Un exemple d'aquestes funcions pot ser el següent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$p </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">(</span><span class="s2">&quot;PS5&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$p instanceof Producto</span><span class="p">)</span> <span class="p">{</span>
@@ -856,21 +932,21 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="18 "></span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition caution">
-<p class="admonition-title">Clonado</p>
-<p>Al asignar dos objetos no se copian, se crea una nueva referencia. Si queremos una copia, hay que clonarlo mediante el método <code>clone(object) : object</code></p>
-<p>Si queremos modificar el clonado por defecto, hay que definir el método mágico <code>__clone()</code> que se llamará después de copiar todas las propiedades.</p>
-<p>Más información en <a href="https://www.php.net/manual/es/language.oop5.cloning.php">https://www.php.net/manual/es/language.oop5.cloning.php</a></p>
+<p class="admonition-title">Clonat</p>
+<p>En assignar dos objectes no es copien, es crea una nova referència. Si volem una còpia, cal clonar-ho mitjançant el mètode <code>clone(object) : object</code></p>
+<p>Si volem modificar el clonat per defecte, cal definir el mètode màgic <code>__clone()</code> que es dirà després de copiar totes les propietats.</p>
+<p>Més informació en <a href="https://www.php.net/manual/es/language.oop5.cloning.php">https://www.php.net/manual/es/language.oop5.cloning.php</a></p>
 </div>
-<h2 id="herencia">Herencia<a class="headerlink" href="#herencia" title="Permanent link">&para;</a></h2>
-<p>PHP soporta herencia simple, de manera que una clase solo puede heredar de otra, no de dos clases a la vez. Para ello se utiliza la palabra clave <code>extends</code>. Si queremos que la clase A hereda de la clase B haremos:</p>
+<h2 id="herencia">Herència<a class="headerlink" href="#herencia" title="Permanent link">&para;</a></h2>
+<p>PHP suporta herència simple, de manera que una classe només pot heretar d'una altra, no de dues classes alhora. Per a això s'utilitza la paraula clau <code>extends</code>. Si volem que la classe A hereta de la classe B farem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="x">class A extends B</span>
 </code></pre></div>
-<p>El hijo hereda los atributos y métodos públicos y protegidos.</p>
+<p>El fill hereta els atributs i mètodes públics i protegits.</p>
 <div class="admonition warning">
-<p class="admonition-title">Cada clase en un archivo</p>
-<p>Como ya hemos comentado, deberíamos colocar cada clase en un archivo diferente para posteriormente utilizarlo mediante <code>include</code>. En los siguiente ejemplo los hemos colocado junto para facilitar su legibilidad.</p>
+<p class="admonition-title">Cada classe en un arxiu</p>
 </div>
-<p>Por ejemplo, tenemos una clase <code>Producto</code> y una <code>Tv</code> que hereda de <code>Producto</code>:</p>
+<p>Com ja hem comentat, hauríem de col·locar cada classe en un arxiu diferent per a posteriorment utilitzar-lo mitjançant <code>include</code>. En els següent exemple els hem col·locats junt per a facilitar la seua llegibilitat.</p>
+<p>Per exemple, tenim una classe <code>Producte</code> i una <code>Tv</code> que hereta de <code>Producte</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$codigo</span><span class="p">;</span>
@@ -909,9 +985,9 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="14 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;Soy un hijo de Producto&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 </code></pre></div>
-<h3 id="sobreescribir-metodos">Sobreescribir métodos<a class="headerlink" href="#sobreescribir-metodos" title="Permanent link">&para;</a></h3>
-<p>Podemos crear métodos en los hijos con el mismo nombre que el padre, cambiando su comportamiento.
-Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code></p>
+<h3 id="sobreescriure-metodes">Sobreescriure mètodes<a class="headerlink" href="#sobreescriure-metodes" title="Permanent link">&para;</a></h3>
+<p>Podem crear mètodes en els fills amb el mateix nom que el pare, canviant el seu comportament.
+Per a invocar als mètodes del pare -&gt; <code>parent::nombreMetodo()</code></p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>   <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
@@ -923,9 +999,11 @@ Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code><
 <span class="linenos" data-linenos=" 9 "></span>   <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span><span class="p">}</span>
 </code></pre></div>
-<h3 id="constructor-en-hijos">Constructor en hijos<a class="headerlink" href="#constructor-en-hijos" title="Permanent link">&para;</a></h3>
-<p>En los hijos no se crea ningún constructor de manera automática. Por lo que si no lo hay, se invoca automáticamente al del padre. En cambio, si lo definimos en el hijo, hemos de invocar al del padre de manera explícita.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">PHP7</label><div class="tabbed-content">
+<h3 id="constructor-en-fills">Constructor en fills<a class="headerlink" href="#constructor-en-fills" title="Permanent link">&para;</a></h3>
+<p>En els fills no es crea cap constructor de manera automàtica. Pel que si no n'hi ha, s'invoca automàticament al del pare. En canvi, si el definim en el fill, hem d'invocar al del pare de manera explícita.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">PHP7</label><label for="__tabbed_1_2">PHP8</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$codigo</span><span class="p">;</span>
@@ -956,7 +1034,7 @@ Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code><
 <span class="linenos" data-linenos="28 "></span><span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">PHP8</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$codigo</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
@@ -984,9 +1062,10 @@ Para invocar a los métodos del padre -&gt; <code>parent::nombreMetodo()</code><
 </code></pre></div>
 </div>
 </div>
-<h2 id="clases-abstractas">Clases abstractas<a class="headerlink" href="#clases-abstractas" title="Permanent link">&para;</a></h2>
-<p>Las clases abstractas obligan a heredar de una clase, ya que no se permite su instanciación. Se define mediante <code>abstract class NombreClase {</code>.<br />
-Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o métodos abstractos.</p>
+</div>
+<h2 id="classes-abstractes">Classes abstractes<a class="headerlink" href="#classes-abstractes" title="Permanent link">&para;</a></h2>
+<p>Les classes abstractes obliguen a heretar d'una classe, ja que no es permet la seua instanciación. Es defineix mitjançant <code>abstract class NombreClase {</code>.
+Una classe abstracta pot contindre propietats i mètodes no-abstractes, i/o mètodes abstractes.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="c1">// Clase abstracta</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
@@ -998,7 +1077,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos=" 9 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">mostrarResumen</span><span class="p">();</span>
 <span class="linenos" data-linenos="10 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Cuando una clase hereda de una clase abstracta, obligatoriamente debe implementar los métodos que tiene el padre marcados como abstractos.</p>
+<p>Quan una classe hereta d'una classe abstracta, obligatòriament ha d'implementar els mètodes que té el pare marcats com a abstractes.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Tv</span> <span class="k">extends</span> <span class="nx">Producto</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="nv">$pulgadas</span><span class="p">;</span>
@@ -1013,8 +1092,8 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="12 "></span><span class="nv">$t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tv</span><span class="p">();</span>
 <span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="nv">$t</span><span class="o">-&gt;</span><span class="na">getCodigo</span><span class="p">();</span>
 </code></pre></div>
-<h2 id="clases-finales">Clases finales<a class="headerlink" href="#clases-finales" title="Permanent link">&para;</a></h2>
-<p>Son clases opuestas a abstractas, ya que evitan que se pueda heredar una clase o método para sobreescribirlo.</p>
+<h2 id="classes-finals">Classes finals<a class="headerlink" href="#classes-finals" title="Permanent link">&para;</a></h2>
+<p>Són classes oposades a abstractes, ja que eviten que es puga heretar una classe o mètode per a sobreescriure-ho.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$codigo</span><span class="p">;</span>
@@ -1039,9 +1118,9 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="22 "></span>    <span class="c1">// No podemos implementar mostrarResumen()</span>
 <span class="linenos" data-linenos="23 "></span><span class="p">}</span>
 </code></pre></div>
-<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
-<p>Permite definir un contrato con las firmas de los métodos a cumplir. Así pues, sólo contiene declaraciones de funciones y todas deben ser públicas.</p>
-<p>Se declaran con la palabra clave <code>interface</code> y luego las clases que cumplan el contrato lo realizan mediante la palabra clave <code>implements</code>.</p>
+<h2 id="interficies">Interfícies<a class="headerlink" href="#interficies" title="Permanent link">&para;</a></h2>
+<p>Permet definir un contracte amb les signatures dels mètodes a complir. Així doncs, només conté declaracions de funcions i totes han de ser públiques.</p>
+<p>Es declaren amb la paraula clau <code>interface</code> i després les classes que complisquen el contracte el realitzen mitjançant la paraula clau <code>implements</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">interface</span> <span class="nx">Nombreable</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span><span class="c1">// declaración de funciones</span>
@@ -1068,8 +1147,8 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="16 "></span>    <span class="c1">// Obligatoriamente deberá implementar public function mostrarResumen, mostrarTodo y generarFactura</span>
 <span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
-<h2 id="metodos-encadenados">Métodos encadenados<a class="headerlink" href="#metodos-encadenados" title="Permanent link">&para;</a></h2>
-<p>Sigue el planteamiento de la programación funcional, y también se conoce como <em>method chaining</em>. Plantea que sobre un objeto se realizan varias llamadas.</p>
+<h2 id="metodes-encadenats">Mètodes encadenats<a class="headerlink" href="#metodes-encadenats" title="Permanent link">&para;</a></h2>
+<p>Segueix el plantejament de la programació funcional, i també es coneix com <em>method chaining</em>. Planteja que sobre un objecte es realitzen diverses crides.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Libro</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Harry Potter&quot;</span><span class="p">);</span>
@@ -1081,7 +1160,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">setNombre</span><span class="p">(</span><span class="s2">&quot;Patria&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setAutor</span><span class="p">(</span><span class="s2">&quot;Aramburu&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$p2</span><span class="p">;</span>
 </code></pre></div>
-<p>Para facilitarlo, vamos a modificar todos sus métodos mutadores (que modifican datos, <em>setters</em>, ...) para que devuelvan una referencia a <code>$this</code>:</p>
+<p>Per a facilitar-ho, modificarem tots els seus mètodes mutadores (que modifiquen dades, setters*, ...) perquè retornen una referència a <code>$this</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Libro </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nx">string </span><span class="nv">$nombre</span><span class="p">;</span>
@@ -1108,33 +1187,33 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="24 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="25 "></span><span class="p">}</span>
 </code></pre></div>
-<h2 id="metodos-magicos">Métodos mágicos<a class="headerlink" href="#metodos-magicos" title="Permanent link">&para;</a></h2>
-<p>Todas las clases PHP ofrecen un conjunto de métodos, también conocidos como <em>magic methods</em> que se pueden sobreescribir para sustituir su comportamiento. Algunos de ellos ya los hemos utilizado.</p>
-<p>Ante cualquier duda, es conveniente consultar la <a href="https://www.php.net/manual/es/language.oop5.magic.php">documentación oficial</a>.</p>
-<p>Los más destacables son:</p>
+<h2 id="metodes-magics">Mètodes màgics<a class="headerlink" href="#metodes-magics" title="Permanent link">&para;</a></h2>
+<p>Totes les classes PHP ofereixen un conjunt de mètodes, també coneguts com <em>magic methods</em> que es poden sobreescriure per a substituir el seu comportament. Alguns d'ells ja els hem utilitzats.</p>
+<p>Davant qualsevol dubte, és convenient consultar la <a href="https://www.php.net/manual/es/language.oop5.magic.php">documentació oficial</a>.</p>
+<p>Els més destacables són:</p>
 <ul>
 <li><code>__construct()</code></li>
-<li><code>__destruct()</code> → se invoca al perder la referencia. Se utiliza para cerrar una conexión a la BD, cerrar un fichero, ...</li>
-<li><code>__toString()</code> → representación del objeto como cadena. Es decir, cuando hacemos <code>echo $objeto</code> se ejecuta automáticamente este método.</li>
-<li><code>__get(propiedad)</code>, <code>__set(propiedad, valor)</code> → Permitiría acceder a las propiedad privadas, aunque siempre es más legible/mantenible codificar los <em>getter/setter</em>.</li>
-<li><code>__isset(propiedad)</code>, <code>__unset(propiedad)</code> → Permite averiguar o quitar el valor a una propiedad.</li>
-<li><code>__sleep()</code>, <code>__wakeup()</code> → Se ejecutan al recuperar (<em>unserialize^</em>) o almacenar un objeto que se serializa (<em>serialize</em>), y se utilizan para permite definir qué propiedades se serializan.</li>
-<li><code>__call()</code>, <code>__callStatic()</code> → Se ejecutan al llamar a un método que no es público. Permiten sobrecargan métodos.</li>
+<li><code>__destruct()</code> → s'invoca en perdre la referència. S'utilitza per a tancar una connexió a la BD, tancar un fitxer, ...</li>
+<li><code>__toString()</code> → representació de l'objecte com a cadena. És a dir, quan fem <code>tire $objecte</code> s'executa automàticament aquest mètode.</li>
+<li><code>__get(propietat)</code>, <code>__set(propietat, valor)</code> → Permetria accedir a les propietat privades, encara que sempre és més llegible/mantenible codificar els <em>getter/setter</em>.</li>
+<li><code>__isset(propietat)</code>, <code>__unset(propietat)</code> → Permet esbrinar o llevar el valor a una propietat.</li>
+<li><code>__sleep()</code>, <code>__wakeup()</code> → S'executen en recuperar (<em>unserialize^) o emmagatzemar un objecte que se serialitza (</em>serialize), i s'utilitzen per a permet definir quines propietats se serialitzen.</li>
+<li><code>__call()</code>, <code>__callStatic()</code> → S'executen en cridar a un mètode que no és públic. Permeten sobrecarreguen mètodes.</li>
 </ul>
-<h2 id="espacio-de-nombres">Espacio de nombres<a class="headerlink" href="#espacio-de-nombres" title="Permanent link">&para;</a></h2>
-<p>Desde PHP 5.3 y también conocidos como <em>Namespaces</em>, permiten organizar las clases/interfaces, funciones y/o constantes de forma similar a los paquetes en <em>Java</em>.</p>
+<h2 id="espai-de-noms">Espai de noms<a class="headerlink" href="#espai-de-noms" title="Permanent link">&para;</a></h2>
+<p>Des de PHP 5.3 i també coneguts com <em>Namespaces</em>, permeten organitzar les classes/interfícies, funcions i/o constants de manera similar als paquets a <em>Java</em>.</p>
 <div class="admonition tip">
-<p class="admonition-title">Recomendación</p>
-<p>Un sólo namespace por archivo y crear una estructura de carpetas respectando los niveles/subniveles (igual que se hace en <em>Java</em>)</p>
+<p class="admonition-title">Recomanació</p>
+<p>Un només namespace per arxiu i crear una estructura de carpetes respectant els anivelles/subnivells (igual que es fa a Java)</p>
 </div>
-<p>Se declaran en la primera línea mediante la palabra clave <code>namespace</code> seguida del nombre del espacio de nombres asignado (cada subnivel se separa con la barra invertida <code>\</code>):</p>
-<p>Por ejemplo, para colocar la clase <code>Producto</code> dentro del <em>namespace</em> <code>Dwes\Ejemplos</code> lo haríamos así:</p>
+<p>Es declaren en la primera línia mitjançant la paraula clau <code>namespace</code> seguida del nom de l'espai de noms assignat (cada subnivell se separa amb la barra invertida <code>\</code>):</p>
+<p>Per exemple, per a col·locar la classe <code>Producte</code> dins del <em>namespace</em> <code>Dwes\Exemples</code> ho faríem així:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Exemples</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span>
 <span class="linenos" data-linenos=" 4 "></span><span class="k">const</span> <span class="no">IVA </span><span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Producto </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Producte </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="nv">$nombre</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 8 "></span>      
 <span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">muestra</span><span class="p">()</span> <span class="o">:</span> <span class="nx">void </span><span class="p">{</span>
@@ -1142,13 +1221,13 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="11 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
 </code></pre></div>
-<h3 id="acceso">Acceso<a class="headerlink" href="#acceso" title="Permanent link">&para;</a></h3>
-<p>Para referenciar a un recurso que contiene un namespace, primero hemos de tenerlo disponible haciendo uso de <code>include</code> o <code>require</code>. Si el recurso está en el mismo <em>namespace</em>, se realiza un acceso directo (se conoce como acceso sin cualificar).</p>
-<p>Realmente hay tres tipos de acceso:</p>
+<h3 id="acces">Accés<a class="headerlink" href="#acces" title="Permanent link">&para;</a></h3>
+<p>Per a referenciar a un recurs que conté un namespace, primer hem de tindre'l disponible fent ús de <code>include</code> o <code>require</code>. Si el recurs està en el mateix <em>namespace</em>, es realitza un accés directe (es coneix com a accés sense qualificar).</p>
+<p>Realment hi ha tres tipus d'accés:</p>
 <ul>
-<li>sin cualificar: <code>recurso</code></li>
-<li>cualificado: <code>rutaRelativa\recurso</code> → no hace falta poner el <em>namespace</em> completo</li>
-<li>totalmente cualificado: <code>\rutaAbsoluta\recurso</code></li>
+<li>sense qualificar: <code>recurs</code></li>
+<li>qualificat: <code>rutaRelativa\recurs</code> → no fa falta posar el <em>namespace</em> complet</li>
+<li>totalment qualificat: <code>\rutaAbsoluta\recurs</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">namespace</span> <span class="nx">Dwes\Ejemplos</span><span class="p">;</span>
@@ -1163,50 +1242,49 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="11 "></span><span class="nv">$p2 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Model\Producto</span><span class="p">();</span> <span class="c1">// daría error, no existe el namespace Model. Está buscando \Dwes\Ejemplos\Model\Producto</span>
 <span class="linenos" data-linenos="12 "></span><span class="nv">$p3 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">\Dwes\Ejemplos\Producto</span><span class="p">();</span> <span class="c1">// \Dwes\Ejemplos\Producto</span>
 </code></pre></div>
-<p>Para evitar la referencia cualificada podemos declarar el uso mediante <code>use</code> (similar a hacer <code>import</code> en <em>Java</em>). Se hace en la cabecera, tras el <code>namespace</code>:</p>
-<p>Los tipos posibles son:</p>
+<h3 id="acces_1">Accés<a class="headerlink" href="#acces_1" title="Permanent link">&para;</a></h3>
+<p>Per a evitar la referència qualificada podem declarar l'ús mitjançant <code>use</code> (similar a fer <code>import</code> a Java). Es fa en la capçalera, després del <code>namespace</code>:</p>
+<p>Els tipus Posibles són:</p>
 <ul>
 <li><code>use const nombreCualificadoConstante</code></li>
 <li><code>use function nombreCualificadoFuncion</code></li>
 <li><code>use nombreCualificadoClase</code></li>
-<li><code>use nombreCualificadoClase as NuevoNombre</code> // para renombrar elementos</li>
+<li><code>use nombreCualificadoClase as NuevoNombre</code> // per a canviar de nom elements</li>
 </ul>
-<p>Por ejemplo, si queremos utilizar la clase <code>\Dwes\Ejemplos\Producto</code> desde un recurso que se encuentra en la raíz, por ejemplo en <code>inicio.php</code>, haríamos:</p>
+<p>Per exemple, si volem utilitzar la classe <code>\Dwes\Exemples\Producte</code> des d'un recurs que es troba en l'arrel, per exemple en <code>inici.php</code>, faríem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">&quot;Dwes\Ejemplo\Producto.php&quot;</span><span class="p">);</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">&quot;Dwes\Exemples\Producte.php&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="k">const</span> <span class="no">Dwes\Ejemplos\IVA</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">\Dwes\Ejemplos\Producto</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">use</span> <span class="k">const</span> <span class="no">Dwes\Exemples\IVA</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span><span class="k">use</span> <span class="nx">\Dwes\Exemples\Producte</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span>
 <span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">IVA</span><span class="p">;</span>
-<span class="linenos" data-linenos="8 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producto</span><span class="p">();</span>
+<span class="linenos" data-linenos="8 "></span><span class="nv">$p1 </span><span class="o">=</span> <span class="k">new</span> <span class="nx">Producte</span><span class="p">();</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">To <code>use</code> or not to <code>use</code></p>
-<p>En resumen, <code>use</code> permite acceder sin cualificar a recursos que están en otro <em>namespace</em>. Si estamos en el mismo espacio de nombre, no necesitamos <code>use</code>.</p>
+<p>En resum, <code>use</code> permet accedir sense qualificar a recursos que estan en un altre <em>namespace</em>. Si estem en el mateix espai de nom, no necessitem <code>use</code>.</p>
 </div>
-<h3 id="organizacion">Organización<a class="headerlink" href="#organizacion" title="Permanent link">&para;</a></h3>
-<p>Todo proyecto, conforme crece, necesita organizar su código fuente. Se plantea una organización en la que los archivos que interactuan con el navegador se colocan en el raíz, y las clases que definamos van dentro de un namespace (y dentro de su propia carpeta <code>src</code> o <code>app</code>).</p>
+<h3 id="organitzacio">Organització<a class="headerlink" href="#organitzacio" title="Permanent link">&para;</a></h3>
+<p>Tot projecte, conforme creix, necessita organitzar el seu codi font. Es planteja una organització en la qual els arxius que interactuan amb el navegador es col·loquen en l'arrel, i les classes que definim van dins d'un namespace (i dins de la seua pròpia carpeta <code>src</code> o <code>app</code>).</p>
 <figure>
 <img src="imagenes/03/03organizacion.png">
-<figcaption>Organización del código fuente</figcaption>
+<figcaption>Organització del codi font</figcaption>
 </figure>
 
 <div class="admonition tip">
-<p class="admonition-title">Organización, includes y usos</p>
+<p class="admonition-title">Organització, includes i usos</p>
 <ul>
-<li>Colocaremos cada recurso en un fichero aparte.</li>
-<li>En la primera línea indicaremos su <em>namespace</em> (si no está en el raíz).</li>
-<li>Si utilizamos otros recursos, haremos un <code>include_once</code> de esos recursos (clases, interfaces, etc...).<ul>
-<li>Cada recurso debe incluir todos los otros recursos que referencie: la clase de la que hereda, interfaces que implementa, clases utilizadas/recibidas como parámetros, etc...</li>
-</ul>
-</li>
-<li>Si los recursos están en un espacio de nombres diferente al que estamos, emplearemos <code>use</code> con la ruta completa para luego utilizar referencias sin cualificar.</li>
+<li>Col·locarem cada recurs en un fitxer a part.</li>
+<li>En la primera línia indicarem la seua <em>namespace</em> (si no està en l'arrel).</li>
+<li>Si utilitzem altres recursos, farem un <code>include_once</code> d'aqueixos recursos (classes, interfícies, etc...).</li>
+<li>Cada recurs ha d'incloure tots els altres recursos que referencie: la classe de la qual hereta, interfícies que implementa, classes utilitzades/rebudes com a paràmetres, etc...</li>
+<li>Si els recursos estan en un espai de noms diferent al que estem, emprarem <code>use</code> amb la ruta completa per a després utilitzar referències sense qualificar.</li>
 </ul>
 </div>
 <h3 id="autoload">Autoload<a class="headerlink" href="#autoload" title="Permanent link">&para;</a></h3>
-<p>¿No es tedioso tener que hacer el <code>include</code> de las clases? El <em>autoload</em> viene al rescate.</p>
-<p>Así pues, permite cargar las clases (no las constantes ni las funciones) que se van a utilizar y evitar tener que hacer el <code>include_once</code> de cada una de ellas. Para ello, se utiliza la función <code>spl_autoload_register</code></p>
+<p>No és tediós haver de fer el <code>include</code> de les classes? El autolloeu* ve al rescat.</p>
+<p>Així doncs, permet carregar les classes (no les constants ni les funcions) que s'utilitzaran i evitar haver de fer el <code>include_onze</code> de cadascuna d'elles. Per a això, s'utilitza la funció <code>spl_autolloeu_register</code></p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
@@ -1214,17 +1292,17 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <div class="admonition question">
-<p class="admonition-title">¿Por qué se llaman <em>autoload</em>?</p>
-<p>Porque antes se realizaba mediante el método mágico <code>__autoload()</code>, el cual está <em>deprecated</em> desde PHP 7.2</p>
+<p class="admonition-title">Per què es diuen autoload?</p>
+<p>Perquè abans es realitzava mitjançant el mètode màgic <code>__autoload()</code>, el qual està <em>deprecated</em> des de PHP 7.2</p>
 </div>
-<p>Y ¿cómo organizamos ahora nuestro código aprovechando el <em>autoload</em>?</p>
+<p>I com organitzem ara el nostre codi aprofitant el autoload?</p>
 <figure style="float: right;">
     <img src="imagenes/03/03autoload.png" width="600">
-    <figcaption>Organización con autoload</figcaption>
+    <figcaption>Organització amb autoload</figcaption>
 </figure>
 
-<p>Para facilitar la búsqueda de los recursos a incluir, es recomendable colocar todas las clases dentro de una misma carpeta. Nosotros la vamos a colocar dentro de <code>app</code> (más adelante, cuando estudiemos <em>Laravel</em> veremos el motivo de esta decisión). Otras carpetas que podemos crear son <code>test</code> para colocar las pruebas <em>PhpUnit</em> que luego realizaremos, o la carpeta <code>vendor</code> donde se almacenarán las librerías del proyecto (esta carpeta es un estándard dentro de PHP, ya que <em>Composer</em> la crea automáticamente).</p>
-<p>Como hemos colocado todos nuestros recursos dentro de <code>app</code>, ahora nuestro <code>autoload.php</code> (el cual colocamos en la carpeta raíz) sólo va a buscar dentro de esa carpeta:</p>
+<p>Per a facilitar la cerca dels recursos a incloure, és recomanable col·locar totes les classes dins d'una mateixa carpeta. Nosaltres la col·locarem dins de <code>app</code> (més endavant, quan estudiem <em>Laravel</em> veurem el motiu d'aquesta decisió). Altres carpetes que podem crear són <code>test</code> per a col·locar les proves <em>PhpUnit</em> que després realitzarem, o la carpeta <code>vendor</code> on s'emmagatzemaran les llibreries del projecte (aquesta carpeta és un estándard dins de PHP, ja que <em>Composer</em> la crea automàticament).</p>
+<p>Com hem col·locat tots els nostres recursos dins de <code>app</code>, ara nostre <code>autoload.php</code> (el qual col·loquem en la carpeta arrel) només buscarà dins d'aqueixa carpeta:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="s2">&quot;app/&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
@@ -1232,8 +1310,8 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Autoload y rutas erróneas</p>
-<p>En <em>Ubuntu</em> al hacer el <em>include</em> de la clase que recibe como parámetro, las barras de los namespace (<code>\</code>) son diferentes a las de las rutas (<code>/</code>). Por ello, es mejor que utilicemos el fichero autoload:</p>
+<p class="admonition-title">autolloeu i rutes errònies</p>
+<p>En <em>Ubuntu</em> en fer el <em>include</em> de la classe que rep com a paràmetre, les barres dels namespace (<code>\</code>) són diferents a les de les rutes (<code>/</code>). Per això, és millor que utilitzem el fitxer autoload:
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="s2">&quot;app</span><span class="se">\\</span><span class="s2">&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
@@ -1241,34 +1319,34 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="5 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="err">&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span> <span class="p">);</span>
 <span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+</code></pre></div></p>
 </div>
-<h2 id="gestion-de-errores">Gestión de Errores<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h2>
-<p>PHP clasifica los errores que ocurren en diferentes niveles. Cada nivel se identifica con una constante. Por ejemplo:</p>
+<h2 id="gestio-derrors">Gestió d'Errors<a class="headerlink" href="#gestio-derrors" title="Permanent link">&para;</a></h2>
+<p>PHP classifica els errors que ocorren en diferents nivells. Cada nivell s'identifica amb una constant. Per exemple:</p>
 <ul>
-<li><code>E_ERROR</code>: errores fatales, no recuperables. Se interrumpe el script.</li>
-<li><code>E_WARNING</code>: advertencias en tiempo de ejecución. El script no se interrumpe.</li>
-<li><code>E_NOTICE</code>: avisos en tiempo de ejecución.  </li>
+<li><code>E_ERROR</code>: errors fatals, no recuperables. S'interromp el script.</li>
+<li><code>E_WARNING</code>: advertiments en temps d'execució. El script no s'interromp.</li>
+<li><code>E_NOTICE</code>: avisos en temps d'execució.</li>
 </ul>
-<p>Podéis comprobar el listado completo de constantes de <a href="https://www.php.net/manual/es/errorfunc.constants.php">https://www.php.net/manual/es/errorfunc.constants.php</a></p>
-<p>Para la configuración de los errores podemos hacerlo de dos formas:</p>
+<p>Podeu comprovar el llistat complet de constants de <a href="https://www.php.net/manual/es/errorfunc.constants.php">https://www.php.net/manual/es/errorfunc.constants.php</a></p>
+<p>Per a la configuració dels errors podem fer-ho de dues formes:</p>
 <ul>
-<li>A nivel de <code>php.ini</code>:<ul>
-<li><code>error_reporting</code>: indica los niveles de errores a notificar<ul>
-<li><code>error_reporting = E_ALL &amp; ~E_NOTICE</code> -&gt; Todos los errores menos los avisos en tiempo de ejecución.</li>
+<li>A nivell de <code>php.ini</code>:</li>
+<li><code>error_reporting</code>: indica els nivells d'errors a notificar<ul>
+<li><code>error_reporting = E_ALL &amp; ~E_NOTICE</code> -&gt; Tots els errors menys els avisos en temps d'execució.</li>
 </ul>
 </li>
-<li><code>display_errors</code>: indica si mostrar o no los errores por pantalla. En entornos de producción es común ponerlo a <code>off</code></li>
-</ul>
-</li>
-<li>mediante código con las siguientes funciones:<ul>
-<li><code>error_reporting(codigo)</code> -&gt; Controla qué errores notificar</li>
-<li><code>set_error_handler(nombreManejador)</code> -&gt; Indica que función se invocará cada vez que se encuentre un error. El manejador recibe como parámetros el nivel del error y el mensaje</li>
+<li><code>display_errors</code>: indica si mostrar o no els errors per pantalla. En entorns de producció és comuna posar-ho a <code>off</code></li>
+<li>mitjançant codi amb les següents funcions:<ul>
+<li><code>error_reporting(codigo)</code> -&gt; Controla quins errors notificar</li>
+<li><code>set_error_handler(nombreManejador)</code> -&gt; Indica que funció s'invocarà cada vegada que es trobe un error. El manejador rep com a paràmetres el nivell de l'error i el missatge</li>
 </ul>
 </li>
 </ul>
-<p>A continuación tenemos un ejemplo mediante código:</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Funciones para la gestión de errores</label><div class="tabbed-content">
+<p>A continuació tenim un exemple mitjançant codi:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Funcions per a la gestió d'errors</label><label for="__tabbed_2_2">Consola</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nb">error_reporting</span><span class="p">(</span><span class="k">E_ALL</span> <span class="o">&amp;</span> <span class="o">~</span><span class="nx">E_NOTICE </span><span class="o">&amp;</span> <span class="o">~</span><span class="k">E_WARNING</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nv">$resultado </span><span class="o">=</span> <span class="nv">$dividendo </span><span class="o">/</span> <span class="nv">$divisor</span><span class="p">;</span>
@@ -1289,16 +1367,17 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="18 "></span><span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Consola</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Error de tipo no especificado: Undefined variable: dividendo.
 <span class="linenos" data-linenos="2 "></span>Error de tipo no especificado: Undefined variable: divisor.
 <span class="linenos" data-linenos="3 "></span>Error de tipo Warning: Division by zero.
 </code></pre></div>
 </div>
 </div>
-<h2 id="excepciones">Excepciones<a class="headerlink" href="#excepciones" title="Permanent link">&para;</a></h2>
-<p>La gestión de excepciones forma parte desde PHP 5. Su funcionamiento es similar a <em>Java</em>, haciendo uso de un bloque <code>try / catch / finally</code>.
-Si detectamos una situación anómala y queremos lanzar una excepción, deberemos realizar <code>throw new Exception</code> (adjuntando el mensaje que lo ha provocado).</p>
+</div>
+<h2 id="excepcions">Excepcions<a class="headerlink" href="#excepcions" title="Permanent link">&para;</a></h2>
+<p>La gestió d'excepcions forma part des de PHP 5. El seu funcionament és similar a Java*, fent ús d'un bloc <code>try / catch / finally</code>.
+Si detectem una situació anòmala i volem llançar una excepció, haurem de realitzar <code>throw new Exception</code> (adjuntant el missatge que l'ha provocat).</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">if</span> <span class="p">(</span><span class="nv">$divisor </span><span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1309,15 +1388,15 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Se ha producido el siguiente error: &quot;</span><span class="o">.</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
-<p>La clase <code>Exception</code> es la clase padre de todas las excepciones. Su constructor recibe <code>mensaje[,codigoError][,excepcionPrevia]</code>.</p>
-<p>A partir de un objeto <code>Exception</code>, podemos acceder a los métodos <code>getMessage()</code>y <code>getCode()</code> para obtener el mensaje y el código de error de la excepción capturada.</p>
-<p>El propio lenguaje ofrece un conjunto de excepciones ya definidas, las cuales podemos capturar (y lanzar desde PHP 7). Se recomienda su consulta en la <a href="https://www.php.net/manual/es/class.exception.php">documentación oficial</a>.</p>
-<h3 id="creando-excepciones">Creando excepciones<a class="headerlink" href="#creando-excepciones" title="Permanent link">&para;</a></h3>
-<p>Para crear una excepción, la forma más corta es crear una clase que únicamente herede de <code>Exception</code>.</p>
+<p>La classe <code>Exception</code> és la classe pare de totes les excepcions. El seu constructor rep <code>missatge[,codigoError][,excepcionPrevia]</code>.</p>
+<p>A partir d'un objecte <code>Exception</code>, podem accedir als mètodes <code>getMessage()</code>i <code>getCode()</code> per a obtindre el missatge i el codi d'error de l'excepció capturada.</p>
+<p>El propi llenguatge ofereix un conjunt d'excepcions ja definides, les quals podem capturar (i llançar des de PHP 7). Es recomana la seua consulta en la <a href="https://www.php.net/manual/es/class.exception.php">documentació oficial</a>.</p>
+<h3 id="creant-excepcions">Creant excepcions<a class="headerlink" href="#creant-excepcions" title="Permanent link">&para;</a></h3>
+<p>Per a crear una excepció, la forma més curta és crear una classe que únicament herete de <code>Exception</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">HolaExcepcion extends Exception </span><span class="p">{}</span>
 </code></pre></div>
-<p>Si queremos, y es recomendable dependiendo de los requisitos, podemos sobrecargar los métodos mágicos, por ejemplo, sobrecargando el constructor y llamando al constructor del padre, o rescribir el método <code>__toString</code> para cambiar su mensaje:</p>
+<p>Si volem, i és recomanable depenent dels requisits, podem sobrecarregar els mètodes màgics, per exemple, sobrecarregant el constructor i cridant al constructor del pare, o reescriure el mètode <code>__toString</code> per a canviar el seu missatge:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">MiExcepcion extends Exception </span><span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$msj</span><span class="p">,</span> <span class="nv">$codigo </span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Exception </span><span class="nv">$previa </span><span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
@@ -1332,15 +1411,17 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Si definimos una excepción de aplicación dentro de un <em>namespace</em>, cuando referenciemos a <code>Exception</code>, deberemos referenciarla mediante su nombre totalmente cualificado (<code>\Exception</code>), o utilizando <code>use</code>:</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Mediante nombre totalmente cualificado</label><div class="tabbed-content">
+<p>Si definim una excepció d'aplicació dins d'un <em>namespace</em>, quan referenciem a <code>Exception</code>, haurem de referenciar-la mitjançant el seu nom totalment qualificat (<code>\Exception</code>), o utilitzant <code>use</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Mitjançant nom totalment qualificat</label><label for="__tabbed_3_2">Mitjançant <code>use</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">namespace</span> <span class="nx">\Dwes\Ejemplos</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
 <span class="linenos" data-linenos="4 "></span><span class="k">class</span> <span class="nc">AppExcepcion extends \Exception </span><span class="p">{}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Mediante <code>use</code></label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">namespace</span> <span class="nx">\Dwes\Ejemplos</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1350,8 +1431,9 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 </code></pre></div>
 </div>
 </div>
-<h3 id="excepciones-multiples">Excepciones múltiples<a class="headerlink" href="#excepciones-multiples" title="Permanent link">&para;</a></h3>
-<p>Se pueden usar excepciones múltiples para comprobar diferentes condiciones. A la hora de capturarlas, se hace de más específica a más general.</p>
+</div>
+<h3 id="excepcions-multiples">Excepcions múltiples<a class="headerlink" href="#excepcions-multiples" title="Permanent link">&para;</a></h3>
+<p>Es poden usar excepcions múltiples per a comprovar diferents condicions. A l'hora de capturar-les, es fa de més específica a més general.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nv">$email </span><span class="o">=</span> <span class="s2">&quot;ejemplo@ejemplo.com&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">try</span> <span class="p">{</span>
@@ -1387,7 +1469,7 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div></p>
 </div>
-<p>Si en el mismo <code>catch</code> queremos capturar varias excepciones, hemos de utilizar el operador <code>|</code>:</p>
+<p>Si en el mateix <code>catch</code> volem capturar diverses excepcions, hem d'utilitzar l'operador <code>|</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">MainException extends Exception </span><span class="p">{}</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">class</span> <span class="nc">SubException extends MainException </span><span class="p">{}</span>
@@ -1398,7 +1480,7 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Capturada Exception &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Desde PHP 7, existe el tipo <code>Throwable</code>, el cual es un interfaz que implementan tanto los errores como las excepciones, y nos permite capturar los dos tipos a la vez:</p>
+<p>Des de PHP 7, existeix el tipus <code>Throwable</code>, el qual és una interfície que implementen tant els errors com les excepcions, i ens permet capturar els dos tipus alhora:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="c1">// tu codigo</span>
@@ -1406,7 +1488,7 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s1">&#39;Forma de capturar errores y excepciones a la vez&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Si sólo queremos capturar los errores fatales, podemos hacer uso de la clase <code>Error</code>:</p>
+<p>Si només volem capturar els errors fatals, podem fer ús de la classe <code>Error</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">try</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="c1">// Genera una notificación que no se captura</span>
@@ -1417,9 +1499,9 @@ Si detectamos una situación anómala y queremos lanzar una excepción, deberemo
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Error capturado: &quot;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="9 "></span><span class="p">}</span>
 </code></pre></div>
-<h3 id="relanzar-excepciones">Relanzar excepciones<a class="headerlink" href="#relanzar-excepciones" title="Permanent link">&para;</a></h3>
-<p>En las aplicaciones reales, es muy común capturar una excepción de sistema y lanzar una de aplicación que hemos definido nostros.
-También podemos lanzar las excepciones sin necesidad de estar dentro de un <code>try/catch</code>.</p>
+<h3 id="rellancar-excepcions">Rellançar excepcions<a class="headerlink" href="#rellancar-excepcions" title="Permanent link">&para;</a></h3>
+<p>En les aplicacions reals, és molt comuna capturar una excepció de sistema i llançar una d'aplicació que hem definit nostros.
+També podem llançar les excepcions sense necessitat d'estar dins d'un <code>try/catch</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">class</span> <span class="nc">AppException extends Exception </span><span class="p">{}</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1430,19 +1512,15 @@ También podemos lanzar las excepciones sin necesidad de estar dentro de un <cod
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 </code></pre></div>
 <h2 id="spl">SPL<a class="headerlink" href="#spl" title="Permanent link">&para;</a></h2>
-<p><em>Standard PHP Library</em> es el conjunto de funciones y utilidades que ofrece PHP, como:</p>
+<p><em>Standard PHP Library</em> és el conjunt de funcions i utilitats que ofereix PHP, com:</p>
 <ul>
-<li>Estructuras de datos<ul>
-<li>Pila, cola, cola de prioridad, lista doblemente enlazada, etc... </li>
+<li>Estructures de dades</li>
+<li>Pila, cua, cua de prioritat, llista doblement enllaçada, etc...</li>
+<li>Conjunt de iteradores dissenyats per a recórrer estructures agregades</li>
+<li>arrays, resultats de bases de dades, arbres XML, llistats de directoris, etc.</li>
 </ul>
-</li>
-<li>Conjunto de iteradores diseñados para recorrer estructuras agregadas<ul>
-<li>arrays, resultados de bases de datos, árboles XML, listados de directorios, etc.</li>
-</ul>
-</li>
-</ul>
-<p>Podéis consultar la documentación en <a href="https://www.php.net/manual/es/book.spl.php">https://www.php.net/manual/es/book.spl.php</a> o ver algunos ejemplos en <a href="https://diego.com.es/tutorial-de-la-libreria-spl-de-php">https://diego.com.es/tutorial-de-la-libreria-spl-de-php</a></p>
-<p>También define un conjunto de excepciones que podemos utilizar para que las lancen nuestras aplicaciones:</p>
+<p>Podeu consultar la documentació en <a href="https://www.php.net/manual/es/book.spl.php">https://www.php.net/manual/es/book.spl.php</a> o veure alguns exemples en <a href="https://diego.com.es/tutorial-de-la-libreria-spl-de-php">https://diego.com.es/tutorial-de-la-libreria-spl-de-php</a></p>
+<p>També defineix un conjunt d'excepcions que podem utilitzar perquè les llancen les nostres aplicacions:</p>
 <ul>
 <li><code>LogicException</code> (<code>extends Exception</code>)<ul>
 <li><code>BadFunctionCallException</code></li>
@@ -1462,62 +1540,60 @@ También podemos lanzar las excepciones sin necesidad de estar dentro de un <cod
 </ul>
 </li>
 </ul>
-<p>También podéis consultar la documentación de estas excepciones en <a href="https://www.php.net/manual/es/spl.exceptions.php">https://www.php.net/manual/es/spl.exceptions.php</a>.</p>
-<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<p>També podeu consultar la documentació d'aquestes excepcions en <a href="https://www.php.net/manual/es/spl.exceptions.php">https://www.php.net/manual/es/spl.exceptions.php</a>.</p>
+<h2 id="referencies">Referències<a class="headerlink" href="#referencies" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.php.net/manual/es/index.php">Manual de PHP</a></li>
 <li><a href="https://desarrolloweb.com/manuales/manual-php.html#manual68">Manual de OO en PHP - www.desarrolloweb.com</a></li>
 </ul>
-<h2 id="actividades">Actividades<a class="headerlink" href="#actividades" title="Permanent link">&para;</a></h2>
+<h2 id="activitats">Activitats<a class="headerlink" href="#activitats" title="Permanent link">&para;</a></h2>
 <ol start="300">
-<li>Investiga la diferencia entre un paradigma orientado a objetos basado en clases (<em>PHP</em>) respecto a uno basado en prototipos (<em>JavaScript</em>).</li>
+<li>Investiga la diferència entre un paradigma orientat a objectes basat en classes (<em>PHP</em>) respecte a un basat en prototips (JavaScript).</li>
 </ol>
 <h3 id="objetos">Objetos<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h3>
 <ol start="301">
-<li><code>301Empleado.php</code>: Crea una clase <code>Empleado</code> con su nombre, apellidos y sueldo.
-Encapsula las propiedades mediante <em>getters/setters</em> y añade métodos para:<ul>
-<li>Obtener su nombre completo → <code>getNombreCompleto(): string</code></li>
-<li>Que devuelva un booleano indicando si debe o no pagar impuestos (se pagan cuando el sueldo es superior a 3333€) → <code>debePagarImpuestos(): bool</code></li>
+<li><code>301Empleado.php</code>: Crea una classe <code>Emprat</code> amb el seu nom, cognoms i sou.
+     Encapsula les propietats mitjançant <em>getters/setters</em> i afig mètodes per a:<ul>
+<li>Obtindre el seu nom complet → <code>getNombreCompleto(): string</code></li>
+<li>Que retorne un booleà indicant si deu o no pagar impostos (es paguen quan el sou és superior a 3333€) → <code>debePagarImpuestos(): bool</code></li>
 </ul>
 </li>
-<li><code>302EmpleadoTelefonos.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Añade una propiedad privada que almacene un array de números de teléfonos.
-Añade los siguientes métodos:<ul>
-<li><code>public function anyadirTelefono(int $telefono) : void</code> → Añade un teléfono al array</li>
-<li><code>public function listarTelefonos(): string</code> → Muestra los teléfonos separados por comas</li>
-<li><code>public function vaciarTelefonos(): void</code> → Elimina todos los teléfonos</li>
+<li><code>302EmpleadoTelefonos.php</code>: Còpia la classe de l'exercici anterior i modifica-la.
+     Afig una propietat privada que emmagatzeme un array de nombres de telèfons.
+     Afig els següents mètodes:<ul>
+<li><code>public function anyadirTelefono(int $telefono) : void</code> → Afig un telèfon al array</li>
+<li><code>public function listarTelefonos(): string</code> → Mostra els telèfons separats per comes</li>
+<li><code>public function vaciarTelefonos(): void</code> → Elimina tots els telèfons</li>
 </ul>
 </li>
+<li><code>303EmpleadoConstructor.php</code>: Còpia la classe de l'exercici anterior i modifica-la.
+     Elimina els setters* de <code>nom</code> i <code>cognoms</code>, de manera que aquestes dades s'assignen mitjançant el constructor (utilitza la sintaxi de PHP7).
+     Si el constructor rep un tercer paràmetre, serà el sou del <code>Empleat</code>. Si no, se li assignarà 1000€ com a sou inicial.</li>
+</ol>
+<p><code>303EmpleadoConstructor8.php</code>: Modifica la classe i utilitza la sintaxi de PHP 8 de promoció de les propietats del constructor.</p>
+<ol start="304">
+<li><code>304EmpleadoConstante.php</code>: Còpia la classe de l'exercici anterior i modifica-la.
+     Afig una constant <code>SOU_TOPALL</code> amb el valor del sou que ha de pagar impostos, i modifica el codi per a utilitzar la constant.</li>
+<li><code>305EmpleadoSueldo.php</code>: Còpia la classe de l'exercici anterior i modifica-la.
+     Canvia la constant per una variable estàtica <code>sueldoTope</code>, de manera que mitjançant <em>getter/setter</em> pugues modificar el seu valor.306. <code>306EmpleadoStatic.php</code>: Copia la clase del ejercicio anterior y modifícala.</li>
 <li>
-<p><code>303EmpleadoConstructor.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Elimina los <em>setters</em> de <code>nombre</code> y <code>apellidos</code>, de manera que dichos datos se asignan mediante el constructor (utiliza la sintaxis de PHP7).
-Si el constructor recibe un tercer parámetro, será el sueldo del <code>Empleado</code>. Si no, se le asignará 1000€ como sueldo inicial.</p>
-<p><code>303EmpleadoConstructor8.php</code>: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del constructor.</p>
-</li>
-<li>
-<p><code>304EmpleadoConstante.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Añade una constante <code>SUELDO_TOPE</code> con el valor del sueldo que debe pagar impuestos, y modifica el código para utilizar la constante.</p>
-</li>
-<li><code>305EmpleadoSueldo.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Cambia la constante por una variable estática <code>sueldoTope</code>, de manera que mediante <em>getter/setter</em> puedas modificar su valor.</li>
-<li>
-<p><code>306EmpleadoStatic.php</code>: Copia la clase del ejercicio anterior y modifícala.
-Completa el siguiente método con una cadena HTML que muestre los datos de un empleado dentro de un párrafo y todos los teléfonos mediante una lista ordenada (para ello, deberás crear un <em>getter</em> para los teléfonos):</p>
+<p>Completa el següent mètode amb una cadena HTML que mostre les dades d'un empleat dins d'un paràgraf i tots els telèfons mitjançant una llista ordenada (per a això, hauràs de crear un <em>getter</em> per als telèfons):</p>
 <ul>
-<li><code>public static function toHtml(Empleado $emp): string</code></li>
+<li><code>public static function toHtml(Empleado $emp): string</code>
+ 
+<figure style="float: right;">
+     <img src="imagenes/03/03p307.png">
+     <figcaption>Ejercicio 307</figcaption>
+ </figure></li>
 </ul>
-<p><figure style="float: right;">
-    <img src="imagenes/03/03p307.png">
-    <figcaption>Ejercicio 307</figcaption>
-</figure></p>
 </li>
 <li>
-<p><code>307Persona.php</code>: Copia la clase del ejercicio anterior en <code>307Empleado.php</code> y modifícala.<br />
-Crea una clase <code>Persona</code> que sea padre de <code>Empleado</code>, de manera que <code>Persona</code> contenga el nombre y los apellidos, y en <code>Empleado</code> quede el salario y los teléfonos.</p>
+<p><code>307Persona.php</code>: Còpia la classe de l'exercici anterior en <code>307Empleado.php</code> i modifica-la.
+     Crea una classe <code>Persona</code> que siga pare de <code>Empleat</code>, de manera que <code>Persona</code> continga el nom i els cognoms, i en <code>Empleat</code> quede el salari i els telèfons.</p>
 </li>
 <li>
-<p><code>308PersonaH.php</code>: Copia las clases del ejercicio anterior y modifícalas. Crea en <code>Persona</code> el método estático <code>toHtml(Persona $p)</code>, y modifica en <code>Empleado</code> el mismo método <code>toHtml(Persona $p)</code>, pero cambia la firma para que reciba una <code>Persona</code> como parámetro.<br />
-    Para acceder a las propiedades del empleado con la persona que recibimos como parámetro, comprobaremos su tipo:</p>
+<p><code>308PersonaH.php</code>: Còpia les classes de l'exercici anterior i modifica-les. Crea en <code>Persona</code> el mètode estàtic <code>toHtml(Persona $p)</code>, i modifica en <code>Empleat</code> el mateix mètode <code>toHtml(Persona $p)</code>, però canvia la signatura perquè reba una <code>Persona</code> com a paràmetre.
+     Per a accedir a les propietats de l'empleat amb la persona que rebem com a paràmetre, comprovarem el seu tipus:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">Empleado</span> <span class="k">extends</span> <span class="nx">Persona</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="c1">/// resto del código</span>
@@ -1532,14 +1608,14 @@ Crea una clase <code>Persona</code> que sea padre de <code>Empleado</code>, de m
 </code></pre></div>
 </li>
 <li>
-<p><code>309PersonaE.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
-Añade en <code>Persona</code> un atributo <code>edad</code><br />
-A la hora de saber si un empleado debe pagar impuestos, lo hará siempre y cuando tenga más de 21 años y dependa del valor de su sueldo.
-Modifica todo el código necesario para mostrar y/o editar la edad cuando sea necesario.</p>
+<p><code>309PersonaE.php</code>: Còpia les classes de l'exercici anterior i modifica-les.
+     Afig en <code>Persona</code> un atribut <code>edat</code>
+     A l'hora de saber si un empleat ha de pagar impostos, el farà sempre que tinga més de 21 anys i depenga del valor del seu sou.
+     Modifica tot el codi necessari per a mostrar i/o editar l'edat quan siga necessari.</p>
 </li>
 <li>
-<p><code>310PersonaS.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
-Añade nuevos métodos que hagan una representación de todas las propiedades de las clases <code>Persona</code> y <code>Empleado</code>, de forma similar a los realizados en HTML, pero sin que sean estáticos, de  manera que obtenga los datos mediante <code>$this</code>.</p>
+<p><code>310PersonaS.php</code>: Còpia les classes de l'exercici anterior i modifica-les.
+     Afig nous mètodes que facen una representació de totes les propietats de les classes <code>Persona</code> i <code>Empleat</code>, de manera similar als realitzats en HTML, però sense que siguen estàtics, de manera que  obtinga les dades mitjançant <code>$this</code>.</p>
 <ul>
 <li><code>function public __toString(): string</code></li>
 </ul>
@@ -1547,79 +1623,80 @@ Añade nuevos métodos que hagan una representación de todas las propiedades de
 </ol>
 <div class="admonition tip">
 <p class="admonition-title"><em>Magic methods</em></p>
-<p>El método <code>__toString()</code> es un método mágico que se invoca automáticamente cuando queremos obtener la representación en cadena de un objeto.</p>
+<p>El mètode <code>__toString()</code> és un mètode màgic que s'invoca automàticament quan volem obtindre la representació en cadena d'un objecte.</p>
 </div>
 <ol start="311">
 <li>
-<p><code>311PersonaA.php</code>: Copia las clases del ejercicio anterior y modifícalas.<br />
-Transforma <code>Persona</code> a una clase abstracta donde su método estático <code>toHtml(Persona $p)</code> tenga que ser redefinido en todos sus hijos.</p>
+<p><code>311PersonaA.php</code>: Còpia les classes de l'exercici anterior i modifica-les.
+     Transforma <code>Persona</code> a una classe abstracta on el seu mètode estàtic <code>toHtml(Persona $p)</code> haja de ser redefinit en tots els seus fills.</p>
 </li>
 <li>
-<p><code>312Trabajador.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
+<p><code>312Trabajador.php</code>: Còpia les classes de l'exercici anterior i modifica-les.</p>
 <ul>
-<li>Cambia la estructura de clases conforme al gráfico respetando todos los métodos que ya están hechos.</li>
-<li><code>Trabajador</code> es una clase abstracta que ahora almacena los <code>telefonos</code> y donde <code>calcularSueldo</code> es un método abstracto de manera que:<ul>
-<li>El sueldo de un <code>Empleado</code> se calcula a partir de las horas trabajadas y lo que cobra por hora.</li>
-<li>Para los <code>Gerente</code>s, su sueldo se incrementa porcentualmente en base a su edad: <code>salario + salario*edad/100</code></li>
-</ul>
-</li>
-</ul>
-<p><figure>
-    <img src="imagenes/03/03p312.png">
-    <figcaption>Ejercicio 312</figcaption>
-</figure></p>
-</li>
-<li>
-<p><code>313Empresa.php</code>: Utilizando las clases de los ejercicios anteriores:</p>
-<ul>
-<li>Crea una clase <code>Empresa</code> que además del nombre y la dirección, contenga una propiedad con un array de <code>Trabajador</code>es, ya sean <code>Empleado</code>s o <code>Gerente</code>s. </li>
-<li>Añade <em>getters/setters</em> para el nombre y dirección.</li>
-<li>Añade métodos para añadir y listar los trabajadores.<ul>
-<li><code>public function anyadirTrabajador(Trabajador $t)</code></li>
-<li><code>public function listarTrabajadoresHtml() : string</code> -&gt; utiliza <code>Trabajador::toHtml(Persona $p)</code></li>
-</ul>
-</li>
-<li>Añade un método para obtener el coste total en nóminas.<ul>
-<li><code>public function getCosteNominas(): float</code> -&gt; recorre los trabajadores e invoca al método <code>calcularSueldo()</code>.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><code>314EmpresaI.php</code>: Copia las clases del ejercicio anterior y modifícalas.</p>
-<ul>
-<li>Crea un interfaz JSerializable, de manera que ofrezca los métodos:<ul>
-<li><code>toJSON(): string</code> → utiliza la función <a href="https://www.php.net/manual/es/function.json-encode.php"><code>json_encode(mixed)</code></a>. Ten en cuenta que como tenemos las propiedades de los objetos privados, debes recorrer las propiedades y colocarlas en un mapa. Por ejemplo:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">toJSON</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span> <span class="k">as</span> <span class="nv">$clave</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="nv">$mapa</span><span class="o">-&gt;</span><span class="nv">$clave</span> <span class="o">=</span> <span class="nv">$valor</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$mapa</span><span class="p">);</span>
-<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div></li>
-<li><code>toSerialize(): string</code> → utiliza la función <a href="https://www.php.net/manual/es/function.serialize.php"><code>serialize(mixed)</code></a></li>
-</ul>
-</li>
-<li>Modifica todas las clases que no son abstractas para que implementen el interfaz creado.</li>
+<li>Canvia l'estructura de classes conforme al gràfic respectant tots els mètodes que ja estan fets.</li>
+<li><code>Treballador</code> és una classe abstracta que ara emmagatzema els <code>telefonos</code> i on <code>calcularSueldo</code> és un mètode abstracte de manera que:</li>
+<li>El sou d'un <code>Empleat</code> es calcula a partir de les hores treballades i el que cobra per hora.</li>
+<li>Per als <code>Gerent</code>s, el seu sou s'incrementa percentualment sobre la base de la seua edat: <code>salari + salariedat/100</code></li>
 </ul>
 </li>
 </ol>
-<h3 id="proyecto-videoclub">Proyecto Videoclub<a class="headerlink" href="#proyecto-videoclub" title="Permanent link">&para;</a></h3>
-<p>En los siguientes ejercicios vamos a simular un pequeño proyecto de un Videoclub (basado en la propuesta que hace el tutorial de desarrolloweb.com), el cual vamos a realizar mediante un desarrollo incremental y siguiendo la práctica de programación en parejas (<em>pair programming</em>).</p>
-<p>Antes de nada, crea un repositorio privado en GitHub y sube el proyecto actual de <em>Videoclub</em>. Una vez creado, invita a tu compañero al repositorio como colaborador.</p>
+<figure>
+   <img src="imagenes/03/03p312.png">
+   <figcaption>Ejercicio 312</figcaption>
+</figure>
+<ol start="313">
+<li>
+<p><code>313Empresa.php</code>: Utilitzant les classes dels exercicis anteriors:</p>
 <ul>
-<li>Inicializa en local tu repostorio de git, mediante <code>git init</code></li>
-<li>Añade y sube los cambios a tu repositorio, mediante <code>git add .</code> y luego <code>git commit -m 'Inicializando proyecto'.</code></li>
-<li>Conecta tu repositorio con GitHub y sube los cambios (mira la instrucciones de GitHub: comandos <code>git remote</code> y <code>git push</code>).</li>
-<li>Tu compañero deberá descargar el proyecto con sus credenciales.</li>
+<li>Crea una classe <code>Empresa</code> que a més del nom i la direcció, continga una propietat amb un array de <code>Treballador</code>és, ja siguen <code>Emprat</code>s o <code>Gerent</code>s. </li>
+<li>Afig <em>getters/setters</em> per al nom i direcció.</li>
+<li>Afig mètodes per a afegir i llistar els treballadors.<ul>
+<li><code>public function anyadirTrabajador(Treballador $t)</code></li>
+<li><code>public function listarTrabajadoresHtml() : string</code> -&gt; utilitza <code>Treballador::toHtml(Persona $p)</code></li>
+</ul>
+</li>
+<li>Afig un mètode per a obtindre el cost total en nòmines.<ul>
+<li><code>public function getCosteNominas(): float</code> -&gt; recorre els treballadors i invoca al mètode <code>calcularSueldo()</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>314EmpresaI.php</code>: Còpia les classes de l'exercici anterior i modifica-les.</p>
+<ul>
+<li>Crea una interfície JSerializable, de manera que oferisca els mètodes:</li>
+<li>
+<p><code>toJSON(): string</code> → utilitza la funció <a href="https://www.php.net/manual/es/function.json-encode.php"><code>json_encode(mixed)</code></a>. Tingues en compte que com tenim les propietats dels objectes privats, has de recórrer les propietats i col·locar-les en un mapa. Per exemple:        <code>php
+           &lt;?php
+           public function toJSON(): string {
+               foreach ($this as $clave =&gt; $valor) {
+                   $mapa-&gt;$clave = $valor;
+               }
+               return json_encode($mapa);
+           }
+           ?&gt;</code></p>
+</li>
+<li>
+<p><code>toSerialize(): string</code> → utilizta la funció <a href="https://www.php.net/manual/es/function.serialize.php"><code>serialize(mixed)</code></a></p>
+</li>
+<li>Modifica totes les classes que no són abstractes perquè implementen la interfície creada.</li>
+</ul>
+</li>
+</ol>
+<h3 id="projecte-videoclub">Projecte Videoclub<a class="headerlink" href="#projecte-videoclub" title="Permanent link">&para;</a></h3>
+<p>En els següents exercicis simularem un xicotet projecte d'un Videoclub (basat en la proposta que fa el tutorial de desarrolloweb.com), el qual realitzarem mitjançant un desenvolupament incremental i seguint la pràctica de programació en parelles (<em>pair programming</em>).</p>
+<p>Abans de res, crea un repositori privat en GitHub i puja el projecte actual de Videoclub*. Una vegada creat, convida al teu company al repositori com a col·laborador.</p>
+<ul>
+<li>Inicialitza en local el teu repostorio de git, mitjançant <code>git init</code></li>
+<li>Afig i puja els canvis al teu repositori, mitjançant <code>git add .</code> i després <code>git commit -m 'Inicialitzant projecte'.</code></li>
+<li>Connecta el teu repositori amb GitHub i puja els canvis (mira la instruccions de GitHub: comandos <code>git remalnom</code> i <code>git push</code>).</li>
+<li>El teu company haurà de descarregar el projecte amb les seues credencials.</li>
 </ul>
 <div class="admonition warning">
-<p class="admonition-title">Proyecto no real</p>
-<p>El siguiente proyecto está pensado desde un punto de vista formativo. Algunas de las decisiones que se toman no se deben usar (como hacer <code>echo</code> dentro de las clases) o probar el código comparando el resultado en el navegador.</p>
+<p class="admonition-title">Projecte no real</p>
+<p>El següent projecte està pensat des d'un punt de vista formatiu. Algunes de les decisions que es prenen no s'han d'usar (com fer <code>tire</code> dins de les classes) o provar el codi comparant el resultat en el navegador.</p>
 </div>
-<p>Cada clase debe ir en un archivo php separado. Para facilitar su implementación, se muestra la estructura UML del modelo y un fragmento de código para probar las clases:</p>
+<p>Cada classe ha d'anar en un arxiu php separat. Per a facilitar la seua implementació, es mostra l'estructura UML del model i un fragment de codi per a provar les classes:</p>
 <figure style="float: right;">
     <img src="imagenes/03/03p320.png" width="150">
     <figcaption>Creamos el Soporte</figcaption>
@@ -1627,15 +1704,17 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 
 <ol start="320">
 <li>
-<p>Crea una clase para almacenar soportes (<code>Soporte.php</code>). Esta clase será la clase padre de los diferentes soportes con los que trabaje nuestro videoclub (cintas de vídeo, videojuegos, etc...):</p>
+<p>Crea una classe per a emmagatzemar suports (<code>Soporte.php</code>). Aquesta classe serà la classe pare dels diferents suports amb els quals treballe el nostre videoclub (cintes de vídeo, videojocs, etc...):</p>
 <ul>
-<li>Crea el constructor que inicialice sus propiedades. Fíjate que la clase no tiene métodos <em>setters</em>.</li>
-<li>Definir una constante mediante un propiedad privada y estática denominada `IVA con un valor del 21%</li>
-<li>Crear un archivo (<code>inicio.php</code>) para usar las clases y copia el siguiente fragmento:</li>
+<li>Crea el constructor que inicialitze les seues propietats. Fixa't que la classe no té mètodes setters*.</li>
+<li>Definir una constant mitjançant un propietat privada i estàtica denominada `IVA amb un valor del 21%</li>
+<li>Crear un arxiu (<code>inici.php</code>) per a usar les classes i còpia el següent fragment:</li>
 </ul>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Código de prueba</label><label for="__tabbed_4_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Soporte.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1646,7 +1725,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <span class="linenos" data-linenos="8 "></span><span class="nv">$soporte1</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 <strong>Tenet</strong>
 Precio: 3 euros
@@ -1656,18 +1735,21 @@ Precio IVA incluido: 3.48 euros
 </pre></p>
 </div>
 </div>
+</div>
 <figure style="float: right;">
     <img src="imagenes/03/03p321.png" width="150">
-    <figcaption>Añadimos Cinta de Video</figcaption>
+    <figcaption>Afegim Cinta de Video</figcaption>
 </figure>
 
 <ol start="321">
 <li>
-<p>Crea la clase <code>CintaVideo</code> la cual hereda de <code>Soporte</code>. Añade el atributo <code>duracion</code> y sobreescribe tanto el contructor como el método <code>muestraResumen</code> (desde <code>CintaVideo</code> deberás llamar al método <code>muestraResumen</code> del padre).</p>
-<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+<p>Crea la classe <code>CintaVideo</code> la qual hereta de <code>Soporte</code>. Afig l'atribut <code>duracion</code> i sobreescriu tant el contructor com el mètode <code>MuestraResumen</code> (des de <code>CintaVideo</code> hauràs de cridar al mètode <code>MuestraResumen</code> del pare).</p>
+<p>Afig a <code>inici.php</code> el codi per a provar la classe:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Código de prueba</label><label for="__tabbed_5_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1678,7 +1760,7 @@ Precio IVA incluido: 3.48 euros
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miCinta</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 <strong>Los cazafantasmas</strong>
 Precio: 3.5 euros
@@ -1690,18 +1772,21 @@ Duración: 107 minutos
 </pre></p>
 </div>
 </div>
+</div>
 <figure style="float: right;">
     <img src="imagenes/03/03p322.png" width="250">
-    <figcaption>Añadimos Dvd</figcaption>
+    <figcaption>Afegim Dvd</figcaption>
 </figure>
 
 <ol start="322">
 <li>
-<p>Crea la clase <code>Dvd</code> la cual hereda de <code>Soporte</code>. Añade los atributos <code>idiomas</code> y <code>formatoPantalla</code>. A continuación sobreescribe tanto el contructor como el método <code>muestraResumen</code>.</p>
-<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+<p>Crea la classe <code>Dvd</code> la qual hereta de <code>Soporte</code>. Afig els atributs <code>idiomas</code> i <code>formatoPantalla</code>. A continuació sobreescriu tant el contructor com el mètode <code>MuestraResumen</code>.</p>
+<p>Afig a <code>inici.php</code> el codi per a provar la classe:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Código de prueba</label><label for="__tabbed_6_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1712,7 +1797,7 @@ Duración: 107 minutos
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miDvd</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 <strong>Origen</strong>
 Precio: 15 euros
@@ -1725,18 +1810,21 @@ Formato Pantalla:16:9
 </pre></p>
 </div>
 </div>
-<figure style="float: right;">
+</div>
+<figure style="float: left;">
     <img src="imagenes/03/03p323.png" width="350">
-    <figcaption>Añadimos Juego</figcaption>
+    <figcaption>Afegim Juego</figcaption>
 </figure>
 
 <ol start="323">
 <li>
-<p>Crea la clase <code>Juego</code> la cual hereda de <code>Soporte</code>. Añade los atributos <code>consola</code>, <code>minNumJugadores</code> y <code>maxNumJugadores</code>. A continuación añade el método <code>muestraJugadoresPosibles</code>, el cual debe mostrar <em>Para un jugador</em>, <em>Para X jugadores</em> o <em>De X a Y jugadores</em> dependiendo de los valores de las atributos creados. Finalmente, sobreescribe tanto el contructor como el método <code>muestraResumen</code>.</p>
-<p>Añade a <code>inicio.php</code> el código para probar la clase:</p>
+<p>Crea la classe <code>Juego</code> la qual hereta de <code>Soporte</code>. Afig els atributs <code>consola</code>, <code>minNumJugadores</code> i <code>maxNumJugadores</code>. A continuació afig el mètode <code>muestraJugadoresPosibles</code>, el qual ha de mostrar Per a un <em>jugador</em>, Per a X <em>Jugadores</em> o De X a I <em>Jugadores</em> depenent dels valors de les atributs creats. Finalment, sobreescriu tant el contructor com el mètode <code>MuestraResumen</code>.</p>
+<p>Afig a <code>inici.php</code> el codi per a provar la classe:</p>
 </li>
 </ol>
-<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Código de prueba</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Código de prueba</label><label for="__tabbed_7_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">include</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1747,7 +1835,7 @@ Formato Pantalla:16:9
 <span class="linenos" data-linenos="8 "></span><span class="nv">$miJuego</span><span class="o">-&gt;</span><span class="na">muestraResumen</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 <strong>The Last of Us Part II</strong>
 Precio: 49.99 euros
@@ -1759,45 +1847,48 @@ Para un jugador
 </pre></p>
 </div>
 </div>
-<p>Llegados a este punto, nuestro modelo es similar al siguiente diagrama:</p>
+</div>
+<p>Arribats a aquest punt, el nostre model és similar al següent diagrama:</p>
 <figure>
     <img src="imagenes/03/03videoclub1.png" width="600">
-    <figcaption>Modelo inicial de Videoclub</figcaption>
+    <figcaption>Model inicial de Videoclub</figcaption>
 </figure>
 
 <figure style="float: right;">
     <img src="imagenes/03/03p324.png" width="275">
-    <figcaption>Añadimos Cliente</figcaption>
+    <figcaption>Afegim Cliente</figcaption>
 </figure>
 
 <ol start="324">
 <li>
-<p>Crear la clase <code>Cliente</code>. El constructor recibirá el <code>nombre</code>, <code>numero</code> y <code>maxAlquilerConcurrente</code>, este último pudiendo ser opcional y tomando como valor por defecto 3. Tras ello, añade <em>getter/setter</em> únicamente a <code>numero</code>, y un <em>getter</em> a <code>numSoportesAlquilados</code> (este campo va a almacenar un contador del total de alquileres que ha realizado). El array de soportes alquilados contedrá clases que hereden de <code>Soporte</code>. Finalmente, añade el método <code>muestraResumen</code> que muestre el nombre y la cantidad de alquileres (tamaño del array <code>soportesAlquilados</code>).</p>
+<p>Crear la classe <code>Cliente</code>. El constructor rebrà el <code>nom</code>, <code>numere</code> i <code>maxLloguerConcurrent</code>, aquest últim podent ser opcional i prenent com a valor per defecte 3. Després d'això, afig <em>getter/setter</em> únicament a <code>numere</code>, i un <em>getter</em> a <code>numSoportsalquilados</code> (aquest camp emmagatzemarà un comptador del total de lloguers que ha realitzat). El array de suports alquilados contedrá classes que hereten de <code>Soporte</code>. Finalment, afig el mètode <code>MuestraResumen</code> que mostre el nom i la quantitat de lloguers (grandària del array <code>soportsalquilados</code>).</p>
 </li>
 <li>
-<p>Dentro de <code>Cliente</code>, añade las siguiente operaciones:</p>
+<p>Dins de <code>Cliente</code>, afig les següent operacions:</p>
 <ul>
-<li><code>tieneAlquilado(Soporte $s): bool</code> → Recorre el array de soportes y comprueba si está el soporte</li>
-<li><code>alquilar(Soporte $s): bool</code> -→ Debe comprobar si el soporte está alquilado y si no ha superado el cupo de alquileres. Al alquilar, incrementará el <code>numSoportesAlquilados</code> y almacenará el soporte en el array. Para cada caso debe mostrar un mensaje informando de lo ocurrido.</li>
+<li><code>tieneAlquilado(Soporte $s): bool</code> → Recorre el array de suports i comprova si està el suport</li>
+<li><code>alquilar(Soporte $s): bool</code> -→ Ha de comprovar si el suport està alquilado i si no ha superat el contingent de lloguers. En llogar, incrementarà el <code>numSoportsalquilados</code> i emmagatzemarà el suport en el array. Per a cada cas ha de mostrar un missatge informant de l'ocorregut.</li>
 </ul>
 </li>
 <li>
-<p>Seguimos con <code>Cliente</code> para añadir las operaciones:</p>
+<p>Seguim amb <code>Cliente</code> per a afegir les operacions:</p>
 <ul>
-<li><code>devolver(int $numSoporte): bool</code> → Debe comprobar que el soporte estaba alquilado  y actualizar la cantidad de soportes alquilados. Para cada caso debe mostrar un mensaje informando de lo ocurrido</li>
-<li><code>listarAlquileres(): void</code> → Informa de cuantos alquileres tiene el cliente y los muestra.</li>
+<li><code>retornar(int $numSoporte): bool</code> → Ha de comprovar que el suport estava llogat i actualitzar la quantitat de suports llogats. Per a cada cas ha de mostrar un missatge informant de l'ocorregut</li>
+<li><code>llistarLloguers(): void</code> → Informa de quants lloguers té el client i els mostra.</li>
 </ul>
 </li>
 </ol>
-<p>Crea el archivo <code>inicio2.php</code> con el siguiente código fuente para probar la clase:</p>
-<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Código de prueba</label><div class="tabbed-content">
+<p>Crea l'arxiu <code>inicio2.php</code> amb el següent codi font per a provar la classe:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Codi de prova</label><label for="__tabbed_8_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;CintaVideo.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="k">include_once</span> <span class="s2">&quot;Dvd.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="k">include_once</span> <span class="s2">&quot;Juego.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span><span class="k">include_once</span> <span class="s2">&quot;Cliente.php&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span><span class="c1">//instanciamos un par de objetos cliente</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">//instanciamos un par de objetos Clientee</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$cliente1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cliente</span><span class="p">(</span><span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$cliente2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cliente</span><span class="p">(</span><span class="s2">&quot;Clark Kent&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>
@@ -1822,18 +1913,18 @@ Para un jugador
 <span class="linenos" data-linenos="29 "></span><span class="c1">//este soporte no lo va a poder alquilar</span>
 <span class="linenos" data-linenos="30 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte4</span><span class="p">);</span>
 <span class="linenos" data-linenos="31 "></span><span class="c1">//este soporte no lo tiene alquilado</span>
-<span class="linenos" data-linenos="32 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="linenos" data-linenos="32 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">tornar</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="linenos" data-linenos="33 "></span><span class="c1">//devuelvo un soporte que sí que tiene alquilado</span>
-<span class="linenos" data-linenos="34 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="linenos" data-linenos="34 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">tornar</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="linenos" data-linenos="35 "></span><span class="c1">//alquilo otro soporte</span>
-<span class="linenos" data-linenos="36 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">alquilar</span><span class="p">(</span><span class="nv">$soporte4</span><span class="p">);</span>
+<span class="linenos" data-linenos="36 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">Alquilar</span><span class="p">(</span><span class="nv">$soporte4</span><span class="p">);</span>
 <span class="linenos" data-linenos="37 "></span><span class="c1">//listo los elementos alquilados</span>
-<span class="linenos" data-linenos="38 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">listaAlquileres</span><span class="p">();</span>
+<span class="linenos" data-linenos="38 "></span><span class="nv">$cliente1</span><span class="o">-&gt;</span><span class="na">llistaLloguers</span><span class="p">();</span>
 <span class="linenos" data-linenos="39 "></span><span class="c1">//este cliente no tiene alquileres</span>
-<span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">devolver</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="linenos" data-linenos="40 "></span><span class="nv">$cliente2</span><span class="o">-&gt;</span><span class="na">tornar</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 El identificador del cliente 1 es: 23
 El identificador del cliente 2 es: 33
@@ -1876,22 +1967,25 @@ Formato Pantalla:16:9</p>
 </pre></p>
 </div>
 </div>
+</div>
 <ol start="327">
-<li>Llegado a este punto, vamos a relacionar los clientes y los soportes mediante la clase <code>Videoclub</code>. Así pues crea la clase que representa el gráfico, teniendo en cuenta que:<ul>
-<li><code>productos</code> es un array de <code>Soporte</code></li>
-<li><code>socios</code> es una array de <code>Cliente</code></li>
-<li>Los métodos públicos de incluir algún soporte, crearán la clase y llamarán al método privado de <code>incluirProducto</code>, el cual es el encargado de introducirlo dentro del array.</li>
+<li>Arribat a aquest punt, relacionarem els clients i els suports mitjançant la classe <code>Videoclub</code>. Així doncs crea la classe que representa el gràfic, tenint en compte que:<ul>
+<li><code>productes</code> és un array de <code>Soporte</code></li>
+<li><code>socis</code> és una array de <code>Cliente</code></li>
+<li>Els mètodes públics d'incloure algun suport, crearan la classe i cridaran al mètode privat de <code>incluirProducto</code>, el qual és l'encarregat d'introduir-lo dins del array.</li>
 </ul>
 </li>
 </ol>
-<p>El modelo completo quedará de la siguiente manera:</p>
+<p>El model complet quedarà de la següent manera:</p>
 <figure>
     <img src="imagenes/03/03videoclub2.png" width="800">
-    <figcaption>Modelo completo de Videoclub</figcaption>
+    <figcaption>Model complet de Videoclub</figcaption>
 </figure>
 
-<p>Y para probar el proyecto, dentro <code>inicio3.php</code> colocaremos:</p>
-<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Código de prueba</label><div class="tabbed-content">
+<p>I per a provar el projecte, dins <code>inicio3.php</code> col·locarem:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Codi de prova</label><label for="__tabbed_9_2">Navegador</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="k">include_once</span> <span class="s2">&quot;Videoclub.php&quot;</span><span class="p">;</span> <span class="c1">// No incluimos nada más</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1926,7 +2020,7 @@ Formato Pantalla:16:9</p>
 <span class="linenos" data-linenos="32 "></span><span class="nv">$vc</span><span class="o">-&gt;</span><span class="na">listarSocios</span><span class="p">();</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">Navegador</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><pre>
 Incluido soporte 0
 Incluido soporte 1
@@ -1991,69 +2085,62 @@ Alquileres actuales: 2
 </pre></p>
 </div>
 </div>
+</div>
 <ol start="328">
 <li>
-<p>Transforma <code>Soporte</code> a una clase abstracta y comprueba que todo sigue funcionando. ¿Qué conseguimos al hacerla abstracta?</p>
+<p>Transforma <code>Soporte</code> a una classe abstracta i comprova que tot continua funcionant. Què aconseguim en fer-la abstracta?</p>
 </li>
 <li>
-<p>Crea un interfaz <code>Resumible</code>, de manera que las clases que lo implementen deben ofrecer el método <code>muestraResumen()</code>. Modifica la clase <code>Soporte</code> y haz que implemente el interfaz. ¿Hace falta que también lo implementen los hijos?</p>
+<p>Crea una interfície <code>Resumible</code>, de manera que les classes que l'implementen han d'oferir el mètode <code>muestraResumen()</code>. Modifica la classe <code>Soporte</code> i feix que implemente la interfície. Fa falta que també l'implementen els fills?</p>
 </li>
 </ol>
-<h3 id="proyecto-videoclub-20">Proyecto Videoclub 2.0<a class="headerlink" href="#proyecto-videoclub-20" title="Permanent link">&para;</a></h3>
+<h3 id="projecte-videoclub-20">Projecte Videoclub 2.0<a class="headerlink" href="#projecte-videoclub-20" title="Permanent link">&para;</a></h3>
 <p>Antes de comenzar con la segunda parte del videoclub, crea una etiqueta mediante <code>git tag</code> con el nombre <code>v0.329</code> y sube los cambios a GitHub.</p>
 <ol start="330">
-<li>Modifica las operaciones de alquilar, tanto en <code>Cliente</code> como en <code>Videoclub</code>, para dar soporte al encadenamiento de métodos.
-Posteriormente, modifica el código de prueba para utilizar esta técnica.</li>
-<li>Haciendo uso de <em>namespaces</em>:<ul>
-<li>Coloca todas las clases/interfaces en <code>Dwes\ProyectoVideoclub</code></li>
-<li>Cada clase debe hacer <code>include_once</code> de los recursos que emplea</li>
-<li>Coloca el/los archivos de prueba en el raíz (sin espacio de nombres)</li>
-<li>Desde el archivo de pruebas, utiliza <code>use</code> para poder realizar accesos sin cualificar</li>
-<li>Etiqueta los cambios como <code>v0.331</code>.</li>
+<li>Modifica els operacions de llogar, tant en <code>Client</code> com en <code>Videoclub</code>, per a donar suport a l'encadenament de mètodes.
+     Posteriorment, modifica el codi de prova per a utilitzar aquesta tècnica.</li>
+<li>Fent ús de <em>namespaces</em>:<ul>
+<li>Col·boja totes els classes/interfícies en <code>Dwes\ProyectoVideoclub</code></li>
+<li>Cada classe ha de fer <code>include_once</code> dels recursos que empra</li>
+<li>Col·boja el/els arxivaments de prova en l'arrel (sense espai de noms)</li>
+<li>Dones de l'arxiu de proves, utilitza <code>use</code> per a poder realitzar accessos sense qualificar</li>
+<li>Etiqueta els canvis com <code>v0.331</code>.</li>
 </ul>
 </li>
-<li>Reorganiza las carpeta tal como hemos visto en los apuntes: <code>app</code>, <code>test</code> y <code>vendor</code>.<ul>
-<li>Crea un fichero <code>autoload.php</code> para registrar la ruta donde encontrar las clases</li>
-<li>Modifica todo el código necesario, incluyendo <code>autoload.php</code> donde sea necesario y borrando los <em>includes</em> previos.</li>
+<li>Reorganitza els carpeta tal com hem vist en els anotacions: <code>app</code>, <code>test</code> i <code>vendor</code>.<ul>
+<li>Crea un fitxer <code>autolloeu.php</code> per a registrar la ruta on trobar els classes</li>
+<li>Modifica tot el codi necessari, incloent <code>autolloeu.php</code> on seguisca necessari i esborrant els <em>includes</em> previs.</li>
 </ul>
 </li>
-<li>A continuación vamos a crear un conjunto de excepciones de aplicación. Estas excepciones son simples, no necesitan sobreescribir ningún método. Así pues, crea la excepción de aplicación <code>VideoclubException</code> en el <em>namespace</em> <code>Dwes\ProyectoVideoclub\Util</code>.
-Posteriormente crea los siguientes hijos (deben heredar de <code>VideoclubException</code>), cada uno en su propio archivo:<ul>
-<li><code>SoporteYaAlquiladoException</code></li>
+<li>A continuació crearem un conjunt d'excepcions d'aplicació. Aquestes excepcions són simples, no necessiten sobreescriure cap mètode. Així doncs, crea l'excepció d'aplicació <code>VideoclubException</code> en el <em>namespace</em> <code>Dwes\ProyectoVideoclub\Util</code>.
+     Posteriorment crea els següents fills (han d'heretar de <code>VideoclubException</code>), cadascun en el seu propi arxiu:    * <code>SoporteYaAlquiladoException</code><ul>
 <li><code>CupoSuperadoException</code></li>
 <li><code>SoporteNoEncontradoException</code></li>
 <li><code>ClienteNoEncontradoException</code></li>
 </ul>
 </li>
-<li>En <code>Cliente</code>, modifica los métodos <code>alquilar</code> y <code>devolver</code>, para que hagan uso de las nuevas excepciones (lanzándolas cuando sea necesario) y funcionen como métodos encadenados. Destacar que estos métodos, no se capturar estás excepciones, sólo se lanzan.
-En <code>Videoclub</code>, modifica <code>alquilarSocioPelicula</code> para capturar todas las excepciones que ahora lanza <code>Cliente</code> e informar al usuario en consecuencia.</li>
-<li>Vamos a modificar el proyecto para que el videoclub sepa qué productos están o no alquilados:<ul>
-<li>En <code>Soporte</code>, crea una propiedad pública cuyo nombre sea <code>alquilado</code> que inicialmente estará a <code>false</code>. Cuando se alquile, se pondrá a <code>true</code>. Al devolver, la volveremos a poner a <code>false</code>.</li>
-<li>En <code>Videoclub</code>, crea dos nuevas propiedades y sus getters:<ul>
-<li><code>numProductosAlquilados</code></li>
-<li><code>numTotalAlquileres</code></li>
+<li>En <code>Cliente</code>, modifica els mètodes <code>alquilar</code> i <code>retornar</code>, perquè facen ús de les noves excepcions (llançant-les quan siga necessari) i funcionen com a mètodes encadenats. Destacar que aquests mètodes, no es capturar estàs excepcions, només es llancen.
+     En <code>Videoclub</code>, modifica <code>alquilarSocioPelicula</code> per a capturar totes les excepcions que ara llança <code>Cliente</code> i informar l'usuari en conseqüència.</li>
+<li>Modificarem el projecte perquè el videoclub sàpia quins productes estan o no llogats:<ul>
+<li>En <code>Soporte</code>, crea una propietat pública el nom de la qual siga <code>alquilado</code> que inicialment estarà a <code>false</code>. Quan es llogue, es posarà a <code>true</code>. En retornar, la tornarem a posar a <code>false</code>.</li>
+<li>En <code>Videoclub</code>, crea dues noves propietats i les seues getters:
+         * <code>numProductosAlquilados</code>
+         * <code>numTotalAlquileres</code></li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Crea un nuevo método en <code>Videoclub</code> llamado <code>alquilarSocioProductos(int numSocio, array numerosProductos)</code>, el cual debe recibir un array con los productos a alquilar.<br />
-Antes de alquilarlos, debe comprobar que todos los soportes estén disponibles, de manera que si uno no lo está, no se le alquile ninguno.</li>
+<li>Crea un nou mètode en <code>Videoclub</code> anomenat <code>alquilarSocioProductos(int numSocio, array numerosProductos)</code>, el qual ha de rebre un array amb els productes a llogar.
+     Abans de llogar-los, ha de comprovar que tots els suports estiguen disponibles, de manera que si un no ho està, no se li llogue cap.</li>
 <li>
-<p>Crea dos nuevos métodos en <code>Videoclub</code>, y mediante la definición, deduce qué deben realizar:</p>
+<p>Crea dos nous mètodes en <code>Videoclub</code>, i mitjançant la definició, dedueix què han de realitzar:</p>
 <ul>
 <li><code>devolverSocioProducto(int numSocio, int numeroProducto)</code></li>
 <li><code>devolverSocioProductos(int numSocio, array numerosProductos)</code></li>
 </ul>
-<p>Deben soportar el encadenamiento de métodos.
-Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soportes.</p>
+<p>Han de suportar l'encadenament de mètodes.
+Recorda actualitzar la propietat <code>alquilado</code> dels diferents suports.</p>
 </li>
 </ol>
-<p>Cuando hayas realizado todos los ejercicios, crea una etiqueta mediante <code>git tag</code> con el nombre <code>v0.337</code> y sube los cambios a GitHub.</p>
-                
-              
-              
-                
-
+<p>Quan hages realitzat tots els exercicis, crea una etiqueta mitjançant <code>git tag</code> amb el nom <code>v0.337</code> i puja els canvis a GitHub.</p>
 
               
             </article>
@@ -2062,13 +2149,12 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="02php.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.- El lenguaje PHP" rel="prev">
+        <a href="02php.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.- El llenguatge PHP" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2077,20 +2163,20 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
               <span class="md-footer__direction">
                 Anterior
               </span>
-              2.- El lenguaje PHP
+              2.- El llenguatge PHP
             </div>
           </div>
         </a>
       
       
         
-        <a href="04web.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 4.- Programación Web" rel="next">
+        <a href="04web.html" class="md-footer__link md-footer__link--next" aria-label="Següent: 4.- Programació Web" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
-                Siguiente
+                Següent
               </span>
-              4.- Programación Web
+              4.- Programació Web
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2102,40 +2188,39 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -2144,10 +2229,10 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="assets/javascripts/bundle.467223ff.min.js"></script>
       
     
   </body>
