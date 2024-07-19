@@ -1,7 +1,7 @@
 # Desarrollo Web en Entorno Servidor
 
 !!! tip "Apuntes obsoletos"
-    Estos apuntes se redactaron durante el curso 21/22. La primera mitad fueron escritos por mí (*Aitor Medrano*), y luego los continuó (*Luis Alemany*). Desde entonces ya no imparto este módulo y por lo tanto, ya no se actualizan.
+    Estos apuntes se redactaron durante el curso 21/22. La primera mitad fueron escritos por mí (*Aitor Medrano*), y luego los continuó (*Luis Alemañ*). Desde entonces ya no imparto este módulo y por lo tanto, ya no se actualizan.
 
     Repasándolos en perspectiva no están mal pero tienen mucho margen de mejora. Si los has utilizado y ampliado, si quieres, mándame un [mail](mailto:a.medrano@edu.gva.es) y pondré un enlace a tu repositorio para visibilizarlo y poder ayudar a más gente, ya sea profesorado o alumnado.
 
