@@ -1,6 +1,11 @@
 # Desarrollo Web en Entorno Servidor
 
-Aquí puedes encontrar los apuntes del módulo de *Desarrollo web en entorno servidor*, que se imparte en el segundo curso del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web.
+!!! tip "Apuntes obsoletos"
+    Estos apuntes se redactaron durante el curso 21/22. La primera mitad fueron escritos por mí (*Aitor Medrano*), y luego los continuó (*Luis Alemany*). Desde entonces ya no imparto este módulo y por lo tanto, ya no se actualizan.
+
+    Repasándolos en perspectiva no están mal pero tienen mucho margen de mejora. Si los has utilizado y ampliado, si quieres, mándame un [mail](mailto:a.medrano@edu.gva.es) y pondré un enlace a tu repositorio para visibilizarlo y poder ayudar a más gente, ya sea profesorado o alumnado.
+
+Aquí puedes encontrar los apuntes del módulo de ***Desarrollo web en entorno servidor***, que se imparte en el segundo curso del ciclo formativo de grado superior de *Desarrollo de Aplicaciones Web*.
 
 La duración del módulo es de 160 horas lectivas, a razón de **8 horas semanales**, y se desarrolla a lo largo de los **dos primeros trimestres** del curso. Se ha [planificado](planning.md) basándose en 4 sesiones de 2 horas lectivas por semana.
 
@@ -73,6 +78,7 @@ Duración estimada: 88 sesiones
     * *AJAX* con *JSON*.
     * Interacción con *Vue.js*.
 
+<!--
 ## Instrumentos de calificación
 
 La nota de cada evaluación se calcula mediante:
@@ -88,3 +94,4 @@ La nota de cada evaluación se calcula mediante:
     * Una o dos pruebas por evaluación.
 
 La nota final se calcula mediante la media de cada una de las evaluaciones.
+-->

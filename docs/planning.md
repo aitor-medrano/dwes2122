@@ -74,11 +74,11 @@ Del Miércoles 15 al Martes 21 de Diciembre.
 
 ## 7.- Frameworks PHP (32h)
 
-- [x] 1.- (51) Introduccion a Laravel - *Lunes 10/01/22* 
+- [x] 1.- (51) Introducción a Laravel - *Lunes 10/01/22* 
 - [x] 2.- (52) Rutas
 - [x] 3.- (53) Plantillas
 - [x] 4.- (54) Controladores
-- [x] 5.- (55) Migraciones & Eloquent*Lunes 17/01/22* 
+- [x] 5.- (55) Migraciones & Eloquent - *Lunes 17/01/22* 
 - [x] 6.- (56) 
 - [x] 7.- (57) 
 - [x] 8.- (58) 

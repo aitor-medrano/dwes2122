@@ -586,16 +586,17 @@ Se comprobarán los datos en `login.php`. Los posibles usuarios son admin/admin 
     * Si el usuario es correcto, en `main.php` mostrar un mensaje de bienvenida con el nombre del usuario, junto a un enlace para cerrar la sesión, que lo llevaría de nuevo al login.
     * Si el usuario es incorrecto, debe volver a cargar el formulario dando información al usuario de acceso incorrecto.
 
-421. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas.
-En la siguiente unidad los obtendremos de la base de datos.
-En `mainAdmin.php`, además de la bienvenida, debe mostrar:
-    * Listado de clientes
-    * Listado de soportes
+421. Si el usuario es administrador, se cargarán en la sesión los datos de soportes y clientes del videoclub que teníamos en nuestras pruebas (no mediante `include` sino copiando los datos e insertándolos en un array asociativo, el cual colocaremos posteriormente en la sesión).
 
-<figure style="float: right;">
-    <img src="imagenes/04/04p423.png" width="400">
-    <figcaption>Esquema navegación ejercicio 423</figcaption>
-</figure>
+    En la siguiente unidad los obtendremos de la base de datos.
+    En `mainAdmin.php`, además de la bienvenida, debe mostrar:
+        * Listado de clientes
+        * Listado de soportes
+
+    <figure style="float: right;">
+        <img src="imagenes/04/04p423.png" width="400">
+        <figcaption>Esquema navegación ejercicio 423</figcaption>
+    </figure>
 
 422. Vamos a modificar la clase `Cliente` para almacenar el `user` y la `password` de cada cliente.
 Tras codificar los cambios, modificar el listado de clientes de `mainAdmin.php` para añadir al listado el usuario.
