@@ -8,11 +8,17 @@
       
       
       
-      
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/05herramientas.html">
       
+      
+        <link rel="prev" href="04web.html">
+      
+      
+        <link rel="next" href="06accesoDatos.html">
+      
+      
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -20,39 +26,43 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-X6D0LR7TC8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
-
-
+    
     
     
   </head>
@@ -65,12 +75,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
   
-    
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,9 +93,12 @@
       
     </div>
     
+    
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -97,7 +106,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -116,47 +126,57 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -167,7 +187,7 @@
           <div class="md-search-result__meta">
             Inicializando búsqueda
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -197,6 +217,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
@@ -213,14 +234,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Inicio
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
       </a>
     </li>
   
@@ -228,14 +254,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="01arquitecturas.html" class="md-nav__link">
-        1.- Arquitecturas Web
+        
+  
+  <span class="md-ellipsis">
+    1.- Arquitecturas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -243,14 +274,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="02php.html" class="md-nav__link">
-        2.- El lenguaje PHP
+        
+  
+  <span class="md-ellipsis">
+    2.- El lenguaje PHP
+  </span>
+  
+
       </a>
     </li>
   
@@ -258,14 +294,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="03phpoo.html" class="md-nav__link">
-        3.- PHP Orientado a Objetos
+        
+  
+  <span class="md-ellipsis">
+    3.- PHP Orientado a Objetos
+  </span>
+  
+
       </a>
     </li>
   
@@ -273,14 +314,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="04web.html" class="md-nav__link">
-        4.- Programación Web
+        
+  
+  <span class="md-ellipsis">
+    4.- Programación Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -288,32 +334,42 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          5.- Herramientas Web
+          
+  
+  <span class="md-ellipsis">
+    5.- Herramientas Web
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="05herramientas.html" class="md-nav__link md-nav__link--active">
-        5.- Herramientas Web
+        
+  
+  <span class="md-ellipsis">
+    5.- Herramientas Web
+  </span>
+  
+
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -330,7 +386,9 @@
       
         <li class="md-nav__item">
   <a href="#composer" class="md-nav__link">
-    Composer
+    <span class="md-ellipsis">
+      Composer
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Composer">
@@ -338,28 +396,36 @@
         
           <li class="md-nav__item">
   <a href="#instalacion" class="md-nav__link">
-    Instalación
+    <span class="md-ellipsis">
+      Instalación
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#primeros-pasos" class="md-nav__link">
-    Primeros pasos
+    <span class="md-ellipsis">
+      Primeros pasos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#actualizar-librerias" class="md-nav__link">
-    Actualizar librerías
+    <span class="md-ellipsis">
+      Actualizar librerías
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#autoloadphp" class="md-nav__link">
-    autoload.php
+    <span class="md-ellipsis">
+      autoload.php
+    </span>
   </a>
   
 </li>
@@ -371,7 +437,9 @@
       
         <li class="md-nav__item">
   <a href="#monolog" class="md-nav__link">
-    Monolog
+    <span class="md-ellipsis">
+      Monolog
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Monolog">
@@ -379,56 +447,72 @@
         
           <li class="md-nav__item">
   <a href="#niveles" class="md-nav__link">
-    Niveles
+    <span class="md-ellipsis">
+      Niveles
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#hola-monolog" class="md-nav__link">
-    Hola Monolog
+    <span class="md-ellipsis">
+      Hola Monolog
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#funcionamiento" class="md-nav__link">
-    Funcionamiento
+    <span class="md-ellipsis">
+      Funcionamiento
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#manejadores" class="md-nav__link">
-    Manejadores
+    <span class="md-ellipsis">
+      Manejadores
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#canales" class="md-nav__link">
-    Canales
+    <span class="md-ellipsis">
+      Canales
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#procesadores" class="md-nav__link">
-    Procesadores
+    <span class="md-ellipsis">
+      Procesadores
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#formateadores" class="md-nav__link">
-    Formateadores
+    <span class="md-ellipsis">
+      Formateadores
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#uso-de-factorias" class="md-nav__link">
-    Uso de Factorías
+    <span class="md-ellipsis">
+      Uso de Factorías
+    </span>
   </a>
   
 </li>
@@ -440,7 +524,9 @@
       
         <li class="md-nav__item">
   <a href="#documentacion-con-phpdocumentor" class="md-nav__link">
-    Documentación con phpDocumentor
+    <span class="md-ellipsis">
+      Documentación con phpDocumentor
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Documentación con phpDocumentor">
@@ -448,28 +534,36 @@
         
           <li class="md-nav__item">
   <a href="#instalacion-como-binario" class="md-nav__link">
-    Instalación como binario
+    <span class="md-ellipsis">
+      Instalación como binario
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#uso-en-docker" class="md-nav__link">
-    Uso en Docker
+    <span class="md-ellipsis">
+      Uso en Docker
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#docblock" class="md-nav__link">
-    DocBlock
+    <span class="md-ellipsis">
+      DocBlock
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#documentando-el-codigo" class="md-nav__link">
-    Documentando el código
+    <span class="md-ellipsis">
+      Documentando el código
+    </span>
   </a>
   
 </li>
@@ -481,7 +575,9 @@
       
         <li class="md-nav__item">
   <a href="#web-scraping" class="md-nav__link">
-    Web Scraping
+    <span class="md-ellipsis">
+      Web Scraping
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Web Scraping">
@@ -489,21 +585,27 @@
         
           <li class="md-nav__item">
   <a href="#goutte" class="md-nav__link">
-    Goutte
+    <span class="md-ellipsis">
+      Goutte
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#goutte-con-selectores-css" class="md-nav__link">
-    Goutte con selectores CSS
+    <span class="md-ellipsis">
+      Goutte con selectores CSS
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#crawler" class="md-nav__link">
-    Crawler
+    <span class="md-ellipsis">
+      Crawler
+    </span>
   </a>
   
 </li>
@@ -515,7 +617,9 @@
       
         <li class="md-nav__item">
   <a href="#pruebas-con-phpunit" class="md-nav__link">
-    Pruebas con PHPUnit
+    <span class="md-ellipsis">
+      Pruebas con PHPUnit
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Pruebas con PHPUnit">
@@ -523,49 +627,63 @@
         
           <li class="md-nav__item">
   <a href="#puesta-en-marcha" class="md-nav__link">
-    Puesta en marcha
+    <span class="md-ellipsis">
+      Puesta en marcha
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#disenando-pruebas" class="md-nav__link">
-    Diseñando pruebas
+    <span class="md-ellipsis">
+      Diseñando pruebas
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#aserciones" class="md-nav__link">
-    Aserciones
+    <span class="md-ellipsis">
+      Aserciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#comparando-la-salida" class="md-nav__link">
-    Comparando la salida
+    <span class="md-ellipsis">
+      Comparando la salida
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#proveedores-de-datos" class="md-nav__link">
-    Proveedores de datos
+    <span class="md-ellipsis">
+      Proveedores de datos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#probando-excepciones" class="md-nav__link">
-    Probando excepciones
+    <span class="md-ellipsis">
+      Probando excepciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cobertura-de-codigo" class="md-nav__link">
-    Cobertura de código
+    <span class="md-ellipsis">
+      Cobertura de código
+    </span>
   </a>
   
 </li>
@@ -577,14 +695,18 @@
       
         <li class="md-nav__item">
   <a href="#referencias" class="md-nav__link">
-    Referencias
+    <span class="md-ellipsis">
+      Referencias
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
-    Actividades
+    <span class="md-ellipsis">
+      Actividades
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Actividades">
@@ -592,49 +714,63 @@
         
           <li class="md-nav__item">
   <a href="#monolog_1" class="md-nav__link">
-    Monolog
+    <span class="md-ellipsis">
+      Monolog
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#proyecto-videoclub-iv" class="md-nav__link">
-    Proyecto Videoclub IV
+    <span class="md-ellipsis">
+      Proyecto Videoclub IV
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#phpdocumentor" class="md-nav__link">
-    phpDocumentor
+    <span class="md-ellipsis">
+      phpDocumentor
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#web-scraping_1" class="md-nav__link">
-    Web Scraping
+    <span class="md-ellipsis">
+      Web Scraping
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#phpunit" class="md-nav__link">
-    phpUnit
+    <span class="md-ellipsis">
+      phpUnit
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#proyecto-videoclub-v" class="md-nav__link">
-    Proyecto Videoclub V
+    <span class="md-ellipsis">
+      Proyecto Videoclub V
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#ampliacion" class="md-nav__link">
-    Ampliación
+    <span class="md-ellipsis">
+      Ampliación
+    </span>
   </a>
   
 </li>
@@ -654,14 +790,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="06accesoDatos.html" class="md-nav__link">
-        6.- Acceso a Datos
+        
+  
+  <span class="md-ellipsis">
+    6.- Acceso a Datos
+  </span>
+  
+
       </a>
     </li>
   
@@ -669,14 +810,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="07frameworks.html" class="md-nav__link">
-        7.- Frameworks PHP - Laravel
+        
+  
+  <span class="md-ellipsis">
+    7.- Frameworks PHP - Laravel
+  </span>
+  
+
       </a>
     </li>
   
@@ -684,14 +830,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="09rest.html" class="md-nav__link">
-        8.- Servicios REST
+        
+  
+  <span class="md-ellipsis">
+    8.- Servicios REST
+  </span>
+  
+
       </a>
     </li>
   
@@ -705,13 +856,17 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="herramientas">Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 16 sesiones</p>
+                  
+
+
+<h1 id="herramientas">Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 16 sesiones</p>
 <hr />
 <table>
 <thead>
@@ -742,11 +897,11 @@
 <h3 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h3>
 <p>Si estamos usando XAMPP, hemos de instalar <em>Composer</em> en el propio sistema operativo. Se recomienda seguir las <a href="https://getcomposer.org/doc/00-intro.md">instrucciones oficiales</a> según el sistema operativo a emplear.</p>
 <p>En cambio, si usamos <em>Docker</em>, necesitamos modificar la configuración de nuestro contenedor. En nuestro caso, hemos decidido modificar el archivo <code>Dockerfile</code> y añadir el siguiente comando:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">COPY</span> --from<span class="o">=</span>composer:2.0 /usr/bin/composer /usr/local/bin/composer
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>composer:2.0<span class="w"> </span>/usr/bin/composer<span class="w"> </span>/usr/local/bin/composer
 </code></pre></div>
 <p>Para facilitar el trabajo, hemos creado una <a href="recursos/plantilla-APC.zip">plantilla ya preparada</a>.</p>
 <p>Es importante que dentro del contenedor comprobemos que tenemos la v2:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer -V
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>-V
 </code></pre></div>
 <h3 id="primeros-pasos">Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h3>
 <p>Cuando creemos un proyecto por primera vez, hemos de inicializar el repositorio. Para ello, ejecutaremos el comando <code>composer init</code> donde:</p>
@@ -759,19 +914,19 @@
 </ul>
 <p>Tras su configuración, se creará automáticamente el archivo <code>composer.json</code> con los datos introducidos y descarga las librerías en la carpeta <code>vendor</code>. La instalación de las librerías siempre se realiza de manera local para cada proyecto.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dwes/log&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Pruebas con Monolog&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;project&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;^2.1&quot;</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">},</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="linenos" data-linenos="10 "></span>        <span class="p">{</span>
-<span class="linenos" data-linenos="11 "></span>            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Aitor Medrano&quot;</span><span class="p">,</span>
-<span class="linenos" data-linenos="12 "></span>            <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;a.medrano@edu.gva.es&quot;</span>
-<span class="linenos" data-linenos="13 "></span>        <span class="p">}</span>
-<span class="linenos" data-linenos="14 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dwes/log&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pruebas con Monolog&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="w">    </span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">        </span><span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.1&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="p">},</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">    </span><span class="nt">&quot;authors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Aitor Medrano&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span><span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a.medrano@edu.gva.es&quot;</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">        </span><span class="p">}</span>
+<span class="linenos" data-linenos="14 "></span><span class="w">    </span><span class="p">]</span>
 <span class="linenos" data-linenos="15 "></span><span class="p">}</span>
 </code></pre></div>
 <p>A la hora de indicar cada librería introduciremos:</p>
@@ -789,13 +944,13 @@
 </ul>
 <h3 id="actualizar-librerias">Actualizar librerías<a class="headerlink" href="#actualizar-librerias" title="Permanent link">&para;</a></h3>
 <p>Podemos definir las dependencias via el archivo <code>composer.json</code> o mediante comandos con el formato <code>composer require vendor/package:version</code>. Por ejemplo, si queremos añadir phpUnit como librería de desarrollo, haremos:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require phpunit/phpunit –dev
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>require<span class="w"> </span>phpunit/phpunit<span class="w"> </span>–dev
 </code></pre></div>
 <p>Tras añadir nuevas librerías, hemos de actualizar nuestro proyecto:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>update
 </code></pre></div>
 <p>Si creamos el archivo <code>composer.json</code> nosotros directamente sin inicializar el repositorio, hemos de instalar las dependencias:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>install
 </code></pre></div>
 <p>Al hacer este paso (tanto instalar como actualizar), como ya hemos comentado, se descargan las librerías en dentro de la carpeta <code>vendor</code>. Es muy importante añadir esta carpeta al archivo <code>.gitignore</code> para no subirlas a GitHub.</p>
 <p>Además se crea el archivo <code>composer.lock</code>, que almacena la versión exacta que se ha instalado de cada librería (este archivo no se toca).</p>
@@ -807,17 +962,17 @@
 </code></pre></div>
 <p>En nuestro caso, de momento sólo lo podremos en los archivos donde probamos las clases</p>
 <p>Si queremos que Composer también se encargue de cargar de forma automática nuestras clases de dominio, dentro del archivo <code>composer.json</code>, definiremos la propiedad <code>autoload</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Dwes\\&quot;</span><span class="p">:</span> <span class="s2">&quot;app/Dwes&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;autoload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="nt">&quot;psr-4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;Dwes\\&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;app/Dwes&quot;</span><span class="p">}</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">},</span>
 </code></pre></div>
 <p>Posteriormente, hemos de volver a generar el <em>autoload</em> de <em>Composer</em> mediante la opción <code>dump-autoload</code> (o <code>du</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer dump-autoload
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>dump-autoload
 </code></pre></div>
 <h2 id="monolog">Monolog<a class="headerlink" href="#monolog" title="Permanent link">&para;</a></h2>
 <p>Vamos a probar <em>Composer</em> añadiendo la librería de <a href="https://github.com/Seldaek/monolog"><em>Monolog</em></a> a nuestro proyecto. Se trata de un librería para la gestión de logs de nuestras aplicaciones, soportando diferentes niveles (info, warning, etc...), salidas (ficheros, sockets, BBDD, Web Services, email, etc) y formatos (texto plano, HTML, JSON, etc...).</p>
 <p>Para ello, incluiremos la librería en nuestro proyecto con:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>require<span class="w"> </span>monolog/monolog
 </code></pre></div>
 <p>Monolog 2 requiere al menos PHP 7.2, cumple con el estandar de logging PSR-3, y es la librería empleada por <em>Laravel</em> y <em>Symfony</em> para la gestión de logs.</p>
 <div class="admonition info">
@@ -1029,24 +1184,24 @@ No es una buena práctica usar el nombre de la clase como canal, esto se hace co
 <p>Se basa en el uso de anotaciones sobre los docblocks. Para ponerlo en marcha, en nuestro caso nos decantaremos por utilizar la imagen que ya existe de Docker.</p>
 <h3 id="instalacion-como-binario">Instalación como binario<a class="headerlink" href="#instalacion-como-binario" title="Permanent link">&para;</a></h3>
 <p>Otra opción es seguir los pasos que recomienda la <a href="https://www.phpdoc.org">documentación oficial</a> para instalarlo como un ejecutable, que son descargar el archivo <code>phpDocumentor.phar</code> y darles permisos de ejecución:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>wget https://phpdoc.org/phpDocumentor.phar
-<span class="linenos" data-linenos="2 "></span>chmod +x phpDocumentor.phar
-<span class="linenos" data-linenos="3 "></span>mv phpDocumentor.phar /usr/local/bin/phpdoc
-<span class="linenos" data-linenos="4 "></span>phpdoc --version
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>wget<span class="w"> </span>https://phpdoc.org/phpDocumentor.phar
+<span class="linenos" data-linenos="2 "></span>chmod<span class="w"> </span>+x<span class="w"> </span>phpDocumentor.phar
+<span class="linenos" data-linenos="3 "></span>mv<span class="w"> </span>phpDocumentor.phar<span class="w"> </span>/usr/local/bin/phpdoc
+<span class="linenos" data-linenos="4 "></span>phpdoc<span class="w"> </span>--version
 </code></pre></div>
 <p>Una vez instalado, desde el raíz del proyecto, suponiendo que tenemos nuestro código dentro de <code>app</code> y que queremos la documentación dentro de <code>docs/api</code> ejecutamos:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>phpdoc -d ./app -t docs/api
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>phpdoc<span class="w"> </span>-d<span class="w"> </span>./app<span class="w"> </span>-t<span class="w"> </span>docs/api
 </code></pre></div>
 <h3 id="uso-en-docker">Uso en Docker<a class="headerlink" href="#uso-en-docker" title="Permanent link">&para;</a></h3>
 <p>En el caso de usar <em>Docker</em>, usaremos el siguiente comando para ejecutarlo (crea el contenedor, ejecuta el comando que le pidamos, y automáticamente lo borra):</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>docker run --rm -v <span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data phpdoc/phpdoc:3
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data<span class="w"> </span>phpdoc/phpdoc:3
 </code></pre></div>
 <p>A dicho comando, le adjuntaremos los diferentes parámetros que admite phpDocumentor, por ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Muestra la versión</span>
-<span class="linenos" data-linenos="2 "></span>docker run --rm -v <span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data phpdoc/phpdoc:3 --version
+<span class="linenos" data-linenos="2 "></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data<span class="w"> </span>phpdoc/phpdoc:3<span class="w"> </span>--version
 <span class="linenos" data-linenos="3 "></span><span class="c1"># Mediante -d se indica el origen a parsear</span>
 <span class="linenos" data-linenos="4 "></span><span class="c1"># Mediante -t se indica el destino donde generar la documentación</span>
-<span class="linenos" data-linenos="5 "></span>docker run --rm -v <span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data phpdoc/phpdoc:3 -d ./src/app -t ./docs/api
+<span class="linenos" data-linenos="5 "></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/data<span class="w"> </span>phpdoc/phpdoc:3<span class="w"> </span>-d<span class="w"> </span>./src/app<span class="w"> </span>-t<span class="w"> </span>./docs/api
 </code></pre></div>
 <h3 id="docblock">DocBlock<a class="headerlink" href="#docblock" title="Permanent link">&para;</a></h3>
 <p>Un <em>docblock</em> es el bloque de código que se coloca encima de un recurso. Su formato es:</p>
@@ -1143,7 +1298,7 @@ Más información en el artículo <a href="https://ichi.pro/es/el-manual-complet
 <li><code>DomCrawler</code>: facilita el uso del DOM y XPath.</li>
 </ul>
 <p>Para poder utilizar <em>Goutte</em> en nuestro proyecto, ejecutaremos el siguiente comando en el terminal:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require fabpot/goutte
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>require<span class="w"> </span>fabpot/goutte
 </code></pre></div>
 <h3 id="goutte-con-selectores-css">Goutte con selectores CSS<a class="headerlink" href="#goutte-con-selectores-css" title="Permanent link">&para;</a></h3>
 <p>A continuación vamos a hacer un ejemplo muy sencillo utilizando los selectores CSS, extrayendo información de la web <code>https://books.toscrape.com/</code>, la cual es una página para pruebas que no rechazará nuestras peticiones.</p>
@@ -1229,22 +1384,22 @@ Más información en el artículo <a href="https://ichi.pro/es/el-manual-complet
 <h3 id="puesta-en-marcha">Puesta en marcha<a class="headerlink" href="#puesta-en-marcha" title="Permanent link">&para;</a></h3>
 <p>Vamos a colocar todas las pruebas en una carpeta <code>tests</code> en el raíz de nuestro proyecto.</p>
 <p>En el archivo <code>composer.json</code>, añadimos:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;require-dev&quot;</span><span class="p">:</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="nt">&quot;phpunit/phpunit&quot;</span><span class="p">:</span> <span class="s2">&quot;^9&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;require-dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="nt">&quot;phpunit/phpunit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^9&quot;</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">},</span>
-<span class="linenos" data-linenos="4 "></span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;phpunit --testdox --colors tests&quot;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;phpunit --testdox --colors tests&quot;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Si quisiéramos añadir la librería desde un comando del terminal, también podríamos ejecutar:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require --dev phpunit/phpunit ^9
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>require<span class="w"> </span>--dev<span class="w"> </span>phpunit/phpunit<span class="w"> </span>^9
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Librerías de desarrollo</p>
 <p>Las librerías que se colocan en <code>require-dev</code> son las de desarrollo y <em>testing</em>, de manera que no se instalarán en un entorno de producción.</p>
 </div>
 <p>Como hemos creado un <em>script</em>, podemos lanzar las pruebas mediante:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer <span class="nb">test</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 <p>Vasmos a realizar nuestra primera prueba:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1267,10 +1422,10 @@ Más información en el artículo <a href="https://ichi.pro/es/el-manual-complet
 <span class="linenos" data-linenos="18 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Tenemos diferentes formas de ejecutar una prueba:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>./vendor/bin/phpunit tests/PilaTest.php
-<span class="linenos" data-linenos="2 "></span>./vendor/bin/phpunit tests
-<span class="linenos" data-linenos="3 "></span>./vendor/bin/phpunit --testdox tests
-<span class="linenos" data-linenos="4 "></span>./vendor/bin/phpunit --testdox --colors tests
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>./vendor/bin/phpunit<span class="w"> </span>tests/PilaTest.php
+<span class="linenos" data-linenos="2 "></span>./vendor/bin/phpunit<span class="w"> </span>tests
+<span class="linenos" data-linenos="3 "></span>./vendor/bin/phpunit<span class="w"> </span>--testdox<span class="w"> </span>tests
+<span class="linenos" data-linenos="4 "></span>./vendor/bin/phpunit<span class="w"> </span>--testdox<span class="w"> </span>--colors<span class="w"> </span>tests
 </code></pre></div>
 <h3 id="disenando-pruebas">Diseñando pruebas<a class="headerlink" href="#disenando-pruebas" title="Permanent link">&para;</a></h3>
 <p>Tal como hemos visto en el ejemplo, la clase de prueba debe heredar de <code>TestCase</code>, y el nombre de la clase debe acabar en <code>Test</code>, de ahí que hayamos llamado la clase de prueba como <code>PilaTest</code>.</p>
@@ -1382,10 +1537,10 @@ Más información en el artículo <a href="https://ichi.pro/es/el-manual-complet
 <p>Aunque ya viene instalado dentro de PHPUnit, para que funcione la cobertura del código, es necesario que el código PHP se ejecute con XDEBUG, y e indicarle a Apache que así es (colocando en el archivo de configuración <code>php.ini</code>la directiva <code>xdebug.mode=coverage</code>).</p>
 </div>
 <p>Añadimos en <code>composer.json</code> un nuevo <em>script</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;coverage&quot;</span><span class="p">:</span> <span class="s2">&quot;phpunit --coverage-html coverage --coverage-filter app tests&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">&quot;coverage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;phpunit --coverage-html coverage --coverage-filter app tests&quot;</span>
 </code></pre></div>
 <p>Y posteriormente ejecutamos</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer coverage
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer<span class="w"> </span>coverage
 </code></pre></div>
 <p>Por ejemplo, si accedemos a la clase <code>CintaVideo</code> con la prueba que habíamos realizado anteriormente, podemos observar la cobertura que tiene al 100% y que su CRAP es 2.</p>
 <figure style="align: center;">
@@ -1563,93 +1718,73 @@ Haz todos los cambios necesarios, primero en las pruebas y luego en el código.<
 </li>
 </ol>
 <p>Sube los cambios a GitHub con la etiqueta <code>v0.563</code>.</p>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-        
-        <a href="04web.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 4.- Programación Web" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              4.- Programación Web
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="06accesoDatos.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 6.- Acceso a Datos" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              6.- Acceso a Datos
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1658,10 +1793,12 @@ Haz todos los cambios necesarios, primero en las pruebas y luego en el código.<
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>

@@ -8,11 +8,15 @@
       
       
       
-      
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/index.html">
       
+      
+      
+        <link rel="next" href="01arquitecturas.html">
+      
+      
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -20,39 +24,43 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-X6D0LR7TC8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
-
-
+    
     
     
   </head>
@@ -65,12 +73,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
   
-    
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,9 +91,12 @@
       
     </div>
     
+    
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -97,7 +104,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -116,47 +124,57 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -167,7 +185,7 @@
           <div class="md-search-result__meta">
             Inicializando búsqueda
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -197,6 +215,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
@@ -213,32 +232,42 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Inicio
+          
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="index.html" class="md-nav__link md-nav__link--active">
-        Inicio
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -255,21 +284,27 @@
       
         <li class="md-nav__item">
   <a href="#que-voy-a-aprender" class="md-nav__link">
-    ¿Qué voy a aprender?
+    <span class="md-ellipsis">
+      ¿Qué voy a aprender?
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#resultados-de-aprendizaje" class="md-nav__link">
-    Resultados de aprendizaje
+    <span class="md-ellipsis">
+      Resultados de aprendizaje
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#unidades-didacticas-temporalizacion" class="md-nav__link">
-    Unidades didácticas / Temporalización
+    <span class="md-ellipsis">
+      Unidades didácticas / Temporalización
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Unidades didácticas / Temporalización">
@@ -277,27 +312,24 @@
         
           <li class="md-nav__item">
   <a href="#primera-evaluacion" class="md-nav__link">
-    Primera evaluación
+    <span class="md-ellipsis">
+      Primera evaluación
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#segunda-evaluacion" class="md-nav__link">
-    Segunda evaluación
+    <span class="md-ellipsis">
+      Segunda evaluación
+    </span>
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instrumentos-de-calificacion" class="md-nav__link">
-    Instrumentos de calificación
-  </a>
   
 </li>
       
@@ -311,14 +343,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="01arquitecturas.html" class="md-nav__link">
-        1.- Arquitecturas Web
+        
+  
+  <span class="md-ellipsis">
+    1.- Arquitecturas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -326,14 +363,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="02php.html" class="md-nav__link">
-        2.- El lenguaje PHP
+        
+  
+  <span class="md-ellipsis">
+    2.- El lenguaje PHP
+  </span>
+  
+
       </a>
     </li>
   
@@ -341,14 +383,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="03phpoo.html" class="md-nav__link">
-        3.- PHP Orientado a Objetos
+        
+  
+  <span class="md-ellipsis">
+    3.- PHP Orientado a Objetos
+  </span>
+  
+
       </a>
     </li>
   
@@ -356,14 +403,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="04web.html" class="md-nav__link">
-        4.- Programación Web
+        
+  
+  <span class="md-ellipsis">
+    4.- Programación Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -371,14 +423,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="05herramientas.html" class="md-nav__link">
-        5.- Herramientas Web
+        
+  
+  <span class="md-ellipsis">
+    5.- Herramientas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -386,14 +443,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="06accesoDatos.html" class="md-nav__link">
-        6.- Acceso a Datos
+        
+  
+  <span class="md-ellipsis">
+    6.- Acceso a Datos
+  </span>
+  
+
       </a>
     </li>
   
@@ -401,14 +463,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="07frameworks.html" class="md-nav__link">
-        7.- Frameworks PHP - Laravel
+        
+  
+  <span class="md-ellipsis">
+    7.- Frameworks PHP - Laravel
+  </span>
+  
+
       </a>
     </li>
   
@@ -416,14 +483,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="09rest.html" class="md-nav__link">
-        8.- Servicios REST
+        
+  
+  <span class="md-ellipsis">
+    8.- Servicios REST
+  </span>
+  
+
       </a>
     </li>
   
@@ -437,13 +509,20 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="desarrollo-web-en-entorno-servidor">Desarrollo Web en Entorno Servidor<a class="headerlink" href="#desarrollo-web-en-entorno-servidor" title="Permanent link">&para;</a></h1>
-<p>Aquí puedes encontrar los apuntes del módulo de <em>Desarrollo web en entorno servidor</em>, que se imparte en el segundo curso del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web.</p>
+                  
+
+
+<h1 id="desarrollo-web-en-entorno-servidor">Desarrollo Web en Entorno Servidor<a class="headerlink" href="#desarrollo-web-en-entorno-servidor" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Apuntes obsoletos</p>
+<p>Estos apuntes se redactaron durante el curso 21/22. La primera mitad fueron escritos por mí (<em>Aitor Medrano</em>), y luego los continuó <em>Luis Alemañ</em>. Desde entonces ya no imparto este módulo y por lo tanto, ya no se actualizan.</p>
+<p>Repasándolos en perspectiva no están mal pero tienen mucho margen de mejora. Si los has utilizado y ampliado, si quieres, mándame un <a href="mailto:a.medrano@edu.gva.es">mail</a> y pondré un enlace a tu repositorio para visibilizarlo y poder ayudar a más gente, ya sea profesorado o alumnado.</p>
+</div>
+<p>Aquí puedes encontrar los apuntes del módulo de <strong><em>Desarrollo web en entorno servidor</em></strong>, que se imparte en el segundo curso del ciclo formativo de grado superior de <em>Desarrollo de Aplicaciones Web</em>.</p>
 <p>La duración del módulo es de 160 horas lectivas, a razón de <strong>8 horas semanales</strong>, y se desarrolla a lo largo de los <strong>dos primeros trimestres</strong> del curso. Se ha <a href="planning.html">planificado</a> basándose en 4 sesiones de 2 horas lectivas por semana.</p>
 <h2 id="que-voy-a-aprender">¿Qué voy a aprender?<a class="headerlink" href="#que-voy-a-aprender" title="Permanent link">&para;</a></h2>
 <ul>
@@ -528,98 +607,90 @@ La primera evaluación contendría las unidades comprendidas entre la 1 y 5, y p
 </ul>
 </li>
 </ol>
-<h2 id="instrumentos-de-calificacion">Instrumentos de calificación<a class="headerlink" href="#instrumentos-de-calificacion" title="Permanent link">&para;</a></h2>
-<p>La nota de cada evaluación se calcula mediante:</p>
-<ul>
-<li>30% Trabajo en Clase / Actividades<ul>
-<li>Se evalúan todas las actividades realizadas en clase y en casa.</li>
-<li>Las actividades se evalúan mediante tareas de <em>Aules</em> con calificaciones comprendidas entre 0 y 3 puntos:<ul>
-<li>0: No entregada</li>
-<li>1: Entregada pero solución errónea o incompleta</li>
-<li>2: Entregada y solución aceptable, aunque tiene algún apartado incompleto</li>
-<li>3: Entregada y solución correcta.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>70% Actividad de evaluación<ul>
-<li>Una o dos pruebas por evaluación.</li>
-</ul>
-</li>
-</ul>
-<p>La nota final se calcula mediante la media de cada una de las evaluaciones.</p>
-                
-              
-              
-                
+<!--
+## Instrumentos de calificación
+
+La nota de cada evaluación se calcula mediante:
+
+* 30% Trabajo en Clase / Actividades
+    * Se evalúan todas las actividades realizadas en clase y en casa.
+    * Las actividades se evalúan mediante tareas de *Aules* con calificaciones comprendidas entre 0 y 3 puntos:
+        * 0: No entregada
+        * 1: Entregada pero solución errónea o incompleta
+        * 2: Entregada y solución aceptable, aunque tiene algún apartado incompleto
+        * 3: Entregada y solución correcta.
+* 70% Actividad de evaluación
+    * Una o dos pruebas por evaluación.
+
+La nota final se calcula mediante la media de cada una de las evaluaciones.
+-->
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-      
-        
-        <a href="01arquitecturas.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 1.- Arquitecturas Web" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              1.- Arquitecturas Web
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -628,10 +699,12 @@ La primera evaluación contendría las unidades comprendidas entre la 1 y 5, y p
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>

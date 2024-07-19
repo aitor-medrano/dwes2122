@@ -8,11 +8,17 @@
       
       
       
-      
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/03phpoo.html">
       
+      
+        <link rel="prev" href="02php.html">
+      
+      
+        <link rel="next" href="04web.html">
+      
+      
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -20,39 +26,43 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-X6D0LR7TC8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
-
-
+    
     
     
   </head>
@@ -65,12 +75,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
   
-    
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,9 +93,12 @@
       
     </div>
     
+    
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -97,7 +106,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -116,47 +126,57 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -167,7 +187,7 @@
           <div class="md-search-result__meta">
             Inicializando búsqueda
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -197,6 +217,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
@@ -213,14 +234,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Inicio
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
       </a>
     </li>
   
@@ -228,14 +254,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="01arquitecturas.html" class="md-nav__link">
-        1.- Arquitecturas Web
+        
+  
+  <span class="md-ellipsis">
+    1.- Arquitecturas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -243,14 +274,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="02php.html" class="md-nav__link">
-        2.- El lenguaje PHP
+        
+  
+  <span class="md-ellipsis">
+    2.- El lenguaje PHP
+  </span>
+  
+
       </a>
     </li>
   
@@ -258,32 +294,42 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          3.- PHP Orientado a Objetos
+          
+  
+  <span class="md-ellipsis">
+    3.- PHP Orientado a Objetos
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="03phpoo.html" class="md-nav__link md-nav__link--active">
-        3.- PHP Orientado a Objetos
+        
+  
+  <span class="md-ellipsis">
+    3.- PHP Orientado a Objetos
+  </span>
+  
+
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -300,14 +346,18 @@
       
         <li class="md-nav__item">
   <a href="#clases-y-objetos" class="md-nav__link">
-    Clases y Objetos
+    <span class="md-ellipsis">
+      Clases y Objetos
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#encapsulacion" class="md-nav__link">
-    Encapsulación
+    <span class="md-ellipsis">
+      Encapsulación
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Encapsulación">
@@ -315,7 +365,9 @@
         
           <li class="md-nav__item">
   <a href="#recibiendo-y-enviando-objetos" class="md-nav__link">
-    Recibiendo y enviando objetos
+    <span class="md-ellipsis">
+      Recibiendo y enviando objetos
+    </span>
   </a>
   
 </li>
@@ -327,7 +379,9 @@
       
         <li class="md-nav__item">
   <a href="#constructor" class="md-nav__link">
-    Constructor
+    <span class="md-ellipsis">
+      Constructor
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Constructor">
@@ -335,7 +389,9 @@
         
           <li class="md-nav__item">
   <a href="#constructores-en-php-8" class="md-nav__link">
-    Constructores en PHP 8
+    <span class="md-ellipsis">
+      Constructores en PHP 8
+    </span>
   </a>
   
 </li>
@@ -347,21 +403,27 @@
       
         <li class="md-nav__item">
   <a href="#clases-estaticas" class="md-nav__link">
-    Clases estáticas
+    <span class="md-ellipsis">
+      Clases estáticas
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#introspeccion" class="md-nav__link">
-    Introspección
+    <span class="md-ellipsis">
+      Introspección
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#herencia" class="md-nav__link">
-    Herencia
+    <span class="md-ellipsis">
+      Herencia
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Herencia">
@@ -369,14 +431,18 @@
         
           <li class="md-nav__item">
   <a href="#sobreescribir-metodos" class="md-nav__link">
-    Sobreescribir métodos
+    <span class="md-ellipsis">
+      Sobreescribir métodos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#constructor-en-hijos" class="md-nav__link">
-    Constructor en hijos
+    <span class="md-ellipsis">
+      Constructor en hijos
+    </span>
   </a>
   
 </li>
@@ -388,42 +454,54 @@
       
         <li class="md-nav__item">
   <a href="#clases-abstractas" class="md-nav__link">
-    Clases abstractas
+    <span class="md-ellipsis">
+      Clases abstractas
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#clases-finales" class="md-nav__link">
-    Clases finales
+    <span class="md-ellipsis">
+      Clases finales
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#interfaces" class="md-nav__link">
-    Interfaces
+    <span class="md-ellipsis">
+      Interfaces
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#metodos-encadenados" class="md-nav__link">
-    Métodos encadenados
+    <span class="md-ellipsis">
+      Métodos encadenados
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#metodos-magicos" class="md-nav__link">
-    Métodos mágicos
+    <span class="md-ellipsis">
+      Métodos mágicos
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#espacio-de-nombres" class="md-nav__link">
-    Espacio de nombres
+    <span class="md-ellipsis">
+      Espacio de nombres
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Espacio de nombres">
@@ -431,21 +509,27 @@
         
           <li class="md-nav__item">
   <a href="#acceso" class="md-nav__link">
-    Acceso
+    <span class="md-ellipsis">
+      Acceso
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#organizacion" class="md-nav__link">
-    Organización
+    <span class="md-ellipsis">
+      Organización
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#autoload" class="md-nav__link">
-    Autoload
+    <span class="md-ellipsis">
+      Autoload
+    </span>
   </a>
   
 </li>
@@ -457,14 +541,18 @@
       
         <li class="md-nav__item">
   <a href="#gestion-de-errores" class="md-nav__link">
-    Gestión de Errores
+    <span class="md-ellipsis">
+      Gestión de Errores
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#excepciones" class="md-nav__link">
-    Excepciones
+    <span class="md-ellipsis">
+      Excepciones
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Excepciones">
@@ -472,21 +560,27 @@
         
           <li class="md-nav__item">
   <a href="#creando-excepciones" class="md-nav__link">
-    Creando excepciones
+    <span class="md-ellipsis">
+      Creando excepciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#excepciones-multiples" class="md-nav__link">
-    Excepciones múltiples
+    <span class="md-ellipsis">
+      Excepciones múltiples
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#relanzar-excepciones" class="md-nav__link">
-    Relanzar excepciones
+    <span class="md-ellipsis">
+      Relanzar excepciones
+    </span>
   </a>
   
 </li>
@@ -498,21 +592,27 @@
       
         <li class="md-nav__item">
   <a href="#spl" class="md-nav__link">
-    SPL
+    <span class="md-ellipsis">
+      SPL
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#referencias" class="md-nav__link">
-    Referencias
+    <span class="md-ellipsis">
+      Referencias
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
-    Actividades
+    <span class="md-ellipsis">
+      Actividades
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Actividades">
@@ -520,21 +620,27 @@
         
           <li class="md-nav__item">
   <a href="#objetos" class="md-nav__link">
-    Objetos
+    <span class="md-ellipsis">
+      Objetos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#proyecto-videoclub" class="md-nav__link">
-    Proyecto Videoclub
+    <span class="md-ellipsis">
+      Proyecto Videoclub
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#proyecto-videoclub-20" class="md-nav__link">
-    Proyecto Videoclub 2.0
+    <span class="md-ellipsis">
+      Proyecto Videoclub 2.0
+    </span>
   </a>
   
 </li>
@@ -554,14 +660,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="04web.html" class="md-nav__link">
-        4.- Programación Web
+        
+  
+  <span class="md-ellipsis">
+    4.- Programación Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -569,14 +680,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="05herramientas.html" class="md-nav__link">
-        5.- Herramientas Web
+        
+  
+  <span class="md-ellipsis">
+    5.- Herramientas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -584,14 +700,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="06accesoDatos.html" class="md-nav__link">
-        6.- Acceso a Datos
+        
+  
+  <span class="md-ellipsis">
+    6.- Acceso a Datos
+  </span>
+  
+
       </a>
     </li>
   
@@ -599,14 +720,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="07frameworks.html" class="md-nav__link">
-        7.- Frameworks PHP - Laravel
+        
+  
+  <span class="md-ellipsis">
+    7.- Frameworks PHP - Laravel
+  </span>
+  
+
       </a>
     </li>
   
@@ -614,14 +740,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="09rest.html" class="md-nav__link">
-        8.- Servicios REST
+        
+  
+  <span class="md-ellipsis">
+    8.- Servicios REST
+  </span>
+  
+
       </a>
     </li>
   
@@ -635,13 +766,17 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="php-orientado-a-objetos">PHP Orientado a Objetos<a class="headerlink" href="#php-orientado-a-objetos" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 18 sesiones</p>
+                  
+
+
+<h1 id="php-orientado-a-objetos">PHP Orientado a Objetos<a class="headerlink" href="#php-orientado-a-objetos" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 18 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje:</p>
 <ol start="5">
@@ -827,7 +962,7 @@ Puede o no tener parámetros, pero sólo puede haber un único constructor.</p>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span>    <span class="c1">// resto de métodos</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 <h2 id="clases-estaticas">Clases estáticas<a class="headerlink" href="#clases-estaticas" title="Permanent link">&para;</a></h2>
@@ -1261,7 +1396,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
-<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition question">
 <p class="admonition-title">¿Por qué se llaman <em>autoload</em>?</p>
@@ -1279,7 +1414,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$nombreClase </span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="k">include_once</span> <span class="s2">&quot;app/&quot;</span><span class="o">.</span><span class="nv">$nombreClase</span><span class="o">.</span><span class="s1">&#39;.php&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="p">);</span>
-<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Autoload y rutas erróneas</p>
@@ -1290,7 +1425,7 @@ Una clase abstracta puede contener propiedades y métodos no-abstractos, y/o mé
 <span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituimos las barras</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="err">&#39;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span> <span class="p">);</span>
-<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 <h2 id="gestion-de-errores">Gestión de Errores<a class="headerlink" href="#gestion-de-errores" title="Permanent link">&para;</a></h2>
@@ -1653,7 +1788,7 @@ Transforma <code>Persona</code> a una clase abstracta donde su método estático
 <span class="linenos" data-linenos="5 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$mapa</span><span class="p">);</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div></li>
 <li><code>toSerialize(): string</code> → utiliza la función <a href="https://www.php.net/manual/es/function.serialize.php"><code>serialize(mixed)</code></a></li>
 </ul>
@@ -2048,7 +2183,7 @@ Incluido socio 1</p>
 4.5 € (IVA no incluido)
 Idiomas:es
 Formato Pantalla:16:9</p>
-<p><strong> Alquilado soporte a</strong>: Pablo Picasso</p>
+<p>** Alquilado soporte a**: Pablo Picasso</p>
 <p>Película en DVD:
 <em>Origen</em>
 4.5 € (IVA no incluido)
@@ -2123,93 +2258,73 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
 </li>
 </ol>
 <p>Cuando hayas realizado todos los ejercicios, crea una etiqueta mediante <code>git tag</code> con el nombre <code>v0.337</code> y sube los cambios a GitHub.</p>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-        
-        <a href="02php.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.- El lenguaje PHP" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              2.- El lenguaje PHP
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="04web.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 4.- Programación Web" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              4.- Programación Web
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -2218,10 +2333,12 @@ Recuerda actualizar la propiedad <code>alquilado</code> de los diferentes soport
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>

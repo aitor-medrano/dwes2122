@@ -8,11 +8,17 @@
       
       
       
-      
         <link rel="canonical" href="https://aitor-medrano.github.io/dwes2122/02php.html">
       
+      
+        <link rel="prev" href="01arquitecturas.html">
+      
+      
+        <link rel="next" href="03phpoo.html">
+      
+      
       <link rel="icon" href="imagenes/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -20,39 +26,43 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-X6D0LR7TC8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-X6D0LR7TC8"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-X6D0LR7TC8",{page_path:t.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D0LR7TC8"></script>
-
-
+    
     
     
   </head>
@@ -65,12 +75,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal">
   
-    
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -87,9 +93,12 @@
       
     </div>
     
+    
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="index.html" title="Desarrollo Web en Entorno Servidor" class="md-header__button md-logo" aria-label="Desarrollo Web en Entorno Servidor" data-md-component="logo">
       
@@ -97,7 +106,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -116,47 +126,57 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo noche"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo noche" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="Teal"  aria-label="Cambiar a modo día"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo día" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -167,7 +187,7 @@
           <div class="md-search-result__meta">
             Inicializando búsqueda
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -197,6 +217,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
@@ -213,14 +234,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Inicio
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
       </a>
     </li>
   
@@ -228,14 +254,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="01arquitecturas.html" class="md-nav__link">
-        1.- Arquitecturas Web
+        
+  
+  <span class="md-ellipsis">
+    1.- Arquitecturas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -243,32 +274,42 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.- El lenguaje PHP
+          
+  
+  <span class="md-ellipsis">
+    2.- El lenguaje PHP
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="02php.html" class="md-nav__link md-nav__link--active">
-        2.- El lenguaje PHP
+        
+  
+  <span class="md-ellipsis">
+    2.- El lenguaje PHP
+  </span>
+  
+
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
@@ -285,7 +326,9 @@
       
         <li class="md-nav__item">
   <a href="#php" class="md-nav__link">
-    PHP
+    <span class="md-ellipsis">
+      PHP
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="PHP">
@@ -293,42 +336,54 @@
         
           <li class="md-nav__item">
   <a href="#codigo-embebido" class="md-nav__link">
-    Código embebido
+    <span class="md-ellipsis">
+      Código embebido
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#generando-contenido" class="md-nav__link">
-    Generando contenido
+    <span class="md-ellipsis">
+      Generando contenido
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#comentarios" class="md-nav__link">
-    Comentarios
+    <span class="md-ellipsis">
+      Comentarios
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#errores" class="md-nav__link">
-    Errores
+    <span class="md-ellipsis">
+      Errores
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#variables" class="md-nav__link">
-    Variables
+    <span class="md-ellipsis">
+      Variables
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#constantes" class="md-nav__link">
-    Constantes
+    <span class="md-ellipsis">
+      Constantes
+    </span>
   </a>
   
 </li>
@@ -340,7 +395,9 @@
       
         <li class="md-nav__item">
   <a href="#operadores" class="md-nav__link">
-    Operadores
+    <span class="md-ellipsis">
+      Operadores
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Operadores">
@@ -348,28 +405,36 @@
         
           <li class="md-nav__item">
   <a href="#arimeticos" class="md-nav__link">
-    Ariméticos
+    <span class="md-ellipsis">
+      Ariméticos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#comparacion" class="md-nav__link">
-    Comparación
+    <span class="md-ellipsis">
+      Comparación
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#logicos" class="md-nav__link">
-    Lógicos
+    <span class="md-ellipsis">
+      Lógicos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#asignacion" class="md-nav__link">
-    Asignación
+    <span class="md-ellipsis">
+      Asignación
+    </span>
   </a>
   
 </li>
@@ -381,28 +446,36 @@
       
         <li class="md-nav__item">
   <a href="#trabajando-con-formularios" class="md-nav__link">
-    Trabajando con formularios
+    <span class="md-ellipsis">
+      Trabajando con formularios
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#condiciones" class="md-nav__link">
-    Condiciones
+    <span class="md-ellipsis">
+      Condiciones
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#bucles" class="md-nav__link">
-    Bucles
+    <span class="md-ellipsis">
+      Bucles
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#arrays" class="md-nav__link">
-    Arrays
+    <span class="md-ellipsis">
+      Arrays
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Arrays">
@@ -410,21 +483,27 @@
         
           <li class="md-nav__item">
   <a href="#arrays-asociativos" class="md-nav__link">
-    Arrays asociativos
+    <span class="md-ellipsis">
+      Arrays asociativos
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#operaciones" class="md-nav__link">
-    Operaciones
+    <span class="md-ellipsis">
+      Operaciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#arrays-bidimensionales" class="md-nav__link">
-    Arrays bidimensionales
+    <span class="md-ellipsis">
+      Arrays bidimensionales
+    </span>
   </a>
   
 </li>
@@ -436,7 +515,9 @@
       
         <li class="md-nav__item">
   <a href="#funciones" class="md-nav__link">
-    Funciones
+    <span class="md-ellipsis">
+      Funciones
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Funciones">
@@ -444,63 +525,81 @@
         
           <li class="md-nav__item">
   <a href="#parametros-por-referencia" class="md-nav__link">
-    Parámetros por referencia
+    <span class="md-ellipsis">
+      Parámetros por referencia
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#parametros-por-defecto-opcionales" class="md-nav__link">
-    Parámetros por defecto / opcionales
+    <span class="md-ellipsis">
+      Parámetros por defecto / opcionales
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#parametros-variables" class="md-nav__link">
-    Parámetros variables
+    <span class="md-ellipsis">
+      Parámetros variables
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#argumentos-con-nombre" class="md-nav__link">
-    Argumentos con nombre
+    <span class="md-ellipsis">
+      Argumentos con nombre
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#funciones-tipadas" class="md-nav__link">
-    Funciones tipadas
+    <span class="md-ellipsis">
+      Funciones tipadas
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#alcance" class="md-nav__link">
-    Alcance
+    <span class="md-ellipsis">
+      Alcance
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#funciones-variable" class="md-nav__link">
-    Funciones variable
+    <span class="md-ellipsis">
+      Funciones variable
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#biblioteca-de-funciones" class="md-nav__link">
-    Biblioteca de funciones
+    <span class="md-ellipsis">
+      Biblioteca de funciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#plantillas-mediante-include" class="md-nav__link">
-    Plantillas mediante include
+    <span class="md-ellipsis">
+      Plantillas mediante include
+    </span>
   </a>
   
 </li>
@@ -512,7 +611,9 @@
       
         <li class="md-nav__item">
   <a href="#funciones-predefinidas" class="md-nav__link">
-    Funciones predefinidas
+    <span class="md-ellipsis">
+      Funciones predefinidas
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Funciones predefinidas">
@@ -520,21 +621,27 @@
         
           <li class="md-nav__item">
   <a href="#cadenas" class="md-nav__link">
-    Cadenas
+    <span class="md-ellipsis">
+      Cadenas
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#matematicas" class="md-nav__link">
-    Matemáticas
+    <span class="md-ellipsis">
+      Matemáticas
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tipos-de-datos" class="md-nav__link">
-    Tipos de datos
+    <span class="md-ellipsis">
+      Tipos de datos
+    </span>
   </a>
   
 </li>
@@ -546,14 +653,18 @@
       
         <li class="md-nav__item">
   <a href="#referencias" class="md-nav__link">
-    Referencias
+    <span class="md-ellipsis">
+      Referencias
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#actividades" class="md-nav__link">
-    Actividades
+    <span class="md-ellipsis">
+      Actividades
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Actividades">
@@ -561,35 +672,45 @@
         
           <li class="md-nav__item">
   <a href="#php-basico" class="md-nav__link">
-    PHP básico
+    <span class="md-ellipsis">
+      PHP básico
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#bucles_1" class="md-nav__link">
-    Bucles
+    <span class="md-ellipsis">
+      Bucles
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#arrays_1" class="md-nav__link">
-    Arrays
+    <span class="md-ellipsis">
+      Arrays
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#funciones_1" class="md-nav__link">
-    Funciones
+    <span class="md-ellipsis">
+      Funciones
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#funciones-predefinidas_1" class="md-nav__link">
-    Funciones predefinidas
+    <span class="md-ellipsis">
+      Funciones predefinidas
+    </span>
   </a>
   
 </li>
@@ -609,14 +730,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="03phpoo.html" class="md-nav__link">
-        3.- PHP Orientado a Objetos
+        
+  
+  <span class="md-ellipsis">
+    3.- PHP Orientado a Objetos
+  </span>
+  
+
       </a>
     </li>
   
@@ -624,14 +750,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="04web.html" class="md-nav__link">
-        4.- Programación Web
+        
+  
+  <span class="md-ellipsis">
+    4.- Programación Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -639,14 +770,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="05herramientas.html" class="md-nav__link">
-        5.- Herramientas Web
+        
+  
+  <span class="md-ellipsis">
+    5.- Herramientas Web
+  </span>
+  
+
       </a>
     </li>
   
@@ -654,14 +790,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="06accesoDatos.html" class="md-nav__link">
-        6.- Acceso a Datos
+        
+  
+  <span class="md-ellipsis">
+    6.- Acceso a Datos
+  </span>
+  
+
       </a>
     </li>
   
@@ -669,14 +810,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="07frameworks.html" class="md-nav__link">
-        7.- Frameworks PHP - Laravel
+        
+  
+  <span class="md-ellipsis">
+    7.- Frameworks PHP - Laravel
+  </span>
+  
+
       </a>
     </li>
   
@@ -684,14 +830,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="09rest.html" class="md-nav__link">
-        8.- Servicios REST
+        
+  
+  <span class="md-ellipsis">
+    8.- Servicios REST
+  </span>
+  
+
       </a>
     </li>
   
@@ -705,13 +856,17 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
-<details class="abstract"><summary>Duración y criterios de evaluación</summary><p>Duración estimada: 26 sesiones</p>
+                  
+
+
+<h1 id="el-lenguaje-php">El lenguaje PHP<a class="headerlink" href="#el-lenguaje-php" title="Permanent link">&para;</a></h1>
+<details class="abstract">
+<summary>Duración y criterios de evaluación</summary>
+<p>Duración estimada: 26 sesiones</p>
 <hr />
 <p>Resultado de aprendizaje y criterios de evaluación:</p>
 <ol start="2">
@@ -766,9 +921,9 @@
 <span class="linenos" data-linenos=" 5 "></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>PHP fácil<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="c">&lt;!-- Muestra una frase con HTML --&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="cm">&lt;!-- Muestra una frase con HTML --&gt;</span>
 <span class="linenos" data-linenos=" 9 "></span>Hola mundo<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="10 "></span><span class="c">&lt;!-- Muestra una frase con PHP --&gt;</span>
+<span class="linenos" data-linenos="10 "></span><span class="cm">&lt;!-- Muestra una frase con PHP --&gt;</span>
 <span class="linenos" data-linenos="11 "></span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;Es muy fácil programar en PHP.&quot;</span><span class="p">;</span> <span class="cp">?&gt;</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -815,7 +970,7 @@
 <p>Si hay un error de ejecución, se produce un <em>Fatal Error</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">Fatal error: Uncaught Error: Call to undefined function plint() in C:\xampp\htdocs\202echo.php:11</span>
 <span class="linenos" data-linenos="2 "></span><span class="go"> Stack trace:</span>
-<span class="linenos" data-linenos="3 "></span><span class="gp"> #</span><span class="m">0</span> <span class="o">{</span>main<span class="o">}</span>
+<span class="linenos" data-linenos="3 "></span><span class="gp"> #</span><span class="m">0</span><span class="w"> </span><span class="o">{</span>main<span class="o">}</span>
 <span class="linenos" data-linenos="4 "></span><span class="go">    thrown in C:\xampp\htdocs\202echo.php on line 11</span>
 </code></pre></div>
 <p>Desde PHP 5 se lanzan como una excepción. Más adelante veremos el uso de <code>try</code> / <code>catch</code>.</p>
@@ -837,7 +992,7 @@
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$sinValor</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nv">$sinValor</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Tipos</p>
@@ -854,7 +1009,7 @@
 <span class="linenos" data-linenos="3 "></span><span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="nx">PI</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="nx">IVA</span><span class="p">;</span> <span class="c1">// No se pone el símbolo dolar</span>
-<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <ul>
 <li>Se declaran siempre en MAYÚSCULAS</li>
@@ -916,18 +1071,18 @@
 <span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de 33 y 11 es &quot;</span><span class="o">.</span><span class="mf">44.</span><span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de &quot;</span><span class="o">.</span><span class="nv">$x</span><span class="o">.</span><span class="s2">&quot; y &quot;</span><span class="o">.</span><span class="nv">$y</span><span class="o">.</span><span class="s2">&quot; es &quot;</span><span class="o">.</span><span class="p">(</span><span class="mi">33</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de &quot;</span><span class="o">.</span><span class="nv">$x</span><span class="o">.</span><span class="s2">&quot; y &quot;</span><span class="o">.</span><span class="nv">$y</span><span class="o">.</span><span class="s2">&quot; es &quot;</span><span class="o">.</span><span class="nv">$z</span><span class="o">.</span><span class="s2">&quot;&lt;br /&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Realmente, en vez de concatenar cadenas con variables, podemos imprimirlas directamente ya que se expanden automáticamente:
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="k">echo</span> <span class="s2">&quot;La suma de </span><span class="si">$x</span><span class="s2"> y </span><span class="si">$y</span><span class="s2"> es </span><span class="si">$z</span><span class="s2"> &lt;br /&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span>
 </code></pre></div></p>
 <p>En ocasiones, necesitamos rodear el nombre de la variable entre llaves para poder unir más texto al resultado:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s2">&quot;rojo&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="s2">&quot;El plural de </span><span class="si">$color</span><span class="s2"> el </span><span class="si">${</span><span class="nv">color</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Más adelante estudiaremos algunas funciones para el tratamiento de cadenas.</p>
 <h3 id="comparacion">Comparación<a class="headerlink" href="#comparacion" title="Permanent link">&para;</a></h3>
@@ -1113,7 +1268,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$apellido1</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">&quot;apellido1&quot;</span><span class="p">];</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">&quot;Hola </span><span class="si">$nombre</span><span class="s2"> </span><span class="si">$apellido1</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si lo quisiéramos realizar todo en un único archivo (<em>lo cual no es recomendable</em>), podemos hacerlo así:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
@@ -1149,7 +1304,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="k">if</span> <span class="p">(</span><span class="nv">$hora</span> <span class="o">===</span> <span class="mi">8</span><span class="p">)</span>
 <span class="linenos" data-linenos="8 "></span>    <span class="k">echo</span> <span class="s2">&quot;Suena el despertador.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Las condiciones compuesta mediante <code>if-else</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
@@ -1159,7 +1314,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="k">echo</span> <span class="s2">&quot;Son las &quot;</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$hora</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot; de la tarde&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Las condiciones anidadas mediante <code>if-else if-else</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1173,7 +1328,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos=" 9 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer.&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="11 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>La sentencia <code>switch</code> también permite trabajar con condiciones múltiples:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1191,7 +1346,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="13 "></span>    <span class="k">default</span><span class="o">:</span>
 <span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">&quot;Ahora no toca comer&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="15 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No olvides el <code>break</code></p>
@@ -1202,12 +1357,12 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$hora</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$formato</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$hora</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">?</span> <span class="mi">24</span> <span class="o">:</span> <span class="mi">12</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="s2">&quot;El formato es de </span><span class="si">$formato</span><span class="s2"> horas&quot;</span>
-<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si queremos comprobar si una variable tiene valor y si no darle un valor determinado, usaremos el operador <code>?:</code> (se conoce como el operador <em>Elvis</em> - <a href="https://en.wikipedia.org/wiki/Elvis_operator">https://en.wikipedia.org/wiki/Elvis_operator</a>) con la sintáxis <code>expresión ?: valorSiVacio</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span> <span class="o">?:</span> <span class="s2">&quot;desconocido&quot;</span>
-<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h2 id="bucles">Bucles<a class="headerlink" href="#bucles" title="Permanent link">&para;</a></h2>
 <p>Mediante la instrucción <code>while</code>:</p>
@@ -1218,7 +1373,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="nv">$i</span><span class="o">++</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Mediante la instrucción <code>do-while</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1230,7 +1385,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos=" 7 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$dado</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;¡Bien! Saco una ficha de casa.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Mediante la instrucción <code>for</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1245,7 +1400,7 @@ Por ejemplo, el formulario lo colocamos en <code>saluda.html</code>:</p>
 <span class="linenos" data-linenos="10 "></span>    <span class="k">echo</span> <span class="s2">&quot;Línea &quot;</span> <span class="o">.</span> <span class="nv">$i</span><span class="p">;</span>
 <span class="linenos" data-linenos="11 "></span>    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="12 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="13 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Más adelante estudiaremos el bucle <code>foreach</code> para recorrer arrays.</p>
 <p>PHP, del mismo modo que Java y C, permite romper los bucles mediante la instrucción <code>break</code>.
@@ -1261,7 +1416,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="6 "></span>    <span class="nv">$salir</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="linenos" data-linenos="7 "></span>  <span class="p">}</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 <h2 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h2>
@@ -1487,7 +1642,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span>
 <span class="linenos" data-linenos="7 "></span><span class="nv">$resultado</span> <span class="o">=</span> <span class="nx">nombreFuncion</span><span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="nv">$arg2</span><span class="p">,</span> <span class="nx">…</span><span class="p">);</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1500,7 +1655,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos=" 8 "></span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$diaCine</span> <span class="o">=</span> <span class="nx">diaSemana</span><span class="p">();</span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="s2">&quot;El próximo </span><span class="si">$diaCine</span><span class="s2"> voy al cine.&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h3 id="parametros-por-referencia">Parámetros por referencia<a class="headerlink" href="#parametros-por-referencia" title="Permanent link">&para;</a></h3>
 <p>Si queremos pasar un parámetro por referencia, en la declaración de la función, indicaremos los parámetros mediante el operador <strong><code>&amp;</code></strong> para indicar la dirección de memoria de la variable.</p>
@@ -1524,7 +1679,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="18 "></span><span class="k">echo</span> <span class="s2">&quot;Antes de llamar: </span><span class="si">$numero2</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="19 "></span><span class="nx">duplicarPorReferencia</span><span class="p">(</span><span class="nv">$numero2</span><span class="p">);</span>
 <span class="linenos" data-linenos="20 "></span><span class="k">echo</span> <span class="s2">&quot;Después de llamar: </span><span class="si">$numero2</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
-<span class="linenos" data-linenos="21 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="21 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h3 id="parametros-por-defecto-opcionales">Parámetros por defecto / opcionales<a class="headerlink" href="#parametros-por-defecto-opcionales" title="Permanent link">&para;</a></h3>
 <p>Permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.</p>
@@ -1579,7 +1734,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="14 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="15 "></span>
 <span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nx">sumaParametros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span> <span class="c1">// 15</span>
-<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Desde PHP 5.6, se puede utilizar el operador <code>...</code> (<em>variadics</em>) el cual "disfraza" los parámetros como un array:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -1598,7 +1753,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos="14 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="15 "></span>
 <span class="linenos" data-linenos="16 "></span><span class="k">echo</span> <span class="nx">sumaParametrosMejor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span> <span class="c1">// 15</span>
-<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Más usos de <code>...</code></p>
@@ -1612,7 +1767,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos=" 7 "></span>
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="o">...</span><span class="nv">$a</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 <h3 id="argumentos-con-nombre">Argumentos con nombre<a class="headerlink" href="#argumentos-con-nombre" title="Permanent link">&para;</a></h3>
@@ -1647,7 +1802,7 @@ A su vez, <code>continue</code> permite saltar a la siguiente iteración.</p>
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span>
 <span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span> <span class="c1">// error por tipificación estricta, sino daría 40</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h3 id="alcance">Alcance<a class="headerlink" href="#alcance" title="Permanent link">&para;</a></h3>
 <p>Las variables definidas fuera de las funciones tienen alcance <strong>global</strong>: accesibles desde cualquier función.
@@ -1666,7 +1821,7 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <span class="linenos" data-linenos=" 8 "></span><span class="k">echo</span> <span class="s2">&quot;Antes de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nx">miCiudad</span><span class="p">();</span>
 <span class="linenos" data-linenos="10 "></span><span class="k">echo</span> <span class="s2">&quot;Después de la función: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span>
-<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1681,7 +1836,7 @@ Los parámetros de una función y las variables declaradas dentro de una funció
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;Antes de llamar: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="10 "></span><span class="nx">miCiudad</span><span class="p">();</span>
 <span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="s2">&quot;Después de llamar: </span><span class="si">$ciudad</span><span class="s2">.&lt;br&gt;&quot;</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1700,7 +1855,7 @@ En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.</
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$miFuncionSuma</span> <span class="o">=</span> <span class="s2">&quot;suma&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nv">$miFuncionSuma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// invoca a la función suma</span>
-<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Funciones anónimas</p>
@@ -1728,7 +1883,7 @@ En el caso de necesitarlas, es mejor pasarlas como parámetro a las funciones.</
 <span class="linenos" data-linenos="21 "></span>    <span class="k">echo</span> <span class="nv">$mensaje</span><span class="o">.</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="nv">$arg</span><span class="p">;</span>
 <span class="linenos" data-linenos="22 "></span><span class="p">};</span>
 <span class="linenos" data-linenos="23 "></span><span class="nv">$holaPHP</span><span class="p">(</span><span class="s2">&quot;PHP&quot;</span><span class="p">);</span>
-<span class="linenos" data-linenos="24 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="24 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Desde PHP 7.4 se han introducido las funciones flecha (<em>arrow functions</em>) para simplificar su definición y uso.</p>
 <p>Tenéis más información sobre funciones anónimas y flecha en el siguiente artículo (en inglés): <a href="https://code.tutsplus.com/tutorials/anonymous-and-arrow-functions-in-php--cms-36725">Funciones anónimas y flecha en PHP</a></p>
@@ -1751,14 +1906,14 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <span class="linenos" data-linenos="6 "></span><span class="k">function</span> <span class="nf">resta</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">:</span> <span class="nx">int</span> <span class="p">{</span>
 <span class="linenos" data-linenos="7 "></span>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">-</span> <span class="nv">$b</span><span class="p">;</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
-<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="9 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Y posteriormente en otro archivo:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span> 
 <span class="linenos" data-linenos="2 "></span><span class="k">include_once</span><span class="p">(</span><span class="s2">&quot;biblioteca.php&quot;</span><span class="p">);</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nx">suma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
 <span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nx">resta</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
-<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h3 id="plantillas-mediante-include">Plantillas mediante <code>include</code><a class="headerlink" href="#plantillas-mediante-include" title="Permanent link">&para;</a></h3>
 <p>Mediante el uso de la instrucción <code>include</code> también podemos separar fragmentos de código PHP/HTML que queramos reutilizar en nuestros sitios web y crear un sistema muy sencillo de plantillas. Por ejemplo, vamos a separar una página en tres partes, primero la parte superior en <code>encabezado.php</code>:</p>
@@ -1793,13 +1948,13 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="s2">&quot;Me llamo </span><span class="si">$nombre</span><span class="s2">&quot;</span>
 <span class="linenos" data-linenos="3 "></span><span class="s2">&quot;Son 30 </span><span class="si">{</span><span class="nv">$moneda</span><span class="si">}</span><span class="s2">s&quot;</span>
-<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Se acceden a los caracteres como si fuera un array.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$cadena</span> <span class="o">=</span> <span class="nx">“Yo</span> <span class="nx">soy</span> <span class="nx">Batman”</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$ygriega</span> <span class="o">=</span> <span class="nv">$cadena</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="4 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Además de <code>echo</code>, podemos mostrar las cadenas mediante la función <code>printf</code>. Esta función viene heredada del lenguaje C, y en la cadena se indica el tipo de dato a formatear y genera una salida formateada. Si quiero guardar el resultado en una variable, podemos utilizar <code>sprintf</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
@@ -1808,7 +1963,7 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <span class="linenos" data-linenos="4 "></span><span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;%s llevaba el número %d&quot;</span><span class="p">,</span> <span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span> <span class="c1">// %d -&gt; número decimal, %s -&gt; string</span>
 <span class="linenos" data-linenos="5 "></span><span class="nv">$frase</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;%s llevaba el número %d&quot;</span><span class="p">,</span> <span class="nv">$nombre</span><span class="p">,</span> <span class="nv">$num</span><span class="p">);</span>
 <span class="linenos" data-linenos="6 "></span><span class="k">echo</span> <span class="nv">$frase</span>
-<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="7 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Tenéis muchos más ejemplos en <a href="https://www.w3schools.com/php/func_string_printf.asp">https://www.w3schools.com/php/func_string_printf.asp</a></p>
 <h4 id="operaciones-basicas">Operaciones básicas<a class="headerlink" href="#operaciones-basicas" title="Permanent link">&para;</a></h4>
@@ -1831,7 +1986,7 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <span class="linenos" data-linenos=" 9 "></span><span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$oscuro</span><span class="s2"> </span><span class="si">$caba</span><span class="s2"> ahora es </span><span class="si">$katman</span><span class="s2">&quot;</span><span class="p">;</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="s2">&quot;Grande &quot;</span><span class="o">.</span><span class="nb">strtoupper</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">);</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si queremos trabajar con caracteres ASCII de forma individual, son útiles las funciones:</p>
 <ul>
@@ -1845,7 +2000,7 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="6 "></span>
 <span class="linenos" data-linenos="7 "></span><span class="k">echo</span> <span class="nx">despues</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">);</span>
-<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="8 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si queremos limpiar cadenas, tenemos las funciones:</p>
 <ul>
@@ -1858,7 +2013,7 @@ Las funciones <code>_once</code> sólo se cargan una vez, si ya ha sido incluida
 <span class="linenos" data-linenos="3 "></span><span class="nv">$limpia</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$cadena</span><span class="p">);</span> <span class="c1">// &quot;Programando en PHP&quot;</span>
 <span class="linenos" data-linenos="4 "></span>
 <span class="linenos" data-linenos="5 "></span><span class="nv">$sucia</span> <span class="o">=</span> <span class="nb">str_pad</span><span class="p">(</span><span class="nv">$limpia</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span> <span class="c1">// &quot;Programando en PHP.....&quot;</span>
-<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h4 id="comparando-y-buscando">Comparando y buscando<a class="headerlink" href="#comparando-y-buscando" title="Permanent link">&para;</a></h4>
 <p>La comparación de cadenas puede ser con conversión de tipos mediante <code>==</code> o estricta con <code>===</code>.
@@ -1886,7 +2041,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos="14 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nv">$frase4</span> <span class="o">&lt;</span> <span class="nv">$frase5</span> <span class="p">);</span> <span class="c1">// false</span>
 <span class="linenos" data-linenos="15 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strcmp</span><span class="p">(</span><span class="nv">$frase4</span><span class="p">,</span> <span class="nv">$frase5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// 4 → f4 &gt; f5</span>
 <span class="linenos" data-linenos="16 "></span><span class="nb">var_dump</span><span class="p">(</span> <span class="nb">strnatcmp</span><span class="p">(</span><span class="nv">$frase4</span><span class="p">,</span> <span class="nv">$frase5</span><span class="p">)</span> <span class="p">);</span> <span class="c1">// -1 → f4 &lt; f5</span>
-<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="17 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si lo que queremos es buscar dentro de una cadena, tenemos:</p>
 <ul>
@@ -1899,7 +2054,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$pos1</span> <span class="o">=</span> <span class="nb">strpos</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// encuentra la primera coma</span>
 <span class="linenos" data-linenos="4 "></span><span class="nv">$pos2</span> <span class="o">=</span> <span class="nb">strrpos</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// encuentra la última coma</span>
 <span class="linenos" data-linenos="5 "></span><span class="nv">$trasComa</span> <span class="o">=</span> <span class="nb">strstr</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">);</span> <span class="c1">// &quot;, eso dicen, a veces&quot;</span>
-<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si queremos averiguar que contiene las cadenas, tenemos un conojunto de funciones de comprobaciones de tipo, se conocen como las funciones <em>ctype</em> que devuelven un booleano:</p>
 <ul>
@@ -1922,7 +2077,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos="11 "></span><span class="k">echo</span> <span class="nb">ctype_punct</span><span class="p">(</span><span class="nv">$prueba4</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
 <span class="linenos" data-linenos="12 "></span><span class="k">echo</span> <span class="nb">ctype_space</span><span class="p">(</span><span class="nv">$prueba5</span><span class="p">)</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// false</span>
 <span class="linenos" data-linenos="13 "></span><span class="k">echo</span> <span class="nb">ctype_space</span><span class="p">(</span><span class="nv">$prueba5</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span> <span class="c1">// true</span>
-<span class="linenos" data-linenos="14 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="14 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h4 id="trabajando-con-subcadenas">Trabajando con subcadenas<a class="headerlink" href="#trabajando-con-subcadenas" title="Permanent link">&para;</a></h4>
 <p>Si queremos romper las cadenas en trozos, tenemos:</p>
@@ -1946,7 +2101,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos="13 "></span><span class="c1">// ...</span>
 <span class="linenos" data-linenos="14 "></span><span class="nv">$partes3array</span> <span class="o">=</span> <span class="nb">str_split</span><span class="p">(</span><span class="nv">$frase</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="linenos" data-linenos="15 "></span><span class="c1">// [&quot;Qui&quot;, &quot;en &quot;, &quot;bus&quot;, &quot;ca &quot;, &quot;enc&quot;, …] </span>
-<span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="16 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Si queremos trabajar con tokens:</p>
 <ul>
@@ -1971,7 +2126,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos=" 7 "></span><span class="nv">$camarero2</span> <span class="o">=</span> <span class="nb">substr_replace</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;camarero&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">);</span> <span class="c1">// quita 6 desde el final</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="c1">// Bruno es Batman</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$bruno</span> <span class="o">=</span> <span class="nb">substr_replace</span><span class="p">(</span><span class="nv">$batman</span><span class="p">,</span> <span class="s2">&quot;Bruno&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>También disponemos de una serie de funciones que facilitan las codificaciones desde y hacia HTML:</p>
 <ul>
@@ -2009,7 +2164,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$nf</span> <span class="o">=</span> <span class="mf">1234.5678</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="k">echo</span> <span class="nb">number_format</span><span class="p">(</span><span class="nv">$nf</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 1,234.57</span>
 <span class="linenos" data-linenos="4 "></span><span class="k">echo</span> <span class="nb">number_format</span><span class="p">(</span><span class="nv">$nf</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">);</span> <span class="c1">// 1#234M57</span>
-<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="5 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <p>Para redondear, tenemos <code>abs</code> para el valor absoluto y <code>round</code> para redondear, <code>ceil</code> para aproximación por exceso y <code>floor</code> por defecto.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
@@ -2021,7 +2176,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos=" 7 "></span><span class="nv">$cuatro</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nv">$otro</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="nv">$cuatrocinco</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nv">$otro</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 9 "></span><span class="nv">$cinco</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nv">$cuatrocinco</span><span class="p">);</span>
-<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="10 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h3 id="tipos-de-datos">Tipos de datos<a class="headerlink" href="#tipos-de-datos" title="Permanent link">&para;</a></h3>
 <p>Finalmente, para realizar conversiones de datos o si queremos trabajar con tipos de datos, tenemos las siguientes funciones:</p>
@@ -2042,7 +2197,7 @@ Al comparar cadenas con valores numericos podemos utilizar:</p>
 <span class="linenos" data-linenos=" 9 "></span><span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_int</span><span class="p">(</span><span class="nv">$uno</span><span class="p">));</span> <span class="c1">// false</span>
 <span class="linenos" data-linenos="10 "></span><span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_float</span><span class="p">(</span><span class="nv">$uno</span><span class="p">));</span> <span class="c1">// true</span>
 <span class="linenos" data-linenos="11 "></span><span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_int</span><span class="p">(</span><span class="nb">intval</span><span class="p">(</span><span class="nv">$uno</span><span class="p">)));</span> <span class="c1">// true</span>
-<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="linenos" data-linenos="12 "></span><span class="cp">?&gt;</span>
 </code></pre></div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2377,93 +2532,73 @@ Además de la propia función, el ejercicio debe contener código para poder pro
 </ul>
 </li>
 </ol>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Pie">
-      
-        
-        <a href="01arquitecturas.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 1.- Arquitecturas Web" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              1.- Arquitecturas Web
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="03phpoo.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 3.- PHP Orientado a Objetos" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              3.- PHP Orientado a Objetos
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            2021-2022 Aitor Medrano - Licencia CC BY-NC-SA
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2021-2022 Aitor Medrano, Luis Alemañ - Licencia CC BY-NC-SA
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-      </a>
     
-      
-      
-      <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
-      </a>
+    <a href="https://twitter.com/aitormedrano" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23Z"/></svg>
+    </a>
+  
     
-  </div>
-
+    
+    
+    
+    <a href="mailto:<a.medrano@edu.gva.es>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -2472,10 +2607,12 @@ Además de la propia función, el ejercicio debe contener código para poder pro
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.b1047164.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "toc.integrate", "content.tabs.link"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
